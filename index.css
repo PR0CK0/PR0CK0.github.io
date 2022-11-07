@@ -1,4 +1,25 @@
 body {
+  margin: 0;
   background-color: black;
   color: white;
+  font-family: Oswald, Arial, sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+}
+
+p, h1, h2 {
+  margin: 0;
+}
+
+/****************************/
+
+.section-title {
+  font-weight: 400;
+}
+
+article {
+  font-weight: 300;
 }
