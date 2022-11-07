@@ -1,7 +1,5 @@
 body {
   margin: 0;
-  background-color: black;
-  color: white;
   font-family: Arial, sans-serif;
 }
 
@@ -10,16 +8,89 @@ header {
   top: 0;
 }
 
-p, h1, h2 {
+main {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+p, h1, h2, h3, h4, ul, li, date {
   margin: 0;
+}
+
+p {
+  line-height: 1.2rem;
+}
+
+ul {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/****************************/
+
+h4 {
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0),
+      rgba(0, 0, 0, 1),
+      rgba(255, 255, 255, 0));
+}
+
+a {
+  text-decoration:none;
+  color: #0f7afc;
+  border-bottom: solid 1px rgba(15, 122, 252, 0.2);
+}
+
+a:hover {
+  text-decoration:none;
+  color:#cf0000;
+  cursor: pointer;
+  border-bottom-color: rgba(208, 64, 0, 0.2);
+}
+
+a:visited {
+  text-decoration:none;
+  color: #800080;
+  border-bottom-color: rgba(128, 0, 128, 0.2);
 }
 
 /****************************/
 
 .section-title {
-  font-weight: 400;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-article {
-  font-weight: 300;
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+.date-content-box {
+  display: flex;
+  align-items: top;
+  justify-content: space-evenly;
+  margin-bottom: 5px;
+  padding: 5px;
+
+  background-image:
+  linear-gradient(to right, rgba(255, 255, 255, 1),
+    rgba(55, 55, 55, .15),
+    rgba(255, 255, 255, 1));
+  }
+
+.my-dates {
+  padding-right: 20px;
+  flex: 1;
+}
+
+.content {
+  flex: 4;
 }
