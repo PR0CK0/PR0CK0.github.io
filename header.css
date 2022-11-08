@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   width: 100%;
 
   background-color: rgb(235 235 235);
@@ -18,9 +18,74 @@
   padding: 10px;
 }
 
+.header-element {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 5px;
+}
+
 #name {
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 10px;
+}
+
+#orcid {
+  font-weight: bold;
+}
+
+/****************************/
+
+.contact-btn {
+  background-color: white;
+  border-color: rgb(200, 200, 200);
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 3px 2px 3px rgba(0, 0, 0, .2);
+  padding-left: .3rem;
+  padding-right: .3rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-btn .tooltip {
+  position: absolute;
+  background-color: rgb(50, 50, 50);
+  color: white;
+  padding: 8px;
+  border-radius: 2px;
+  font-size: .7rem;
+  bottom: -29px;
+  opacity: 0;
+  transition: opacity .2s;
+  /*disables hovering on the tooltip itself*/
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.contact-btn:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, .3);
+  transition: box-shadow .2s, padding-top .2s, padding-bottom .2s;
+}
+
+.contact-btn:active {
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, .1);
+  opacity: 50%;
+  transition: box-shadow .2s, opacity .2s;
+}
+
+.contact-btn:hover .tooltip {
+  opacity: 100;
+}
+
+.icon {
+  width: 20px;
+  height: 30;
 }

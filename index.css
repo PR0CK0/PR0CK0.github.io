@@ -42,6 +42,11 @@ hr {
       rgba(255, 255, 255, 0));
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+}
+
 a {
   text-decoration:none;
   color: #0f7afc;
@@ -63,14 +68,9 @@ a:visited {
 
 /****************************/
 
-.section-title {
+.section-title, .section-subtitle {
   font-weight: bold;
-  margin-top: 10px;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
+  margin-top: 15px;
 }
 
 .date-content-box {
@@ -93,4 +93,19 @@ footer {
 
 .content {
   flex: 4;
+}
+
+#interests {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  margin-bottom: 20px;
+}
+
+#interests img {
+  width: 55px;
+  height: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
