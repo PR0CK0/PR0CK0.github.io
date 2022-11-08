@@ -31,6 +31,10 @@ ul {
 
 /****************************/
 
+li {
+
+}
+
 h4 {
   font-weight: normal;
   font-size: 1rem;
@@ -170,8 +174,8 @@ details summary:after {
   position: absolute;
   font-size: 2.2rem;
   line-height: 0;
-  margin-top: 0.75rem;
-  left: 200px;
+  margin-top: .75rem;
+  left: 250px;
   top: 7px;
   font-weight: 200;
   transform-origin: center;
