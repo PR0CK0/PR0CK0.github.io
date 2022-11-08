@@ -103,17 +103,23 @@ a:visited {
 #interests {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+
   flex-wrap: wrap;
 
   margin-bottom: 20px;
 }
 
 #interests img {
-  width: 55px;
-  height: 100%;
+  width: 60px;
+  height: 20%;
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
+  /*
+  background-color: transparent;
+  box-shadow: 1px 5px 8px rgba(0, 0, 0, .3);
+  */
 }
 
 .skills-split {
@@ -166,10 +172,22 @@ details summary:after {
   line-height: 0;
   margin-top: 0.75rem;
   left: 200px;
-  top: 2px;
+  top: 7px;
   font-weight: 200;
   transform-origin: center;
-  transition: 200ms linear;
+  transition: .2s linear;
+}
+
+details summary:hover {
+  background-image:
+  linear-gradient(to right, rgba(255, 255, 255, .1),
+    rgba(15, 15, 15, .1),
+    rgba(35, 35, 35, .1),
+    rgba(55, 55, 55, .1),
+    rgba(155, 155, 155, .1),
+    rgba(255, 255, 255, 1));
+  -webkit-transition: background-image 5s ease-in-out;
+  transition: background-image 5s ease-in-out;
 }
 
 details summary:hover:after {
@@ -183,13 +201,14 @@ details[open] summary:after {
 
 details summary:before {
   content: '>';
-  top: -4px;
+  top: 1px;
   position: absolute;
   font-size: 2rem;
 }
 
 .section-title-collapsible {
   margin-left: 45px;
+  padding-top: 5px;
 }
 
 .collapsed-hr {
@@ -206,10 +225,14 @@ details summary:before {
 
 @media only screen and (max-width: 650px) {
   #interests img {
-    width: 28px;
+    width: 35px;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: -10px;
     margin-top: -10px;
+  }
+
+  #interests {
+    gap: 30px 0px;
   }
 }
