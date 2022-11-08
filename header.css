@@ -121,7 +121,8 @@
   }
 
   .header-element {
-    font-size: .6rem;
+    padding: 0;
+    font-size: .7rem;
   }
 
   .contact-btn, .acc-btn {
