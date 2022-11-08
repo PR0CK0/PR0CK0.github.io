@@ -73,7 +73,7 @@ a:visited {
 
 /****************************/
 
-.section-title, .section-subtitle {
+.section-title, .section-title-collapsible, .section-subtitle {
   font-weight: bold;
   margin-top: 15px;
 }
@@ -165,7 +165,7 @@ details summary:after {
   font-size: 2.2rem;
   line-height: 0;
   margin-top: 0.75rem;
-  left: 170px;
+  left: 200px;
   top: 2px;
   font-weight: 200;
   transform-origin: center;
@@ -179,6 +179,17 @@ details summary:hover:after {
 details[open] summary:after {
   transform: rotate(45deg);
   font-size: 2.7rem;
+}
+
+details summary:before {
+  content: '>';
+  top: -4px;
+  position: absolute;
+  font-size: 2rem;
+}
+
+.section-title-collapsible {
+  margin-left: 45px;
 }
 
 .collapsed-hr {
