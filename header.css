@@ -22,6 +22,10 @@
   padding-bottom: 5px;
 }
 
+#header-img img {
+  width: 80px;
+}
+
 #name {
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 2.5rem;
