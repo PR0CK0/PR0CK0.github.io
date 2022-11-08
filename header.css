@@ -98,10 +98,13 @@
 }
 
 /****************************/
+/*Media queries for phone   */
+/****************************/
 
 @media only screen and (max-width: 650px) {
   #name {
     font-size: 1rem;
+    text-align: left;
   }
 
   #cv {
@@ -118,7 +121,7 @@
   }
 
   .header-element {
-    font-size: .5rem;
+    font-size: .6rem;
   }
 
   .contact-btn, .acc-btn {

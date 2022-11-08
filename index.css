@@ -188,3 +188,15 @@ details[open] summary:after {
 #skills {
   margin-top: 17px;
 }
+
+/****************************/
+/*Media queries for phone   */
+/****************************/
+
+@media only screen and (max-width: 650px) {
+  #interests img {
+    width: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
