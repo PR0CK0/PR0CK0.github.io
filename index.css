@@ -7,6 +7,8 @@ body {
 header {
   position: sticky;
   top: 0;
+  /*Needed for the collapsibles*/
+  z-index: 1;
 }
 
 main {
@@ -122,4 +124,67 @@ a:visited {
 
 .skills-panel {
   width: 100%;
+}
+
+/****************************/
+/* Collapsible              */
+/****************************/
+
+details[open] summary ~ * {
+  animation: open .7s ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* this doesn't do anything lol */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  width: 100%;
+  padding-bottom: .3rem;
+  /*border-top: 1px solid black;*/
+  position: relative;
+  cursor: pointer;
+  font-weight: 300;
+  list-style: none;
+}
+
+details summary:after {
+  content: "+";
+  color: rgb(100 100 100);
+  position: absolute;
+  font-size: 2.2rem;
+  line-height: 0;
+  margin-top: 0.75rem;
+  left: 170px;
+  top: 2px;
+  font-weight: 200;
+  transform-origin: center;
+  transition: 200ms linear;
+}
+
+details summary:hover:after {
+  font-size: 2.7rem;
+}
+
+details[open] summary:after {
+  transform: rotate(45deg);
+  font-size: 2.7rem;
+}
+
+.collapsed-hr {
+  margin-top: 5px;
+}
+
+#skills {
+  margin-top: 17px;
 }
