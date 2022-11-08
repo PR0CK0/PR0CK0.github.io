@@ -117,6 +117,7 @@ a:visited {
 .skills-split {
   display: flex;
   justify-content: space-evenly;
+  gap: 20px;
 }
 
 .skills-panel {
