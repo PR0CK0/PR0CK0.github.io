@@ -46,7 +46,7 @@
 
 /****************************/
 
-.contact-btn {
+.contact-btn, .acc-btn {
   background-color: white;
   border-color: rgb(200, 200, 200);
   border-radius: 5px;
@@ -62,7 +62,7 @@
   justify-content: center;
 }
 
-.contact-btn .tooltip {
+.contact-btn .tooltip, .acc-btn .tooltip {
   position: absolute;
   background-color: rgb(50, 50, 50);
   color: white;
@@ -77,22 +77,56 @@
   white-space: nowrap;
 }
 
-.contact-btn:hover {
+.contact-btn:hover, .acc-btn:hover {
   cursor: pointer;
   box-shadow: 5px 5px 3px rgba(0, 0, 0, .3);
   transition: box-shadow .2s, padding-top .2s, padding-bottom .2s;
 }
 
-.contact-btn:active {
+.contact-btn:active, .acc-btn:active {
   box-shadow: 2px 2px 3px rgba(0, 0, 0, .1);
   opacity: 50%;
   transition: box-shadow .2s, opacity .2s;
 }
 
-.contact-btn:hover .tooltip {
+.contact-btn:hover .tooltip, .acc-btn:hover .tooltip {
   opacity: 100;
 }
 
 .icon {
   width: 15px;
+}
+
+/****************************/
+
+@media only screen and (max-width: 650px) {
+  #name {
+    font-size: 1rem;
+  }
+
+  #cv {
+    font-size: .7rem;
+  }
+
+  #orcid {
+    font-size: .6rem;;
+  }
+
+  #header-img img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .header-element {
+    font-size: .5rem;
+  }
+
+  .contact-btn, .acc-btn {
+    width: 15px;
+    height: 15px;
+  }
+
+  .icon {
+    width: 10px;
+  }
 }
