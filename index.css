@@ -282,9 +282,3 @@ details[open] summary:before {
     max-width: 110px;
   }
 }
-
-@media only screen and (max-width: 450px) {
-  #awards-column2 img {
-    max-width: 110px;
-  }
-}
