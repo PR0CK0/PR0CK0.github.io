@@ -22,7 +22,7 @@ main {
   padding-right: 10px;
 }
 
-p, h1, h2, h3, h4, ul, li, date {
+p, h1, h2, h3, h4, ul, li {
   margin: 0;
 }
 
@@ -176,11 +176,13 @@ a:visited {
   border: none;
 }
 
-/*
-.bottom-icon-bar {
 
+.bottom-icon-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
-*/
+
 
 /****************************/
 /* Collapsible              */
@@ -286,7 +288,7 @@ details[open] summary:before {
 /****************************/
 
 @media only screen and (max-width: 650px) {
-  p, ul, date {
+  p, ul {
     font-size: .75rem;
   }
 
