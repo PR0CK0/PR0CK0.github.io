@@ -269,6 +269,23 @@ details[open] summary:before {
 /****************************/
 
 @media only screen and (max-width: 650px) {
+  p, ul, date {
+    font-size: .75rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: .85rem;
+  }
+
+  h4 {
+    font-size: .75rem;
+  }
+
+
   #interests img {
     width: 35px;
     margin-left: 5px;
@@ -286,6 +303,7 @@ details[open] summary:before {
   }
 
   #awards-column2 img {
-    max-width: 110px;
+    max-width: 100px;
+    margin-top: -15px;
   }
 }
