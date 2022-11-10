@@ -27,7 +27,7 @@ p, h1, h2, h3, h4, ul, li {
 }
 
 p {
-  line-height: 1.2rem;
+  line-height: .9rem;
   /*line-height: 1.3vw;*/
 }
 
@@ -288,7 +288,7 @@ details[open] summary:before {
 /****************************/
 
 @media only screen and (max-width: 650px) {
-  p, ul {
+  p, ul, .my-dates {
     font-size: .75rem;
   }
 
