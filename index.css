@@ -164,19 +164,29 @@ a:visited {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
+}
+
+.bottom-icon-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 20px;
 }
 
 .bottom-icon {
   border: none;
+  /*this is how you center an image in a link LOL*/
+  text-align: center;
 }
 
-.bottom-icon-bar {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.footer-text, .footer-text-fun {
+  font-size: .7rem;
 }
 
+.footer-text-fun {
+  font-style: italic;
+}
 
 /****************************/
 /* Collapsible              */
@@ -286,6 +296,14 @@ details[open] summary:before {
     font-size: .75rem;
   }
 
+  .footer-text, .footer-text-fun {
+    font-size: .55rem;
+  }
+
+  .bottom-icon img {
+    width: 60%;
+  }
+
   h2 {
     font-size: 1rem;
   }
@@ -297,7 +315,6 @@ details[open] summary:before {
   h4 {
     font-size: .75rem;
   }
-
 
   #interests img {
     width: 35px;
