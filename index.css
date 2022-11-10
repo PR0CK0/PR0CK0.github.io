@@ -2,7 +2,13 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
+
+  /*OOOOOH that's nice*/
+  text-align: justify;
+  text-justify: inter-word;
 }
+
+
 
 header {
   position: sticky;
@@ -126,14 +132,35 @@ a:visited {
   */
 }
 
-.skills-split {
+.double-column {
   display: flex;
   justify-content: space-evenly;
   gap: 20px;
 }
 
-.skills-panel {
+.column {
   width: 100%;
+}
+
+#awards-double {
+  align-items: center;
+}
+
+#awards-column1 {
+  flex: 4;
+}
+
+#awards-column2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#awards-column2 img {
+  max-width: 135px;
+  max-height: 135px;
+  width: auto;
+  height: auto;
 }
 
 /****************************/
@@ -175,7 +202,7 @@ details summary:after {
   font-size: 2.2rem;
   line-height: 0;
   margin-top: .75rem;
-  left: 250px;
+  left: 310px;
   top: 7px;
   font-weight: 200;
   transform-origin: center;
@@ -208,6 +235,13 @@ details summary:before {
   top: 1px;
   position: absolute;
   font-size: 2rem;
+  transform-origin: center;
+  transition: .2s linear;
+}
+
+details[open] summary:before {
+  transform: rotate(90deg);
+  font-size: 2rem;
 }
 
 .section-title-collapsible {
@@ -238,5 +272,13 @@ details summary:before {
 
   #interests {
     gap: 30px 0px;
+  }
+
+  #awards-double {
+    flex-direction: column;
+  }
+
+  #awards-column2 img {
+    max-width: 40px;
   }
 }
