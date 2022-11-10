@@ -319,4 +319,12 @@ details[open] summary:before {
   #awards-column2 img {
     max-width: 80px;
   }
+
+  details summary:after {
+    top: 2px;
+  }
+
+  details summary:before {
+    top: -5px;
+  }
 }
