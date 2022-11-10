@@ -137,6 +137,7 @@ div {
   .contact-btn, .acc-btn {
     width: 15px;
     height: 15px;
+    box-shadow: none;
   }
 
   .icon {
