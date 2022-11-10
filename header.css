@@ -20,6 +20,8 @@
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 5px;
+
+  /* change line height to something else to override p{} default if trying the vw thing again*/
 }
 
 #header-img img {
@@ -68,6 +70,7 @@
   padding: 8px;
   border-radius: 2px;
   font-size: .7rem;
+  /*font-size: 1.1vw;*/
   bottom: -29px;
   opacity: 0;
   transition: opacity .2s;

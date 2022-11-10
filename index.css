@@ -8,7 +8,7 @@ body {
   text-justify: inter-word;
 
   /*testing because system font size on phone breaks the site*/
-  font-size: 1.4vw;
+  /*font-size: 1.4vw;*/
 }
 header {
   position: sticky;
@@ -27,8 +27,8 @@ p, h1, h2, h3, h4, ul, li, date {
 }
 
 p {
-  /*line-height: 1.2rem;*/
-  line-height: 1.3vw;
+  line-height: 1.2rem;
+  /*line-height: 1.3vw;*/
 }
 
 ul {
@@ -44,8 +44,8 @@ li {
 
 h4 {
   font-weight: normal;
-  /*font-size: 1rem;*/
-  font-size: 1.4vw;
+  font-size: 1rem;
+  /*font-size: 1.4vw;*/
 }
 
 hr {
@@ -201,8 +201,8 @@ details summary:after {
   content: "+";
   color: rgb(100 100 100);
   position: absolute;
-  /*font-size: 2.2rem;*/
-  font-size: 3vw;
+  font-size: 2.2rem;
+  /*font-size: 3vw;*/
   line-height: 0;
   margin-top: .75rem;
   left: 260px;
@@ -225,30 +225,30 @@ details summary:hover {
 }
 
 details summary:hover:after {
-  /*font-size: 2.7rem;*/
-  font-size: 3.8vw;
+  font-size: 2.7rem;
+  /*font-size: 3.8vw;*/
 }
 
 details[open] summary:after {
   transform: rotate(45deg);
-  /*font-size: 2.7rem;*/
-  font-size: 3.8vw;
+  font-size: 2.7rem;
+  /*font-size: 3.8vw;*/
 }
 
 details summary:before {
   content: '>';
   top: 1px;
   position: absolute;
-  /*font-size: 2rem;*/
-  font-size: 2.8vw;
+  font-size: 2rem;
+  /*font-size: 2.8vw;*/
   transform-origin: center;
   transition: .2s linear;
 }
 
 details[open] summary:before {
   transform: rotate(90deg);
-  /*font-size: 2rem;*/
-  font-size: 2.8vw;
+  font-size: 2rem;
+  /*font-size: 2.8vw;*/
 }
 
 .section-title-collapsible {
