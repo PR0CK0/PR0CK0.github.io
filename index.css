@@ -165,6 +165,23 @@ a:visited {
   height: auto;
 }
 
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.bottom-icon {
+  border: none;
+}
+
+/*
+.bottom-icon-bar {
+
+}
+*/
+
 /****************************/
 /* Collapsible              */
 /****************************/

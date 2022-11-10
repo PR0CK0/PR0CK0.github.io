@@ -11,12 +11,12 @@
 </head>
 <body>
   <header>
-    <div class='header'>
+    <div class='header' vocab='http://schema.org/' typeof='Person'>
       <div id='header-img'>
         <img src='icons/riddle.png'>
       </div>
       <div class='header-left'>
-        <h1 id='name'>Tyler T. Procko</h1>
+        <h1 id='name' property='name'>Tyler T. Procko</h1>
         <h2 id='cv'>Curriculum Vitae</h2>
         <a href='https://orcid.org/0000-0002-7801-0124' id='orcid'>ORCiD: 0000-0002-7801-0124</a>
       </div>
@@ -25,7 +25,7 @@
           <p class='header-element-content'>Yulee, FL</p>
         </div>
         <div class='header-element'>
-          <p class='header-element-content'>(904)-557-8383</p>
+          <p class='header-element-content' property='telephone'>(904)-557-8383</p>
         </div>
         <div class='header-element'>
           <a href='mailto:prockotyler@gmail.com' class='contact-btn'>
@@ -40,19 +40,19 @@
       </div>
       <div class='header-right'>
         <div class='header-element'>
-          <a href='https://www.linkedin.com/in/tylerprocko' class='acc-btn'>
+          <a href='https://www.linkedin.com/in/tylerprocko' class='acc-btn' property='url'>
             <img class='icon' src='icons/linkedin.png'>
             <div class='tooltip'>Go to my LinkedIn profile.</div>
           </a>
         </div>
         <div class='header-element'>
-          <a href='https://www.github.com/pr0ck0' class='acc-btn'>
+          <a href='https://www.github.com/pr0ck0' class='acc-btn' property='url'>
             <img class='icon' src='icons/github.png'>
             <div class='tooltip'>Go to my Github page.</div>
           </a>
         </div>
         <div class='header-element'>
-          <a href='https://www.researchgate.net/profile/Tyler_Procko' class='acc-btn'>
+          <a href='https://www.researchgate.net/profile/Tyler_Procko' class='acc-btn' property='url'>
             <img class='icon' src='icons/rg.png'>
             <div class='tooltip'>Go to my ResearchGate publications page.</div>
           </a>
@@ -674,7 +674,14 @@
   <hr>
 
   <footer>
-    <p class='footer-text'>Proudly hosted for free with Github Pages.</p>
+    <div class='footer-column'>
+      <p class='footer-text'>Proudly hosted for free with Github Pages.</p>
+      <div class='bottom-icon-bar'>
+        <a href='http://www.w3.org/2001/sw/wiki/RDFa' class='bottom-icon'>
+          <img src='icons/sw-rdfa-blue.png'>
+        </a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
