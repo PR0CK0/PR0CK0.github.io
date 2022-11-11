@@ -1,11 +1,12 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  overflow-x: hidden;
-
-  /*OOOOOH that's nice*/
   text-align: justify;
   text-justify: inter-word;
+
+  /*testing again*/
+  max-width: 100vw;
+  overflow-x: hidden;
 
   /*testing because system font size on phone breaks the site*/
   /*font-size: 1.4vw;*/
