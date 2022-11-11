@@ -1,7 +1,3 @@
-div {
-  overflow: hidden;
-}
-
 .header {
   display: flex;
   flex-direction: row;
@@ -15,8 +11,13 @@ div {
   box-shadow: 1px 5px 8px rgba(0, 0, 0, .3);
 }
 
-.header > div {
-  margin: .5rem;
+.header >div {
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+}
+
+.header-right {
+  padding-right: 4px;
 }
 
 .header-element {
@@ -75,6 +76,7 @@ div {
   font-size: .7rem;
   /*font-size: 1.1vw;*/
   bottom: -29px;
+  right: 10px;
   opacity: 0;
   transition: opacity .2s;
   /*disables hovering on the tooltip itself*/
@@ -125,6 +127,10 @@ div {
     height: 35px;
   }
 
+  .header-right {
+    padding-right: 0px;
+  }
+
   .header-element {
     padding: 0;
   }
@@ -137,6 +143,10 @@ div {
     width: 15px;
     height: 15px;
     box-shadow: none;
+  }
+
+  .contact-btn .tooltip, .acc-btn .tooltip {
+    font-size: .5rem;
   }
 
   .icon {
