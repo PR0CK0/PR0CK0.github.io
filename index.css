@@ -211,9 +211,7 @@ details summary::-webkit-details-marker {
 }
 
 details summary {
-  width: 100%;
   padding-bottom: .3rem;
-  /*border-top: 1px solid black;*/
   position: relative;
   cursor: pointer;
   font-weight: 300;
