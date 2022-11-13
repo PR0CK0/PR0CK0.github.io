@@ -29,6 +29,8 @@ p, h1, h2, h3, h4, ul, li {
 ul {
   margin-top: 5px;
   margin-bottom: 5px;
+    /*indent*/
+    padding-left: 35px;
 }
 
 /****************************/
