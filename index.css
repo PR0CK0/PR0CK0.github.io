@@ -338,14 +338,17 @@ details[open] summary:before {
 
   #awards-column2 img {
     max-width: 80px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   details summary:after {
     top: 2px;
+    left: 190px;
+    font-size: 1.7rem;
   }
 
   details summary:before {
-    top: -5px;
+    top: -2px;
+    font-size: 1.7rem;
   }
 }
