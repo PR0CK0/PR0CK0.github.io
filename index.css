@@ -123,7 +123,7 @@ a:visited {
 }
 
 #interests img {
-  width: 60px;
+  width: 55px;
   height: 20%;
   margin-left: 10px;
   margin-right: 10px;
@@ -320,7 +320,7 @@ details[open] summary:before {
   }
 
   #interests img {
-    width: 35px;
+    width: 32px;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: -10px;
