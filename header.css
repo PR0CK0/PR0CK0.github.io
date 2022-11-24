@@ -4,11 +4,8 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 30px;
-  background-color: rgb(235 235 235);
-
+  background-color: rgb(215 215 215);
   border-bottom: 1px solid rgb(150 150 150);
-  box-shadow: 1px 5px 8px rgba(0, 0, 0, .3);
 }
 
 .header >div {
@@ -105,6 +102,38 @@
 }
 
 /****************************/
+
+.availability-subheader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  font-style: italic;
+  font-size: .7rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  gap: 10px;
+
+  background-color: rgb(235, 235, 235);
+  border-bottom: 1px solid rgb(160 160 160);
+  margin-bottom: 12px;
+  box-shadow: 1px 5px 8px rgba(0, 0, 0, .3);
+}
+
+#availability-title {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-style: normal;
+}
+
+#availability-timezone {
+  font-style: italic;
+}
+
+/****************************/
 /*Media queries for phone   */
 /****************************/
 
@@ -137,6 +166,14 @@
 
   .header-element-content {
     font-size: .65rem;
+  }
+
+  .availability-subheader {
+    margin-bottom: 25px;
+  }
+
+  .availability-subheader p {
+    font-size: .5rem;
   }
 
   .contact-btn, .acc-btn {
