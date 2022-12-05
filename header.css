@@ -46,6 +46,15 @@
 
 #orcid {
   font-weight: bold;
+  font-size: .9rem;
+}
+
+#location {
+  font-weight: bold;
+}
+
+#phone {
+  font-style: italic;
 }
 
 /****************************/
@@ -149,7 +158,7 @@
   }
 
   #orcid {
-    font-size: .6rem;;
+    font-size: .55rem;
   }
 
   #header-img img {
