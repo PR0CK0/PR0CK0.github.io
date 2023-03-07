@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+
+<!--
+  TODO
+  - typeof Person as a subsuming div to maintain personhood over all sections?
+-->
+
 <html lang='en'>
 <head>
   <title>Tyler Procko - Curriculum Vitae</title>
@@ -93,6 +99,7 @@
       <img src='icons/office.png' alt='Microsoft Office logo'>
       <img src='icons/tableau.png' alt='Tableau logo'>
       <img src='icons/agile.png' alt='Agile logo'>
+      <img src='icons/sw.png' alt='W3C Semantic Web logo'>
       <img src='icons/rdf.png' alt='W3C RDF logo'>
       <img src='icons/owl.png' alt='W3C OWL logo'>
       <img src='icons/sparql.png' alt='W3C SPARQL logo'>
@@ -104,7 +111,7 @@
       <img src='icons/stardog.png' alt='Stardog logo'>
       <img src='icons/triply.png' alt='Triply logo'>
       <img src='icons/protege.png' alt='Protege logo'>
-      <img src='icons/w3c.png' alt='W3C Evangelist logo'>
+      <!--<img src='icons/w3c.png' alt='W3C Evangelist logo'>-->
     </section>
 
     <article>
@@ -136,7 +143,7 @@
       </section>
 
 
-      <section id='education'>
+      <section id='education' vocab='http://schema.org' typeof='Person'>
         <h2 class='section-title'>Education</h2>
         <hr>
         <div class='date-content-box'>
@@ -145,7 +152,7 @@
             <h4>Doctorate of Philosophy in Computer Science and Electrical Engineering, <i>“Applied Ontology and Natural Language Processing for Research Provenance Automation”</i> - <b>4.0</b>/4.0 GPA, <i>Embry Riddle Aeronautical University (ERAU), Daytona Beach, FL</i></h4>
             <ul>
               <li>
-                Doctoral advisor: <a href='https://www.linkedin.com/in/omar-ochoa-30a2a61b/'>Dr. Omar Ochoa</a>
+                Doctoral advisor: <a href='https://www.linkedin.com/in/omar-ochoa-30a2a61b/' property='colleague'>Dr. Omar Ochoa</a>
               </li>
             </ul>
           </div>
@@ -170,7 +177,7 @@
         </div>
       </section>
 
-      <h2 class='section-title'>Awards</h2>
+      <h2 class='section-title' vocab='http://schema.org' typeof='Person'>Awards</h2>
       <section class='awards'>
         <hr>
         <div class='double-column' id='awards-double'>
@@ -181,7 +188,7 @@
                 <h4>Science, Mathematics, and Research for Transformation (SMART) Scholarship - Department of Defense, <i>Sponsored through the Air Force Research Lab (AFRL), Rome, NY</i></h4>
                 <ul>
                   <li>Consistent summer research work with the nation's top information analysts, artificial intelligence experts and data visualization scientists at the Information Directorate of the AFRL</li>
-                  <li>Mentorship by some of the nation's leading <b>Semantic Web</b> and <b>Linked Data</b> experts, including <a href='https://www.linkedin.com/in/nicholasdelrio/'>Dr. Nicholas Del Rio</a> and <a href='https://www.linkedin.com/in/tim-lebo-73b2721/'>Dr. Timothy Lebo</a></li>
+                  <li>Mentorship by some of the nation's leading <b>Semantic Web</b> and <b>Linked Data</b> experts, including <a href='https://www.linkedin.com/in/nicholasdelrio/' property='colleague'>Dr. Nicholas Del Rio</a> and <a href='https://www.linkedin.com/in/tim-lebo-73b2721/' property='colleague'>Dr. Timothy Lebo</a></li>
                   <li>Full tuition payment, annual stipend, internships and continued work after graduation</li>
                 </ul>
               </div>
