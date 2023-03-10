@@ -290,6 +290,19 @@ details[open] summary:before {
   margin-top: 17px;
 }
 
+#courses .date-content-box .my-dates,
+#courses .date-content-box .content h4 {
+  font-size: .6rem;
+}
+
+#courses .date-content-box {
+  margin-top: -3px;
+}
+
+#courses .date-content-box .my-dates {
+  flex: 1.5;
+}
+
 /****************************/
 /*Media queries for phone   */
 /****************************/
