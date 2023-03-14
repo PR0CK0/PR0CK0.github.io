@@ -158,7 +158,8 @@
   margin-bottom: 10px;
 }
 
-#pages button {
+#pages a {
+  font-size: .8rem;
   border-left: 1px solid grey;
   border-right: 1px solid grey;
   border-top: none;
@@ -169,16 +170,16 @@
   margin: 0;
 }
 
-#pages button a:link,
-#pages button a:visited,
-#pages button a:hover,
-#pages button a:active,
-#pages button a {
+#pages a:link,
+#pages a:visited,
+#pages a:hover,
+#pages a:active,
+#pages a {
   text-decoration: none;
   color: black;
 }
 
-#pages button:hover {
+#pages a:hover {
   background-color: rgb(180, 180, 180);
 }
 
@@ -221,7 +222,7 @@
   }
 
   .availability-subheader p,
-  #pages button {
+  #pages a {
     font-size: .5rem;
   }
 
