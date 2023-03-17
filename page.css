@@ -7,3 +7,49 @@
   padding-bottom: 10px;
   background-color: rgb(240 240 240);
 }
+
+
+/* similar to the date-content-box in the main page, except 3 columns */
+.three-col-box {
+  display: flex;
+  align-items: top;
+  justify-content: space-evenly;
+  margin-bottom: 5px;
+  padding: 5px;
+
+  gap: 10px;
+
+  background-image:
+  linear-gradient(to right, rgba(255, 255, 255, 1),
+    rgba(55, 55, 55, .1),
+    rgba(255, 255, 255, 1));
+}
+
+.col1 {
+  flex: 2;
+  font-weight: 600;
+}
+
+.col2 {
+  flex: 4;
+}
+
+.col3 {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  justify-content: right;
+}
+
+.col3 h4 a {
+  background-color: rgb(240, 240, 240);
+  padding: 3px;
+}
+
+@media only screen and (max-width: 650px) {
+  .col1 {
+    font-size: .75rem;
+  }
+}
