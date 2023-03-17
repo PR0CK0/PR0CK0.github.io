@@ -38,7 +38,7 @@
   text-align: center;
 }
 
-#cv {
+#cv, .page-title {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-style: italic;
   font-size: 1.2rem;
@@ -197,7 +197,7 @@
     text-align: left;
   }
 
-  #cv {
+  #cv, .page-title {
     font-size: .7rem;
   }
 

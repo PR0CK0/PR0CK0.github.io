@@ -1,0 +1,9 @@
+.construction {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.1rem;
+  color: red;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(240 240 240);
+}
