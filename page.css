@@ -8,7 +8,6 @@
   background-color: rgb(240 240 240);
 }
 
-
 /* similar to the date-content-box in the main page, except 3 columns */
 .three-col-box {
   display: flex;
