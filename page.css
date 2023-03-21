@@ -24,6 +24,11 @@
     rgba(255, 255, 255, 1));
 }
 
+/* i don't know why i need this now but that is the beauty of untraceable CSS :') */
+details section p {
+  margin-bottom: 7px;
+}
+
 .col1 {
   flex: 2;
   font-weight: 600;
