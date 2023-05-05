@@ -67,6 +67,14 @@
           </section>
         </details>
         <details>
+          <summary><h2 class='section-title-collapsible'>OWL and DLs</h2></summary>
+          <section id='rfc-main'>
+            <hr class='collapsed-hr'>
+            <h3 class='section-subtitle'>What is OWL good for?</h3>
+            <p>OWL is a manifestation of Description Logics (DLs); there are various DL profiles for OWL. For most use cases, OWL is exceptional overkill. Inasmuch as OWL is a DL implementation, it abides by the open-world assumption (OWA), which is extremely difficult for most people to reconcile with anything else they do, e.g., OOP, which is closed-world by nature. For example, in Java, we may define a class Human but never give it an attribute for a brain. In closed-world logic, it is inferred that the class of Humans do not possess brains. In an OWL Human class, unless it is explicitly stated that Humans do NOT have brains with an OWL constraint, it cannot be inferred that they do not. In other words, OWL never makes inferences without explicit assertions. This makes understanding its inferences on larger ontologies difficult; even veteran OWL modelers struggle to explain inferences. OWL is a very heavy-handed, complicated modeling language; and, unlike RDF / RDFs, which are rather simple, easily extended and only offer limited reasoning (e.g., subsumption inferencing), OWL is very difficult to extend, because, with each new OWL constraint added, the complexity of the OWA makes erroneous inferences exceptionally hard to diagnose. In my experience, OWL is only used to its full extent in the biomedical domain. Most people who work with an "OWL ontology" do not even come close to fully utilizing the DL underlying OWL: for the most part, they implement a class/relationship hierarchy (this can be done with RDFS), add annotation properties and perhaps a few necessary conditions (subClassOf constraints), and then they never run a reasoner. This is not an OWL ontology. In any case, for most use cases in business, OWL is far too complicated. Furthermore, OWL cannot be used to validate instance data against the ontology, unless one writes very specific SPARQL queries to do so; and, even then, "bad" instance triples cannot be rejected without a specific codebase written for this purpose. A language like the Shapes Constraint Language (SHACL) is a much more appropriate means of ontological modeling for business use cases, because every major graph database platform supports SHACL validation and it is a closed-world language. SHACL can be used to define an ontology by shapes, that is then used automatically on data ingestion to validate new triples. Inveterate OWL modelers like the <a href='https://archive.topquadrant.com/owl-blog/'>founder of TopQuadrant</a> have abandoned OWL in favor of SHACL. So, I point everyone I can to SHACL as an alternative to OWL.</p>
+          </section>
+        </details>
+        <details>
           <summary><h2 class='section-title-collapsible'>AI</h2></summary>
           <section id='rfc-main'>
             <hr class='collapsed-hr'>
@@ -83,7 +91,7 @@
       <div class='footer-column'>
         <p class='footer-text'>Proudly hosted for free with Github Pages.</p>
         <p class='footer-text-fun'>Every line written by hand with pure HTML and CSS.</p>
-        <p class='footer-text-fun'>Page last updated: 04/03/2023</p>
+        <p class='footer-text-fun'>Page last updated: 05/05/2023</p>
   
         <div class='bottom-icon-bar'>
           <a href='https://validator.w3.org/check?uri=pr0ck0.github.io' class='bottom-icon'>
