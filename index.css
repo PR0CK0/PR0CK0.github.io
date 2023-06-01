@@ -4,6 +4,9 @@ body {
   text-align: justify;
   text-justify: inter-word;
 
+  /* this is needed for certain browsers, e.g., mozilla on linux, that default to a greyish color */
+  background-color: white;
+
   /*testing again*/
   overflow-x: hidden;
 
