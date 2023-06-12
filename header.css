@@ -114,6 +114,23 @@
 
 /****************************/
 
+#tagline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  font-style: italic;
+  font-weight: bold;
+  font-size: .8rem;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+
+  gap: 10px;
+  background-color: rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(160 160 160);
+}
+
 .availability-subheader {
   display: flex;
   flex-wrap: wrap;
@@ -125,7 +142,7 @@
   padding-bottom: 4px;
 
   gap: 10px;
-  background-color: rgb(225, 225, 225);
+  background-color: rgb(220, 220, 220);
   border-bottom: 1px solid rgb(160 160 160);
 }
 
@@ -228,6 +245,10 @@
   .availability-subheader p,
   #pages a {
     font-size: .5rem;
+  }
+
+  #tagline p {
+    font-size: .6rem;
   }
 
   .contact-btn, .acc-btn {
