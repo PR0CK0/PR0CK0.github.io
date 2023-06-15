@@ -38,6 +38,10 @@
   text-align: center;
 }
 
+#phone {
+  font-size: .9rem;
+}
+
 #cv, .page-title {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-style: italic;
@@ -218,7 +222,7 @@
     font-size: .7rem;
   }
 
-  #orcid {
+  #orcid, #phone {
     font-size: .55rem;
   }
 
