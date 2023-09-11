@@ -99,7 +99,7 @@ details section p {
 #toggle1:checked + .imgLink img,
 #toggle2:checked + .imgLink img,
 #toggle3:checked + .imgLink img {
-  width: 90vw;
+  width: 95vw;
 }
 
 hr {
@@ -113,4 +113,16 @@ hr {
 
 .collapsed-personal-hr {
   margin-top: 5px;
+}
+
+.details-personal summary:hover {
+  background-image:
+  linear-gradient(to right, rgba(55, 55, 55, 0.1),
+    rgba(255, 255, 255, 0.1),
+    rgba(225, 225, 225, 0.1),
+    rgba(155, 155, 155, .1),
+    rgba(55, 55, 55, .1),
+    rgba(0, 0, 0, 1));
+  -webkit-transition: background-image 5s ease-in-out;
+  transition: background-image 5s ease-in-out;
 }
