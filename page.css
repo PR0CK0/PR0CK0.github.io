@@ -129,7 +129,7 @@ details section p {
   width: 95vw;
 }
 
-hr {
+.personal-hr {
   border: 0;
   height: 1px;
   background-image:
