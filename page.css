@@ -96,9 +96,27 @@ details section p {
 
 /* When the checkbox is checked, increase the image size */
 /* this is so hacky and i need a new checkbox for every single image lol... no JS because github pages means ugly css teehee */
-#toggle1:checked + .imgLink img,
-#toggle2:checked + .imgLink img,
-#toggle3:checked + .imgLink img {
+#toggle2016_1:checked + .imgLink img,
+#toggle2020_1:checked + .imgLink img,
+#toggle2020_2:checked + .imgLink img,
+#toggle2020_3:checked + .imgLink img,
+#toggle2020_4:checked + .imgLink img,
+#toggle2020_5:checked + .imgLink img,
+#toggle2020_6:checked + .imgLink img,
+#toggle2020_7:checked + .imgLink img,
+#toggle2020_8:checked + .imgLink img,
+#toggle2020_9:checked + .imgLink img,
+#toggle2020_10:checked + .imgLink img,
+#toggle2020_11:checked + .imgLink img,
+#toggle2020_12:checked + .imgLink img,
+#toggle2020_13:checked + .imgLink img,
+#toggle2020_14:checked + .imgLink img,
+#toggle2020_15:checked + .imgLink img,
+#toggle2020_16:checked + .imgLink img,
+#toggle2020_17:checked + .imgLink img,
+#toggle2020_18:checked + .imgLink img,
+#toggle2020_19:checked + .imgLink img,
+#toggle2020_20:checked + .imgLink img {
   width: 95vw;
 }
 
