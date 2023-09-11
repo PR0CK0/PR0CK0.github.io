@@ -96,7 +96,16 @@ details section p {
 
 /* When the checkbox is checked, increase the image size */
 /* this is so hacky and i need a new checkbox for every single image lol... no JS because github pages means ugly css teehee */
+#toggle2015_1:checked + .imgLink img,
+#toggle2015_2:checked + .imgLink img,
+#toggle2015_3:checked + .imgLink img,
+#toggle2015_4:checked + .imgLink img,
+#toggle2015_5:checked + .imgLink img,
+#toggle2015_6:checked + .imgLink img,
 #toggle2016_1:checked + .imgLink img,
+#toggle2016_2:checked + .imgLink img,
+#toggle2016_3:checked + .imgLink img,
+#toggle2016_4:checked + .imgLink img,
 #toggle2020_1:checked + .imgLink img,
 #toggle2020_2:checked + .imgLink img,
 #toggle2020_3:checked + .imgLink img,
