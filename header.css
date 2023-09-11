@@ -10,6 +10,21 @@
   gap: 5px;
 }
 
+.header-personal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: black;
+  border-bottom: 1px solid rgb(160 160 160);
+
+  gap: 5px;
+  color: white;
+
+  padding-bottom: 10px;
+}
+
 .header > div {
   margin-bottom: .5rem;
   margin-top: .5rem;
@@ -208,6 +223,23 @@
   background-color: rgb(180, 180, 180);
 }
 
+
+/****/
+/* personal page */
+#return-btn {
+  background-color: rgb(80, 80, 80);
+  color: white;
+  padding: 5px;
+}
+
+#return-btn:hover {
+  background-color: rgb(50, 50, 50);
+}
+
+#return-btn:active{
+  opacity: 50%;
+}
+
 /****************************/
 /*Media queries for phone   */
 /****************************/
@@ -259,6 +291,10 @@
     width: 15px;
     height: 15px;
     box-shadow: none;
+  }
+
+  #return-btn {
+    font-size: .5rem;
   }
 
   .contact-btn .tooltip, .acc-btn .tooltip {

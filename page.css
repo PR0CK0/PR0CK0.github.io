@@ -57,3 +57,60 @@ details section p {
     font-size: .75rem;
   }
 }
+
+
+
+/**/
+/* personal page */
+/**/
+
+#personal-body {
+  color: white;
+  background-color: black;
+}
+
+.pics-columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  gap: 12px;
+}
+
+.imgToggle {
+  display: none; /* Hide the checkboxes */
+}
+
+.imgLink {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.imgLink img {
+  width: 45vw;
+  transition: width 0.3s; /* Optional: Add a transition for smoother resizing */
+  border: 1px solid white;
+}
+
+/* When the checkbox is checked, increase the image size */
+/* this is so hacky and i need a new checkbox for every single image lol... no JS because github pages means ugly css teehee */
+#toggle1:checked + .imgLink img,
+#toggle2:checked + .imgLink img,
+#toggle3:checked + .imgLink img {
+  width: 90vw;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image:
+  linear-gradient(to right, rgba(255, 255, 255, 0),
+    rgb(255, 255, 255),
+    rgba(255, 255, 255, 0));
+}
+
+.collapsed-personal-hr {
+  margin-top: 5px;
+}

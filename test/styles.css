@@ -1,0 +1,46 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.toggle {
+  display: none; /* Hidden radio buttons */
+}
+
+#smallImage {
+  display: block;
+  margin: 0 auto; /* Center the image */
+  max-width: 40%;
+  max-height: 40%;
+  cursor: pointer; /* Indicates clickable */
+}
+
+.overlay {
+  display: none; /* Hidden initially */
+  position: fixed; /* Covers entire viewport */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  cursor: pointer; /* Indicates clickable */
+}
+
+#showLarge:checked ~ #smallImage,
+#showSmall:checked ~ .overlay {
+  display: none;
+}
+
+#showLarge:checked ~ .overlay {
+  display: flex;
+}
