@@ -141,6 +141,8 @@ a:visited {
   display: flex;
   justify-content: space-evenly;
   gap: 20px;
+  /* this is so hacky but idk why there is a little extra space lol*/
+  margin-top: -7px;
 }
 
 .column {
