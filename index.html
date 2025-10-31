@@ -5,6 +5,7 @@
   - typeof Person as a subsuming div to maintain personhood over all sections?
   - pages footer links (rdfa etc.)
   - backticks "" vs actual quotations (PC vs tablet, non respectively)
+  - fix html groups in the pubs section... a mess
 -->
 
 <html lang='en'>
@@ -182,7 +183,7 @@
         <hr>
         <p><b>AI / Knowledge Graph Engineer | Defense ML Provenance and Ontology Specialist</b></p>
         <ul>
-          <li>Ph.D. researcher with 7+ years in Java/Python, Agile machine learning, ETL, ontology design, and NLP for defense and aerospace applications. Experienced in LLM integration, ML pipelining, RAG systems, taxonomies, graph-based explainability, object oriented-software, and academic publication. Active contributor to AFRL, IEEE, and DoD FAIR AI data-standardization efforts.</li>
+          <li>Ph.D. researcher with 7+ years in Java/Python, Agile machine learning, ETL, ontology design, and NLP for defense and aerospace applications. Experienced in GenAI, LLM integration, ML pipelining, RAG systems, taxonomies, graph-based explainability, object oriented-software, and academic publication. Active contributor to AFRL, IEEE, and DoD FAIR AI data-standardization efforts.</li>
           <li>PyTorch, LangChain, TensorFlow, Hugging Face, Stable Diffusion, GraphDB</li>
           <li><b>U.S. Citizen, Active Secret (Tier 3) Clearance</b></li>
           <li><b>Google & Stanford Deep Learning Certified</b></li>
@@ -290,7 +291,19 @@
         <section id='publications'>
           <hr class='collapsed-hr'>
           <h3 class='section-subtitle'>Awaiting Publication</h3>
-            <div class='date-content-box'>
+          <div class='date-content-box'>
+            <div class='my-dates'>2026</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/abstract=5682942'><i>Prompt Provenance: Toward Traceable LLM Interactions</i></a></span><i> - The 3rd ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2026)</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>ICSC 2025</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/abstract=5682822'><i>A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools</i></a></span><i> - 2026 International Conference on Semantic Computing (ICSC)</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
             <div class='my-dates'>2025</div>
             <div class='content'>
               <h4 typeof='TechArticle'><b>(Secondary author): </b><span property='title'><a href=''><i>Context Dropout: A Novel Method to Reduce Contextual Reliance in Object Detection</i></a>, primary author Lynn Vonderhaar</span><i> - IEEE International Conference on Future Machine Learning and Data Science</i></h4>
@@ -324,7 +337,7 @@
           <div class='date-content-box'>
             <div class='my-dates'>Dec 2024</div>
             <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10771030'><i>Graph Retrieval-Augmented Generation for Large Language Models: A Survey</i></span></i></a><i> - TransAI AIxSET 2024</i></h4>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10771030'><i>Graph Retrieval-Augmented Generation for Large Language Models: A Survey</i></span></a><i> - TransAI AIxSET 2024</i></h4>
             </div>
           </div> 
           <div class='date-content-box'>
@@ -348,19 +361,19 @@
           <div class='date-content-box'>
             <div class='my-dates'>May 2024</div>
             <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852748'><i>Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations and Preliminary Implementation</i></a><i> - SSRN</i></h4>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852748'><i>Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations and Preliminary Implementation</i></a></span><i> - SSRN</i></h4>
             </div>
           </div> 
           <div class='date-content-box'>
             <div class='my-dates'>Mar 2024</div>
             <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/document/10500258/'><i>Semantic Science: Publication Beyond the PDF</i></a><i> - IEEE SoutheastCon</i></h4>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/document/10500258/'><i>Semantic Science: Publication Beyond the PDF</i></a></span><i> - IEEE SoutheastCon</i></h4>
             </div>
           </div> 
           <div class='date-content-box'>
             <div class='my-dates'>Mar 2024</div>
             <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://www.frontiersin.org/articles/10.3389/frai.2024.1308156/full'><i>Dawn of the Dialogue: AI's Leap from Lab to Living Room</i></span></i></a><i> - Frontiers in Artificial Intelligence</i></h4>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://www.frontiersin.org/articles/10.3389/frai.2024.1308156/full'><i>Dawn of the Dialogue: AI's Leap from Lab to Living Room</i></a></span><i> - Frontiers in Artificial Intelligence</i></h4>
             </div>
           </div> 
           <div class='date-content-box'>
@@ -1235,6 +1248,19 @@
         <hr class='collapsed-hr'>
         <h3 class='section-subtitle'>Scholarly</h3>
         <div class='date-content-box'>
+          <div class='my-dates'>Nov 2025</div>
+          <div class='content'>
+            <h4>Reviewer - <i>Discover Artificial Intelligence, Springer Nature</i></h4>
+            <h4>Reviewer - <i>Discover Computing, Springer Nature</i></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Nov 2025</div>
+          <div class='content'>
+            <h4>Creator - <i><a href='https://github.com/PR0CK0/CompTIA-Security-Study-Guides'>CompTIA Security+ SYS-701 Study Guide Dump</a></i></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
           <div class='my-dates'>Jan 2025</div>
           <div class='content'>
             <h4>Reviewer - <i>Wireless Communications Magazine, IEEE</i></h4>
@@ -2052,7 +2078,7 @@
     <div class='footer-column'>
       <p class='footer-text'>Proudly hosted for free with Github Pages.</p>
       <p class='footer-text-fun'>Every line written by hand with pure HTML and CSS.</p>
-      <p class='footer-text-fun'>Site last updated: 10/27/2025</p>
+      <p class='footer-text-fun'>Site last updated: 10/30/2025</p>
 
       <div class='bottom-icon-bar'>
         <a href='https://validator.w3.org/check?uri=pr0ck0.github.io' class='bottom-icon'>
