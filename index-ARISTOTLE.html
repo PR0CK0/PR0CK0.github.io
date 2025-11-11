@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+
+<!--
+  TODO
+  - typeof Person as a subsuming div to maintain personhood over all sections?
+  - pages footer links (rdfa etc.)
+  - backticks "" vs actual quotations (PC vs tablet, non respectively)
+  - fix html groups in the pubs section... a mess
+-->
+
+<html lang='en'>
+<head>
+  <title>Tyler Procko - Curriculum Vitae</title>
+  <link rel='stylesheet' href='index.css'>
+  <link rel='stylesheet' href='header.css'>
+  <link rel='icon' href='favicon.ico'>
+
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+  
+  <meta name='description' content='The CV of Tyler Procko. Ontologist, GenAI researcher, and scientific writer. PhD in EECS.'>
+  <meta name='keywords' content='ontology, linked data, software engineering, embry riddle, afrl, procko'>
+  <meta name='author' content='Tyler Procko'>
+</head>
+<body>
+  <header>
+    <div class='header' vocab='http://schema.org/' typeof='Person'>
+      <div id='header-img'>
+        <img src='icons/riddle.png' alt='Embry-Riddle Aeronautical University logo'>
+      </div>
+      <div class='header-left'>
+        <h1 id='name' property='name'>Tyler T. Procko, Ph.D.</h1>
+        <h2 id='cv'>Curriculum Vitae</h2>
+        <a href='https://orcid.org/0000-0002-7801-0124' id='orcid'>ORCiD: 0000-0002-7801-0124</a>
+      </div>
+      <div class='header-right'>
+        <div class='header-element'>
+          <p class='header-element-content' id='location' property='addressRegion'>Florida, USA</p>
+        </div>
+        <div class='header-element'>
+          <p class='header-element-content' id='phone' property='telephone'>1-904-557-8383</p>
+        </div>
+        <div class='header-element'>
+          <a href='mailto:prockotyler@gmail.com' class='contact-btn' property='email'>
+            <img class='icon' src='icons/gmail.png' alt='Gmail logo'>
+            <div class='tooltip'>Contact me via Gmail at prockotyler@gmail.com.</div>
+          </a>
+          <a href='mailto:prockot@my.erau.edu' class='contact-btn' property='email'>
+            <img class='icon' src='icons/outlook.png' alt='MS Outlook logo'>
+            <div class='tooltip'>Contact me via Outlook at prockot@my.erau.edu.</div>
+          </a>
+        </div>
+      </div>
+      <div class='header-right'>
+        <div class='header-element'>
+          <a href='https://www.linkedin.com/in/tylerprocko' class='acc-btn' property='url'>
+            <img class='icon' src='icons/linkedin.png' alt='Linkedin logo'>
+            <div class='tooltip'>Go to my LinkedIn profile.</div>
+          </a>
+        </div>
+        <div class='header-element'>
+          <a href='https://www.github.com/pr0ck0' class='acc-btn' property='url'>
+            <img class='icon' src='icons/github.png' alt='GitHub logo'>
+            <div class='tooltip'>Go to my GitHub page.</div>
+          </a>
+        </div>
+        <!--
+        <div class='header-element'>
+          <a href='https://www.researchgate.net/profile/Tyler_Procko' class='acc-btn' property='url'>
+            <img class='icon' src='icons/rg.png' alt='ResearchGate logo'>
+            <div class='tooltip'>Go to my ResearchGate publications page.</div>
+          </a>
+        </div>
+        -->
+        <div class='header-element'>
+          <a href='https://scholar.google.com/citations?user=Xm7p7mQAAAAJ&hl=en' class='acc-btn' property='url'>
+            <img class='icon' src='icons/gs.png' alt='Google Scholar logo'>
+            <div class='tooltip'>Go to my Google Scholar publications page.</div>
+          </a>
+        </div>
+      </div>
+      <div class='header-right'>
+        <div class='header-element'>
+          <a href='mailto:prockotyler@gmail.com?subject=Join my Slack Workspace&body=Open your Slack app and invite me by my email, prockotyler@gmail.com' class='contact-btn' property='email'>
+            <img class='icon' src='icons/slack.png' alt='Slack logo'>
+            <div class='tooltip'>Invite me in Slack by adding prockotyler@gmail.com.</div>
+          </a>
+        </div>
+        <div class='header-element'>
+          <a href='https://www.upwork.com/freelancers/~01a0532dff7b928594' class='acc-btn' property='url'>
+            <img class='icon' src='icons/upwork.png' alt='Upwork logo'>
+            <div class='tooltip'>Go to my Upwork profile.</div>
+          </a>
+        </div>
+        <div class='header-element'>
+          <a href='https://www.fiverr.com/ytboi1' class='acc-btn' property='url'>
+            <img class='icon' src='icons/fiverr.png' alt='Linkedin logo'>
+            <div class='tooltip'>Go to my Fiverr profile.</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    <div class='availability-subheader' vocab='http://schema.org/' typeof='Person'>
+      <div id='availability-title'>
+        <p id='availability-semester'>Availability Spring 2023</p>
+        <p id='availability-timezone' property='scheduleTimezone'>Eastern Time, UTC-5</p>
+      </div>
+      <p><span property='businessDays'>MonSatSun</span> - <span property='hoursAvailable'>07:00-20:00</span></p>
+      <p><span property='businessDays'>TueThu</span> - <span property='hoursAvailable'>13:00-20:00</span></p>
+      <p><span property='businessDays'>Fri</span> - <span property='hoursAvailable'>07:00-16:00</span></p>
+    </div>
+    -->
+
+    <div id='tagline' vocab='http://schema.org/'>
+      <p>Casting the net for knowledge in a sea of infinite information.</p>
+    </div>
+
+    <div class='availability-subheader' vocab='http://schema.org/' typeof='Person'>
+      <div id='availability-title'>
+        <p id='availability-semester'>Availability Fall 2025</p>
+        <p id='availability-timezone' property='scheduleTimezone'>Eastern Time, UTC-5</p>
+      </div>
+      <p><span property='businessDays'>Mon-Fri</span> - <span property='hoursAvailable'>07:00-10:00 & 17:00-20:00</span></p>
+      <p><span property='businessDays'>SatSun</span> - <span property='hoursAvailable'>11:00-20:00</span></p>
+    </div>
+
+    <div id='pages'>
+      <a href='index.html#top'>Main</a>
+      <a href='https://semanticscience.us'>Semantic Science</a>
+      <a href='resources/resources.html'>Resources</a>
+      <a href='personal/personal.html'>Personal</a>
+    </div>
+  </header>
+
+  <main>
+    <section id='interests'>
+      <img src='icons/java.png' alt='Java logo'>
+      <img src='icons/python.png' alt='Python logo'>
+      <img src='icons/htmlcss.png' alt='HTML/CSS logo'>
+      <img src='icons/git.png' alt='Git logo'>
+      <img src='icons/vscode.png' alt='Visual Studio Code logo'>
+      <img src='icons/eclipse.png' alt='Eclipse logo'>
+      <img src='icons/office.png' alt='Microsoft Office logo'>
+      <img src='icons/tableau.png' alt='Tableau logo'>
+      <img src='icons/drawio.png' alt='draw.io, or diagrams.net, logo'>
+      <img src='icons/agile.png' alt='Agile logo'>
+      <img src='icons/sw.png' alt='W3C Semantic Web logo'>
+      <img src='icons/rdf.png' alt='W3C RDF logo'>
+      <img src='icons/owl.png' alt='W3C OWL logo'>
+      <img src='icons/sparql.png' alt='W3C SPARQL logo'>
+      <img src='icons/shacl.png' alt='W3C SHACL logo'>
+      <img src='icons/rdfa.png' alt='W3C RDFa logo'>
+      <img src='icons/jsonld.png' alt='W3C JSON-LD logo'>
+      <img src='icons/bfo.png' alt='BFO Inside logo'>
+      <img src='icons/sumo.png' alt='SUMO logo'>
+      <img src='icons/wordnet.png' alt='WordNet logo'>
+      <img src='icons/graphdb.png' alt='GraphDB logo'>
+      <img src='icons/stardog.png' alt='Stardog logo'>
+      <!--img src='icons/triply.png' alt='Triply logo'>-->
+      <img src='icons/protege.png' alt='Protege logo'>
+      <img src='icons/openai.png' alt='OpenAI logo'>
+      <img src='icons/pytorch.png' alt='PyTorch logo'>
+      <!--<img src='icons/w3c.png' alt='W3C Evangelist logo'>-->
+    </section>
+
+    <article>
+      <!--
+      <section id='objective'>
+        <h2 class='section-title'>Objective</h2>
+        <hr>
+        <ul>
+          <li>To expand on my education as an engineer and use my skill in the design and construction of software.</li>
+          <li>To apply my expertise in Semantic Web technologies and software engineering to problems of knowledge.</li>
+          <li>To contribute to the scientific community by publishing relevant, practical and objective papers in my areas of interest.</li>
+        </ul>
+      </section>
+      -->
+      <section id='summary'>
+        <h2 class='section-title'>Summary</h2>
+        <hr>
+        <p><b>AI / Knowledge Graph Engineer | Defense ML Provenance and Ontology Specialist</b></p>
+        <ul>
+          <li>Ph.D. researcher with 7+ years in Java/Python, Agile machine learning, ETL, ontology design, BFO/CCO standardization, and NLP for defense and aerospace applications. Experienced in GenAI, LLM integration, ML pipelining, RAG systems, taxonomies, graph-based explainability, object oriented-software, and academic publication. Active contributor to AFRL, IEEE, and DoD FAIR AI data-standardization efforts.</li>
+          <li>PyTorch, LangChain, TensorFlow, Hugging Face, Stable Diffusion, GraphDB</li>
+          <li><b>U.S. Citizen, Active Secret (Tier 3) Clearance</b></li>
+          <li><b>Google & Stanford Deep Learning Certified</b></li>
+          <li><b>CompTIA Security+ (in-progress Nov. 2025)</b></li>
+          <li>Refer to my entire <a href='#skills'>skillset</a> below. Feel free to contact me at any time.</li>
+        </ul>
+
+      </section>
+
+      <section id='education' vocab='http://schema.org/' typeof='Person'>
+        <h2 class='section-title'>Education</h2>
+        <hr>
+        <div class='date-content-box'>
+          <div class='my-dates'>Aug 2020 - May 2025</div>
+          <div class='content'>
+            <h4>Doctorate of Philosophy in Computer Science and Electrical Engineering, <a href='https://commons.erau.edu/edt/898/'><i>On the Provenance of Software Systems: Automating Software Traceability with Knowledge Graph and Large Language Model Synergy</i></a> - <b>4.0</b>/4.0 GPA, <i>Embry Riddle Aeronautical University (ERAU), Daytona Beach, FL</i></h4>
+            <ul>
+              <li>
+                Doctoral advisor: <a href='https://www.linkedin.com/in/omar-ochoa-30a2a61b/' property='colleague'>Dr. Omar Ochoa</a>
+              </li>
+              <li>
+                Dissertation content: <a href='https://github.com/PR0CK0/ProvTracer' property='colleague'>ProvTracer GitHub</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Aug 2023 - Dec 2023</div>
+          <div class='content'>
+            <h4>Master of Science in Software Engineering, with distinction, <a href='https://commons.erau.edu/edt/784/'><i>Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering</a>, ERAU Daytona</i></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Aug 2016 - May 2020</div>
+          <div class='content'>
+            <h4>Bachelor of Science in Software Engineering, Summa Cum Laude, Minor in Cybersecurity Engineering - <b>3.93</b>/4.0 GPA, <i>ERAU Daytona</i></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>June 2014 - May 2016</div>
+          <div class='content'>
+            <h4>Associate in Arts - <b>4.0</b>/4.0 GPA with high honors, <i>Florida State College at Jacksonville</i></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Aug 2010 - May 2016</div>
+          <div class='content'>
+            <h4>High School Diploma - <b>3.0</b>/3.0 GPA as <b>salutatorian</b>, <i>Trinity Christian Academy, Jacksonville, FL</i></h4>
+          </div>
+        </div>
+      </section>
+
+      <h2 class='section-title' vocab='http://schema.org/' typeof='Person'>Awards</h2>
+      <section class='awards'>
+        <hr>
+        <div class='date-content-box'>
+          <div class='my-dates'>Oct 2024</div>
+          <div class='content'>
+            <h4>Top 2% Downloaded Author, <a href='https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5883155'><i>Social Science Research Network (SSRN)</i></a></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Apr 2024</div>
+          <div class='content'>
+            <h4>Outstanding Doctoral Student, Electrical Engineering and Computer Science, <i>Embry-Riddle Aeronautical University</i></h4>
+          </div>
+        </div>
+        <div class='double-column' id='awards-double'>
+          <div class='column' id='awards-column1'>
+            <div class='date-content-box'>
+              <div class='my-dates'>Aug 2020 - May 2025</div>
+              <div class='content'>
+                <h4>Science, Mathematics, and Research for Transformation (SMART) Scholarship - Department of Defense, <i>Sponsored through the Air Force Research Lab (AFRL), Rome, NY</i></h4>
+                <ul>
+                  <li>Consistent summer research work with the nation's top information analysts, artificial intelligence experts and data visualization scientists at the Information Directorate of the AFRL</li>
+                  <li>Mentorship by some of the nation's leading <b>Semantic Web</b> and <b>Linked Data</b> experts, including <a href='https://www.linkedin.com/in/nicholasdelrio/' property='colleague'>Dr. Nicholas Del Rio</a> and <a href='https://www.linkedin.com/in/tim-lebo-73b2721/' property='colleague'>Dr. Timothy Lebo</a></li>
+                  <li>Full tuition payment, annual stipend, internships and continued work after graduation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class='column' id='awards-column2'>
+            <img src='icons/afrl.png' alt='Air Force Research Lab logo'>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Aug 2016 - May 2020</div>
+          <div class='content'>
+            <h4>Diamond Eagle Scholarship, <i>Embry-Riddle Aeronautical University</i></h4>
+            <ul>
+              <li>Highest-obtainable scholarship for new ERAU students</li>
+            </ul>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>May 2016</div>
+          <div class='content'>
+            <h4>The Florida Bright Future Scholarship - Academic Scholar Award, <i>FSCJ & TCA</i></h4>
+          </div>
+        </div>
+      </section>
+    
+      <details vocab='http://schema.org/'>
+        <summary><h2 class='section-title-collapsible'>Publications</h2></summary>
+        <section id='publications'>
+          <hr class='collapsed-hr'>
+          <h3 class='section-subtitle'>Awaiting Publication</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>2026</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/abstract=5682942'><i>Prompt Provenance: Toward Traceable LLM Interactions</i></a></span><i> - The 3rd ACM International Conference on AI Foundation Models and Software Engineering (FORGE 2026)</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>ICSC 2025</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/abstract=5682822'><i>A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools</i></a></span><i> - 2026 International Conference on Semantic Computing (ICSC)</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>2025</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Secondary author): </b><span property='title'><a href=''><i>Context Dropout: A Novel Method to Reduce Contextual Reliance in Object Detection</i></a>, primary author Lynn Vonderhaar</span><i> - IEEE International Conference on Future Machine Learning and Data Science</i></h4>
+            </div>
+          </div> 
+          <h3 class='section-subtitle'>Published</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>Feb 2025</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Secondary author): </b><span property='title'><a href='https://www.computer.org/csdl/proceedings-article/icsc/2025/242600a171/27FQIRaxjYQ'><i>Creating Robust Data Sets for AI by Leveraging Ontological Structures</i></a>, primary author Lynn Vonderhaar</span><i> - ICSC 2025</i></h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>Dec 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Secondary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10903339'><i>Exploring Testing Methods for Large Language Models</i></a>, primary author Timothy Elvira</span><i> - ICMLA 2024</i></h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>Dec 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Secondary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10771003'><i>Requirements Elicitation for Machine Learning Applications: A Research Preview</i></a>, primary author Timothy Elvira</span><i> - TransAI AIxSET 2024</i></h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>Dec 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10770985'><i>Leveraging Large Language Models on the Traditional Scientific Writing Workflow</i></a></span><i> - TransAI AIxSET 2024</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Dec 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10771030'><i>Graph Retrieval-Augmented Generation for Large Language Models: A Survey</i></span></a><i> - TransAI AIxSET 2024</i></h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>Oct 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Tertiary Author): </b><span property='title'><a href='https://arc.aiaa.org/doi/full/10.2514/1.I011432'><i>The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations</i></a>, primary author Alexandra Davidoff</span><i> - AIAA - Journal of Aerospace Information Systems</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>July 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://arc.aiaa.org/doi/full/10.2514/1.I011316'><i>Leveraging Linked Data for Knowledge Management: A Proposal for the Aerospace Industry</i></a></span><i> - AIAA - Journal of Aerospace Information Systems</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://arxiv.org/abs/2406.15268'><i>Towards Robust Training Datasets for Machine Learning with Ontologies: A Case Study for Emergency Road Vehicle Detection</i></a>, primary author Lynn Vonderhaar</span><i> - arXiv</i></h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852748'><i>Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations and Preliminary Implementation</i></a></span><i> - SSRN</i></h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>Mar 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/document/10500258/'><i>Semantic Science: Publication Beyond the PDF</i></a></span><i> - IEEE SoutheastCon</i></h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>Mar 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://www.frontiersin.org/articles/10.3389/frai.2024.1308156/full'><i>Dawn of the Dialogue: AI's Leap from Lab to Living Room</i></a></span><i> - Frontiers in Artificial Intelligence</i></h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4739068'><i>A Survey on the Intersection of Language Models and Knowledge Graphs</i></a>, primary author Timothy Elvira</span><i> - SSRN</i></h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2024</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://commons.erau.edu/edt/784/'><i>Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering</i></a></span><i> - Embry-Riddle Aeronautical University Scholarly Commons</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Oct 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10343213'><i>Scrum in the Classroom: An Implementation Guide</i></a></span>, primary author Sarah Reynolds<i> -  2023 IEEE Frontiers in Education (FIE) Conference</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Oct 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10311183'><i>Leveraging Signal Strength as a Mechanism to Secure GPS Messages</i></a></span>, primary author Juan Couder<i> - 2023 IEEE/AIAA 42nd Digital Avionics Systems Conference (DASC)</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Sep 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4571367'><i>Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development’s Most Redundant Task</i></a></span><i> - SSRN</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Sep 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10387600'><i>GPT-4: A Stochastic Parrot or Ontological Craftsman? Discovering Implicit Knowledge Structures in Large Language Models</i></a></span><i> - 2023 Fifth International Conference on Transdisciplinary AI (TransAI)</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Sep 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10387634'><i>Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies with GPT</i></a></span><i> - 2023 Fifth International Conference on Transdisciplinary AI (TransAI)</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>July 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10487405'><i>Impacts of Catastrophic Forgetting: From a Machine Learning Engineering Perspective</i></a></span>, primary author Timothy Elvira<i> -  2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>July 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Secondary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10487209'><i>Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming</i></a></span>, primary author Timothy Elvira<i> -  2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)</i></h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4493644'><i>A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from the Software Engineering Body of Knowledge with a Sequence-to-Sequence Transformer</i></a></span><i> - SSRN</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://peer.asee.org/microelectronic-technology-ai-and-academic-dishonesty-an-agile-engineering-approach'><i>Microelectronic Technology, AI and Academic Dishonesty: An Agile Engineering Approach</i></a></span><i> - American Society for Engineering Education (TELPhE) 2023</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Feb 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://ssrn.com/abstract=4441503'><i>The Influence of Interpersonal Chemistry on Learning in Agile Software Engineering Education</i></a></span> <i> - SSRN</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Feb 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/document/10066597'><i>Validating Security Requirement Specifications through the use of a Knowledge Graph</i></a></span>, primary author Sarah Reynolds<i> - 2023 IEEE 18th International Conference on Semantic Computing (ICSC)</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Dec 2022</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4703235'><i>An Ontology Based Approach to the Software Engineering Lifecycle: Application to Software Quality Assurance in the Aerospace Industry</i></a></span><i> - SSRN</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2022</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://ieeexplore.ieee.org/document/9736291'><i>An Exploration of Explainable Machine Learning Using Semantic Web Technology</i></a></span><i> - 2022 IEEE 16th International Conference on Semantic Computing (ICSC)</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2022</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Contributor in grammar, structure and spelling revision): </b><span property='title'><i>Supporting Security Requirements Engineering through the Development of the Secure Development Ontology</i></span><i> - 2022 IEEE 16th International Conference on Semantic Computing (ICSC 2022), primary author Jessica Steinmann</i></h4>
+            </div>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Oct 2019</div>
+          <div class='content'>
+            <h4 typeof='TechArticle'><b>(Contributor): </b><span property='title'><a href='https://ieeexplore.ieee.org/document/9028676'><i>Incorporating a Virtual Reality Environment in the Teaching of Analysis of Software Requirements</i></a></span> - 2019 IEEE Frontiers in Education Conference (FIE 2019), primary author Omar Ochoa</h4>
+          </div>
+        </div>
+          <h3 class='section-subtitle'>In Progress</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>-</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Secondary Author): </b><span property='title'><i>Towards A Taxonomy of ML Misbehaviors and their Software Engineering Solutions</i></span>, primary author Timothy Elvira</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>-</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><i>Knowledge Graph Relationship Inferencing using ADE20k Images, Geospatial Bounding Boxes and the Suggested Upper Merged Ontology</i></span></h4>
+            </div>
+          </div>
+          <!--
+          <div class='date-content-box'>
+            <div class='my-dates'>-</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><i>A Review of Ontology Engineering Methods</i></span></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>-</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><i>A Survey of Image and Video Representation Vocabularies</i></span></h4>
+            </div>
+          </div>
+        -->
+          <div class='date-content-box'>
+            <div class='my-dates'>-</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><i>The Software Development Life Cycle and Ontology Engineering: Defining a Structured Process for Ontology Development</i></span></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>-</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><i>Navigating the Future of Aviation: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations</i></span>, primary author Alexandra Davidoff</h4>
+            </div>
+          </div>
+          <!--
+          <div class='date-content-box'>
+            <div class='my-dates'>-</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><i>Onto-Speak: Leveraging Language Models to Generate Knowledge Graphs</i></span>, primary author Timothy Elvira</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>-</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><i>When Do You Stop Researching? Establishing Desiderata for Scientific Research Fulfillment with Semantic Web Technology</i></span></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>10% complete</div>
+            <div class='content'>
+              <h4><b>(Primary author): </b><i>A Synthesis of the Semantic Web and Linked Data Terminology</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>5% complete</div>
+            <div class='content'>
+              <h4><b>(Primary author): </b><i>GraphCraft: Web-Based Visual Ontology Engineering Software</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>5% complete</div>
+            <div class='content'>
+              <h4><b>(Primary author): </b><i>A Comparison of Top Level Ontologies: Philosophy and Practice</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>15% complete</div>
+            <div class='content'>
+              <h4><b>(Primary author): </b><i>Semantic Science: Towards a Provenance-Driven, Decentralized, Free and Open Scientific Community using Linked Data Principles</i></h4>
+            </div>
+          </div>  
+          <div class='date-content-box'>
+            <div class='my-dates'>5% complete</div>
+            <div class='content'>
+              <h4><b>(Primary author): </b><i>Improving the Provenance of Machine Learning Workflows with Linked Data Principles</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>10% complete</div>
+            <div class='content'>
+              <h4><b>(Primary author): </b><i>Markdown for Science: Restructuring the Pedantic Scientific Publishing Process with Standardized Protocols</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>5% complete</div>
+            <div class='content'>
+              <h4><b>(Primary author): </b><i>Labelled Property Graphs and RDF: A Comparison of Graph Knowledge Forms</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>5% complete</div>
+            <div class='content'>
+              <h4><b>(Primary author): </b><i>Basic Formal Ontology as a Personal Knowledge Management Tool: Tracing Individual Ancestry Using Applied Ontology</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>5% complete</div>
+            <div class='content'>
+              <h4><b>(Primary author): </b><i>Simplifying the Terminology of the Basic Formal Ontology to Accelerate Standardized Ontology Use</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>5% complete</div>
+            <div class='content'>
+              <h4><b>(Primary author): </b><i>The State of the Semantic Web in 2022: History, Contemporaries and Future Directions</i></h4>
+            </div>
+          </div>
+          -->
+          <h3 class='section-subtitle'>Colleague Theses</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>Feb 2023 - Mar 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Contributor in technical elements): </b><span property='title'><i>Eliminating Security Weaknesses in Requirement Specifications via a Knowledge Graph</i>, primary author Lynn Vonder Haar, <i>ERAU</i></span></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Nov 2022 - Mar 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Contributor in technical elements): </b><span property='title'><i>Extracting a Body of Knowledge as a First Step Towards Defining a United Software Engineering Curriculum Guideline</i>, primary author Anton Kiselev, <i>ERAU</i></span></h4>
+            </div>
+          </div>
+          <h3 class='section-subtitle'>Competition Proposals</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2023 - Apr 2023</div>
+            <div class='content'>
+              <h4><b>(Secondary author): </b><a href='https://faadatachallenge.nianet.org/'><i>Expanding the Capabilities of the NAS through AI: A White Box for the Airspace Ecosystem</i></a>, top 10 finalist, faculty advisor Omar Ochoa</h4>
+            </div>
+          </div>
+          <h3 class='section-subtitle'>Grant Proposals</h3>
+          <!--
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2023</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(PI): </b><span property='title'><i>From Legacy to Compliant: Investigating the Role of ChatGPT in Aligning Cybersecurity Requirements to ISO Standards</i> – OpenAI Cybersecurity Grant, $10,000</span></h4>
+            </div>
+          </div>
+          -->
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2022</div>
+            <div class='content'>
+              <h4 typeof='TechArticle'><b>(Contributor in grammar, structure and spelling revision): </b><span property='title'><i>Expanding the Nation’s STEM Talent Pool by Accelerating Graduate Degree Completion in Computer, Software, and Cybersecurity Engineering</i> – NSF Award Number 2221602 amounting to $1,499,354 over the period 10/01/2022 – 09/30/2027, principal investigator Omar Ochoa, <i>ERAU</i></span></h4>
+            </div>
+          </div>
+          <h3 class='section-subtitle'>Articles</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>Feb 2023</div>
+            <div class='content'>
+              <h4><b>(Contributor in grammar, structure and spelling revision): </b><a href='https://medium.com/@alex.bikeyev/synthetic-ontologies-a-hypothesis-7197857e6e7a'><span property='title'><i>Synthetic Ontologies: A Hypothesis</i></span></a>, primary author Alexander Bikeyev</h4>
+            </div>
+          </div>
+        </section>
+      </details>
+
+      <details>
+        <summary><h2 class='section-title-collapsible'>Professional</h2></summary>
+        <section id='experience'>
+          <h3 class='section-subtitle'>Defense and AI Research Experience</h3>
+          <p>Conducted multi-year sponsored research in ML provenance, knowledge graph design, and ontology alignment (BFO/CCO). Delivered interoperable AI data schemes and explainability frameworks for defense ML pipelines. The noted dates are for physical presence with the AFRL; research was continuous, whether remote or in-person.</p>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2024 - Aug 2024</div>
+            <div class='content'>
+              <h4>SMART Scholar AI Research Scientist - ML Provenance, <i>AFRL, Rome, NY</i></h4>
+              <ul>
+                <li>Advanced provenance capture for real-time systems, with a focus on large ML pipelines</li>
+                <li>Annotated remote, fully autonomous ML platform images in CVAT</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2023 - Aug 2023</div>
+            <div class='content'>
+              <h4>SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD, <i>AFRL, Rome, NY</i></h4>
+              <ul>
+                <li>Curated multiple military documents and produced a proto-ontology in JSON-LD for recording the provenance of computer vision tasks</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2022 - Aug 2022</div>
+            <div class='content'>
+              <h4>SMART Scholar AI Research Scientist - Machine Learning Interoperability with Basic Formal Ontology (BFO), <i>AFRL, Rome, NY</i></h4>
+              <ul>
+                <li>Represented the domain of machine learning and defense operations using the Basic Formal Ontology (of Barry Smith) and the Common Core Ontologies</li>
+                <li>Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO compliance</li>
+                <li>The produced ontology allowed the answering of core competency questions useful for subject matter experts</li>
+                <li>Gained familiarity with SNOMED-CT and the OBO ontologies</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2021 - Aug 2021</div>
+            <div class='content'>
+              <h4>SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing, <i>AFRL, Rome, NY</i></h4>
+              <ul>
+                <li>Worked remotely due to COVID-19; produced new geospatial relationships between suggested upper merged ontology (SUMO) objects linked with ADE20K annotations and WKTs</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2020 - Aug 2020</div>
+            <div class='content'>
+              <h4>AFRL Scholars Remote AI Research Scientist - ML Explainability, <i>AFRL, Rome, NY</i></h4>
+              <ul>
+                <li>Worked remotely due to COVID-19 and managed to produce “explanations” for machine learning, using background semantic knowledge and the DL-Learner framework</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2019 - Aug 2019</div>
+            <div class='content'>
+              <h4>AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs, <i>AFRL, Rome, NY</i></h4>
+              <ul>
+                <li>Worked with others in “boosting” semantic graphs through ML</li>
+                <li>Modelled topics from ontologies and eventually assessed ontology quality through metrics</li>
+                <li>Produced multitudes of relevant data for the Air Force, as well as a basic ontology quality assessment framework</li>
+              </ul>
+            </div>
+          </div>
+          <h3 class='section-subtitle'>Applied R&D and Consulting Experience</h3>
+          <p>Delivered applied ontology, provenance, and AI knowledge-graph solutions for multiple clients across defense and enterprise domains, e.g., defense intelligence, nuclear systems, construction engineering, law, media analytics, and higher education.</p>
+          <hr class='collapsed-hr'>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2025</div>
+            <div class='content'>
+              <h4>Academic Consultant and Editor - <i>Cloudcell Limited</i></h4>
+              <ul>
+                <li>Provided editorial services and guidance for the publication of an academic paper in the machine learning space</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Sep 2024</div>
+            <div class='content'>
+              <h4>Reasoning Consultant - <i>Upwork</i></h4>
+              <ul>
+                <li>Consulted with a client on FOL/HOL ontology reasoning</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>July 2024</div>
+            <div class='content'>
+              <h4>Ontology Engineer - <i>Upwork</i></h4>
+              <ul>
+                <li>Developed a mid-level ontology for a discreet domain</li>
+                <li>Provided stakeholder-level documentation on OWL reasoning and description logics</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2024</div>
+            <div class='content'>
+              <h4>Nuclear Construction Ontology Engineer - <i>Upwork</i></h4>
+              <ul>
+                <li>Consulted on, and developed, an ontology to be used for nuclear facility construction process evaluation</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Feb 2024 - Apr 2024</div>
+            <div class='content'>
+              <h4>AI Consultant and Ontology Engineer - <i><a href='https://quietprofessionalsllc.com/'>Quiet Professionals</a></i></h4>
+              <ul>
+                <li>Consulted on large language models in DoD use cases</li>
+                <li>Engineered a BFO/CCO implementation for DoD data standardization</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Nov 2023 - May 2024</div>
+            <div class='content'>
+              <h4>Ontologist and Linked Data Engineer - <i><a href='https://hooray.media/'>Hooray Media</a></i></h4>
+              <ul>
+                <li>Consulted on an ontology to be integrated with a WordPress ecosystem for a local content publishing company</li>
+                <li>Developed a Linked Data taxonomy for web post content</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2023 - Jan 2024</div>
+            <div class='content'>
+              <h4>Ontologist and Knowledge Graph Engineer - <i><a href='https://www.thelink.ai/'>The Link</a></i></h4>
+              <ul>
+                <li>Consulted on an ontology for the construction industry</li>
+                <li>Engineered a system for knowledge graph extraction from construction documents</li>
+                <li>Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000 relations</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2023</div>
+            <div class='content'>
+              <h4>Legal Ontology Consultant - <i>Upwork</i></h4>
+              <ul>
+                <li>Provided insight on the design and development of a legal domain ontology in OWL</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2023</div>
+            <div class='content'>
+              <h4>Software Test Engineer - <i>Upwork</i></h4>
+              <ul>
+                <li>Tested and gave feedback for a startup scientific research platform</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Apr 2023 - May 2023</div>
+            <div class='content'>
+              <h4>Geospatial Ontology Analyst - <i>Upwork</i></h4>
+              <ul>
+                <li>Queried a large geospatial ontology with complex SPARQL</li>
+                <li>Diagnosed and fixed issues with OWL and SWRL reasoning</li>
+                <li>Produced visualizations in GraphDB and Stardog</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Mar 2023</div>
+            <div class='content'>
+              <h4>Knowledge Graph Engineer - <i>Upwork</i></h4>
+              <ul>
+                <li>Represented a specific use case for the SDLC in GraphDB using PROV and SEON</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Feb 2023 - Present</div>
+            <div class='content'>
+              <h4>Technology Consultant and Scientific Writer - <i>ForumAPI</i></h4>
+              <ul>
+                <li>Provided insight on automated documentation techniques and created artifacts related to scientific publication on a particular domain for a client startup company</li>
+                <li>Worked with the GPT API suite to generate software-related documents</li>
+                <li>Wrote and published several scientific papers</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2023 - Mar 2023</div>
+            <div class='content'>
+              <h4>Ontologist - <i><a href='https://wordlift.io/'>WordLift SEO</a> (international remote)</i></h4>
+              <ul>
+                <li>Acted as a knowledge representation consultant</li>
+                <li>Represented a client domain using Schema.org and GS1, in OWL, SWRL and SHACL</li>
+              </ul>
+            </div>
+          </div>
+          <h3 class='section-subtitle'>Graduate Positions</h3>
+            <div class='date-content-box'>
+              <div class='my-dates'>Feb 2023 - May 2023</div>
+              <div class='content'>
+                <h4>University Course Engineer - <i>The Knowledge Representation Spectrum</i></h4>
+                <ul>
+                  <li>Developed a course intended to be an extension to a relational databases course, covering the history of knowledge representation, focusing on applied ontology, Linked Data and contemporary NLP</li>
+                </ul>
+              </div>
+            </div>
+            <div class='date-content-box'>
+              <div class='my-dates'>Jan 2019 - Present</div>
+              <div class='content'>
+                <h4>AI Research Team Lead and Semantic Web Consultant, <i>ERAU Daytona</i>, team lead Omar Ochoa</h4>
+                <ul>
+                  <li>Worked on projects related to ML, NLP, Linked Data and cybersecurity; produced many papers</li>
+                  <li>Performed work with other researchers, in addition to contributing to and writing papers on a multitude of research topics, most of which centered around Semantic technology</li>
+                  <li>Acted as Semantic Web consultant for various other student researchers, in addition to providing assistance in paper review and revision</li>
+                </ul>
+              </div>
+            </div>
+          
+          <h3 class='section-subtitle'>Undergrad and Prior</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2019 - May 2019</div>
+            <div class='content'>
+              <h4>Grader for CS344 - C Programming and UNIX, <i>ERAU Daytona</i></h4>
+              <ul>
+                <li>Assessed content included Linux commands and intermediate C programming topics, such as structures, complex pointer manipulation and memory management</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2018 - Dec 2018</div>
+            <div class='content'>
+              <h4>Grader for CS315 - Data Structures and Algorithms, <i>ERAU Daytona</i>
+              </h4>
+              <ul>
+                <li>Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps, graphs, recursion, sorting and searching algorithms</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2014 - Aug 2016</div>
+            <div class='content'>
+              <h4>Customer Service Clerk, <i>Publix Supermarkets</i>
+              </h4>
+              <ul>
+                <li>Assisted customers and managed merchandise loading</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </details>
+      <details>
+        <summary><h2 class='section-title-collapsible'>Projects</h2></summary>
+        <section id='projects'>
+          <hr class='collapsed-hr'>
+          <div class='date-content-box'>
+            <div class='my-dates'>Nov 2025</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/bfobert'>BFO-BERT Classifier</a> - <i>1 member</i></h4>
+              <ul>
+                <li>A lightweight fine-tuning script for DistilBERT that classifies ontology terms as either Continuant or Occurrent in the spirit of the Basic Formal Ontology (BFO). Designed as a simple, reproducible proof of concept for text-based ontological classification.</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2023 - Dec 2023</div>
+            <div class='content'>
+              <h4>Linked Data Consultant and Scientific Writer - <i>Cloudcell</i></h4>
+              <ul>
+                <li>Researched and prepared a biomedical scientific paper to be published</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Apr 2023 - Present</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/StableDiffusionEndToEndGuide'>Stable Diffusion and Low-Rank Adaptation Testing</a> - <i>1 member</i></h4>
+              <ul>
+                <li>Used the SD WebUI, a variety of models, LoRAs and VAES, along with prompting techniques, to generate images</li>
+                <li>An investigation into the toolset for the purpose of future work on generating synthetic data for military vision models</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2022 - Dec 2022</div>
+            <div class='content'>
+              <h4>An Investigation into Computational Efficiency Optimization of Natural Language Processing Vectorization Techniques on Large Corpora in Python - <i>1 member</i></h4>
+              <ul>
+                <li>Used Numpy, Numba, Numexpr, Cython, parallel Cython and MPI to improve the computational efficiency of basic vectorization algorithms for NLP (e.g., TF-IDF and Naïve Bayes)</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>July 2022</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/bfobuddy'>BFO Buddy</a> - <i>1 member</i></h4>
+              <ul>
+                <li>A command-line Python tool for bootstrapping ontology development with BFO</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2021 - Dec 2021</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/RandomDataAnalysisProjects'>USA Obesity Rates Visualization and Analysis</a> - <i>4 members</i></h4>
+              <ul>
+                <li>A Pandas/Tableau visualization incorporating dozens of datasets with thousands of data points taken from public US Census datasets; analysis on obesity by region, age group, food quality and various other factors</li>
+                <li>Additionally, curated statistics on the World's Strongest Man competitors and performed analysis on their capabilities</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>July 2021</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/UpperMartialArtsOntology
+                '>Upper Martial Arts Ontology (UMAO)</a> - <i>1 member</i></h4>
+              <ul>
+                <li>Represented the domain of martial arts using Schema.org as the base taxonomy, and Bruce Lee's Jeet Kune Do book as the lexicon</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2021 - May 2021</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/CS540_Project'>Volusia County Parcel Elevation Visualization with SQL and QGIS</a> - <i>1 member</i></h4>
+              <ul>
+                <li>A QGIS visualization utilizing several public shape files to display the approximate sea-level elevation of all parcels in Volusia County Florida</li>
+                <li>Used several complex GIS functions to perform contour line elevation calculations and QGIS to visualize it</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2020 - Dec 2020</div>
+            <div class='content'>
+              <h4>BitTorrent Systems Engineering Management Plan - <i>1 member</i></h4>
+              <ul>
+                <li>Produced an entire systems plan for the BitTorrent protocol and application, as a case study</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2020 - May 2020</div>
+            <div class='content'>
+              <h4>Microsoft Word Usability Desiderata - <i>1 member</i></h4>
+              <ul>
+                <li>Evaluated the usability of Microsoft Word's UX using the System Usability Scale and the Nielsen-Norman 5-point Likert scale</li>
+                <li>Developed UX personas and validated their accuracy with three empirical studies on personal contacts, using a systematized test plan</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2019 - May 2020</div>
+            <div class='content'>
+              <h4>EcoCar - <i>6 teams, 6 members each</i></h4>
+              <ul>
+                <li>Assisted Embry-Riddle's EcoCar team with the car's autopilot function</li>
+                <li>Was a member of the "core" team responsible for all system documentation, including user stories, requirements documents, Kanban board management, design documents and test plans</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2019 - Feb 2020</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/knowyourmeme.com-Crawler'>Meme Ontology and Clustering Analysis</a> - <i>3 members</i></h4>
+              <ul>
+                <li>Scraped the website knowyourmeme.com and derived a taxonomy for memes</li>
+                <li>Populated this taxonomy with over ten thousand memes and performed cluster analysis to find meme categories</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>July 2019 - Present</div>
+            <div class='content'>
+              <h4>Network Attached Storage (NAS) Server - <i>1 member</i></h4>
+              <ul>
+                <li>Built a personal NAS server with 16TB of hard drive space in RAID-1</li>
+                <li>Populated personal data, practiced standardized data naming conventions, organizational principles, governance techniques and security measures on a LAN</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2019</div>
+            <div class='content'>
+              <h4><a href='https://ldjam.com/events/ludum-dare/44/grim'>Ludum Dare 44</a> - <i>2 members</i></h4>
+              <ul>
+                <li>Produced a game in a 48 hour game jam</li>
+                <li>Placed top 3% globally</li>
+                <li>Responsible for all art and music</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Feb 2019</div>
+            <div class='content'>
+              <h4><a href='https://devpost.com/software/arocket'>ARocket</a> - <i>4 members</i></h4>
+              <ul>
+                <li>Produced an augmented reality application for Android phones using Unity and C# for the 2019 Hackathon at ERAU Daytona, winning 3rd place</li>
+                <li>The application allowed the user to create and launch a rocket in a virtual-physical space, in addition to refueling and landing the craft</li>
+                <li>Sourced and created all the audio and visual media for the application, in addition to implementing some physics</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2019 - May 2019</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/VxWorksWaterHeater'>VxWorks C Water Heater Simulation</a> - <i>1 member</i></h4>
+              <ul>
+                <li>Simulated the real-time system of a water heater in VxWorks C, utilizing complex techniques with semaphores, watchdogs and various other multithreading concepts</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2019 - May 2019</div>
+            <div class='content'>
+              <h4>Encrypted Text Messages Transmitted Via Near-Field Sound - <i>3 members</i></h4>
+              <ul>
+                <li>Used the Chirp library of Python to produce a phone app that could transmit encrypted messages over proximal sound with public key encryption</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2018 - Dec 2018</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/SOS-Game-LAN-Capable'>LAN Multiplayer Board Game</a> - <i>1 member</i></h4>
+              <ul>
+                <li>A 2D board game similar to Tic-Tac-Toe</li>
+                <li>Strict model-view separation and multithreading was implemented</li>
+                <li>Connectivity via LAN with the separate codebase of other students using a common interface of serialized classes and TCP sockets</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2018 - May 2018</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/mhw'>Monster Hunter: World Player Support Project (MHW:PSP)</a> - <i>2 members</i></h4>
+              <ul>
+                <li>Created a Java/MySQL application for players of the game Monster Hunter: World</li>
+                <li>Populated 22 tables with over 1500 game-accurate entries</li>
+                <li>Developed MySQL schema using PHPMyAdmin, connected the Java code to the database using JDBC, designed and created the user interface (UI) and all functionality</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2017 - Dec 2017</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/EagleListings'>EagleListings</a> - <i>5 members</i></h4>
+              <ul>
+                <li>Created a Java/MySQL application for sales between students of ERAU Daytona</li>
+                <li>Implemented the database interface using JDBC, designed and created the UI</li>
+                <li>Acted as the SCRUM master for the team</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2017 - May 2017</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/TilesGame'>Tiles</a> - <i>1 member</i></h4>
+              <ul>
+                <li>Created a fast-paced clicker game in Java</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2016 - Dec 2016</div>
+            <div class='content'>
+              <h4><a href='https://github.com/PR0CK0/C_TextBasedRacingGame'>Text-Based Racing Game</a> - <i>1 member</i></h4>
+              <ul>
+                <li>Created a text-based, console racing game supporting up to four players in C</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2016 - Dec 2016</div>
+            <div class='content'>
+              <h4>Boe-Bot Line Follower Robot - <i>3 members</i></h4>
+              <ul>
+                <li>Built and programmed an Arduino robot to follow lines and respond to the position of various colored objects</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </details>
+
+      <details>
+        <summary><h2 class='section-title-collapsible'>Notable Citations</h2></summary>
+        <hr class='collapsed-hr'>
+        <section id='clearances'>
+          <div class='date-content-box'>
+            <div class='my-dates'>Feb 2025</div>
+            <div class='content'>
+              <h4>Cited by a <a href='https://dl.acm.org/doi/abs/10.1145/3677052.3698671?casa_token=Td2wYmFBO1gAAAAA:QXj5Ix0y7WW7J_Zt4d8Nf0l9kxjoL9ZgZWkBm5gcUdDHFoyokSh98T92x3mZZVIPxDFtCCu4g5g'>BlackRock + NVIDIA paper</a></h4>
+            </div>
+          </div>
+        </section>
+      </details>
+
+      <details>
+        <summary><h2 class='section-title-collapsible'>Talks</h2></summary>
+        <hr class='collapsed-hr'>
+        <h3 class='section-subtitle'>Podcasts</h3>
+        <section id='clearances'>
+          <div class='date-content-box'>
+            <div class='my-dates'>Nov 2023</div>
+            <div class='content'>
+              <h4><a href='https://www.linkedin.com/posts/hughseaton_tyler-procko-powering-ai-with-ontology-at-activity-7135290681022976000-EVpb?utm_source=share&utm_medium=member_desktop'>Powering AI with Ontology in Construction, </a><i>Constructed Futures with Hugh Seaton</i></h4>
+            </div>
+          </div>
+        </section>
+      </details>
+      
+      <details>
+        <summary><h2 class='section-title-collapsible'>Govt Clearances</h2></summary>
+        <hr class='collapsed-hr'>
+        <h3 class='section-subtitle'>Current Clearance Status</h3>
+        <p>I am cleared for Secret T3 but do not continually retain an explicit clearance.</p>
+        <h3 class='section-subtitle'>Past Clearances</h3>
+        <section id='clearances'>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2023 - Nov 2023</div>
+            <div class='content'>
+              <h4>Confidential, <i>cleared by DCSA, retained by USRA</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2022 - Nov 2022</div>
+            <div class='content'>
+              <h4>Confidential, <i>cleared by DCSA, retained by USRA</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2019 - Nov 2019</div>
+            <div class='content'>
+              <h4>Secret, <i>cleared by DCSA, retained by USRA</i></h4>
+            </div>
+          </div>
+        </section>
+      </details>
+
+      <details>
+        <summary><h2 class='section-title-collapsible'>Certificates</h2></summary>
+        <hr class='collapsed-hr'>
+        <section>
+          <div class='date-content-box'>
+            <div class='my-dates'>In Progress</div>
+            <div class='content'>
+              <h4>Security+, <i>CompTIA</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>In Progress</div>
+            <div class='content'>
+              <h4>Semantic Web Technologies, <i>Hasso Plattner Institute</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Oct 2024</div>
+            <div class='content'>
+              <h4><a href='https://www.upwork.com/freelancers/~01a0532dff7b928594'>Machine Learning</a>, <i>Upwork</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2024</div>
+            <div class='content'>
+              <h4><a href='https://coursera.org/share/c4fca9ebb94a0b28c4abdf29bd58fce1'>Machine Learning Specialization</a>, <i>Stanford DeepLearning.AI</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2023</div>
+            <div class='content'>
+              <h4><a href='https://www.linkedin.com/learning/certificates/362f6d53e97eaa88666ee2b0c90242871ba3b7e314a6b0d9f18d9a7abf7a9317'>MLOps Essentials: Model Deployment and Monitoring</a>, <i>LinkedIn Learning</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2023</div>
+            <div class='content'>
+              <h4><a href='https://www.linkedin.com/learning/certificates/7f7c4b05b91c1998103d4ad8f33c3ba3b97f2ab33f4c50b845d7e9ce8c8b4c25'>MLOps Essentials: Model Development and Integration</a>, <i>LinkedIn Learning</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2023</div>
+            <div class='content'>
+              <h4><a href='https://www.linkedin.com/learning/certificates/58b8794a8dc321620401e4c3deda53d52d2df7a3ac471d248e135d9b2d2c9fec'>How to Research and Write Using Generative AI Tools</a>, <i>LinkedIn Learning</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2023</div>
+            <div class='content'>
+              <h4><a href='https://www.linkedin.com/learning/certificates/7808aeffcf04a28fa518189446d36a70559caf3a8eeea31d988e05f1d1b57cb1'>GPT-4: The New GPT Release</a>, <i>LinkedIn Learning</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2023</div>
+            <div class='content'>
+              <h4><a href='https://www.linkedin.com/learning/certificates/744a9027f4c0eb5460e36665c404743b5fe94b507eff6f411493a1f52e89beac'>Prompt Engineering: How to Talk to the AIs</a>, <i>LinkedIn Learning</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Mar 2023</div>
+            <div class='content'>
+              <h4><a href='https://www.credly.com/badges/a3882756-7f83-4696-86ee-82736d713230/public_url'>Remote Work Professional</a>, <i>CertiProf</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Nov 2022</div>
+            <div class='content'>
+              <h4><a href='https://www.credly.com/badges/b3357b55-5b36-40b9-8a9f-f1ea50463a2b/public_url'>Data Analytics Professional</a>, <i>Google</i></h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Nov 2022</div>
+            <div class='content'>
+              <h4>Essential Editing and Proofreading, <i>Virtued Academy International (IAOTH)</i></h4>
+            </div>
+          </div>
+        </section>
+      </details>
+
+      <details>
+        <summary><h2 class='section-title-collapsible'>Extracurriculars</h2></summary>
+        <hr class='collapsed-hr'>
+        <h3 class='section-subtitle'>Scholarly</h3>
+        <div class='date-content-box'>
+          <div class='my-dates'>Nov 2025</div>
+          <div class='content'>
+            <h4>Reviewer (1 manuscript) - <i>Discover Artificial Intelligence, Springer Nature</i></h4>
+            <h4>Reviewer (2 manuscripts) - <i>Discover Computing, Springer Nature</i></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Nov 2025</div>
+          <div class='content'>
+            <h4>Creator - <i><a href='https://github.com/PR0CK0/CompTIA-Security-Study-Guides'>CompTIA Security+ SYS-701 Study Guide Dump</a></i></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Jan 2025</div>
+          <div class='content'>
+            <h4>Reviewer (1 manuscript) - <i>Wireless Communications Magazine, IEEE</i></h4>
+            <h4>Reviewer (2 manuscripts) - <i>Discover Computing, Springer Nature</i></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Nov 2024</div>
+          <div class='content'>
+            <h4>Reviewer (1 manuscript) - <i>Discover Artificial Intelligence, Springer Nature</i></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Mar 2024</div>
+          <div class='content'>
+            <h4>Reviewer (4 manuscripts) - <i>2024 IEEE ASEE Frontiers in Education (FIE)</i></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Jan 2024</div>
+          <div class='content'>
+            <h4>Participated in public review of the <a href='https://www.computer.org/education/bodies-of-knowledge/software-engineering/v4'>SWEBOK v4 guide</a></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>May 2023</div>
+          <div class='content'>
+            <h4>Contributor to the <a href='https://github.com/monarch-initiative/ontogpt'>DAIR Prompt Engineering Guide</a></h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>May 2023</div>
+          <div class='content'>
+            <h4>Contributor to the <a href='https://github.com/dair-ai/Prompt-Engineering-Guide'>OntoGPT</a> Github</h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Apr 2023</div>
+          <div class='content'>
+            <h4>Contributor to the <a href='https://github.com/zhengzangw/awesome-huge-models'>Huge AI Models</a> Github</h4>
+          </div>
+        </div>
+        <div class='date-content-box'>
+          <div class='my-dates'>Mar 2023</div>
+          <div class='content'>
+            <h4>Reviewer (2 manuscripts) - <i>2023 IEEE ASEE Frontiers in Education (FIE)</i></h4>
+          </div>
+        </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Nov 2022</div>
+            <div class='content'>
+              <h4>Contributor to <i>Practical Natural Language Processing</i> (Vajalla et al.) errata </h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>July 2022</div>
+            <div class='content'>
+              <h4>Contributor to the Common Core Ontologies</h4>
+              <ul>
+                <li>Provided clarification of term definitions and term spelling in the official Common Core Ontologies Github repository</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>July 2022</div>
+            <div class='content'>
+              <h4>Contributor to the Semantalytics Awesome Semantic Web list</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2022</div>
+            <div class='content'>
+              <h4>Created a summarized list of <a href='https://github.com/PR0CK0/awesome-bfo'>BFO and BFO-related resources</a> for other researchers</h4>
+            </div>
+          </div>
+
+          <h3 class='section-subtitle'>Organizations</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>Sep 2023 - Present</div>
+            <div class='content'>
+              <h4>IEEE - Member (#98174383)</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Dec 2021 - Present</div>
+            <div class='content'>
+              <h4>American Society for Engineering Education - Member</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2019 - Jan 2020</div>
+            <div class='content'>
+              <h4>White Hat Eagles Cybersecurity Club (WHECS) - Member</h4>
+              <ul>
+                <li>Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book</li>
+                <li>Engaged in several hands-on activities dealing with hacking</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2018 - Jan 2019</div>
+            <div class='content'>
+              <h4>Embry-Riddle Artificial Intelligence Club - Member</h4>
+              <ul>
+                <li>Worked with genetic algorithms in a variety of scenarios</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class='section-subtitle'>Volunteer</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>Nov 2023 - Present</div>
+            <div class='content'>
+              <h4>Audio/Visual Technician, <i>River Road Baptist Church, Hilliard, FL</i>
+              </h4>
+              <ul>
+                <li>Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an in-person audience of ~100 and a livestream audience of ~10</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Jan 2014 - Present</div>
+            <div class='content'>
+              <h4>Personal Computer Construction Consultant, <i>Remote/In-Person</i>
+              </h4>
+              <ul>
+                <li>Assisted personal contacts with computer construction and computer setup</li>
+                <li>Resolved computer, network, software and peripheral issues</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Pre-2016 - 50+ hours</div>
+            <div class='content'>
+              <h4>All-rounder, <i>Nassau County Public Library</i></h4>
+              <ul>
+                <li>Labeling and returning books, assisting customers; periodic maintenance of the library database software</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Pre-2016 - 100+ hours</div>
+            <div class='content'>
+              <h4>Shrimp Fest Worker, <i>Prince of Peace Lutheran Church</i></h4>
+              <ul>
+                <li>Preparing food, cashiering and assisting customers</li>
+              </ul>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Pre-2016 - 10+ hours</div>
+            <div class='content'>
+              <h4>Class Ambassador, <i>Hugh O'Brian Youth Leadership Program</i></h4>
+              <ul>
+                <li>Selected as one out of 200+ students to represent my high-school in a leadership summit</li>
+                <li>Learned effective interpersonal relational, communication and leadership skills</li>
+              </ul>
+            </div>
+          </div>
+      </details>
+
+      <details>
+        <summary><h2 class='section-title-collapsible'>Standards</h2></summary>
+        <hr class='collapsed-hr'>
+        <section id='standards'>
+          <h3 class='section-subtitle'>Proficient</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>CIA Triad</div>
+            <div class='content'>
+              <h4>The basis of all my secure software engineering</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SWEBOK</div>
+            <div class='content'>
+              <h4>Not precisely a standard, but used in software engineering as a common reference manual; the subject of a lot of my work over the years</h4>
+            </div>
+          </div>
+          <h3 class='section-subtitle'>Familiar</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>MITRE ATT&CK</div>
+            <div class='content'>
+              <h4>Used in cybersecurity projects</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>MITRE D3FEND</div>
+            <div class='content'>
+              <h4>Used in cybersecurity projects</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>MasterFormat & SectionFormat 2020</div>
+            <div class='content'>
+              <h4>Parsed the entirety of MasterFormat and SectionFormat and built knowledge graphs for them</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>ISO/IEC/IEEE 12207:2017</div>
+            <div class='content'>
+              <h4>"SDLC standard", familiar with the concepts and applications</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>ISO 690:2021</div>
+            <div class='content'>
+              <h4>Familiar with the concepts and implementation of bibliographic referencing</h4>
+            </div>
+          </div>
+          <h3 class='section-subtitle'>Acquainted</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>MIL-STD-40051/1</div>
+            <div class='content'>
+              <h4>Know the standard and have read it</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>MIL-STD-12D</div>
+            <div class='content'>
+              <h4>Have studied and parsed the document in an earlier project</h4>
+            </div>
+          </div>
+        </section>
+      </details>
+
+      <details>
+        <summary><h2 class='section-title-collapsible'>Courses</h2></summary>
+        <section id='courses'>
+          <hr class='collapsed-hr'>
+          <div class='date-content-box'>
+            <div class='my-dates'>PS150, PS160, PS250, PS253</div>
+            <div class='content'>
+              <h4>Engineering Physics I, II & III</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>EGR101</div>
+            <div class='content'>
+              <h4>Introduction to Engineering</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS223</div>
+            <div class='content'>
+              <h4>Scientific Programming in C</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS222</div>
+            <div class='content'>
+              <h4>Introduction to Discrete Structures</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>COM221</div>
+            <div class='content'>
+              <h4>Technical Report Writing</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS225, CS225L</div>
+            <div class='content'>
+              <h4>Computer Science II (Java)</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CEC220, CEC222</div>
+            <div class='content'>
+              <h4>Digital Circuit Design</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>AS120</div>
+            <div class='content'>
+              <h4>Principles of Aeronautical Science</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SE300</div>
+            <div class='content'>
+              <h4>Software Engineering Practices</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>MA305</div>
+            <div class='content'>
+              <h4>Introduction to Scientific Computing</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS315</div>
+            <div class='content'>
+              <h4>Data Structures Analysis and Algorithms</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SE310</div>
+            <div class='content'>
+              <h4>Analysis and Design of Software Systems</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>MA412</div>
+            <div class='content'>
+              <h4>Probability and Statistics</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS317</div>
+            <div class='content'>
+              <h4>Files and Database Systems</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CEC320, CEC322</div>
+            <div class='content'>
+              <h4>Microprocessor Systems</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SE320</div>
+            <div class='content'>
+              <h4>Software Construction</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>EC225</div>
+            <div class='content'>
+              <h4>Engineering Economics</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS332</div>
+            <div class='content'>
+              <h4>Organization of Programming Languages</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CEC470</div>
+            <div class='content'>
+              <h4>Computer Architecture</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SE410</div>
+            <div class='content'>
+              <h4>Software Modeling</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS428</div>
+            <div class='content'>
+              <h4>Applied Cryptography</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS303</div>
+            <div class='content'>
+              <h4>Network Security</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CEC450</div>
+            <div class='content'>
+              <h4>Real-Time Systems</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>HF300</div>
+            <div class='content'>
+              <h4>Human Factors I: Principles and Fundamentals</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS426</div>
+            <div class='content'>
+              <h4>Digital Forensics</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS420</div>
+            <div class='content'>
+              <h4>Operating Systems</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SE625</div>
+            <div class='content'>
+              <h4>Software Quality Engineering and Assurance</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SE450, SE451</div>
+            <div class='content'>
+              <h4>Software Capstone Projects I & II</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>HF325</div>
+            <div class='content'>
+              <h4>Human Factors and System Safety</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>HF310</div>
+            <div class='content'>
+              <h4>Human-Computer Interaction</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SYS500</div>
+            <div class='content'>
+              <h4>Fundamentals of Systems Engineering</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SE610</div>
+            <div class='content'>
+              <h4>Software System Architecture and Design</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SE530</div>
+            <div class='content'>
+              <h4>Software Requirements Engineering</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SE510</div>
+            <div class='content'>
+              <h4>Software Project Management</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS540</div>
+            <div class='content'>
+              <h4>Databases and Data Retrieval</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>CS527</div>
+            <div class='content'>
+              <h4>System Exploitation and Penetration Testing</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>MA544</div>
+            <div class='content'>
+              <h4>Data Visualization</h4>
+            </div>
+          </div>    
+          <div class='date-content-box'>
+            <div class='my-dates'>CS532</div>
+            <div class='content'>
+              <h4>Software Security Assessment</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>SYS560</div>
+            <div class='content'>
+              <h4>Introduction to Systems Engineering Management</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>HFS620</div>
+            <div class='content'>
+              <h4>Memory and Cognition</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>MA553</div>
+            <div class='content'>
+              <h4>High-Performance Scientific Computing</h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>HFS525</div>
+            <div class='content'>
+              <h4>Human, Social & Organizational Factors in Emerging Technologies</h4>
+            </div>
+          </div>   
+          <div class='date-content-box'>
+            <div class='my-dates'>SE550</div>
+            <div class='content'>
+              <h4>Current Trends in Software Engineering</h4>
+            </div>
+          </div> 
+          <div class='date-content-box'>
+            <div class='my-dates'>EGR600</div>
+            <div class='content'>
+              <h4>Research Methods for Engineers</h4>
+            </div>
+          </div>     
+          <div class='date-content-box'>
+            <div class='my-dates'>SE690</div>
+            <div class='content'>
+              <h4>Graduate Research Project</h4>
+            </div>
+          </div>   
+          <div class='date-content-box'>
+            <div class='my-dates'>SE800</div>
+            <div class='content'>
+              <h4>Dissertation Hours</h4>
+            </div>
+          </div>       
+        </section>
+      </details>
+
+      <section id='skills'>
+        <h2 class='section-title'>Skills</h2>
+        <hr>
+        <div class='double-column'>
+          <div class='column'>
+            <h3 class='section-subtitle'>Spoken Languages</h3>
+            <ul>
+              <li>English (fluent)</li>
+              <!--<li>Ukrainian (conversational)</li>-->
+            </ul>
+            <h3 class='section-subtitle'>Software Languages</h3>
+              <ul>
+                <li><b>8+ years</b> in Java/JavaFX, C, Python, HTML, CSS and Markdown</li>
+                <li><b>7+ years</b> in most common RDF serializations and corrolaries: OWL-XML, Turtle, TriG, SHACL, SWRL etc.</li>
+                <li><b>7+ years</b> in most common data storage/query languages: XML, JSON, SQL, SPARQL, GeoSPARQL, Cypher</li>
+                <li><b>2+ years</b> in JavaScript, C# and Fortran</li>
+                <li><b>1 year</b> use of Ruby/Rails, sqlite3, Devise and R</li>
+              </ul>
+              <h3 class='section-subtitle'>Software Libraries</h3>
+              <ul>
+                <li><b>Java:</b> all common libraries, JavaFX, Swing, multithreading, socketing, JDBC, Jackson, json-simple, JSoup, OwlAPI, Apache Jena, etc.</li>
+                <li><b>Python:</b> all common libraries, OpenAI, NumPy, Pandas, PyTorch, TensorFlow, Numba, Numexpr, Cython, multiprocessing, mpi4py, Matplotlib, Seaborn, sklearn, NLTK, Chirp, RDFLib, SPARQLWrapper, etc.</li>
+              </ul>
+            <h3 class='section-subtitle'>Operating Systems</h3>
+            <ul>
+              <li>Windows XP, Vista, 7, 8, 10 and 11</li>
+              <li>Linux (Ubuntu distributions), Kali, RedHat</li>
+              <li>Android OS</li>
+              <li>Google Colab</li>
+              <li>XigmaNAS</li>
+            </ul>
+            <h3 class='section-subtitle'>Remote Collaboration Apps</h3>
+            <ul>
+              <li>Google Cloud products</li>
+              <li>MS Teams</li>
+              <li>Skype</li>
+              <li>Slack</li>
+              <li>Zoom</li>
+              <li>Discord, Element, various other IRC services</li>
+            </ul>
+            <h3 class='section-subtitle'>Office Software</h3>
+            <ul>
+              <li>All Microsoft products (Onedrive, Word, Excel, PowerPoint, OneNote, Outlook, Teams)</li>
+              <li>All LibreOffice products (Writer, Calc, Impress, Draw)</li>
+              <li>All Google products (Drive, Docs, Sheets, Slides)</li>
+              <li>LaTeX</li>
+              <li>Mega</li>
+              <li>Distributed tracked changes editing with large teams</li>
+            </ul>
+          </div>
+          <div class='column'>
+            <h3 class='section-subtitle'>Engineering Software</h3>
+            <ul>
+              <li>Git/Github (desktop, web, command line), Jira, Bitbucket, Confluence</li>
+              <li>Protégé, Stardog, TriplyDB, GraphDB, Neo4j, MongoDB, GraphViz, Ontotext Refine</li>
+              <li>Eclipse IDE and Maven integration</li>
+              <li>Visual Studio Code</li>
+              <li>GoDaddy domain management, Heroku</li>
+              <li>Trello and other Kanban platforms</li>
+              <li>Google Cloud Platform (BigQuery, Speech to Text)</li>
+              <li>MySQL (w/JDBC), PHPMyAdmin, PostgreSQL, PostGIS</li>
+              <li>Passing familiarity with AWS databases, Docker, Kubernetes</li>
+              <li>QGIS</li>
+              <li>Wikidata and Wikimedia-related tools</li>
+              <li>Jupyter Notebook</li>
+              <li>Concurrent C programming in VxWorks</li>
+            </ul>
+            <h3 class='section-subtitle'>Consistently-Used Vocabularies</h3>
+            <ul>
+              <li>OWL, RDF, RDFS, SKOS, BFO, CCO, DICO, JANES, SUMO, UFO, GFO, Schema.org, WordNet, DCTerms, FOAF, PROV, GeoSPARQL, SPAR family, BIBO, SEON, SE-ON, MLSchema, ANNO, ANNETTO, OntoDM, IAO, DOLCE and many others</li>
+            </ul>
+            <h3 class='section-subtitle'>Design/Analysis Software</h3>
+            <ul>
+              <li>Tableau, RStudio</li>
+              <li>Kaggle</li>
+              <li>Google SketchUp and AutoCAD LTE</li>
+              <li>Wireframe software (Balsamiq, Mockingbird)</li>
+              <li>Diagramming software (Draw.io, LucidChart, UML tools)</li>
+              <li>Unity game engine with C# scripts</li>
+              <li>Adobe products (Photoshop, Illustrator, After Effects)</li>
+            </ul>
+            <h3 class='section-subtitle'>Manuscript Formats</h3>
+            <ul>
+              <li><b>7+ years</b> working with IEEE double column manuscripts</li>
+              <li><b>7+ years</b> working with Elsevier-style single column manuscripts</li>
+            </ul>
+            <h3 class='section-subtitle'>AI Tools</h3>
+            <ul>
+              <li>OpenAI's GPT series (including API work in Python), Microsoft Copilot, Grok, Claude Anthropic</li>
+              <li>Topaz Video AI</li>
+              <li>Tensorboard, Stable Diffusion WebUI, Midjourney</li>
+              <li>CVAT</li>
+              <li>ImageNet, ADE20k, MNIST, CIFAR-10, CIFAR-100, COCO, Places365</li>
+              <li>AlexNet, VGGNet, ResNet, YOLO, CLIP</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id='references'>
+        <h2 class='section-title'>References</h2>
+        <hr>
+        <div class='double-column'>
+          <div class='column'>
+            <h3 class='section-subtitle'>Dr. Omar Ochoa</h3>
+            <ul>
+              <li>Associate Professor and Program Coordinator for M.S. in Computer Science and M.S. in Software Engineering, Embry-Riddle Aeronautical University</li>
+              <li><a href='mailto:ochoao@erau.edu'><i>ochoao@erau.edu</i></a></li>
+            </ul>
+            <h3 class='section-subtitle'>Dr. Nicholas Del Rio</h3>
+              <ul>
+                <li>Computer Scientist, Air Force Research Laboratory - Information Directorate</li>
+                <li><a href='mailto:nicholas.del_rio@us.af.mil'><i>nicholas.del_rio@us.af.mil</i></a></li>
+                <li><a href='mailto:nicholas.delrio@gmail.com'><i>nicholas.delrio@gmail.com</i></a></li>
+              </ul>
+          </div>
+          <div class='column'>
+            <h3 class='section-subtitle'>Dr. Massood Towhidnejad</h3>
+            <ul>
+              <li>Chair and Professor of the Electrical Engineering and Computer Science Department, Embry-Riddle Aeronautical University</li>
+              <li><a href='mailto:towhid@erau.edu'><i>towhid@erau.edu</i></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <details>
+        <summary><h2 class='section-title-collapsible'>Relevant Literacy</h2></summary>
+        <section id='literacy'>
+          <h3 class='section-subtitle'>Not including reviewed scientific literature</h3>
+          <hr class='collapsed-hr'>
+          <div class='date-content-box'>
+            <div class='my-dates'>Feb 2023 (WIP)</div>
+            <div class='content'>
+              <h4><i>A Knowledge Representation Practionary</i>, Michael K. Bergman</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Sep 2022</div>
+            <div class='content'>
+              <h4><i>An Enquiry Concerning Human Understanding</i>, David Hume</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Aug 2022</div>
+            <div class='content'>
+              <h4><i>Practical Natural Language Processing</i>, Vajjala et al.</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>July 2022</div>
+            <div class='content'>
+              <h4><i>Of Empire</i>, Francis Bacon</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2022</div>
+            <div class='content'>
+              <h4><i>Building Ontologies with BFO</i>, Smith et al.</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>June 2021</div>
+            <div class='content'>
+              <h4><i>The Prince and Discourses on Livy</i>, Niccolò Machiavelli</h4>
+            </div>
+          </div>
+        </section>
+      </details>
+      <details>
+        <summary><h2 class='section-title-collapsible'>Dated Things</h2></summary>
+        <section id='dated-things'>
+          <hr class='collapsed-hr'>
+          <h3 class='section-subtitle'>This section...</h3>
+          <p>... is my attempt at documenting some of my very oldest achievements. They are not necessarily relevant now, but in the interest of completeness, I am including it all here.</p>
+          <h3 class='section-subtitle'>Quantifications</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>ACT Reading/Writing: Top 1%</div>
+            <div class='content'>
+              <h4>I took this as part of my entrance to the SMART program; I need to request my scores to get the proper numbers</h4>
+            </div>
+          </div>
+          <h3 class='section-subtitle'>Junior High / High-School</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2016</div>
+            <div class='content'>
+              <h4>President's Education Awards Program - Outstanding Academic Excellence</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>May 2016</div>
+            <div class='content'>
+              <h4>Principal's List - All A Honor Roll</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>10th - 12th Grade</div>
+            <div class='content'>
+              <h4>Member - National Honor Society</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>?10th? Grade</div>
+            <div class='content'>
+              <h4>Participant in a regional math contest; team won 5th place</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>?10th? Grade</div>
+            <div class='content'>
+              <h4>Member - Science Club</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>?10th? Grade</div>
+            <div class='content'>
+              <h4>1st place in a physics class contest for an egg-drop survival test</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>?9th? Grade</div>
+            <div class='content'>
+              <h4>Winner of a creative essay contest</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>?9th? Grade</div>
+            <div class='content'>
+              <h4>1st Place - FAACS Fine Arts Competition</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>7th - 9th Grade</div>
+            <div class='content'>
+              <h4>Member - National Junior Honor Society</h4>
+            </div>
+          </div>
+          <h3 class='section-subtitle'>Elementary School</h3>
+          <div class='date-content-box'>
+            <div class='my-dates'>3rd - 6th Grade</div>
+            <div class='content'>
+              <h4>Member - Beta Club</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>3rd Grade</div>
+            <div class='content'>
+              <h4>3rd Place - 2006 FAACS Regional Spelling Bee</h4>
+            </div>
+          </div>
+        </section>
+      </details>
+      <details>
+        <summary><h2 class='section-title-collapsible'>About Me</h2></summary>
+        <section id='about-me'>
+          <hr class='collapsed-hr'>
+          <div class='date-content-box'>
+            <div class='my-dates'>Birth Year</div>
+            <div class='content'>
+              <h4>1997</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>MBTI Type</div>
+            <div class='content'>
+              <h4>INTJ-T as a teenager ... ENTJ-T as a man</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Hobbies</div>
+            <div class='content'>
+              <h4>Reading, weightlifting, triathlon, martial arts, drawing, carpentry, machining, banjo, tool collecting</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Favorite Artists</div>
+            <div class='content'>
+              <h4>William-Adolphe Bouguereau, Frank Frazetta</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Favorite Music</div>
+            <div class='content'>
+              <h4>Classical, Old Country, Dad Rock</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Favorite Books</div>
+            <div class='content'>
+              <h4>Discourses on Livy (Machiavelli), The Count of Monte Cristo (Dumas), Paradise Lost (Milton), Endurance (Lansing), Redwall series (Jacques)</h4>
+            </div>
+          </div>
+          <div class='date-content-box'>
+            <div class='my-dates'>Favorite Show</div>
+            <div class='content'>
+              <h4>The Sopranos</h4>
+            </div>
+          </div>
+        </section>
+      </details>
+    </article>
+  </main>
+
+  <hr>
+
+  <footer>
+    <div class='footer-column'>
+      <p class='footer-text'>Proudly hosted for free with Github Pages.</p>
+      <p class='footer-text-fun'>Every line written by hand with pure HTML and CSS.</p>
+      <p class='footer-text-fun'>Site last updated: 11/10/2025</p>
+      <div class='bottom-icon-bar'>
+        <a href='https://validator.w3.org/check?uri=pr0ck0.github.io' class='bottom-icon'>
+          <img src='icons/valid-html40.png' alt='W3C HTML 4.0 Validator logo'>
+        </a>
+        <a href='http://linter.structured-data.org/?url=https:%2F%2Fwww.procko.pro' class='bottom-icon'>
+          <img src='icons/sw-rdfa-blue.png' alt='W3C RDFa logo'>
+        </a>
+      </div>
+      <div class='bottom-icon-bar'>
+        <a href='https://notbyai.fyi' class='bottom-icon'>
+          <img src='icons/wbh.png' alt='NotByAI logo'>
+        </a>
+      </div>
+    </div>
+    </div>
+    
+  </footer>
+</body>
+</html>
+
+<!--
+
+  https://www.w3.org/TR/rdfa-lite/
+  https://www.w3.org/2005/11/MWI-Icons/
+  https://www.w3.org/2007/10/sw-logos.html
+  https://validator.w3.org/docs/help.html#manual
+  https://www.w3.org/QA/Tools/Icons
+-->
