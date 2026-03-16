@@ -1,0 +1,179 @@
+.construction {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.1rem;
+  color: red;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(240 240 240);
+}
+
+/* similar to the date-content-box in the main page, except 3 columns */
+.three-col-box {
+  display: flex;
+  align-items: top;
+  justify-content: space-evenly;
+  margin-bottom: 5px;
+  padding: 5px;
+
+  gap: 10px;
+
+  background-image:
+  linear-gradient(to right, rgba(255, 255, 255, 1),
+    rgba(55, 55, 55, .1),
+    rgba(255, 255, 255, 1));
+}
+
+/* i don't know why i need this now but that is the beauty of untraceable CSS :') */
+details section p {
+  margin-bottom: 7px;
+}
+
+.col1 {
+  flex: 2;
+  font-weight: 600;
+}
+
+.col2 {
+  flex: 4;
+}
+
+.col3 {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  justify-content: right;
+}
+
+.col3 h4 a {
+  background-color: rgb(240, 240, 240);
+  padding: 3px;
+}
+
+@media only screen and (max-width: 650px) {
+  .col1 {
+    font-size: .75rem;
+  }
+}
+
+
+
+/**/
+/* personal page */
+/**/
+
+#personal-body {
+  color: white;
+  background-color: black;
+}
+
+.pics-columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  gap: 12px;
+}
+
+.imgToggle {
+  display: none; /* Hide the checkboxes */
+}
+
+.imgLink {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.imgLink img {
+  width: 45vw;
+  transition: width 0.3s; /* Optional: Add a transition for smoother resizing */
+  border: 1px solid white;
+}
+
+/* When the checkbox is checked, increase the image size */
+/* this is so hacky and i need a new checkbox for every single image lol... no JS because github pages means ugly css teehee */
+#toggleearly_1:checked + .imgLink img,
+#toggleearly_2:checked + .imgLink img,
+#toggleearly_3:checked + .imgLink img,
+#toggleearly_4:checked + .imgLink img,
+#toggleearly_5:checked + .imgLink img,
+#toggleearly_6:checked + .imgLink img,
+#toggle2014_1:checked + .imgLink img,
+#toggle2014_2:checked + .imgLink img,
+#toggle2014_3:checked + .imgLink img,
+#toggle2014_4:checked + .imgLink img,
+#toggle2014_5:checked + .imgLink img,
+#toggle2014_6:checked + .imgLink img,
+#toggle2015_1:checked + .imgLink img,
+#toggle2015_2:checked + .imgLink img,
+#toggle2015_3:checked + .imgLink img,
+#toggle2015_4:checked + .imgLink img,
+#toggle2015_5:checked + .imgLink img,
+#toggle2015_6:checked + .imgLink img,
+#toggle2015_7:checked + .imgLink img,
+#toggle2015_8:checked + .imgLink img,
+#toggle2015_9:checked + .imgLink img,
+#toggle2015_10:checked + .imgLink img,
+#toggle2015_11:checked + .imgLink img,
+#toggle2015_12:checked + .imgLink img,
+#toggle2015_13:checked + .imgLink img,
+#toggle2015_14:checked + .imgLink img,
+#toggle2016_1:checked + .imgLink img,
+#toggle2016_2:checked + .imgLink img,
+#toggle2016_3:checked + .imgLink img,
+#toggle2016_4:checked + .imgLink img,
+#toggle2016_5:checked + .imgLink img,
+#toggle2016_6:checked + .imgLink img,
+#toggle2016_7:checked + .imgLink img,
+#toggle2016_8:checked + .imgLink img,
+#toggle2020_1:checked + .imgLink img,
+#toggle2020_2:checked + .imgLink img,
+#toggle2020_3:checked + .imgLink img,
+#toggle2020_4:checked + .imgLink img,
+#toggle2020_5:checked + .imgLink img,
+#toggle2020_6:checked + .imgLink img,
+#toggle2020_7:checked + .imgLink img,
+#toggle2020_8:checked + .imgLink img,
+#toggle2020_9:checked + .imgLink img,
+#toggle2020_10:checked + .imgLink img,
+#toggle2020_11:checked + .imgLink img,
+#toggle2020_12:checked + .imgLink img,
+#toggle2020_13:checked + .imgLink img,
+#toggle2020_14:checked + .imgLink img,
+#toggle2020_15:checked + .imgLink img,
+#toggle2020_16:checked + .imgLink img,
+#toggle2020_17:checked + .imgLink img,
+#toggle2020_18:checked + .imgLink img,
+#toggle2020_19:checked + .imgLink img,
+#toggle2020_20:checked + .imgLink img {
+  width: 95vw;
+}
+
+.personal-hr {
+  border: 0;
+  height: 1px;
+  background-image:
+  linear-gradient(to right, rgba(255, 255, 255, 0),
+    rgb(255, 255, 255),
+    rgba(255, 255, 255, 0));
+}
+
+.collapsed-personal-hr {
+  margin-top: 5px;
+}
+
+.details-personal summary:hover {
+  background-image:
+  linear-gradient(to right, rgba(55, 55, 55, 0.1),
+    rgba(255, 255, 255, 0.1),
+    rgba(225, 225, 225, 0.1),
+    rgba(155, 155, 155, .1),
+    rgba(55, 55, 55, .1),
+    rgba(0, 0, 0, 1));
+  -webkit-transition: background-image 5s ease-in-out;
+  transition: background-image 5s ease-in-out;
+}

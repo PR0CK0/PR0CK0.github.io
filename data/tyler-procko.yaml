@@ -1,0 +1,2322 @@
+id: person/tyler-procko
+name: "Tyler T. Procko, Ph.D."
+title: "AI/Knowledge Graph Engineer"
+location: "Florida, USA"
+phone: "1-904-557-8383"
+email_personal: prockotyler@gmail.com
+email_academic: prockot@my.erau.edu
+orcid: "0000-0002-7801-0124"
+website: https://procko.pro
+tagline: "Casting the net for knowledge in a sea of infinite information."
+summary: |
+  AI / Knowledge Graph Engineer | LLM-Focused | Defense ML Provenance and Ontology Specialist.
+  Ph.D. researcher with 9+ years in Java/Python, Agile machine learning, ETL, ontology design,
+  BFO/CCO standardization, and NLP for defense and aerospace applications. Experienced in GenAI,
+  LLM integration, ML pipelining, RAG systems, prompt engineering, taxonomies, graph-based
+  explainability, modular + testable software, and academic publication. Active contributor to
+  AFRL, IEEE, and DoD FAIR AI data-standardization efforts. Tools: Claude, PyTorch, TensorFlow,
+  Hugging Face, Ollama, Stable Diffusion, GraphDB. Google & Stanford Deep Learning Certified.
+clearance: "Active Secret (Tier 3)"
+availability: "Spring 2026 — TueThu 07:00-20:00 ET, SatSun 11:00-20:00 ET"
+birth_year: 1997
+mbti: ENTJ-T
+
+social_links:
+  - id: social/linkedin
+    platform: LinkedIn
+    url: https://www.linkedin.com/in/tylerprocko
+    handle: tylerprocko
+  - id: social/github
+    platform: GitHub
+    url: https://www.github.com/pr0ck0
+    handle: pr0ck0
+  - id: social/google-scholar
+    platform: "Google Scholar"
+    url: "https://scholar.google.com/citations?user=Xm7p7mQAAAAJ&hl=en"
+    handle: Xm7p7mQAAAAJ
+  - id: social/orcid
+    platform: ORCiD
+    url: https://orcid.org/0000-0002-7801-0124
+    handle: "0000-0002-7801-0124"
+  - id: social/upwork
+    platform: Upwork
+    url: "https://www.upwork.com/freelancers/~01a0532dff7b928594"
+  - id: social/fiverr
+    platform: Fiverr
+    url: https://www.fiverr.com/ytboi1
+    handle: ytboi1
+  - id: social/ssrn
+    platform: SSRN
+    url: "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5883155"
+
+education:
+  - id: edu/phd-erau
+    institution: "Embry-Riddle Aeronautical University (ERAU), Daytona Beach, FL"
+    degree: "Doctorate of Philosophy"
+    field: "Computer Science and Electrical Engineering"
+    start_date: "2020-08"
+    end_date: "2025-05"
+    gpa: 4.0
+    notes:
+      - "Dissertation: On the Provenance of Software Systems: Automating Software Traceability with Knowledge Graph and Large Language Model Synergy"
+      - "Dissertation URL: https://commons.erau.edu/edt/898/"
+      - "Dissertation GitHub: https://github.com/PR0CK0/ProvTracer"
+      - "Doctoral advisor: Dr. Omar Ochoa"
+
+  - id: edu/ms-erau
+    institution: "Embry-Riddle Aeronautical University (ERAU), Daytona Beach, FL"
+    degree: "Master of Science in Software Engineering"
+    field: "Software Engineering"
+    start_date: "2023-08"
+    end_date: "2023-12"
+    distinction: true
+    notes:
+      - "Thesis: Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering"
+      - "Thesis URL: https://commons.erau.edu/edt/784/"
+
+  - id: edu/bs-erau
+    institution: "Embry-Riddle Aeronautical University (ERAU), Daytona Beach, FL"
+    degree: "Bachelor of Science in Software Engineering"
+    field: "Software Engineering"
+    start_date: "2016-08"
+    end_date: "2020-05"
+    gpa: 3.93
+    notes:
+      - "Summa Cum Laude"
+      - "Minor in Cybersecurity Engineering"
+
+  - id: edu/aa-fscj
+    institution: "Florida State College at Jacksonville"
+    degree: "Associate in Arts"
+    field: "Arts"
+    start_date: "2014-06"
+    end_date: "2016-05"
+    gpa: 4.0
+    notes:
+      - "With high honors"
+
+  - id: edu/hs-tca
+    institution: "Trinity Christian Academy, Jacksonville, FL"
+    degree: "High School Diploma"
+    field: "General"
+    start_date: "2010-08"
+    end_date: "2016-05"
+    gpa: 3.0
+    notes:
+      - "Salutatorian"
+
+work_experiences:
+  - id: work/stealth-startup
+    title: "Principal Knowledge Architect"
+    organization: "Stealth Startup"
+    start_date: "2025-11"
+    is_current: true
+    location: Remote
+    description:
+      - "Ontology + ML + Cybersecurity"
+
+  - id: work/handshake-ai
+    title: "Independent AI Consultant"
+    organization: "Handshake AI"
+    start_date: "2025-11"
+    is_current: true
+    location: Remote
+    description:
+      - "Applied expert knowledge for generative AI model improvement"
+
+  - id: work/afrl-2024
+    title: "SMART Scholar AI Research Scientist - ML Provenance"
+    organization: "Air Force Research Laboratory (AFRL)"
+    start_date: "2024-05"
+    end_date: "2024-08"
+    location: "Rome, NY"
+    description:
+      - "Advanced provenance capture for real-time systems, with a focus on large ML pipelines"
+      - "Annotated remote, fully autonomous ML platform images in CVAT"
+    technologies:
+      - CVAT
+      - Python
+      - "ML Provenance"
+      - "Knowledge Graphs"
+
+  - id: work/afrl-2023
+    title: "SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD"
+    organization: "Air Force Research Laboratory (AFRL)"
+    start_date: "2023-05"
+    end_date: "2023-08"
+    location: "Rome, NY"
+    description:
+      - "Curated multiple military documents and produced a proto-ontology in JSON-LD for recording the provenance of computer vision tasks"
+    technologies:
+      - "JSON-LD"
+      - "Computer Vision"
+      - "Ontology Engineering"
+
+  - id: work/afrl-2022
+    title: "SMART Scholar AI Research Scientist - Machine Learning Interoperability with BFO"
+    organization: "Air Force Research Laboratory (AFRL)"
+    start_date: "2022-05"
+    end_date: "2022-08"
+    location: "Rome, NY"
+    description:
+      - "Represented the domain of machine learning and defense operations using the Basic Formal Ontology (of Barry Smith) and the Common Core Ontologies"
+      - "Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO compliance"
+      - "The produced ontology allowed the answering of core competency questions useful for subject matter experts"
+      - "Gained familiarity with SNOMED-CT and the OBO ontologies"
+    technologies:
+      - BFO
+      - CCO
+      - OWL
+      - "Protégé"
+      - "SNOMED-CT"
+
+  - id: work/afrl-2021
+    title: "SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing"
+    organization: "Air Force Research Laboratory (AFRL)"
+    start_date: "2021-05"
+    end_date: "2021-08"
+    location: "Rome, NY (remote)"
+    description:
+      - "Worked remotely due to COVID-19; produced new geospatial relationships between suggested upper merged ontology (SUMO) objects linked with ADE20K annotations and WKTs"
+    technologies:
+      - SUMO
+      - "ADE20K"
+      - "GeoSPARQL"
+      - "WKT"
+
+  - id: work/afrl-2020
+    title: "AFRL Scholars Remote AI Research Scientist - ML Explainability"
+    organization: "Air Force Research Laboratory (AFRL)"
+    start_date: "2020-05"
+    end_date: "2020-08"
+    location: "Rome, NY (remote)"
+    description:
+      - "Worked remotely due to COVID-19 and managed to produce explanations for machine learning, using background semantic knowledge and the DL-Learner framework"
+    technologies:
+      - "DL-Learner"
+      - "Semantic Web"
+      - "OWL"
+      - "XAI"
+
+  - id: work/afrl-2019
+    title: "AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs"
+    organization: "Air Force Research Laboratory (AFRL)"
+    start_date: "2019-05"
+    end_date: "2019-08"
+    location: "Rome, NY"
+    description:
+      - "Worked with others in boosting semantic graphs through ML"
+      - "Modelled topics from ontologies and eventually assessed ontology quality through metrics"
+      - "Produced multitudes of relevant data for the Air Force, as well as a basic ontology quality assessment framework"
+    technologies:
+      - "Knowledge Graphs"
+      - "Machine Learning"
+      - "Ontology"
+
+  - id: work/cloudcell-consultant
+    title: "Academic Consultant and Editor"
+    organization: "Cloudcell Limited"
+    start_date: "2025-05"
+    end_date: "2025-05"
+    description:
+      - "Provided editorial services and guidance for the publication of an academic paper in the machine learning space"
+
+  - id: work/upwork-reasoning
+    title: "Reasoning Consultant"
+    organization: Upwork
+    start_date: "2024-09"
+    end_date: "2024-09"
+    description:
+      - "Consulted with a client on FOL/HOL ontology reasoning"
+    technologies:
+      - "FOL"
+      - "HOL"
+      - "OWL"
+
+  - id: work/upwork-ontology-engineer-2024
+    title: "Ontology Engineer"
+    organization: Upwork
+    start_date: "2024-07"
+    end_date: "2024-07"
+    description:
+      - "Developed a mid-level ontology for a discreet domain"
+      - "Provided stakeholder-level documentation on OWL reasoning and description logics"
+    technologies:
+      - OWL
+      - "Description Logics"
+
+  - id: work/upwork-nuclear
+    title: "Nuclear Construction Ontology Engineer"
+    organization: Upwork
+    start_date: "2024-06"
+    end_date: "2024-06"
+    description:
+      - "Consulted on, and developed, an ontology to be used for nuclear facility construction process evaluation"
+    technologies:
+      - OWL
+      - "Ontology Engineering"
+
+  - id: work/quiet-professionals
+    title: "AI Consultant and Ontology Engineer"
+    organization: "Quiet Professionals"
+    start_date: "2024-02"
+    end_date: "2024-04"
+    description:
+      - "Consulted on large language models in DoD use cases"
+      - "Engineered a BFO/CCO implementation for DoD data standardization"
+    technologies:
+      - "LLMs"
+      - BFO
+      - CCO
+      - OWL
+
+  - id: work/hooray-media
+    title: "Ontologist and Linked Data Engineer"
+    organization: "Hooray Media"
+    start_date: "2023-11"
+    end_date: "2024-05"
+    description:
+      - "Consulted on an ontology to be integrated with a WordPress ecosystem for a local content publishing company"
+      - "Developed a Linked Data taxonomy for web post content"
+    technologies:
+      - "Linked Data"
+      - "Schema.org"
+      - "OWL"
+      - "WordPress"
+
+  - id: work/the-link
+    title: "Ontologist and Knowledge Graph Engineer"
+    organization: "The Link"
+    start_date: "2023-08"
+    end_date: "2024-01"
+    description:
+      - "Consulted on an ontology for the construction industry"
+      - "Engineered a system for knowledge graph extraction from construction documents"
+      - "Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000 relations"
+    technologies:
+      - "Knowledge Graphs"
+      - "OWL"
+      - GraphDB
+      - "NLP"
+
+  - id: work/upwork-legal
+    title: "Legal Ontology Consultant"
+    organization: Upwork
+    start_date: "2023-05"
+    end_date: "2023-05"
+    description:
+      - "Provided insight on the design and development of a legal domain ontology in OWL"
+    technologies:
+      - OWL
+
+  - id: work/upwork-software-test
+    title: "Software Test Engineer"
+    organization: Upwork
+    start_date: "2023-05"
+    end_date: "2023-05"
+    description:
+      - "Tested and gave feedback for a startup scientific research platform"
+
+  - id: work/upwork-geospatial
+    title: "Geospatial Ontology Analyst"
+    organization: Upwork
+    start_date: "2023-04"
+    end_date: "2023-05"
+    description:
+      - "Queried a large geospatial ontology with complex SPARQL"
+      - "Diagnosed and fixed issues with OWL and SWRL reasoning"
+      - "Produced visualizations in GraphDB and Stardog"
+    technologies:
+      - SPARQL
+      - OWL
+      - SWRL
+      - GraphDB
+      - Stardog
+
+  - id: work/upwork-kg-engineer
+    title: "Knowledge Graph Engineer"
+    organization: Upwork
+    start_date: "2023-03"
+    end_date: "2023-03"
+    description:
+      - "Represented a specific use case for the SDLC in GraphDB using PROV and SEON"
+    technologies:
+      - GraphDB
+      - PROV
+      - SEON
+
+  - id: work/forumapi
+    title: "Technology Consultant and Scientific Writer"
+    organization: ForumAPI
+    start_date: "2023-02"
+    is_current: true
+    description:
+      - "Provided insight on automated documentation techniques and created artifacts related to scientific publication on a particular domain for a client startup company"
+      - "Worked with the GPT API suite to generate software-related documents"
+      - "Wrote and published several scientific papers"
+    technologies:
+      - "GPT API"
+      - Python
+
+  - id: work/wordlift
+    title: Ontologist
+    organization: "WordLift SEO (international remote)"
+    start_date: "2023-01"
+    end_date: "2023-03"
+    description:
+      - "Acted as a knowledge representation consultant"
+      - "Represented a client domain using Schema.org and GS1, in OWL, SWRL and SHACL"
+    technologies:
+      - "Schema.org"
+      - GS1
+      - OWL
+      - SWRL
+      - SHACL
+
+  - id: work/course-engineer
+    title: "University Course Engineer - The Knowledge Representation Spectrum"
+    organization: "ERAU Daytona"
+    start_date: "2023-02"
+    end_date: "2023-05"
+    description:
+      - "Developed a course intended to be an extension to a relational databases course, covering the history of knowledge representation, focusing on applied ontology, Linked Data and contemporary NLP"
+
+  - id: work/eram-research-team
+    title: "AI Research Team Lead and Semantic Web Consultant"
+    organization: "ERAU Daytona"
+    start_date: "2019-01"
+    is_current: true
+    description:
+      - "Worked on projects related to ML, NLP, Linked Data and cybersecurity; produced many papers"
+      - "Performed work with other researchers, in addition to contributing to and writing papers on a multitude of research topics, most of which centered around Semantic technology"
+      - "Acted as Semantic Web consultant for various other student researchers, in addition to providing assistance in paper review and revision"
+    technologies:
+      - "Semantic Web"
+      - "Machine Learning"
+      - NLP
+      - "Linked Data"
+      - Cybersecurity
+
+  - id: work/grader-cs344
+    title: "Grader for CS344 - C Programming and UNIX"
+    organization: "ERAU Daytona"
+    start_date: "2019-01"
+    end_date: "2019-05"
+    description:
+      - "Assessed content included Linux commands and intermediate C programming topics, such as structures, complex pointer manipulation and memory management"
+    technologies:
+      - C
+      - Linux
+      - UNIX
+
+  - id: work/grader-cs315
+    title: "Grader for CS315 - Data Structures and Algorithms"
+    organization: "ERAU Daytona"
+    start_date: "2018-08"
+    end_date: "2018-12"
+    description:
+      - "Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps, graphs, recursion, sorting and searching algorithms"
+
+  - id: work/publix
+    title: "Customer Service Clerk"
+    organization: "Publix Supermarkets"
+    start_date: "2014-08"
+    end_date: "2016-08"
+    description:
+      - "Assisted customers and managed merchandise loading"
+
+publications:
+  # Awaiting Publication
+  - id: pub/prompt-provenance
+    title: "Prompt Provenance: Toward Traceable LLM Interactions"
+    authors:
+      - "Tyler T. Procko"
+    venue: "The 2nd International Conference on Advanced Machine Learning and Data Science (AMLDS 2026)"
+    date: "2026"
+    status: awaiting_publication
+    url: https://papers.ssrn.com/abstract=5682942
+    tags:
+      - provenance
+      - LLM
+      - "prompt engineering"
+
+  - id: pub/ml-lifecycle-provenance-survey
+    title: "A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools"
+    authors:
+      - "Tyler T. Procko"
+    venue: "2026 International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE)"
+    date: "2026"
+    status: awaiting_publication
+    url: https://papers.ssrn.com/abstract=5682822
+    tags:
+      - provenance
+      - "machine learning"
+      - survey
+
+  # Published
+  - id: pub/verifying-ml-interpretability
+    title: "Verifying Machine Learning Interpretability and Explainability Requirements Through Provenance"
+    authors:
+      - "Lynn Vonderhaar"
+      - "Tyler T. Procko"
+    venue: "MDPI Software"
+    date: "2026-02"
+    status: published
+    url: https://www.mdpi.com/2674-113X/5/1/9
+    tags:
+      - provenance
+      - XAI
+      - "machine learning"
+
+  - id: pub/creating-robust-datasets
+    title: "Creating Robust Data Sets for AI by Leveraging Ontological Structures"
+    authors:
+      - "Lynn Vonderhaar"
+      - "Tyler T. Procko"
+    venue: "ICSC 2025"
+    date: "2025-02"
+    status: published
+    url: "https://www.computer.org/csdl/proceedings-article/icsc/2025/242600a171/27FQIRaxjYQ"
+    tags:
+      - ontology
+      - datasets
+      - AI
+
+  - id: pub/exploring-testing-llms
+    title: "Exploring Testing Methods for Large Language Models"
+    authors:
+      - "Timothy Elvira"
+      - "Tyler T. Procko"
+    venue: "ICMLA 2024"
+    date: "2024-12"
+    status: published
+    url: https://ieeexplore.ieee.org/abstract/document/10903339
+    tags:
+      - LLM
+      - testing
+      - "software engineering"
+
+  - id: pub/requirements-elicitation-ml
+    title: "Requirements Elicitation for Machine Learning Applications: A Research Preview"
+    authors:
+      - "Timothy Elvira"
+      - "Tyler T. Procko"
+    venue: "TransAI AIxSET 2024"
+    date: "2024-12"
+    status: published
+    url: https://ieeexplore.ieee.org/abstract/document/10771003
+    tags:
+      - "requirements engineering"
+      - "machine learning"
+
+  - id: pub/leveraging-llms-scientific-writing
+    title: "Leveraging Large Language Models on the Traditional Scientific Writing Workflow"
+    authors:
+      - "Tyler T. Procko"
+    venue: "TransAI AIxSET 2024"
+    date: "2024-12"
+    status: published
+    url: https://ieeexplore.ieee.org/abstract/document/10770985
+    tags:
+      - LLM
+      - "scientific writing"
+      - "software engineering"
+
+  - id: pub/graph-rag-survey
+    title: "Graph Retrieval-Augmented Generation for Large Language Models: A Survey"
+    authors:
+      - "Tyler T. Procko"
+    venue: "TransAI AIxSET 2024"
+    date: "2024-12"
+    status: published
+    url: https://ieeexplore.ieee.org/abstract/document/10771030
+    tags:
+      - RAG
+      - "knowledge graphs"
+      - LLM
+      - survey
+
+  - id: pub/cognitive-assistants-single-pilot
+    title: "The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations"
+    authors:
+      - "Alexandra Davidoff"
+      - "Tyler T. Procko"
+    venue: "AIAA - Journal of Aerospace Information Systems"
+    date: "2024-10"
+    status: published
+    url: "https://arc.aiaa.org/doi/full/10.2514/1.I011432"
+    tags:
+      - aerospace
+      - "cognitive assistants"
+      - aviation
+
+  - id: pub/linked-data-aerospace
+    title: "Leveraging Linked Data for Knowledge Management: A Proposal for the Aerospace Industry"
+    authors:
+      - "Tyler T. Procko"
+    venue: "AIAA - Journal of Aerospace Information Systems"
+    date: "2024-07"
+    status: published
+    url: "https://arc.aiaa.org/doi/full/10.2514/1.I011316"
+    tags:
+      - "linked data"
+      - aerospace
+      - "knowledge management"
+
+  - id: pub/robust-training-datasets-ontologies
+    title: "Towards Robust Training Datasets for Machine Learning with Ontologies: A Case Study for Emergency Road Vehicle Detection"
+    authors:
+      - "Lynn Vonderhaar"
+      - "Tyler T. Procko"
+    venue: arXiv
+    date: "2024-06"
+    status: published
+    url: https://arxiv.org/abs/2406.15268
+    tags:
+      - ontology
+      - datasets
+      - "computer vision"
+
+  - id: pub/prov-o-bfo-mapping
+    title: "Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations and Preliminary Implementation"
+    authors:
+      - "Tyler T. Procko"
+    venue: SSRN
+    date: "2024-05"
+    status: published
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852748"
+    tags:
+      - provenance
+      - BFO
+      - PROV-O
+      - ontology
+
+  - id: pub/semantic-science-beyond-pdf
+    title: "Semantic Science: Publication Beyond the PDF"
+    authors:
+      - "Tyler T. Procko"
+    venue: "IEEE SoutheastCon"
+    date: "2024-03"
+    status: published
+    url: https://ieeexplore.ieee.org/document/10500258/
+    tags:
+      - "semantic web"
+      - "scientific publishing"
+      - "linked data"
+
+  - id: pub/dawn-of-dialogue
+    title: "Dawn of the Dialogue: AI's Leap from Lab to Living Room"
+    authors:
+      - "Tyler T. Procko"
+    venue: "Frontiers in Artificial Intelligence"
+    date: "2024-03"
+    status: published
+    url: "https://www.frontiersin.org/articles/10.3389/frai.2024.1308156/full"
+    tags:
+      - AI
+      - LLM
+      - "conversational AI"
+
+  - id: pub/lm-kg-survey
+    title: "A Survey on the Intersection of Language Models and Knowledge Graphs"
+    authors:
+      - "Timothy Elvira"
+      - "Tyler T. Procko"
+    venue: SSRN
+    date: "2024-01"
+    status: published
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4739068"
+    tags:
+      - "language models"
+      - "knowledge graphs"
+      - survey
+
+  - id: pub/towards-agile-academia
+    title: "Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering"
+    authors:
+      - "Tyler T. Procko"
+    venue: "Embry-Riddle Aeronautical University Scholarly Commons"
+    date: "2024-01"
+    status: published
+    url: https://commons.erau.edu/edt/784/
+    tags:
+      - agile
+      - "scientific writing"
+      - "software engineering"
+
+  - id: pub/scrum-in-classroom
+    title: "Scrum in the Classroom: An Implementation Guide"
+    authors:
+      - "Sarah Reynolds"
+      - "Tyler T. Procko"
+    venue: "2023 IEEE Frontiers in Education (FIE) Conference"
+    date: "2023-10"
+    status: published
+    url: https://ieeexplore.ieee.org/abstract/document/10343213
+    tags:
+      - scrum
+      - education
+      - agile
+
+  - id: pub/gps-signal-strength
+    title: "Leveraging Signal Strength as a Mechanism to Secure GPS Messages"
+    authors:
+      - "Juan Couder"
+      - "Tyler T. Procko"
+    venue: "2023 IEEE/AIAA 42nd Digital Avionics Systems Conference (DASC)"
+    date: "2023-10"
+    status: published
+    url: https://ieeexplore.ieee.org/abstract/document/10311183
+    tags:
+      - GPS
+      - cybersecurity
+      - avionics
+
+  - id: pub/auto-code-documentation
+    title: "Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development's Most Redundant Task"
+    authors:
+      - "Tyler T. Procko"
+    venue: SSRN
+    date: "2023-09"
+    status: published
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4571367"
+    tags:
+      - "code documentation"
+      - GPT
+      - "syntax trees"
+
+  - id: pub/gpt4-stochastic-parrot
+    title: "GPT-4: A Stochastic Parrot or Ontological Craftsman? Discovering Implicit Knowledge Structures in Large Language Models"
+    authors:
+      - "Tyler T. Procko"
+    venue: "2023 Fifth International Conference on Transdisciplinary AI (TransAI)"
+    date: "2023-09"
+    status: published
+    url: https://ieeexplore.ieee.org/abstract/document/10387600
+    tags:
+      - GPT-4
+      - LLM
+      - ontology
+      - "knowledge structures"
+
+  - id: pub/auto-bfo-aristotelian-definitions
+    title: "Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies with GPT"
+    authors:
+      - "Tyler T. Procko"
+    venue: "2023 Fifth International Conference on Transdisciplinary AI (TransAI)"
+    date: "2023-09"
+    status: published
+    url: https://ieeexplore.ieee.org/abstract/document/10387634
+    tags:
+      - BFO
+      - OWL
+      - GPT
+      - ontology
+
+  - id: pub/catastrophic-forgetting
+    title: "Impacts of Catastrophic Forgetting: From a Machine Learning Engineering Perspective"
+    authors:
+      - "Timothy Elvira"
+      - "Tyler T. Procko"
+    venue: "2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)"
+    date: "2023-07"
+    status: published
+    url: https://ieeexplore.ieee.org/abstract/document/10487405
+    tags:
+      - "machine learning"
+      - "catastrophic forgetting"
+
+  - id: pub/digital-rubber-duck
+    title: "Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming"
+    authors:
+      - "Timothy Elvira"
+      - "Tyler T. Procko"
+    venue: "2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)"
+    date: "2023-07"
+    status: published
+    url: https://ieeexplore.ieee.org/abstract/document/10487209
+    tags:
+      - LLM
+      - "extreme programming"
+      - "software engineering"
+
+  - id: pub/swebok-kg-transformer
+    title: "A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from the Software Engineering Body of Knowledge with a Sequence-to-Sequence Transformer"
+    authors:
+      - "Tyler T. Procko"
+    venue: SSRN
+    date: "2023-06"
+    status: published
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4493644"
+    tags:
+      - "knowledge graphs"
+      - SWEBOK
+      - "transformers"
+      - NLP
+
+  - id: pub/microelectronic-ai-dishonesty
+    title: "Microelectronic Technology, AI and Academic Dishonesty: An Agile Engineering Approach"
+    authors:
+      - "Tyler T. Procko"
+    venue: "American Society for Engineering Education (TELPhE) 2023"
+    date: "2023-06"
+    status: published
+    url: "https://peer.asee.org/microelectronic-technology-ai-and-academic-dishonesty-an-agile-engineering-approach"
+    tags:
+      - AI
+      - education
+      - agile
+      - "academic integrity"
+
+  - id: pub/interpersonal-chemistry-agile
+    title: "The Influence of Interpersonal Chemistry on Learning in Agile Software Engineering Education"
+    authors:
+      - "Tyler T. Procko"
+    venue: SSRN
+    date: "2023-02"
+    status: published
+    url: https://ssrn.com/abstract=4441503
+    tags:
+      - agile
+      - education
+      - "software engineering"
+
+  - id: pub/validating-security-requirements-kg
+    title: "Validating Security Requirement Specifications through the use of a Knowledge Graph"
+    authors:
+      - "Sarah Reynolds"
+      - "Tyler T. Procko"
+    venue: "2023 IEEE 18th International Conference on Semantic Computing (ICSC)"
+    date: "2023-02"
+    status: published
+    url: https://ieeexplore.ieee.org/document/10066597
+    tags:
+      - "knowledge graphs"
+      - "security requirements"
+      - cybersecurity
+
+  - id: pub/ontology-sdlc-aerospace
+    title: "An Ontology Based Approach to the Software Engineering Lifecycle: Application to Software Quality Assurance in the Aerospace Industry"
+    authors:
+      - "Tyler T. Procko"
+    venue: SSRN
+    date: "2022-12"
+    status: published
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4703235"
+    tags:
+      - ontology
+      - SDLC
+      - aerospace
+      - "software quality"
+
+  - id: pub/explainable-ml-semantic-web
+    title: "An Exploration of Explainable Machine Learning Using Semantic Web Technology"
+    authors:
+      - "Tyler T. Procko"
+    venue: "2022 IEEE 16th International Conference on Semantic Computing (ICSC)"
+    date: "2022-01"
+    status: published
+    url: https://ieeexplore.ieee.org/document/9736291
+    tags:
+      - XAI
+      - "semantic web"
+      - "machine learning"
+
+  - id: pub/secure-development-ontology
+    title: "Supporting Security Requirements Engineering through the Development of the Secure Development Ontology"
+    authors:
+      - "Jessica Steinmann"
+      - "Tyler T. Procko"
+    venue: "2022 IEEE 16th International Conference on Semantic Computing (ICSC 2022)"
+    date: "2022-01"
+    status: published
+    tags:
+      - ontology
+      - "security requirements"
+      - cybersecurity
+
+  - id: pub/vr-software-requirements
+    title: "Incorporating a Virtual Reality Environment in the Teaching of Analysis of Software Requirements"
+    authors:
+      - "Omar Ochoa"
+      - "Tyler T. Procko"
+    venue: "2019 IEEE Frontiers in Education Conference (FIE 2019)"
+    date: "2019-10"
+    status: published
+    url: https://ieeexplore.ieee.org/document/9028676
+    tags:
+      - VR
+      - education
+      - "software requirements"
+
+  # In Progress
+  - id: pub/ml-misbehaviors-taxonomy
+    title: "Towards A Taxonomy of ML Misbehaviors and their Software Engineering Solutions"
+    authors:
+      - "Timothy Elvira"
+      - "Tyler T. Procko"
+    status: in_progress
+    tags:
+      - "machine learning"
+      - taxonomy
+      - "software engineering"
+
+  - id: pub/kg-geospatial-sumo
+    title: "Knowledge Graph Relationship Inferencing using ADE20k Images, Geospatial Bounding Boxes and the Suggested Upper Merged Ontology"
+    authors:
+      - "Tyler T. Procko"
+    status: in_progress
+    tags:
+      - "knowledge graphs"
+      - SUMO
+      - geospatial
+      - "ADE20K"
+
+  - id: pub/sdlc-ontology-engineering
+    title: "The Software Development Life Cycle and Ontology Engineering: Defining a Structured Process for Ontology Development"
+    authors:
+      - "Tyler T. Procko"
+    status: in_progress
+    tags:
+      - SDLC
+      - "ontology engineering"
+
+  - id: pub/cognitive-assistants-aviation-inprogress
+    title: "Navigating the Future of Aviation: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations"
+    authors:
+      - "Alexandra Davidoff"
+      - "Tyler T. Procko"
+    status: in_progress
+    tags:
+      - aviation
+      - "cognitive assistants"
+
+projects:
+  - id: proj/biomed-paper-extractor
+    title: "Biomedical Paper Information Extractor"
+    year: "2026-03"
+    url: https://github.com/PR0CK0/biomed-paper-extractor
+    repo_url: https://github.com/PR0CK0/biomed-paper-extractor
+    featured: true
+    description: |
+      VLM figure digitization + NER on PMC papers. Comprehensive VLM + NER model evaluation suite.
+      Integrated with flagship HuggingFace VLMs, Ollama, and cloud providers (OpenAI, Anthropic, Google).
+      Integrated with SotA NER models, e.g., spaCy, DistilBERT, GLiNER, etc.
+      Hosted on HuggingFace (limited functionality with free hosting).
+    technologies:
+      - Python
+      - "Hugging Face"
+      - VLM
+      - NER
+      - Ollama
+      - OpenAI
+      - Anthropic
+      - "Google Gemini"
+      - spaCy
+      - DistilBERT
+      - GLiNER
+    tags:
+      - biomedical
+      - NLP
+      - "computer vision"
+
+  - id: proj/health-optimization-kg
+    title: "Health Optimization Knowledge Graph"
+    year: "2026-03"
+    url: https://procko.pro/health-optimization-knowledge-graph/
+    repo_url: https://github.com/PR0CK0/health-optimization-knowledge-graph
+    featured: true
+    description: |
+      BFO-aligned biomedical knowledge graph modeling evidence-graded relationships between health
+      interventions (drugs, supplements, peptides, procedures) and outcomes. LinkML schema with full
+      OWL/RDF, JSON Schema, and TypeScript export targets. Ontology grounded in Medical Subject
+      Headings (MeSH) pharmacological actions for forward-compatibility with RxNorm, PubChem,
+      SNOMED CT, UniProt, ChEBI, and Gene Ontology (GO) integration. React/TypeScript with Cytoscape.js.
+    technologies:
+      - LinkML
+      - BFO
+      - OWL
+      - RDF
+      - "JSON Schema"
+      - TypeScript
+      - React
+      - "Cytoscape.js"
+      - MeSH
+    tags:
+      - biomedical
+      - "knowledge graphs"
+      - ontology
+
+  - id: proj/ocsf-visualizer
+    title: "OCSF Visualizer"
+    year: "2026-02"
+    url: https://procko.pro/ocsf-visualizer
+    repo_url: https://github.com/PR0CK0/ocsf-visualizer
+    featured: true
+    description: "Simple, browser-based, Cytoscape.js interactive graph view of the Open Cybersecurity Framework"
+    technologies:
+      - "Cytoscape.js"
+      - JavaScript
+      - OCSF
+    tags:
+      - cybersecurity
+      - visualization
+
+  - id: proj/bfo-wikidata-classifier
+    title: "BFO-Wikidata Classifier"
+    year: "2025-11"
+    url: https://github.com/PR0CK0/BFO-Wikidata-Classifier
+    repo_url: https://github.com/PR0CK0/BFO-Wikidata-Classifier
+    description: |
+      A transformer-based, multi-strategy, hierarchical classification system that maps Wikidata
+      entities to Basic Formal Ontology (BFO) classes. Employed cascading and ensembling NLP and
+      ML techniques.
+    technologies:
+      - Python
+      - Transformers
+      - BFO
+      - Wikidata
+      - NLP
+    tags:
+      - ontology
+      - classification
+      - "knowledge graphs"
+
+  - id: proj/bert-benchmarking
+    title: "BERT Model Benchmarking Suite"
+    year: "2025-11"
+    url: https://github.com/PR0CK0/bert_benchmarking
+    repo_url: https://github.com/PR0CK0/bert_benchmarking
+    description: |
+      A comprehensive benchmarking framework for comparing BERT model variants on inference speed,
+      memory efficiency, and model size. Designed for compute-constrained environments and
+      on-premise deployments.
+    technologies:
+      - Python
+      - BERT
+      - "Hugging Face"
+      - PyTorch
+    tags:
+      - NLP
+      - benchmarking
+      - "machine learning"
+
+  - id: proj/bfobert
+    title: "BFO-BERT Classifier"
+    year: "2025-11"
+    url: https://github.com/PR0CK0/bfobert
+    repo_url: https://github.com/PR0CK0/bfobert
+    description: |
+      A lightweight fine-tuning script for DistilBERT that classifies ontology terms as either
+      Continuant or Occurrent in the spirit of the Basic Formal Ontology (BFO). Designed as a
+      simple, reproducible proof of concept for text-based ontological classification.
+    technologies:
+      - Python
+      - DistilBERT
+      - BFO
+      - "Hugging Face"
+    tags:
+      - ontology
+      - NLP
+      - classification
+
+  - id: proj/stable-diffusion-testing
+    title: "Stable Diffusion and Low-Rank Adaptation Testing"
+    year: "2023-04"
+    url: https://github.com/PR0CK0/StableDiffusionEndToEndGuide
+    repo_url: https://github.com/PR0CK0/StableDiffusionEndToEndGuide
+    description: |
+      Used the SD WebUI, a variety of models, LoRAs and VAEs, along with prompting techniques,
+      to generate images. An investigation into the toolset for the purpose of future work on
+      generating synthetic data for military vision models.
+    technologies:
+      - "Stable Diffusion"
+      - "SD WebUI"
+      - LoRA
+      - Python
+    tags:
+      - "generative AI"
+      - "computer vision"
+
+  - id: proj/nlp-optimization
+    title: "An Investigation into Computational Efficiency Optimization of Natural Language Processing Vectorization Techniques on Large Corpora in Python"
+    year: "2022-12"
+    url: https://github.com/PR0CK0/Mandelbrot-Set-Calculation-Optimization-in-Scientific-Python
+    repo_url: https://github.com/PR0CK0/Mandelbrot-Set-Calculation-Optimization-in-Scientific-Python
+    description: |
+      Used Numpy, Numba, Numexpr, Cython, parallel Cython and MPI to improve the computational
+      efficiency of basic vectorization algorithms for NLP (e.g., TF-IDF and Naive Bayes).
+      Project shifted to optimization of Mandelbrot set calculation.
+    technologies:
+      - Python
+      - NumPy
+      - Numba
+      - Numexpr
+      - Cython
+      - MPI
+    tags:
+      - NLP
+      - optimization
+      - "scientific computing"
+
+  - id: proj/bfo-buddy
+    title: "BFO Buddy"
+    year: "2022-07"
+    url: https://github.com/PR0CK0/bfobuddy
+    repo_url: https://github.com/PR0CK0/bfobuddy
+    description: "A command-line Python tool for bootstrapping ontology development with BFO"
+    technologies:
+      - Python
+      - BFO
+      - OWL
+    tags:
+      - ontology
+      - "developer tools"
+
+  - id: proj/usa-obesity-visualization
+    title: "USA Obesity Rates Visualization and Analysis"
+    year: "2021-12"
+    url: https://github.com/PR0CK0/RandomDataAnalysisProjects
+    repo_url: https://github.com/PR0CK0/RandomDataAnalysisProjects
+    description: |
+      A Pandas/Tableau visualization incorporating dozens of datasets with thousands of data points
+      taken from public US Census datasets; analysis on obesity by region, age group, food quality
+      and various other factors. Additionally, curated statistics on the World's Strongest Man
+      competitors and performed analysis on their capabilities.
+    technologies:
+      - Python
+      - Pandas
+      - Tableau
+    tags:
+      - "data analysis"
+      - visualization
+
+  - id: proj/upper-martial-arts-ontology
+    title: "Upper Martial Arts Ontology (UMAO)"
+    year: "2021-07"
+    url: https://github.com/PR0CK0/UpperMartialArtsOntology
+    repo_url: https://github.com/PR0CK0/UpperMartialArtsOntology
+    description: "Represented the domain of martial arts using Schema.org as the base taxonomy, and Bruce Lee's Jeet Kune Do book as the lexicon"
+    technologies:
+      - "Schema.org"
+      - OWL
+      - RDF
+    tags:
+      - ontology
+      - "knowledge representation"
+
+  - id: proj/volusia-elevation-qgis
+    title: "Volusia County Parcel Elevation Visualization with SQL and QGIS"
+    year: "2021-05"
+    url: https://github.com/PR0CK0/CS540_Project
+    repo_url: https://github.com/PR0CK0/CS540_Project
+    description: |
+      A QGIS visualization utilizing several public shape files to display the approximate
+      sea-level elevation of all parcels in Volusia County Florida. Used several complex GIS
+      functions to perform contour line elevation calculations and QGIS to visualize it.
+    technologies:
+      - QGIS
+      - SQL
+      - GIS
+    tags:
+      - geospatial
+      - visualization
+
+  - id: proj/bittorrent-semp
+    title: "BitTorrent Systems Engineering Management Plan"
+    year: "2020-12"
+    description: "Produced an entire systems plan for the BitTorrent protocol and application, as a case study"
+    technologies:
+      - "Systems Engineering"
+    tags:
+      - "systems engineering"
+
+  - id: proj/ms-word-usability
+    title: "Microsoft Word Usability Desiderata"
+    year: "2020-05"
+    description: |
+      Evaluated the usability of Microsoft Word's UX using the System Usability Scale and the
+      Nielsen-Norman 5-point Likert scale. Developed UX personas and validated their accuracy
+      with three empirical studies on personal contacts, using a systematized test plan.
+    tags:
+      - UX
+      - usability
+      - HCI
+
+  - id: proj/ecocar
+    title: EcoCar
+    year: "2020-05"
+    description: |
+      Assisted Embry-Riddle's EcoCar team with the car's autopilot function. Was a member of the
+      "core" team responsible for all system documentation, including user stories, requirements
+      documents, Kanban board management, design documents and test plans.
+    tags:
+      - "systems engineering"
+      - "autonomous vehicles"
+
+  - id: proj/meme-ontology
+    title: "Meme Ontology and Clustering Analysis"
+    year: "2020-02"
+    url: https://github.com/PR0CK0/knowyourmeme.com-Crawler
+    repo_url: https://github.com/PR0CK0/knowyourmeme.com-Crawler
+    description: |
+      Scraped the website knowyourmeme.com and derived a taxonomy for memes. Populated this
+      taxonomy with over ten thousand memes and performed cluster analysis to find meme categories.
+    technologies:
+      - Python
+      - "Web Scraping"
+      - "Cluster Analysis"
+    tags:
+      - ontology
+      - NLP
+      - "data analysis"
+
+  - id: proj/nas-server
+    title: "Network Attached Storage (NAS) Server"
+    year: "2019-07"
+    description: |
+      Built a personal NAS server with 16TB of hard drive space in RAID-1. Populated personal data,
+      practiced standardized data naming conventions, organizational principles, governance techniques
+      and security measures on a LAN.
+    technologies:
+      - XigmaNAS
+      - RAID
+      - Networking
+    tags:
+      - infrastructure
+      - homelab
+
+  - id: proj/ludum-dare-44
+    title: "Ludum Dare 44"
+    year: "2019-05"
+    url: "https://ldjam.com/events/ludum-dare/44/grim"
+    description: "Produced a game in a 48 hour game jam. Placed top 3% globally. Responsible for all art and music."
+    technologies:
+      - "Game Development"
+    tags:
+      - "game development"
+      - art
+
+  - id: proj/arocket
+    title: ARocket
+    year: "2019-02"
+    url: https://devpost.com/software/arocket
+    description: |
+      Produced an augmented reality application for Android phones using Unity and C# for the 2019
+      Hackathon at ERAU Daytona, winning 3rd place. The application allowed the user to create and
+      launch a rocket in a virtual-physical space, in addition to refueling and landing the craft.
+      Sourced and created all the audio and visual media for the application, in addition to
+      implementing some physics.
+    technologies:
+      - Unity
+      - "C#"
+      - Android
+      - AR
+    tags:
+      - "game development"
+      - AR
+      - hackathon
+
+  - id: proj/vxworks-water-heater
+    title: "VxWorks C Water Heater Simulation"
+    year: "2019-05"
+    url: https://github.com/PR0CK0/VxWorksWaterHeater
+    repo_url: https://github.com/PR0CK0/VxWorksWaterHeater
+    description: "Simulated the real-time system of a water heater in VxWorks C, utilizing complex techniques with semaphores, watchdogs and various other multithreading concepts"
+    technologies:
+      - C
+      - VxWorks
+      - "Real-Time Systems"
+    tags:
+      - "embedded systems"
+      - "real-time"
+
+  - id: proj/encrypted-sound-messages
+    title: "Encrypted Text Messages Transmitted Via Near-Field Sound"
+    year: "2019-05"
+    description: "Used the Chirp library of Python to produce a phone app that could transmit encrypted messages over proximal sound with public key encryption"
+    technologies:
+      - Python
+      - Chirp
+      - Cryptography
+    tags:
+      - cryptography
+      - mobile
+
+  - id: proj/lan-board-game
+    title: "LAN Multiplayer Board Game"
+    year: "2018-12"
+    url: https://github.com/PR0CK0/SOS-Game-LAN-Capable
+    repo_url: https://github.com/PR0CK0/SOS-Game-LAN-Capable
+    description: |
+      A 2D board game similar to Tic-Tac-Toe. Strict model-view separation and multithreading was
+      implemented. Connectivity via LAN with the separate codebase of other students using a common
+      interface of serialized classes and TCP sockets.
+    technologies:
+      - Java
+      - Networking
+      - TCP
+    tags:
+      - "game development"
+      - networking
+
+  - id: proj/monster-hunter-world
+    title: "Monster Hunter: World Player Support Project (MHW:PSP)"
+    year: "2018-05"
+    url: https://github.com/PR0CK0/mhw
+    repo_url: https://github.com/PR0CK0/mhw
+    description: |
+      Created a Java/MySQL application for players of the game Monster Hunter: World. Populated 22
+      tables with over 1500 game-accurate entries. Developed MySQL schema using PHPMyAdmin,
+      connected the Java code to the database using JDBC, designed and created the UI and all
+      functionality.
+    technologies:
+      - Java
+      - MySQL
+      - JDBC
+      - PHPMyAdmin
+    tags:
+      - "database applications"
+
+  - id: proj/eagle-listings
+    title: EagleListings
+    year: "2017-12"
+    url: https://github.com/PR0CK0/EagleListings
+    repo_url: https://github.com/PR0CK0/EagleListings
+    description: |
+      Created a Java/MySQL application for sales between students of ERAU Daytona. Implemented the
+      database interface using JDBC, designed and created the UI. Acted as the SCRUM master for
+      the team.
+    technologies:
+      - Java
+      - MySQL
+      - JDBC
+    tags:
+      - "database applications"
+      - agile
+
+  - id: proj/tiles-game
+    title: Tiles
+    year: "2017-05"
+    url: https://github.com/PR0CK0/TilesGame
+    repo_url: https://github.com/PR0CK0/TilesGame
+    description: "Created a fast-paced clicker game in Java"
+    technologies:
+      - Java
+      - JavaFX
+    tags:
+      - "game development"
+
+  - id: proj/text-racing-game
+    title: "Text-Based Racing Game"
+    year: "2016-12"
+    url: https://github.com/PR0CK0/C_TextBasedRacingGame
+    repo_url: https://github.com/PR0CK0/C_TextBasedRacingGame
+    description: "Created a text-based, console racing game supporting up to four players in C"
+    technologies:
+      - C
+    tags:
+      - "game development"
+
+  - id: proj/boe-bot-robot
+    title: "Boe-Bot Line Follower Robot"
+    year: "2016-12"
+    description: "Built and programmed an Arduino robot to follow lines and respond to the position of various colored objects"
+    technologies:
+      - Arduino
+      - "Embedded Systems"
+    tags:
+      - robotics
+      - "embedded systems"
+
+skills:
+  # Languages
+  - id: skill/java
+    name: Java
+    category: languages
+    years_experience: 9
+    proficiency: expert
+  - id: skill/python
+    name: Python
+    category: languages
+    years_experience: 9
+    proficiency: expert
+  - id: skill/c
+    name: C
+    category: languages
+    years_experience: 9
+    proficiency: expert
+  - id: skill/html
+    name: HTML
+    category: languages
+    years_experience: 9
+    proficiency: expert
+  - id: skill/css
+    name: CSS
+    category: languages
+    years_experience: 9
+    proficiency: expert
+  - id: skill/markdown
+    name: Markdown
+    category: languages
+    years_experience: 9
+    proficiency: expert
+  - id: skill/owl
+    name: OWL
+    category: languages
+    years_experience: 8
+    proficiency: expert
+  - id: skill/turtle
+    name: Turtle
+    category: languages
+    years_experience: 8
+    proficiency: expert
+  - id: skill/trig
+    name: TriG
+    category: languages
+    years_experience: 8
+    proficiency: expert
+  - id: skill/shacl
+    name: SHACL
+    category: languages
+    years_experience: 8
+    proficiency: expert
+  - id: skill/swrl
+    name: SWRL
+    category: languages
+    years_experience: 8
+    proficiency: expert
+  - id: skill/sparql
+    name: SPARQL
+    category: languages
+    years_experience: 8
+    proficiency: expert
+  - id: skill/geosparql
+    name: GeoSPARQL
+    category: languages
+    years_experience: 8
+    proficiency: advanced
+  - id: skill/cypher
+    name: Cypher
+    category: languages
+    years_experience: 8
+    proficiency: advanced
+  - id: skill/sql
+    name: SQL
+    category: languages
+    years_experience: 8
+    proficiency: expert
+  - id: skill/xml
+    name: XML
+    category: languages
+    years_experience: 8
+    proficiency: expert
+  - id: skill/json
+    name: JSON
+    category: languages
+    years_experience: 8
+    proficiency: expert
+  - id: skill/csv
+    name: CSV
+    category: languages
+    years_experience: 8
+    proficiency: expert
+  - id: skill/javascript
+    name: JavaScript
+    category: languages
+    years_experience: 2
+    proficiency: intermediate
+  - id: skill/csharp
+    name: "C#"
+    category: languages
+    years_experience: 2
+    proficiency: intermediate
+  - id: skill/fortran
+    name: Fortran
+    category: languages
+    years_experience: 2
+    proficiency: intermediate
+  - id: skill/typescript
+    name: TypeScript
+    category: languages
+    years_experience: 1
+    proficiency: intermediate
+  - id: skill/ruby
+    name: "Ruby/Rails"
+    category: languages
+    years_experience: 1
+    proficiency: familiar
+  - id: skill/r
+    name: R
+    category: languages
+    years_experience: 1
+    proficiency: familiar
+
+  # Libraries
+  - id: skill/javafx
+    name: JavaFX
+    category: libraries
+    proficiency: expert
+  - id: skill/apache-jena
+    name: "Apache Jena"
+    category: libraries
+    proficiency: expert
+  - id: skill/owlapi
+    name: OWL API
+    category: libraries
+    proficiency: expert
+  - id: skill/openai-api
+    name: "OpenAI API"
+    category: libraries
+    proficiency: expert
+  - id: skill/numpy
+    name: NumPy
+    category: libraries
+    proficiency: expert
+  - id: skill/pandas
+    name: Pandas
+    category: libraries
+    proficiency: expert
+  - id: skill/pytorch
+    name: PyTorch
+    category: libraries
+    proficiency: advanced
+  - id: skill/tensorflow
+    name: TensorFlow
+    category: libraries
+    proficiency: advanced
+  - id: skill/transformers
+    name: "Hugging Face Transformers"
+    category: libraries
+    proficiency: advanced
+  - id: skill/rdflib
+    name: RDFLib
+    category: libraries
+    proficiency: expert
+  - id: skill/sparqlwrapper
+    name: SPARQLWrapper
+    category: libraries
+    proficiency: expert
+  - id: skill/fastapi
+    name: FastAPI
+    category: libraries
+    proficiency: intermediate
+  - id: skill/pydantic
+    name: Pydantic
+    category: libraries
+    proficiency: intermediate
+  - id: skill/gradio
+    name: Gradio
+    category: libraries
+    proficiency: intermediate
+  - id: skill/streamlit
+    name: Streamlit
+    category: libraries
+    proficiency: intermediate
+  - id: skill/sklearn
+    name: scikit-learn
+    category: libraries
+    proficiency: advanced
+  - id: skill/nltk
+    name: NLTK
+    category: libraries
+    proficiency: advanced
+  - id: skill/matplotlib
+    name: Matplotlib
+    category: libraries
+    proficiency: advanced
+  - id: skill/seaborn
+    name: Seaborn
+    category: libraries
+    proficiency: advanced
+  - id: skill/pyvis
+    name: PyVis
+    category: libraries
+    proficiency: intermediate
+  - id: skill/numba
+    name: Numba
+    category: libraries
+    proficiency: intermediate
+  - id: skill/numexpr
+    name: Numexpr
+    category: libraries
+    proficiency: intermediate
+  - id: skill/cython
+    name: Cython
+    category: libraries
+    proficiency: intermediate
+  - id: skill/mpi4py
+    name: mpi4py
+    category: libraries
+    proficiency: intermediate
+  - id: skill/react
+    name: React
+    category: libraries
+    proficiency: intermediate
+  - id: skill/vite
+    name: Vite
+    category: libraries
+    proficiency: intermediate
+  - id: skill/cytoscape-js
+    name: "Cytoscape.js"
+    category: libraries
+    proficiency: advanced
+  - id: skill/jdbc
+    name: JDBC
+    category: libraries
+    proficiency: expert
+
+  # Tools
+  - id: skill/git
+    name: Git
+    category: tools
+    years_experience: 9
+    proficiency: expert
+  - id: skill/github
+    name: GitHub
+    category: tools
+    years_experience: 9
+    proficiency: expert
+  - id: skill/jira
+    name: Jira
+    category: tools
+    proficiency: advanced
+  - id: skill/confluence
+    name: Confluence
+    category: tools
+    proficiency: advanced
+  - id: skill/bitbucket
+    name: Bitbucket
+    category: tools
+    proficiency: advanced
+  - id: skill/protege
+    name: "Protégé"
+    category: tools
+    years_experience: 8
+    proficiency: expert
+  - id: skill/graphdb
+    name: GraphDB
+    category: tools
+    years_experience: 5
+    proficiency: expert
+  - id: skill/stardog
+    name: Stardog
+    category: tools
+    proficiency: advanced
+  - id: skill/triplydb
+    name: TriplyDB
+    category: tools
+    proficiency: intermediate
+  - id: skill/neo4j
+    name: Neo4j
+    category: tools
+    proficiency: advanced
+  - id: skill/mongodb
+    name: MongoDB
+    category: tools
+    proficiency: intermediate
+  - id: skill/vscode
+    name: "Visual Studio Code"
+    category: tools
+    proficiency: expert
+  - id: skill/eclipse
+    name: Eclipse IDE
+    category: tools
+    proficiency: expert
+  - id: skill/mysql
+    name: MySQL
+    category: tools
+    proficiency: expert
+  - id: skill/postgresql
+    name: PostgreSQL
+    category: tools
+    proficiency: advanced
+  - id: skill/postgis
+    name: PostGIS
+    category: tools
+    proficiency: intermediate
+  - id: skill/phpmyadmin
+    name: PHPMyAdmin
+    category: tools
+    proficiency: advanced
+  - id: skill/qgis
+    name: QGIS
+    category: tools
+    proficiency: advanced
+  - id: skill/jupyter
+    name: "Jupyter Notebook"
+    category: tools
+    proficiency: expert
+  - id: skill/graphviz
+    name: GraphViz
+    category: tools
+    proficiency: advanced
+  - id: skill/ontotext-refine
+    name: "Ontotext Refine"
+    category: tools
+    proficiency: intermediate
+  - id: skill/cvat
+    name: CVAT
+    category: tools
+    proficiency: intermediate
+  - id: skill/docker
+    name: Docker
+    category: tools
+    proficiency: intermediate
+  - id: skill/kubernetes
+    name: Kubernetes
+    category: tools
+    proficiency: familiar
+  - id: skill/trello
+    name: Trello
+    category: tools
+    proficiency: advanced
+
+  # Cloud
+  - id: skill/aws-s3
+    name: "AWS S3"
+    category: cloud
+    proficiency: intermediate
+  - id: skill/aws-bedrock
+    name: "AWS Bedrock"
+    category: cloud
+    proficiency: intermediate
+  - id: skill/gcp
+    name: "Google Cloud Platform"
+    category: cloud
+    proficiency: intermediate
+  - id: skill/heroku
+    name: Heroku
+    category: cloud
+    proficiency: intermediate
+  - id: skill/godaddy
+    name: "GoDaddy"
+    category: cloud
+    proficiency: intermediate
+
+  # Vocabularies / Ontologies
+  - id: skill/rdf
+    name: RDF
+    category: vocabularies
+    years_experience: 8
+    proficiency: expert
+  - id: skill/rdfs
+    name: RDFS
+    category: vocabularies
+    years_experience: 8
+    proficiency: expert
+  - id: skill/skos
+    name: SKOS
+    category: vocabularies
+    proficiency: expert
+  - id: skill/bfo
+    name: BFO
+    category: vocabularies
+    years_experience: 5
+    proficiency: expert
+  - id: skill/cco
+    name: CCO
+    category: vocabularies
+    years_experience: 5
+    proficiency: expert
+  - id: skill/sumo
+    name: SUMO
+    category: vocabularies
+    proficiency: advanced
+  - id: skill/schema-org
+    name: "Schema.org"
+    category: vocabularies
+    proficiency: expert
+  - id: skill/wordnet
+    name: WordNet
+    category: vocabularies
+    proficiency: advanced
+  - id: skill/dcterms
+    name: DCTerms
+    category: vocabularies
+    proficiency: advanced
+  - id: skill/foaf
+    name: FOAF
+    category: vocabularies
+    proficiency: advanced
+  - id: skill/prov-o
+    name: "PROV-O"
+    category: vocabularies
+    proficiency: expert
+  - id: skill/spar
+    name: "SPAR family"
+    category: vocabularies
+    proficiency: advanced
+  - id: skill/bibo
+    name: BIBO
+    category: vocabularies
+    proficiency: advanced
+  - id: skill/seon
+    name: SEON
+    category: vocabularies
+    proficiency: advanced
+  - id: skill/mlschema
+    name: MLSchema
+    category: vocabularies
+    proficiency: advanced
+  - id: skill/dolce
+    name: DOLCE
+    category: vocabularies
+    proficiency: intermediate
+  - id: skill/ufo
+    name: UFO
+    category: vocabularies
+    proficiency: intermediate
+  - id: skill/gfo
+    name: GFO
+    category: vocabularies
+    proficiency: intermediate
+  - id: skill/iao
+    name: IAO
+    category: vocabularies
+    proficiency: intermediate
+  - id: skill/rdfa
+    name: RDFa
+    category: vocabularies
+    proficiency: advanced
+  - id: skill/jsonld
+    name: "JSON-LD"
+    category: vocabularies
+    proficiency: expert
+
+  # AI Tools
+  - id: skill/chatgpt
+    name: "OpenAI GPT series (including API)"
+    category: ai_tools
+    proficiency: expert
+  - id: skill/claude
+    name: "Anthropic Claude / Claude Code"
+    category: ai_tools
+    proficiency: expert
+  - id: skill/copilot
+    name: "Microsoft Copilot"
+    category: ai_tools
+    proficiency: advanced
+  - id: skill/gemini
+    name: "Google Gemini"
+    category: ai_tools
+    proficiency: advanced
+  - id: skill/grok
+    name: Grok
+    category: ai_tools
+    proficiency: intermediate
+  - id: skill/ollama
+    name: Ollama
+    category: ai_tools
+    proficiency: advanced
+  - id: skill/stable-diffusion
+    name: "Stable Diffusion WebUI"
+    category: ai_tools
+    proficiency: advanced
+  - id: skill/midjourney
+    name: Midjourney
+    category: ai_tools
+    proficiency: intermediate
+  - id: skill/lm-studio
+    name: "LM Studio"
+    category: ai_tools
+    proficiency: advanced
+  - id: skill/tensorboard
+    name: Tensorboard
+    category: ai_tools
+    proficiency: intermediate
+  - id: skill/topaz-video-ai
+    name: "Topaz Video AI"
+    category: ai_tools
+    proficiency: intermediate
+  - id: skill/bert-embeddings
+    name: "BERT / BART embedding, all-MiniLM-L6-v2"
+    category: ai_tools
+    proficiency: advanced
+  - id: skill/huggingface
+    name: "Hugging Face (platform)"
+    category: ai_tools
+    proficiency: advanced
+
+  # Design / Analysis
+  - id: skill/tableau
+    name: Tableau
+    category: design
+    proficiency: advanced
+  - id: skill/rstudio
+    name: RStudio
+    category: design
+    proficiency: intermediate
+  - id: skill/drawio
+    name: "Draw.io"
+    category: design
+    proficiency: expert
+  - id: skill/lucidchart
+    name: LucidChart
+    category: design
+    proficiency: advanced
+  - id: skill/miro
+    name: Miro
+    category: design
+    proficiency: intermediate
+  - id: skill/balsamiq
+    name: Balsamiq
+    category: design
+    proficiency: intermediate
+  - id: skill/adobe-photoshop
+    name: "Adobe Photoshop"
+    category: design
+    proficiency: advanced
+  - id: skill/adobe-illustrator
+    name: "Adobe Illustrator"
+    category: design
+    proficiency: intermediate
+  - id: skill/adobe-after-effects
+    name: "Adobe After Effects"
+    category: design
+    proficiency: intermediate
+  - id: skill/unity
+    name: Unity
+    category: design
+    proficiency: intermediate
+  - id: skill/latex
+    name: LaTeX
+    category: design
+    years_experience: 9
+    proficiency: expert
+
+  # OS
+  - id: skill/windows
+    name: "Windows (XP, Vista, 7, 8, 10, 11)"
+    category: os
+    proficiency: expert
+  - id: skill/macos
+    name: macOS
+    category: os
+    proficiency: advanced
+  - id: skill/linux-ubuntu
+    name: "Linux Ubuntu"
+    category: os
+    proficiency: advanced
+  - id: skill/kali
+    name: "Kali Linux"
+    category: os
+    proficiency: intermediate
+  - id: skill/redhat
+    name: "RedHat Linux"
+    category: os
+    proficiency: intermediate
+  - id: skill/android
+    name: "Android OS"
+    category: os
+    proficiency: intermediate
+  - id: skill/xigmanas
+    name: XigmaNAS
+    category: os
+    proficiency: intermediate
+  - id: skill/vxworks
+    name: VxWorks
+    category: os
+    proficiency: intermediate
+
+  # Soft Skills
+  - id: skill/agile
+    name: "Agile / Scrum / Kanban"
+    category: soft_skills
+    years_experience: 9
+    proficiency: expert
+  - id: skill/technical-writing
+    name: "Technical and Scientific Writing"
+    category: soft_skills
+    years_experience: 9
+    proficiency: expert
+  - id: skill/stakeholder-presentation
+    name: "Presenting to stakeholders (dozens/hundreds)"
+    category: soft_skills
+    proficiency: advanced
+  - id: skill/ieee-manuscript
+    name: "IEEE double-column manuscripts"
+    category: soft_skills
+    years_experience: 10
+    proficiency: expert
+  - id: skill/elsevier-manuscript
+    name: "Elsevier-style single-column manuscripts"
+    category: soft_skills
+    years_experience: 10
+    proficiency: expert
+
+awards:
+  - id: award/ssrn-top-2-percent
+    title: "Top 2% Downloaded Author"
+    issuer: "Social Science Research Network (SSRN)"
+    date: "2024-10"
+    description: "Recognized as a top 2% downloaded author on SSRN"
+
+  - id: award/outstanding-doctoral-student
+    title: "Outstanding Doctoral Student, Electrical Engineering and Computer Science"
+    issuer: "Embry-Riddle Aeronautical University"
+    date: "2024-04"
+
+  - id: award/smart-scholarship
+    title: "Science, Mathematics, and Research for Transformation (SMART) Scholarship"
+    issuer: "Department of Defense / Air Force Research Lab (AFRL)"
+    date: "2020-08"
+    description: |
+      Sponsored through the Air Force Research Lab (AFRL), Rome, NY. Consistent summer research
+      work with the nation's top information analysts, AI experts and data visualization scientists
+      at the Information Directorate of the AFRL. Mentorship by leading Semantic Web and Linked
+      Data experts including Dr. Nicholas Del Rio and Dr. Timothy Lebo. Full tuition payment,
+      annual stipend, internships and continued work after graduation. Active Aug 2020 - Nov 2025.
+
+  - id: award/diamond-eagle-scholarship
+    title: "Diamond Eagle Scholarship"
+    issuer: "Embry-Riddle Aeronautical University"
+    date: "2016-08"
+    description: "Highest-obtainable scholarship for new ERAU students"
+
+  - id: award/florida-bright-futures
+    title: "The Florida Bright Future Scholarship - Academic Scholar Award"
+    issuer: "FSCJ & TCA"
+    date: "2016-05"
+
+  - id: award/presidents-education-award
+    title: "President's Education Awards Program - Outstanding Academic Excellence"
+    date: "2016-05"
+
+  - id: award/principals-list
+    title: "Principal's List - All A Honor Roll"
+    date: "2016-05"
+
+  - id: award/national-honor-society
+    title: "National Honor Society Member"
+    date: "2013"
+    description: "Member 10th through 12th grade"
+
+  - id: award/national-junior-honor-society
+    title: "National Junior Honor Society Member"
+    date: "2010"
+    description: "Member 7th through 9th grade"
+
+  - id: award/faacs-fine-arts-1st
+    title: "1st Place - FAACS Fine Arts Competition"
+    description: "9th grade"
+
+  - id: award/act-top-1-percent
+    title: "ACT Reading/Writing: Top 1%"
+    description: "Taken as part of entrance to the SMART program"
+
+  - id: award/beta-club
+    title: "Beta Club Member"
+    description: "Member 3rd through 6th grade"
+
+  - id: award/regional-spelling-bee
+    title: "3rd Place - 2006 FAACS Regional Spelling Bee"
+    date: "2006"
+
+certificates:
+  - id: cert/security-plus
+    title: "Security+"
+    issuer: CompTIA
+    status: in_progress
+
+  - id: cert/semantic-web-technologies
+    title: "Semantic Web Technologies"
+    issuer: "Hasso Plattner Institute"
+    status: in_progress
+
+  - id: cert/upwork-ml
+    title: "Machine Learning"
+    issuer: Upwork
+    date: "2024-10"
+    status: completed
+    url: "https://www.upwork.com/freelancers/~01a0532dff7b928594"
+
+  - id: cert/stanford-ml-specialization
+    title: "Machine Learning Specialization"
+    issuer: "Stanford DeepLearning.AI (Coursera)"
+    date: "2024-01"
+    status: completed
+    url: "https://coursera.org/share/c4fca9ebb94a0b28c4abdf29bd58fce1"
+
+  - id: cert/mlops-deployment
+    title: "MLOps Essentials: Model Deployment and Monitoring"
+    issuer: "LinkedIn Learning"
+    date: "2023-06"
+    status: completed
+    url: "https://www.linkedin.com/learning/certificates/362f6d53e97eaa88666ee2b0c90242871ba3b7e314a6b0d9f18d9a7abf7a9317"
+
+  - id: cert/mlops-development
+    title: "MLOps Essentials: Model Development and Integration"
+    issuer: "LinkedIn Learning"
+    date: "2023-06"
+    status: completed
+    url: "https://www.linkedin.com/learning/certificates/7f7c4b05b91c1998103d4ad8f33c3ba3b97f2ab33f4c50b845d7e9ce8c8b4c25"
+
+  - id: cert/research-with-genai
+    title: "How to Research and Write Using Generative AI Tools"
+    issuer: "LinkedIn Learning"
+    date: "2023-06"
+    status: completed
+    url: "https://www.linkedin.com/learning/certificates/58b8794a8dc321620401e4c3deda53d52d2df7a3ac471d248e135d9b2d2c9fec"
+
+  - id: cert/gpt4-release
+    title: "GPT-4: The New GPT Release"
+    issuer: "LinkedIn Learning"
+    date: "2023-05"
+    status: completed
+    url: "https://www.linkedin.com/learning/certificates/7808aeffcf04a28fa518189446d36a70559caf3a8eeea31d988e05f1d1b57cb1"
+
+  - id: cert/prompt-engineering
+    title: "Prompt Engineering: How to Talk to the AIs"
+    issuer: "LinkedIn Learning"
+    date: "2023-05"
+    status: completed
+    url: "https://www.linkedin.com/learning/certificates/744a9027f4c0eb5460e36665c404743b5fe94b507eff6f411493a1f52e89beac"
+
+  - id: cert/remote-work-professional
+    title: "Remote Work Professional"
+    issuer: CertiProf
+    date: "2023-03"
+    status: completed
+    url: "https://www.credly.com/badges/a3882756-7f83-4696-86ee-82736d713230/public_url"
+
+  - id: cert/google-data-analytics
+    title: "Data Analytics Professional"
+    issuer: Google
+    date: "2022-11"
+    status: completed
+    url: "https://www.credly.com/badges/b3357b55-5b36-40b9-8a9f-f1ea50463a2b/public_url"
+
+  - id: cert/editing-proofreading
+    title: "Essential Editing and Proofreading"
+    issuer: "Virtued Academy International (IAOTH)"
+    date: "2022-11"
+    status: completed
+
+talks:
+  - id: talk/powering-ai-ontology-construction
+    title: "Powering AI with Ontology in Construction"
+    venue: "Constructed Futures with Hugh Seaton (podcast)"
+    date: "2023-11"
+    url: "https://www.linkedin.com/posts/hughseaton_tyler-procko-powering-ai-with-ontology-at-activity-7135290681022976000-EVpb?utm_source=share&utm_medium=member_desktop"
+    description: "Discussed using ontology to power AI in the construction industry"
+
+references:
+  - id: ref/omar-ochoa
+    name: "Dr. Omar Ochoa"
+    title: "Associate Professor and Program Coordinator for M.S. in Computer Science and M.S. in Software Engineering"
+    organization: "Embry-Riddle Aeronautical University"
+    email: ochoao@erau.edu
+    relationship: "Doctoral advisor and research team lead"
+
+  - id: ref/nicholas-del-rio
+    name: "Dr. Nicholas Del Rio"
+    title: "Computer Scientist"
+    organization: "Air Force Research Laboratory - Information Directorate"
+    email: nicholas.del_rio@us.af.mil
+    relationship: "SMART Scholarship mentor and AFRL supervisor"
+
+  - id: ref/massood-towhidnejad
+    name: "Dr. Massood Towhidnejad"
+    title: "Chair and Professor of the Electrical Engineering and Computer Science Department"
+    organization: "Embry-Riddle Aeronautical University"
+    email: towhid@erau.edu
+    relationship: "Department Chair"
+
+extracurriculars:
+  # Scholarly - Manuscript Reviews
+  - id: extra/review-mar-2026
+    title: "Manuscript Reviewer"
+    organization: "Springer Nature (Discover Education, Discover Computing)"
+    date: "2026-03"
+    description: "Reviewer (1 manuscript) - Discover Education; Reviewer (1 manuscript) - Discover Computing"
+
+  - id: extra/review-jan-2026
+    title: "Manuscript Reviewer"
+    organization: "Springer Nature / Qeios"
+    date: "2026-01"
+    description: |
+      Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature;
+      Reviewer (1 manuscript) - Computing, Springer Nature;
+      Reviewer (1 manuscript) - Discover Education, Springer Nature;
+      Reviewer (1 manuscript) - Archives of Dermatological Research, Springer Nature;
+      Reviewer (1 article) - Qeios
+
+  - id: extra/review-dec-2025
+    title: "Manuscript Reviewer"
+    organization: "Discover Artificial Intelligence, Springer Nature"
+    date: "2025-12"
+    description: "Reviewer (2 manuscripts) - Discover Artificial Intelligence, Springer Nature"
+
+  - id: extra/review-nov-2025
+    title: "Manuscript Reviewer"
+    organization: "Multiple journals"
+    date: "2025-11"
+    description: |
+      Reviewer (1 manuscript) - Journal of Visualized Experiments (JoVE);
+      Reviewer (2 manuscripts) - Discover Education, Springer Nature;
+      Reviewer (5 manuscripts) - Discover Artificial Intelligence, Springer Nature;
+      Reviewer (2 manuscripts) - Computing, Springer Nature
+
+  - id: extra/comptia-study-guide
+    title: "Creator - CompTIA Security+ SYS-701 Study Guide Dump"
+    organization: GitHub
+    date: "2025-11"
+    description: "Created and published a CompTIA Security+ study guide on GitHub"
+
+  - id: extra/review-jan-2025
+    title: "Manuscript Reviewer"
+    organization: "IEEE / Springer Nature"
+    date: "2025-01"
+    description: |
+      Reviewer (1 manuscript) - Wireless Communications Magazine, IEEE;
+      Reviewer (2 manuscripts) - Discover Computing, Springer Nature
+
+  - id: extra/review-nov-2024
+    title: "Manuscript Reviewer"
+    organization: "Discover Artificial Intelligence, Springer Nature"
+    date: "2024-11"
+    description: "Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature"
+
+  - id: extra/review-fie-2024
+    title: "Manuscript Reviewer"
+    organization: "2024 IEEE ASEE Frontiers in Education (FIE)"
+    date: "2024-03"
+    description: "Reviewer (4 manuscripts)"
+
+  - id: extra/swebok-v4-review
+    title: "SWEBOK v4 Public Review Participant"
+    organization: "IEEE Computer Society"
+    date: "2024-01"
+
+  - id: extra/dair-prompt-engineering
+    title: "Contributor to the DAIR Prompt Engineering Guide"
+    organization: "DAIR / GitHub"
+    date: "2023-05"
+
+  - id: extra/ontogpt-contributor
+    title: "Contributor to OntoGPT GitHub"
+    organization: "Monarch Initiative / GitHub"
+    date: "2023-05"
+
+  - id: extra/huge-ai-models-contributor
+    title: "Contributor to Huge AI Models GitHub"
+    organization: GitHub
+    date: "2023-04"
+
+  - id: extra/review-fie-2023
+    title: "Manuscript Reviewer"
+    organization: "2023 IEEE ASEE Frontiers in Education (FIE)"
+    date: "2023-03"
+    description: "Reviewer (2 manuscripts)"
+
+  - id: extra/practical-nlp-errata
+    title: "Contributor to Practical Natural Language Processing errata"
+    organization: "Vajjala et al. (O'Reilly)"
+    date: "2022-11"
+
+  - id: extra/cco-contributor
+    title: "Contributor to the Common Core Ontologies"
+    organization: "Common Core Ontologies GitHub"
+    date: "2022-07"
+    description: "Provided clarification of term definitions and term spelling in the official Common Core Ontologies Github repository"
+
+  - id: extra/semantalytics-contributor
+    title: "Contributor to the Semantalytics Awesome Semantic Web list"
+    date: "2022-07"
+
+  - id: extra/awesome-bfo
+    title: "Created summarized list of BFO and BFO-related resources"
+    organization: GitHub
+    date: "2022-06"
+    description: "Created a summarized list of BFO and BFO-related resources for other researchers"
+
+  # Organizations
+  - id: extra/ieee-member
+    title: "IEEE Member (#98174383)"
+    organization: IEEE
+    date: "2023-09"
+    role: Member
+
+  - id: extra/asee-member
+    title: "American Society for Engineering Education Member"
+    organization: "American Society for Engineering Education"
+    date: "2021-12"
+    role: Member
+
+  - id: extra/whecs
+    title: "White Hat Eagles Cybersecurity Club (WHECS)"
+    organization: "ERAU Daytona"
+    date: "2019-01"
+    role: Member
+    description: "Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book. Engaged in several hands-on activities dealing with hacking."
+
+  - id: extra/erau-ai-club
+    title: "Embry-Riddle Artificial Intelligence Club"
+    organization: "ERAU Daytona"
+    date: "2018-08"
+    role: Member
+    description: "Worked with genetic algorithms in a variety of scenarios"
+
+  # Volunteer
+  - id: extra/av-technician
+    title: "Audio/Visual Technician"
+    organization: "River Road Baptist Church, Hilliard, FL"
+    date: "2023-11"
+    role: Volunteer
+    description: "Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an in-person audience of ~100 and a livestream audience of ~10"
+
+  - id: extra/pc-consultant
+    title: "Personal Computer Construction Consultant"
+    organization: "Remote/In-Person"
+    date: "2014-01"
+    role: Volunteer
+    description: "Assisted personal contacts with computer construction and setup. Resolved computer, network, software and peripheral issues."
+
+  - id: extra/library-volunteer
+    title: "All-rounder Volunteer"
+    organization: "Nassau County Public Library"
+    description: "Labeling and returning books, assisting customers; periodic maintenance of the library database software. 50+ hours."
+
+  - id: extra/shrimp-fest
+    title: "Shrimp Fest Worker"
+    organization: "Prince of Peace Lutheran Church"
+    description: "Preparing food, cashiering and assisting customers. 100+ hours."
+
+  - id: extra/hoby
+    title: "Class Ambassador"
+    organization: "Hugh O'Brian Youth Leadership Program"
+    description: "Selected as one out of 200+ students to represent high school in a leadership summit. Learned effective interpersonal relational, communication and leadership skills. 10+ hours."
+
+books_read:
+  - "A Knowledge Representation Practionary — Michael K. Bergman (WIP, started Feb 2023)"
+  - "An Enquiry Concerning Human Understanding — David Hume (Sep 2022)"
+  - "Practical Natural Language Processing — Vajjala et al. (Aug 2022)"
+  - "Of Empire — Francis Bacon (July 2022)"
+  - "Building Ontologies with BFO — Smith et al. (June 2022)"
+  - "The Prince and Discourses on Livy — Niccolò Machiavelli (June 2021)"
+  - "Discourses on Livy — Machiavelli (favorite)"
+  - "The Count of Monte Cristo — Alexandre Dumas (favorite)"
+  - "Paradise Lost — John Milton (favorite)"
+  - "Endurance — Alfred Lansing (favorite)"
+  - "Redwall series — Brian Jacques (favorite)"
+
+hobbies:
+  - Reading
+  - Weightlifting
+  - Triathlon
+  - "Martial arts"
+  - Drawing
+  - Carpentry
+  - Machining
+  - Banjo
+  - "Tool collecting"
+
+favorite_artists:
+  - "William-Adolphe Bouguereau"
+  - "Frank Frazetta"
+
+favorite_music:
+  - Classical
+  - "Old Country"
+  - "Dad Rock"

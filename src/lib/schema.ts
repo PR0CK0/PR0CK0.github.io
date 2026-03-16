@@ -1,0 +1,156 @@
+import { z } from 'zod'
+
+export const SocialLinkSchema = z.object({
+  id: z.string(),
+  platform: z.string(),
+  url: z.string(),
+  handle: z.string().optional(),
+})
+
+export const EducationSchema = z.object({
+  id: z.string(),
+  institution: z.string(),
+  degree: z.string(),
+  field: z.string(),
+  start_date: z.string().optional(),
+  end_date: z.string().optional(),
+  gpa: z.number().optional(),
+  distinction: z.boolean().optional(),
+  notes: z.array(z.string()).optional(),
+})
+
+export const WorkExperienceSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  organization: z.string(),
+  start_date: z.string().optional(),
+  end_date: z.string().optional(),
+  is_current: z.boolean().optional(),
+  location: z.string().optional(),
+  description: z.array(z.string()).optional(),
+  technologies: z.array(z.string()).optional(),
+})
+
+export const PublicationSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  authors: z.array(z.string()).optional(),
+  venue: z.string().optional(),
+  date: z.string().optional(),
+  status: z.enum(['published', 'awaiting_publication', 'in_progress']).optional(),
+  doi: z.string().optional(),
+  url: z.string().optional(),
+  abstract: z.string().optional(),
+  tags: z.array(z.string()).optional(),
+})
+
+export const ProjectSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string().optional(),
+  year: z.string().optional(),
+  technologies: z.array(z.string()).optional(),
+  url: z.string().optional(),
+  repo_url: z.string().optional(),
+  featured: z.boolean().optional(),
+  tags: z.array(z.string()).optional(),
+})
+
+export const SkillSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  category: z.enum(['languages', 'libraries', 'tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os', 'soft_skills']),
+  years_experience: z.number().optional(),
+  proficiency: z.enum(['expert', 'advanced', 'intermediate', 'familiar']).optional(),
+})
+
+export const AwardSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  issuer: z.string().optional(),
+  date: z.string().optional(),
+  description: z.string().optional(),
+})
+
+export const CertificateSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  issuer: z.string().optional(),
+  date: z.string().optional(),
+  status: z.enum(['completed', 'in_progress']).optional(),
+  url: z.string().optional(),
+})
+
+export const TalkSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  venue: z.string().optional(),
+  date: z.string().optional(),
+  url: z.string().optional(),
+  description: z.string().optional(),
+})
+
+export const ReferenceSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  title: z.string().optional(),
+  organization: z.string().optional(),
+  email: z.string().optional(),
+  phone: z.string().optional(),
+  relationship: z.string().optional(),
+})
+
+export const ExtracurricularSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  organization: z.string().optional(),
+  role: z.string().optional(),
+  description: z.string().optional(),
+  date: z.string().optional(),
+})
+
+export const PersonSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  title: z.string().optional(),
+  location: z.string().optional(),
+  phone: z.string().optional(),
+  email_personal: z.string().optional(),
+  email_academic: z.string().optional(),
+  orcid: z.string().optional(),
+  website: z.string().optional(),
+  tagline: z.string().optional(),
+  summary: z.string().optional(),
+  clearance: z.string().optional(),
+  availability: z.string().optional(),
+  birth_year: z.number().optional(),
+  mbti: z.string().optional(),
+  social_links: z.array(SocialLinkSchema).optional(),
+  education: z.array(EducationSchema).optional(),
+  work_experiences: z.array(WorkExperienceSchema).optional(),
+  publications: z.array(PublicationSchema).optional(),
+  projects: z.array(ProjectSchema).optional(),
+  skills: z.array(SkillSchema).optional(),
+  awards: z.array(AwardSchema).optional(),
+  certificates: z.array(CertificateSchema).optional(),
+  talks: z.array(TalkSchema).optional(),
+  references: z.array(ReferenceSchema).optional(),
+  extracurriculars: z.array(ExtracurricularSchema).optional(),
+  books_read: z.array(z.string()).optional(),
+  hobbies: z.array(z.string()).optional(),
+  favorite_artists: z.array(z.string()).optional(),
+  favorite_music: z.array(z.string()).optional(),
+})
+
+export type Person = z.infer<typeof PersonSchema>
+export type Education = z.infer<typeof EducationSchema>
+export type WorkExperience = z.infer<typeof WorkExperienceSchema>
+export type Publication = z.infer<typeof PublicationSchema>
+export type Project = z.infer<typeof ProjectSchema>
+export type Skill = z.infer<typeof SkillSchema>
+export type Award = z.infer<typeof AwardSchema>
+export type Certificate = z.infer<typeof CertificateSchema>
+export type Talk = z.infer<typeof TalkSchema>
+export type Reference = z.infer<typeof ReferenceSchema>
+export type Extracurricular = z.infer<typeof ExtracurricularSchema>
+export type SocialLink = z.infer<typeof SocialLinkSchema>

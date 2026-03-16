@@ -1,0 +1,51 @@
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+      },
+      colors: {
+        terminal: {
+          bg: '#0a0e1a',
+          surface: '#0f1629',
+          border: '#1e2d4a',
+          green: '#00ff88',
+          amber: '#ffb300',
+          blue: '#4d9fff',
+          purple: '#b57bff',
+          red: '#ff4d6d',
+          text: '#c8d6f0',
+          muted: '#4a5a7a',
+        },
+      },
+      animation: {
+        'blink': 'blink 1s step-end infinite',
+        'scanline': 'scanline 8s linear infinite',
+        'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+      },
+      keyframes: {
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
+        scanline: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100vh)' },
+        },
+        'glow-pulse': {
+          '0%, 100%': { textShadow: '0 0 8px #00ff88, 0 0 16px #00ff88' },
+          '50%': { textShadow: '0 0 16px #00ff88, 0 0 32px #00ff88, 0 0 48px #00ff88' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}
+
+export default config
