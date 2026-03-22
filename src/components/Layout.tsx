@@ -5,6 +5,7 @@ const navItems = [
   { to: '/', label: '~/home' },
   { to: '/graph', label: '~/graph' },
   { to: '/cv', label: '~/cv.pdf' },
+  { to: '/resume', label: '~/resume.pdf' },
   { to: '/legacy', label: '~/legacy' },
 ]
 
