@@ -1,0 +1,19 @@
+{% macro fmt_date(d) %}{% set months = {'01': 'Jan', '02': 'Feb', '03': 'Mar', '04': 'Apr', '05': 'May', '06': 'June', '07': 'July', '08': 'Aug', '09': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dec'} %}{{ months[d[-2:]] }} {{ d[:4] }}{% endmacro %}
+      <details>
+        <summary><h2 class='section-title-collapsible'>Certificates</h2></summary>
+        <hr class='collapsed-hr'>
+        <section>
+{% for cert in certificates %}
+          <div class='date-content-box'>
+            <div class='my-dates'>{% if cert.status == 'in_progress' %}In Progress{% else %}{{ fmt_date(cert.date) }}{% endif %}</div>
+            <div class='content'>
+{% if cert.url is defined and cert.url %}
+              <h4><a href='{{ cert.url }}'>{{ cert.title }}</a>, <i>{{ cert.issuer }}</i></h4>
+{% else %}
+              <h4>{{ cert.title }}, <i>{{ cert.issuer }}</i></h4>
+{% endif %}
+            </div>
+          </div>
+{% endfor %}
+        </section>
+      </details>

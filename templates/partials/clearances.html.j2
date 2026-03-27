@@ -1,0 +1,17 @@
+      <details>
+        <summary><h2 class='section-title-collapsible'>Govt Clearances</h2></summary>
+        <hr class='collapsed-hr'>
+        <h3 class='section-subtitle'>Current Clearance Status</h3>
+        <p>I am cleared for Secret T3 but do not continually retain an explicit clearance.</p>
+        <h3 class='section-subtitle'>Past Clearances</h3>
+        <section id='clearances'>
+{% for c in past_clearances %}
+          <div class='date-content-box'>
+            <div class='my-dates'>{{ c.date_range }}</div>
+            <div class='content'>
+              <h4>{{ c.level }}, <i>cleared by {{ c.grantor }}, retained by {{ c.holder }}</i></h4>
+            </div>
+          </div>
+{% endfor %}
+        </section>
+      </details>

@@ -1,0 +1,26 @@
+      <section id='references'>
+        <h2 class='section-title'>References</h2>
+        <hr>
+        <div class='double-column'>
+          <div class='column'>
+            <h3 class='section-subtitle'>{{ references[0].name }}</h3>
+            <ul>
+              <li>{{ references[0].title }}, {{ references[0].organization }}</li>
+              <li><a href='mailto:{{ references[0].email }}'><i>{{ references[0].email }}</i></a></li>
+            </ul>
+            <h3 class='section-subtitle'>{{ references[1].name }}</h3>
+              <ul>
+                <li>{{ references[1].title }}, {{ references[1].organization }}</li>
+                <li><a href='mailto:{{ references[1].email }}'><i>{{ references[1].email }}</i></a></li>
+                <li><a href='mailto:{{ references[1].email_secondary }}'><i>{{ references[1].email_secondary }}</i></a></li>
+              </ul>
+          </div>
+          <div class='column'>
+            <h3 class='section-subtitle'>{{ references[2].name }}</h3>
+            <ul>
+              <li>{{ references[2].title }}, {{ references[2].organization }}</li>
+              <li><a href='mailto:{{ references[2].email }}'><i>{{ references[2].email }}</i></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>

@@ -12,7 +12,7 @@ summary: |
   AI / Knowledge Graph Engineer | LLM-Focused | Defense ML Provenance and Ontology Specialist.
   Ph.D. researcher with 9+ years in Java/Python, Agile machine learning, ETL, ontology design,
   BFO/CCO standardization, and NLP for defense and aerospace applications. Experienced in GenAI,
-  LLM integration, ML pipelining, RAG systems, prompt engineering, taxonomies, graph-based
+  LLM integration, ML pipelining, RAG systems, prompt/context engineering, taxonomies, graph-based
   explainability, modular + testable software, and academic publication. Active contributor to
   AFRL, IEEE, and DoD FAIR AI data-standardization efforts. Tools: Claude, PyTorch, TensorFlow,
   Hugging Face, Ollama, Stable Diffusion, GraphDB. Google & Stanford Deep Learning Certified.
@@ -892,6 +892,27 @@ publications:
       - "cognitive assistants"
 
 projects:
+  - id: proj/ai-landscape-digest
+    title: "AI Landscape Digest"
+    year: "2026-03"
+    url: https://procko.pro/ai-landscape-digest/
+    repo_url: https://github.com/PR0CK0/ai-landscape-digest/
+    featured: true
+    description: |
+      Built an automated AI news digest tool that fetches, deduplicates, and summarizes release feeds from 10+ sources with LLMs across GitHub, blogs, and newsletters with a configurable schedule.
+      Multi-platform trigger system (macOS launchd/sleepwatcher, Linux systemd, Windows Task Scheduler) to fire on lid open/login.
+      Cloud mode via GitHub Actions + GitHub Pages, running on a 6-hour cron with persistent dedup cache.
+      Works with Ollama, Claude/Codex/Gemini CLI.
+    technologies:
+      - Python
+      - GitHub Actions
+      - Ollama
+      - Claude
+    tags:
+      - AI
+      - automation
+      - "developer tools"
+
   - id: proj/biomed-paper-extractor
     title: "Biomedical Paper Information Extractor"
     year: "2026-03"
@@ -2033,7 +2054,7 @@ certificates:
 
   - id: cert/stanford-ml-specialization
     title: "Machine Learning Specialization"
-    issuer: "Stanford DeepLearning.AI (Coursera)"
+    issuer: "Stanford DeepLearning.AI"
     date: "2024-01"
     status: completed
     url: "https://coursera.org/share/c4fca9ebb94a0b28c4abdf29bd58fce1"
@@ -2114,6 +2135,7 @@ references:
     title: "Computer Scientist"
     organization: "Air Force Research Laboratory - Information Directorate"
     email: nicholas.del_rio@us.af.mil
+    email_secondary: "nicholas.delrio@gmail.com"
     relationship: "SMART Scholarship mentor and AFRL supervisor"
 
   - id: ref/massood-towhidnejad
@@ -2127,14 +2149,20 @@ extracurriculars:
   # Scholarly - Manuscript Reviews
   - id: extra/review-mar-2026
     title: "Manuscript Reviewer"
-    organization: "Springer Nature (Discover Education, Discover Computing)"
+    organization: "Multiple journals"
     date: "2026-03"
-    description: "Reviewer (1 manuscript) - Discover Education; Reviewer (1 manuscript) - Discover Computing"
+    type: scholarly
+    description: |
+      Reviewer (1 manuscript) - Concurrency and Computation: Practice and Experience, Wiley;
+      Reviewer (1 manuscript) - AI and Ethics, Springer Nature;
+      Reviewer (1 manuscript) - Discover Education, Springer Nature;
+      Reviewer (1 manuscript) - Discover Computing, Springer Nature
 
   - id: extra/review-jan-2026
     title: "Manuscript Reviewer"
     organization: "Springer Nature / Qeios"
     date: "2026-01"
+    type: scholarly
     description: |
       Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature;
       Reviewer (1 manuscript) - Computing, Springer Nature;
@@ -2146,12 +2174,14 @@ extracurriculars:
     title: "Manuscript Reviewer"
     organization: "Discover Artificial Intelligence, Springer Nature"
     date: "2025-12"
+    type: scholarly
     description: "Reviewer (2 manuscripts) - Discover Artificial Intelligence, Springer Nature"
 
   - id: extra/review-nov-2025
     title: "Manuscript Reviewer"
     organization: "Multiple journals"
     date: "2025-11"
+    type: scholarly
     description: |
       Reviewer (1 manuscript) - Journal of Visualized Experiments (JoVE);
       Reviewer (2 manuscripts) - Discover Education, Springer Nature;
@@ -2162,12 +2192,14 @@ extracurriculars:
     title: "Creator - CompTIA Security+ SYS-701 Study Guide Dump"
     organization: GitHub
     date: "2025-11"
+    type: scholarly
     description: "Created and published a CompTIA Security+ study guide on GitHub"
 
   - id: extra/review-jan-2025
     title: "Manuscript Reviewer"
     organization: "IEEE / Springer Nature"
     date: "2025-01"
+    type: scholarly
     description: |
       Reviewer (1 manuscript) - Wireless Communications Magazine, IEEE;
       Reviewer (2 manuscripts) - Discover Computing, Springer Nature
@@ -2176,59 +2208,70 @@ extracurriculars:
     title: "Manuscript Reviewer"
     organization: "Discover Artificial Intelligence, Springer Nature"
     date: "2024-11"
+    type: scholarly
     description: "Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature"
 
   - id: extra/review-fie-2024
     title: "Manuscript Reviewer"
     organization: "2024 IEEE ASEE Frontiers in Education (FIE)"
     date: "2024-03"
+    type: scholarly
     description: "Reviewer (4 manuscripts)"
 
   - id: extra/swebok-v4-review
     title: "SWEBOK v4 Public Review Participant"
     organization: "IEEE Computer Society"
     date: "2024-01"
+    type: scholarly
 
   - id: extra/dair-prompt-engineering
     title: "Contributor to the DAIR Prompt Engineering Guide"
     organization: "DAIR / GitHub"
     date: "2023-05"
+    type: scholarly
 
   - id: extra/ontogpt-contributor
     title: "Contributor to OntoGPT GitHub"
     organization: "Monarch Initiative / GitHub"
     date: "2023-05"
+    type: scholarly
 
   - id: extra/huge-ai-models-contributor
     title: "Contributor to Huge AI Models GitHub"
     organization: GitHub
     date: "2023-04"
+    type: scholarly
 
   - id: extra/review-fie-2023
     title: "Manuscript Reviewer"
     organization: "2023 IEEE ASEE Frontiers in Education (FIE)"
     date: "2023-03"
+    type: scholarly
     description: "Reviewer (2 manuscripts)"
 
   - id: extra/practical-nlp-errata
     title: "Contributor to Practical Natural Language Processing errata"
     organization: "Vajjala et al. (O'Reilly)"
     date: "2022-11"
+    type: scholarly
 
   - id: extra/cco-contributor
     title: "Contributor to the Common Core Ontologies"
     organization: "Common Core Ontologies GitHub"
     date: "2022-07"
+    type: scholarly
     description: "Provided clarification of term definitions and term spelling in the official Common Core Ontologies Github repository"
 
   - id: extra/semantalytics-contributor
     title: "Contributor to the Semantalytics Awesome Semantic Web list"
     date: "2022-07"
+    type: scholarly
 
   - id: extra/awesome-bfo
     title: "Created summarized list of BFO and BFO-related resources"
     organization: GitHub
     date: "2022-06"
+    type: scholarly
     description: "Created a summarized list of BFO and BFO-related resources for other researchers"
 
   # Organizations
@@ -2236,18 +2279,21 @@ extracurriculars:
     title: "IEEE Member (#98174383)"
     organization: IEEE
     date: "2023-09"
+    type: organization
     role: Member
 
   - id: extra/asee-member
     title: "American Society for Engineering Education Member"
     organization: "American Society for Engineering Education"
     date: "2021-12"
+    type: organization
     role: Member
 
   - id: extra/whecs
     title: "White Hat Eagles Cybersecurity Club (WHECS)"
     organization: "ERAU Daytona"
     date: "2019-01"
+    type: organization
     role: Member
     description: "Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book. Engaged in several hands-on activities dealing with hacking."
 
@@ -2255,6 +2301,7 @@ extracurriculars:
     title: "Embry-Riddle Artificial Intelligence Club"
     organization: "ERAU Daytona"
     date: "2018-08"
+    type: organization
     role: Member
     description: "Worked with genetic algorithms in a variety of scenarios"
 
@@ -2263,6 +2310,7 @@ extracurriculars:
     title: "Audio/Visual Technician"
     organization: "River Road Baptist Church, Hilliard, FL"
     date: "2023-11"
+    type: volunteer
     role: Volunteer
     description: "Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an in-person audience of ~100 and a livestream audience of ~10"
 
@@ -2270,22 +2318,26 @@ extracurriculars:
     title: "Personal Computer Construction Consultant"
     organization: "Remote/In-Person"
     date: "2014-01"
+    type: volunteer
     role: Volunteer
     description: "Assisted personal contacts with computer construction and setup. Resolved computer, network, software and peripheral issues."
 
   - id: extra/library-volunteer
     title: "All-rounder Volunteer"
     organization: "Nassau County Public Library"
+    type: volunteer
     description: "Labeling and returning books, assisting customers; periodic maintenance of the library database software. 50+ hours."
 
   - id: extra/shrimp-fest
     title: "Shrimp Fest Worker"
     organization: "Prince of Peace Lutheran Church"
+    type: volunteer
     description: "Preparing food, cashiering and assisting customers. 100+ hours."
 
   - id: extra/hoby
     title: "Class Ambassador"
     organization: "Hugh O'Brian Youth Leadership Program"
+    type: volunteer
     description: "Selected as one out of 200+ students to represent high school in a leadership summit. Learned effective interpersonal relational, communication and leadership skills. 10+ hours."
 
 books_read:
@@ -2303,14 +2355,14 @@ books_read:
 
 hobbies:
   - Reading
-  - Weightlifting
-  - Triathlon
-  - "Martial arts"
-  - Drawing
-  - Carpentry
-  - Machining
-  - Banjo
-  - "Tool collecting"
+  - weightlifting
+  - triathlon
+  - "martial arts"
+  - drawing
+  - carpentry
+  - machining
+  - banjo
+  - "tool collecting"
 
 favorite_artists:
   - "William-Adolphe Bouguereau"
@@ -2320,3 +2372,294 @@ favorite_music:
   - Classical
   - "Old Country"
   - "Dad Rock"
+
+citations:
+  - date: "Feb 2025"
+    description: "Cited by a BlackRock + NVIDIA paper"
+    url: "https://dl.acm.org/doi/abs/10.1145/3677052.3698671?casa_token=Td2wYmFBO1gAAAAA:QXj5Ix0y7WW7J_Zt4d8Nf0l9kxjoL9ZgZWkBm5gcUdDHFoyokSh98T92x3mZZVIPxDFtCCu4g5g"
+
+past_clearances:
+  - date_range: "May 2023 - Nov 2023"
+    level: "Confidential"
+    grantor: "DCSA"
+    holder: "USRA"
+  - date_range: "May 2022 - Nov 2022"
+    level: "Confidential"
+    grantor: "DCSA"
+    holder: "USRA"
+  - date_range: "May 2019 - Nov 2019"
+    level: "Secret"
+    grantor: "DCSA"
+    holder: "USRA"
+
+standards:
+  proficient:
+    - name: "CIA Triad"
+      description: "The basis of all my secure software engineering"
+    - name: "SWEBOK"
+      description: "Not precisely a standard, but used in software engineering as a common reference manual; the subject of a lot of my work over the years"
+  familiar:
+    - name: "Open Cybersecurity Schema Framework (OCSF)"
+      description: "Used in cybersecurity projects"
+    - name: "MITRE ATT&CK"
+      description: "Used in cybersecurity projects"
+    - name: "MITRE D3FEND"
+      description: "Used in cybersecurity projects"
+    - name: "MasterFormat & SectionFormat 2020"
+      description: "Parsed the entirety of MasterFormat and SectionFormat and built knowledge graphs for them"
+    - name: "ISO/IEC/IEEE 12207:2017"
+      description: '"SDLC standard", familiar with the concepts and applications'
+    - name: "ISO 690:2021"
+      description: "Familiar with the concepts and implementation of bibliographic referencing"
+  acquainted:
+    - name: "MIL-STD-40051/1"
+      description: "Know the standard and have read it"
+    - name: "MIL-STD-12D"
+      description: "Have studied and parsed the document in an earlier project"
+
+courses:
+  - number: "PS150, PS160, PS250, PS253"
+    name: "Engineering Physics I, II & III"
+  - number: "EGR101"
+    name: "Introduction to Engineering"
+  - number: "CS223"
+    name: "Scientific Programming in C"
+  - number: "CS222"
+    name: "Introduction to Discrete Structures"
+  - number: "COM221"
+    name: "Technical Report Writing"
+  - number: "CS225, CS225L"
+    name: "Computer Science II (Java)"
+  - number: "CEC220, CEC222"
+    name: "Digital Circuit Design"
+  - number: "AS120"
+    name: "Principles of Aeronautical Science"
+  - number: "SE300"
+    name: "Software Engineering Practices"
+  - number: "MA305"
+    name: "Introduction to Scientific Computing"
+  - number: "CS315"
+    name: "Data Structures Analysis and Algorithms"
+  - number: "SE310"
+    name: "Analysis and Design of Software Systems"
+  - number: "MA412"
+    name: "Probability and Statistics"
+  - number: "CS317"
+    name: "Files and Database Systems"
+  - number: "CEC320, CEC322"
+    name: "Microprocessor Systems"
+  - number: "SE320"
+    name: "Software Construction"
+  - number: "EC225"
+    name: "Engineering Economics"
+  - number: "CS332"
+    name: "Organization of Programming Languages"
+  - number: "CEC470"
+    name: "Computer Architecture"
+  - number: "SE410"
+    name: "Software Modeling"
+  - number: "CS428"
+    name: "Applied Cryptography"
+  - number: "CS303"
+    name: "Network Security"
+  - number: "CEC450"
+    name: "Real-Time Systems"
+  - number: "HF300"
+    name: "Human Factors I: Principles and Fundamentals"
+  - number: "CS426"
+    name: "Digital Forensics"
+  - number: "CS420"
+    name: "Operating Systems"
+  - number: "SE625"
+    name: "Software Quality Engineering and Assurance"
+  - number: "SE450, SE451"
+    name: "Software Capstone Projects I & II"
+  - number: "HF325"
+    name: "Human Factors and System Safety"
+  - number: "HF310"
+    name: "Human-Computer Interaction"
+  - number: "SYS500"
+    name: "Fundamentals of Systems Engineering"
+  - number: "SE610"
+    name: "Software System Architecture and Design"
+  - number: "SE530"
+    name: "Software Requirements Engineering"
+  - number: "SE510"
+    name: "Software Project Management"
+  - number: "CS540"
+    name: "Databases and Data Retrieval"
+  - number: "CS527"
+    name: "System Exploitation and Penetration Testing"
+  - number: "MA544"
+    name: "Data Visualization"
+  - number: "CS532"
+    name: "Software Security Assessment"
+  - number: "SYS560"
+    name: "Introduction to Systems Engineering Management"
+  - number: "HFS620"
+    name: "Memory and Cognition"
+  - number: "MA553"
+    name: "High-Performance Scientific Computing"
+  - number: "HFS525"
+    name: "Human, Social & Organizational Factors in Emerging Technologies"
+  - number: "SE550"
+    name: "Current Trends in Software Engineering"
+  - number: "EGR600"
+    name: "Research Methods for Engineers"
+  - number: "SE690"
+    name: "Graduate Research Project"
+  - number: "SE800"
+    name: "Dissertation Hours"
+
+literacy:
+  - date: "Feb 2023 (WIP)"
+    title: "A Knowledge Representation Practionary"
+    author: "Michael K. Bergman"
+  - date: "Sep 2022"
+    title: "An Enquiry Concerning Human Understanding"
+    author: "David Hume"
+  - date: "Aug 2022"
+    title: "Practical Natural Language Processing"
+    author: "Vajjala et al."
+  - date: "July 2022"
+    title: "Of Empire"
+    author: "Francis Bacon"
+  - date: "June 2022"
+    title: "Building Ontologies with BFO"
+    author: "Smith et al."
+  - date: "June 2021"
+    title: "The Prince and Discourses on Livy"
+    author: "Niccolò Machiavelli"
+
+dated_things:
+  quantifications:
+    - label: "ACT Reading/Writing: Top 1%"
+      description: "I took this as part of my entrance to the SMART program; I need to request my scores to get the proper numbers"
+  junior_high:
+    - label: "May 2016"
+      description: "President's Education Awards Program - Outstanding Academic Excellence"
+    - label: "May 2016"
+      description: "Principal's List - All A Honor Roll"
+    - label: "10th - 12th Grade"
+      description: "Member - National Honor Society"
+    - label: "?10th? Grade"
+      description: "Participant in a regional math contest; team won 5th place"
+    - label: "?10th? Grade"
+      description: "Member - Science Club"
+    - label: "?10th? Grade"
+      description: "1st place in a physics class contest for an egg-drop survival test"
+    - label: "?9th? Grade"
+      description: "Winner of a creative essay contest"
+    - label: "?9th? Grade"
+      description: "1st Place - FAACS Fine Arts Competition"
+    - label: "7th - 9th Grade"
+      description: "Member - National Junior Honor Society"
+  elementary:
+    - label: "3rd - 6th Grade"
+      description: "Member - Beta Club"
+    - label: "3rd Grade"
+      description: "3rd Place - 2006 FAACS Regional Spelling Bee"
+
+skills_legacy:
+  left_column:
+    - title: "Spoken Languages"
+      items:
+        - text: "English (fluent)"
+    - title: "Software Languages"
+      ul_indent: "extra_ul"
+      items:
+        - bold: "9+ years"
+          text: "in Java/JavaFX, C, Python, HTML, CSS and Markdown"
+        - bold: "8+ years"
+          text: "in most common RDF serializations and corrolaries: OWL-XML, Turtle, TriG, SHACL, SWRL etc."
+        - bold: "8+ years"
+          text: "in most common data storage/query languages: CSV, TSV, XML, JSON, SQL, SPARQL, GeoSPARQL, Cypher"
+        - bold: "2+ years"
+          text: "in JavaScript, C# and Fortran"
+        - bold: "1 year"
+          text: "use of JS/TS, Ruby/Rails, sqlite3, Devise and R"
+    - title: "Software Libraries"
+      ul_indent: "extra_h3_ul"
+      items:
+        - bold: "Java:"
+          text: "all common libraries, JavaFX, Swing, multithreading, socketing, JDBC, Jackson, json-simple, JSoup, OwlAPI, Apache Jena, etc."
+        - bold: "Python:"
+          text: "all common libraries, OpenAI, NumPy, Pandas, PyTorch, TensorFlow, transformers, PyVis, Gradio, Streamlit, FastAPI, Pydantic, Numba, Numexpr, Cython, multiprocessing, mpi4py, Matplotlib, Seaborn, sklearn, NLTK, Chirp, RDFLib, SPARQLWrapper, etc."
+        - bold: "JavaScript:"
+          text: "Node, React, Vite, Cytoscape"
+        - bold: "CLI:"
+          text: "CURL"
+    - title: "Operating Systems"
+      items:
+        - text: "Windows XP, Vista, 7, 8, 10 and 11"
+        - text: "macOS"
+        - text: "Linux (Ubuntu distributions), Kali, RedHat"
+        - text: "Android OS"
+        - text: "Google Colab"
+        - text: "XigmaNAS"
+    - title: "Remote Collaboration Apps"
+      items:
+        - text: "Google Cloud products"
+        - text: "MS Teams"
+        - text: "Skype"
+        - text: "Slack"
+        - text: "Zoom"
+        - text: "Discord, Element, Signal, Session, Telegram, various other IRC services"
+    - title: "Office Software"
+      items:
+        - text: "All Microsoft products (Onedrive, Word, Excel, PowerPoint, OneNote, Outlook, Teams, SharePoint)"
+        - text: "All LibreOffice products (Writer, Calc, Impress, Draw)"
+        - text: "All Google products (Drive, Docs, Sheets, Slides)"
+        - text: "LaTeX"
+        - text: "Mega"
+        - text: "Distributed tracked changes editing with large teams"
+    - title: "Soft Skills"
+      items:
+        - text: "Comfortable with fast startup pace or research laboratory beaureaucracy"
+        - text: "Comfortable presenting technical content to dozens/hundreds of stakeholders"
+  right_column:
+    - title: "Engineering Software"
+      items:
+        - text: "Git/Github (desktop, web, command line), Jira, Bitbucket, Confluence"
+        - text: "Protégé, Stardog, TriplyDB, GraphDB, Neo4j, MongoDB, GraphViz, Ontotext Refine"
+        - text: "Eclipse IDE and Maven integration, pip, Python venv management"
+        - text: "Visual Studio Code"
+        - text: "Trello and other Kanban platforms"
+        - text: "MySQL (w/JDBC), PHPMyAdmin, PostgreSQL, PostGIS"
+        - text: "QGIS"
+        - text: "Wikidata and Wikimedia-related tools"
+        - text: "Jupyter Notebook"
+        - text: "Concurrent C programming in VxWorks"
+    - title: "Cloud / Deployment"
+      items:
+        - text: "GoDaddy domain management, Heroku"
+        - text: "Google Cloud Platform (BigQuery, Speech to Text)"
+        - text: "Docker, Kubernetes"
+        - text: "AWS S3, Bedrock"
+    - title: "Consistently-Used Vocabularies"
+      items:
+        - text: "OWL, RDF, RDFS, SKOS, BFO, CCO, DICO, JANES, SUMO, UFO, GFO, Schema.org, WordNet, DCTerms, FOAF, PROV, GeoSPARQL, SPAR family, BIBO, SEON, SE-ON, MLSchema, ANNO, ANNETTO, OntoDM, IAO, DOLCE and many others"
+    - title: "Design/Analysis Software"
+      items:
+        - text: "Tableau, RStudio"
+        - text: "Kaggle"
+        - text: "Google SketchUp and AutoCAD LTE"
+        - text: "Wireframe software (Balsamiq, Mockingbird)"
+        - text: "Diagramming software (Draw.io, LucidChart, Mermaid, Miro, UML tools)"
+        - text: "Unity game engine with C# scripts"
+        - text: "Adobe products (Photoshop, Illustrator, After Effects)"
+    - title: "Manuscript Formats"
+      items:
+        - bold: "10+ years"
+          text: "working with IEEE double column manuscripts"
+        - bold: "10+ years"
+          text: "working with Elsevier-style single column manuscripts"
+    - title: "AI Tools"
+      items:
+        - text: "OpenAI's GPT series (including API work in Python), Microsoft Copilot, Gemini, Grok, Anthropic Claude Code (CLI, VSCode, etc.)"
+        - text: "Topaz Video AI"
+        - text: "Ollama, Tensorboard, Stable Diffusion WebUI, Midjourney, LM Studio"
+        - text: "CVAT"
+        - text: "BERT and BART embedding, all-MiniLM-L6-v2"
+        - text: "ImageNet, ADE20k, MNIST, CIFAR-10, CIFAR-100, COCO, Places365"
+        - text: "AlexNet, VGGNet, ResNet, YOLO, CLIP"

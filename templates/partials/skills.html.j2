@@ -1,0 +1,82 @@
+      <section id='skills'>
+        <h2 class='section-title'>Skills</h2>
+        <hr>
+        <div class='double-column'>
+          <div class='column'>
+{% for group in skills_legacy.left_column %}
+{% if group.ul_indent == 'extra_ul' %}
+            <h3 class='section-subtitle'>{{ group.title }}</h3>
+              <ul>
+{% for item in group['items'] %}
+{% if item.bold is defined %}
+                <li><b>{{ item.bold }}</b> {{ item.text }}</li>
+{% else %}
+                <li>{{ item.text }}</li>
+{% endif %}
+{% endfor %}
+              </ul>
+{% elif group.ul_indent == 'extra_h3_ul' %}
+              <h3 class='section-subtitle'>{{ group.title }}</h3>
+              <ul>
+{% for item in group['items'] %}
+{% if item.bold is defined %}
+                <li><b>{{ item.bold }}</b> {{ item.text }}</li>
+{% else %}
+                <li>{{ item.text }}</li>
+{% endif %}
+{% endfor %}
+              </ul>
+{% else %}
+            <h3 class='section-subtitle'>{{ group.title }}</h3>
+            <ul>
+{% for item in group['items'] %}
+{% if item.bold is defined %}
+              <li><b>{{ item.bold }}</b> {{ item.text }}</li>
+{% else %}
+              <li>{{ item.text }}</li>
+{% endif %}
+{% endfor %}
+            </ul>
+{% endif %}
+{% endfor %}
+          </div>
+          <div class='column'>
+{% for group in skills_legacy.right_column %}
+{% if group.ul_indent is defined and group.ul_indent == 'extra_ul' %}
+            <h3 class='section-subtitle'>{{ group.title }}</h3>
+              <ul>
+{% for item in group['items'] %}
+{% if item.bold is defined %}
+                <li><b>{{ item.bold }}</b> {{ item.text }}</li>
+{% else %}
+                <li>{{ item.text }}</li>
+{% endif %}
+{% endfor %}
+              </ul>
+{% elif group.ul_indent is defined and group.ul_indent == 'extra_h3_ul' %}
+              <h3 class='section-subtitle'>{{ group.title }}</h3>
+              <ul>
+{% for item in group['items'] %}
+{% if item.bold is defined %}
+                <li><b>{{ item.bold }}</b> {{ item.text }}</li>
+{% else %}
+                <li>{{ item.text }}</li>
+{% endif %}
+{% endfor %}
+              </ul>
+{% else %}
+            <h3 class='section-subtitle'>{{ group.title }}</h3>
+            <ul>
+{% for item in group['items'] %}
+{% if item.bold is defined %}
+              <li><b>{{ item.bold }}</b> {{ item.text }}</li>
+{% else %}
+              <li>{{ item.text }}</li>
+{% endif %}
+{% endfor %}
+            </ul>
+{% endif %}
+{% endfor %}
+          </div>
+        </div>
+      </section>

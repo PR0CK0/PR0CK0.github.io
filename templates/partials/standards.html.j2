@@ -1,0 +1,33 @@
+      <details>
+        <summary><h2 class='section-title-collapsible'>Standards</h2></summary>
+        <hr class='collapsed-hr'>
+        <section id='standards'>
+          <h3 class='section-subtitle'>Proficient</h3>
+{% for s in standards.proficient %}
+          <div class='date-content-box'>
+            <div class='my-dates'>{{ s.name }}</div>
+            <div class='content'>
+              <h4>{{ s.description }}</h4>
+            </div>
+          </div>
+{% endfor %}
+          <h3 class='section-subtitle'>Familiar</h3>
+{% for s in standards.familiar %}
+          <div class='date-content-box'>
+            <div class='my-dates'>{{ s.name }}</div>
+            <div class='content'>
+              <h4>{{ s.description }}</h4>
+            </div>
+          </div>
+{% endfor %}
+          <h3 class='section-subtitle'>Acquainted</h3>
+{% for s in standards.acquainted %}
+          <div class='date-content-box'>
+            <div class='my-dates'>{{ s.name }}</div>
+            <div class='content'>
+              <h4>{{ s.description }}</h4>
+            </div>
+          </div>
+{% endfor %}
+        </section>
+      </details>

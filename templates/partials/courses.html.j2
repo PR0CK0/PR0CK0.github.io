@@ -1,0 +1,14 @@
+      <details>
+        <summary><h2 class='section-title-collapsible'>Courses</h2></summary>
+        <section id='courses'>
+          <hr class='collapsed-hr'>
+{% for course in courses %}
+          <div class='date-content-box'>
+            <div class='my-dates'>{{ course.number }}</div>
+            <div class='content'>
+              <h4>{{ course.name }}</h4>
+            </div>
+          </div>
+{% endfor %}
+        </section>
+      </details>
