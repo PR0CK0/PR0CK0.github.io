@@ -1056,6 +1056,17 @@ projects:
       - automation
       - "developer tools"
 
+    date_display: Mar 2026
+    members: 1 member
+    bullets:
+      - "Built an automated AI news digest tool that fetches, deduplicates, and summarizes release feeds from 10+ sources with LLMs across GitHub, blogs, and newsletters with a configurable schedule"
+      - "Multi-platform trigger system (macOS launchd/sleepwatcher, Linux systemd, Windows Task Scheduler) to fire on lid open/login"
+      - "Cloud mode via GitHub Actions + GitHub Pages, running on a 6-hour cron with persistent dedup cache"
+      - "Works with Ollama, Claude/Codex/Gemini CLI"
+    extra_bullets:
+      - prefix: "Source: "
+        url: "https://github.com/PR0CK0/ai-landscape-digest/"
+        display: github.com/PR0CK0/ai-landscape-digest/
   - id: proj/biomed-paper-extractor
     title: "Biomedical Paper Information Extractor"
     year: "2026-03"
@@ -1084,6 +1095,17 @@ projects:
       - NLP
       - "computer vision"
 
+    date_display: Mar 2026
+    members: 1 member
+    bullets:
+      - VLM figure digitization + NER on PMC papers
+      - Comprehensive VLM + NER model evaluation suite
+      - "Integrated with flagship HuggingFace VLMs, Ollama, and cloud providers (OpenAI, Anthropic, Google)"
+      - "Integrated with SotA NER models, e.g., spaCy, DistilBERT, GLiNER, etc."
+    extra_bullets:
+      - prefix: "Hosted on HuggingFace (limited functionality with free hosting): "
+        url: "https://huggingface.co/spaces/prockot/biomed-paper-extractor"
+        display: huggingface.co/spaces/prockot/biomed-paper-extractor
   - id: proj/health-optimization-kg
     title: "Health Optimization Knowledge Graph"
     year: "2026-03"
@@ -1111,6 +1133,17 @@ projects:
       - "knowledge graphs"
       - ontology
 
+    date_display: Mar 2026
+    members: 1 member
+    bullets:
+      - "BFO-aligned biomedical knowledge graph modeling evidence-graded relationships between health interventions (drugs, supplements, peptides, procedures) and outcomes"
+      - "LinkML schema with full OWL/RDF, JSON Schema, and TypeScript export targets"
+      - "Ontology grounded in Medical Subject Headings (MeSH) pharmacological actions for forward-compatibility with RxNorm, PubChem, Systematized Nomenclature of Medicine Clinical Terms (SNOMED CT), UniProt, Chemical Entities of Biological Interest (ChEBI), and Gene Ontology (GO) integration"
+      - React/TypeScript with Cytoscape.js
+    extra_bullets:
+      - prefix: "Source: "
+        url: "https://github.com/PR0CK0/health-optimization-knowledge-graph"
+        display: github.com/PR0CK0/health-optimization-knowledge-graph
   - id: proj/ocsf-visualizer
     title: "OCSF Visualizer"
     year: "2026-02"
@@ -1126,6 +1159,14 @@ projects:
       - cybersecurity
       - visualization
 
+    date_display: Feb 2026
+    members: 1 member
+    bullets:
+      - "Simple, browser-based, Cytoscape.js interactive graph view of the Open Cybersecurity Framework"
+    extra_bullets:
+      - prefix: "Source: "
+        url: "https://github.com/PR0CK0/ocsf-visualizer"
+        display: github.com/PR0CK0/ocsf-visualizer
   - id: proj/bfo-wikidata-classifier
     title: "BFO-Wikidata Classifier"
     year: "2025-11"
@@ -1146,6 +1187,11 @@ projects:
       - classification
       - "knowledge graphs"
 
+    date_display: Nov 2025
+    members: 1 member
+    bullets:
+      - "A transformer-based, multi-strategy, hierarchical classification system that maps Wikidata entities to Basic Formal Ontology (BFO) classes"
+      - Employed cascading and ensembling NLP and ML techniques
   - id: proj/bert-benchmarking
     title: "BERT Model Benchmarking Suite"
     year: "2025-11"
@@ -1165,6 +1211,11 @@ projects:
       - benchmarking
       - "machine learning"
 
+    date_display: Nov 2025
+    members: 1 member
+    bullets:
+      - "A comprehensive benchmarking framework for comparing BERT model variants on inference speed, memory efficiency, and model size"
+      - Designed for compute-constrained environments and on-premise deployments
   - id: proj/bfobert
     title: "BFO-BERT Classifier"
     year: "2025-11"
@@ -1184,6 +1235,22 @@ projects:
       - NLP
       - classification
 
+    date_display: Nov 2025
+    members: 1 member
+    bullets:
+      - A lightweight fine-tuning script for DistilBERT that classifies ontology terms as either Continuant or Occurrent in the spirit of the Basic Formal Ontology (BFO)
+      - "Designed as a simple, reproducible proof of concept for text-based ontological classification"
+  - id: proj/cloudcell-consulting
+    title: "Linked Data Consultant and Scientific Writer"
+    year: "2023-12"
+    date_display: "Aug 2023 - Dec 2023"
+    members: Cloudcell
+    bullets:
+      - "Researched and prepared a biomedical scientific paper to be published"
+    tags:
+      - consulting
+      - biomedical
+
   - id: proj/stable-diffusion-testing
     title: "Stable Diffusion and Low-Rank Adaptation Testing"
     year: "2023-04"
@@ -1202,6 +1269,11 @@ projects:
       - "generative AI"
       - "computer vision"
 
+    date_display: Apr 2023 - Present
+    members: 1 member
+    bullets:
+      - "Used the SD WebUI, a variety of models, LoRAs and VAES, along with prompting techniques, to generate images"
+      - An investigation into the toolset for the purpose of future work on generating synthetic data for military vision models
   - id: proj/nlp-optimization
     title: "An Investigation into Computational Efficiency Optimization of Natural Language Processing Vectorization Techniques on Large Corpora in Python"
     year: "2022-12"
@@ -1223,6 +1295,11 @@ projects:
       - optimization
       - "scientific computing"
 
+    date_display: Aug 2022 - Dec 2022
+    members: 1 member
+    bullets:
+      - "Used Numpy, Numba, Numexpr, Cython, parallel Cython and MPI to improve the computational efficiency of basic vectorization algorithms for NLP (e.g., TF-IDF and Naïve Bayes)"
+      - Project shifted to optimization of Mandelbrot set calculation
   - id: proj/bfo-buddy
     title: "BFO Buddy"
     year: "2022-07"
@@ -1237,6 +1314,10 @@ projects:
       - ontology
       - "developer tools"
 
+    date_display: July 2022
+    members: 1 member
+    bullets:
+      - A command-line Python tool for bootstrapping ontology development with BFO
   - id: proj/usa-obesity-visualization
     title: "USA Obesity Rates Visualization and Analysis"
     year: "2021-12"
@@ -1255,6 +1336,11 @@ projects:
       - "data analysis"
       - visualization
 
+    date_display: Aug 2021 - Dec 2021
+    members: 4 members
+    bullets:
+      - "A Pandas/Tableau visualization incorporating dozens of datasets with thousands of data points taken from public US Census datasets; analysis on obesity by region, age group, food quality and various other factors"
+      - "Additionally, curated statistics on the World's Strongest Man competitors and performed analysis on their capabilities"
   - id: proj/upper-martial-arts-ontology
     title: "Upper Martial Arts Ontology (UMAO)"
     year: "2021-07"
@@ -1269,6 +1355,10 @@ projects:
       - ontology
       - "knowledge representation"
 
+    date_display: July 2021
+    members: 1 member
+    bullets:
+      - "Represented the domain of martial arts using Schema.org as the base taxonomy, and Bruce Lee's Jeet Kune Do book as the lexicon"
   - id: proj/volusia-elevation-qgis
     title: "Volusia County Parcel Elevation Visualization with SQL and QGIS"
     year: "2021-05"
@@ -1286,6 +1376,11 @@ projects:
       - geospatial
       - visualization
 
+    date_display: Jan 2021 - May 2021
+    members: 1 member
+    bullets:
+      - A QGIS visualization utilizing several public shape files to display the approximate sea-level elevation of all parcels in Volusia County Florida
+      - Used several complex GIS functions to perform contour line elevation calculations and QGIS to visualize it
   - id: proj/bittorrent-semp
     title: "BitTorrent Systems Engineering Management Plan"
     year: "2020-12"
@@ -1295,6 +1390,10 @@ projects:
     tags:
       - "systems engineering"
 
+    date_display: Aug 2020 - Dec 2020
+    members: 1 member
+    bullets:
+      - "Produced an entire systems plan for the BitTorrent protocol and application, as a case study"
   - id: proj/ms-word-usability
     title: "Microsoft Word Usability Desiderata"
     year: "2020-05"
@@ -1307,6 +1406,11 @@ projects:
       - usability
       - HCI
 
+    date_display: Jan 2020 - May 2020
+    members: 1 member
+    bullets:
+      - Evaluated the usability of Microsoft Word's UX using the System Usability Scale and the Nielsen-Norman 5-point Likert scale
+      - "Developed UX personas and validated their accuracy with three empirical studies on personal contacts, using a systematized test plan"
   - id: proj/ecocar
     title: EcoCar
     year: "2020-05"
@@ -1318,6 +1422,11 @@ projects:
       - "systems engineering"
       - "autonomous vehicles"
 
+    date_display: Aug 2019 - May 2020
+    members: "6 teams, 6 members each"
+    bullets:
+      - Assisted Embry-Riddle's EcoCar team with the car's autopilot function
+      - "Was a member of the \"core\" team responsible for all system documentation, including user stories, requirements documents, Kanban board management, design documents and test plans"
   - id: proj/meme-ontology
     title: "Meme Ontology and Clustering Analysis"
     year: "2020-02"
@@ -1335,6 +1444,11 @@ projects:
       - NLP
       - "data analysis"
 
+    date_display: Aug 2019 - Feb 2020
+    members: 3 members
+    bullets:
+      - Scraped the website knowyourmeme.com and derived a taxonomy for memes
+      - Populated this taxonomy with over ten thousand memes and performed cluster analysis to find meme categories
   - id: proj/nas-server
     title: "Network Attached Storage (NAS) Server"
     year: "2019-07"
@@ -1350,6 +1464,11 @@ projects:
       - infrastructure
       - homelab
 
+    date_display: July 2019 - Present
+    members: 1 member
+    bullets:
+      - Built a personal NAS server with 16TB of hard drive space in RAID-1
+      - "Populated personal data, practiced standardized data naming conventions, organizational principles, governance techniques and security measures on a LAN"
   - id: proj/ludum-dare-44
     title: "Ludum Dare 44"
     year: "2019-05"
@@ -1361,6 +1480,12 @@ projects:
       - "game development"
       - art
 
+    date_display: May 2019
+    members: 2 members
+    bullets:
+      - Produced a game in a 48 hour game jam
+      - "Placed top 3% globally"
+      - Responsible for all art and music
   - id: proj/arocket
     title: ARocket
     year: "2019-02"
@@ -1381,6 +1506,12 @@ projects:
       - AR
       - hackathon
 
+    date_display: Feb 2019
+    members: 4 members
+    bullets:
+      - "Produced an augmented reality application for Android phones using Unity and C# for the 2019 Hackathon at ERAU Daytona, winning 3rd place"
+      - "The application allowed the user to create and launch a rocket in a virtual-physical space, in addition to refueling and landing the craft"
+      - "Sourced and created all the audio and visual media for the application, in addition to implementing some physics"
   - id: proj/vxworks-water-heater
     title: "VxWorks C Water Heater Simulation"
     year: "2019-05"
@@ -1395,6 +1526,10 @@ projects:
       - "embedded systems"
       - "real-time"
 
+    date_display: Jan 2019 - May 2019
+    members: 1 member
+    bullets:
+      - "Simulated the real-time system of a water heater in VxWorks C, utilizing complex techniques with semaphores, watchdogs and various other multithreading concepts"
   - id: proj/encrypted-sound-messages
     title: "Encrypted Text Messages Transmitted Via Near-Field Sound"
     year: "2019-05"
@@ -1407,6 +1542,10 @@ projects:
       - cryptography
       - mobile
 
+    date_display: Jan 2019 - May 2019
+    members: 3 members
+    bullets:
+      - Used the Chirp library of Python to produce a phone app that could transmit encrypted messages over proximal sound with public key encryption
   - id: proj/lan-board-game
     title: "LAN Multiplayer Board Game"
     year: "2018-12"
@@ -1424,6 +1563,12 @@ projects:
       - "game development"
       - networking
 
+    date_display: Aug 2018 - Dec 2018
+    members: 1 member
+    bullets:
+      - A 2D board game similar to Tic-Tac-Toe
+      - Strict model-view separation and multithreading was implemented
+      - Connectivity via LAN with the separate codebase of other students using a common interface of serialized classes and TCP sockets
   - id: proj/monster-hunter-world
     title: "Monster Hunter: World Player Support Project (MHW:PSP)"
     year: "2018-05"
@@ -1442,6 +1587,12 @@ projects:
     tags:
       - "database applications"
 
+    date_display: Jan 2018 - May 2018
+    members: 2 members
+    bullets:
+      - "Created a Java/MySQL application for players of the game Monster Hunter: World"
+      - Populated 22 tables with over 1500 game-accurate entries
+      - "Developed MySQL schema using PHPMyAdmin, connected the Java code to the database using JDBC, designed and created the user interface (UI) and all functionality"
   - id: proj/eagle-listings
     title: EagleListings
     year: "2017-12"
@@ -1459,6 +1610,12 @@ projects:
       - "database applications"
       - agile
 
+    date_display: Aug 2017 - Dec 2017
+    members: 5 members
+    bullets:
+      - Created a Java/MySQL application for sales between students of ERAU Daytona
+      - "Implemented the database interface using JDBC, designed and created the UI"
+      - Acted as the SCRUM master for the team
   - id: proj/tiles-game
     title: Tiles
     year: "2017-05"
@@ -1471,6 +1628,10 @@ projects:
     tags:
       - "game development"
 
+    date_display: Jan 2017 - May 2017
+    members: 1 member
+    bullets:
+      - Created a fast-paced clicker game in Java
   - id: proj/text-racing-game
     title: "Text-Based Racing Game"
     year: "2016-12"
@@ -1482,6 +1643,10 @@ projects:
     tags:
       - "game development"
 
+    date_display: Aug 2016 - Dec 2016
+    members: 1 member
+    bullets:
+      - "Created a text-based, console racing game supporting up to four players in C"
   - id: proj/boe-bot-robot
     title: "Boe-Bot Line Follower Robot"
     year: "2016-12"
@@ -1493,6 +1658,10 @@ projects:
       - robotics
       - "embedded systems"
 
+    date_display: Aug 2016 - Dec 2016
+    members: 3 members
+    bullets:
+      - Built and programmed an Arduino robot to follow lines and respond to the position of various colored objects
 skills:
   # Languages
   - id: skill/java
