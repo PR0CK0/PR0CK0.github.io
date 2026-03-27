@@ -4,347 +4,88 @@
         <section id='publications'>
           <hr class='collapsed-hr'>
           <h3 class='section-subtitle'>Awaiting Publication</h3>
+          {% for pub in publications | selectattr('status', 'equalto', 'awaiting_publication') %}
           <div class='date-content-box'>
-            <div class='my-dates'>2026</div>
+            <div class='my-dates'>{{ pub.date }}</div>
             <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/abstract=5682942'><i>Prompt Provenance: Toward Traceable LLM Interactions</i></a></span><i> - The 2nd International Conference on Advanced Machine Learning and Data Science (AMLDS 2026)</i></h4>
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><a href='{{ pub.url }}'><i>{{ pub.title }}</i></a></span><i> - {{ pub.venue }}</i></h4>
             </div>
           </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>2026</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/abstract=5682822'><i>A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools</i></a></span><i> - 2026 International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE)</i></h4>
-            </div>
-          </div>
+          {% endfor %}
           <h3 class='section-subtitle'>Published</h3>
+          {% for pub in publications | selectattr('status', 'equalto', 'published') %}
           <div class='date-content-box'>
-            <div class='my-dates'>Feb 2026</div>
+            <div class='my-dates'>{{ pub.date | pub_date }}</div>
             <div class='content'>
-              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://www.mdpi.com/2674-113X/5/1/9'><i>Verifying Machine Learning Interpretability and Explainability Requirements Through Provenance</i></a>, primary author Lynn Vonderhaar</span><i> - MDPI Software</i></h4>
+              {% set disp_venue = pub.legacy_venue if pub.legacy_venue is defined else pub.venue %}
+              {% if pub.close_span_before_end_link is defined %}
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><a href='{{ pub.url }}'><i>{{ pub.title }}</i></span></a><i> - {{ disp_venue }}</i></h4>
+              {% elif pub.after_span_text is defined %}
+              {% if pub.url is defined %}
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><a href='{{ pub.url }}'><i>{{ pub.title }}</i></a></span>{{ pub.after_span_text }}</h4>
+              {% else %}
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><i>{{ pub.title }}</i></span>{{ pub.after_span_text }}</h4>
+              {% endif %}
+              {% elif pub.primary_author_position is defined and pub.primary_author_position == 'in_span' %}
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><a href='{{ pub.url }}'><i>{{ pub.title }}</i></a>, primary author {{ pub.primary_author }}</span><i> - {{ disp_venue }}</i></h4>
+              {% elif pub.primary_author_position is defined and pub.primary_author_position == 'after_span' %}
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><a href='{{ pub.url }}'><i>{{ pub.title }}</i></a></span>, primary author {{ pub.primary_author }}<i> - {{ disp_venue }}</i></h4>
+              {% elif pub.url is defined %}
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><a href='{{ pub.url }}'><i>{{ pub.title }}</i></a></span><i> - {{ disp_venue }}</i></h4>
+              {% else %}
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><i>{{ pub.title }}</i></span><i> - {{ disp_venue }}</i></h4>
+              {% endif %}
             </div>
           </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Feb 2025</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Secondary author): </b><span property='title'><a href='https://www.computer.org/csdl/proceedings-article/icsc/2025/242600a171/27FQIRaxjYQ'><i>Creating Robust Data Sets for AI by Leveraging Ontological Structures</i></a>, primary author Lynn Vonderhaar</span><i> - ICSC 2025</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Dec 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Secondary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10903339'><i>Exploring Testing Methods for Large Language Models</i></a>, primary author Timothy Elvira</span><i> - ICMLA 2024</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Dec 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Secondary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10771003'><i>Requirements Elicitation for Machine Learning Applications: A Research Preview</i></a>, primary author Timothy Elvira</span><i> - TransAI AIxSET 2024</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Dec 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10770985'><i>Leveraging Large Language Models on the Traditional Scientific Writing Workflow</i></a></span><i> - TransAI AIxSET 2024</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Dec 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10771030'><i>Graph Retrieval-Augmented Generation for Large Language Models: A Survey</i></span></a><i> - TransAI AIxSET 2024</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Oct 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Tertiary Author): </b><span property='title'><a href='https://arc.aiaa.org/doi/full/10.2514/1.I011432'><i>The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations</i></a>, primary author Alexandra Davidoff</span><i> - AIAA - Journal of Aerospace Information Systems</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>July 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://arc.aiaa.org/doi/full/10.2514/1.I011316'><i>Leveraging Linked Data for Knowledge Management: A Proposal for the Aerospace Industry</i></a></span><i> - AIAA - Journal of Aerospace Information Systems</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>June 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://arxiv.org/abs/2406.15268'><i>Towards Robust Training Datasets for Machine Learning with Ontologies: A Case Study for Emergency Road Vehicle Detection</i></a>, primary author Lynn Vonderhaar</span><i> - arXiv</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>May 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852748'><i>Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations and Preliminary Implementation</i></a></span><i> - SSRN</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Mar 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/document/10500258/'><i>Semantic Science: Publication Beyond the PDF</i></a></span><i> - IEEE SoutheastCon</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Mar 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://www.frontiersin.org/articles/10.3389/frai.2024.1308156/full'><i>Dawn of the Dialogue: AI's Leap from Lab to Living Room</i></a></span><i> - Frontiers in Artificial Intelligence</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Jan 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4739068'><i>A Survey on the Intersection of Language Models and Knowledge Graphs</i></a>, primary author Timothy Elvira</span><i> - SSRN</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Jan 2024</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://commons.erau.edu/edt/784/'><i>Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering</i></a></span><i> - Embry-Riddle Aeronautical University Scholarly Commons</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Oct 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10343213'><i>Scrum in the Classroom: An Implementation Guide</i></a></span>, primary author Sarah Reynolds<i> -  2023 IEEE Frontiers in Education (FIE) Conference</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Oct 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10311183'><i>Leveraging Signal Strength as a Mechanism to Secure GPS Messages</i></a></span>, primary author Juan Couder<i> - 2023 IEEE/AIAA 42nd Digital Avionics Systems Conference (DASC)</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Sep 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4571367'><i>Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development’s Most Redundant Task</i></a></span><i> - SSRN</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Sep 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10387600'><i>GPT-4: A Stochastic Parrot or Ontological Craftsman? Discovering Implicit Knowledge Structures in Large Language Models</i></a></span><i> - 2023 Fifth International Conference on Transdisciplinary AI (TransAI)</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Sep 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10387634'><i>Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies with GPT</i></a></span><i> - 2023 Fifth International Conference on Transdisciplinary AI (TransAI)</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>July 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10487405'><i>Impacts of Catastrophic Forgetting: From a Machine Learning Engineering Perspective</i></a></span>, primary author Timothy Elvira<i> -  2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>July 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Secondary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/abstract/document/10487209'><i>Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming</i></a></span>, primary author Timothy Elvira<i> -  2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>June 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4493644'><i>A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from the Software Engineering Body of Knowledge with a Sequence-to-Sequence Transformer</i></a></span><i> - SSRN</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>June 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://peer.asee.org/microelectronic-technology-ai-and-academic-dishonesty-an-agile-engineering-approach'><i>Microelectronic Technology, AI and Academic Dishonesty: An Agile Engineering Approach</i></a></span><i> - American Society for Engineering Education (TELPhE) 2023</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Feb 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://ssrn.com/abstract=4441503'><i>The Influence of Interpersonal Chemistry on Learning in Agile Software Engineering Education</i></a></span> <i> - SSRN</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Feb 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><a href='https://ieeexplore.ieee.org/document/10066597'><i>Validating Security Requirement Specifications through the use of a Knowledge Graph</i></a></span>, primary author Sarah Reynolds<i> - 2023 IEEE 18th International Conference on Semantic Computing (ICSC)</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Dec 2022</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><a href='https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4703235'><i>An Ontology Based Approach to the Software Engineering Lifecycle: Application to Software Quality Assurance in the Aerospace Industry</i></a></span><i> - SSRN</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Jan 2022</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary Author): </b><span property='title'><a href='https://ieeexplore.ieee.org/document/9736291'><i>An Exploration of Explainable Machine Learning Using Semantic Web Technology</i></a></span><i> - 2022 IEEE 16th International Conference on Semantic Computing (ICSC)</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Jan 2022</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Contributor in grammar, structure and spelling revision): </b><span property='title'><i>Supporting Security Requirements Engineering through the Development of the Secure Development Ontology</i></span><i> - 2022 IEEE 16th International Conference on Semantic Computing (ICSC 2022), primary author Jessica Steinmann</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Oct 2019</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Contributor): </b><span property='title'><a href='https://ieeexplore.ieee.org/document/9028676'><i>Incorporating a Virtual Reality Environment in the Teaching of Analysis of Software Requirements</i></a></span> - 2019 IEEE Frontiers in Education Conference (FIE 2019), primary author Omar Ochoa</h4>
-            </div>
-          </div>
+          {% endfor %}
           <h3 class='section-subtitle'>In Progress</h3>
+          {% for pub in publications | selectattr('status', 'equalto', 'in_progress') %}
           <div class='date-content-box'>
             <div class='my-dates'>-</div>
             <div class='content'>
-              <h4 typeof='TechArticle'><b>(Secondary Author): </b><span property='title'><i>Towards A Taxonomy of ML Misbehaviors and their Software Engineering Solutions</i></span>, primary author Timothy Elvira</h4>
+              {% if pub.primary_author_position is defined and pub.primary_author_position == 'after_span' %}
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><i>{{ pub.title }}</i></span>, primary author {{ pub.primary_author }}</h4>
+              {% else %}
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><i>{{ pub.title }}</i></span></h4>
+              {% endif %}
             </div>
           </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>-</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><i>Knowledge Graph Relationship Inferencing using ADE20k Images, Geospatial Bounding Boxes and the Suggested Upper Merged Ontology</i></span></h4>
-            </div>
-          </div>
-          <!--
-          <div class='date-content-box'>
-            <div class='my-dates'>-</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><i>A Review of Ontology Engineering Methods</i></span></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>-</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><i>A Survey of Image and Video Representation Vocabularies</i></span></h4>
-            </div>
-          </div>
-        -->
-          <div class='date-content-box'>
-            <div class='my-dates'>-</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><i>The Software Development Life Cycle and Ontology Engineering: Defining a Structured Process for Ontology Development</i></span></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>-</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><i>Navigating the Future of Aviation: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations</i></span>, primary author Alexandra Davidoff</h4>
-            </div>
-          </div>
-          <!--
-          <div class='date-content-box'>
-            <div class='my-dates'>-</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Tertiary author): </b><span property='title'><i>Onto-Speak: Leveraging Language Models to Generate Knowledge Graphs</i></span>, primary author Timothy Elvira</h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>-</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Primary author): </b><span property='title'><i>When Do You Stop Researching? Establishing Desiderata for Scientific Research Fulfillment with Semantic Web Technology</i></span></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>10% complete</div>
-            <div class='content'>
-              <h4><b>(Primary author): </b><i>A Synthesis of the Semantic Web and Linked Data Terminology</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>5% complete</div>
-            <div class='content'>
-              <h4><b>(Primary author): </b><i>GraphCraft: Web-Based Visual Ontology Engineering Software</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>5% complete</div>
-            <div class='content'>
-              <h4><b>(Primary author): </b><i>A Comparison of Top Level Ontologies: Philosophy and Practice</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>15% complete</div>
-            <div class='content'>
-              <h4><b>(Primary author): </b><i>Semantic Science: Towards a Provenance-Driven, Decentralized, Free and Open Scientific Community using Linked Data Principles</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>5% complete</div>
-            <div class='content'>
-              <h4><b>(Primary author): </b><i>Improving the Provenance of Machine Learning Workflows with Linked Data Principles</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>10% complete</div>
-            <div class='content'>
-              <h4><b>(Primary author): </b><i>Markdown for Science: Restructuring the Pedantic Scientific Publishing Process with Standardized Protocols</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>5% complete</div>
-            <div class='content'>
-              <h4><b>(Primary author): </b><i>Labelled Property Graphs and RDF: A Comparison of Graph Knowledge Forms</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>5% complete</div>
-            <div class='content'>
-              <h4><b>(Primary author): </b><i>Basic Formal Ontology as a Personal Knowledge Management Tool: Tracing Individual Ancestry Using Applied Ontology</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>5% complete</div>
-            <div class='content'>
-              <h4><b>(Primary author): </b><i>Simplifying the Terminology of the Basic Formal Ontology to Accelerate Standardized Ontology Use</i></h4>
-            </div>
-          </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>5% complete</div>
-            <div class='content'>
-              <h4><b>(Primary author): </b><i>The State of the Semantic Web in 2022: History, Contemporaries and Future Directions</i></h4>
-            </div>
-          </div>
-          -->
+          {% endfor %}
           <h3 class='section-subtitle'>Colleague Theses</h3>
+          {% for pub in publications | selectattr('status', 'equalto', 'colleague_thesis') %}
           <div class='date-content-box'>
-            <div class='my-dates'>Feb 2023 - Mar 2023</div>
+            <div class='my-dates'>{{ pub.date_display }}</div>
             <div class='content'>
-              <h4 typeof='TechArticle'><b>(Contributor in technical elements): </b><span property='title'><i>Eliminating Security Weaknesses in Requirement Specifications via a Knowledge Graph</i>, primary author Lynn Vonder Haar, <i>ERAU</i></span></h4>
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><i>{{ pub.title }}</i>, primary author {{ pub.primary_author }}, <i>{{ pub.primary_author_org }}</i></span></h4>
             </div>
           </div>
-          <div class='date-content-box'>
-            <div class='my-dates'>Nov 2022 - Mar 2023</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Contributor in technical elements): </b><span property='title'><i>Extracting a Body of Knowledge as a First Step Towards Defining a United Software Engineering Curriculum Guideline</i>, primary author Anton Kiselev, <i>ERAU</i></span></h4>
-            </div>
-          </div>
+          {% endfor %}
           <h3 class='section-subtitle'>Competition Proposals</h3>
+          {% for pub in publications | selectattr('status', 'equalto', 'competition_proposal') %}
           <div class='date-content-box'>
-            <div class='my-dates'>Jan 2023 - Apr 2023</div>
+            <div class='my-dates'>{{ pub.date_display }}</div>
             <div class='content'>
-              <h4><b>(Secondary author): </b><a href='https://faadatachallenge.nianet.org/'><i>Expanding the Capabilities of the NAS through AI: A White Box for the Airspace Ecosystem</i></a>, top 10 finalist, faculty advisor Omar Ochoa</h4>
+              <h4><b>({{ pub.author_role }}): </b><a href='{{ pub.url }}'><i>{{ pub.title }}</i></a>{{ pub.after_link_text }}</h4>
             </div>
           </div>
+          {% endfor %}
           <h3 class='section-subtitle'>Grant Proposals</h3>
-          <!--
+          {% for pub in publications | selectattr('status', 'equalto', 'grant_proposal') %}
           <div class='date-content-box'>
-            <div class='my-dates'>June 2023</div>
+            <div class='my-dates'>{{ pub.date_display }}</div>
             <div class='content'>
-              <h4 typeof='TechArticle'><b>(PI): </b><span property='title'><i>From Legacy to Compliant: Investigating the Role of ChatGPT in Aligning Cybersecurity Requirements to ISO Standards</i> – OpenAI Cybersecurity Grant, $10,000</span></h4>
+              <h4 typeof='TechArticle'><b>({{ pub.author_role }}): </b><span property='title'><i>{{ pub.title }}</i>{{ pub.span_suffix }}, <i>{{ pub.span_suffix_org }}</i></span></h4>
             </div>
           </div>
-          -->
-          <div class='date-content-box'>
-            <div class='my-dates'>Jan 2022</div>
-            <div class='content'>
-              <h4 typeof='TechArticle'><b>(Contributor in grammar, structure and spelling revision): </b><span property='title'><i>Expanding the Nation’s STEM Talent Pool by Accelerating Graduate Degree Completion in Computer, Software, and Cybersecurity Engineering</i> – NSF Award Number 2221602 amounting to $1,499,354 over the period 10/01/2022 – 09/30/2027, principal investigator Omar Ochoa, <i>ERAU</i></span></h4>
-            </div>
-          </div>
+          {% endfor %}
           <h3 class='section-subtitle'>Articles</h3>
+          {% for pub in publications | selectattr('status', 'equalto', 'article') %}
           <div class='date-content-box'>
-            <div class='my-dates'>Feb 2023</div>
+            <div class='my-dates'>{{ pub.date_display }}</div>
             <div class='content'>
-              <h4><b>(Contributor in grammar, structure and spelling revision): </b><a href='https://medium.com/@alex.bikeyev/synthetic-ontologies-a-hypothesis-7197857e6e7a'><span property='title'><i>Synthetic Ontologies: A Hypothesis</i></span></a>, primary author Alexander Bikeyev</h4>
+              <h4><b>({{ pub.author_role }}): </b><a href='{{ pub.url }}'><span property='title'><i>{{ pub.title }}</i></span></a>, primary author {{ pub.primary_author }}</h4>
             </div>
           </div>
+          {% endfor %}
         </section>
       </details>

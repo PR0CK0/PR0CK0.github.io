@@ -435,6 +435,7 @@ publications:
     date: "2026"
     status: awaiting_publication
     url: https://papers.ssrn.com/abstract=5682942
+    author_role: "Primary author"
     tags:
       - provenance
       - LLM
@@ -448,6 +449,7 @@ publications:
     date: "2026"
     status: awaiting_publication
     url: https://papers.ssrn.com/abstract=5682822
+    author_role: "Primary author"
     tags:
       - provenance
       - "machine learning"
@@ -463,6 +465,9 @@ publications:
     date: "2026-02"
     status: published
     url: https://www.mdpi.com/2674-113X/5/1/9
+    author_role: "Tertiary author"
+    primary_author: "Lynn Vonderhaar"
+    primary_author_position: in_span
     tags:
       - provenance
       - XAI
@@ -477,6 +482,9 @@ publications:
     date: "2025-02"
     status: published
     url: "https://www.computer.org/csdl/proceedings-article/icsc/2025/242600a171/27FQIRaxjYQ"
+    author_role: "Secondary author"
+    primary_author: "Lynn Vonderhaar"
+    primary_author_position: in_span
     tags:
       - ontology
       - datasets
@@ -491,6 +499,9 @@ publications:
     date: "2024-12"
     status: published
     url: https://ieeexplore.ieee.org/abstract/document/10903339
+    author_role: "Secondary author"
+    primary_author: "Timothy Elvira"
+    primary_author_position: in_span
     tags:
       - LLM
       - testing
@@ -505,6 +516,9 @@ publications:
     date: "2024-12"
     status: published
     url: https://ieeexplore.ieee.org/abstract/document/10771003
+    author_role: "Secondary author"
+    primary_author: "Timothy Elvira"
+    primary_author_position: in_span
     tags:
       - "requirements engineering"
       - "machine learning"
@@ -517,6 +531,7 @@ publications:
     date: "2024-12"
     status: published
     url: https://ieeexplore.ieee.org/abstract/document/10770985
+    author_role: "Primary Author"
     tags:
       - LLM
       - "scientific writing"
@@ -530,6 +545,8 @@ publications:
     date: "2024-12"
     status: published
     url: https://ieeexplore.ieee.org/abstract/document/10771030
+    author_role: "Primary author"
+    close_span_before_end_link: true
     tags:
       - RAG
       - "knowledge graphs"
@@ -545,6 +562,9 @@ publications:
     date: "2024-10"
     status: published
     url: "https://arc.aiaa.org/doi/full/10.2514/1.I011432"
+    author_role: "Tertiary Author"
+    primary_author: "Alexandra Davidoff"
+    primary_author_position: in_span
     tags:
       - aerospace
       - "cognitive assistants"
@@ -558,6 +578,7 @@ publications:
     date: "2024-07"
     status: published
     url: "https://arc.aiaa.org/doi/full/10.2514/1.I011316"
+    author_role: "Primary author"
     tags:
       - "linked data"
       - aerospace
@@ -572,6 +593,9 @@ publications:
     date: "2024-06"
     status: published
     url: https://arxiv.org/abs/2406.15268
+    author_role: "Tertiary author"
+    primary_author: "Lynn Vonderhaar"
+    primary_author_position: in_span
     tags:
       - ontology
       - datasets
@@ -585,6 +609,7 @@ publications:
     date: "2024-05"
     status: published
     url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4852748"
+    author_role: "Primary author"
     tags:
       - provenance
       - BFO
@@ -599,6 +624,7 @@ publications:
     date: "2024-03"
     status: published
     url: https://ieeexplore.ieee.org/document/10500258/
+    author_role: "Primary author"
     tags:
       - "semantic web"
       - "scientific publishing"
@@ -612,6 +638,7 @@ publications:
     date: "2024-03"
     status: published
     url: "https://www.frontiersin.org/articles/10.3389/frai.2024.1308156/full"
+    author_role: "Primary author"
     tags:
       - AI
       - LLM
@@ -626,6 +653,9 @@ publications:
     date: "2024-01"
     status: published
     url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4739068"
+    author_role: "Tertiary author"
+    primary_author: "Timothy Elvira"
+    primary_author_position: in_span
     tags:
       - "language models"
       - "knowledge graphs"
@@ -639,6 +669,7 @@ publications:
     date: "2024-01"
     status: published
     url: https://commons.erau.edu/edt/784/
+    author_role: "Primary Author"
     tags:
       - agile
       - "scientific writing"
@@ -653,6 +684,10 @@ publications:
     date: "2023-10"
     status: published
     url: https://ieeexplore.ieee.org/abstract/document/10343213
+    author_role: "Tertiary author"
+    primary_author: "Sarah Reynolds"
+    primary_author_position: after_span
+    legacy_venue: " 2023 IEEE Frontiers in Education (FIE) Conference"
     tags:
       - scrum
       - education
@@ -667,19 +702,23 @@ publications:
     date: "2023-10"
     status: published
     url: https://ieeexplore.ieee.org/abstract/document/10311183
+    author_role: "Tertiary author"
+    primary_author: "Juan Couder"
+    primary_author_position: after_span
     tags:
       - GPS
       - cybersecurity
       - avionics
 
   - id: pub/auto-code-documentation
-    title: "Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development's Most Redundant Task"
+    title: "Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development\u2019s Most Redundant Task"
     authors:
       - "Tyler T. Procko"
     venue: SSRN
     date: "2023-09"
     status: published
     url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4571367"
+    author_role: "Primary Author"
     tags:
       - "code documentation"
       - GPT
@@ -693,6 +732,7 @@ publications:
     date: "2023-09"
     status: published
     url: https://ieeexplore.ieee.org/abstract/document/10387600
+    author_role: "Primary Author"
     tags:
       - GPT-4
       - LLM
@@ -707,6 +747,7 @@ publications:
     date: "2023-09"
     status: published
     url: https://ieeexplore.ieee.org/abstract/document/10387634
+    author_role: "Primary Author"
     tags:
       - BFO
       - OWL
@@ -722,6 +763,10 @@ publications:
     date: "2023-07"
     status: published
     url: https://ieeexplore.ieee.org/abstract/document/10487405
+    author_role: "Tertiary author"
+    primary_author: "Timothy Elvira"
+    primary_author_position: after_span
+    legacy_venue: " 2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)"
     tags:
       - "machine learning"
       - "catastrophic forgetting"
@@ -735,6 +780,10 @@ publications:
     date: "2023-07"
     status: published
     url: https://ieeexplore.ieee.org/abstract/document/10487209
+    author_role: "Secondary author"
+    primary_author: "Timothy Elvira"
+    primary_author_position: after_span
+    legacy_venue: " 2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)"
     tags:
       - LLM
       - "extreme programming"
@@ -748,6 +797,7 @@ publications:
     date: "2023-06"
     status: published
     url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4493644"
+    author_role: "Primary Author"
     tags:
       - "knowledge graphs"
       - SWEBOK
@@ -762,6 +812,7 @@ publications:
     date: "2023-06"
     status: published
     url: "https://peer.asee.org/microelectronic-technology-ai-and-academic-dishonesty-an-agile-engineering-approach"
+    author_role: "Primary author"
     tags:
       - AI
       - education
@@ -776,6 +827,8 @@ publications:
     date: "2023-02"
     status: published
     url: https://ssrn.com/abstract=4441503
+    author_role: "Primary author"
+    after_span_text: " <i> - SSRN</i>"
     tags:
       - agile
       - education
@@ -790,6 +843,9 @@ publications:
     date: "2023-02"
     status: published
     url: https://ieeexplore.ieee.org/document/10066597
+    author_role: "Tertiary author"
+    primary_author: "Sarah Reynolds"
+    primary_author_position: after_span
     tags:
       - "knowledge graphs"
       - "security requirements"
@@ -803,6 +859,7 @@ publications:
     date: "2022-12"
     status: published
     url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4703235"
+    author_role: "Primary author"
     tags:
       - ontology
       - SDLC
@@ -817,6 +874,7 @@ publications:
     date: "2022-01"
     status: published
     url: https://ieeexplore.ieee.org/document/9736291
+    author_role: "Primary Author"
     tags:
       - XAI
       - "semantic web"
@@ -827,9 +885,10 @@ publications:
     authors:
       - "Jessica Steinmann"
       - "Tyler T. Procko"
-    venue: "2022 IEEE 16th International Conference on Semantic Computing (ICSC 2022)"
+    venue: "2022 IEEE 16th International Conference on Semantic Computing (ICSC 2022), primary author Jessica Steinmann"
     date: "2022-01"
     status: published
+    author_role: "Contributor in grammar, structure and spelling revision"
     tags:
       - ontology
       - "security requirements"
@@ -844,6 +903,8 @@ publications:
     date: "2019-10"
     status: published
     url: https://ieeexplore.ieee.org/document/9028676
+    author_role: "Contributor"
+    after_span_text: " - 2019 IEEE Frontiers in Education Conference (FIE 2019), primary author Omar Ochoa"
     tags:
       - VR
       - education
@@ -856,6 +917,9 @@ publications:
       - "Timothy Elvira"
       - "Tyler T. Procko"
     status: in_progress
+    author_role: "Secondary Author"
+    primary_author: "Timothy Elvira"
+    primary_author_position: after_span
     tags:
       - "machine learning"
       - taxonomy
@@ -866,6 +930,7 @@ publications:
     authors:
       - "Tyler T. Procko"
     status: in_progress
+    author_role: "Primary author"
     tags:
       - "knowledge graphs"
       - SUMO
@@ -877,6 +942,7 @@ publications:
     authors:
       - "Tyler T. Procko"
     status: in_progress
+    author_role: "Primary author"
     tags:
       - SDLC
       - "ontology engineering"
@@ -887,9 +953,86 @@ publications:
       - "Alexandra Davidoff"
       - "Tyler T. Procko"
     status: in_progress
+    author_role: "Tertiary author"
+    primary_author: "Alexandra Davidoff"
+    primary_author_position: after_span
     tags:
       - aviation
       - "cognitive assistants"
+
+  # Colleague Theses
+  - id: pub/colleague-thesis-vonderhaar
+    title: "Eliminating Security Weaknesses in Requirement Specifications via a Knowledge Graph"
+    authors:
+      - "Lynn Vonder Haar"
+      - "Tyler T. Procko"
+    date_display: "Feb 2023 - Mar 2023"
+    status: colleague_thesis
+    author_role: "Contributor in technical elements"
+    primary_author: "Lynn Vonder Haar"
+    primary_author_org: "ERAU"
+    tags:
+      - "knowledge graphs"
+      - "security requirements"
+
+  - id: pub/colleague-thesis-kiselev
+    title: "Extracting a Body of Knowledge as a First Step Towards Defining a United Software Engineering Curriculum Guideline"
+    authors:
+      - "Anton Kiselev"
+      - "Tyler T. Procko"
+    date_display: "Nov 2022 - Mar 2023"
+    status: colleague_thesis
+    author_role: "Contributor in technical elements"
+    primary_author: "Anton Kiselev"
+    primary_author_org: "ERAU"
+    tags:
+      - "knowledge graphs"
+      - "software engineering"
+
+  # Competition Proposals
+  - id: pub/competition-proposal-nas
+    title: "Expanding the Capabilities of the NAS through AI: A White Box for the Airspace Ecosystem"
+    authors:
+      - "Tyler T. Procko"
+    date_display: "Jan 2023 - Apr 2023"
+    status: competition_proposal
+    url: "https://faadatachallenge.nianet.org/"
+    author_role: "Secondary author"
+    after_link_text: ", top 10 finalist, faculty advisor Omar Ochoa"
+    tags:
+      - aerospace
+      - AI
+
+  # Grant Proposals
+  - id: pub/grant-proposal-nsf
+    title: "Expanding the Nation\u2019s STEM Talent Pool by Accelerating Graduate Degree Completion in Computer, Software, and Cybersecurity Engineering"
+    authors:
+      - "Omar Ochoa"
+      - "Tyler T. Procko"
+    date_display: "Jan 2022"
+    status: grant_proposal
+    author_role: "Contributor in grammar, structure and spelling revision"
+    span_suffix: " – NSF Award Number 2221602 amounting to $1,499,354 over the period 10/01/2022 – 09/30/2027, principal investigator Omar Ochoa"
+    span_suffix_org: "ERAU"
+    tags:
+      - NSF
+      - STEM
+      - education
+
+  # Articles
+  - id: pub/article-synthetic-ontologies
+    title: "Synthetic Ontologies: A Hypothesis"
+    authors:
+      - "Alexander Bikeyev"
+      - "Tyler T. Procko"
+    date_display: "Feb 2023"
+    status: article
+    url: "https://medium.com/@alex.bikeyev/synthetic-ontologies-a-hypothesis-7197857e6e7a"
+    author_role: "Contributor in grammar, structure and spelling revision"
+    primary_author: "Alexander Bikeyev"
+    tags:
+      - ontology
+      - "semantic web"
 
 projects:
   - id: proj/ai-landscape-digest

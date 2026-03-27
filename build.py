@@ -5,6 +5,26 @@ import yaml
 from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
 
+_MONTH_NAMES = {
+    '01': 'Jan', '02': 'Feb', '03': 'Mar', '04': 'Apr',
+    '05': 'May', '06': 'June', '07': 'July', '08': 'Aug',
+    '09': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dec',
+}
+
+
+def pub_date(date_val):
+    """Convert YAML date (e.g. '2024-10') to display form (e.g. 'Oct 2024')."""
+    if date_val is None:
+        return '-'
+    s = str(date_val).strip()
+    if s == '-' or '-' not in s:
+        return s
+    parts = s.split('-')
+    if len(parts) >= 2:
+        year, month = parts[0], parts[1].zfill(2)
+        return f"{_MONTH_NAMES.get(month, month)} {year}"
+    return s
+
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "data" / "tyler-procko.yaml"
 TEMPLATE_DIR = BASE_DIR / "templates"
@@ -26,6 +46,7 @@ def build():
         autoescape=False,
         keep_trailing_newline=True,
     )
+    env.filters['pub_date'] = pub_date
 
     template = env.get_template("index.html.j2")
     output = template.render(**data)
