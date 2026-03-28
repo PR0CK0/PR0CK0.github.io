@@ -796,6 +796,8 @@ function ContributionGraph({ username }: { username: string }) {
           while (week.length < 7) week.push(null)
           grid.push(week)
         }
+        // Drop trailing weeks that are entirely null (future-padded dates)
+        while (grid.length > 0 && grid[grid.length - 1].every((d) => d === null)) grid.pop()
         setWeeks(grid)
       })
       .catch(() => {})
@@ -845,11 +847,11 @@ function ContributionGraph({ username }: { username: string }) {
       <div className="overflow-x-auto pb-1 rounded-lg border border-terminal-border/30 bg-terminal-surface/20 p-3">
         <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 0 }}>
           {/* Month labels row */}
-          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '1px' }}>
+          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '1px', height: '12px' }}>
             {weeks.map((_, wi) => (
-              <div key={wi} style={{ width: cell, flexShrink: 0 }}>
+              <div key={wi} style={{ width: cell, flexShrink: 0, overflow: 'visible', position: 'relative' }}>
                 {monthLabels.has(wi) && (
-                  <span style={{ fontSize: '9px', color: 'rgba(200,214,240,0.35)', fontFamily: 'monospace' }}>
+                  <span style={{ fontSize: '9px', color: 'rgba(200,214,240,0.35)', fontFamily: 'monospace', position: 'absolute', whiteSpace: 'nowrap' }}>
                     {monthLabels.get(wi)}
                   </span>
                 )}
@@ -857,11 +859,11 @@ function ContributionGraph({ username }: { username: string }) {
             ))}
           </div>
           {/* Year labels row */}
-          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '4px' }}>
+          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '4px', height: '12px' }}>
             {weeks.map((_, wi) => (
-              <div key={wi} style={{ width: cell, flexShrink: 0 }}>
+              <div key={wi} style={{ width: cell, flexShrink: 0, overflow: 'visible', position: 'relative' }}>
                 {yearLabels.has(wi) && (
-                  <span style={{ fontSize: '9px', color: 'rgba(0,255,136,0.50)', fontFamily: 'monospace', fontWeight: 'bold' }}>
+                  <span style={{ fontSize: '9px', color: 'rgba(0,255,136,0.50)', fontFamily: 'monospace', fontWeight: 'bold', position: 'absolute', whiteSpace: 'nowrap' }}>
                     {yearLabels.get(wi)}
                   </span>
                 )}
