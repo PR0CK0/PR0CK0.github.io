@@ -525,15 +525,141 @@ function SkillChip({ skill, chipClass, opacity }: { skill: AggregatedSkill; chip
   )
 }
 
-function SkillsMatrix({ person }: { person: Person }) {
-  const skills = aggregateSkills(person)
+// ─── View toggle ────────────────────────────────────────────────────────────
 
+type SkillView = 'categories' | 'ranked'
+
+function ViewToggle({ view, onChange }: { view: SkillView; onChange: (v: SkillView) => void }) {
+  return (
+    <div className="inline-flex items-center rounded-lg border border-terminal-border bg-terminal-surface/40 p-0.5 gap-0.5 font-mono text-xs relative">
+      {(['categories', 'ranked'] as SkillView[]).map((v) => {
+        const active = view === v
+        return (
+          <button
+            key={v}
+            onClick={() => onChange(v)}
+            className="relative px-3 py-1.5 rounded-md transition-colors duration-200 z-10"
+            style={{ color: active ? '#b57bff' : '#4a5a7a' }}
+          >
+            {active && (
+              <motion.span
+                layoutId="skill-view-pill"
+                className="absolute inset-0 rounded-md bg-terminal-purple/15 border border-terminal-purple/30"
+                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">
+              {v === 'categories' ? '// by category' : '# ranked by use'}
+            </span>
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
+// ─── Ranked view ─────────────────────────────────────────────────────────────
+
+const RANKED_PAGE = 30
+
+function RankedView({ skills }: { skills: AggregatedSkill[] }) {
+  const [expanded, setExpanded] = useState(false)
+  const sorted = [...skills].sort((a, b) => b.count - a.count)
+  const maxCount = sorted[0]?.count ?? 1
+  const visible = expanded ? sorted : sorted.slice(0, RANKED_PAGE)
+  const hidden = sorted.length - RANKED_PAGE
+
+  return (
+    <motion.div
+      key="ranked"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="flex flex-wrap gap-2">
+        {visible.map((sk, i) => {
+          const meta = CATEGORY_META[sk.category]
+          const opacity = Math.max(0.25, Math.pow(sk.count / maxCount, 0.6))
+          return (
+            <motion.div
+              key={sk.name}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.008, duration: 0.2 }}
+            >
+              <SkillChip skill={sk} chipClass={meta.chipClass} opacity={opacity} />
+            </motion.div>
+          )
+        })}
+      </div>
+      {!expanded && hidden > 0 && (
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.25 }}
+          onClick={() => setExpanded(true)}
+          className="mt-4 text-xs font-mono text-terminal-purple/60 hover:text-terminal-purple
+                     border border-terminal-purple/20 hover:border-terminal-purple/50
+                     px-3 py-1.5 rounded transition-all duration-200"
+        >
+          + {hidden} more →
+        </motion.button>
+      )}
+    </motion.div>
+  )
+}
+
+// ─── Categories view ──────────────────────────────────────────────────────────
+
+function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
   const grouped = SHOWN_CATEGORIES.reduce<Record<string, AggregatedSkill[]>>((acc, cat) => {
-    acc[cat] = skills
-      .filter((s) => s.category === cat)
-      .sort((a, b) => b.count - a.count)
+    acc[cat] = skills.filter((s) => s.category === cat).sort((a, b) => b.count - a.count)
     return acc
   }, {})
+
+  return (
+    <motion.div
+      key="categories"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ duration: 0.3 }}
+      className="space-y-8"
+    >
+      {SHOWN_CATEGORIES.map((cat, ci) => {
+        const meta = CATEGORY_META[cat]
+        const catSkills = grouped[cat]
+        if (!catSkills?.length) return null
+        const maxCount = catSkills[0]?.count ?? 1
+        return (
+          <motion.div
+            key={cat}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: ci * 0.05, duration: 0.35 }}
+          >
+            <p className={`text-xs font-mono tracking-widest uppercase mb-3 ${meta.color}`}>
+              // {meta.label}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {catSkills.map((sk) => {
+                const opacity = Math.max(0.2, Math.pow(sk.count / maxCount, 0.6))
+                return <SkillChip key={sk.name} skill={sk} chipClass={meta.chipClass} opacity={opacity} />
+              })}
+            </div>
+          </motion.div>
+        )
+      })}
+    </motion.div>
+  )
+}
+
+// ─── Skills Matrix ───────────────────────────────────────────────────────────
+
+function SkillsMatrix({ person }: { person: Person }) {
+  const skills = aggregateSkills(person)
+  const [view, setView] = useState<SkillView>('categories')
 
   return (
     <section className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
@@ -543,35 +669,16 @@ function SkillsMatrix({ person }: { person: Person }) {
         accent="purple"
       />
 
-      <div className="mt-10 space-y-8">
-        {SHOWN_CATEGORIES.map((cat, ci) => {
-          const meta = CATEGORY_META[cat]
-          const catSkills = grouped[cat]
-          if (!catSkills?.length) return null
-          return (
-            <motion.div
-              key={cat}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ delay: ci * 0.08, duration: 0.45 }}
-            >
-              <p className={`text-xs font-mono tracking-widest uppercase mb-3 ${meta.color}`}>
-                // {meta.label}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {(() => {
-                  const maxCount = catSkills[0]?.count ?? 1
-                  return catSkills.map((sk) => {
-                    const opacity = Math.max(0.2, Math.pow(sk.count / maxCount, 0.6))
-                    return <SkillChip key={sk.name} skill={sk} chipClass={meta.chipClass} opacity={opacity} />
-                  })
-                })()}
-              </div>
-            </motion.div>
-          )
-        })}
+      <div className="mt-6 mb-8">
+        <ViewToggle view={view} onChange={setView} />
       </div>
+
+      <AnimatePresence mode="wait">
+        {view === 'categories'
+          ? <CategoriesView key="categories" skills={skills} />
+          : <RankedView key="ranked" skills={skills} />
+        }
+      </AnimatePresence>
     </section>
   )
 }
