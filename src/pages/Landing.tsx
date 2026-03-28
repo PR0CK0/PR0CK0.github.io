@@ -729,7 +729,8 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
         title="Featured Projects"
         accent="amber"
       />
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <ContributionGraph username="PR0CK0" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {top6.map((proj, i) => (
           <ProjectCard key={proj.id} project={proj} index={i} />
         ))}
@@ -751,6 +752,128 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
         </a>
       </motion.div>
     </section>
+  )
+}
+
+// ─── Contribution Graph ──────────────────────────────────────────────────────
+
+type ContributionDay = { date: string; count: number; level: number }
+
+const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+
+// Level 0–4 mapped to terminal green shades
+const CONTRIB_COLORS = [
+  'rgba(0,255,136,0.06)',
+  'rgba(0,255,136,0.22)',
+  'rgba(0,255,136,0.42)',
+  'rgba(0,255,136,0.65)',
+  'rgba(0,255,136,0.90)',
+]
+
+function ContributionGraph({ username }: { username: string }) {
+  const [weeks, setWeeks] = useState<(ContributionDay | null)[][]>([])
+  const [total, setTotal] = useState(0)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`)
+      .then((r) => r.json())
+      .then((data) => {
+        const days: ContributionDay[] = data.contributions
+        const yearTotal = (Object.values(data.total as Record<string, number>) as number[])
+          .reduce((a, b) => a + b, 0)
+        setTotal(yearTotal)
+
+        // Build 7-row weeks grid, padded to start on the right weekday
+        const grid: (ContributionDay | null)[][] = []
+        const firstDOW = new Date(days[0].date).getDay()
+        let week: (ContributionDay | null)[] = Array(firstDOW).fill(null)
+        for (const day of days) {
+          week.push(day)
+          if (week.length === 7) { grid.push(week); week = [] }
+        }
+        if (week.length) {
+          while (week.length < 7) week.push(null)
+          grid.push(week)
+        }
+        setWeeks(grid)
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false))
+  }, [username])
+
+  if (loading) {
+    return (
+      <div className="my-8 h-[120px] rounded bg-terminal-surface/20 animate-pulse" />
+    )
+  }
+  if (!weeks.length) return null
+
+  // Month label: first occurrence of each month across weeks
+  const monthLabels = new Map<number, string>()
+  let lastMonth = -1
+  weeks.forEach((week, wi) => {
+    const first = week.find((d) => d !== null)
+    if (first) {
+      const m = new Date(first.date).getMonth()
+      if (m !== lastMonth) { monthLabels.set(wi, MONTH_NAMES[m]); lastMonth = m }
+    }
+  })
+
+  const cell = 11
+  const gap = 3
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.5 }}
+      className="my-8"
+    >
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-xs font-mono text-terminal-muted/60">// commit activity</span>
+        <span className="text-xs font-mono text-terminal-green/50">
+          {total.toLocaleString()} contributions in the last year
+        </span>
+      </div>
+      <div className="overflow-x-auto pb-1 rounded-lg border border-terminal-border/30 bg-terminal-surface/20 p-3">
+        <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 0 }}>
+          {/* Month labels row */}
+          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '4px' }}>
+            {weeks.map((_, wi) => (
+              <div key={wi} style={{ width: cell, flexShrink: 0, textAlign: 'left' }}>
+                {monthLabels.has(wi) && (
+                  <span style={{ fontSize: '9px', color: 'rgba(200,214,240,0.35)', fontFamily: 'monospace' }}>
+                    {monthLabels.get(wi)}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+          {/* Week columns */}
+          <div style={{ display: 'flex', gap: `${gap}px` }}>
+            {weeks.map((week, wi) => (
+              <div key={wi} style={{ display: 'flex', flexDirection: 'column', gap: `${gap}px` }}>
+                {week.map((day, di) => (
+                  <div
+                    key={di}
+                    title={day ? `${day.date} — ${day.count} contribution${day.count !== 1 ? 's' : ''}` : undefined}
+                    style={{
+                      width: cell,
+                      height: cell,
+                      borderRadius: '2px',
+                      backgroundColor: day !== null ? CONTRIB_COLORS[day.level] : 'transparent',
+                      border: day !== null ? '1px solid rgba(0,255,136,0.10)' : 'none',
+                    }}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
   )
 }
 
