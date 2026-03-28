@@ -417,7 +417,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
         }}
       />
 
-      <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-4 sm:pb-6">
+      <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6 pb-4 sm:pb-6">
         {/* Terminal window chrome */}
         <div className="rounded-lg border border-terminal-border bg-terminal-surface/60 backdrop-blur-sm overflow-hidden shadow-2xl">
           {/* Title bar */}
