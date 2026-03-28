@@ -20,12 +20,12 @@ type BootLine = ReturnType<typeof buildBootLines>[number]
 // ─── Stats ─────────────────────────────────────────────────────────────────
 function buildStats(pubCount: number, projCount: number) {
   return [
-    { label: 'Publications', value: `${pubCount}` },
+    { label: 'Refereed Pubs', value: `${pubCount}` },
     { label: 'Java / Python', value: '9+ yrs' },
     { label: 'Projects', value: `${projCount}` },
-    { label: 'Clearance', value: 'SECRET' },
-    { label: 'Degree', value: 'Ph.D. CSCE' },
-    { label: 'Membership', value: 'IEEE' },
+    { label: 'AFRL Clearance', value: 'SECRET' },
+    { label: 'Degree', value: 'Ph.D. EECS' },
+    { label: 'Certified', value: 'Google + Stanford' },
   ]
 }
 type Stat = ReturnType<typeof buildStats>[number]
