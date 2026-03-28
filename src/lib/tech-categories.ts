@@ -116,7 +116,6 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Jackson:              'libraries',
   'json-simple':        'libraries',
   JSoup:                'libraries',
-  Devise:               'libraries',
 
   // ── Tools ──────────────────────────────────────────────────────────────────
   Git:                  'tools',
