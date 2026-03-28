@@ -43,6 +43,18 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 - [ ] Graph: clicking a skill chip navigates to the graph with `?q=<skill>` and the node is found/searched, but neighborhood dimming doesn't apply until you manually re-click the node. `layoutstop` approach attempted — Cytoscape class application timing is tricky here.
 
+## Ensure full coverage of domains, technologies, soft_skills on all entries
+
+Every work_experience, publication, project, extracurricular, talk, and course entry
+should have at minimum: technologies, domains. Soft skills where applicable.
+
+- [ ] work_experiences — audit all entries for missing domains (afrl-2019 through afrl-2023, upwork entries, etc.)
+- [ ] publications — technologies still need PDF review pass (see section above)
+- [ ] projects — 16 deferred projects still need domains/techs (see section below)
+- [ ] extracurriculars — verify all 26 entries have appropriate coverage
+- [ ] courses — add technologies/domains to course entries
+- [ ] talks — verify domains/technologies populated
+
 ## Other pending
 
 - [ ] Extracurriculars — add technologies/domains to 24 empty entries

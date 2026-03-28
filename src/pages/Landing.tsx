@@ -564,7 +564,7 @@ type SkillView = 'categories' | 'ranked'
 function ViewToggle({ view, onChange }: { view: SkillView; onChange: (v: SkillView) => void }) {
   return (
     <div className="inline-flex items-center rounded-lg border border-terminal-border bg-terminal-surface/40 p-0.5 gap-0.5 font-mono text-xs relative">
-      {(['categories', 'ranked'] as SkillView[]).map((v) => {
+      {(['ranked', 'categories'] as SkillView[]).map((v) => {
         const active = view === v
         return (
           <button
@@ -696,7 +696,7 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
 
 function SkillsMatrix({ person }: { person: Person }) {
   const skills = aggregateSkills(person)
-  const [view, setView] = useState<SkillView>('categories')
+  const [view, setView] = useState<SkillView>('ranked')
 
   return (
     <section className="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-12">

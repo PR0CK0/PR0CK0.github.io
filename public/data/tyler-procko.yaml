@@ -169,6 +169,31 @@ work_experiences:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  domains:
+  - LLMs
+  - Cybersecurity
+  - Ontology
+  - Machine Learning
+  - Knowledge Graphs
+  - Software Engineering
+  - SQA
+  - Semantic Web
+  - Knowledge Representation
+  - NLP
+  - Linked Data
+  - Prompt Engineering
+  - Text Extraction
+  - ML Provenance
+  - XAI
+  - Taxonomy
+  - Provenance
+  - SDLC
+  - Agile
+  - NER
+  - RAG
+  - Embedded Systems
+  - AR
+  - Embeddings
 - id: work/handshake-ai
   title: Independent AI Consultant
   organization: Handshake AI
@@ -202,6 +227,22 @@ work_experiences:
   org: Handshake AI, Remote
   bullets:
   - Applied expert knowledge for generative AI model improvement
+  domains:
+  - LLMs
+  - Ontology
+  - Machine Learning
+  - Knowledge Graphs
+  - Semantic Web
+  - Knowledge Representation
+  - NLP
+  - Linked Data
+  - Scientific Writing
+  - Prompt Engineering
+  - Text Extraction
+  - Taxonomy
+  - Agile
+  - SQA
+  - Web Scraping
 - id: work/afrl-2024
   title: SMART Scholar AI Research Scientist - ML Provenance
   organization: Air Force Research Laboratory (AFRL)
@@ -221,6 +262,12 @@ work_experiences:
   - RDFS
   - OWL
   - Visual Studio Code
+  - Unix
+  - Linux
+  - PROV-O
+  - PROV-ML
+  - ANNO
+  - ANNETTO
   category: defense_research
   date_display: May 2024 - Aug 2024
   title_line: 'SMART Scholar AI Research Scientist - ML Provenance, '
@@ -231,6 +278,11 @@ work_experiences:
   domains:
   - Knowledge Graphs
   - ML Provenance
+  - Ontology
+  - Machine Learning
+  - Semantic Web
+  - Knowledge Representation
+  - Linked Data
 - id: work/afrl-2023
   title: SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD
   organization: Air Force Research Laboratory (AFRL)
@@ -609,7 +661,7 @@ work_experiences:
   - RDF
   - RDFS
   - SKOS
-  - PROV
+  - PROV-O
   - Protégé
   - GraphDB
   - RDFLib
@@ -726,7 +778,7 @@ work_experiences:
   - SPARQL
   - Protégé
   - GraphDB
-  - PROV
+  - PROV-O
   - SEON
   - Microsoft Word
   - Visual Studio Code
