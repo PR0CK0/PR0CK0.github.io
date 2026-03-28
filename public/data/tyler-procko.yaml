@@ -999,6 +999,11 @@ publications:
   - machine learning
   technologies:
   - Microsoft Word
+  - Microsoft Teams
+  domains:
+  - Machine Learning
+  - Requirements Engineering
+  - Software Engineering
 - id: pub/leveraging-llms-scientific-writing
   title: Leveraging Large Language Models on the Traditional Scientific Writing Workflow
   authors:
@@ -1014,6 +1019,11 @@ publications:
   - software engineering
   technologies:
   - Microsoft Word
+  - Microsoft Teams
+  domains:
+  - LLMs
+  - Scientific Writing
+  - Prompt Engineering
 - id: pub/graph-rag-survey
   title: 'Graph Retrieval-Augmented Generation for Large Language Models: A Survey'
   authors:
@@ -1031,6 +1041,12 @@ publications:
   - survey
   technologies:
   - Microsoft Word
+  - Microsoft Teams
+  domains:
+  - Knowledge Graphs
+  - LLMs
+  - RAG
+  - Semantic Web
 - id: pub/cognitive-assistants-single-pilot
   title: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations
   authors:
@@ -1049,6 +1065,9 @@ publications:
   - aviation
   technologies:
   - Microsoft Word
+  - Microsoft Teams
+  domains:
+  - Aerospace
 - id: pub/linked-data-aerospace
   title: 'Leveraging Linked Data for Knowledge Management: A Proposal for the Aerospace Industry'
   authors:
@@ -1064,6 +1083,12 @@ publications:
   - knowledge management
   technologies:
   - Microsoft Word
+  - Microsoft Teams
+  domains:
+  - Linked Data
+  - Knowledge Graphs
+  - Semantic Web
+  - Aerospace
 - id: pub/robust-training-datasets-ontologies
   title: 'Towards Robust Training Datasets for Machine Learning with Ontologies: A Case Study for Emergency Road Vehicle Detection'
   authors:
@@ -1082,6 +1107,11 @@ publications:
   - computer vision
   technologies:
   - Microsoft Word
+  domains:
+  - Ontology
+  - Machine Learning
+  - Computer Vision
+  - Knowledge Representation
 - id: pub/prov-o-bfo-mapping
   title: 'Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations
     and Preliminary Implementation'
@@ -1099,6 +1129,12 @@ publications:
   - ontology
   technologies:
   - Microsoft Word
+  domains:
+  - Ontology
+  - Provenance
+  - Semantic Web
+  - Linked Data
+  - Knowledge Representation
 - id: pub/semantic-science-beyond-pdf
   title: 'Semantic Science: Publication Beyond the PDF'
   authors:
@@ -1114,6 +1150,11 @@ publications:
   - linked data
   technologies:
   - Microsoft Word
+  domains:
+  - Semantic Web
+  - Linked Data
+  - Scientific Writing
+  - Knowledge Graphs
 - id: pub/dawn-of-dialogue
   title: 'Dawn of the Dialogue: AI''s Leap from Lab to Living Room'
   authors:
@@ -1129,6 +1170,9 @@ publications:
   - conversational AI
   technologies:
   - Microsoft Word
+  domains:
+  - LLMs
+  - Machine Learning
 - id: pub/lm-kg-survey
   title: A Survey on the Intersection of Language Models and Knowledge Graphs
   authors:
@@ -1147,6 +1191,12 @@ publications:
   - survey
   technologies:
   - Microsoft Word
+  domains:
+  - Knowledge Graphs
+  - LLMs
+  - NLP
+  - Machine Learning
+  - Semantic Web
 - id: pub/towards-agile-academia
   title: 'Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering'
   authors:
@@ -1162,6 +1212,10 @@ publications:
   - software engineering
   technologies:
   - Microsoft Word
+  domains:
+  - Agile
+  - Scientific Writing
+  - Software Engineering
 - id: pub/scrum-in-classroom
   title: 'Scrum in the Classroom: An Implementation Guide'
   authors:
@@ -1181,6 +1235,10 @@ publications:
   - agile
   technologies:
   - Microsoft Word
+  domains:
+  - Agile
+  - Education
+  - Software Engineering
 - id: pub/gps-signal-strength
   title: Leveraging Signal Strength as a Mechanism to Secure GPS Messages
   authors:
@@ -1199,6 +1257,10 @@ publications:
   - avionics
   technologies:
   - Microsoft Word
+  domains:
+  - Cybersecurity
+  - Aerospace
+  - Networking
 - id: pub/auto-code-documentation
   title: 'Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development’s Most Redundant Task'
   authors:
@@ -1214,6 +1276,11 @@ publications:
   - syntax trees
   technologies:
   - Microsoft Word
+  domains:
+  - LLMs
+  - Software Engineering
+  - NLP
+  - Prompt Engineering
 - id: pub/gpt4-stochastic-parrot
   title: 'GPT-4: A Stochastic Parrot or Ontological Craftsman? Discovering Implicit Knowledge Structures in Large Language
     Models'
@@ -1231,6 +1298,11 @@ publications:
   - knowledge structures
   technologies:
   - Microsoft Word
+  domains:
+  - LLMs
+  - Ontology
+  - Knowledge Representation
+  - Knowledge Graphs
 - id: pub/auto-bfo-aristotelian-definitions
   title: Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies with GPT
   authors:
@@ -1249,6 +1321,12 @@ publications:
   - ontology
   technologies:
   - Microsoft Word
+  domains:
+  - Ontology
+  - LLMs
+  - Knowledge Representation
+  - Semantic Web
+  - Prompt Engineering
 - id: pub/catastrophic-forgetting
   title: 'Impacts of Catastrophic Forgetting: From a Machine Learning Engineering Perspective'
   authors:
@@ -1267,6 +1345,9 @@ publications:
   - catastrophic forgetting
   technologies:
   - Microsoft Word
+  domains:
+  - Machine Learning
+  - LLMs
 - id: pub/digital-rubber-duck
   title: 'Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming'
   authors:
@@ -1286,6 +1367,11 @@ publications:
   - software engineering
   technologies:
   - Microsoft Word
+  domains:
+  - LLMs
+  - Software Engineering
+  - Agile
+  - Prompt Engineering
 - id: pub/swebok-kg-transformer
   title: A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from the Software Engineering Body of Knowledge
     with a Sequence-to-Sequence Transformer
@@ -1303,6 +1389,12 @@ publications:
   - NLP
   technologies:
   - Microsoft Word
+  domains:
+  - Knowledge Graphs
+  - NLP
+  - Software Engineering
+  - Taxonomy
+  - Text Extraction
 - id: pub/microelectronic-ai-dishonesty
   title: 'Microelectronic Technology, AI and Academic Dishonesty: An Agile Engineering Approach'
   authors:
@@ -1319,6 +1411,11 @@ publications:
   - academic integrity
   technologies:
   - Microsoft Word
+  domains:
+  - Machine Learning
+  - Agile
+  - Education
+  - Software Engineering
 - id: pub/interpersonal-chemistry-agile
   title: The Influence of Interpersonal Chemistry on Learning in Agile Software Engineering Education
   authors:
@@ -1335,6 +1432,10 @@ publications:
   - software engineering
   technologies:
   - Microsoft Word
+  domains:
+  - Agile
+  - Education
+  - Software Engineering
 - id: pub/validating-security-requirements-kg
   title: Validating Security Requirement Specifications through the use of a Knowledge Graph
   authors:
@@ -1353,6 +1454,11 @@ publications:
   - cybersecurity
   technologies:
   - Microsoft Word
+  domains:
+  - Knowledge Graphs
+  - Cybersecurity
+  - Requirements Engineering
+  - Software Engineering
 - id: pub/ontology-sdlc-aerospace
   title: 'An Ontology Based Approach to the Software Engineering Lifecycle: Application to Software Quality Assurance in the
     Aerospace Industry'
@@ -1370,6 +1476,12 @@ publications:
   - software quality
   technologies:
   - Microsoft Word
+  domains:
+  - Ontology
+  - SDLC
+  - Aerospace
+  - SQA
+  - Software Engineering
 - id: pub/explainable-ml-semantic-web
   title: An Exploration of Explainable Machine Learning Using Semantic Web Technology
   authors:
@@ -1385,6 +1497,11 @@ publications:
   - machine learning
   technologies:
   - Microsoft Word
+  domains:
+  - XAI
+  - Semantic Web
+  - Machine Learning
+  - Linked Data
 - id: pub/secure-development-ontology
   title: Supporting Security Requirements Engineering through the Development of the Secure Development Ontology
   authors:
@@ -1400,6 +1517,12 @@ publications:
   - cybersecurity
   technologies:
   - Microsoft Word
+  domains:
+  - Ontology
+  - Cybersecurity
+  - Requirements Engineering
+  - Software Engineering
+  - SDLC
 - id: pub/vr-software-requirements
   title: Incorporating a Virtual Reality Environment in the Teaching of Analysis of Software Requirements
   authors:
@@ -1417,6 +1540,10 @@ publications:
   - software requirements
   technologies:
   - Microsoft Word
+  domains:
+  - Requirements Engineering
+  - Software Engineering
+  - Education
 - id: pub/ml-misbehaviors-taxonomy
   title: Towards A Taxonomy of ML Misbehaviors and their Software Engineering Solutions
   authors:
@@ -1432,6 +1559,11 @@ publications:
   - software engineering
   technologies:
   - Microsoft Word
+  domains:
+  - Machine Learning
+  - Taxonomy
+  - Software Engineering
+  - SQA
 - id: pub/kg-geospatial-sumo
   title: Knowledge Graph Relationship Inferencing using ADE20k Images, Geospatial Bounding Boxes and the Suggested Upper Merged
     Ontology
@@ -1446,6 +1578,11 @@ publications:
   - ADE20K
   technologies:
   - Microsoft Word
+  domains:
+  - Knowledge Graphs
+  - Geospatial
+  - Computer Vision
+  - Ontology
 - id: pub/sdlc-ontology-engineering
   title: 'The Software Development Life Cycle and Ontology Engineering: Defining a Structured Process for Ontology Development'
   authors:
@@ -1457,6 +1594,10 @@ publications:
   - ontology engineering
   technologies:
   - Microsoft Word
+  domains:
+  - Ontology
+  - SDLC
+  - Software Engineering
 - id: pub/cognitive-assistants-aviation-inprogress
   title: 'Navigating the Future of Aviation: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations'
   authors:
@@ -1471,6 +1612,10 @@ publications:
   - cognitive assistants
   technologies:
   - Microsoft Word
+  domains:
+  - Aerospace
+  - Machine Learning
+  - LLMs
 - id: pub/colleague-thesis-vonderhaar
   title: Eliminating Security Weaknesses in Requirement Specifications via a Knowledge Graph
   authors:
@@ -1486,6 +1631,11 @@ publications:
   - security requirements
   technologies:
   - Microsoft Word
+  domains:
+  - Knowledge Graphs
+  - Cybersecurity
+  - Requirements Engineering
+  - Software Engineering
 - id: pub/colleague-thesis-kiselev
   title: Extracting a Body of Knowledge as a First Step Towards Defining a United Software Engineering Curriculum Guideline
   authors:
@@ -1501,6 +1651,12 @@ publications:
   - software engineering
   technologies:
   - Microsoft Word
+  domains:
+  - Knowledge Graphs
+  - Software Engineering
+  - Education
+  - NLP
+  - Text Extraction
 - id: pub/competition-proposal-nas
   title: 'Expanding the Capabilities of the NAS through AI: A White Box for the Airspace Ecosystem'
   authors:
@@ -1515,6 +1671,11 @@ publications:
   - AI
   technologies:
   - Microsoft Word
+  domains:
+  - Aerospace
+  - Machine Learning
+  - Knowledge Graphs
+  - LLMs
 - id: pub/grant-proposal-nsf
   title: Expanding the Nation’s STEM Talent Pool by Accelerating Graduate Degree Completion in Computer, Software, and Cybersecurity
     Engineering
@@ -1533,6 +1694,10 @@ publications:
   - education
   technologies:
   - Microsoft Word
+  domains:
+  - Education
+  - Software Engineering
+  - Cybersecurity
 - id: pub/article-synthetic-ontologies
   title: 'Synthetic Ontologies: A Hypothesis'
   authors:
@@ -1548,6 +1713,10 @@ publications:
   - semantic web
   technologies:
   - Microsoft Word
+  domains:
+  - Ontology
+  - Knowledge Representation
+  - LLMs
 projects:
 - id: proj/ai-landscape-digest
   title: AI Landscape Digest
