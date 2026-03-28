@@ -669,6 +669,22 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
           <ProjectCard key={proj.id} project={proj} index={i} />
         ))}
       </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+        className="mt-6 text-center"
+      >
+        <a
+          href="https://github.com/PR0CK0?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs font-mono text-terminal-muted hover:text-terminal-amber transition-colors"
+        >
+          View all {projects.length} projects on GitHub →
+        </a>
+      </motion.div>
     </section>
   )
 }
