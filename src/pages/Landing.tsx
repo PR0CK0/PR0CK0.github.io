@@ -674,6 +674,11 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
             <p className={`text-xs font-mono tracking-widest uppercase mb-3 ${meta.color}`}>
               // {meta.label}
             </p>
+            {cat === 'os' && (
+              <p className="font-mono mb-3 italic text-terminal-dim/30" style={{ fontSize: '0.6rem' }}>
+                /* used Windows since before I could walk — all others in professional/personal contexts below */
+              </p>
+            )}
             <div className="flex flex-wrap gap-2">
               {catSkills.map((sk) => {
                 const opacity = Math.max(0.4, Math.pow(sk.count / maxCount, 0.35))

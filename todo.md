@@ -39,6 +39,10 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [ ] pub/grant-proposal-nsf
 - [ ] pub/article-synthetic-ontologies
 
+## Graph
+
+- [ ] Graph: clicking a skill chip navigates to the graph with `?q=<skill>` and the node is found/searched, but neighborhood dimming doesn't apply until you manually re-click the node. `layoutstop` approach attempted — Cytoscape class application timing is tricky here.
+
 ## Other pending
 
 - [ ] Extracurriculars — add technologies/domains to 24 empty entries

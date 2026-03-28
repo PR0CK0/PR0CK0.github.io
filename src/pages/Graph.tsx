@@ -30,7 +30,7 @@ interface SelectedNode {
   year?: string
   detail?: string
   category?: string
-  connectedLabels: string[]
+  connectedNodes: Array<{ id: string; label: string; type: NodeType }>
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -320,6 +320,7 @@ export default function Graph() {
     matching.connectedEdges().removeClass('faded')
   }, [searchQuery, cyReady])
 
+
   // ── Node click ───────────────────────────────────────────────────────────────
 
   const handleCyReady = useCallback((cy: cytoscape.Core) => {
@@ -333,15 +334,16 @@ export default function Graph() {
       nodes.show()
     })
 
+
     cy.on('tap', 'node', (evt) => {
       const node = evt.target
       const data = node.data()
 
-      // Gather connected node labels
-      const connectedLabels: string[] = node
+      // Gather connected nodes with type
+      const connectedNodes = node
         .neighborhood('node')
-        .map((n: cytoscape.NodeSingular) => n.data('label') as string)
-        .filter(Boolean)
+        .map((n: cytoscape.NodeSingular) => ({ id: n.data('id') as string, label: n.data('label') as string, type: n.data('type') as NodeType }))
+        .filter((n) => Boolean(n.label))
 
       setSelectedNode({
         id: data.id,
@@ -351,7 +353,7 @@ export default function Graph() {
         year: data.year,
         detail: data.detail,
         category: data.category,
-        connectedLabels,
+        connectedNodes,
       })
 
       // Dim everything, highlight neighbourhood
@@ -378,6 +380,38 @@ export default function Graph() {
       const container = cy.container()
       if (container) container.style.cursor = 'default'
     })
+  }, [])
+
+  // ── Programmatic node selection ──────────────────────────────────────────────
+
+  const selectNodeById = useCallback((id: string) => {
+    const cy = cyRef.current
+    if (!cy) return
+    const node = cy.getElementById(id)
+    if (!node.length) return
+
+    const data = node.data()
+    const connectedNodes = node
+      .neighborhood('node')
+      .map((n: cytoscape.NodeSingular) => ({ id: n.data('id') as string, label: n.data('label') as string, type: n.data('type') as NodeType }))
+      .filter((n) => Boolean(n.label))
+
+    setSelectedNode({
+      id: data.id,
+      label: data.label,
+      type: data.type as NodeType,
+      subtitle: data.subtitle,
+      year: data.year,
+      detail: data.detail,
+      category: data.category,
+      connectedNodes,
+    })
+
+    cy.elements().removeClass('neighbour faded')
+    cy.elements().not(node).not(node.neighborhood()).addClass('faded')
+    node.neighborhood().addClass('neighbour')
+    node.removeClass('faded')
+    cy.animate({ center: { eles: node }, duration: 300 } as cytoscape.AnimationOptions)
   }, [])
 
   // ── Layout controls ──────────────────────────────────────────────────────────
@@ -622,28 +656,31 @@ export default function Graph() {
                 )}
               </div>
 
-              {selectedNode.connectedLabels.length > 0 && (
+              {selectedNode.connectedNodes.length > 0 && (
                 <div>
                   <div
                     className="text-xs uppercase tracking-wider mb-1"
                     style={{ color: '#4a5a7a' }}
                   >
-                    Connected ({selectedNode.connectedLabels.length})
+                    Connected ({selectedNode.connectedNodes.length})
                   </div>
                   <div className="flex flex-col gap-0.5 max-h-48 overflow-y-auto">
-                    {selectedNode.connectedLabels.map((lbl, i) => (
-                      <div
-                        key={i}
-                        className="text-xs py-0.5 px-2 rounded"
-                        style={{
-                          background: '#1e2d4a',
-                          color: '#c8d6f0',
-                          borderLeft: `2px solid ${TYPE_META[selectedNode.type].color}55`,
-                        }}
-                      >
-                        {lbl}
-                      </div>
-                    ))}
+                    {selectedNode.connectedNodes.map((n, i) => {
+                      const meta = TYPE_META[n.type] ?? TYPE_META.skill
+                      return (
+                        <button
+                          key={i}
+                          onClick={() => selectNodeById(n.id)}
+                          className="text-xs py-0.5 px-2 rounded flex items-baseline gap-1.5 w-full text-left transition-opacity hover:opacity-80"
+                          style={{ background: '#1e2d4a', borderLeft: `2px solid ${meta.color}66`, cursor: 'pointer' }}
+                        >
+                          <span className="font-bold uppercase tracking-wider flex-shrink-0" style={{ color: meta.color, fontSize: '0.6rem' }}>
+                            {meta.label}
+                          </span>
+                          <span style={{ color: '#c8d6f0' }}>{n.label}</span>
+                        </button>
+                      )
+                    })}
                   </div>
                 </div>
               )}

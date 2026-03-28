@@ -70,7 +70,6 @@ export const SkillSchema = z.object({
   name: z.string(),
   category: z.enum(['prog_languages', 'data_languages', 'libraries', 'tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os', 'soft_skills', 'personal', 'paradigms']),
   years_experience: z.number().optional(),
-  proficiency: z.enum(['expert', 'advanced', 'intermediate', 'familiar']).optional(),
 })
 
 export const AwardSchema = z.object({

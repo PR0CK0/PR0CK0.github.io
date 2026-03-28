@@ -97,7 +97,16 @@ export function buildGraph(person: Person): GraphData {
   // ─── Work ────────────────────────────────────────────────────────────────────
   person.work_experiences?.forEach((work) => {
     addNode({
-      data: { id: work.id, label: work.title, type: 'work', subtitle: work.organization, year: work.start_date?.slice(0, 4) },
+      data: {
+        id: work.id, label: work.title, type: 'work', subtitle: work.organization,
+        year: work.start_date
+          ? (() => {
+              const fmt = (d: string) => { const [y, m] = d.split('-'); return m ? `${['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'][+m-1]} ${y}` : y }
+              const end = work.is_current ? 'present' : (work.end_date ? fmt(work.end_date) : '?')
+              return `${fmt(work.start_date)} – ${end}`
+            })()
+          : undefined,
+      },
     })
     addEdge({ data: { id: `e-${personId}-${work.id}`, source: personId, target: work.id, label: 'worked_at' } })
     linkTechs(work.id, work.technologies)

@@ -159,6 +159,7 @@ work_experiences:
   - Mermaid
   - Figma
   - CURL
+  - Visual Studio Code
   category: defense_industry
   date_display: Nov 2025 - Present
   title_line: 'Principal Knowledge Architect - '
@@ -194,6 +195,7 @@ work_experiences:
   - pdfplumber
   - Matplotlib
   - Slack
+  - Visual Studio Code
   category: defense_industry
   date_display: Nov 2025 - Present
   title_line: 'Independent AI Consultant - '
@@ -218,6 +220,7 @@ work_experiences:
   - RDF
   - RDFS
   - OWL
+  - Visual Studio Code
   category: defense_research
   date_display: May 2024 - Aug 2024
   title_line: 'SMART Scholar AI Research Scientist - ML Provenance, '
@@ -251,6 +254,7 @@ work_experiences:
   - GPT
   - OpenAI
   - MISTK
+  - Visual Studio Code
   category: defense_research
   date_display: May 2023 - Aug 2023
   title_line: 'SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD, '
@@ -289,6 +293,11 @@ work_experiences:
   - SE-ON
   - OntoDM
   - ANNETTO
+  - Google Sheets
+  - Google Docs
+  - Google Slides
+  - Google Drive
+  - Visual Studio Code
   category: defense_research
   date_display: May 2022 - Aug 2022
   title_line: 'SMART Scholar AI Research Scientist - Machine Learning Interoperability with Basic Formal Ontology (BFO), '
@@ -326,6 +335,7 @@ work_experiences:
   - VGGNet
   - COCO
   - Places365
+  - Visual Studio Code
   category: defense_research
   date_display: May 2021 - Aug 2021
   title_line: 'SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing, '
@@ -362,6 +372,7 @@ work_experiences:
   - OntoDM
   - ANNO
   - ANNETTO
+  - Visual Studio Code
   category: defense_research
   date_display: May 2020 - Aug 2020
   title_line: 'AFRL Scholars Remote AI Research Scientist - ML Explainability, '
@@ -397,6 +408,7 @@ work_experiences:
   - GitHub
   - Jira
   - Confluence
+  - Visual Studio Code
   category: defense_research
   date_display: May 2019 - Aug 2019
   title_line: 'AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs, '
@@ -446,6 +458,7 @@ work_experiences:
   - RDF
   - RDFS
   - Protégé
+  - Visual Studio Code
   category: consulting
   date_display: Sep 2024
   title_line: 'Reasoning Consultant - '
@@ -471,6 +484,7 @@ work_experiences:
   - RDF
   - RDFS
   - Protégé
+  - Visual Studio Code
   category: consulting
   date_display: July 2024
   title_line: 'Ontology Engineer - '
@@ -496,6 +510,7 @@ work_experiences:
   - RDF
   - RDFS
   - Protégé
+  - Visual Studio Code
   category: consulting
   date_display: June 2024
   title_line: 'Nuclear Construction Ontology Engineer - '
@@ -531,6 +546,7 @@ work_experiences:
   - Microsoft Excel
   - DICO
   - JANES
+  - Visual Studio Code
   category: consulting
   date_display: Feb 2024 - Apr 2024
   title_line: 'AI Consultant and Ontology Engineer - '
@@ -562,6 +578,7 @@ work_experiences:
   - GraphDB
   - GitHub
   - WordPress
+  - Visual Studio Code
   category: consulting
   date_display: Nov 2023 - May 2024
   title_line: 'Ontologist and Linked Data Engineer - '
@@ -602,6 +619,7 @@ work_experiences:
   - TSV
   - JSON
   - Stardog
+  - Visual Studio Code
   category: consulting
   date_display: Aug 2023 - Jan 2024
   title_line: 'Ontologist and Knowledge Graph Engineer - '
@@ -631,6 +649,7 @@ work_experiences:
   - RDF
   - RDFS
   - Protégé
+  - Visual Studio Code
   category: consulting
   date_display: May 2023
   title_line: 'Legal Ontology Consultant - '
@@ -679,6 +698,7 @@ work_experiences:
   - Protégé
   - GraphDB
   - Stardog
+  - Visual Studio Code
   category: consulting
   date_display: Apr 2023 - May 2023
   title_line: 'Geospatial Ontology Analyst - '
@@ -709,6 +729,7 @@ work_experiences:
   - PROV
   - SEON
   - Microsoft Word
+  - Visual Studio Code
   category: consulting
   date_display: Mar 2023
   title_line: 'Knowledge Graph Engineer - '
@@ -734,6 +755,7 @@ work_experiences:
   - OpenAI
   - SQL
   - Microsoft Word
+  - Visual Studio Code
   category: consulting
   date_display: Feb 2023 - Present
   title_line: 'Technology Consultant and Scientific Writer - '
@@ -769,6 +791,7 @@ work_experiences:
   - Protégé
   - Microsoft Word
   - Microsoft PowerPoint
+  - Visual Studio Code
   category: consulting
   date_display: Jan 2023 - Mar 2023
   title_line: 'Ontologist - '
@@ -801,6 +824,7 @@ work_experiences:
   - Stardog
   - Microsoft Word
   - Microsoft PowerPoint
+  - Visual Studio Code
   category: graduate
   date_display: Feb 2023 - May 2023
   title_line: 'University Course Engineer - '
@@ -830,6 +854,7 @@ work_experiences:
   - Stardog
   - Microsoft Word
   - Microsoft PowerPoint
+  - Visual Studio Code
   category: graduate
   date_display: Jan 2019 - Present
   title_line: 'AI Research Team Lead and Semantic Web Consultant, '
@@ -1833,6 +1858,7 @@ projects:
   - feedparser
   - PyYAML
   - GitHub
+  - Visual Studio Code
   tags:
   - AI
   - automation
@@ -1890,6 +1916,7 @@ projects:
   - Transformers
   - NetworkX
   - Qwen-VL
+  - Visual Studio Code
   tags:
   - biomedical
   - NLP
@@ -1953,6 +1980,7 @@ projects:
   - IAO
   - OBI
   - RO
+  - Visual Studio Code
   tags:
   - biomedical
   - knowledge graphs
@@ -1994,6 +2022,7 @@ projects:
   - GitHub
   - HTML
   - CSS
+  - Visual Studio Code
   tags:
   - cybersecurity
   - visualization
@@ -2034,6 +2063,7 @@ projects:
   - GitHub
   - NumPy
   - PyYAML
+  - Visual Studio Code
   tags:
   - ontology
   - classification
@@ -2080,6 +2110,7 @@ projects:
   - NumPy
   - PyYAML
   - Seaborn
+  - Visual Studio Code
   tags:
   - NLP
   - benchmarking
@@ -2116,6 +2147,7 @@ projects:
   - GitHub
   - Pandas
   - scikit-learn
+  - Visual Studio Code
   tags:
   - ontology
   - NLP
@@ -2158,6 +2190,7 @@ projects:
   - GitHub
   - GitHub Actions
   - Pydantic
+  - Visual Studio Code
   tags:
   - AI
   - agents
@@ -2203,6 +2236,7 @@ projects:
   - GitHub
   - OpenAI
   - GPT
+  - Visual Studio Code
   tags:
   - provenance
   - ontology
@@ -2275,6 +2309,8 @@ projects:
   - Python
   - CLIP
   - GitHub
+  - Google Colab
+  - Visual Studio Code
   tags:
   - generative AI
   - computer vision
@@ -2308,6 +2344,7 @@ projects:
   - Cython
   - MPI
   - GitHub
+  - Visual Studio Code
   tags:
   - NLP
   - optimization
@@ -2334,6 +2371,7 @@ projects:
   - RDF
   - RDFS
   - GitHub
+  - Visual Studio Code
   tags:
   - ontology
   - developer tools
@@ -2365,6 +2403,7 @@ projects:
   - Pandas
   - Tableau
   - GitHub
+  - Visual Studio Code
   tags:
   - data analysis
   - visualization
@@ -2390,6 +2429,7 @@ projects:
   - RDFS
   - RDF
   - GitHub
+  - Visual Studio Code
   tags:
   - ontology
   - knowledge representation
@@ -2420,6 +2460,7 @@ projects:
   - SQL
   - GIS
   - GitHub
+  - Visual Studio Code
   tags:
   - geospatial
   - visualization
@@ -2776,599 +2817,459 @@ skills:
   name: Java
   category: prog_languages
   years_experience: 9
-  proficiency: expert
 - id: skill/python
   name: Python
   category: prog_languages
   years_experience: 9
-  proficiency: expert
 - id: skill/c
   name: C
   category: prog_languages
   years_experience: 9
-  proficiency: expert
 - id: skill/html
   name: HTML
   category: prog_languages
   years_experience: 9
-  proficiency: expert
 - id: skill/css
   name: CSS
   category: prog_languages
   years_experience: 9
-  proficiency: expert
 - id: skill/markdown
   name: Markdown
   category: prog_languages
   years_experience: 9
-  proficiency: expert
 - id: skill/owl
   name: OWL
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/turtle
   name: Turtle
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/trig
   name: TriG
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/shacl
   name: SHACL
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/swrl
   name: SWRL
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/sparql
   name: SPARQL
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/geosparql
   name: GeoSPARQL
   category: data_languages
   years_experience: 8
-  proficiency: advanced
 - id: skill/cypher
   name: Cypher
   category: data_languages
   years_experience: 8
-  proficiency: advanced
 - id: skill/sql
   name: SQL
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/xml
   name: XML
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/json
   name: JSON
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/csv
   name: CSV
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/javascript
   name: JavaScript
   category: prog_languages
   years_experience: 2
-  proficiency: intermediate
 - id: skill/csharp
   name: C#
   category: prog_languages
   years_experience: 2
-  proficiency: intermediate
 - id: skill/fortran
   name: Fortran
   category: prog_languages
   years_experience: 2
-  proficiency: intermediate
 - id: skill/typescript
   name: TypeScript
   category: prog_languages
   years_experience: 1
-  proficiency: intermediate
 - id: skill/ruby
   name: Ruby/Rails
   category: prog_languages
   years_experience: 1
-  proficiency: familiar
 - id: skill/r
   name: R
   category: prog_languages
   years_experience: 1
-  proficiency: familiar
 - id: skill/javafx
   name: JavaFX
   category: libraries
-  proficiency: expert
 - id: skill/apache-jena
   name: Apache Jena
   category: libraries
-  proficiency: expert
 - id: skill/owlapi
   name: OWL API
   category: libraries
-  proficiency: expert
 - id: skill/openai-api
   name: OpenAI API
   category: libraries
-  proficiency: expert
 - id: skill/numpy
   name: NumPy
   category: libraries
-  proficiency: expert
 - id: skill/pandas
   name: Pandas
   category: libraries
-  proficiency: expert
 - id: skill/pytorch
   name: PyTorch
   category: libraries
-  proficiency: advanced
 - id: skill/tensorflow
   name: TensorFlow
   category: libraries
-  proficiency: advanced
 - id: skill/transformers
   name: Hugging Face Transformers
   category: libraries
-  proficiency: advanced
 - id: skill/rdflib
   name: RDFLib
   category: libraries
-  proficiency: expert
 - id: skill/sparqlwrapper
   name: SPARQLWrapper
   category: libraries
-  proficiency: expert
 - id: skill/fastapi
   name: FastAPI
   category: libraries
-  proficiency: intermediate
 - id: skill/pydantic
   name: Pydantic
   category: libraries
-  proficiency: intermediate
 - id: skill/gradio
   name: Gradio
   category: libraries
-  proficiency: intermediate
 - id: skill/streamlit
   name: Streamlit
   category: libraries
-  proficiency: intermediate
 - id: skill/sklearn
   name: scikit-learn
   category: libraries
-  proficiency: advanced
 - id: skill/nltk
   name: NLTK
   category: libraries
-  proficiency: advanced
 - id: skill/matplotlib
   name: Matplotlib
   category: libraries
-  proficiency: advanced
 - id: skill/seaborn
   name: Seaborn
   category: libraries
-  proficiency: advanced
 - id: skill/pyvis
   name: PyVis
   category: libraries
-  proficiency: intermediate
 - id: skill/numba
   name: Numba
   category: libraries
-  proficiency: intermediate
 - id: skill/numexpr
   name: Numexpr
   category: libraries
-  proficiency: intermediate
 - id: skill/cython
   name: Cython
   category: libraries
-  proficiency: intermediate
 - id: skill/mpi4py
   name: mpi4py
   category: libraries
-  proficiency: intermediate
 - id: skill/react
   name: React
   category: libraries
-  proficiency: intermediate
 - id: skill/vite
   name: Vite
   category: libraries
-  proficiency: intermediate
 - id: skill/cytoscape-js
   name: Cytoscape.js
   category: libraries
-  proficiency: advanced
 - id: skill/jdbc
   name: JDBC
   category: libraries
-  proficiency: expert
 - id: skill/git
   name: Git
   category: tools
   years_experience: 9
-  proficiency: expert
 - id: skill/github
   name: GitHub
   category: tools
   years_experience: 9
-  proficiency: expert
 - id: skill/jira
   name: Jira
   category: tools
-  proficiency: advanced
 - id: skill/confluence
   name: Confluence
   category: tools
-  proficiency: advanced
 - id: skill/bitbucket
   name: Bitbucket
   category: tools
-  proficiency: advanced
 - id: skill/protege
   name: Protégé
   category: tools
   years_experience: 8
-  proficiency: expert
 - id: skill/graphdb
   name: GraphDB
   category: tools
   years_experience: 5
-  proficiency: expert
 - id: skill/stardog
   name: Stardog
   category: tools
-  proficiency: advanced
 - id: skill/triplydb
   name: TriplyDB
   category: tools
-  proficiency: intermediate
 - id: skill/neo4j
   name: Neo4j
   category: tools
-  proficiency: advanced
 - id: skill/mongodb
   name: MongoDB
   category: tools
-  proficiency: intermediate
 - id: skill/vscode
   name: Visual Studio Code
   category: tools
-  proficiency: expert
 - id: skill/eclipse
   name: Eclipse IDE
   category: tools
-  proficiency: expert
 - id: skill/mysql
   name: MySQL
   category: tools
-  proficiency: expert
 - id: skill/postgresql
   name: PostgreSQL
   category: tools
-  proficiency: advanced
 - id: skill/postgis
   name: PostGIS
   category: tools
-  proficiency: intermediate
 - id: skill/phpmyadmin
   name: PHPMyAdmin
   category: tools
-  proficiency: advanced
 - id: skill/qgis
   name: QGIS
   category: tools
-  proficiency: advanced
 - id: skill/jupyter
   name: Jupyter Notebook
   category: tools
-  proficiency: expert
 - id: skill/graphviz
   name: GraphViz
   category: tools
-  proficiency: advanced
 - id: skill/ontotext-refine
   name: Ontotext Refine
   category: tools
-  proficiency: intermediate
 - id: skill/cvat
   name: CVAT
   category: tools
-  proficiency: intermediate
 - id: skill/docker
   name: Docker
   category: tools
-  proficiency: intermediate
 - id: skill/kubernetes
   name: Kubernetes
   category: tools
-  proficiency: familiar
 - id: skill/trello
   name: Trello
   category: tools
-  proficiency: advanced
 - id: skill/aws-s3
   name: AWS S3
   category: cloud
-  proficiency: intermediate
 - id: skill/aws-bedrock
   name: AWS Bedrock
   category: cloud
-  proficiency: intermediate
 - id: skill/gcp
   name: Google Cloud Platform
   category: cloud
-  proficiency: intermediate
 - id: skill/heroku
   name: Heroku
   category: cloud
-  proficiency: intermediate
 - id: skill/godaddy
   name: GoDaddy
   category: cloud
-  proficiency: intermediate
 - id: skill/rdf
   name: RDF
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/rdfs
   name: RDFS
   category: data_languages
   years_experience: 8
-  proficiency: expert
 - id: skill/skos
   name: SKOS
   category: vocabularies
-  proficiency: expert
 - id: skill/bfo
   name: BFO
   category: vocabularies
   years_experience: 5
-  proficiency: expert
 - id: skill/cco
   name: CCO
   category: vocabularies
   years_experience: 5
-  proficiency: expert
 - id: skill/sumo
   name: SUMO
   category: vocabularies
-  proficiency: advanced
 - id: skill/schema-org
   name: Schema.org
   category: vocabularies
-  proficiency: expert
 - id: skill/wordnet
   name: WordNet
   category: vocabularies
-  proficiency: advanced
 - id: skill/dcterms
   name: DCTerms
   category: vocabularies
-  proficiency: advanced
 - id: skill/foaf
   name: FOAF
   category: vocabularies
-  proficiency: advanced
 - id: skill/prov-o
   name: PROV-O
   category: vocabularies
-  proficiency: expert
 - id: skill/spar
   name: SPAR family
   category: vocabularies
-  proficiency: advanced
 - id: skill/bibo
   name: BIBO
   category: vocabularies
-  proficiency: advanced
 - id: skill/seon
   name: SEON
   category: vocabularies
-  proficiency: advanced
 - id: skill/mlschema
   name: MLSchema
   category: vocabularies
-  proficiency: advanced
 - id: skill/dolce
   name: DOLCE
   category: vocabularies
-  proficiency: intermediate
 - id: skill/ufo
   name: UFO
   category: vocabularies
-  proficiency: intermediate
 - id: skill/gfo
   name: GFO
   category: vocabularies
-  proficiency: intermediate
 - id: skill/iao
   name: IAO
   category: vocabularies
-  proficiency: intermediate
 - id: skill/rdfa
   name: RDFa
   category: data_languages
-  proficiency: advanced
 - id: skill/jsonld
   name: JSON-LD
   category: data_languages
-  proficiency: expert
 - id: skill/chatgpt
   name: OpenAI GPT series (including API)
   category: ai_tools
-  proficiency: expert
 - id: skill/claude
   name: Anthropic Claude / Claude Code
   category: ai_tools
-  proficiency: expert
 - id: skill/copilot
   name: Microsoft Copilot
   category: ai_tools
-  proficiency: advanced
 - id: skill/gemini
   name: Google Gemini
   category: ai_tools
-  proficiency: advanced
 - id: skill/grok
   name: Grok
   category: ai_tools
-  proficiency: intermediate
 - id: skill/ollama
   name: Ollama
   category: ai_tools
-  proficiency: advanced
 - id: skill/stable-diffusion
   name: Stable Diffusion WebUI
   category: ai_tools
-  proficiency: advanced
 - id: skill/midjourney
   name: Midjourney
   category: ai_tools
-  proficiency: intermediate
 - id: skill/lm-studio
   name: LM Studio
   category: ai_tools
-  proficiency: advanced
 - id: skill/tensorboard
   name: Tensorboard
   category: ai_tools
-  proficiency: intermediate
 - id: skill/topaz-video-ai
   name: Topaz Video AI
   category: ai_tools
-  proficiency: intermediate
 - id: skill/bert-embeddings
   name: BERT / BART embedding, all-MiniLM-L6-v2
   category: ai_tools
-  proficiency: advanced
 - id: skill/huggingface
   name: Hugging Face (platform)
   category: ai_tools
-  proficiency: advanced
 - id: skill/tableau
   name: Tableau
   category: design
-  proficiency: advanced
 - id: skill/rstudio
   name: RStudio
   category: design
-  proficiency: intermediate
 - id: skill/drawio
   name: Draw.io
   category: design
-  proficiency: expert
 - id: skill/lucidchart
   name: LucidChart
   category: design
-  proficiency: advanced
 - id: skill/miro
   name: Miro
   category: design
-  proficiency: intermediate
 - id: skill/balsamiq
   name: Balsamiq
   category: design
-  proficiency: intermediate
 - id: skill/adobe-photoshop
   name: Adobe Photoshop
   category: design
-  proficiency: advanced
 - id: skill/adobe-illustrator
   name: Adobe Illustrator
   category: design
-  proficiency: intermediate
 - id: skill/adobe-after-effects
   name: Adobe After Effects
   category: design
-  proficiency: intermediate
 - id: skill/unity
   name: Unity
   category: design
-  proficiency: intermediate
 - id: skill/latex
   name: LaTeX
   category: design
   years_experience: 9
-  proficiency: expert
 - id: skill/windows
   name: Windows (XP, Vista, 7, 8, 10, 11)
   category: os
-  proficiency: expert
 - id: skill/macos
   name: macOS
   category: os
-  proficiency: advanced
 - id: skill/linux-ubuntu
   name: Linux Ubuntu
   category: os
-  proficiency: advanced
 - id: skill/kali
   name: Kali Linux
   category: os
-  proficiency: intermediate
 - id: skill/redhat
   name: RedHat Linux
   category: os
-  proficiency: intermediate
 - id: skill/android
   name: Android OS
   category: os
-  proficiency: intermediate
 - id: skill/xigmanas
   name: XigmaNAS
   category: os
-  proficiency: intermediate
 - id: skill/vxworks
   name: VxWorks
   category: os
-  proficiency: intermediate
 - id: skill/agile
   name: Agile / Scrum / Kanban
   category: soft_skills
   years_experience: 9
-  proficiency: expert
 - id: skill/technical-writing
   name: Technical and Scientific Writing
   category: soft_skills
   years_experience: 9
-  proficiency: expert
 - id: skill/stakeholder-presentation
   name: Presenting to stakeholders (dozens/hundreds)
   category: soft_skills
-  proficiency: advanced
 - id: skill/ieee-manuscript
   name: IEEE double-column manuscripts
   category: soft_skills
   years_experience: 10
-  proficiency: expert
 - id: skill/elsevier-manuscript
   name: Elsevier-style single-column manuscripts
   category: soft_skills
   years_experience: 10
-  proficiency: expert
 awards:
 - id: award/ssrn-top-2-percent
   title: Top 2% Downloaded Author
@@ -3549,6 +3450,12 @@ extracurriculars:
   - Reviewer (1 manuscript) - <i>AI and Ethics, Springer Nature</i>
   - Reviewer (1 manuscript) - <i>Discover Education, Springer Nature</i>
   - Reviewer (1 manuscript) - <i>Discover Computing, Springer Nature</i>
+  domains:
+  - Education
+  - LLMs
+  - Scientific Writing
+  technologies:
+  - Microsoft Word
 - id: extra/review-jan-2026
   title: Manuscript Reviewer
   organization: Springer Nature / Qeios
@@ -3573,6 +3480,12 @@ extracurriculars:
   - Reviewer (1 manuscript) - <i>Discover Education, Springer Nature</i>
   - Reviewer (1 manuscript) - <i>Archives of Dermatological Research, Springer Nature</i>
   - Reviewer (1 article) - <i><a href='https://www.qeios.com/profile/105985'>Qeios</a></i>
+  domains:
+  - Education
+  - LLMs
+  - Scientific Writing
+  technologies:
+  - Microsoft Word
 - id: extra/review-dec-2025
   title: Manuscript Reviewer
   organization: Discover Artificial Intelligence, Springer Nature
@@ -3583,6 +3496,11 @@ extracurriculars:
   h4: Manuscript reviews
   bullets:
   - Reviewer (2 manuscripts) - <i>Discover Artificial Intelligence, Springer Nature</i>
+  domains:
+  - LLMs
+  - Scientific Writing
+  technologies:
+  - Microsoft Word
 - id: extra/review-nov-2025
   title: Manuscript Reviewer
   organization: Multiple journals
@@ -3604,6 +3522,12 @@ extracurriculars:
   - Reviewer (2 manuscripts) - <i>Discover Education, Springer Nature</i>
   - Reviewer (5 manuscripts) - <i>Discover Artificial Intelligence, Springer Nature</i>
   - Reviewer (2 manuscripts) - <i>Computing, Springer Nature</i>
+  domains:
+  - Education
+  - LLMs
+  - Scientific Writing
+  technologies:
+  - Microsoft Word
 - id: extra/comptia-study-guide
   title: Creator - CompTIA Security+ SYS-701 Study Guide Dump
   organization: GitHub
@@ -3613,6 +3537,9 @@ extracurriculars:
   date_display: Nov 2025
   h4: Creator - <i><a href='https://github.com/PR0CK0/CompTIA-Security-Study-Guides'>CompTIA Security+ SYS-701 Study Guide
     Dump</a></i>
+  domains:
+  - Cybersecurity
+  - Education
 - id: extra/review-jan-2025
   title: Manuscript Reviewer
   organization: IEEE / Springer Nature
@@ -3628,6 +3555,11 @@ extracurriculars:
   bullets:
   - Reviewer (1 manuscript) - <i>Wireless Communications Magazine, IEEE</i>
   - Reviewer (2 manuscripts) - <i>Discover Computing, Springer Nature</i>
+  domains:
+  - Networking
+  - Scientific Writing
+  technologies:
+  - Microsoft Word
 - id: extra/review-nov-2024
   title: Manuscript Reviewer
   organization: Discover Artificial Intelligence, Springer Nature
@@ -3636,6 +3568,11 @@ extracurriculars:
   description: Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature
   date_display: Nov 2024
   h4: Reviewer (1 manuscript) - <i>Discover Artificial Intelligence, Springer Nature</i>
+  domains:
+  - LLMs
+  - Scientific Writing
+  technologies:
+  - Microsoft Word
 - id: extra/review-fie-2024
   title: Manuscript Reviewer
   organization: 2024 IEEE ASEE Frontiers in Education (FIE)
@@ -3644,6 +3581,11 @@ extracurriculars:
   description: Reviewer (4 manuscripts)
   date_display: Mar 2024
   h4: Reviewer (4 manuscripts) - <i>2024 IEEE ASEE Frontiers in Education (FIE)</i>
+  domains:
+  - Education
+  - Scientific Writing
+  technologies:
+  - Microsoft Word
 - id: extra/swebok-v4-review
   title: SWEBOK v4 Public Review Participant
   organization: IEEE Computer Society
@@ -3652,6 +3594,10 @@ extracurriculars:
   date_display: Jan 2024
   h4: Participated in public review of the <a href='https://www.computer.org/education/bodies-of-knowledge/software-engineering/v4'>SWEBOK
     v4 guide</a>
+  domains:
+  - Requirements Engineering
+  - SDLC
+  - Software Engineering
 - id: extra/dair-prompt-engineering
   title: Contributor to the DAIR Prompt Engineering Guide
   organization: DAIR / GitHub
@@ -3659,6 +3605,9 @@ extracurriculars:
   type: scholarly
   date_display: May 2023
   h4: Contributor to the <a href='https://github.com/monarch-initiative/ontogpt'>DAIR Prompt Engineering Guide</a>
+  domains:
+  - LLMs
+  - Prompt Engineering
 - id: extra/ontogpt-contributor
   title: Contributor to OntoGPT GitHub
   organization: Monarch Initiative / GitHub
@@ -3666,6 +3615,12 @@ extracurriculars:
   type: scholarly
   date_display: May 2023
   h4: Contributor to the <a href='https://github.com/dair-ai/Prompt-Engineering-Guide'>OntoGPT</a> Github
+  domains:
+  - LLMs
+  - NLP
+  - Ontology
+  - Text Extraction
+  technologies: []
 - id: extra/huge-ai-models-contributor
   title: Contributor to Huge AI Models GitHub
   organization: GitHub
@@ -3673,6 +3628,9 @@ extracurriculars:
   type: scholarly
   date_display: Apr 2023
   h4: Contributor to the <a href='https://github.com/zhengzangw/awesome-huge-models'>Huge AI Models</a> Github
+  domains:
+  - LLMs
+  - Machine Learning
 - id: extra/review-fie-2023
   title: Manuscript Reviewer
   organization: 2023 IEEE ASEE Frontiers in Education (FIE)
@@ -3681,6 +3639,11 @@ extracurriculars:
   description: Reviewer (2 manuscripts)
   date_display: Mar 2023
   h4: Reviewer (2 manuscripts) - <i>2023 IEEE ASEE Frontiers in Education (FIE)</i>
+  domains:
+  - Education
+  - Scientific Writing
+  technologies:
+  - Microsoft Word
 - id: extra/practical-nlp-errata
   title: Contributor to Practical Natural Language Processing errata
   organization: Vajjala et al. (O'Reilly)
@@ -3688,6 +3651,8 @@ extracurriculars:
   type: scholarly
   date_display: Nov 2022
   h4: 'Contributor to <i>Practical Natural Language Processing</i> (Vajalla et al.) errata '
+  domains:
+  - NLP
 - id: extra/cco-contributor
   title: Contributor to the Common Core Ontologies
   organization: Common Core Ontologies GitHub
@@ -3699,12 +3664,20 @@ extracurriculars:
   h4: Contributor to the Common Core Ontologies
   bullets:
   - Provided clarification of term definitions and term spelling in the official Common Core Ontologies Github repository
+  domains:
+  - Knowledge Representation
+  - Ontology
+  technologies:
+  - CCO
 - id: extra/semantalytics-contributor
   title: Contributor to the Semantalytics Awesome Semantic Web list
   date: 2022-07
   type: scholarly
   date_display: July 2022
   h4: Contributor to the Semantalytics Awesome Semantic Web list
+  domains:
+  - Knowledge Representation
+  - Semantic Web
 - id: extra/awesome-bfo
   title: Created summarized list of BFO and BFO-related resources
   organization: GitHub
@@ -3714,6 +3687,11 @@ extracurriculars:
   date_display: June 2022
   h4: Created a summarized list of <a href='https://github.com/PR0CK0/awesome-bfo'>BFO and BFO-related resources</a> for other
     researchers
+  domains:
+  - Knowledge Representation
+  - Ontology
+  technologies:
+  - BFO
 - id: extra/ieee-member
   title: IEEE Member (#98174383)
   organization: IEEE
@@ -3730,6 +3708,8 @@ extracurriculars:
   role: Member
   date_display: Dec 2021 - Present
   h4: American Society for Engineering Education - Member
+  domains:
+  - Education
 - id: extra/whecs
   title: White Hat Eagles Cybersecurity Club (WHECS)
   organization: ERAU Daytona
@@ -3746,6 +3726,8 @@ extracurriculars:
   bullets:
   - Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book
   - Engaged in several hands-on activities dealing with hacking
+  domains:
+  - Cybersecurity
 - id: extra/erau-ai-club
   title: Embry-Riddle Artificial Intelligence Club
   organization: ERAU Daytona
@@ -3757,6 +3739,8 @@ extracurriculars:
   h4: Embry-Riddle Artificial Intelligence Club - Member
   bullets:
   - Worked with genetic algorithms in a variety of scenarios
+  domains:
+  - Machine Learning
 - id: extra/av-technician
   title: Audio/Visual Technician
   organization: River Road Baptist Church, Hilliard, FL
@@ -3770,6 +3754,9 @@ extracurriculars:
   bullets:
   - Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an in-person
     audience of ~100 and a livestream audience of ~10
+  technologies:
+  - ProPresenter
+  - vMix
 - id: extra/pc-consultant
   title: Personal Computer Construction Consultant
   organization: Remote/In-Person
@@ -3783,6 +3770,10 @@ extracurriculars:
   bullets:
   - Assisted personal contacts with computer construction and computer setup
   - Resolved computer, network, software and peripheral issues
+  domains:
+  - Networking
+  technologies:
+  - XigmaNAS
 - id: extra/library-volunteer
   title: All-rounder Volunteer
   organization: Nassau County Public Library
