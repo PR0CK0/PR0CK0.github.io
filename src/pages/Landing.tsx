@@ -259,12 +259,12 @@ function HeroContent({ person }: { person: Person }) {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="mt-12 space-y-5"
+      className="mt-8 sm:mt-12 space-y-4 sm:space-y-5"
     >
       {/* Name */}
       <motion.h1
         variants={itemVariants}
-        className="text-4xl sm:text-5xl lg:text-6xl font-mono font-bold tracking-widest
+        className="text-3xl sm:text-5xl lg:text-6xl font-mono font-bold tracking-widest
                    text-terminal-green text-glow-green animate-glow-pulse"
       >
         {person.name.toUpperCase()}
@@ -333,7 +333,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
         }}
       />
 
-      <div className="relative z-20 w-full max-w-5xl mx-auto px-6 py-24">
+      <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-24">
         {/* Terminal window chrome */}
         <div className="rounded-lg border border-terminal-border bg-terminal-surface/60 backdrop-blur-sm overflow-hidden shadow-2xl">
           {/* Title bar */}
@@ -347,7 +347,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
           </div>
 
           {/* Terminal body */}
-          <div className="p-6 sm:p-8">
+          <div className="p-4 sm:p-6 lg:p-8">
             <BootSequence lines={bootLines} onComplete={() => setBootDone(true)} />
 
             <AnimatePresence>
@@ -392,7 +392,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
 function StatsBar({ stats }: { stats: Stat[] }) {
   return (
     <section className="border-y border-terminal-border bg-terminal-surface/40 overflow-hidden">
-      <div className="flex flex-wrap justify-center gap-0 divide-x divide-terminal-border">
+      <div className="grid grid-cols-3 sm:grid-cols-6 divide-x divide-y sm:divide-y-0 divide-terminal-border">
         {stats.map((s, i) => (
           <motion.div
             key={s.label}
@@ -400,9 +400,9 @@ function StatsBar({ stats }: { stats: Stat[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.07, duration: 0.4 }}
-            className="flex flex-col items-center px-8 py-5 min-w-[130px]"
+            className="flex flex-col items-center px-3 sm:px-6 py-4 sm:py-5"
           >
-            <span className="text-2xl font-mono font-bold text-terminal-green text-glow-green">
+            <span className="text-xl sm:text-2xl font-mono font-bold text-terminal-green text-glow-green">
               {s.value}
             </span>
             <span className="text-xs font-mono text-terminal-muted mt-1 tracking-widest uppercase">
@@ -471,7 +471,7 @@ function SkillsMatrix({ person }: { person: Person }) {
   }, {})
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-20">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
       <SectionHeader
         prompt="cat skills.json"
         title="Skills Matrix"
@@ -557,7 +557,7 @@ function PublicationRow({ pub, index }: { pub: Publication; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: index * 0.07, duration: 0.4 }}
-      className="group flex gap-4 p-4 rounded-lg border border-terminal-border/50
+      className="group flex flex-col sm:flex-row gap-3 sm:gap-4 p-4 rounded-lg border border-terminal-border/50
                  bg-terminal-surface/30 hover:bg-terminal-surface/60 hover:border-terminal-blue/30
                  transition-all duration-200"
     >
@@ -602,7 +602,7 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
 
   return (
     <section className="bg-terminal-surface/20 border-y border-terminal-border">
-      <div className="max-w-5xl mx-auto px-6 py-20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
         <SectionHeader
           prompt="cat publications.bib | head -5"
           title="Recent Publications"
@@ -723,7 +723,7 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
   const top6 = [...featured, ...others].slice(0, 6)
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-20">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
       <SectionHeader
         prompt="ls -la ~/projects/ | head -6"
         title="Featured Projects"
@@ -757,11 +757,16 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
 // ─── Footer ─────────────────────────────────────────────────────────────────
 
 function Footer() {
+  const buildDate = new Date(__BUILD_DATE__)
+  const buildStr = buildDate.toLocaleDateString('en-US', {
+    year: 'numeric', month: 'short', day: 'numeric',
+  })
+
   return (
     <footer className="border-t border-terminal-border bg-terminal-surface/30">
-      <div className="max-w-5xl mx-auto px-6 py-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs font-mono text-terminal-muted">
+          <p className="text-xs font-mono text-terminal-muted text-center sm:text-left">
             <span className="text-terminal-green">procko.pro</span>
             {' · '}built with{' '}
             <span className="text-terminal-blue">LinkML</span>
@@ -770,7 +775,7 @@ function Footer() {
             {' + '}
             <span className="text-terminal-amber">Cytoscape</span>
           </p>
-          <nav className="flex gap-5 text-xs font-mono text-terminal-muted">
+          <nav className="flex flex-wrap justify-center gap-4 sm:gap-5 text-xs font-mono text-terminal-muted">
             {[
               { label: '~/graph', href: '/graph' },
               { label: '~/cv', href: '/cv' },
@@ -787,9 +792,24 @@ function Footer() {
             ))}
           </nav>
         </div>
-        <div className="mt-6 flex items-center justify-center gap-2 text-terminal-muted/40 text-[10px] font-mono">
-          <span className="animate-blink">▮</span>
-          <span>© {new Date().getFullYear()} Tyler T. Procko. All rights reserved.</span>
+        <div className="mt-4 pt-4 border-t border-terminal-border/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-terminal-muted/40 text-[10px] font-mono">
+          <span className="flex items-center gap-2">
+            <span className="animate-blink">▮</span>
+            <span>© {new Date().getFullYear()} Tyler T. Procko. All rights reserved.</span>
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="text-terminal-green/30">commit</span>
+            <a
+              href={`https://github.com/PR0CK0/PR0CK0.github.io/commit/${__GIT_COMMIT__}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-terminal-green/50 hover:text-terminal-green transition-colors"
+            >
+              {__GIT_COMMIT__}
+            </a>
+            <span className="text-terminal-muted/30">·</span>
+            <span>updated {buildStr}</span>
+          </span>
         </div>
       </div>
     </footer>
