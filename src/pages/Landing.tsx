@@ -356,7 +356,7 @@ function HeroContent({ person }: { person: Person }) {
       {/* Title */}
       <motion.p
         variants={itemVariants}
-        className="text-terminal-blue text-glow-blue font-mono text-base sm:text-lg tracking-wide"
+        className="text-terminal-blue text-glow-blue font-mono text-sm sm:text-base tracking-wide"
       >
         AI Engineer — Agentic LLMs · Knowledge Graphs · Ontologies
       </motion.p>
@@ -364,7 +364,7 @@ function HeroContent({ person }: { person: Person }) {
       {/* Tagline */}
       <motion.p
         variants={itemVariants}
-        className="italic text-terminal-muted font-mono text-sm sm:text-base whitespace-nowrap"
+        className="italic text-terminal-muted font-mono text-sm"
       >
         &quot;{person.tagline ?? 'Casting the net for knowledge in a sea of infinite information.'}&quot;
       </motion.p>
