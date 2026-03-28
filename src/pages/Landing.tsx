@@ -809,14 +809,19 @@ function ContributionGraph({ username }: { username: string }) {
   }
   if (!weeks.length) return null
 
-  // Month label: first occurrence of each month across weeks
-  const monthLabels = new Map<number, string>()
+  // Month + year labels: track transitions
+  const monthLabels = new Map<number, string>()  // weekIndex → label
+  const yearLabels  = new Map<number, string>()  // weekIndex → year string
   let lastMonth = -1
+  let lastYear  = -1
   weeks.forEach((week, wi) => {
     const first = week.find((d) => d !== null)
     if (first) {
-      const m = new Date(first.date).getMonth()
+      const d = new Date(first.date)
+      const m = d.getMonth()
+      const y = d.getFullYear()
       if (m !== lastMonth) { monthLabels.set(wi, MONTH_NAMES[m]); lastMonth = m }
+      if (y !== lastYear)  { yearLabels.set(wi, String(y));        lastYear  = y  }
     }
   })
 
@@ -840,12 +845,24 @@ function ContributionGraph({ username }: { username: string }) {
       <div className="overflow-x-auto pb-1 rounded-lg border border-terminal-border/30 bg-terminal-surface/20 p-3">
         <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 0 }}>
           {/* Month labels row */}
-          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '4px' }}>
+          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '1px' }}>
             {weeks.map((_, wi) => (
-              <div key={wi} style={{ width: cell, flexShrink: 0, textAlign: 'left' }}>
+              <div key={wi} style={{ width: cell, flexShrink: 0 }}>
                 {monthLabels.has(wi) && (
                   <span style={{ fontSize: '9px', color: 'rgba(200,214,240,0.35)', fontFamily: 'monospace' }}>
                     {monthLabels.get(wi)}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+          {/* Year labels row */}
+          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '4px' }}>
+            {weeks.map((_, wi) => (
+              <div key={wi} style={{ width: cell, flexShrink: 0 }}>
+                {yearLabels.has(wi) && (
+                  <span style={{ fontSize: '9px', color: 'rgba(0,255,136,0.50)', fontFamily: 'monospace', fontWeight: 'bold' }}>
+                    {yearLabels.get(wi)}
                   </span>
                 )}
               </div>
