@@ -3617,18 +3617,68 @@ courses:
       - "Microsoft PowerPoint"
   - number: "CS303"
     name: "Network Security"
+    technologies:
+      - Cybersecurity
+      - Java
+      - Python
+      - Draw.io
+      - Linux
+      - Kali Linux
+      - UNIX
+      - RedHat
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "CEC450"
     name: "Real-Time Systems"
     technologies:
       - VxWorks
   - number: "HF300"
     name: "Human Factors I: Principles and Fundamentals"
+    technologies:
+      - Mockingbird
+      - Balsamiq
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "CS426"
     name: "Digital Forensics"
+    technologies:
+      - Cybersecurity
+      - Java
+      - Python
+      - Kali Linux
+      - Linux
+      - UNIX
+      - RedHat
+      - Wireshark
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "CS420"
     name: "Operating Systems"
+    technologies:
+      - Linux
+      - UNIX
+      - Java
+      - Python
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "SE625"
     name: "Software Quality Engineering and Assurance"
+    technologies:
+      - SQA
+      - Java
+      - Python
+      - JUnit
+      - CSV
+      - GitHub
+      - Jira
+      - Confluence
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "SE450, SE451"
     name: "Software Capstone Projects I & II"
   - number: "HF325"
