@@ -518,6 +518,7 @@ function aggregateSkills(person: Person): AggregatedSkill[] {
     ...(person.courses ?? []),
     ...(person.extracurriculars ?? []),
     ...(person.publications ?? []),
+    ...(person.talks ?? []),
   ] as Array<{
     technologies?: string[]
     domains?: string[]

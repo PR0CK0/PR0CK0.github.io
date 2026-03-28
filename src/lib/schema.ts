@@ -97,6 +97,10 @@ export const TalkSchema = z.object({
   date: z.string().optional(),
   url: z.string().optional(),
   description: z.string().optional(),
+  technologies: z.array(z.string()).optional(),
+  domains: z.array(z.string()).optional(),
+  soft_skills: z.array(z.string()).optional(),
+  personal_skills: z.array(z.string()).optional(),
 })
 
 export const ReferenceSchema = z.object({
