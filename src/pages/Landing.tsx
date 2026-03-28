@@ -275,11 +275,11 @@ function BootSequence({ lines, onComplete }: { lines: BootLine[]; onComplete: ()
 
   return (
     <div className="font-mono text-sm space-y-1">
-      {lines.slice(0, visibleLines).map((line, i) => (
+      {lines.map((line, i) => (
         <motion.div
           key={i}
           initial={{ opacity: 0, x: -8 }}
-          animate={{ opacity: 1, x: 0 }}
+          animate={i < visibleLines ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
           transition={{ duration: 0.18 }}
           className="flex gap-2"
         >
@@ -287,11 +287,9 @@ function BootSequence({ lines, onComplete }: { lines: BootLine[]; onComplete: ()
           <span className="text-terminal-text">{line.text}</span>
         </motion.div>
       ))}
-      {showCursor && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <TypingPrompt />
-        </motion.div>
-      )}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: showCursor ? 1 : 0 }}>
+        <TypingPrompt />
+      </motion.div>
     </div>
   )
 }
@@ -965,11 +963,16 @@ function ContributionGraph({ username }: { username: string }) {
   } | null>(null)
 
   useEffect(() => {
+    const ghEventsFetch = (page: number) =>
+      fetch(`https://api.github.com/users/${username}/events/public?per_page=100&page=${page}`, {
+        headers: { Accept: 'application/vnd.github+json' },
+      }).then(r => (r.ok ? r.json() : [])).catch(() => [])
+
     Promise.all([
       fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`).then(r => r.json()),
-      fetch(`https://api.github.com/users/${username}/events/public?per_page=100`, {
-        headers: { Accept: 'application/vnd.github+json' },
-      }).then(r => r.json()).catch(() => []),
+      Promise.all([ghEventsFetch(1), ghEventsFetch(2), ghEventsFetch(3)]).then(pages =>
+        ([] as unknown[]).concat(...pages.filter(Array.isArray))
+      ),
     ]).then(([contribData, events]) => {
       // ── contributions grid ──────────────────────────────────────────────────
       const days: ContributionDay[] = contribData.contributions
