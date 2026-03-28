@@ -180,6 +180,76 @@ function CtaButton({
 
 // ─── Hero / Boot Section ────────────────────────────────────────────────────
 
+// ─── Typing Prompt ──────────────────────────────────────────────────────────
+
+const PROMPT_QUERIES = [
+  'tell me about tyler',
+  'who is tyler procko?',
+  'list publications --recent',
+  'grep -r "ontology" ./research/',
+  'git log --author=tyler --oneline',
+  'cat resume.pdf | summarize',
+  'describe tyler procko --verbose',
+  'ssh procko@agent-swarm.local',
+  'python3 deploy_agents.py',
+  'curl procko.pro/api/knowledge-graph',
+  './run_knowledge_graph.sh',
+  'find . -name "*.owl" | wc -l',
+]
+
+type TypingState = 'waiting' | 'typing' | 'pausing' | 'deleting'
+
+function TypingPrompt() {
+  const [text, setText] = useState('')
+  const [phase, setPhase] = useState<TypingState>('waiting')
+  const [idx, setIdx] = useState(0)
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    const clear = () => { if (timer.current) clearTimeout(timer.current) }
+    const query = PROMPT_QUERIES[idx]
+
+    if (phase === 'waiting') {
+      timer.current = setTimeout(() => {
+        setIdx(Math.floor(Math.random() * PROMPT_QUERIES.length))
+        setPhase('typing')
+      }, 900)
+    } else if (phase === 'typing') {
+      if (text.length < query.length) {
+        timer.current = setTimeout(() => {
+          setText(query.slice(0, text.length + 1))
+        }, 55 + Math.random() * 65)
+      } else {
+        timer.current = setTimeout(() => setPhase('pausing'), 2200 + Math.random() * 800)
+      }
+    } else if (phase === 'pausing') {
+      timer.current = setTimeout(() => setPhase('deleting'), 120)
+    } else if (phase === 'deleting') {
+      if (text.length > 0) {
+        timer.current = setTimeout(() => {
+          setText((t) => t.slice(0, -1))
+        }, 28 + Math.random() * 18)
+      } else {
+        // Pick a different query next time
+        setIdx((i) => (i + 1 + Math.floor(Math.random() * (PROMPT_QUERIES.length - 1))) % PROMPT_QUERIES.length)
+        setPhase('waiting')
+      }
+    }
+
+    return clear
+  }, [phase, text, idx])
+
+  return (
+    <div className="flex gap-2 items-center font-mono text-sm">
+      <span className="text-terminal-green select-none">$</span>
+      <span className="text-terminal-amber">{text}</span>
+      <span className="animate-blink text-terminal-green leading-none">▮</span>
+    </div>
+  )
+}
+
+// ─── Boot Sequence ───────────────────────────────────────────────────────────
+
 function BootSequence({ lines, onComplete }: { lines: BootLine[]; onComplete: () => void }) {
   const [visibleLines, setVisibleLines] = useState<number>(0)
   const [showCursor, setShowCursor] = useState(false)
@@ -218,13 +288,8 @@ function BootSequence({ lines, onComplete }: { lines: BootLine[]; onComplete: ()
         </motion.div>
       ))}
       {showCursor && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex gap-2"
-        >
-          <span className="text-terminal-green select-none">$</span>
-          <span className="animate-blink text-terminal-green">▮</span>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <TypingPrompt />
         </motion.div>
       )}
     </div>
