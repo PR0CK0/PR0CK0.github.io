@@ -115,8 +115,44 @@ work_experiences:
     description:
       - "Ontology + ML + Cybersecurity"
     technologies:
-      - "Node.js"
+      - Python
       - TypeScript
+      - JavaScript
+      - OWL
+      - RDF
+      - SPARQL
+      - "JSON Schema"
+      - "JSON-LD"
+      - SHACL
+      - "Hugging Face"
+      - OpenAI
+      - "Cytoscape.js"
+      - "Anthropic SDK"
+      - React
+      - "sentence-transformers"
+      - LiteLLM
+      - "Node.js"
+      - Fastify
+      - Fuseki
+      - "Protégé"
+      - Ollama
+      - Claude
+      - Gemini
+      - Codex
+      - "Mixture of Agents"
+      - BFO
+      - CCO
+      - OCSF
+      - "PROV-O"
+      - "GitHub Actions"
+      - "AWS Bedrock"
+      - Docker
+      - macOS
+      - "Microsoft Teams"
+      - Signal
+      - Mermaid
+      - Figma
+      - CURL
 
     category: defense_industry
     date_display: Nov 2025 - Present
@@ -132,6 +168,24 @@ work_experiences:
     location: Remote
     description:
       - "Applied expert knowledge for generative AI model improvement"
+    technologies:
+      - Python
+      - Claude
+      - Codex
+      - Gemini
+      - "Protégé"
+      - RDF
+      - RDFS
+      - OWL
+      - BFO
+      - CCO
+      - "Schema.org"
+      - SKOS
+      - "PROV-O"
+      - RDFLib
+      - pdfplumber
+      - Matplotlib
+      - Slack
 
     category: defense_industry
     date_display: Nov 2025 - Present
@@ -151,6 +205,12 @@ work_experiences:
     technologies:
       - CVAT
       - Python
+      - "JSON-LD"
+      - BFO
+      - CCO
+      - RDF
+      - RDFS
+      - OWL
       - "ML Provenance"
       - "Knowledge Graphs"
 
@@ -170,7 +230,19 @@ work_experiences:
     description:
       - "Curated multiple military documents and produced a proto-ontology in JSON-LD for recording the provenance of computer vision tasks"
     technologies:
+      - Python
       - "JSON-LD"
+      - "JSON Schema"
+      - RDF
+      - RDFS
+      - OWL
+      - BFO
+      - CCO
+      - "PROV-O"
+      - "PROV-ML"
+      - GPT
+      - OpenAI
+      - MISTK
       - "Computer Vision"
       - "Ontology Engineering"
 
@@ -197,6 +269,8 @@ work_experiences:
       - OWL
       - "Protégé"
       - "SNOMED-CT"
+      - GraphDB
+      - SKOS
       - "SE-ON"
       - OntoDM
       - ANNETTO
@@ -221,8 +295,15 @@ work_experiences:
     technologies:
       - SUMO
       - "ADE20K"
-      - "GeoSPARQL"
-      - "WKT"
+      - GeoSPARQL
+      - WKT
+      - RDF
+      - RDFS
+      - OWL
+      - SKOS
+      - "PROV-O"
+      - SPARQL
+      - GraphDB
       - ResNet
       - YOLO
       - AlexNet
@@ -246,9 +327,15 @@ work_experiences:
       - "Worked remotely due to COVID-19 and managed to produce explanations for machine learning, using background semantic knowledge and the DL-Learner framework"
     technologies:
       - "DL-Learner"
+      - Python
+      - RDF
+      - RDFS
+      - OWL
+      - SKOS
+      - "PROV-O"
+      - "Protégé"
       - "Semantic Web"
-      - "OWL"
-      - "XAI"
+      - XAI
       - ImageNet
       - "ADE20k"
       - MNIST
@@ -275,9 +362,20 @@ work_experiences:
       - "Modelled topics from ontologies and eventually assessed ontology quality through metrics"
       - "Produced multitudes of relevant data for the Air Force, as well as a basic ontology quality assessment framework"
     technologies:
+      - Python
+      - Java
+      - RDF
+      - RDFS
+      - OWL
+      - SKOS
+      - "PROV-O"
+      - "Protégé"
+      - GitHub
+      - Jira
+      - Confluence
       - "Knowledge Graphs"
       - "Machine Learning"
-      - "Ontology"
+      - Ontology
 
     category: defense_research
     date_display: May 2019 - Aug 2019
@@ -294,6 +392,12 @@ work_experiences:
     end_date: "2025-05"
     description:
       - "Provided editorial services and guidance for the publication of an academic paper in the machine learning space"
+    technologies:
+      - Python
+      - GPT
+      - LaTeX
+      - "Microsoft Word"
+      - "Visual Studio Code"
 
     category: consulting
     date_display: May 2025
@@ -311,7 +415,10 @@ work_experiences:
     technologies:
       - "FOL"
       - "HOL"
-      - "OWL"
+      - OWL
+      - RDF
+      - RDFS
+      - "Protégé"
 
     category: consulting
     date_display: Sep 2024
@@ -329,6 +436,10 @@ work_experiences:
       - "Provided stakeholder-level documentation on OWL reasoning and description logics"
     technologies:
       - OWL
+      - RDF
+      - RDFS
+      - "Protégé"
+      - FOL
       - "Description Logics"
 
     category: consulting
@@ -347,6 +458,9 @@ work_experiences:
       - "Consulted on, and developed, an ontology to be used for nuclear facility construction process evaluation"
     technologies:
       - OWL
+      - RDF
+      - RDFS
+      - "Protégé"
       - "Ontology Engineering"
 
     category: consulting
@@ -364,10 +478,20 @@ work_experiences:
       - "Consulted on large language models in DoD use cases"
       - "Engineered a BFO/CCO implementation for DoD data standardization"
     technologies:
-      - "LLMs"
+      - Python
+      - GPT
+      - OpenAI
+      - "Protégé"
+      - RDF
+      - RDFS
+      - OWL
       - BFO
       - CCO
-      - OWL
+      - GraphDB
+      - Stardog
+      - "Microsoft Teams"
+      - "Microsoft Excel"
+      - "LLMs"
       - DICO
       - JANES
 
@@ -388,10 +512,16 @@ work_experiences:
       - "Consulted on an ontology to be integrated with a WordPress ecosystem for a local content publishing company"
       - "Developed a Linked Data taxonomy for web post content"
     technologies:
-      - "Linked Data"
+      - OWL
+      - RDF
+      - RDFS
       - "Schema.org"
-      - "OWL"
-      - "WordPress"
+      - BFO
+      - CCO
+      - GraphDB
+      - GitHub
+      - WordPress
+      - "Linked Data"
 
     category: consulting
     date_display: Nov 2023 - May 2024
@@ -411,10 +541,27 @@ work_experiences:
       - "Engineered a system for knowledge graph extraction from construction documents"
       - "Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000 relations"
     technologies:
-      - "Knowledge Graphs"
-      - "OWL"
+      - Python
+      - GPT
+      - OpenAI
+      - OWL
+      - RDF
+      - RDFS
+      - SKOS
+      - PROV
+      - "Protégé"
       - GraphDB
-      - "NLP"
+      - RDFLib
+      - pdfplumber
+      - PyPDF2
+      - CSV
+      - TSV
+      - JSON
+      - NER
+      - NLP
+      - "Text Extraction"
+      - "Knowledge Graphs"
+      - Stardog
 
     category: consulting
     date_display: Aug 2023 - Jan 2024
@@ -434,6 +581,9 @@ work_experiences:
       - "Provided insight on the design and development of a legal domain ontology in OWL"
     technologies:
       - OWL
+      - RDF
+      - RDFS
+      - "Protégé"
 
     category: consulting
     date_display: May 2023
@@ -448,6 +598,8 @@ work_experiences:
     end_date: "2023-05"
     description:
       - "Tested and gave feedback for a startup scientific research platform"
+    technologies:
+      - "Visual Studio Code"
 
     category: consulting
     date_display: May 2023
@@ -466,8 +618,15 @@ work_experiences:
       - "Produced visualizations in GraphDB and Stardog"
     technologies:
       - SPARQL
+      - GeoSPARQL
       - OWL
+      - RDF
+      - RDFS
       - SWRL
+      - WKT
+      - GIS
+      - "Protégé"
+      - FOL
       - GraphDB
       - Stardog
 
@@ -487,9 +646,15 @@ work_experiences:
     description:
       - "Represented a specific use case for the SDLC in GraphDB using PROV and SEON"
     technologies:
+      - OWL
+      - RDF
+      - RDFS
+      - SPARQL
+      - "Protégé"
       - GraphDB
       - PROV
       - SEON
+      - "Microsoft Word"
 
     category: consulting
     date_display: Mar 2023
@@ -507,8 +672,11 @@ work_experiences:
       - "Worked with the GPT API suite to generate software-related documents"
       - "Wrote and published several scientific papers"
     technologies:
-      - "GPT API"
       - Python
+      - GPT
+      - OpenAI
+      - SQL
+      - "Microsoft Word"
 
     category: consulting
     date_display: Feb 2023 - Present
@@ -527,11 +695,20 @@ work_experiences:
       - "Acted as a knowledge representation consultant"
       - "Represented a client domain using Schema.org and GS1, in OWL, SWRL and SHACL"
     technologies:
-      - "Schema.org"
-      - GS1
       - OWL
+      - RDF
+      - RDFS
       - SWRL
       - SHACL
+      - SKOS
+      - DCTerms
+      - "Schema.org"
+      - GS1
+      - BFO
+      - CCO
+      - "Protégé"
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
 
     category: consulting
     date_display: Jan 2023 - Mar 2023
@@ -549,6 +726,18 @@ work_experiences:
     end_date: "2023-05"
     description:
       - "Developed a course intended to be an extension to a relational databases course, covering the history of knowledge representation, focusing on applied ontology, Linked Data and contemporary NLP"
+    technologies:
+      - Python
+      - OWL
+      - RDF
+      - RDFS
+      - SKOS
+      - "PROV-O"
+      - "Protégé"
+      - GraphDB
+      - Stardog
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
 
     category: graduate
     date_display: Feb 2023 - May 2023
@@ -566,6 +755,16 @@ work_experiences:
       - "Performed work with other researchers, in addition to contributing to and writing papers on a multitude of research topics, most of which centered around Semantic technology"
       - "Acted as Semantic Web consultant for various other student researchers, in addition to providing assistance in paper review and revision"
     technologies:
+      - Python
+      - Java
+      - OWL
+      - RDF
+      - RDFS
+      - "PROV-O"
+      - GraphDB
+      - Stardog
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
       - "Semantic Web"
       - "Machine Learning"
       - NLP
@@ -606,6 +805,8 @@ work_experiences:
     end_date: "2018-12"
     description:
       - "Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps, graphs, recursion, sorting and searching algorithms"
+    technologies:
+      - Java
 
     category: undergrad
     date_display: Aug 2018 - Dec 2018
@@ -1293,7 +1494,7 @@ projects:
       - Ollama
       - OpenAI
       - Anthropic
-      - "Google Gemini"
+      - Gemini
       - spaCy
       - DistilBERT
       - GLiNER

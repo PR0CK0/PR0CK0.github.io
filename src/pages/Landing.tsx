@@ -98,11 +98,17 @@ const CATEGORY_META: Record<string, { label: string; color: string; chipClass: s
     chipClass:
       'border border-fuchsia-400/30 text-fuchsia-400 bg-fuchsia-400/5 hover:bg-fuchsia-400/15 hover:border-fuchsia-400/60',
   },
+  paradigms: {
+    label: 'Research Domains',
+    color: 'text-indigo-400',
+    chipClass:
+      'border border-indigo-400/30 text-indigo-400 bg-indigo-400/5 hover:bg-indigo-400/15 hover:border-indigo-400/60',
+  },
 }
 
 const SHOWN_CATEGORIES = [
   'prog_languages', 'data_languages', 'libraries', 'tools',
-  'ai_tools', 'vocabularies', 'cloud', 'os', 'design', 'soft_skills', 'personal',
+  'ai_tools', 'vocabularies', 'cloud', 'os', 'design', 'soft_skills', 'personal', 'paradigms',
 ]
 
 // ─── Helpers ───────────────────────────────────────────────────────────────

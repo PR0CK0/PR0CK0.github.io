@@ -17,6 +17,7 @@ export type SkillCategory =
   | 'design'
   | 'soft_skills'
   | 'personal'
+  | 'paradigms'
 
 export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   // ── Programming Languages ──────────────────────────────────────────────────
@@ -104,6 +105,9 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   OpenAI:               'libraries',
   PyVis:                'libraries',
   'Node.js':            'libraries',
+  Fastify:              'libraries',
+  pdfplumber:           'libraries',
+  PyPDF2:               'libraries',
   Swing:                'libraries',
   Jackson:              'libraries',
   'json-simple':        'libraries',
@@ -123,6 +127,8 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Neo4j:                'tools',
   MongoDB:              'tools',
   'Visual Studio Code': 'tools',
+  LaTeX:                'tools',
+  'Microsoft Word':     'tools',
   'Eclipse IDE':        'tools',
   MySQL:                'tools',
   PostgreSQL:           'tools',
@@ -139,6 +145,16 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   KuzuDB:               'tools',
   Wikidata:             'tools',
   VxWorks:              'tools',
+  Fuseki:               'tools',
+  'DL-Learner':         'tools',
+  WordPress:            'tools',
+  MISTK:                'tools',
+  CURL:                 'tools',
+  'Microsoft Teams':    'tools',
+  'Microsoft Excel':      'tools',
+  'Microsoft PowerPoint': 'tools',
+  Signal:               'tools',
+  Slack:                'tools',
 
   // ── AI / ML ────────────────────────────────────────────────────────────────
   Claude:               'ai_tools',
@@ -146,7 +162,6 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   'Anthropic Claude / Claude Code': 'ai_tools',
   'OpenAI GPT series (including API)': 'ai_tools',
   Gemini:               'ai_tools',
-  'Google Gemini':      'ai_tools',
   Codex:                'ai_tools',
   Grok:                 'ai_tools',
   'Microsoft Copilot':  'ai_tools',
@@ -168,6 +183,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   NER:                  'ai_tools',
   NLP:                  'ai_tools',
   'Mixture of Agents':  'ai_tools',
+  GPT:                  'ai_tools',
   CLIP:                 'ai_tools',
   ResNet:               'ai_tools',
   YOLO:                 'ai_tools',
@@ -193,8 +209,12 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   GFO:          'vocabularies',
   SUMO:         'vocabularies',
   MeSH:         'vocabularies',
-  OCSF:         'vocabularies',
-  DICO:         'vocabularies',
+  OCSF:           'vocabularies',
+  'SNOMED-CT':    'vocabularies',
+  GS1:            'vocabularies',
+  PROV:           'vocabularies',
+  'PROV-ML':      'vocabularies',
+  DICO:           'vocabularies',
   JANES:        'vocabularies',
   'SE-ON':      'vocabularies',
   OntoDM:       'vocabularies',
@@ -229,11 +249,13 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Miro:         'design',
   Unity:        'design',
   Kaggle:               'design',
+  Figma:                'design',
   Balsamiq:             'design',
   Mockingbird:          'design',
 
   // ── Data Languages ─── (additional) ────────────────────────────────────────
   TSV:          'data_languages',
+  WKT:          'data_languages',
 
   // ── Personal / Creative ─────────────────────────────────────────────────────
   'Adobe Photoshop':    'personal',
@@ -246,4 +268,24 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
 
   // ── Soft Skills ────────────────────────────────────────────────────────────
   'Systems Engineering': 'soft_skills',
+
+  // ── Research Paradigms & Domains ───────────────────────────────────────────
+  'Knowledge Graphs':       'paradigms',
+  'Text Extraction':        'paradigms',
+  'ML Provenance':          'paradigms',
+  'Semantic Web':           'paradigms',
+  'Machine Learning':       'paradigms',
+  XAI:                      'paradigms',
+  'Computer Vision':        'paradigms',
+  'Linked Data':            'paradigms',
+  Cybersecurity:            'paradigms',
+  Ontology:                 'paradigms',
+  'Ontology Engineering':   'paradigms',
+  'Description Logics':     'paradigms',
+  FOL:                      'paradigms',
+  HOL:                      'paradigms',
+  LLMs:                     'paradigms',
+  'FAIR AI':                'paradigms',
+  Provenance:               'paradigms',
+  'Knowledge Representation': 'paradigms',
 }
