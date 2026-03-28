@@ -324,12 +324,12 @@ function HeroContent({ person }: { person: Person }) {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="mt-8 sm:mt-12 space-y-4 sm:space-y-5"
+      className="mt-5 sm:mt-8 space-y-3"
     >
       {/* Name */}
       <motion.h1
         variants={itemVariants}
-        className="text-3xl sm:text-5xl lg:text-6xl font-mono font-bold tracking-widest
+        className="text-2xl sm:text-4xl lg:text-5xl font-mono font-bold tracking-widest
                    text-terminal-green text-glow-green animate-glow-pulse"
       >
         {person.name.toUpperCase()}
@@ -338,7 +338,7 @@ function HeroContent({ person }: { person: Person }) {
       {/* Title */}
       <motion.p
         variants={itemVariants}
-        className="text-terminal-blue text-glow-blue font-mono text-lg sm:text-xl tracking-wide"
+        className="text-terminal-blue text-glow-blue font-mono text-base sm:text-lg tracking-wide"
       >
         AI Engineer — Agentic LLMs · Knowledge Graphs · Ontologies
       </motion.p>
@@ -376,7 +376,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
   const [bootDone, setBootDone] = useState(false)
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-terminal-bg">
+    <section className="relative overflow-hidden bg-terminal-bg">
       {/* Scanlines overlay */}
       <div className="scanlines absolute inset-0 z-10 pointer-events-none" />
 
@@ -392,13 +392,13 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
 
       {/* Glow orb */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
         style={{
           background: 'radial-gradient(circle, rgba(0,255,136,0.04) 0%, transparent 70%)',
         }}
       />
 
-      <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-24">
+      <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-4 sm:pb-6">
         {/* Terminal window chrome */}
         <div className="rounded-lg border border-terminal-border bg-terminal-surface/60 backdrop-blur-sm overflow-hidden shadow-2xl">
           {/* Title bar */}
@@ -435,7 +435,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
-            className="flex justify-center mt-10"
+            className="flex justify-center mt-3"
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}
@@ -465,9 +465,9 @@ function StatsBar({ stats }: { stats: Stat[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.07, duration: 0.4 }}
-            className="flex flex-col items-center px-3 sm:px-6 py-4 sm:py-5"
+            className="flex flex-col items-center px-2 sm:px-5 py-3 sm:py-4"
           >
-            <span className="text-xl sm:text-2xl font-mono font-bold text-terminal-green text-glow-green">
+            <span className="text-lg sm:text-xl font-mono font-bold text-terminal-green text-glow-green">
               {s.value}
             </span>
             <span className="text-xs font-mono text-terminal-muted mt-1 tracking-widest uppercase">
@@ -625,7 +625,7 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.3 }}
-      className="space-y-8"
+      className="space-y-5"
     >
       {SHOWN_CATEGORIES.map((cat, ci) => {
         const meta = CATEGORY_META[cat]
@@ -662,14 +662,14 @@ function SkillsMatrix({ person }: { person: Person }) {
   const [view, setView] = useState<SkillView>('categories')
 
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
       <SectionHeader
         prompt="cat skills.json"
         title="Skills Matrix"
         accent="purple"
       />
 
-      <div className="mt-6 mb-8">
+      <div className="mt-4 mb-5">
         <ViewToggle view={view} onChange={setView} />
       </div>
 
@@ -712,7 +712,7 @@ function SectionHeader({
       <p className={`text-xs font-mono ${cls.prompt} opacity-70`}>$ {prompt}</p>
       <div className="flex items-center gap-3">
         <div className={`w-1 h-8 rounded ${cls.bar}`} />
-        <h2 className={`text-2xl sm:text-3xl font-mono font-bold tracking-wider ${cls.title}`}>
+        <h2 className={`text-xl sm:text-2xl font-mono font-bold tracking-wider ${cls.title}`}>
           {title}
         </h2>
       </div>
@@ -729,7 +729,7 @@ function PublicationRow({ pub, index }: { pub: Publication; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: index * 0.07, duration: 0.4 }}
-      className="group flex flex-col sm:flex-row gap-3 sm:gap-4 p-4 rounded-lg border border-terminal-border/50
+      className="group flex flex-col sm:flex-row gap-3 sm:gap-4 p-3 rounded-lg border border-terminal-border/50
                  bg-terminal-surface/30 hover:bg-terminal-surface/60 hover:border-terminal-blue/30
                  transition-all duration-200"
     >
@@ -774,13 +774,13 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
 
   return (
     <section className="bg-terminal-surface/20 border-y border-terminal-border">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
         <SectionHeader
           prompt="cat publications.bib | head -5"
           title="Recent Publications"
           accent="blue"
         />
-        <div className="mt-10 space-y-3">
+        <div className="mt-6 space-y-2">
           {top5.map((pub, i) => (
             <PublicationRow key={pub.id} pub={pub} index={i} />
           ))}
@@ -816,12 +816,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: index * 0.08, duration: 0.45 }}
       whileHover={{ y: -3 }}
-      className="group flex flex-col p-5 rounded-lg border border-terminal-border
+      className="group flex flex-col p-4 rounded-lg border border-terminal-border
                  bg-terminal-surface/40 hover:bg-terminal-surface/70
                  hover:border-terminal-purple/40 transition-all duration-250"
     >
       {/* Header */}
-      <div className="flex items-start justify-between gap-2 mb-3">
+      <div className="flex items-start justify-between gap-2 mb-2">
         <h3 className="font-mono text-sm font-bold text-terminal-text
                        group-hover:text-terminal-purple transition-colors leading-snug">
           {project.url ? (
@@ -895,14 +895,14 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
     .slice(0, 6)
 
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
       <SectionHeader
         prompt="ls -la ~/projects/ | head -6"
         title="Featured Projects"
         accent="amber"
       />
       <ContributionGraph username="PR0CK0" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {top6.map((proj, i) => (
           <ProjectCard key={proj.id} project={proj} index={i} />
         ))}
@@ -930,10 +930,10 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
 // ─── Contribution Graph ──────────────────────────────────────────────────────
 
 type ContributionDay = { date: string; count: number; level: number }
+type EventCommit = { repo: string; message: string; sha: string }
 
 const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
-// Level 0–4 mapped to terminal green shades
 const CONTRIB_COLORS = [
   'rgba(0,255,136,0.06)',
   'rgba(0,255,136,0.22)',
@@ -942,65 +942,95 @@ const CONTRIB_COLORS = [
   'rgba(0,255,136,0.90)',
 ]
 
+function timeAgo(date: Date): string {
+  const total = Math.floor((Date.now() - date.getTime()) / 1000)
+  const d = Math.floor(total / 86400)
+  const h = Math.floor((total % 86400) / 3600)
+  const m = Math.floor((total % 3600) / 60)
+  const s = total % 60
+  if (d > 0) return `${d}d ${h}h ${m}m ago`
+  if (h > 0) return `${h}h ${m}m ago`
+  if (m > 0) return `${m}m ${s}s ago`
+  return `${s}s ago`
+}
+
 function ContributionGraph({ username }: { username: string }) {
   const [weeks, setWeeks] = useState<(ContributionDay | null)[][]>([])
   const [total, setTotal] = useState(0)
+  const [lastPush, setLastPush] = useState<Date | null>(null)
+  const [commitMap, setCommitMap] = useState<Map<string, EventCommit[]>>(new Map())
   const [loading, setLoading] = useState(true)
+  const [tooltip, setTooltip] = useState<{
+    day: ContributionDay; commits: EventCommit[]; x: number; y: number
+  } | null>(null)
 
   useEffect(() => {
-    fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`)
-      .then((r) => r.json())
-      .then((data) => {
-        const days: ContributionDay[] = data.contributions
-        const yearTotal = (Object.values(data.total as Record<string, number>) as number[])
-          .reduce((a, b) => a + b, 0)
-        setTotal(yearTotal)
+    Promise.all([
+      fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`).then(r => r.json()),
+      fetch(`https://api.github.com/users/${username}/events/public?per_page=100`, {
+        headers: { Accept: 'application/vnd.github+json' },
+      }).then(r => r.json()).catch(() => []),
+    ]).then(([contribData, events]) => {
+      // ── contributions grid ──────────────────────────────────────────────────
+      const days: ContributionDay[] = contribData.contributions
+      const yearTotal = (Object.values(contribData.total as Record<string, number>) as number[])
+        .reduce((a, b) => a + b, 0)
+      setTotal(yearTotal)
 
-        // Build 7-row weeks grid, padded to start on the right weekday
-        const grid: (ContributionDay | null)[][] = []
-        const firstDOW = new Date(days[0].date).getDay()
-        let week: (ContributionDay | null)[] = Array(firstDOW).fill(null)
-        for (const day of days) {
-          week.push(day)
-          if (week.length === 7) { grid.push(week); week = [] }
-        }
-        if (week.length) {
-          while (week.length < 7) week.push(null)
-          grid.push(week)
-        }
-        // Drop trailing weeks that are entirely null (future-padded dates)
-        while (grid.length > 0 && grid[grid.length - 1].every((d) => d === null)) grid.pop()
-        setWeeks(grid)
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false))
+      const grid: (ContributionDay | null)[][] = []
+      const firstDOW = new Date(days[0].date).getDay()
+      let week: (ContributionDay | null)[] = Array(firstDOW).fill(null)
+      for (const day of days) {
+        week.push(day)
+        if (week.length === 7) { grid.push(week); week = [] }
+      }
+      if (week.length) {
+        while (week.length < 7) week.push(null)
+        grid.push(week)
+      }
+      while (grid.length > 0 && grid[grid.length - 1].every(d => d === null)) grid.pop()
+      setWeeks(grid)
+
+      // ── events ──────────────────────────────────────────────────────────────
+      const map = new Map<string, EventCommit[]>()
+      let latestPush: Date | null = null
+
+      for (const ev of (Array.isArray(events) ? events : [])) {
+        if (ev.type !== 'PushEvent') continue
+        const date = (ev.created_at as string).slice(0, 10)
+        const repo = (ev.repo?.name as string ?? '').replace(`${username}/`, '')
+        const commits: EventCommit[] = (ev.payload?.commits ?? []).map((c: { message: string; sha: string }) => ({
+          repo,
+          message: c.message.split('\n')[0].slice(0, 72),
+          sha: (c.sha ?? '').slice(0, 7),
+        }))
+        if (!map.has(date)) map.set(date, [])
+        map.get(date)!.push(...commits)
+        const d = new Date(ev.created_at as string)
+        if (!latestPush || d > latestPush) latestPush = d
+      }
+      setCommitMap(map)
+      setLastPush(latestPush)
+    }).catch(() => {}).finally(() => setLoading(false))
   }, [username])
 
-  if (loading) {
-    return (
-      <div className="my-8 h-[120px] rounded bg-terminal-surface/20 animate-pulse" />
-    )
-  }
+  if (loading) return <div className="my-6 h-[100px] rounded bg-terminal-surface/20 animate-pulse" />
   if (!weeks.length) return null
 
-  // Month + year labels: track transitions
-  const monthLabels = new Map<number, string>()  // weekIndex → label
-  const yearLabels  = new Map<number, string>()  // weekIndex → year string
-  let lastMonth = -1
-  let lastYear  = -1
+  const monthLabels = new Map<number, string>()
+  const yearLabels  = new Map<number, string>()
+  let lastMonth = -1, lastYear = -1
   weeks.forEach((week, wi) => {
-    const first = week.find((d) => d !== null)
+    const first = week.find(d => d !== null)
     if (first) {
       const d = new Date(first.date)
-      const m = d.getMonth()
-      const y = d.getFullYear()
+      const m = d.getMonth(), y = d.getFullYear()
       if (m !== lastMonth) { monthLabels.set(wi, MONTH_NAMES[m]); lastMonth = m }
       if (y !== lastYear)  { yearLabels.set(wi, String(y));        lastYear  = y  }
     }
   })
 
-  const cell = 11
-  const gap = 3
+  const cell = 11, gap = 3
 
   return (
     <motion.div
@@ -1008,17 +1038,23 @@ function ContributionGraph({ username }: { username: string }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5 }}
-      className="my-8"
+      className="my-6"
     >
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-xs font-mono text-terminal-muted/60">// commit activity</span>
-        <span className="text-xs font-mono text-terminal-green/50">
-          {total.toLocaleString()} contributions in the last year
+      <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
+        <span className="text-[10px] font-mono text-terminal-muted/60">// commit activity</span>
+        <span className="flex items-center gap-3 text-[10px] font-mono">
+          <span className="text-terminal-green/50">{total.toLocaleString()} contributions in the last year</span>
+          {lastPush && (
+            <span className="text-terminal-muted/40">· last push <span className="text-terminal-blue/60">{timeAgo(lastPush)}</span></span>
+          )}
         </span>
       </div>
-      <div className="overflow-x-auto pb-1 rounded-lg border border-terminal-border/30 bg-terminal-surface/20 p-3">
+      <div
+        className="overflow-x-auto pb-1 rounded-lg border border-terminal-border/30 bg-terminal-surface/20 p-2.5"
+        onMouseLeave={() => setTooltip(null)}
+      >
         <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 0 }}>
-          {/* Month labels row */}
+          {/* Month labels */}
           <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '1px', height: '12px' }}>
             {weeks.map((_, wi) => (
               <div key={wi} style={{ width: cell, flexShrink: 0, overflow: 'visible', position: 'relative' }}>
@@ -1030,7 +1066,7 @@ function ContributionGraph({ username }: { username: string }) {
               </div>
             ))}
           </div>
-          {/* Year labels row */}
+          {/* Year labels */}
           <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '4px', height: '12px' }}>
             {weeks.map((_, wi) => (
               <div key={wi} style={{ width: cell, flexShrink: 0, overflow: 'visible', position: 'relative' }}>
@@ -1042,20 +1078,33 @@ function ContributionGraph({ username }: { username: string }) {
               </div>
             ))}
           </div>
-          {/* Week columns */}
+          {/* Grid */}
           <div style={{ display: 'flex', gap: `${gap}px` }}>
             {weeks.map((week, wi) => (
               <div key={wi} style={{ display: 'flex', flexDirection: 'column', gap: `${gap}px` }}>
                 {week.map((day, di) => (
                   <div
                     key={di}
-                    title={day ? `${day.date} — ${day.count} contribution${day.count !== 1 ? 's' : ''}` : undefined}
+                    onMouseEnter={(e) => {
+                      if (!day) return
+                      setTooltip({
+                        day,
+                        commits: commitMap.get(day.date) ?? [],
+                        x: e.clientX,
+                        y: e.clientY,
+                      })
+                    }}
+                    onMouseMove={(e) => {
+                      if (day) setTooltip(t => t ? { ...t, x: e.clientX, y: e.clientY } : null)
+                    }}
+                    onMouseLeave={() => setTooltip(null)}
                     style={{
                       width: cell,
                       height: cell,
                       borderRadius: '2px',
                       backgroundColor: day !== null ? CONTRIB_COLORS[day.level] : 'transparent',
                       border: day !== null ? '1px solid rgba(0,255,136,0.10)' : 'none',
+                      cursor: day?.count ? 'pointer' : 'default',
                     }}
                   />
                 ))}
@@ -1064,6 +1113,33 @@ function ContributionGraph({ username }: { username: string }) {
           </div>
         </div>
       </div>
+
+      {/* Tooltip — fixed position, follows cursor */}
+      {tooltip && (
+        <div
+          className="fixed z-50 pointer-events-none"
+          style={{ left: tooltip.x + 12, top: tooltip.y - 8, transform: 'translateY(-100%)' }}
+        >
+          <div className="rounded border border-terminal-border bg-terminal-bg/95 backdrop-blur-sm px-2.5 py-2 font-mono text-[10px] shadow-xl max-w-[260px]">
+            <div className="text-terminal-green/70 mb-1">{tooltip.day.date} · {tooltip.day.count} commit{tooltip.day.count !== 1 ? 's' : ''}</div>
+            {tooltip.commits.length > 0 ? (
+              <div className="flex flex-col gap-0.5">
+                {tooltip.commits.slice(0, 4).map((c, i) => (
+                  <div key={i} className="flex gap-1.5 items-start">
+                    <span className="text-terminal-purple/60 shrink-0">{c.sha}</span>
+                    <span className="text-terminal-muted/80 truncate">{c.message}</span>
+                  </div>
+                ))}
+                {tooltip.commits.length > 4 && (
+                  <div className="text-terminal-muted/40">+{tooltip.commits.length - 4} more</div>
+                )}
+              </div>
+            ) : (
+              <div className="text-terminal-muted/40 italic">commit details beyond 90-day window</div>
+            )}
+          </div>
+        </div>
+      )}
     </motion.div>
   )
 }
