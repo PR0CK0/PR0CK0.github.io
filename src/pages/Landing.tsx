@@ -6,13 +6,12 @@ import { TECH_CATEGORIES, type SkillCategory } from '@/lib/tech-categories'
 import type { Person, Publication, Project } from '@/lib/schema'
 
 // ─── Boot sequence lines ───────────────────────────────────────────────────
-function buildBootLines(pubCount: number, clearance: string) {
+function buildBootLines(pubCount: number) {
   return [
     { prefix: '>', text: 'initializing procko.pro...' },
     { prefix: '>', text: 'loading knowledge graph engine...' },
     { prefix: '>', text: `deploying agent swarm...` },
-    { prefix: '>', text: `clearance: ${clearance.toUpperCase()}` },
-    { prefix: '>', text: 'status: AVAILABLE' },
+{ prefix: '>', text: 'status: AVAILABLE' },
   ]
 }
 type BootLine = ReturnType<typeof buildBootLines>[number]
@@ -1270,7 +1269,7 @@ export default function Landing() {
 
   const publications = person.publications ?? []
   const projects = person.projects ?? []
-  const bootLines = buildBootLines(publications.length, person.clearance ?? 'SECRET [TIER 3]')
+  const bootLines = buildBootLines(publications.length)
   const stats = buildStats(publications.length, projects.length)
 
   return (
