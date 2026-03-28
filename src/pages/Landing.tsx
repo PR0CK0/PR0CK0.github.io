@@ -321,10 +321,11 @@ function HeroContent({ person }: { person: Person }) {
     LinkedIn: { icon: '⊞', label: 'LinkedIn' },
     'Google Scholar': { icon: '◎', label: 'Scholar' },
     ORCiD: { icon: '◈', label: 'ORCiD' },
+    Substack: { icon: '✉', label: 'Substack' },
   }
 
   const socials = (person.social_links ?? []).filter((s) =>
-    ['GitHub', 'LinkedIn', 'Google Scholar', 'ORCiD'].includes(s.platform)
+    ['GitHub', 'LinkedIn', 'Google Scholar', 'ORCiD', 'Substack'].includes(s.platform)
   )
 
   const containerVariants = {

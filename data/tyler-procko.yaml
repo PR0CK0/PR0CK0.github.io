@@ -44,6 +44,10 @@ social_links:
   platform: ORCiD
   url: https://orcid.org/0000-0002-7801-0124
   handle: 0000-0002-7801-0124
+- id: social/substack
+  platform: Substack
+  url: https://substack.com/@tylerprocko
+  handle: tylerprocko
 - id: social/upwork
   platform: Upwork
   url: https://www.upwork.com/freelancers/~01a0532dff7b928594
