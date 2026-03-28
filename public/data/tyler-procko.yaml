@@ -1850,6 +1850,9 @@ projects:
     url: https://github.com/PR0CK0/ai-landscape-digest/
     display: github.com/PR0CK0/ai-landscape-digest/
   tagline: Your local AI release feed, summarized on login — powered by whatever LLM CLI you have.
+  domains:
+  - LLMs
+  - Prompt Engineering
 - id: proj/biomed-paper-extractor
   title: Biomedical Paper Information Extractor
   year: 2026-03
@@ -1885,6 +1888,8 @@ projects:
   - Anthropic SDK
   - GitHub
   - Transformers
+  - NetworkX
+  - Qwen-VL
   tags:
   - biomedical
   - NLP
@@ -1904,6 +1909,9 @@ projects:
   domains:
   - NER
   - VLM
+  - NLP
+  - Text Extraction
+  - Machine Learning
 - id: proj/health-optimization-kg
   title: Health Optimization Knowledge Graph
   year: 2026-03
@@ -1941,6 +1949,10 @@ projects:
   - HTML
   - JavaScript
   - Python
+  - ECO
+  - IAO
+  - OBI
+  - RO
   tags:
   - biomedical
   - knowledge graphs
@@ -1960,6 +1972,14 @@ projects:
     url: https://github.com/PR0CK0/health-optimization-knowledge-graph
     display: github.com/PR0CK0/health-optimization-knowledge-graph
   tagline: BFO-aligned, evidence-graded knowledge graph for health optimization interventions.
+  domains:
+  - Knowledge Graphs
+  - Knowledge Representation
+  - Linked Data
+  - LLMs
+  - Ontology
+  - RAG
+  - Semantic Web
 - id: proj/ocsf-visualizer
   title: OCSF Visualizer
   year: 2026-02
@@ -1973,6 +1993,7 @@ projects:
   - OCSF
   - GitHub
   - HTML
+  - CSS
   tags:
   - cybersecurity
   - visualization
@@ -1985,6 +2006,9 @@ projects:
     url: https://github.com/PR0CK0/ocsf-visualizer
     display: github.com/PR0CK0/ocsf-visualizer
   tagline: Browser-based Cytoscape.js interactive graph view of the Open Cybersecurity Schema Framework.
+  domains:
+  - Cybersecurity
+  - Taxonomy
 - id: proj/bfo-wikidata-classifier
   title: BFO-Wikidata Classifier
   year: 2025-11
@@ -2023,6 +2047,10 @@ projects:
   tagline: Transformer-based hierarchical classifier mapping Wikidata entities to BFO classes.
   domains:
   - NLP
+  - Knowledge Graphs
+  - Knowledge Representation
+  - Machine Learning
+  - Ontology
 - id: proj/bert-benchmarking
   title: BERT Model Benchmarking Suite
   year: 2025-11
@@ -2063,6 +2091,9 @@ projects:
     size
   - Designed for compute-constrained environments and on-premise deployments
   tagline: Benchmarks BERT variants on inference speed, memory, and size for compute-constrained deployments.
+  domains:
+  - Machine Learning
+  - NLP
 - id: proj/bfobert
   title: BFO-BERT Classifier
   year: 2025-11
@@ -2096,6 +2127,11 @@ projects:
     spirit of the Basic Formal Ontology (BFO)
   - Designed as a simple, reproducible proof of concept for text-based ontological classification
   tagline: Fine-tunes DistilBERT to classify ontology terms as Continuant or Occurrent under BFO.
+  domains:
+  - Knowledge Representation
+  - Machine Learning
+  - NLP
+  - Ontology
 - id: proj/dissenter
   title: dissenter
   year: 2026-03
@@ -2120,6 +2156,8 @@ projects:
   - Rich
   - Mixture of Agents
   - GitHub
+  - GitHub Actions
+  - Pydantic
   tags:
   - AI
   - agents
@@ -2139,6 +2177,9 @@ projects:
     url: https://github.com/PR0CK0/dissenter
     display: github.com/PR0CK0/dissenter
   tagline: Run multiple LLMs through a structured debate, surface disagreements, synthesize a decision.
+  domains:
+  - LLMs
+  - Prompt Engineering
 - id: proj/provtracer
   title: ProvTracer
   year: 2024-05
@@ -2161,6 +2202,7 @@ projects:
   - RDFS
   - GitHub
   - OpenAI
+  - GPT
   tags:
   - provenance
   - ontology
@@ -2180,6 +2222,14 @@ projects:
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
+  domains:
+  - Knowledge Graphs
+  - Knowledge Representation
+  - LLMs
+  - ML Provenance
+  - Provenance
+  - SDLC
+  - Semantic Web
 - id: proj/personal
   title: Personal & Creative Work
   year: 2016-08
@@ -2234,6 +2284,9 @@ projects:
   - Used the SD WebUI, a variety of models, LoRAs and VAES, along with prompting techniques, to generate images
   - An investigation into the toolset for the purpose of future work on generating synthetic data for military vision models
   tagline: End-to-end guide for Stable Diffusion — from setup through LoRA fine-tuning.
+  domains:
+  - Computer Vision
+  - Machine Learning
 - id: proj/nlp-optimization
   title: An Investigation into Computational Efficiency Optimization of Natural Language Processing Vectorization Techniques
     on Large Corpora in Python
@@ -2266,6 +2319,8 @@ projects:
     algorithms for NLP (e.g., TF-IDF and Naïve Bayes)
   - Project shifted to optimization of Mandelbrot set calculation
   tagline: Optimization of NLP vectorization on large corpora using Numba, Cython, and MPI.
+  domains:
+  - Machine Learning
 - id: proj/bfo-buddy
   title: BFO Buddy
   year: 2022-07
@@ -2287,6 +2342,10 @@ projects:
   bullets:
   - A command-line Python tool for bootstrapping ontology development with BFO
   tagline: CLI tool for bootstrapping ontology development with the Basic Formal Ontology (BFO).
+  domains:
+  - Knowledge Representation
+  - Ontology
+  - Semantic Web
 - id: proj/usa-obesity-visualization
   title: USA Obesity Rates Visualization and Analysis
   year: 2021-12
@@ -2316,6 +2375,8 @@ projects:
     datasets; analysis on obesity by region, age group, food quality and various other factors
   - Additionally, curated statistics on the World's Strongest Man competitors and performed analysis on their capabilities
   tagline: Data analysis and Tableau visualization of USA obesity rates by state.
+  domains:
+  - Data Visualization
 - id: proj/upper-martial-arts-ontology
   title: Upper Martial Arts Ontology (UMAO)
   year: 2021-07
@@ -2338,6 +2399,10 @@ projects:
   - Represented the domain of martial arts using Schema.org as the base taxonomy, and Bruce Lee's Jeet Kune Do book as the
     lexicon
   tagline: OWL ontology modeling the upper-level concepts of martial arts disciplines.
+  domains:
+  - Knowledge Representation
+  - Ontology
+  - Taxonomy
 - id: proj/volusia-elevation-qgis
   title: Volusia County Parcel Elevation Visualization with SQL and QGIS
   year: 2021-05
@@ -2365,6 +2430,8 @@ projects:
     in Volusia County Florida
   - Used several complex GIS functions to perform contour line elevation calculations and QGIS to visualize it
   tagline: Finding parcel elevations across Volusia County, FL using PostGIS and QGIS.
+  domains:
+  - Geospatial
 - id: proj/bittorrent-semp
   title: BitTorrent Systems Engineering Management Plan
   year: 2020-12
@@ -2444,6 +2511,8 @@ projects:
   domains:
   - Cluster Analysis
   - Web Scraping
+  - Ontology
+  - Taxonomy
 - id: proj/nas-server
   title: Network Attached Storage (NAS) Server
   year: 2019-07
@@ -2539,6 +2608,7 @@ projects:
   tagline: Simulates a water heater in C using VxWorks threads, mutexes, semaphores, and watchdogs.
   domains:
   - Real-Time Systems
+  - Embedded Systems
 - id: proj/encrypted-sound-messages
   title: Encrypted Text Messages Transmitted Via Near-Field Sound
   year: 2019-05
@@ -2618,6 +2688,8 @@ projects:
   - Developed MySQL schema using PHPMyAdmin, connected the Java code to the database using JDBC, designed and created the
     user interface (UI) and all functionality
   tagline: 'Java + SQL app for searching Monster Hunter: World items, monsters, and building armor sets.'
+  domains:
+  - Software Engineering
 - id: proj/eagle-listings
   title: EagleListings
   year: 2017-12
@@ -2645,6 +2717,8 @@ projects:
   - Implemented the database interface using JDBC, designed and created the UI
   - Acted as the SCRUM master for the team
   tagline: Campus marketplace app built in Java with a Swing GUI and MySQL backend.
+  domains:
+  - Software Engineering
 - id: proj/tiles-game
   title: Tiles
   year: 2017-05
@@ -2662,6 +2736,8 @@ projects:
   bullets:
   - Created a fast-paced clicker game in Java
   tagline: JavaFX sliding tile puzzle game.
+  domains:
+  - Game Development
 - id: proj/text-racing-game
   title: Text-Based Racing Game
   year: 2016-12
@@ -2678,6 +2754,8 @@ projects:
   bullets:
   - Created a text-based, console racing game supporting up to four players in C
   tagline: CLI text-based racing game in C.
+  domains:
+  - Game Development
 - id: proj/boe-bot-robot
   title: Boe-Bot Line Follower Robot
   year: 2016-12

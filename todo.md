@@ -44,3 +44,24 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [ ] Extracurriculars — add technologies/domains to 24 empty entries
 - [ ] work/publix — add technologies (minimal)
 - [ ] Publications UI — wire up `domains` as tag chips in PublicationRow
+
+## Projects — domains/technologies (need local clones)
+
+Local clones not available; grab and analyze with Claude when possible.
+
+- [ ] proj/bfo-wikidata-classifier — https://github.com/PR0CK0/BFO-Wikidata-Classifier
+- [ ] proj/bert-benchmarking — https://github.com/PR0CK0/bert_benchmarking
+- [ ] proj/bfobert — https://github.com/PR0CK0/bfobert
+- [ ] proj/stable-diffusion-testing — https://github.com/PR0CK0/StableDiffusionEndToEndGuide
+- [ ] proj/nlp-optimization — https://github.com/PR0CK0/Mandelbrot-Set-Calculation-Optimization-in-Scientific-Python
+- [ ] proj/bfo-buddy — https://github.com/PR0CK0/bfobuddy
+- [ ] proj/usa-obesity-visualization — https://github.com/PR0CK0/RandomDataAnalysisProjects
+- [ ] proj/upper-martial-arts-ontology — https://github.com/PR0CK0/UpperMartialArtsOntology
+- [ ] proj/volusia-elevation-qgis — https://github.com/PR0CK0/CS540_Project
+- [ ] proj/meme-ontology — https://github.com/PR0CK0/knowyourmeme.com-Crawler
+- [ ] proj/vxworks-water-heater — https://github.com/PR0CK0/VxWorksWaterHeater
+- [ ] proj/lan-board-game — https://github.com/PR0CK0/SOS-Game-LAN-Capable
+- [ ] proj/monster-hunter-world — https://github.com/PR0CK0/mhw
+- [ ] proj/eagle-listings — https://github.com/PR0CK0/EagleListings
+- [ ] proj/tiles-game — https://github.com/PR0CK0/TilesGame
+- [ ] proj/text-racing-game — https://github.com/PR0CK0/C_TextBasedRacingGame
