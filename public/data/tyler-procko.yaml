@@ -3777,14 +3777,55 @@ courses:
       - Microsoft PowerPoint
   - number: "CS532"
     name: "Software Security Assessment"
+    technologies:
+      - Cybersecurity
+      - Python
+      - Draw.io
+      - Kali Linux
+      - Linux
+      - UNIX
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "SYS560"
     name: "Introduction to Systems Engineering Management"
+    technologies:
+      - Draw.io
+      - Microsoft Word
+      - Microsoft PowerPoint
   - number: "HFS620"
     name: "Memory and Cognition"
+    technologies:
+      - Draw.io
+      - Balsamiq
+      - Mockingbird
+      - Microsoft Word
+      - Microsoft PowerPoint
   - number: "MA553"
     name: "High-Performance Scientific Computing"
+    technologies:
+      - UNIX
+      - Linux
+      - Matlab
+      - Fortran
+      - C
+      - Python
+      - Matplotlib
+      - Numba
+      - Numexpr
+      - Cython
+      - MPI
+      - spaCy
+      - NLP
+      - Machine Learning
+      - Real-Time Systems
   - number: "HFS525"
     name: "Human, Social & Organizational Factors in Emerging Technologies"
+    technologies:
+      - Draw.io
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "SE550"
     name: "Current Trends in Software Engineering"
   - number: "EGR600"
