@@ -343,7 +343,7 @@ export default function Graph() {
       const connectedNodes = node
         .neighborhood('node')
         .map((n: cytoscape.NodeSingular) => ({ id: n.data('id') as string, label: n.data('label') as string, type: n.data('type') as NodeType }))
-        .filter((n) => Boolean(n.label))
+        .filter((n: { id: string; label: string; type: NodeType }) => Boolean(n.label))
 
       setSelectedNode({
         id: data.id,
@@ -394,7 +394,7 @@ export default function Graph() {
     const connectedNodes = node
       .neighborhood('node')
       .map((n: cytoscape.NodeSingular) => ({ id: n.data('id') as string, label: n.data('label') as string, type: n.data('type') as NodeType }))
-      .filter((n) => Boolean(n.label))
+      .filter((n: { id: string; label: string; type: NodeType }) => Boolean(n.label))
 
     setSelectedNode({
       id: data.id,
