@@ -397,6 +397,9 @@ work_experiences:
   - Knowledge Graphs
   - Machine Learning
   - Ontology
+  soft_skills:
+  - Public Speaking
+  - Stakeholder Presentation
 - id: work/cloudcell-consultant
   title: Academic Consultant and Editor
   organization: Cloudcell Limited
@@ -793,6 +796,9 @@ work_experiences:
   - Machine Learning
   - NLP
   - Semantic Web
+  soft_skills:
+  - Public Speaking
+  - Stakeholder Presentation
 - id: work/grader-cs344
   title: Grader for CS344 - C Programming and UNIX
   organization: ERAU Daytona
@@ -812,6 +818,9 @@ work_experiences:
   bullets:
   - Assessed content included Linux commands and intermediate C programming topics, such as structures, complex pointer manipulation
     and memory management
+  soft_skills:
+  - Public Speaking
+  - Stakeholder Presentation
 - id: work/grader-cs315
   title: Grader for CS315 - Data Structures and Algorithms
   organization: ERAU Daytona
@@ -1216,6 +1225,9 @@ publications:
   - Agile
   - Scientific Writing
   - Software Engineering
+  soft_skills:
+  - Public Speaking
+  - Stakeholder Presentation
 - id: pub/scrum-in-classroom
   title: 'Scrum in the Classroom: An Implementation Guide'
   authors:
@@ -1416,6 +1428,9 @@ publications:
   - Agile
   - Education
   - Software Engineering
+  soft_skills:
+  - Public Speaking
+  - Stakeholder Presentation
 - id: pub/interpersonal-chemistry-agile
   title: The Influence of Interpersonal Chemistry on Learning in Agile Software Engineering Education
   authors:
@@ -2089,6 +2104,9 @@ projects:
     url: https://github.com/PR0CK0/ProvTracer
     display: github.com/PR0CK0/ProvTracer
   tagline: Automatically captures digital artifact provenance using a multimodal LLM and knowledge graph serialization.
+  soft_skills:
+  - Public Speaking
+  - Stakeholder Presentation
 - id: proj/personal
   title: Personal & Creative Work
   year: 2016-08
@@ -2284,8 +2302,6 @@ projects:
   members: 1 member
   bullets:
   - Produced an entire systems plan for the BitTorrent protocol and application, as a case study
-  soft_skills:
-  - Systems Engineering
 - id: proj/ms-word-usability
   title: Microsoft Word Usability Desiderata
   year: 2020-05

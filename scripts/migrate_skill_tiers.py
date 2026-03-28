@@ -26,7 +26,9 @@ DOMAIN_TERMS = {
 
 # Strings that belong in `soft_skills`
 SOFT_SKILL_TERMS = {
-    "Systems Engineering",
+    "Public Speaking",
+    "Stakeholder Presentation",
+    "Virtual Presentation",
 }
 
 # Strings that belong in `personal_skills`
