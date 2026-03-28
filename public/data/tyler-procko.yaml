@@ -115,6 +115,12 @@ work_experiences:
     description:
       - "Ontology + ML + Cybersecurity"
 
+    category: defense_industry
+    date_display: Nov 2025 - Present
+    title_line: "Principal Knowledge Architect - "
+    org: "Stealth Startup, Remote"
+    bullets:
+      - Ontology + ML + Cybersecurity
   - id: work/handshake-ai
     title: "Independent AI Consultant"
     organization: "Handshake AI"
@@ -124,6 +130,12 @@ work_experiences:
     description:
       - "Applied expert knowledge for generative AI model improvement"
 
+    category: defense_industry
+    date_display: Nov 2025 - Present
+    title_line: "Independent AI Consultant - "
+    org: "Handshake AI, Remote"
+    bullets:
+      - Applied expert knowledge for generative AI model improvement
   - id: work/afrl-2024
     title: "SMART Scholar AI Research Scientist - ML Provenance"
     organization: "Air Force Research Laboratory (AFRL)"
@@ -139,6 +151,13 @@ work_experiences:
       - "ML Provenance"
       - "Knowledge Graphs"
 
+    category: defense_research
+    date_display: May 2024 - Aug 2024
+    title_line: "SMART Scholar AI Research Scientist - ML Provenance, "
+    org: "AFRL, Rome, NY"
+    bullets:
+      - "Advanced provenance capture for real-time systems, with a focus on large ML pipelines"
+      - "Annotated remote, fully autonomous ML platform images in CVAT"
   - id: work/afrl-2023
     title: "SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD"
     organization: "Air Force Research Laboratory (AFRL)"
@@ -152,6 +171,12 @@ work_experiences:
       - "Computer Vision"
       - "Ontology Engineering"
 
+    category: defense_research
+    date_display: May 2023 - Aug 2023
+    title_line: "SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD, "
+    org: "AFRL, Rome, NY"
+    bullets:
+      - Curated multiple military documents and produced a proto-ontology in JSON-LD for recording the provenance of computer vision tasks
   - id: work/afrl-2022
     title: "SMART Scholar AI Research Scientist - Machine Learning Interoperability with BFO"
     organization: "Air Force Research Laboratory (AFRL)"
@@ -170,6 +195,15 @@ work_experiences:
       - "Protégé"
       - "SNOMED-CT"
 
+    category: defense_research
+    date_display: May 2022 - Aug 2022
+    title_line: "SMART Scholar AI Research Scientist - Machine Learning Interoperability with Basic Formal Ontology (BFO), "
+    org: "AFRL, Rome, NY"
+    bullets:
+      - Represented the domain of machine learning and defense operations using the Basic Formal Ontology (of Barry Smith) and the Common Core Ontologies
+      - Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO compliance
+      - The produced ontology allowed the answering of core competency questions useful for subject matter experts
+      - Gained familiarity with SNOMED-CT and the OBO ontologies
   - id: work/afrl-2021
     title: "SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing"
     organization: "Air Force Research Laboratory (AFRL)"
@@ -184,6 +218,12 @@ work_experiences:
       - "GeoSPARQL"
       - "WKT"
 
+    category: defense_research
+    date_display: May 2021 - Aug 2021
+    title_line: "SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing, "
+    org: "AFRL, Rome, NY"
+    bullets:
+      - Worked remotely due to COVID-19; produced new geospatial relationships between suggested upper merged ontology (SUMO) objects linked with ADE20K annotations and WKTs
   - id: work/afrl-2020
     title: "AFRL Scholars Remote AI Research Scientist - ML Explainability"
     organization: "Air Force Research Laboratory (AFRL)"
@@ -198,6 +238,12 @@ work_experiences:
       - "OWL"
       - "XAI"
 
+    category: defense_research
+    date_display: May 2020 - Aug 2020
+    title_line: "AFRL Scholars Remote AI Research Scientist - ML Explainability, "
+    org: "AFRL, Rome, NY"
+    bullets:
+      - "Worked remotely due to COVID-19 and managed to produce \u201cexplanations\u201d for machine learning, using background semantic knowledge and the DL-Learner framework"
   - id: work/afrl-2019
     title: "AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs"
     organization: "Air Force Research Laboratory (AFRL)"
@@ -213,6 +259,14 @@ work_experiences:
       - "Machine Learning"
       - "Ontology"
 
+    category: defense_research
+    date_display: May 2019 - Aug 2019
+    title_line: "AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs, "
+    org: "AFRL, Rome, NY"
+    bullets:
+      - "Worked with others in \u201cboosting\u201d semantic graphs through ML"
+      - Modelled topics from ontologies and eventually assessed ontology quality through metrics
+      - "Produced multitudes of relevant data for the Air Force, as well as a basic ontology quality assessment framework"
   - id: work/cloudcell-consultant
     title: "Academic Consultant and Editor"
     organization: "Cloudcell Limited"
@@ -221,6 +275,12 @@ work_experiences:
     description:
       - "Provided editorial services and guidance for the publication of an academic paper in the machine learning space"
 
+    category: consulting
+    date_display: May 2025
+    title_line: "Academic Consultant and Editor - "
+    org: Cloudcell Limited
+    bullets:
+      - Provided editorial services and guidance for the publication of an academic paper in the machine learning space
   - id: work/upwork-reasoning
     title: "Reasoning Consultant"
     organization: Upwork
@@ -233,6 +293,12 @@ work_experiences:
       - "HOL"
       - "OWL"
 
+    category: consulting
+    date_display: Sep 2024
+    title_line: "Reasoning Consultant - "
+    org: Upwork
+    bullets:
+      - Consulted with a client on FOL/HOL ontology reasoning
   - id: work/upwork-ontology-engineer-2024
     title: "Ontology Engineer"
     organization: Upwork
@@ -245,6 +311,13 @@ work_experiences:
       - OWL
       - "Description Logics"
 
+    category: consulting
+    date_display: July 2024
+    title_line: "Ontology Engineer - "
+    org: Upwork
+    bullets:
+      - Developed a mid-level ontology for a discreet domain
+      - Provided stakeholder-level documentation on OWL reasoning and description logics
   - id: work/upwork-nuclear
     title: "Nuclear Construction Ontology Engineer"
     organization: Upwork
@@ -256,6 +329,12 @@ work_experiences:
       - OWL
       - "Ontology Engineering"
 
+    category: consulting
+    date_display: June 2024
+    title_line: "Nuclear Construction Ontology Engineer - "
+    org: Upwork
+    bullets:
+      - "Consulted on, and developed, an ontology to be used for nuclear facility construction process evaluation"
   - id: work/quiet-professionals
     title: "AI Consultant and Ontology Engineer"
     organization: "Quiet Professionals"
@@ -270,6 +349,14 @@ work_experiences:
       - CCO
       - OWL
 
+    category: consulting
+    date_display: Feb 2024 - Apr 2024
+    title_line: "AI Consultant and Ontology Engineer - "
+    org: Quiet Professionals
+    org_url: "https://quietprofessionalsllc.com/"
+    bullets:
+      - Consulted on large language models in DoD use cases
+      - Engineered a BFO/CCO implementation for DoD data standardization
   - id: work/hooray-media
     title: "Ontologist and Linked Data Engineer"
     organization: "Hooray Media"
@@ -284,6 +371,14 @@ work_experiences:
       - "OWL"
       - "WordPress"
 
+    category: consulting
+    date_display: Nov 2023 - May 2024
+    title_line: "Ontologist and Linked Data Engineer - "
+    org: Hooray Media
+    org_url: "https://hooray.media/"
+    bullets:
+      - Consulted on an ontology to be integrated with a WordPress ecosystem for a local content publishing company
+      - Developed a Linked Data taxonomy for web post content
   - id: work/the-link
     title: "Ontologist and Knowledge Graph Engineer"
     organization: "The Link"
@@ -299,6 +394,15 @@ work_experiences:
       - GraphDB
       - "NLP"
 
+    category: consulting
+    date_display: Aug 2023 - Jan 2024
+    title_line: "Ontologist and Knowledge Graph Engineer - "
+    org: The Link
+    org_url: "https://www.thelink.ai/"
+    bullets:
+      - Consulted on an ontology for the construction industry
+      - Engineered a system for knowledge graph extraction from construction documents
+      - "Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000 relations"
   - id: work/upwork-legal
     title: "Legal Ontology Consultant"
     organization: Upwork
@@ -309,6 +413,12 @@ work_experiences:
     technologies:
       - OWL
 
+    category: consulting
+    date_display: May 2023
+    title_line: "Legal Ontology Consultant - "
+    org: Upwork
+    bullets:
+      - Provided insight on the design and development of a legal domain ontology in OWL
   - id: work/upwork-software-test
     title: "Software Test Engineer"
     organization: Upwork
@@ -317,6 +427,12 @@ work_experiences:
     description:
       - "Tested and gave feedback for a startup scientific research platform"
 
+    category: consulting
+    date_display: May 2023
+    title_line: "Software Test Engineer - "
+    org: Upwork
+    bullets:
+      - Tested and gave feedback for a startup scientific research platform
   - id: work/upwork-geospatial
     title: "Geospatial Ontology Analyst"
     organization: Upwork
@@ -333,6 +449,14 @@ work_experiences:
       - GraphDB
       - Stardog
 
+    category: consulting
+    date_display: Apr 2023 - May 2023
+    title_line: "Geospatial Ontology Analyst - "
+    org: Upwork
+    bullets:
+      - Queried a large geospatial ontology with complex SPARQL
+      - Diagnosed and fixed issues with OWL and SWRL reasoning
+      - Produced visualizations in GraphDB and Stardog
   - id: work/upwork-kg-engineer
     title: "Knowledge Graph Engineer"
     organization: Upwork
@@ -345,6 +469,12 @@ work_experiences:
       - PROV
       - SEON
 
+    category: consulting
+    date_display: Mar 2023
+    title_line: "Knowledge Graph Engineer - "
+    org: Upwork
+    bullets:
+      - Represented a specific use case for the SDLC in GraphDB using PROV and SEON
   - id: work/forumapi
     title: "Technology Consultant and Scientific Writer"
     organization: ForumAPI
@@ -358,6 +488,14 @@ work_experiences:
       - "GPT API"
       - Python
 
+    category: consulting
+    date_display: Feb 2023 - Present
+    title_line: "Technology Consultant and Scientific Writer - "
+    org: ForumAPI
+    bullets:
+      - Provided insight on automated documentation techniques and created artifacts related to scientific publication on a particular domain for a client startup company
+      - Worked with the GPT API suite to generate software-related documents
+      - Wrote and published several scientific papers
   - id: work/wordlift
     title: Ontologist
     organization: "WordLift SEO (international remote)"
@@ -373,6 +511,15 @@ work_experiences:
       - SWRL
       - SHACL
 
+    category: consulting
+    date_display: Jan 2023 - Mar 2023
+    title_line: "Ontologist - "
+    org: WordLift SEO
+    org_url: "https://wordlift.io/"
+    org_extra_in_italic: " (international remote)"
+    bullets:
+      - Acted as a knowledge representation consultant
+      - "Represented a client domain using Schema.org and GS1, in OWL, SWRL and SHACL"
   - id: work/course-engineer
     title: "University Course Engineer - The Knowledge Representation Spectrum"
     organization: "ERAU Daytona"
@@ -381,6 +528,12 @@ work_experiences:
     description:
       - "Developed a course intended to be an extension to a relational databases course, covering the history of knowledge representation, focusing on applied ontology, Linked Data and contemporary NLP"
 
+    category: graduate
+    date_display: Feb 2023 - May 2023
+    title_line: "University Course Engineer - "
+    org: The Knowledge Representation Spectrum
+    bullets:
+      - "Developed a course intended to be an extension to a relational databases course, covering the history of knowledge representation, focusing on applied ontology, Linked Data and contemporary NLP"
   - id: work/eram-research-team
     title: "AI Research Team Lead and Semantic Web Consultant"
     organization: "ERAU Daytona"
@@ -397,6 +550,15 @@ work_experiences:
       - "Linked Data"
       - Cybersecurity
 
+    category: graduate
+    date_display: Jan 2019 - Present
+    title_line: "AI Research Team Lead and Semantic Web Consultant, "
+    org: ERAU Daytona
+    org_extra_after_italic: ", team lead Omar Ochoa"
+    bullets:
+      - "Worked on projects related to ML, NLP, Linked Data and cybersecurity; produced many papers"
+      - "Performed work with other researchers, in addition to contributing to and writing papers on a multitude of research topics, most of which centered around Semantic technology"
+      - "Acted as Semantic Web consultant for various other student researchers, in addition to providing assistance in paper review and revision"
   - id: work/grader-cs344
     title: "Grader for CS344 - C Programming and UNIX"
     organization: "ERAU Daytona"
@@ -409,6 +571,12 @@ work_experiences:
       - Linux
       - UNIX
 
+    category: undergrad
+    date_display: Jan 2019 - May 2019
+    title_line: "Grader for CS344 - C Programming and UNIX, "
+    org: ERAU Daytona
+    bullets:
+      - "Assessed content included Linux commands and intermediate C programming topics, such as structures, complex pointer manipulation and memory management"
   - id: work/grader-cs315
     title: "Grader for CS315 - Data Structures and Algorithms"
     organization: "ERAU Daytona"
@@ -417,6 +585,12 @@ work_experiences:
     description:
       - "Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps, graphs, recursion, sorting and searching algorithms"
 
+    category: undergrad
+    date_display: Aug 2018 - Dec 2018
+    title_line: "Grader for CS315 - Data Structures and Algorithms, "
+    org: ERAU Daytona
+    bullets:
+      - "Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps, graphs, recursion, sorting and searching algorithms"
   - id: work/publix
     title: "Customer Service Clerk"
     organization: "Publix Supermarkets"
@@ -424,6 +598,12 @@ work_experiences:
     end_date: "2016-08"
     description:
       - "Assisted customers and managed merchandise loading"
+    category: undergrad
+    date_display: Aug 2014 - Aug 2016
+    title_line: "Customer Service Clerk, "
+    org: Publix Supermarkets
+    bullets:
+      - Assisted customers and managed merchandise loading
 
 publications:
   # Awaiting Publication
@@ -2470,6 +2650,13 @@ extracurriculars:
       Reviewer (1 manuscript) - Discover Education, Springer Nature;
       Reviewer (1 manuscript) - Discover Computing, Springer Nature
 
+    date_display: "Mar 2026"
+    h4: "Manuscript reviews"
+    bullets:
+      - "Reviewer (1 manuscript) - <i>Concurrency and Computation: Practice and Experience, Wiley</i>"
+      - "Reviewer (1 manuscript) - <i>AI and Ethics, Springer Nature</i>"
+      - "Reviewer (1 manuscript) - <i>Discover Education, Springer Nature</i>"
+      - "Reviewer (1 manuscript) - <i>Discover Computing, Springer Nature</i>"
   - id: extra/review-jan-2026
     title: "Manuscript Reviewer"
     organization: "Springer Nature / Qeios"
@@ -2482,6 +2669,14 @@ extracurriculars:
       Reviewer (1 manuscript) - Archives of Dermatological Research, Springer Nature;
       Reviewer (1 article) - Qeios
 
+    date_display: "Jan 2026"
+    h4: "Manuscript reviews"
+    bullets:
+      - "Reviewer (1 manuscript) - <i>Discover Artificial Intelligence, Springer Nature</i>"
+      - "Reviewer (1 manuscript) - <i>Computing, Springer Nature</i>"
+      - "Reviewer (1 manuscript) - <i>Discover Education, Springer Nature</i>"
+      - "Reviewer (1 manuscript) - <i>Archives of Dermatological Research, Springer Nature</i>"
+      - "Reviewer (1 article) - <i><a href='https://www.qeios.com/profile/105985'>Qeios</a></i>"
   - id: extra/review-dec-2025
     title: "Manuscript Reviewer"
     organization: "Discover Artificial Intelligence, Springer Nature"
@@ -2489,6 +2684,10 @@ extracurriculars:
     type: scholarly
     description: "Reviewer (2 manuscripts) - Discover Artificial Intelligence, Springer Nature"
 
+    date_display: "Dec 2025"
+    h4: "Manuscript reviews"
+    bullets:
+      - "Reviewer (2 manuscripts) - <i>Discover Artificial Intelligence, Springer Nature</i>"
   - id: extra/review-nov-2025
     title: "Manuscript Reviewer"
     organization: "Multiple journals"
@@ -2500,6 +2699,13 @@ extracurriculars:
       Reviewer (5 manuscripts) - Discover Artificial Intelligence, Springer Nature;
       Reviewer (2 manuscripts) - Computing, Springer Nature
 
+    date_display: "Nov 2025"
+    h4: "Manuscript reviews"
+    bullets:
+      - "Reviewer (1 manuscript) - <i>Journal of Visualized Experiments (JoVE)</i>"
+      - "Reviewer (2 manuscripts) - <i>Discover Education, Springer Nature</i>"
+      - "Reviewer (5 manuscripts) - <i>Discover Artificial Intelligence, Springer Nature</i>"
+      - "Reviewer (2 manuscripts) - <i>Computing, Springer Nature</i>"
   - id: extra/comptia-study-guide
     title: "Creator - CompTIA Security+ SYS-701 Study Guide Dump"
     organization: GitHub
@@ -2507,6 +2713,8 @@ extracurriculars:
     type: scholarly
     description: "Created and published a CompTIA Security+ study guide on GitHub"
 
+    date_display: "Nov 2025"
+    h4: "Creator - <i><a href='https://github.com/PR0CK0/CompTIA-Security-Study-Guides'>CompTIA Security+ SYS-701 Study Guide Dump</a></i>"
   - id: extra/review-jan-2025
     title: "Manuscript Reviewer"
     organization: "IEEE / Springer Nature"
@@ -2516,6 +2724,11 @@ extracurriculars:
       Reviewer (1 manuscript) - Wireless Communications Magazine, IEEE;
       Reviewer (2 manuscripts) - Discover Computing, Springer Nature
 
+    date_display: "Jan 2025"
+    h4: "Manuscript reviews"
+    bullets:
+      - "Reviewer (1 manuscript) - <i>Wireless Communications Magazine, IEEE</i>"
+      - "Reviewer (2 manuscripts) - <i>Discover Computing, Springer Nature</i>"
   - id: extra/review-nov-2024
     title: "Manuscript Reviewer"
     organization: "Discover Artificial Intelligence, Springer Nature"
@@ -2523,6 +2736,8 @@ extracurriculars:
     type: scholarly
     description: "Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature"
 
+    date_display: "Nov 2024"
+    h4: "Reviewer (1 manuscript) - <i>Discover Artificial Intelligence, Springer Nature</i>"
   - id: extra/review-fie-2024
     title: "Manuscript Reviewer"
     organization: "2024 IEEE ASEE Frontiers in Education (FIE)"
@@ -2530,30 +2745,40 @@ extracurriculars:
     type: scholarly
     description: "Reviewer (4 manuscripts)"
 
+    date_display: "Mar 2024"
+    h4: "Reviewer (4 manuscripts) - <i>2024 IEEE ASEE Frontiers in Education (FIE)</i>"
   - id: extra/swebok-v4-review
     title: "SWEBOK v4 Public Review Participant"
     organization: "IEEE Computer Society"
     date: "2024-01"
     type: scholarly
 
+    date_display: "Jan 2024"
+    h4: "Participated in public review of the <a href='https://www.computer.org/education/bodies-of-knowledge/software-engineering/v4'>SWEBOK v4 guide</a>"
   - id: extra/dair-prompt-engineering
     title: "Contributor to the DAIR Prompt Engineering Guide"
     organization: "DAIR / GitHub"
     date: "2023-05"
     type: scholarly
 
+    date_display: "May 2023"
+    h4: "Contributor to the <a href='https://github.com/monarch-initiative/ontogpt'>DAIR Prompt Engineering Guide</a>"
   - id: extra/ontogpt-contributor
     title: "Contributor to OntoGPT GitHub"
     organization: "Monarch Initiative / GitHub"
     date: "2023-05"
     type: scholarly
 
+    date_display: "May 2023"
+    h4: "Contributor to the <a href='https://github.com/dair-ai/Prompt-Engineering-Guide'>OntoGPT</a> Github"
   - id: extra/huge-ai-models-contributor
     title: "Contributor to Huge AI Models GitHub"
     organization: GitHub
     date: "2023-04"
     type: scholarly
 
+    date_display: "Apr 2023"
+    h4: "Contributor to the <a href='https://github.com/zhengzangw/awesome-huge-models'>Huge AI Models</a> Github"
   - id: extra/review-fie-2023
     title: "Manuscript Reviewer"
     organization: "2023 IEEE ASEE Frontiers in Education (FIE)"
@@ -2561,12 +2786,16 @@ extracurriculars:
     type: scholarly
     description: "Reviewer (2 manuscripts)"
 
+    date_display: "Mar 2023"
+    h4: "Reviewer (2 manuscripts) - <i>2023 IEEE ASEE Frontiers in Education (FIE)</i>"
   - id: extra/practical-nlp-errata
     title: "Contributor to Practical Natural Language Processing errata"
     organization: "Vajjala et al. (O'Reilly)"
     date: "2022-11"
     type: scholarly
 
+    date_display: "Nov 2022"
+    h4: "Contributor to <i>Practical Natural Language Processing</i> (Vajalla et al.) errata "
   - id: extra/cco-contributor
     title: "Contributor to the Common Core Ontologies"
     organization: "Common Core Ontologies GitHub"
@@ -2574,11 +2803,17 @@ extracurriculars:
     type: scholarly
     description: "Provided clarification of term definitions and term spelling in the official Common Core Ontologies Github repository"
 
+    date_display: "July 2022"
+    h4: "Contributor to the Common Core Ontologies"
+    bullets:
+      - "Provided clarification of term definitions and term spelling in the official Common Core Ontologies Github repository"
   - id: extra/semantalytics-contributor
     title: "Contributor to the Semantalytics Awesome Semantic Web list"
     date: "2022-07"
     type: scholarly
 
+    date_display: "July 2022"
+    h4: "Contributor to the Semantalytics Awesome Semantic Web list"
   - id: extra/awesome-bfo
     title: "Created summarized list of BFO and BFO-related resources"
     organization: GitHub
@@ -2587,6 +2822,8 @@ extracurriculars:
     description: "Created a summarized list of BFO and BFO-related resources for other researchers"
 
   # Organizations
+    date_display: "June 2022"
+    h4: "Created a summarized list of <a href='https://github.com/PR0CK0/awesome-bfo'>BFO and BFO-related resources</a> for other researchers"
   - id: extra/ieee-member
     title: "IEEE Member (#98174383)"
     organization: IEEE
@@ -2594,6 +2831,8 @@ extracurriculars:
     type: organization
     role: Member
 
+    date_display: "Sep 2023 - Present"
+    h4: "IEEE - Member (#98174383)"
   - id: extra/asee-member
     title: "American Society for Engineering Education Member"
     organization: "American Society for Engineering Education"
@@ -2601,6 +2840,8 @@ extracurriculars:
     type: organization
     role: Member
 
+    date_display: "Dec 2021 - Present"
+    h4: "American Society for Engineering Education - Member"
   - id: extra/whecs
     title: "White Hat Eagles Cybersecurity Club (WHECS)"
     organization: "ERAU Daytona"
@@ -2609,6 +2850,11 @@ extracurriculars:
     role: Member
     description: "Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book. Engaged in several hands-on activities dealing with hacking."
 
+    date_display: "Jan 2019 - Jan 2020"
+    h4: "White Hat Eagles Cybersecurity Club (WHECS) - Member"
+    bullets:
+      - "Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book"
+      - "Engaged in several hands-on activities dealing with hacking"
   - id: extra/erau-ai-club
     title: "Embry-Riddle Artificial Intelligence Club"
     organization: "ERAU Daytona"
@@ -2618,6 +2864,10 @@ extracurriculars:
     description: "Worked with genetic algorithms in a variety of scenarios"
 
   # Volunteer
+    date_display: "Aug 2018 - Jan 2019"
+    h4: "Embry-Riddle Artificial Intelligence Club - Member"
+    bullets:
+      - "Worked with genetic algorithms in a variety of scenarios"
   - id: extra/av-technician
     title: "Audio/Visual Technician"
     organization: "River Road Baptist Church, Hilliard, FL"
@@ -2626,6 +2876,10 @@ extracurriculars:
     role: Volunteer
     description: "Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an in-person audience of ~100 and a livestream audience of ~10"
 
+    date_display: "Nov 2023 - Present"
+    h4: "Audio/Visual Technician, <i>River Road Baptist Church, Hilliard, FL</i>"
+    bullets:
+      - "Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an in-person audience of ~100 and a livestream audience of ~10"
   - id: extra/pc-consultant
     title: "Personal Computer Construction Consultant"
     organization: "Remote/In-Person"
@@ -2634,24 +2888,42 @@ extracurriculars:
     role: Volunteer
     description: "Assisted personal contacts with computer construction and setup. Resolved computer, network, software and peripheral issues."
 
+    date_display: "Jan 2014 - Present"
+    h4: "Personal Computer Construction Consultant, <i>Remote/In-Person</i>"
+    bullets:
+      - "Assisted personal contacts with computer construction and computer setup"
+      - "Resolved computer, network, software and peripheral issues"
   - id: extra/library-volunteer
     title: "All-rounder Volunteer"
     organization: "Nassau County Public Library"
     type: volunteer
     description: "Labeling and returning books, assisting customers; periodic maintenance of the library database software. 50+ hours."
 
+    date_display: "Pre-2016 - 50+ hours"
+    h4: "All-rounder, <i>Nassau County Public Library</i>"
+    bullets:
+      - "Labeling and returning books, assisting customers; periodic maintenance of the library database software"
   - id: extra/shrimp-fest
     title: "Shrimp Fest Worker"
     organization: "Prince of Peace Lutheran Church"
     type: volunteer
     description: "Preparing food, cashiering and assisting customers. 100+ hours."
 
+    date_display: "Pre-2016 - 100+ hours"
+    h4: "Shrimp Fest Worker, <i>Prince of Peace Lutheran Church</i>"
+    bullets:
+      - "Preparing food, cashiering and assisting customers"
   - id: extra/hoby
     title: "Class Ambassador"
     organization: "Hugh O'Brian Youth Leadership Program"
     type: volunteer
     description: "Selected as one out of 200+ students to represent high school in a leadership summit. Learned effective interpersonal relational, communication and leadership skills. 10+ hours."
 
+    date_display: "Pre-2016 - 10+ hours"
+    h4: "Class Ambassador, <i>Hugh O'Brian Youth Leadership Program</i>"
+    bullets:
+      - "Selected as one out of 200+ students to represent my high-school in a leadership summit"
+      - "Learned effective interpersonal relational, communication and leadership skills"
 books_read:
   - "A Knowledge Representation Practionary — Michael K. Bergman (WIP, started Feb 2023)"
   - "An Enquiry Concerning Human Understanding — David Hume (Sep 2022)"

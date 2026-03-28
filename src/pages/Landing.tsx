@@ -5,23 +5,29 @@ import { loadPortfolioData } from '@/lib/yaml-loader'
 import type { Person, Skill, Publication, Project } from '@/lib/schema'
 
 // ─── Boot sequence lines ───────────────────────────────────────────────────
-const BOOT_LINES = [
-  { prefix: '>', text: 'initializing procko.pro...' },
-  { prefix: '>', text: 'loading knowledge graph engine...' },
-  { prefix: '>', text: 'PhD loaded. publications: 40+' },
-  { prefix: '>', text: 'clearance: SECRET [TIER 3]' },
-  { prefix: '>', text: 'status: AVAILABLE' },
-]
+function buildBootLines(pubCount: number, clearance: string) {
+  return [
+    { prefix: '>', text: 'initializing procko.pro...' },
+    { prefix: '>', text: 'loading knowledge graph engine...' },
+    { prefix: '>', text: `PhD loaded. publications: ${pubCount}` },
+    { prefix: '>', text: `clearance: ${clearance.toUpperCase()}` },
+    { prefix: '>', text: 'status: AVAILABLE' },
+  ]
+}
+type BootLine = ReturnType<typeof buildBootLines>[number]
 
 // ─── Stats ─────────────────────────────────────────────────────────────────
-const STATS = [
-  { label: 'Publications', value: '40+' },
-  { label: 'Java / Python', value: '9+ yrs' },
-  { label: 'Projects', value: '30+' },
-  { label: 'Clearance', value: 'SECRET' },
-  { label: 'Degree', value: 'Ph.D. CSCE' },
-  { label: 'Membership', value: 'IEEE' },
-]
+function buildStats(pubCount: number, projCount: number) {
+  return [
+    { label: 'Publications', value: `${pubCount}` },
+    { label: 'Java / Python', value: '9+ yrs' },
+    { label: 'Projects', value: `${projCount}` },
+    { label: 'Clearance', value: 'SECRET' },
+    { label: 'Degree', value: 'Ph.D. CSCE' },
+    { label: 'Membership', value: 'IEEE' },
+  ]
+}
+type Stat = ReturnType<typeof buildStats>[number]
 
 // ─── Category meta ─────────────────────────────────────────────────────────
 const CATEGORY_META: Record<string, { label: string; color: string; chipClass: string }> = {
@@ -124,13 +130,13 @@ function CtaButton({
 
 // ─── Hero / Boot Section ────────────────────────────────────────────────────
 
-function BootSequence({ onComplete }: { onComplete: () => void }) {
+function BootSequence({ lines, onComplete }: { lines: BootLine[]; onComplete: () => void }) {
   const [visibleLines, setVisibleLines] = useState<number>(0)
   const [showCursor, setShowCursor] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
-    if (visibleLines < BOOT_LINES.length) {
+    if (visibleLines < lines.length) {
       timerRef.current = setTimeout(() => {
         setVisibleLines((v) => v + 1)
       }, 420)
@@ -145,11 +151,11 @@ function BootSequence({ onComplete }: { onComplete: () => void }) {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current)
     }
-  }, [visibleLines, onComplete])
+  }, [visibleLines, lines, onComplete])
 
   return (
     <div className="font-mono text-sm space-y-1">
-      {BOOT_LINES.slice(0, visibleLines).map((line, i) => (
+      {lines.slice(0, visibleLines).map((line, i) => (
         <motion.div
           key={i}
           initial={{ opacity: 0, x: -8 }}
@@ -211,7 +217,7 @@ function HeroContent({ person }: { person: Person }) {
         className="text-4xl sm:text-5xl lg:text-6xl font-mono font-bold tracking-widest
                    text-terminal-green text-glow-green animate-glow-pulse"
       >
-        TYLER T. PROCKO
+        {person.name.toUpperCase()}
       </motion.h1>
 
       {/* Title */}
@@ -251,7 +257,7 @@ function HeroContent({ person }: { person: Person }) {
   )
 }
 
-function HeroSection({ person }: { person: Person }) {
+function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLine[] }) {
   const [bootDone, setBootDone] = useState(false)
 
   return (
@@ -292,7 +298,7 @@ function HeroSection({ person }: { person: Person }) {
 
           {/* Terminal body */}
           <div className="p-6 sm:p-8">
-            <BootSequence onComplete={() => setBootDone(true)} />
+            <BootSequence lines={bootLines} onComplete={() => setBootDone(true)} />
 
             <AnimatePresence>
               {bootDone && (
@@ -333,11 +339,11 @@ function HeroSection({ person }: { person: Person }) {
 
 // ─── Stats Bar ─────────────────────────────────────────────────────────────
 
-function StatsBar() {
+function StatsBar({ stats }: { stats: Stat[] }) {
   return (
     <section className="border-y border-terminal-border bg-terminal-surface/40 overflow-hidden">
       <div className="flex flex-wrap justify-center gap-0 divide-x divide-terminal-border">
-        {STATS.map((s, i) => (
+        {stats.map((s, i) => (
           <motion.div
             key={s.label}
             initial={{ opacity: 0, y: 10 }}
@@ -555,7 +561,7 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
             rel="noopener noreferrer"
             className="text-xs font-mono text-terminal-muted hover:text-terminal-blue transition-colors"
           >
-            View all 40+ publications on Google Scholar →
+            View all {publications.length} publications on Google Scholar →
           </a>
         </motion.div>
       </div>
@@ -687,8 +693,8 @@ function Footer() {
             {[
               { label: '~/graph', href: '/graph' },
               { label: '~/cv', href: '/cv' },
-              { label: '~/publications', href: '/publications' },
-              { label: '~/projects', href: '/projects' },
+              { label: '~/resume', href: '/resume' },
+              { label: '~/legacy', href: '/legacy' },
             ].map((l) => (
               <a
                 key={l.href}
@@ -748,11 +754,13 @@ export default function Landing() {
   const skills = person.skills ?? []
   const publications = person.publications ?? []
   const projects = person.projects ?? []
+  const bootLines = buildBootLines(publications.length, person.clearance ?? 'SECRET [TIER 3]')
+  const stats = buildStats(publications.length, projects.length)
 
   return (
     <div className="min-h-screen bg-terminal-bg text-terminal-text font-mono">
-      <HeroSection person={person} />
-      <StatsBar />
+      <HeroSection person={person} bootLines={bootLines} />
+      <StatsBar stats={stats} />
 
       {skills.length > 0 ? (
         <SkillsMatrix skills={skills} />
