@@ -225,7 +225,7 @@ function HeroContent({ person }: { person: Person }) {
         variants={itemVariants}
         className="text-terminal-blue text-glow-blue font-mono text-lg sm:text-xl tracking-wide"
       >
-        Ph.D. · AI Engineer · LLM · Agents · Knowledge Graph · Ontology
+        AI Engineer · LLM · Agents · Knowledge Graph · Ontology
       </motion.p>
 
       {/* Tagline */}
