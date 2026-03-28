@@ -681,7 +681,7 @@ function SkillsMatrix({ person }: { person: Person }) {
   const [view, setView] = useState<SkillView>('categories')
 
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-12">
       <SectionHeader
         prompt="cat skills.json"
         title="Skills Matrix"
@@ -793,7 +793,7 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
 
   return (
     <section className="bg-terminal-surface/20 border-y border-terminal-border">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-12">
         <SectionHeader
           prompt="cat publications.bib | head -5"
           title="Recent Publications"
@@ -914,7 +914,7 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
     .slice(0, 6)
 
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-12">
       <SectionHeader
         prompt="ls -la ~/projects/ | head -6"
         title="Featured Projects"
