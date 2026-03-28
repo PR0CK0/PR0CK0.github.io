@@ -364,7 +364,7 @@ function HeroContent({ person }: { person: Person }) {
       {/* Tagline */}
       <motion.p
         variants={itemVariants}
-        className="italic text-terminal-muted font-mono text-sm sm:text-base max-w-xl"
+        className="italic text-terminal-muted font-mono text-sm sm:text-base whitespace-nowrap"
       >
         &quot;{person.tagline ?? 'Casting the net for knowledge in a sea of infinite information.'}&quot;
       </motion.p>
