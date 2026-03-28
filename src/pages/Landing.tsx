@@ -992,7 +992,7 @@ function ContributionGraph({ username }: { username: string }) {
     Promise.all([
       fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`).then(r => r.json()),
       Promise.all([ghEventsFetch(1), ghEventsFetch(2), ghEventsFetch(3)]).then(pages =>
-        ([] as unknown[]).concat(...pages.filter(Array.isArray))
+        ([] as any[]).concat(...pages.filter(Array.isArray))
       ),
     ]).then(([contribData, events]) => {
       // ── contributions grid ──────────────────────────────────────────────────
