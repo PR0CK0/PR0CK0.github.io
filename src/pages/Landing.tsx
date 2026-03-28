@@ -180,6 +180,21 @@ function CtaButton({
 
 // ─── Hero / Boot Section ────────────────────────────────────────────────────
 
+// ─── Redacted commit messages ───────────────────────────────────────────────
+
+const REDACTED_MSGS = [
+  'hidden for your safety',
+  '[REDACTED] — clearance required',
+  'access denied: need-to-know basis',
+  'this one stays classified',
+  'eyes only',
+  'details withheld by request of the shadow council',
+  'you didn\'t see anything',
+  'memory wiped',
+  '[ERROR] timestamp predates your clearance level',
+  'nothing to see here. move along.',
+]
+
 // ─── Typing Prompt ──────────────────────────────────────────────────────────
 
 const PROMPT_QUERIES = [
@@ -1138,7 +1153,9 @@ function ContributionGraph({ username }: { username: string }) {
                 )}
               </div>
             ) : (
-              <div className="text-terminal-muted/40 italic">commit details beyond 90-day window</div>
+              <div className="text-terminal-muted/40 italic">
+                {REDACTED_MSGS[tooltip.day.date.split('').reduce((a, c) => a + c.charCodeAt(0), 0) % REDACTED_MSGS.length]}
+              </div>
             )}
           </div>
         </div>
