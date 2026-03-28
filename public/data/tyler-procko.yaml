@@ -3723,16 +3723,58 @@ courses:
       - Microsoft PowerPoint
   - number: "SE530"
     name: "Software Requirements Engineering"
+    technologies:
+      - Draw.io
+      - Java
+      - Jira
+      - Confluence
+      - GitHub
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "SE510"
     name: "Software Project Management"
+    technologies:
+      - Draw.io
+      - Java
+      - Jira
+      - Confluence
+      - GitHub
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "CS540"
     name: "Databases and Data Retrieval"
+    technologies:
+      - SQL
+      - PostgreSQL
+      - sqlite3
+      - JDBC
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "CS527"
     name: "System Exploitation and Penetration Testing"
     technologies:
-      - "Kali Linux"
+      - Cybersecurity
+      - Kali Linux
+      - UNIX
+      - RedHat
+      - Wireshark
+      - Python
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "MA544"
     name: "Data Visualization"
+    technologies:
+      - Python
+      - Matplotlib
+      - Plotly
+      - NumPy
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "CS532"
     name: "Software Security Assessment"
   - number: "SYS560"
