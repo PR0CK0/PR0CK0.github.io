@@ -48,6 +48,7 @@ export const PublicationSchema = z.object({
 export const ProjectSchema = z.object({
   id: z.string(),
   title: z.string(),
+  tagline: z.string().optional(),
   description: z.string().optional(),
   year: z.string().optional(),
   technologies: z.array(z.string()).optional(),

@@ -845,10 +845,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         )}
       </div>
 
-      {/* Description */}
-      {project.description && (
-        <p className="text-xs font-mono text-terminal-muted leading-relaxed mb-3 line-clamp-3 flex-1">
-          {project.description}
+      {/* Description — prefer short tagline, fall back to clamped description */}
+      {(project.tagline || project.description) && (
+        <p className="text-xs font-mono text-terminal-muted leading-relaxed mb-3 line-clamp-2 flex-1">
+          {project.tagline ?? project.description}
         </p>
       )}
 
@@ -890,9 +890,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 function ProjectsSection({ projects }: { projects: Project[] }) {
-  const featured = projects.filter((p) => p.featured)
-  const others = projects.filter((p) => !p.featured)
-  const top6 = [...featured, ...others].slice(0, 6)
+  const top6 = [...projects]
+    .sort((a, b) => (b.year ?? '').localeCompare(a.year ?? ''))
+    .slice(0, 6)
 
   return (
     <section className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">

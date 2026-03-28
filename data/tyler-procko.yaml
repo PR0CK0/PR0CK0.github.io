@@ -1521,6 +1521,7 @@ projects:
   - prefix: 'Source: '
     url: https://github.com/PR0CK0/ai-landscape-digest/
     display: github.com/PR0CK0/ai-landscape-digest/
+  tagline: Your local AI release feed, summarized on login — powered by whatever LLM CLI you have.
 - id: proj/biomed-paper-extractor
   title: Biomedical Paper Information Extractor
   year: 2026-03
@@ -1573,6 +1574,7 @@ projects:
   - prefix: 'Hosted on HuggingFace (limited functionality with free hosting): '
     url: https://huggingface.co/spaces/prockot/biomed-paper-extractor
     display: huggingface.co/spaces/prockot/biomed-paper-extractor
+  tagline: 'End-to-end biomedical paper analysis: VLM figure digitization + NER. Gradio UI on HuggingFace Spaces.'
 - id: proj/health-optimization-kg
   title: Health Optimization Knowledge Graph
   year: 2026-03
@@ -1628,6 +1630,7 @@ projects:
   - prefix: 'Source: '
     url: https://github.com/PR0CK0/health-optimization-knowledge-graph
     display: github.com/PR0CK0/health-optimization-knowledge-graph
+  tagline: BFO-aligned, evidence-graded knowledge graph for health optimization interventions.
 - id: proj/ocsf-visualizer
   title: OCSF Visualizer
   year: 2026-02
@@ -1652,6 +1655,7 @@ projects:
   - prefix: 'Source: '
     url: https://github.com/PR0CK0/ocsf-visualizer
     display: github.com/PR0CK0/ocsf-visualizer
+  tagline: Browser-based Cytoscape.js interactive graph view of the Open Cybersecurity Schema Framework.
 - id: proj/bfo-wikidata-classifier
   title: BFO-Wikidata Classifier
   year: 2025-11
@@ -1688,6 +1692,7 @@ projects:
   - A transformer-based, multi-strategy, hierarchical classification system that maps Wikidata entities to Basic Formal Ontology
     (BFO) classes
   - Employed cascading and ensembling NLP and ML techniques
+  tagline: Transformer-based hierarchical classifier mapping Wikidata entities to BFO classes.
 - id: proj/bert-benchmarking
   title: BERT Model Benchmarking Suite
   year: 2025-11
@@ -1727,6 +1732,7 @@ projects:
   - A comprehensive benchmarking framework for comparing BERT model variants on inference speed, memory efficiency, and model
     size
   - Designed for compute-constrained environments and on-premise deployments
+  tagline: Benchmarks BERT variants on inference speed, memory, and size for compute-constrained deployments.
 - id: proj/bfobert
   title: BFO-BERT Classifier
   year: 2025-11
@@ -1759,6 +1765,7 @@ projects:
   - A lightweight fine-tuning script for DistilBERT that classifies ontology terms as either Continuant or Occurrent in the
     spirit of the Basic Formal Ontology (BFO)
   - Designed as a simple, reproducible proof of concept for text-based ontological classification
+  tagline: Fine-tunes DistilBERT to classify ontology terms as Continuant or Occurrent under BFO.
 - id: proj/dissenter
   title: dissenter
   year: 2026-03
@@ -1801,6 +1808,7 @@ projects:
   - prefix: 'Source: '
     url: https://github.com/PR0CK0/dissenter
     display: github.com/PR0CK0/dissenter
+  tagline: Run multiple LLMs through a structured debate, surface disagreements, synthesize a decision.
 - id: proj/provtracer
   title: ProvTracer
   year: 2024-05
@@ -1838,6 +1846,7 @@ projects:
   - prefix: 'Source: '
     url: https://github.com/PR0CK0/ProvTracer
     display: github.com/PR0CK0/ProvTracer
+  tagline: Automatically captures digital artifact provenance using a multimodal LLM and knowledge graph serialization.
 - id: proj/personal
   title: Personal & Creative Work
   year: 2016-08
@@ -1853,6 +1862,7 @@ projects:
   tags:
   - personal
   - creative
+  tagline: Personal creative and hobby projects spanning 3D modeling, photo/video editing, and game design.
 - id: proj/cloudcell-consulting
   title: Linked Data Consultant and Scientific Writer
   year: 2023-12
@@ -1890,6 +1900,7 @@ projects:
   bullets:
   - Used the SD WebUI, a variety of models, LoRAs and VAES, along with prompting techniques, to generate images
   - An investigation into the toolset for the purpose of future work on generating synthetic data for military vision models
+  tagline: End-to-end guide for Stable Diffusion — from setup through LoRA fine-tuning.
 - id: proj/nlp-optimization
   title: An Investigation into Computational Efficiency Optimization of Natural Language Processing Vectorization Techniques
     on Large Corpora in Python
@@ -1921,6 +1932,7 @@ projects:
   - Used Numpy, Numba, Numexpr, Cython, parallel Cython and MPI to improve the computational efficiency of basic vectorization
     algorithms for NLP (e.g., TF-IDF and Naïve Bayes)
   - Project shifted to optimization of Mandelbrot set calculation
+  tagline: Optimization of NLP vectorization on large corpora using Numba, Cython, and MPI.
 - id: proj/bfo-buddy
   title: BFO Buddy
   year: 2022-07
@@ -1941,6 +1953,7 @@ projects:
   members: 1 member
   bullets:
   - A command-line Python tool for bootstrapping ontology development with BFO
+  tagline: CLI tool for bootstrapping ontology development with the Basic Formal Ontology (BFO).
 - id: proj/usa-obesity-visualization
   title: USA Obesity Rates Visualization and Analysis
   year: 2021-12
@@ -1969,6 +1982,7 @@ projects:
   - A Pandas/Tableau visualization incorporating dozens of datasets with thousands of data points taken from public US Census
     datasets; analysis on obesity by region, age group, food quality and various other factors
   - Additionally, curated statistics on the World's Strongest Man competitors and performed analysis on their capabilities
+  tagline: Data analysis and Tableau visualization of USA obesity rates by state.
 - id: proj/upper-martial-arts-ontology
   title: Upper Martial Arts Ontology (UMAO)
   year: 2021-07
@@ -1990,6 +2004,7 @@ projects:
   bullets:
   - Represented the domain of martial arts using Schema.org as the base taxonomy, and Bruce Lee's Jeet Kune Do book as the
     lexicon
+  tagline: OWL ontology modeling the upper-level concepts of martial arts disciplines.
 - id: proj/volusia-elevation-qgis
   title: Volusia County Parcel Elevation Visualization with SQL and QGIS
   year: 2021-05
@@ -2016,6 +2031,7 @@ projects:
   - A QGIS visualization utilizing several public shape files to display the approximate sea-level elevation of all parcels
     in Volusia County Florida
   - Used several complex GIS functions to perform contour line elevation calculations and QGIS to visualize it
+  tagline: Finding parcel elevations across Volusia County, FL using PostGIS and QGIS.
 - id: proj/bittorrent-semp
   title: BitTorrent Systems Engineering Management Plan
   year: 2020-12
@@ -2095,6 +2111,7 @@ projects:
   bullets:
   - Scraped the website knowyourmeme.com and derived a taxonomy for memes
   - Populated this taxonomy with over ten thousand memes and performed cluster analysis to find meme categories
+  tagline: Crawls KnowYourMeme.com confirmed memes into a knowledge graph (MEMO — the Meme Ontology).
 - id: proj/nas-server
   title: Network Attached Storage (NAS) Server
   year: 2019-07
@@ -2186,6 +2203,7 @@ projects:
   bullets:
   - Simulated the real-time system of a water heater in VxWorks C, utilizing complex techniques with semaphores, watchdogs
     and various other multithreading concepts
+  tagline: Simulates a water heater in C using VxWorks threads, mutexes, semaphores, and watchdogs.
 - id: proj/encrypted-sound-messages
   title: Encrypted Text Messages Transmitted Via Near-Field Sound
   year: 2019-05
@@ -2231,6 +2249,7 @@ projects:
   - Strict model-view separation and multithreading was implemented
   - Connectivity via LAN with the separate codebase of other students using a common interface of serialized classes and TCP
     sockets
+  tagline: LAN-capable multiplayer SOS board game in Java with a Swing GUI.
 - id: proj/monster-hunter-world
   title: 'Monster Hunter: World Player Support Project (MHW:PSP)'
   year: 2018-05
@@ -2261,6 +2280,7 @@ projects:
   - Populated 22 tables with over 1500 game-accurate entries
   - Developed MySQL schema using PHPMyAdmin, connected the Java code to the database using JDBC, designed and created the
     user interface (UI) and all functionality
+  tagline: 'Java + SQL app for searching Monster Hunter: World items, monsters, and building armor sets.'
 - id: proj/eagle-listings
   title: EagleListings
   year: 2017-12
@@ -2287,6 +2307,7 @@ projects:
   - Created a Java/MySQL application for sales between students of ERAU Daytona
   - Implemented the database interface using JDBC, designed and created the UI
   - Acted as the SCRUM master for the team
+  tagline: Campus marketplace app built in Java with a Swing GUI and MySQL backend.
 - id: proj/tiles-game
   title: Tiles
   year: 2017-05
@@ -2303,6 +2324,7 @@ projects:
   members: 1 member
   bullets:
   - Created a fast-paced clicker game in Java
+  tagline: JavaFX sliding tile puzzle game.
 - id: proj/text-racing-game
   title: Text-Based Racing Game
   year: 2016-12
@@ -2318,6 +2340,7 @@ projects:
   members: 1 member
   bullets:
   - Created a text-based, console racing game supporting up to four players in C
+  tagline: CLI text-based racing game in C.
 - id: proj/boe-bot-robot
   title: Boe-Bot Line Follower Robot
   year: 2016-12
