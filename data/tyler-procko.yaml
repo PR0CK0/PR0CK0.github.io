@@ -215,8 +215,6 @@ work_experiences:
   - RDF
   - RDFS
   - OWL
-  - ML Provenance
-  - Knowledge Graphs
   category: defense_research
   date_display: May 2024 - Aug 2024
   title_line: 'SMART Scholar AI Research Scientist - ML Provenance, '
@@ -224,6 +222,9 @@ work_experiences:
   bullets:
   - Advanced provenance capture for real-time systems, with a focus on large ML pipelines
   - Annotated remote, fully autonomous ML platform images in CVAT
+  domains:
+  - Knowledge Graphs
+  - ML Provenance
 - id: work/afrl-2023
   title: SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD
   organization: Air Force Research Laboratory (AFRL)
@@ -247,8 +248,6 @@ work_experiences:
   - GPT
   - OpenAI
   - MISTK
-  - Computer Vision
-  - Ontology Engineering
   category: defense_research
   date_display: May 2023 - Aug 2023
   title_line: 'SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD, '
@@ -256,6 +255,9 @@ work_experiences:
   bullets:
   - Curated multiple military documents and produced a proto-ontology in JSON-LD for recording the provenance of computer
     vision tasks
+  domains:
+  - Computer Vision
+  - Ontology Engineering
 - id: work/afrl-2022
   title: SMART Scholar AI Research Scientist - Machine Learning Interoperability with BFO
   organization: Air Force Research Laboratory (AFRL)
@@ -343,8 +345,6 @@ work_experiences:
   - SKOS
   - PROV-O
   - Protégé
-  - Semantic Web
-  - XAI
   - ImageNet
   - ADE20K
   - MNIST
@@ -360,6 +360,9 @@ work_experiences:
   bullets:
   - Worked remotely due to COVID-19 and managed to produce “explanations” for machine learning, using background semantic
     knowledge and the DL-Learner framework
+  domains:
+  - Semantic Web
+  - XAI
 - id: work/afrl-2019
   title: AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs
   organization: Air Force Research Laboratory (AFRL)
@@ -382,9 +385,6 @@ work_experiences:
   - GitHub
   - Jira
   - Confluence
-  - Knowledge Graphs
-  - Machine Learning
-  - Ontology
   category: defense_research
   date_display: May 2019 - Aug 2019
   title_line: 'AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs, '
@@ -393,6 +393,10 @@ work_experiences:
   - Worked with others in “boosting” semantic graphs through ML
   - Modelled topics from ontologies and eventually assessed ontology quality through metrics
   - Produced multitudes of relevant data for the Air Force, as well as a basic ontology quality assessment framework
+  domains:
+  - Knowledge Graphs
+  - Machine Learning
+  - Ontology
 - id: work/cloudcell-consultant
   title: Academic Consultant and Editor
   organization: Cloudcell Limited
@@ -420,8 +424,6 @@ work_experiences:
   description:
   - Consulted with a client on FOL/HOL ontology reasoning
   technologies:
-  - FOL
-  - HOL
   - OWL
   - RDF
   - RDFS
@@ -432,6 +434,9 @@ work_experiences:
   org: Upwork
   bullets:
   - Consulted with a client on FOL/HOL ontology reasoning
+  domains:
+  - FOL
+  - HOL
 - id: work/upwork-ontology-engineer-2024
   title: Ontology Engineer
   organization: Upwork
@@ -445,8 +450,6 @@ work_experiences:
   - RDF
   - RDFS
   - Protégé
-  - FOL
-  - Description Logics
   category: consulting
   date_display: July 2024
   title_line: 'Ontology Engineer - '
@@ -454,6 +457,9 @@ work_experiences:
   bullets:
   - Developed a mid-level ontology for a discreet domain
   - Provided stakeholder-level documentation on OWL reasoning and description logics
+  domains:
+  - Description Logics
+  - FOL
 - id: work/upwork-nuclear
   title: Nuclear Construction Ontology Engineer
   organization: Upwork
@@ -466,13 +472,14 @@ work_experiences:
   - RDF
   - RDFS
   - Protégé
-  - Ontology Engineering
   category: consulting
   date_display: June 2024
   title_line: 'Nuclear Construction Ontology Engineer - '
   org: Upwork
   bullets:
   - Consulted on, and developed, an ontology to be used for nuclear facility construction process evaluation
+  domains:
+  - Ontology Engineering
 - id: work/quiet-professionals
   title: AI Consultant and Ontology Engineer
   organization: Quiet Professionals
@@ -495,7 +502,6 @@ work_experiences:
   - Stardog
   - Microsoft Teams
   - Microsoft Excel
-  - LLMs
   - DICO
   - JANES
   category: consulting
@@ -506,6 +512,8 @@ work_experiences:
   bullets:
   - Consulted on large language models in DoD use cases
   - Engineered a BFO/CCO implementation for DoD data standardization
+  domains:
+  - LLMs
 - id: work/hooray-media
   title: Ontologist and Linked Data Engineer
   organization: Hooray Media
@@ -524,7 +532,6 @@ work_experiences:
   - GraphDB
   - GitHub
   - WordPress
-  - Linked Data
   category: consulting
   date_display: Nov 2023 - May 2024
   title_line: 'Ontologist and Linked Data Engineer - '
@@ -533,6 +540,8 @@ work_experiences:
   bullets:
   - Consulted on an ontology to be integrated with a WordPress ecosystem for a local content publishing company
   - Developed a Linked Data taxonomy for web post content
+  domains:
+  - Linked Data
 - id: work/the-link
   title: Ontologist and Knowledge Graph Engineer
   organization: The Link
@@ -559,10 +568,6 @@ work_experiences:
   - CSV
   - TSV
   - JSON
-  - NER
-  - NLP
-  - Text Extraction
-  - Knowledge Graphs
   - Stardog
   category: consulting
   date_display: Aug 2023 - Jan 2024
@@ -573,6 +578,11 @@ work_experiences:
   - Consulted on an ontology for the construction industry
   - Engineered a system for knowledge graph extraction from construction documents
   - Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000 relations
+  domains:
+  - Knowledge Graphs
+  - NER
+  - NLP
+  - Text Extraction
 - id: work/upwork-legal
   title: Legal Ontology Consultant
   organization: Upwork
@@ -625,7 +635,6 @@ work_experiences:
   - WKT
   - GIS
   - Protégé
-  - FOL
   - GraphDB
   - Stardog
   category: consulting
@@ -636,6 +645,8 @@ work_experiences:
   - Queried a large geospatial ontology with complex SPARQL
   - Diagnosed and fixed issues with OWL and SWRL reasoning
   - Produced visualizations in GraphDB and Stardog
+  domains:
+  - FOL
 - id: work/upwork-kg-engineer
   title: Knowledge Graph Engineer
   organization: Upwork
@@ -765,11 +776,6 @@ work_experiences:
   - Stardog
   - Microsoft Word
   - Microsoft PowerPoint
-  - Semantic Web
-  - Machine Learning
-  - NLP
-  - Linked Data
-  - Cybersecurity
   category: graduate
   date_display: Jan 2019 - Present
   title_line: 'AI Research Team Lead and Semantic Web Consultant, '
@@ -781,6 +787,12 @@ work_experiences:
     most of which centered around Semantic technology
   - Acted as Semantic Web consultant for various other student researchers, in addition to providing assistance in paper review
     and revision
+  domains:
+  - Cybersecurity
+  - Linked Data
+  - Machine Learning
+  - NLP
+  - Semantic Web
 - id: work/grader-cs344
   title: Grader for CS344 - C Programming and UNIX
   organization: ERAU Daytona
@@ -1544,8 +1556,6 @@ projects:
   technologies:
   - Python
   - Hugging Face
-  - VLM
-  - NER
   - Ollama
   - OpenAI
   - Anthropic
@@ -1579,6 +1589,9 @@ projects:
     url: https://huggingface.co/spaces/prockot/biomed-paper-extractor
     display: huggingface.co/spaces/prockot/biomed-paper-extractor
   tagline: 'End-to-end biomedical paper analysis: VLM figure digitization + NER. Gradio UI on HuggingFace Spaces.'
+  domains:
+  - NER
+  - VLM
 - id: proj/health-optimization-kg
   title: Health Optimization Knowledge Graph
   year: 2026-03
@@ -1677,7 +1690,6 @@ projects:
   - Transformers
   - BFO
   - Wikidata
-  - NLP
   - sentence-transformers
   - scikit-learn
   - PyTorch
@@ -1697,6 +1709,8 @@ projects:
     (BFO) classes
   - Employed cascading and ensembling NLP and ML techniques
   tagline: Transformer-based hierarchical classifier mapping Wikidata entities to BFO classes.
+  domains:
+  - NLP
 - id: proj/bert-benchmarking
   title: BERT Model Benchmarking Suite
   year: 2025-11
@@ -1855,18 +1869,18 @@ projects:
   title: Personal & Creative Work
   year: 2016-08
   description: Creative and personal tools used outside of professional or academic contexts.
-  technologies:
-  - Adobe Photoshop
-  - Adobe Illustrator
-  - Adobe After Effects
-  - AutoCAD LTE
-  - Google SketchUp
-  - sqlite3
-  - Devise
   tags:
   - personal
   - creative
   tagline: Personal creative and hobby projects spanning 3D modeling, photo/video editing, and game design.
+  personal_skills:
+  - Adobe After Effects
+  - Adobe Illustrator
+  - Adobe Photoshop
+  - AutoCAD LTE
+  - Devise
+  - Google SketchUp
+  - sqlite3
 - id: proj/cloudcell-consulting
   title: Linked Data Consultant and Scientific Writer
   year: 2023-12
@@ -2040,14 +2054,14 @@ projects:
   title: BitTorrent Systems Engineering Management Plan
   year: 2020-12
   description: Produced an entire systems plan for the BitTorrent protocol and application, as a case study
-  technologies:
-  - Systems Engineering
   tags:
   - systems engineering
   date_display: Aug 2020 - Dec 2020
   members: 1 member
   bullets:
   - Produced an entire systems plan for the BitTorrent protocol and application, as a case study
+  soft_skills:
+  - Systems Engineering
 - id: proj/ms-word-usability
   title: Microsoft Word Usability Desiderata
   year: 2020-05
@@ -2100,8 +2114,6 @@ projects:
     '
   technologies:
   - Python
-  - Web Scraping
-  - Cluster Analysis
   - CSS
   - GitHub
   - HTML
@@ -2116,6 +2128,9 @@ projects:
   - Scraped the website knowyourmeme.com and derived a taxonomy for memes
   - Populated this taxonomy with over ten thousand memes and performed cluster analysis to find meme categories
   tagline: Crawls KnowYourMeme.com confirmed memes into a knowledge graph (MEMO — the Meme Ontology).
+  domains:
+  - Cluster Analysis
+  - Web Scraping
 - id: proj/nas-server
   title: Network Attached Storage (NAS) Server
   year: 2019-07
@@ -2129,7 +2144,6 @@ projects:
   technologies:
   - XigmaNAS
   - RAID
-  - Networking
   tags:
   - infrastructure
   - homelab
@@ -2139,13 +2153,13 @@ projects:
   - Built a personal NAS server with 16TB of hard drive space in RAID-1
   - Populated personal data, practiced standardized data naming conventions, organizational principles, governance techniques
     and security measures on a LAN
+  domains:
+  - Networking
 - id: proj/ludum-dare-44
   title: Ludum Dare 44
   year: 2019-05
   url: https://ldjam.com/events/ludum-dare/44/grim
   description: Produced a game in a 48 hour game jam. Placed top 3% globally. Responsible for all art and music.
-  technologies:
-  - Game Development
   tags:
   - game development
   - art
@@ -2155,6 +2169,8 @@ projects:
   - Produced a game in a 48 hour game jam
   - Placed top 3% globally
   - Responsible for all art and music
+  domains:
+  - Game Development
 - id: proj/arocket
   title: ARocket
   year: 2019-02
@@ -2174,7 +2190,6 @@ projects:
   - Unity
   - C#
   - Android
-  - AR
   tags:
   - game development
   - AR
@@ -2187,6 +2202,8 @@ projects:
   - The application allowed the user to create and launch a rocket in a virtual-physical space, in addition to refueling and
     landing the craft
   - Sourced and created all the audio and visual media for the application, in addition to implementing some physics
+  domains:
+  - AR
 - id: proj/vxworks-water-heater
   title: VxWorks C Water Heater Simulation
   year: 2019-05
@@ -2197,7 +2214,6 @@ projects:
   technologies:
   - C
   - VxWorks
-  - Real-Time Systems
   - GitHub
   tags:
   - embedded systems
@@ -2208,6 +2224,8 @@ projects:
   - Simulated the real-time system of a water heater in VxWorks C, utilizing complex techniques with semaphores, watchdogs
     and various other multithreading concepts
   tagline: Simulates a water heater in C using VxWorks threads, mutexes, semaphores, and watchdogs.
+  domains:
+  - Real-Time Systems
 - id: proj/encrypted-sound-messages
   title: Encrypted Text Messages Transmitted Via Near-Field Sound
   year: 2019-05
@@ -2216,7 +2234,6 @@ projects:
   technologies:
   - Python
   - Chirp
-  - Cryptography
   tags:
   - cryptography
   - mobile
@@ -2225,6 +2242,8 @@ projects:
   bullets:
   - Used the Chirp library of Python to produce a phone app that could transmit encrypted messages over proximal sound with
     public key encryption
+  domains:
+  - Cryptography
 - id: proj/lan-board-game
   title: LAN Multiplayer Board Game
   year: 2018-12
@@ -2239,7 +2258,6 @@ projects:
     '
   technologies:
   - Java
-  - Networking
   - TCP
   - CSS
   - GitHub
@@ -2254,6 +2272,8 @@ projects:
   - Connectivity via LAN with the separate codebase of other students using a common interface of serialized classes and TCP
     sockets
   tagline: LAN-capable multiplayer SOS board game in Java with a Swing GUI.
+  domains:
+  - Networking
 - id: proj/monster-hunter-world
   title: 'Monster Hunter: World Player Support Project (MHW:PSP)'
   year: 2018-05
@@ -2351,7 +2371,6 @@ projects:
   description: Built and programmed an Arduino robot to follow lines and respond to the position of various colored objects
   technologies:
   - Arduino
-  - Embedded Systems
   tags:
   - robotics
   - embedded systems
@@ -2359,6 +2378,8 @@ projects:
   members: 3 members
   bullets:
   - Built and programmed an Arduino robot to follow lines and respond to the position of various colored objects
+  domains:
+  - Embedded Systems
 skills:
 - id: skill/java
   name: Java
@@ -3601,6 +3622,7 @@ courses:
   - HTML
   - JavaFX
   - Swing
+  domains:
   - Game Development
 - number: EC225
   name: Engineering Economics
@@ -3642,14 +3664,14 @@ courses:
   - UNIX
   - RedHat
   - GitHub
-  - Cryptography
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Cryptography
 - number: CS303
   name: Network Security
   technologies:
-  - Cybersecurity
   - Java
   - Python
   - Draw.io
@@ -3660,6 +3682,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Cybersecurity
 - number: CEC450
   name: Real-Time Systems
   technologies:
@@ -3675,7 +3699,6 @@ courses:
 - number: CS426
   name: Digital Forensics
   technologies:
-  - Cybersecurity
   - Java
   - Python
   - Kali Linux
@@ -3686,6 +3709,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Cybersecurity
 - number: CS420
   name: Operating Systems
   technologies:
@@ -3699,7 +3724,6 @@ courses:
 - number: SE625
   name: Software Quality Engineering and Assurance
   technologies:
-  - SQA
   - Java
   - Python
   - JUnit
@@ -3710,6 +3734,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - SQA
 - number: SE450, SE451
   name: Software Capstone Projects I & II
   technologies:
@@ -3779,15 +3805,15 @@ courses:
   technologies:
   - SQL
   - PostgreSQL
-  - sqlite3
   - JDBC
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  personal_skills:
+  - sqlite3
 - number: CS527
   name: System Exploitation and Penetration Testing
   technologies:
-  - Cybersecurity
   - Kali Linux
   - UNIX
   - RedHat
@@ -3796,6 +3822,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Cybersecurity
 - number: MA544
   name: Data Visualization
   technologies:
@@ -3809,7 +3837,6 @@ courses:
 - number: CS532
   name: Software Security Assessment
   technologies:
-  - Cybersecurity
   - Python
   - Draw.io
   - Kali Linux
@@ -3818,6 +3845,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Cybersecurity
 - number: SYS560
   name: Introduction to Systems Engineering Management
   technologies:
@@ -3847,8 +3876,9 @@ courses:
   - Cython
   - MPI
   - spaCy
-  - NLP
+  domains:
   - Machine Learning
+  - NLP
   - Real-Time Systems
 - number: HFS525
   name: Human, Social & Organizational Factors in Emerging Technologies
@@ -3897,22 +3927,23 @@ courses:
   - CCO
   - DCTerms
   - PROV-O
-  - Semantic Web
-  - Linked Data
-  - ML Provenance
-  - Computer Vision
-  - XAI
-  - LLMs
-  - Ontology
-  - Text Extraction
-  - Ontology Engineering
-  - Cybersecurity
-  - Knowledge Graphs
   - Draw.io
   - GitHub
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Computer Vision
+  - Cybersecurity
+  - Knowledge Graphs
+  - LLMs
+  - Linked Data
+  - ML Provenance
+  - Ontology
+  - Ontology Engineering
+  - Semantic Web
+  - Text Extraction
+  - XAI
 - number: SE800
   name: Dissertation Hours
   technologies:
@@ -3935,22 +3966,23 @@ courses:
   - CCO
   - DCTerms
   - PROV-O
-  - Semantic Web
-  - Linked Data
-  - ML Provenance
-  - Computer Vision
-  - XAI
-  - LLMs
-  - Ontology
-  - Text Extraction
-  - Ontology Engineering
-  - Cybersecurity
-  - Knowledge Graphs
   - Draw.io
   - GitHub
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Computer Vision
+  - Cybersecurity
+  - Knowledge Graphs
+  - LLMs
+  - Linked Data
+  - ML Provenance
+  - Ontology
+  - Ontology Engineering
+  - Semantic Web
+  - Text Extraction
+  - XAI
 literacy:
 - date: Feb 2023 (WIP)
   title: A Knowledge Representation Practionary

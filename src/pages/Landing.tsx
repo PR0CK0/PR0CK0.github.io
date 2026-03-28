@@ -504,26 +504,38 @@ function StatsBar({ stats }: { stats: Stat[] }) {
 type AggregatedSkill = { name: string; count: number; category: SkillCategory }
 
 function aggregateSkills(person: Person): AggregatedSkill[] {
-  const counts = new Map<string, number>()
+  const skillMap = new Map<string, { count: number; category: SkillCategory }>()
 
-  const allTech = [
-    ...(person.projects ?? []).flatMap((p) => p.technologies ?? []),
-    ...(person.work_experiences ?? []).flatMap((w) => w.technologies ?? []),
-    ...(person.courses ?? []).flatMap((c) => c.technologies ?? []),
-    ...(person.extracurriculars ?? []).flatMap((e) => e.technologies ?? []),
-    ...(person.publications ?? []).flatMap((p) => p.technologies ?? []),
-  ]
-
-  for (const tech of allTech) {
-    counts.set(tech, (counts.get(tech) ?? 0) + 1)
+  const add = (name: string, category: SkillCategory) => {
+    const e = skillMap.get(name)
+    if (e) e.count++
+    else skillMap.set(name, { count: 1, category })
   }
 
-  const result: AggregatedSkill[] = []
-  for (const [name, count] of counts.entries()) {
-    const category = TECH_CATEGORIES[name]
-    if (category) result.push({ name, count, category })
+  const entities = [
+    ...(person.projects ?? []),
+    ...(person.work_experiences ?? []),
+    ...(person.courses ?? []),
+    ...(person.extracurriculars ?? []),
+    ...(person.publications ?? []),
+  ] as Array<{
+    technologies?: string[]
+    domains?: string[]
+    soft_skills?: string[]
+    personal_skills?: string[]
+  }>
+
+  for (const e of entities) {
+    for (const t of e.technologies ?? []) {
+      const cat = TECH_CATEGORIES[t]
+      if (cat) add(t, cat)
+    }
+    for (const d of e.domains ?? [])        add(d, 'paradigms')
+    for (const s of e.soft_skills ?? [])    add(s, 'soft_skills')
+    for (const p of e.personal_skills ?? []) add(p, 'personal')
   }
-  return result
+
+  return Array.from(skillMap.entries()).map(([name, { count, category }]) => ({ name, count, category }))
 }
 
 function SkillChip({ skill, chipClass, opacity }: { skill: AggregatedSkill; chipClass: string; opacity: number }) {

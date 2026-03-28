@@ -29,6 +29,9 @@ export const WorkExperienceSchema = z.object({
   location: z.string().optional(),
   description: z.array(z.string()).optional(),
   technologies: z.array(z.string()).optional(),
+  domains: z.array(z.string()).optional(),
+  soft_skills: z.array(z.string()).optional(),
+  personal_skills: z.array(z.string()).optional(),
 })
 
 export const PublicationSchema = z.object({
@@ -41,8 +44,10 @@ export const PublicationSchema = z.object({
   doi: z.string().optional(),
   url: z.string().optional(),
   abstract: z.string().optional(),
-  tags: z.array(z.string()).optional(),
   technologies: z.array(z.string()).optional(),
+  domains: z.array(z.string()).optional(),
+  soft_skills: z.array(z.string()).optional(),
+  personal_skills: z.array(z.string()).optional(),
 })
 
 export const ProjectSchema = z.object({
@@ -52,10 +57,12 @@ export const ProjectSchema = z.object({
   description: z.string().optional(),
   year: z.string().optional(),
   technologies: z.array(z.string()).optional(),
+  domains: z.array(z.string()).optional(),
+  soft_skills: z.array(z.string()).optional(),
+  personal_skills: z.array(z.string()).optional(),
   url: z.string().optional(),
   repo_url: z.string().optional(),
   featured: z.boolean().optional(),
-  tags: z.array(z.string()).optional(),
 })
 
 export const SkillSchema = z.object({
@@ -106,6 +113,9 @@ export const CourseSchema = z.object({
   number: z.string(),
   name: z.string(),
   technologies: z.array(z.string()).optional(),
+  domains: z.array(z.string()).optional(),
+  soft_skills: z.array(z.string()).optional(),
+  personal_skills: z.array(z.string()).optional(),
 })
 
 export const ExtracurricularSchema = z.object({
@@ -116,6 +126,9 @@ export const ExtracurricularSchema = z.object({
   description: z.string().optional(),
   date: z.string().optional(),
   technologies: z.array(z.string()).optional(),
+  domains: z.array(z.string()).optional(),
+  soft_skills: z.array(z.string()).optional(),
+  personal_skills: z.array(z.string()).optional(),
 })
 
 export const PersonSchema = z.object({
