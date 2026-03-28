@@ -229,26 +229,26 @@ function TypingPrompt({ onFirstTyped }: { onFirstTyped?: () => void }) {
       timer.current = setTimeout(() => {
         setIdx(Math.floor(Math.random() * PROMPT_QUERIES.length))
         setPhase('typing')
-      }, 900)
+      }, 600)
     } else if (phase === 'typing') {
       if (text.length < query.length) {
         timer.current = setTimeout(() => {
           setText(query.slice(0, text.length + 1))
-        }, 55 + Math.random() * 65)
+        }, 37 + Math.random() * 43)
       } else {
         if (!firedRef.current) {
           firedRef.current = true
           onFirstTyped?.()
         }
-        timer.current = setTimeout(() => setPhase('pausing'), 2200 + Math.random() * 800)
+        timer.current = setTimeout(() => setPhase('pausing'), 1467 + Math.random() * 533)
       }
     } else if (phase === 'pausing') {
-      timer.current = setTimeout(() => setPhase('deleting'), 120)
+      timer.current = setTimeout(() => setPhase('deleting'), 80)
     } else if (phase === 'deleting') {
       if (text.length > 0) {
         timer.current = setTimeout(() => {
           setText((t) => t.slice(0, -1))
-        }, 28 + Math.random() * 18)
+        }, 19 + Math.random() * 12)
       } else {
         // Pick a different query next time
         setIdx((i) => (i + 1 + Math.floor(Math.random() * (PROMPT_QUERIES.length - 1))) % PROMPT_QUERIES.length)
@@ -279,14 +279,14 @@ function BootSequence({ lines, onComplete, onFirstTyped }: { lines: BootLine[]; 
     if (visibleLines < lines.length) {
       timerRef.current = setTimeout(() => {
         setVisibleLines((v) => v + 1)
-      }, 180)
+      }, 120)
     } else {
       timerRef.current = setTimeout(() => {
         setShowCursor(true)
         timerRef.current = setTimeout(() => {
           onComplete()
-        }, 400)
-      }, 100)
+        }, 267)
+      }, 67)
     }
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current)
