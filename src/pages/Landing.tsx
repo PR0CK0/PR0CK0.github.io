@@ -10,7 +10,7 @@ function buildBootLines(pubCount: number, clearance: string) {
   return [
     { prefix: '>', text: 'initializing procko.pro...' },
     { prefix: '>', text: 'loading knowledge graph engine...' },
-    { prefix: '>', text: `PhD loaded. publications: ${pubCount}` },
+    { prefix: '>', text: `deploying agent swarm...` },
     { prefix: '>', text: `clearance: ${clearance.toUpperCase()}` },
     { prefix: '>', text: 'status: AVAILABLE' },
   ]
