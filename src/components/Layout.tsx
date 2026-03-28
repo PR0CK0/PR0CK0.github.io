@@ -19,7 +19,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-terminal-bg">
+    <div className="h-screen flex flex-col bg-terminal-bg overflow-hidden">
       <nav className="border-b border-terminal-border bg-terminal-surface sticky top-0 z-50">
         <div className="relative">
           <div
@@ -68,7 +68,7 @@ export default function Layout({ children }: LayoutProps) {
       <div className="bg-red-950/60 border-b border-red-500/40 px-3 py-1 sm:py-1.5 text-center font-mono text-[0.65rem] sm:text-xs text-red-400/90 tracking-wide">
         ⚠ under construction — content and features are incomplete
       </div>
-      <main className="flex-1">
+      <main className="flex-1 overflow-auto min-h-0">
         {children}
       </main>
     </div>

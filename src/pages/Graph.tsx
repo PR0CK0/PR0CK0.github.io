@@ -239,6 +239,8 @@ export default function Graph() {
   const [searchQuery, setSearchQuery] = useState(() => searchParams.get('q') ?? '')
   const [cyReady, setCyReady] = useState(false)
   const [selectedNode, setSelectedNode] = useState<SelectedNode | null>(null)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(true)
 
   // Track stats
   const [stats, setStats] = useState({ nodes: 0, edges: 0 })
@@ -430,271 +432,277 @@ export default function Graph() {
 
   // ─── Render ─────────────────────────────────────────────────────────────────
 
-  return (
-    <div
-      className="flex overflow-hidden font-mono"
-      style={{ height: 'calc(100vh - 48px)', background: '#0a0e1a' }}
-    >
-      {/* ── Sidebar ── */}
-      <aside
-        className="flex flex-col overflow-y-auto flex-shrink-0"
-        style={{
-          width: 280,
-          background: '#0f1629',
-          borderRight: '1px solid #1e2d4a',
-        }}
-      >
-        {/* Header */}
-        <div
-          className="px-4 py-3 flex-shrink-0"
-          style={{ borderBottom: '1px solid #1e2d4a' }}
-        >
-          <div className="text-xs font-bold tracking-widest uppercase mb-0.5" style={{ color: '#00ff88' }}>
-            Knowledge Graph
-          </div>
-          <div className="text-xs" style={{ color: '#4a5a7a' }}>
-            {stats.nodes} nodes &middot; {stats.edges} edges
-          </div>
+  // Sidebar content shared between desktop and mobile drawer
+  const sidebarContent = (
+    <>
+      {/* Filter by type */}
+      <div className="px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
+        <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: '#4a5a7a' }}>
+          Filter by type
         </div>
-
-        {/* Filter by type */}
-        <div className="px-4 py-3 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
-          <div className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#4a5a7a' }}>
-            Filter by type
-          </div>
-          <div className="flex flex-col gap-1.5">
-            {NODE_TYPES.map((type) => {
-              const meta = TYPE_META[type]
-              const enabled = enabledTypes.has(type)
-              return (
-                <label
-                  key={type}
-                  className="flex items-center gap-2 cursor-pointer select-none group"
-                  style={{ opacity: enabled ? 1 : 0.45 }}
+        {/* On mobile: wrap in a horizontal scroll row; on desktop: vertical list */}
+        <div className="flex sm:flex-col gap-1.5 overflow-x-auto sm:overflow-x-visible pb-1 sm:pb-0" style={{ scrollbarWidth: 'none' }}>
+          {NODE_TYPES.map((type) => {
+            const meta = TYPE_META[type]
+            const enabled = enabledTypes.has(type)
+            return (
+              <label
+                key={type}
+                className="flex items-center gap-1.5 sm:gap-2 cursor-pointer select-none flex-shrink-0"
+                style={{ opacity: enabled ? 1 : 0.45 }}
+              >
+                <input
+                  type="checkbox"
+                  checked={enabled}
+                  onChange={() => toggleType(type)}
+                  className="sr-only"
+                />
+                <span
+                  className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 rounded-sm border flex items-center justify-center transition-all"
+                  style={{
+                    borderColor: enabled ? meta.color : '#1e2d4a',
+                    backgroundColor: enabled ? meta.color + '33' : 'transparent',
+                  }}
                 >
-                  <input
-                    type="checkbox"
-                    checked={enabled}
-                    onChange={() => toggleType(type)}
-                    className="sr-only"
-                  />
-                  {/* Custom checkbox */}
-                  <span
-                    className="w-3.5 h-3.5 flex-shrink-0 rounded-sm border flex items-center justify-center transition-all"
-                    style={{
-                      borderColor: enabled ? meta.color : '#1e2d4a',
-                      backgroundColor: enabled ? meta.color + '33' : 'transparent',
-                    }}
-                  >
-                    {enabled && (
-                      <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                        <path d="M1 4L3 6L7 2" stroke={meta.color} strokeWidth="1.5" strokeLinecap="round" />
-                      </svg>
-                    )}
-                  </span>
-                  {/* Color dot */}
-                  <span
-                    className="w-2 h-2 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: meta.color }}
-                  />
-                  <span className="text-xs" style={{ color: '#c8d6f0' }}>
-                    {meta.label}
-                  </span>
-                </label>
-              )
-            })}
-          </div>
+                  {enabled && (
+                    <svg width="7" height="7" viewBox="0 0 8 8" fill="none">
+                      <path d="M1 4L3 6L7 2" stroke={meta.color} strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                  )}
+                </span>
+                <span
+                  className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: meta.color }}
+                />
+                <span className="text-[0.6rem] sm:text-xs whitespace-nowrap" style={{ color: '#c8d6f0' }}>
+                  {meta.label}
+                </span>
+              </label>
+            )
+          })}
         </div>
+      </div>
 
-        {/* Search */}
-        <div className="px-4 py-3 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
-          <div className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#4a5a7a' }}>
-            Search
-          </div>
-          <div className="relative">
-            <span
-              className="absolute left-2 top-1/2 -translate-y-1/2 text-xs"
+      {/* Search */}
+      <div className="px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
+        <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: '#4a5a7a' }}>
+          Search
+        </div>
+        <div className="relative">
+          <span
+            className="absolute left-2 top-1/2 -translate-y-1/2 text-xs"
+            style={{ color: '#4a5a7a' }}
+          >
+            /
+          </span>
+          <input
+            type="text"
+            placeholder="filter nodes..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-5 pr-3 py-1 sm:py-1.5 text-[0.65rem] sm:text-xs rounded outline-none transition-all"
+            style={{
+              background: '#0a0e1a',
+              border: '1px solid #1e2d4a',
+              color: '#c8d6f0',
+              caretColor: '#00ff88',
+            }}
+            onFocus={(e) => { e.target.style.borderColor = '#00ff8855' }}
+            onBlur={(e) => { e.target.style.borderColor = '#1e2d4a' }}
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-xs transition-opacity hover:opacity-100"
               style={{ color: '#4a5a7a' }}
             >
-              /
-            </span>
-            <input
-              type="text"
-              placeholder="filter nodes..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-5 pr-3 py-1.5 text-xs rounded outline-none transition-all"
-              style={{
-                background: '#0a0e1a',
-                border: '1px solid #1e2d4a',
-                color: '#c8d6f0',
-                caretColor: '#00ff88',
-              }}
-              onFocus={(e) => {
-                e.target.style.borderColor = '#00ff8855'
-              }}
-              onBlur={(e) => {
-                e.target.style.borderColor = '#1e2d4a'
-              }}
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-xs transition-opacity hover:opacity-100"
-                style={{ color: '#4a5a7a' }}
-              >
-                ×
-              </button>
-            )}
-          </div>
+              ×
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Controls */}
+      <div className="px-3 sm:px-4 py-2 sm:py-3 flex gap-2 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
+        <button
+          onClick={runLayout}
+          className="flex-1 py-1 sm:py-1.5 px-2 sm:px-3 text-[0.65rem] sm:text-xs rounded transition-all text-left"
+          style={{ background: '#1e2d4a', color: '#c8d6f0', border: '1px solid #2a3d5a' }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = '#243452'; e.currentTarget.style.color = '#00ff88' }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = '#1e2d4a'; e.currentTarget.style.color = '#c8d6f0' }}
+        >
+          ↺ Reset Layout
+        </button>
+        <button
+          onClick={fitToScreen}
+          className="flex-1 py-1 sm:py-1.5 px-2 sm:px-3 text-[0.65rem] sm:text-xs rounded transition-all text-left"
+          style={{ background: '#1e2d4a', color: '#c8d6f0', border: '1px solid #2a3d5a' }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = '#243452'; e.currentTarget.style.color = '#4d9fff' }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = '#1e2d4a'; e.currentTarget.style.color = '#c8d6f0' }}
+        >
+          ⊡ Fit to Screen
+        </button>
+      </div>
+
+      {/* Selected node panel */}
+      <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 overflow-y-auto">
+        <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: '#4a5a7a' }}>
+          Selected Node
         </div>
 
-        {/* Controls */}
-        <div className="px-4 py-3 flex flex-col gap-2 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
-          <button
-            onClick={runLayout}
-            className="w-full py-1.5 px-3 text-xs rounded transition-all text-left"
-            style={{
-              background: '#1e2d4a',
-              color: '#c8d6f0',
-              border: '1px solid #2a3d5a',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#243452'
-              e.currentTarget.style.color = '#00ff88'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#1e2d4a'
-              e.currentTarget.style.color = '#c8d6f0'
-            }}
+        {!selectedNode ? (
+          <div
+            className="rounded p-2 sm:p-3 text-[0.65rem] sm:text-xs"
+            style={{ background: '#0a0e1a', border: '1px solid #1e2d4a', color: '#4a5a7a' }}
           >
-            ↺ Reset Layout
-          </button>
-          <button
-            onClick={fitToScreen}
-            className="w-full py-1.5 px-3 text-xs rounded transition-all text-left"
-            style={{
-              background: '#1e2d4a',
-              color: '#c8d6f0',
-              border: '1px solid #2a3d5a',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#243452'
-              e.currentTarget.style.color = '#4d9fff'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#1e2d4a'
-              e.currentTarget.style.color = '#c8d6f0'
-            }}
-          >
-            ⊡ Fit to Screen
-          </button>
-        </div>
-
-        {/* Selected node panel */}
-        <div className="px-4 py-3 flex-1 overflow-y-auto">
-          <div className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: '#4a5a7a' }}>
-            Selected Node
+            <span className="animate-blink">▮</span> click a node to inspect
           </div>
+        ) : (
+          <div
+            className="rounded p-2 sm:p-3 flex flex-col gap-1.5 sm:gap-2"
+            style={{ background: '#0a0e1a', border: `1px solid ${TYPE_META[selectedNode.type].color}33` }}
+          >
+            <TypeBadge type={selectedNode.type} />
 
-          {!selectedNode ? (
-            <div
-              className="rounded p-3 text-xs"
-              style={{
-                background: '#0a0e1a',
-                border: '1px solid #1e2d4a',
-                color: '#4a5a7a',
-              }}
-            >
-              <span className="animate-blink">▮</span> click a node to inspect
-            </div>
-          ) : (
-            <div
-              className="rounded p-3 flex flex-col gap-2"
-              style={{
-                background: '#0a0e1a',
-                border: `1px solid ${TYPE_META[selectedNode.type].color}33`,
-              }}
-            >
-              <TypeBadge type={selectedNode.type} />
-
-              <div>
-                <div className="text-xs font-bold leading-snug" style={{ color: '#c8d6f0' }}>
-                  {selectedNode.label}
-                </div>
-                {selectedNode.subtitle && (
-                  <div className="text-xs mt-0.5" style={{ color: '#4a5a7a' }}>
-                    {selectedNode.subtitle}
-                  </div>
-                )}
+            <div>
+              <div className="text-[0.65rem] sm:text-xs font-bold leading-snug" style={{ color: '#c8d6f0' }}>
+                {selectedNode.label}
               </div>
-
-              <div className="flex flex-wrap gap-1.5">
-                {selectedNode.year && (
-                  <span
-                    className="text-xs px-1.5 py-0.5 rounded"
-                    style={{ background: '#1e2d4a', color: '#c8d6f0' }}
-                  >
-                    {selectedNode.year}
-                  </span>
-                )}
-                {selectedNode.detail && (
-                  <span
-                    className="text-xs px-1.5 py-0.5 rounded"
-                    style={{ background: '#1e2d4a', color: '#ffb300' }}
-                  >
-                    {selectedNode.detail}
-                  </span>
-                )}
-                {selectedNode.category && (
-                  <span
-                    className="text-xs px-1.5 py-0.5 rounded"
-                    style={{ background: '#1e2d4a', color: '#4d9fff' }}
-                  >
-                    {selectedNode.category}
-                  </span>
-                )}
-              </div>
-
-              {selectedNode.connectedNodes.length > 0 && (
-                <div>
-                  <div
-                    className="text-xs uppercase tracking-wider mb-1"
-                    style={{ color: '#4a5a7a' }}
-                  >
-                    Connected ({selectedNode.connectedNodes.length})
-                  </div>
-                  <div className="flex flex-col gap-0.5 max-h-48 overflow-y-auto">
-                    {selectedNode.connectedNodes.map((n, i) => {
-                      const meta = TYPE_META[n.type] ?? TYPE_META.skill
-                      return (
-                        <button
-                          key={i}
-                          onClick={() => selectNodeById(n.id)}
-                          className="text-xs py-0.5 px-2 rounded flex items-baseline gap-1.5 w-full text-left transition-opacity hover:opacity-80"
-                          style={{ background: '#1e2d4a', borderLeft: `2px solid ${meta.color}66`, cursor: 'pointer' }}
-                        >
-                          <span className="font-bold uppercase tracking-wider flex-shrink-0" style={{ color: meta.color, fontSize: '0.6rem' }}>
-                            {meta.label}
-                          </span>
-                          <span style={{ color: '#c8d6f0' }}>{n.label}</span>
-                        </button>
-                      )
-                    })}
-                  </div>
+              {selectedNode.subtitle && (
+                <div className="text-[0.6rem] sm:text-xs mt-0.5" style={{ color: '#4a5a7a' }}>
+                  {selectedNode.subtitle}
                 </div>
               )}
             </div>
+
+            <div className="flex flex-wrap gap-1">
+              {selectedNode.year && (
+                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: '#1e2d4a', color: '#c8d6f0' }}>
+                  {selectedNode.year}
+                </span>
+              )}
+              {selectedNode.detail && (
+                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: '#1e2d4a', color: '#ffb300' }}>
+                  {selectedNode.detail}
+                </span>
+              )}
+              {selectedNode.category && (
+                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: '#1e2d4a', color: '#4d9fff' }}>
+                  {selectedNode.category}
+                </span>
+              )}
+            </div>
+
+            {selectedNode.connectedNodes.length > 0 && (
+              <div>
+                <div className="text-[0.6rem] sm:text-xs uppercase tracking-wider mb-1" style={{ color: '#4a5a7a' }}>
+                  Connected ({selectedNode.connectedNodes.length})
+                </div>
+                <div className="flex flex-col gap-0.5 max-h-36 sm:max-h-48 overflow-y-auto">
+                  {selectedNode.connectedNodes.map((n, i) => {
+                    const meta = TYPE_META[n.type] ?? TYPE_META.skill
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => selectNodeById(n.id)}
+                        className="text-[0.6rem] sm:text-xs py-0.5 px-2 rounded flex items-baseline gap-1.5 w-full text-left transition-opacity hover:opacity-80"
+                        style={{ background: '#1e2d4a', borderLeft: `2px solid ${meta.color}66`, cursor: 'pointer' }}
+                      >
+                        <span className="font-bold uppercase tracking-wider flex-shrink-0" style={{ color: meta.color, fontSize: '0.55rem' }}>
+                          {meta.label}
+                        </span>
+                        <span style={{ color: '#c8d6f0' }}>{n.label}</span>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Footer hint — desktop only */}
+      <div
+        className="hidden sm:block px-4 py-2 flex-shrink-0 text-xs"
+        style={{ borderTop: '1px solid #1e2d4a', color: '#2a3d5a' }}
+      >
+        scroll · pan · zoom · click · drag
+      </div>
+    </>
+  )
+
+  return (
+    <div
+      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-full"
+      style={{ background: '#0a0e1a' }}
+    >
+      {/* ── Sidebar — desktop: left panel (collapsible); mobile: bottom drawer ── */}
+      <aside
+        className="flex flex-col flex-shrink-0"
+        style={{
+          background: '#0f1629',
+          borderRight: sidebarOpen ? '1px solid #1e2d4a' : 'none',
+        }}
+      >
+        {/* ── Mobile toggle strip (hidden on desktop) ── */}
+        <button
+          className="sm:hidden flex items-center justify-between px-3 h-9 flex-shrink-0 w-full text-left"
+          style={{ borderTop: '1px solid #1e2d4a', borderBottom: mobileOpen ? '1px solid #1e2d4a' : 'none', background: '#0f1629' }}
+          onClick={() => setMobileOpen((o) => !o)}
+        >
+          <span className="flex items-center gap-2">
+            <span className="text-[0.6rem] font-bold tracking-widest uppercase" style={{ color: '#00ff88' }}>
+              graph controls
+            </span>
+            <span className="text-[0.55rem]" style={{ color: '#4a5a7a' }}>
+              {stats.nodes}n · {stats.edges}e
+            </span>
+          </span>
+          <span className="text-xs" style={{ color: '#4a5a7a' }}>
+            {mobileOpen ? '▾' : '▴'}
+          </span>
+        </button>
+
+        {/* ── Desktop header with collapse toggle (hidden on mobile) ── */}
+        <div
+          className="hidden sm:flex items-center justify-between px-4 py-3 flex-shrink-0 cursor-pointer select-none"
+          style={{ borderBottom: '1px solid #1e2d4a', minWidth: sidebarOpen ? 280 : 0 }}
+          onClick={() => setSidebarOpen((o) => !o)}
+        >
+          {sidebarOpen && (
+            <div>
+              <div className="text-xs font-bold tracking-widest uppercase mb-0.5" style={{ color: '#00ff88' }}>
+                Tyler Procko's Knowledge Graph
+              </div>
+              <div className="text-xs" style={{ color: '#4a5a7a' }}>
+                {stats.nodes} nodes &middot; {stats.edges} edges
+              </div>
+            </div>
           )}
+          <span
+            className="text-xs ml-auto flex-shrink-0"
+            style={{ color: '#4a5a7a' }}
+            title={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+          >
+            {sidebarOpen ? '◂' : '▸'}
+          </span>
         </div>
 
-        {/* Footer hint */}
+        {/* ── Collapsible content: mobile drawer or desktop panel ── */}
+        {/* Mobile */}
         <div
-          className="px-4 py-2 flex-shrink-0 text-xs"
-          style={{ borderTop: '1px solid #1e2d4a', color: '#2a3d5a' }}
+          className={`sm:hidden flex flex-col overflow-y-auto ${mobileOpen ? 'flex' : 'hidden'}`}
+          style={mobileOpen ? { maxHeight: '55vh' } : {}}
         >
-          scroll · pan · zoom · click · drag
+          {sidebarContent}
         </div>
+        {/* Desktop */}
+        {sidebarOpen && (
+          <div className="hidden sm:flex flex-col overflow-y-auto flex-1" style={{ width: 280 }}>
+            {sidebarContent}
+          </div>
+        )}
       </aside>
 
       {/* ── Canvas ── */}
@@ -722,10 +730,10 @@ export default function Graph() {
           />
         )}
 
-        {/* Overlay: node count badge when search is active */}
+        {/* Search query badge */}
         {searchQuery && (
           <div
-            className="absolute top-3 right-3 px-2 py-1 rounded text-xs font-mono pointer-events-none"
+            className="absolute top-2 right-2 sm:top-3 sm:right-3 px-2 py-1 rounded text-[0.6rem] sm:text-xs font-mono pointer-events-none"
             style={{
               background: '#0f162999',
               border: '1px solid #1e2d4a',
@@ -737,9 +745,9 @@ export default function Graph() {
           </div>
         )}
 
-        {/* Graph legend overlay */}
+        {/* Graph legend — desktop only (mobile has it in the drawer) */}
         <div
-          className="absolute bottom-3 right-3 px-3 py-2 rounded text-xs font-mono pointer-events-none"
+          className="hidden sm:block absolute bottom-3 right-3 px-3 py-2 rounded text-xs font-mono pointer-events-none"
           style={{
             background: '#0f162988',
             border: '1px solid #1e2d4a',
@@ -747,7 +755,7 @@ export default function Graph() {
             backdropFilter: 'blur(4px)',
           }}
         >
-          <div className="flex flex-wrap gap-x-3 gap-y-1 max-w-xs justify-end">
+          <div className="flex flex-wrap gap-x-3 gap-y-1 justify-end" style={{ maxWidth: '480px' }}>
             {NODE_TYPES.filter((t) => enabledTypes.has(t)).map((type) => (
               <span key={type} className="flex items-center gap-1">
                 <span
