@@ -257,7 +257,7 @@ work_experiences:
     vision tasks
   domains:
   - Computer Vision
-  - Ontology Engineering
+  - Ontology
 - id: work/afrl-2022
   title: SMART Scholar AI Research Scientist - Machine Learning Interoperability with BFO
   organization: Air Force Research Laboratory (AFRL)
@@ -479,7 +479,7 @@ work_experiences:
   bullets:
   - Consulted on, and developed, an ontology to be used for nuclear facility construction process evaluation
   domains:
-  - Ontology Engineering
+  - Ontology
 - id: work/quiet-professionals
   title: AI Consultant and Ontology Engineer
   organization: Quiet Professionals
@@ -858,6 +858,21 @@ publications:
   - prompt engineering
   technologies:
   - Microsoft Word
+  - Microsoft Teams
+  - PROV-O
+  - RDF
+  - RDFS
+  - OWL
+  - Draw.io
+  domains:
+  - Knowledge Graphs
+  - Linked Data
+  - Semantic Web
+  - XAI
+  - Provenance
+  - ML Provenance
+  - LLMs
+  - Prompt Engineering
 - id: pub/ml-lifecycle-provenance-survey
   title: 'A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools'
   authors:
@@ -873,6 +888,25 @@ publications:
   - survey
   technologies:
   - Microsoft Word
+  - Microsoft Teams
+  - PROV-O
+  - PROV-ML
+  - RDF
+  - RDFS
+  - OWL
+  - MLSchema
+  - MEX
+  - OntoDM
+  - ANNETTO
+  domains:
+  - Ontology
+  - XAI
+  - Semantic Web
+  - Linked Data
+  - Provenance
+  - ML Provenance
+  - Machine Learning
+  - LLMs
 - id: pub/verifying-ml-interpretability
   title: Verifying Machine Learning Interpretability and Explainability Requirements Through Provenance
   authors:
@@ -891,6 +925,15 @@ publications:
   - machine learning
   technologies:
   - Microsoft Word
+  - Microsoft Teams
+  - PROV-O
+  domains:
+  - Semantic Web
+  - Linked Data
+  - XAI
+  - Provenance
+  - ML Provenance
+  - Machine Learning
 - id: pub/creating-robust-datasets
   title: Creating Robust Data Sets for AI by Leveraging Ontological Structures
   authors:
@@ -909,6 +952,12 @@ publications:
   - AI
   technologies:
   - Microsoft Word
+  - Microsoft Teams
+  domains:
+  - Ontology
+  - Machine Learning
+  - Computer Vision
+  - Knowledge Representation
 - id: pub/exploring-testing-llms
   title: Exploring Testing Methods for Large Language Models
   authors:
@@ -927,6 +976,12 @@ publications:
   - software engineering
   technologies:
   - Microsoft Word
+  - Microsoft Teams
+  domains:
+  - LLMs
+  - SQA
+  - Machine Learning
+  - Prompt Engineering
 - id: pub/requirements-elicitation-ml
   title: 'Requirements Elicitation for Machine Learning Applications: A Research Preview'
   authors:
@@ -3940,7 +3995,7 @@ courses:
   - Linked Data
   - ML Provenance
   - Ontology
-  - Ontology Engineering
+  - Ontology
   - Semantic Web
   - Text Extraction
   - XAI
@@ -3979,7 +4034,7 @@ courses:
   - Linked Data
   - ML Provenance
   - Ontology
-  - Ontology Engineering
+  - Ontology
   - Semantic Web
   - Text Extraction
   - XAI

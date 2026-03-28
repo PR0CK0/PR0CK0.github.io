@@ -226,6 +226,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   JANES:        'vocabularies',
   'SE-ON':      'vocabularies',
   OntoDM:       'vocabularies',
+  MEX:          'vocabularies',
   ANNO:         'vocabularies',
   ANNETTO:      'vocabularies',
 

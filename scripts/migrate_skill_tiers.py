@@ -15,10 +15,13 @@ YAML_PATHS = [
 DOMAIN_TERMS = {
     "Knowledge Graphs", "Text Extraction", "ML Provenance", "Semantic Web",
     "Machine Learning", "XAI", "Computer Vision", "Linked Data", "Cybersecurity",
-    "SQA", "Ontology", "Ontology Engineering", "Description Logics", "FOL", "HOL",
+    "SQA", "Ontology", "Description Logics", "FOL", "HOL",
     "LLMs", "FAIR AI", "Provenance", "Knowledge Representation", "Cryptography",
     "Networking", "Embedded Systems", "Real-Time Systems", "Cluster Analysis",
     "Web Scraping", "Game Development", "AR", "NLP", "NER", "VLM",
+    "Prompt Engineering", "Agile", "Aerospace", "Scientific Writing",
+    "Requirements Engineering", "Software Engineering", "SDLC", "RAG",
+    "Geospatial", "Taxonomy", "Education",
 }
 
 # Strings that belong in `soft_skills`
