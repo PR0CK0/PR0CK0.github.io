@@ -214,11 +214,12 @@ const PROMPT_QUERIES = [
 
 type TypingState = 'waiting' | 'typing' | 'pausing' | 'deleting'
 
-function TypingPrompt() {
+function TypingPrompt({ onFirstTyped }: { onFirstTyped?: () => void }) {
   const [text, setText] = useState('')
   const [phase, setPhase] = useState<TypingState>('waiting')
   const [idx, setIdx] = useState(0)
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const firedRef = useRef(false)
 
   useEffect(() => {
     const clear = () => { if (timer.current) clearTimeout(timer.current) }
@@ -235,6 +236,10 @@ function TypingPrompt() {
           setText(query.slice(0, text.length + 1))
         }, 55 + Math.random() * 65)
       } else {
+        if (!firedRef.current) {
+          firedRef.current = true
+          onFirstTyped?.()
+        }
         timer.current = setTimeout(() => setPhase('pausing'), 2200 + Math.random() * 800)
       }
     } else if (phase === 'pausing') {
@@ -252,7 +257,7 @@ function TypingPrompt() {
     }
 
     return clear
-  }, [phase, text, idx])
+  }, [phase, text, idx, onFirstTyped])
 
   return (
     <div className="flex gap-2 items-center font-mono text-sm">
@@ -265,7 +270,7 @@ function TypingPrompt() {
 
 // ─── Boot Sequence ───────────────────────────────────────────────────────────
 
-function BootSequence({ lines, onComplete }: { lines: BootLine[]; onComplete: () => void }) {
+function BootSequence({ lines, onComplete, onFirstTyped }: { lines: BootLine[]; onComplete: () => void; onFirstTyped: () => void }) {
   const [visibleLines, setVisibleLines] = useState<number>(0)
   const [showCursor, setShowCursor] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -303,7 +308,7 @@ function BootSequence({ lines, onComplete }: { lines: BootLine[]; onComplete: ()
         </motion.div>
       ))}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: showCursor ? 1 : 0 }}>
-        <TypingPrompt />
+        <TypingPrompt onFirstTyped={onFirstTyped} />
       </motion.div>
     </div>
   )
@@ -387,6 +392,7 @@ function HeroContent({ person }: { person: Person }) {
 
 function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLine[] }) {
   const [bootDone, setBootDone] = useState(false)
+  const [heroVisible, setHeroVisible] = useState(false)
 
   return (
     <section className="relative overflow-hidden bg-terminal-bg">
@@ -426,24 +432,24 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
 
           {/* Terminal body */}
           <div className="p-4 sm:p-6 lg:p-8">
-            <BootSequence lines={bootLines} onComplete={() => setBootDone(true)} />
+            <BootSequence
+              lines={bootLines}
+              onComplete={() => setBootDone(true)}
+              onFirstTyped={() => setHeroVisible(true)}
+            />
 
-            <AnimatePresence>
-              {bootDone && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <HeroContent person={person} />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <motion.div
+              animate={{ opacity: heroVisible ? 1 : 0 }}
+              transition={{ duration: 0.5 }}
+              style={{ pointerEvents: heroVisible ? 'auto' : 'none' }}
+            >
+              <HeroContent person={person} />
+            </motion.div>
           </div>
         </div>
 
         {/* Scroll hint */}
-        {bootDone && (
+        {heroVisible && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
