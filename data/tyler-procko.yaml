@@ -3681,17 +3681,46 @@ courses:
       - Microsoft PowerPoint
   - number: "SE450, SE451"
     name: "Software Capstone Projects I & II"
+    technologies:
+      - Matlab
+      - Python
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "HF325"
     name: "Human Factors and System Safety"
+    technologies:
+      - Balsamiq
+      - Mockingbird
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "HF310"
     name: "Human-Computer Interaction"
     technologies:
       - Balsamiq
       - Mockingbird
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "SYS500"
     name: "Fundamentals of Systems Engineering"
+    technologies:
+      - Python
+      - SQL
+      - Microsoft Teams
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "SE610"
     name: "Software System Architecture and Design"
+    technologies:
+      - Draw.io
+      - Java
+      - Python
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "SE530"
     name: "Software Requirements Engineering"
   - number: "SE510"

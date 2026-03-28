@@ -38,6 +38,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Assembly:       'prog_languages',
   Lisp:           'prog_languages',
   Julia:          'prog_languages',
+  Matlab:         'prog_languages',
 
   // ── Data Languages ─────────────────────────────────────────────────────────
   OWL:            'data_languages',
