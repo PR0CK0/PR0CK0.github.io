@@ -59,7 +59,7 @@ export const ProjectSchema = z.object({
 export const SkillSchema = z.object({
   id: z.string(),
   name: z.string(),
-  category: z.enum(['prog_languages', 'data_languages', 'libraries', 'tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os', 'soft_skills']),
+  category: z.enum(['prog_languages', 'data_languages', 'libraries', 'tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os', 'soft_skills', 'personal']),
   years_experience: z.number().optional(),
   proficiency: z.enum(['expert', 'advanced', 'intermediate', 'familiar']).optional(),
 })
@@ -100,6 +100,12 @@ export const ReferenceSchema = z.object({
   relationship: z.string().optional(),
 })
 
+export const CourseSchema = z.object({
+  number: z.string(),
+  name: z.string(),
+  technologies: z.array(z.string()).optional(),
+})
+
 export const ExtracurricularSchema = z.object({
   id: z.string(),
   title: z.string(),
@@ -107,6 +113,7 @@ export const ExtracurricularSchema = z.object({
   role: z.string().optional(),
   description: z.string().optional(),
   date: z.string().optional(),
+  technologies: z.array(z.string()).optional(),
 })
 
 export const PersonSchema = z.object({
@@ -136,6 +143,7 @@ export const PersonSchema = z.object({
   talks: z.array(TalkSchema).optional(),
   references: z.array(ReferenceSchema).optional(),
   extracurriculars: z.array(ExtracurricularSchema).optional(),
+  courses: z.array(CourseSchema).optional(),
   books_read: z.array(z.string()).optional(),
   hobbies: z.array(z.string()).optional(),
   favorite_artists: z.array(z.string()).optional(),
@@ -153,4 +161,5 @@ export type Certificate = z.infer<typeof CertificateSchema>
 export type Talk = z.infer<typeof TalkSchema>
 export type Reference = z.infer<typeof ReferenceSchema>
 export type Extracurricular = z.infer<typeof ExtracurricularSchema>
+export type Course = z.infer<typeof CourseSchema>
 export type SocialLink = z.infer<typeof SocialLinkSchema>

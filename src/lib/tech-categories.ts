@@ -16,6 +16,7 @@ export type SkillCategory =
   | 'os'
   | 'design'
   | 'soft_skills'
+  | 'personal'
 
 export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   // ── Programming Languages ──────────────────────────────────────────────────
@@ -102,6 +103,12 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   'OpenAI API':         'libraries',
   OpenAI:               'libraries',
   PyVis:                'libraries',
+  'Node.js':            'libraries',
+  Swing:                'libraries',
+  Jackson:              'libraries',
+  'json-simple':        'libraries',
+  JSoup:                'libraries',
+  Devise:               'libraries',
 
   // ── Tools ──────────────────────────────────────────────────────────────────
   Git:                  'tools',
@@ -131,6 +138,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Trello:               'tools',
   KuzuDB:               'tools',
   Wikidata:             'tools',
+  VxWorks:              'tools',
 
   // ── AI / ML ────────────────────────────────────────────────────────────────
   Claude:               'ai_tools',
@@ -160,6 +168,11 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   NER:                  'ai_tools',
   NLP:                  'ai_tools',
   'Mixture of Agents':  'ai_tools',
+  CLIP:                 'ai_tools',
+  ResNet:               'ai_tools',
+  YOLO:                 'ai_tools',
+  AlexNet:              'ai_tools',
+  VGGNet:               'ai_tools',
 
   // ── Ontologies & Vocabularies ──────────────────────────────────────────────
   BFO:          'vocabularies',
@@ -181,6 +194,12 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   SUMO:         'vocabularies',
   MeSH:         'vocabularies',
   OCSF:         'vocabularies',
+  DICO:         'vocabularies',
+  JANES:        'vocabularies',
+  'SE-ON':      'vocabularies',
+  OntoDM:       'vocabularies',
+  ANNO:         'vocabularies',
+  ANNETTO:      'vocabularies',
 
   // ── Cloud & Deployment ─────────────────────────────────────────────────────
   'GitHub Actions': 'cloud',
@@ -198,6 +217,8 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Android:      'os',
   'Google Colab': 'os',
   XigmaNAS:     'os',
+  'Kali Linux': 'os',
+  RedHat:       'os',
 
   // ── Design & Analysis ──────────────────────────────────────────────────────
   Tableau:      'design',
@@ -207,7 +228,21 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   LucidChart:   'design',
   Miro:         'design',
   Unity:        'design',
-  Kaggle:       'design',
+  Kaggle:               'design',
+  Balsamiq:             'design',
+  Mockingbird:          'design',
+
+  // ── Data Languages ─── (additional) ────────────────────────────────────────
+  TSV:          'data_languages',
+
+  // ── Personal / Creative ─────────────────────────────────────────────────────
+  'Adobe Photoshop':    'personal',
+  'Adobe Illustrator':  'personal',
+  'Adobe After Effects':'personal',
+  'AutoCAD LTE':        'personal',
+  'Google SketchUp':    'personal',
+  sqlite3:              'personal',
+  Devise:               'personal',
 
   // ── Soft Skills ────────────────────────────────────────────────────────────
   'Systems Engineering': 'soft_skills',

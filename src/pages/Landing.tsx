@@ -92,11 +92,17 @@ const CATEGORY_META: Record<string, { label: string; color: string; chipClass: s
     chipClass:
       'border border-yellow-400/30 text-yellow-400 bg-yellow-400/5 hover:bg-yellow-400/15 hover:border-yellow-400/60',
   },
+  personal: {
+    label: 'Personal',
+    color: 'text-fuchsia-400',
+    chipClass:
+      'border border-fuchsia-400/30 text-fuchsia-400 bg-fuchsia-400/5 hover:bg-fuchsia-400/15 hover:border-fuchsia-400/60',
+  },
 }
 
 const SHOWN_CATEGORIES = [
   'prog_languages', 'data_languages', 'libraries', 'tools',
-  'ai_tools', 'vocabularies', 'cloud', 'os', 'design', 'soft_skills',
+  'ai_tools', 'vocabularies', 'cloud', 'os', 'design', 'soft_skills', 'personal',
 ]
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
@@ -413,6 +419,8 @@ function aggregateSkills(person: Person): AggregatedSkill[] {
   const allTech = [
     ...(person.projects ?? []).flatMap((p) => p.technologies ?? []),
     ...(person.work_experiences ?? []).flatMap((w) => w.technologies ?? []),
+    ...(person.courses ?? []).flatMap((c) => c.technologies ?? []),
+    ...(person.extracurriculars ?? []).flatMap((e) => e.technologies ?? []),
   ]
 
   for (const tech of allTech) {

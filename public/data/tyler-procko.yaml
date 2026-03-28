@@ -114,6 +114,9 @@ work_experiences:
     location: Remote
     description:
       - "Ontology + ML + Cybersecurity"
+    technologies:
+      - "Node.js"
+      - TypeScript
 
     category: defense_industry
     date_display: Nov 2025 - Present
@@ -194,6 +197,9 @@ work_experiences:
       - OWL
       - "Protégé"
       - "SNOMED-CT"
+      - "SE-ON"
+      - OntoDM
+      - ANNETTO
 
     category: defense_research
     date_display: May 2022 - Aug 2022
@@ -217,6 +223,12 @@ work_experiences:
       - "ADE20K"
       - "GeoSPARQL"
       - "WKT"
+      - ResNet
+      - YOLO
+      - AlexNet
+      - VGGNet
+      - COCO
+      - Places365
 
     category: defense_research
     date_display: May 2021 - Aug 2021
@@ -237,6 +249,14 @@ work_experiences:
       - "Semantic Web"
       - "OWL"
       - "XAI"
+      - ImageNet
+      - "ADE20k"
+      - MNIST
+      - "CIFAR-10"
+      - "CIFAR-100"
+      - OntoDM
+      - ANNO
+      - ANNETTO
 
     category: defense_research
     date_display: May 2020 - Aug 2020
@@ -348,6 +368,8 @@ work_experiences:
       - BFO
       - CCO
       - OWL
+      - DICO
+      - JANES
 
     category: consulting
     date_display: Feb 2024 - Apr 2024
@@ -1523,6 +1545,22 @@ projects:
         url: "https://github.com/PR0CK0/ProvTracer"
         display: github.com/PR0CK0/ProvTracer
 
+  - id: proj/personal
+    title: "Personal & Creative Work"
+    year: "2016-08"
+    description: "Creative and personal tools used outside of professional or academic contexts."
+    technologies:
+      - "Adobe Photoshop"
+      - "Adobe Illustrator"
+      - "Adobe After Effects"
+      - "AutoCAD LTE"
+      - "Google SketchUp"
+      - sqlite3
+      - Devise
+    tags:
+      - personal
+      - creative
+
   - id: proj/cloudcell-consulting
     title: "Linked Data Consultant and Scientific Writer"
     year: "2023-12"
@@ -1548,6 +1586,7 @@ projects:
       - "SD WebUI"
       - LoRA
       - Python
+      - CLIP
     tags:
       - "generative AI"
       - "computer vision"
@@ -2952,6 +2991,9 @@ extracurriculars:
     type: organization
     role: Member
     description: "Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book. Engaged in several hands-on activities dealing with hacking."
+    technologies:
+      - "Kali Linux"
+      - RedHat
 
     date_display: "Jan 2019 - Jan 2020"
     h4: "White Hat Eagles Cybersecurity Club (WHECS) - Member"
@@ -3117,6 +3159,11 @@ courses:
     name: "Technical Report Writing"
   - number: "CS225, CS225L"
     name: "Computer Science II (Java)"
+    technologies:
+      - Swing
+      - Jackson
+      - json-simple
+      - JSoup
   - number: "CEC220, CEC222"
     name: "Digital Circuit Design"
   - number: "AS120"
@@ -3151,6 +3198,8 @@ courses:
     name: "Network Security"
   - number: "CEC450"
     name: "Real-Time Systems"
+    technologies:
+      - VxWorks
   - number: "HF300"
     name: "Human Factors I: Principles and Fundamentals"
   - number: "CS426"
@@ -3165,6 +3214,9 @@ courses:
     name: "Human Factors and System Safety"
   - number: "HF310"
     name: "Human-Computer Interaction"
+    technologies:
+      - Balsamiq
+      - Mockingbird
   - number: "SYS500"
     name: "Fundamentals of Systems Engineering"
   - number: "SE610"
@@ -3177,6 +3229,8 @@ courses:
     name: "Databases and Data Retrieval"
   - number: "CS527"
     name: "System Exploitation and Penetration Testing"
+    technologies:
+      - "Kali Linux"
   - number: "MA544"
     name: "Data Visualization"
   - number: "CS532"
