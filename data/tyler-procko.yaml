@@ -3828,12 +3828,98 @@ courses:
       - Microsoft PowerPoint
   - number: "SE550"
     name: "Current Trends in Software Engineering"
+    technologies:
+      - Java
+      - Python
+      - GitHub
+      - Jira
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "EGR600"
     name: "Research Methods for Engineers"
+    technologies:
+      - Draw.io
+      - GitHub
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "SE690"
     name: "Graduate Research Project"
+    technologies:
+      - OWL
+      - RDF
+      - RDFS
+      - SPARQL
+      - Protégé
+      - Python
+      - RDFLib
+      - OpenAI
+      - GPT
+      - PyTorch
+      - 'Hugging Face'
+      - 'scikit-learn'
+      - 'Stable Diffusion'
+      - 'SD WebUI'
+      - 'Visual Studio Code'
+      - BFO
+      - CCO
+      - DCTerms
+      - PROV-O
+      - 'Semantic Web'
+      - 'Linked Data'
+      - 'ML Provenance'
+      - 'Computer Vision'
+      - XAI
+      - LLMs
+      - Ontology
+      - 'Text Extraction'
+      - 'Ontology Engineering'
+      - Cybersecurity
+      - 'Knowledge Graphs'
+      - Draw.io
+      - GitHub
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
   - number: "SE800"
     name: "Dissertation Hours"
+    technologies:
+      - OWL
+      - RDF
+      - RDFS
+      - SPARQL
+      - Protégé
+      - Python
+      - RDFLib
+      - OpenAI
+      - GPT
+      - PyTorch
+      - 'Hugging Face'
+      - 'scikit-learn'
+      - 'Stable Diffusion'
+      - 'SD WebUI'
+      - 'Visual Studio Code'
+      - BFO
+      - CCO
+      - DCTerms
+      - PROV-O
+      - 'Semantic Web'
+      - 'Linked Data'
+      - 'ML Provenance'
+      - 'Computer Vision'
+      - XAI
+      - LLMs
+      - Ontology
+      - 'Text Extraction'
+      - 'Ontology Engineering'
+      - Cybersecurity
+      - 'Knowledge Graphs'
+      - Draw.io
+      - GitHub
+      - Microsoft Word
+      - Microsoft Excel
+      - Microsoft PowerPoint
 
 literacy:
   - date: "Feb 2023 (WIP)"
