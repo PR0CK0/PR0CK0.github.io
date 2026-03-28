@@ -119,6 +119,7 @@ work_experiences:
       - TypeScript
       - JavaScript
       - OWL
+      - RDFS
       - RDF
       - SPARQL
       - "JSON Schema"
@@ -267,6 +268,8 @@ work_experiences:
       - BFO
       - CCO
       - OWL
+      - RDF
+      - RDFS
       - "Protégé"
       - "SNOMED-CT"
       - GraphDB
@@ -1154,6 +1157,8 @@ publications:
     tags:
       - BFO
       - OWL
+      - RDF
+      - RDFS
       - GPT
       - ontology
 
@@ -1538,6 +1543,7 @@ projects:
       - LinkML
       - BFO
       - OWL
+      - RDFS
       - RDF
       - "JSON Schema"
       - TypeScript
@@ -1729,6 +1735,8 @@ projects:
       - "PROV-O"
       - RDFLib
       - OWL
+      - RDF
+      - RDFS
     tags:
       - provenance
       - ontology
@@ -1833,6 +1841,8 @@ projects:
       - Python
       - BFO
       - OWL
+      - RDF
+      - RDFS
     tags:
       - ontology
       - "developer tools"
@@ -1873,6 +1883,7 @@ projects:
     technologies:
       - "Schema.org"
       - OWL
+      - RDFS
       - RDF
     tags:
       - ontology
