@@ -42,6 +42,7 @@ export const PublicationSchema = z.object({
   url: z.string().optional(),
   abstract: z.string().optional(),
   tags: z.array(z.string()).optional(),
+  technologies: z.array(z.string()).optional(),
 })
 
 export const ProjectSchema = z.object({

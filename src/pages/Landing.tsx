@@ -427,6 +427,7 @@ function aggregateSkills(person: Person): AggregatedSkill[] {
     ...(person.work_experiences ?? []).flatMap((w) => w.technologies ?? []),
     ...(person.courses ?? []).flatMap((c) => c.technologies ?? []),
     ...(person.extracurriculars ?? []).flatMap((e) => e.technologies ?? []),
+    ...(person.publications ?? []).flatMap((p) => p.technologies ?? []),
   ]
 
   for (const tech of allTech) {

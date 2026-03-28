@@ -847,6 +847,8 @@ publications:
       - LLM
       - "prompt engineering"
 
+    technologies:
+      - Microsoft Word
   - id: pub/ml-lifecycle-provenance-survey
     title: "A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools"
     authors:
@@ -862,6 +864,8 @@ publications:
       - survey
 
   # Published
+    technologies:
+      - Microsoft Word
   - id: pub/verifying-ml-interpretability
     title: "Verifying Machine Learning Interpretability and Explainability Requirements Through Provenance"
     authors:
@@ -879,6 +883,8 @@ publications:
       - XAI
       - "machine learning"
 
+    technologies:
+      - Microsoft Word
   - id: pub/creating-robust-datasets
     title: "Creating Robust Data Sets for AI by Leveraging Ontological Structures"
     authors:
@@ -896,6 +902,8 @@ publications:
       - datasets
       - AI
 
+    technologies:
+      - Microsoft Word
   - id: pub/exploring-testing-llms
     title: "Exploring Testing Methods for Large Language Models"
     authors:
@@ -913,6 +921,8 @@ publications:
       - testing
       - "software engineering"
 
+    technologies:
+      - Microsoft Word
   - id: pub/requirements-elicitation-ml
     title: "Requirements Elicitation for Machine Learning Applications: A Research Preview"
     authors:
@@ -929,6 +939,8 @@ publications:
       - "requirements engineering"
       - "machine learning"
 
+    technologies:
+      - Microsoft Word
   - id: pub/leveraging-llms-scientific-writing
     title: "Leveraging Large Language Models on the Traditional Scientific Writing Workflow"
     authors:
@@ -943,6 +955,8 @@ publications:
       - "scientific writing"
       - "software engineering"
 
+    technologies:
+      - Microsoft Word
   - id: pub/graph-rag-survey
     title: "Graph Retrieval-Augmented Generation for Large Language Models: A Survey"
     authors:
@@ -959,6 +973,8 @@ publications:
       - LLM
       - survey
 
+    technologies:
+      - Microsoft Word
   - id: pub/cognitive-assistants-single-pilot
     title: "The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations"
     authors:
@@ -976,6 +992,8 @@ publications:
       - "cognitive assistants"
       - aviation
 
+    technologies:
+      - Microsoft Word
   - id: pub/linked-data-aerospace
     title: "Leveraging Linked Data for Knowledge Management: A Proposal for the Aerospace Industry"
     authors:
@@ -990,6 +1008,8 @@ publications:
       - aerospace
       - "knowledge management"
 
+    technologies:
+      - Microsoft Word
   - id: pub/robust-training-datasets-ontologies
     title: "Towards Robust Training Datasets for Machine Learning with Ontologies: A Case Study for Emergency Road Vehicle Detection"
     authors:
@@ -1007,6 +1027,8 @@ publications:
       - datasets
       - "computer vision"
 
+    technologies:
+      - Microsoft Word
   - id: pub/prov-o-bfo-mapping
     title: "Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations and Preliminary Implementation"
     authors:
@@ -1022,6 +1044,8 @@ publications:
       - PROV-O
       - ontology
 
+    technologies:
+      - Microsoft Word
   - id: pub/semantic-science-beyond-pdf
     title: "Semantic Science: Publication Beyond the PDF"
     authors:
@@ -1036,6 +1060,8 @@ publications:
       - "scientific publishing"
       - "linked data"
 
+    technologies:
+      - Microsoft Word
   - id: pub/dawn-of-dialogue
     title: "Dawn of the Dialogue: AI's Leap from Lab to Living Room"
     authors:
@@ -1050,6 +1076,8 @@ publications:
       - LLM
       - "conversational AI"
 
+    technologies:
+      - Microsoft Word
   - id: pub/lm-kg-survey
     title: "A Survey on the Intersection of Language Models and Knowledge Graphs"
     authors:
@@ -1067,6 +1095,8 @@ publications:
       - "knowledge graphs"
       - survey
 
+    technologies:
+      - Microsoft Word
   - id: pub/towards-agile-academia
     title: "Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering"
     authors:
@@ -1081,6 +1111,8 @@ publications:
       - "scientific writing"
       - "software engineering"
 
+    technologies:
+      - Microsoft Word
   - id: pub/scrum-in-classroom
     title: "Scrum in the Classroom: An Implementation Guide"
     authors:
@@ -1099,6 +1131,8 @@ publications:
       - education
       - agile
 
+    technologies:
+      - Microsoft Word
   - id: pub/gps-signal-strength
     title: "Leveraging Signal Strength as a Mechanism to Secure GPS Messages"
     authors:
@@ -1116,6 +1150,8 @@ publications:
       - cybersecurity
       - avionics
 
+    technologies:
+      - Microsoft Word
   - id: pub/auto-code-documentation
     title: "Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development\u2019s Most Redundant Task"
     authors:
@@ -1130,6 +1166,8 @@ publications:
       - GPT
       - "syntax trees"
 
+    technologies:
+      - Microsoft Word
   - id: pub/gpt4-stochastic-parrot
     title: "GPT-4: A Stochastic Parrot or Ontological Craftsman? Discovering Implicit Knowledge Structures in Large Language Models"
     authors:
@@ -1145,6 +1183,8 @@ publications:
       - ontology
       - "knowledge structures"
 
+    technologies:
+      - Microsoft Word
   - id: pub/auto-bfo-aristotelian-definitions
     title: "Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies with GPT"
     authors:
@@ -1162,6 +1202,8 @@ publications:
       - GPT
       - ontology
 
+    technologies:
+      - Microsoft Word
   - id: pub/catastrophic-forgetting
     title: "Impacts of Catastrophic Forgetting: From a Machine Learning Engineering Perspective"
     authors:
@@ -1179,6 +1221,8 @@ publications:
       - "machine learning"
       - "catastrophic forgetting"
 
+    technologies:
+      - Microsoft Word
   - id: pub/digital-rubber-duck
     title: "Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming"
     authors:
@@ -1197,6 +1241,8 @@ publications:
       - "extreme programming"
       - "software engineering"
 
+    technologies:
+      - Microsoft Word
   - id: pub/swebok-kg-transformer
     title: "A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from the Software Engineering Body of Knowledge with a Sequence-to-Sequence Transformer"
     authors:
@@ -1212,6 +1258,8 @@ publications:
       - "transformers"
       - NLP
 
+    technologies:
+      - Microsoft Word
   - id: pub/microelectronic-ai-dishonesty
     title: "Microelectronic Technology, AI and Academic Dishonesty: An Agile Engineering Approach"
     authors:
@@ -1227,6 +1275,8 @@ publications:
       - agile
       - "academic integrity"
 
+    technologies:
+      - Microsoft Word
   - id: pub/interpersonal-chemistry-agile
     title: "The Influence of Interpersonal Chemistry on Learning in Agile Software Engineering Education"
     authors:
@@ -1242,6 +1292,8 @@ publications:
       - education
       - "software engineering"
 
+    technologies:
+      - Microsoft Word
   - id: pub/validating-security-requirements-kg
     title: "Validating Security Requirement Specifications through the use of a Knowledge Graph"
     authors:
@@ -1259,6 +1311,8 @@ publications:
       - "security requirements"
       - cybersecurity
 
+    technologies:
+      - Microsoft Word
   - id: pub/ontology-sdlc-aerospace
     title: "An Ontology Based Approach to the Software Engineering Lifecycle: Application to Software Quality Assurance in the Aerospace Industry"
     authors:
@@ -1274,6 +1328,8 @@ publications:
       - aerospace
       - "software quality"
 
+    technologies:
+      - Microsoft Word
   - id: pub/explainable-ml-semantic-web
     title: "An Exploration of Explainable Machine Learning Using Semantic Web Technology"
     authors:
@@ -1288,6 +1344,8 @@ publications:
       - "semantic web"
       - "machine learning"
 
+    technologies:
+      - Microsoft Word
   - id: pub/secure-development-ontology
     title: "Supporting Security Requirements Engineering through the Development of the Secure Development Ontology"
     authors:
@@ -1302,6 +1360,8 @@ publications:
       - "security requirements"
       - cybersecurity
 
+    technologies:
+      - Microsoft Word
   - id: pub/vr-software-requirements
     title: "Incorporating a Virtual Reality Environment in the Teaching of Analysis of Software Requirements"
     authors:
@@ -1319,6 +1379,8 @@ publications:
       - "software requirements"
 
   # In Progress
+    technologies:
+      - Microsoft Word
   - id: pub/ml-misbehaviors-taxonomy
     title: "Towards A Taxonomy of ML Misbehaviors and their Software Engineering Solutions"
     authors:
@@ -1333,6 +1395,8 @@ publications:
       - taxonomy
       - "software engineering"
 
+    technologies:
+      - Microsoft Word
   - id: pub/kg-geospatial-sumo
     title: "Knowledge Graph Relationship Inferencing using ADE20k Images, Geospatial Bounding Boxes and the Suggested Upper Merged Ontology"
     authors:
@@ -1345,6 +1409,8 @@ publications:
       - geospatial
       - "ADE20K"
 
+    technologies:
+      - Microsoft Word
   - id: pub/sdlc-ontology-engineering
     title: "The Software Development Life Cycle and Ontology Engineering: Defining a Structured Process for Ontology Development"
     authors:
@@ -1355,6 +1421,8 @@ publications:
       - SDLC
       - "ontology engineering"
 
+    technologies:
+      - Microsoft Word
   - id: pub/cognitive-assistants-aviation-inprogress
     title: "Navigating the Future of Aviation: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations"
     authors:
@@ -1369,6 +1437,8 @@ publications:
       - "cognitive assistants"
 
   # Colleague Theses
+    technologies:
+      - Microsoft Word
   - id: pub/colleague-thesis-vonderhaar
     title: "Eliminating Security Weaknesses in Requirement Specifications via a Knowledge Graph"
     authors:
@@ -1383,6 +1453,8 @@ publications:
       - "knowledge graphs"
       - "security requirements"
 
+    technologies:
+      - Microsoft Word
   - id: pub/colleague-thesis-kiselev
     title: "Extracting a Body of Knowledge as a First Step Towards Defining a United Software Engineering Curriculum Guideline"
     authors:
@@ -1398,6 +1470,8 @@ publications:
       - "software engineering"
 
   # Competition Proposals
+    technologies:
+      - Microsoft Word
   - id: pub/competition-proposal-nas
     title: "Expanding the Capabilities of the NAS through AI: A White Box for the Airspace Ecosystem"
     authors:
@@ -1412,6 +1486,8 @@ publications:
       - AI
 
   # Grant Proposals
+    technologies:
+      - Microsoft Word
   - id: pub/grant-proposal-nsf
     title: "Expanding the Nation\u2019s STEM Talent Pool by Accelerating Graduate Degree Completion in Computer, Software, and Cybersecurity Engineering"
     authors:
@@ -1428,6 +1504,8 @@ publications:
       - education
 
   # Articles
+    technologies:
+      - Microsoft Word
   - id: pub/article-synthetic-ontologies
     title: "Synthetic Ontologies: A Hypothesis"
     authors:
@@ -1442,6 +1520,8 @@ publications:
       - ontology
       - "semantic web"
 
+    technologies:
+      - Microsoft Word
 projects:
   - id: proj/ai-landscape-digest
     title: "AI Landscape Digest"
