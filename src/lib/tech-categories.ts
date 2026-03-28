@@ -34,6 +34,10 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   CSS:            'prog_languages',
   Markdown:       'prog_languages',
   Fortran:        'prog_languages',
+  Racket:         'prog_languages',
+  Assembly:       'prog_languages',
+  Lisp:           'prog_languages',
+  Julia:          'prog_languages',
 
   // ── Data Languages ─────────────────────────────────────────────────────────
   OWL:            'data_languages',
@@ -130,6 +134,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   LaTeX:                'tools',
   'Microsoft Word':     'tools',
   'Eclipse IDE':        'tools',
+  Eclipse:              'tools',
   MySQL:                'tools',
   PostgreSQL:           'tools',
   PostGIS:              'tools',
@@ -149,6 +154,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   'DL-Learner':         'tools',
   WordPress:            'tools',
   MISTK:                'tools',
+  Arduino:              'tools',
   CURL:                 'tools',
   'Microsoft Teams':    'tools',
   'Microsoft Excel':      'tools',
@@ -239,6 +245,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   XigmaNAS:     'os',
   'Kali Linux': 'os',
   RedHat:       'os',
+  UNIX:         'os',
 
   // ── Design & Analysis ──────────────────────────────────────────────────────
   Tableau:      'design',
@@ -288,4 +295,15 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   'FAIR AI':                'paradigms',
   Provenance:               'paradigms',
   'Knowledge Representation': 'paradigms',
+  Cryptography:             'paradigms',
+  Networking:               'paradigms',
+  'Embedded Systems':       'paradigms',
+  'Real-Time Systems':      'paradigms',
+  'Cluster Analysis':       'paradigms',
+  'Web Scraping':           'paradigms',
+  'Game Development':       'paradigms',
+  AR:                       'paradigms',
+  TCP:                      'tools',
+  RAID:                     'tools',
+  Chirp:                    'tools',
 }

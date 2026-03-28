@@ -340,7 +340,7 @@ work_experiences:
       - "Semantic Web"
       - XAI
       - ImageNet
-      - "ADE20k"
+      - "ADE20K"
       - MNIST
       - "CIFAR-10"
       - "CIFAR-100"
@@ -3443,49 +3443,178 @@ courses:
     name: "Engineering Physics I, II & III"
   - number: "EGR101"
     name: "Introduction to Engineering"
+    technologies:
+      - C
+      - Arduino
+      - "Microsoft Word"
   - number: "CS223"
     name: "Scientific Programming in C"
+    technologies:
+      - C
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "CS222"
     name: "Introduction to Discrete Structures"
+    technologies:
+      - C
+      - Java
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "COM221"
     name: "Technical Report Writing"
+    technologies:
+      - Java
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "CS225, CS225L"
     name: "Computer Science II (Java)"
     technologies:
+      - Java
+      - CSV
+      - JSON
+      - GitHub
+      - Eclipse
       - Swing
       - Jackson
       - json-simple
       - JSoup
+      - "Microsoft Word"
+      - "Microsoft Excel"
   - number: "CEC220, CEC222"
     name: "Digital Circuit Design"
+    technologies:
+      - Arduino
+      - Java
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "AS120"
     name: "Principles of Aeronautical Science"
+    technologies:
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "SE300"
     name: "Software Engineering Practices"
+    technologies:
+      - Java
+      - JSON
+      - CSV
+      - JDBC
+      - JavaFX
+      - Swing
+      - Jackson
+      - GitHub
+      - Eclipse
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "MA305"
     name: "Introduction to Scientific Computing"
+    technologies:
+      - Fortran
+      - C
+      - Linux
+      - LaTeX
+      - CSV
+      - TSV
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "CS315"
     name: "Data Structures Analysis and Algorithms"
+    technologies:
+      - C
+      - Java
+      - Python
+      - Eclipse
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "SE310"
     name: "Analysis and Design of Software Systems"
+    technologies:
+      - Java
+      - Eclipse
+      - "Draw.io"
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "MA412"
     name: "Probability and Statistics"
+    technologies:
+      - Java
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "CS317"
     name: "Files and Database Systems"
+    technologies:
+      - Java
+      - Eclipse
+      - JDBC
+      - JavaFX
+      - Swing
+      - CSS
+      - HTML
+      - JSON
+      - SQL
+      - GitHub
+      - "Microsoft Word"
+      - "Microsoft PowerPoint"
   - number: "CEC320, CEC322"
     name: "Microprocessor Systems"
+    technologies:
+      - Arduino
+      - "Microsoft Word"
+      - "Microsoft Excel"
   - number: "SE320"
     name: "Software Construction"
+    technologies:
+      - Java
+      - Eclipse
+      - CSS
+      - HTML
+      - JavaFX
+      - Swing
+      - "Game Development"
   - number: "EC225"
     name: "Engineering Economics"
+    technologies:
+      - "Microsoft Word"
+      - "Microsoft Excel"
   - number: "CS332"
     name: "Organization of Programming Languages"
+    technologies:
+      - Java
+      - Racket
+      - Lisp
+      - Julia
+      - Eclipse
+      - "Microsoft Word"
+      - "Microsoft Excel"
   - number: "CEC470"
     name: "Computer Architecture"
+    technologies:
+      - C
+      - Assembly
+      - "Microsoft Word"
+      - "Microsoft Excel"
   - number: "SE410"
     name: "Software Modeling"
+    technologies:
+      - Java
+      - Eclipse
+      - "Draw.io"
+      - "Microsoft Word"
+      - "Microsoft Excel"
+      - "Microsoft PowerPoint"
   - number: "CS428"
     name: "Applied Cryptography"
+    technologies:
+      - Java
+      - Linux
+      - "Kali Linux"
+      - UNIX
+      - RedHat
+      - GitHub
+      - Cryptography
+      - "Microsoft Word"
+      - "Microsoft Excel"
+      - "Microsoft PowerPoint"
   - number: "CS303"
     name: "Network Security"
   - number: "CEC450"
