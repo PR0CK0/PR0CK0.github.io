@@ -139,14 +139,14 @@ function BootSequence({ lines, onComplete }: { lines: BootLine[]; onComplete: ()
     if (visibleLines < lines.length) {
       timerRef.current = setTimeout(() => {
         setVisibleLines((v) => v + 1)
-      }, 420)
+      }, 180)
     } else {
       timerRef.current = setTimeout(() => {
         setShowCursor(true)
         timerRef.current = setTimeout(() => {
           onComplete()
-        }, 800)
-      }, 200)
+        }, 400)
+      }, 100)
     }
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current)
