@@ -14,6 +14,7 @@
     background-color: #0a0e1a;
     color: #c8d6f0;
     font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    overflow-x: hidden;
   }
 
   ::-webkit-scrollbar {

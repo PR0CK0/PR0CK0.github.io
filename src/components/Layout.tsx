@@ -21,7 +21,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-terminal-bg">
       <nav className="border-b border-terminal-border bg-terminal-surface sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 flex items-center gap-1 h-12">
+        <div className="max-w-7xl mx-auto px-4 flex items-center gap-1 h-12 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
           <span className="text-terminal-green font-bold mr-3 text-sm text-glow-green tracking-wider">
             procko.pro
           </span>

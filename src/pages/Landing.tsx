@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { loadPortfolioData } from '@/lib/yaml-loader'
-import type { Person, Skill, Publication, Project } from '@/lib/schema'
+import { TECH_CATEGORIES, type SkillCategory } from '@/lib/tech-categories'
+import type { Person, Publication, Project } from '@/lib/schema'
 
 // ─── Boot sequence lines ───────────────────────────────────────────────────
 function buildBootLines(pubCount: number, clearance: string) {
@@ -31,11 +32,17 @@ type Stat = ReturnType<typeof buildStats>[number]
 
 // ─── Category meta ─────────────────────────────────────────────────────────
 const CATEGORY_META: Record<string, { label: string; color: string; chipClass: string }> = {
-  languages: {
-    label: 'Languages',
+  prog_languages: {
+    label: 'Programming Languages',
     color: 'text-terminal-green',
     chipClass:
       'border border-terminal-green/30 text-terminal-green bg-terminal-green/5 hover:bg-terminal-green/15 hover:border-terminal-green/60',
+  },
+  data_languages: {
+    label: 'Data Languages',
+    color: 'text-emerald-400',
+    chipClass:
+      'border border-emerald-400/30 text-emerald-400 bg-emerald-400/5 hover:bg-emerald-400/15 hover:border-emerald-400/60',
   },
   libraries: {
     label: 'Libraries',
@@ -56,14 +63,41 @@ const CATEGORY_META: Record<string, { label: string; color: string; chipClass: s
       'border border-terminal-amber/30 text-terminal-amber bg-terminal-amber/5 hover:bg-terminal-amber/15 hover:border-terminal-amber/60',
   },
   vocabularies: {
-    label: 'Semantic Web',
+    label: 'Ontologies & Vocabularies',
     color: 'text-cyan-400',
     chipClass:
       'border border-cyan-400/30 text-cyan-400 bg-cyan-400/5 hover:bg-cyan-400/15 hover:border-cyan-400/60',
   },
+  cloud: {
+    label: 'Cloud & Deployment',
+    color: 'text-sky-400',
+    chipClass:
+      'border border-sky-400/30 text-sky-400 bg-sky-400/5 hover:bg-sky-400/15 hover:border-sky-400/60',
+  },
+  os: {
+    label: 'Operating Systems',
+    color: 'text-slate-400',
+    chipClass:
+      'border border-slate-400/30 text-slate-400 bg-slate-400/5 hover:bg-slate-400/15 hover:border-slate-400/60',
+  },
+  design: {
+    label: 'Design & Analysis',
+    color: 'text-rose-400',
+    chipClass:
+      'border border-rose-400/30 text-rose-400 bg-rose-400/5 hover:bg-rose-400/15 hover:border-rose-400/60',
+  },
+  soft_skills: {
+    label: 'Soft Skills',
+    color: 'text-yellow-400',
+    chipClass:
+      'border border-yellow-400/30 text-yellow-400 bg-yellow-400/5 hover:bg-yellow-400/15 hover:border-yellow-400/60',
+  },
 }
 
-const SHOWN_CATEGORIES = ['languages', 'libraries', 'tools', 'ai_tools', 'vocabularies']
+const SHOWN_CATEGORIES = [
+  'prog_languages', 'data_languages', 'libraries', 'tools',
+  'ai_tools', 'vocabularies', 'cloud', 'os', 'design', 'soft_skills',
+]
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
 function statusBadge(status?: string) {
@@ -82,9 +116,13 @@ function statusBadge(status?: string) {
   )
 }
 
-function pubYear(date?: string) {
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+
+function formatDate(date?: string) {
   if (!date) return '—'
-  return date.slice(0, 4)
+  const [year, month] = date.split('-')
+  const m = parseInt(month, 10)
+  return (m >= 1 && m <= 12) ? `${MONTHS[m - 1]} ${year}` : year
 }
 
 // ─── Sub-components ────────────────────────────────────────────────────────
@@ -225,7 +263,7 @@ function HeroContent({ person }: { person: Person }) {
         variants={itemVariants}
         className="text-terminal-blue text-glow-blue font-mono text-lg sm:text-xl tracking-wide"
       >
-        AI Engineer · LLM · Agents · Knowledge Graph · Ontology
+        AI Engineer — Agentic LLMs · Knowledge Graphs · Ontologies
       </motion.p>
 
       {/* Tagline */}
@@ -367,45 +405,52 @@ function StatsBar({ stats }: { stats: Stat[] }) {
 
 // ─── Skills Matrix ─────────────────────────────────────────────────────────
 
-function SkillChip({ skill, chipClass }: { skill: Skill; chipClass: string }) {
+type AggregatedSkill = { name: string; count: number; category: SkillCategory }
+
+function aggregateSkills(person: Person): AggregatedSkill[] {
+  const counts = new Map<string, number>()
+
+  const allTech = [
+    ...(person.projects ?? []).flatMap((p) => p.technologies ?? []),
+    ...(person.work_experiences ?? []).flatMap((w) => w.technologies ?? []),
+  ]
+
+  for (const tech of allTech) {
+    counts.set(tech, (counts.get(tech) ?? 0) + 1)
+  }
+
+  const result: AggregatedSkill[] = []
+  for (const [name, count] of counts.entries()) {
+    const category = TECH_CATEGORIES[name]
+    if (category) result.push({ name, count, category })
+  }
+  return result
+}
+
+function SkillChip({ skill, chipClass }: { skill: AggregatedSkill; chipClass: string }) {
+  const navigate = useNavigate()
   return (
     <motion.span
       whileHover={{ scale: 1.05 }}
+      onClick={() => navigate(`/graph?q=${encodeURIComponent(skill.name)}`)}
       className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono
-                  transition-all duration-150 cursor-default ${chipClass}`}
+                  transition-all duration-150 cursor-pointer ${chipClass}`}
     >
       {skill.name}
-      {skill.years_experience && (
-        <span className="opacity-50 text-[10px]">{skill.years_experience}y</span>
+      {skill.count > 1 && (
+        <span className="opacity-50 text-[10px]">×{skill.count}</span>
       )}
     </motion.span>
   )
 }
 
-function SkillsSkeleton() {
-  return (
-    <div className="space-y-6">
-      {[1, 2, 3].map((i) => (
-        <div key={i} className="space-y-2">
-          <div className="h-4 w-24 bg-terminal-border/50 rounded animate-pulse" />
-          <div className="flex flex-wrap gap-2">
-            {Array.from({ length: 8 }).map((_, j) => (
-              <div
-                key={j}
-                className="h-7 rounded bg-terminal-border/30 animate-pulse"
-                style={{ width: `${60 + Math.random() * 60}px` }}
-              />
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
+function SkillsMatrix({ person }: { person: Person }) {
+  const skills = aggregateSkills(person)
 
-function SkillsMatrix({ skills }: { skills: Skill[] }) {
-  const grouped = SHOWN_CATEGORIES.reduce<Record<string, Skill[]>>((acc, cat) => {
-    acc[cat] = skills.filter((s) => s.category === cat)
+  const grouped = SHOWN_CATEGORIES.reduce<Record<string, AggregatedSkill[]>>((acc, cat) => {
+    acc[cat] = skills
+      .filter((s) => s.category === cat)
+      .sort((a, b) => b.count - a.count)
     return acc
   }, {})
 
@@ -435,7 +480,7 @@ function SkillsMatrix({ skills }: { skills: Skill[] }) {
               </p>
               <div className="flex flex-wrap gap-2">
                 {catSkills.map((sk) => (
-                  <SkillChip key={sk.id} skill={sk} chipClass={meta.chipClass} />
+                  <SkillChip key={sk.name} skill={sk} chipClass={meta.chipClass} />
                 ))}
               </div>
             </motion.div>
@@ -500,7 +545,7 @@ function PublicationRow({ pub, index }: { pub: Publication; index: number }) {
       <div className="shrink-0">
         <span className="inline-block px-2 py-1 rounded text-xs font-mono font-bold
                          border border-terminal-blue/40 text-terminal-blue bg-terminal-blue/10">
-          {pubYear(pub.date)}
+          {formatDate(pub.date)}
         </span>
       </div>
 
@@ -603,7 +648,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         {project.year && (
           <span className="shrink-0 text-[10px] font-mono text-terminal-muted border border-terminal-border
                            rounded px-1.5 py-0.5">
-            {project.year.slice(0, 4)}
+            {formatDate(project.year)}
           </span>
         )}
       </div>
@@ -767,7 +812,6 @@ export default function Landing() {
     )
   }
 
-  const skills = person.skills ?? []
   const publications = person.publications ?? []
   const projects = person.projects ?? []
   const bootLines = buildBootLines(publications.length, person.clearance ?? 'SECRET [TIER 3]')
@@ -778,16 +822,7 @@ export default function Landing() {
       <HeroSection person={person} bootLines={bootLines} />
       <StatsBar stats={stats} />
 
-      {skills.length > 0 ? (
-        <SkillsMatrix skills={skills} />
-      ) : (
-        <section className="max-w-5xl mx-auto px-6 py-20">
-          <SectionHeader prompt="cat skills.json" title="Skills Matrix" accent="purple" />
-          <div className="mt-10">
-            <SkillsSkeleton />
-          </div>
-        </section>
-      )}
+      <SkillsMatrix person={person} />
 
       {publications.length > 0 && (
         <PublicationsSection publications={publications} />

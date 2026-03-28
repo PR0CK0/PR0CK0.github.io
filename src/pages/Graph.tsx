@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import CytoscapeComponent from 'react-cytoscapejs'
 import cytoscape from 'cytoscape'
 // @ts-ignore — no bundled types for default import
@@ -210,20 +211,11 @@ function TypeBadge({ type }: { type: NodeType }) {
   )
 }
 
+// TODO: spinner freezes because Cytoscape layout blocks the JS main thread.
+// Need a CSS-only animation or Web Worker approach to fix properly.
 function LoadingSpinner() {
-  const [frame, setFrame] = useState(0)
-  const frames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
-
-  useEffect(() => {
-    const id = setInterval(() => setFrame((f) => (f + 1) % frames.length), 80)
-    return () => clearInterval(id)
-  }, [])
-
   return (
     <div className="flex flex-col items-center justify-center h-full gap-4">
-      <div className="text-4xl" style={{ color: '#00ff88' }}>
-        {frames[frame]}
-      </div>
       <div className="font-mono text-sm" style={{ color: '#4a5a7a' }}>
         building knowledge graph...
       </div>
@@ -235,6 +227,7 @@ function LoadingSpinner() {
 
 export default function Graph() {
   const cyRef = useRef<cytoscape.Core | null>(null)
+  const [searchParams] = useSearchParams()
 
   const [elements, setElements] = useState<(CyNode | CyEdge)[]>([])
   const [loading, setLoading] = useState(true)
@@ -243,7 +236,8 @@ export default function Graph() {
   const [enabledTypes, setEnabledTypes] = useState<Set<NodeType>>(
     new Set(NODE_TYPES)
   )
-  const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery, setSearchQuery] = useState(() => searchParams.get('q') ?? '')
+  const [cyReady, setCyReady] = useState(false)
   const [selectedNode, setSelectedNode] = useState<SelectedNode | null>(null)
 
   // Track stats
@@ -324,12 +318,13 @@ export default function Graph() {
 
     // Show connected edges of matching nodes without faded
     matching.connectedEdges().removeClass('faded')
-  }, [searchQuery])
+  }, [searchQuery, cyReady])
 
   // ── Node click ───────────────────────────────────────────────────────────────
 
   const handleCyReady = useCallback((cy: cytoscape.Core) => {
     cyRef.current = cy
+    setCyReady(true)
 
     // Re-apply type visibility after cy is ready
     NODE_TYPES.forEach((type) => {

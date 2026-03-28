@@ -1,6 +1,6 @@
 id: person/tyler-procko
 name: "Tyler T. Procko, Ph.D."
-title: "AI Engineer · LLM · Agents · Knowledge Graph · Ontology"
+title: "AI Engineer — Agentic LLMs · Knowledge Graphs · Ontologies"
 location: "Florida, USA"
 phone: "1-904-557-8383"
 email_personal: prockotyler@gmail.com
@@ -16,7 +16,7 @@ summary: |
   explainability, modular + testable software, and academic publication. Active contributor to
   AFRL, IEEE, and DoD FAIR AI data-standardization efforts. Tools: Claude, PyTorch, TensorFlow,
   Hugging Face, Ollama, Stable Diffusion, GraphDB. Google & Stanford Deep Learning Certified.
-clearance: "Active Secret (Tier 3)"
+clearance: "Inactive Secret (Tier 3)"
 availability: "Spring 2026 — TueThu 07:00-20:00 ET, SatSun 11:00-20:00 ET"
 birth_year: 1997
 mbti: ENTJ-T
@@ -1231,6 +1231,11 @@ projects:
       - GitHub Actions
       - Ollama
       - Claude
+      - Gemini
+      - Codex
+      - "GitHub Pages"
+      - feedparser
+      - PyYAML
     tags:
       - AI
       - automation
@@ -1270,6 +1275,14 @@ projects:
       - spaCy
       - DistilBERT
       - GLiNER
+      - Gradio
+      - PyTorch
+      - scispaCy
+      - Flair
+      - Plotly
+      - PyMuPDF
+      - BeautifulSoup4
+      - "Anthropic SDK"
     tags:
       - biomedical
       - NLP
@@ -1308,6 +1321,10 @@ projects:
       - React
       - "Cytoscape.js"
       - MeSH
+      - LlamaIndex
+      - Ollama
+      - KuzuDB
+      - Vite
     tags:
       - biomedical
       - "knowledge graphs"
@@ -1362,6 +1379,11 @@ projects:
       - BFO
       - Wikidata
       - NLP
+      - "sentence-transformers"
+      - scikit-learn
+      - PyTorch
+      - RDFLib
+      - "Hugging Face"
     tags:
       - ontology
       - classification
@@ -1386,6 +1408,13 @@ projects:
       - BERT
       - "Hugging Face"
       - PyTorch
+      - scikit-learn
+      - Pandas
+      - DistilBERT
+      - RoBERTa
+      - ALBERT
+      - DeBERTa
+      - Transformers
     tags:
       - NLP
       - benchmarking
@@ -1410,6 +1439,8 @@ projects:
       - DistilBERT
       - BFO
       - "Hugging Face"
+      - PyTorch
+      - Transformers
     tags:
       - ontology
       - NLP
@@ -1420,6 +1451,78 @@ projects:
     bullets:
       - A lightweight fine-tuning script for DistilBERT that classifies ontology terms as either Continuant or Occurrent in the spirit of the Basic Formal Ontology (BFO)
       - "Designed as a simple, reproducible proof of concept for text-based ontological classification"
+  - id: proj/dissenter
+    title: "dissenter"
+    year: "2026-03"
+    url: https://pypi.org/project/dissenter/
+    repo_url: https://github.com/PR0CK0/dissenter
+    featured: true
+    description: |
+      A published PyPI package implementing a multi-LLM ensemble debate framework (Mixture of Agents).
+      Routes prompts across multiple LLM backends (Claude, GPT, Gemini, Ollama, and any LiteLLM-compatible provider),
+      aggregates responses, and synthesizes a consensus answer. Designed for robust, provider-agnostic agentic workflows.
+    technologies:
+      - Python
+      - LiteLLM
+      - Ollama
+      - Claude
+      - OpenAI
+      - Gemini
+      - Typer
+      - Rich
+      - "Mixture of Agents"
+    tags:
+      - AI
+      - agents
+      - LLM
+      - "developer tools"
+
+    date_display: Mar 2026
+    members: 1 member
+    bullets:
+      - "Published PyPI package implementing Mixture of Agents (MoA) multi-LLM ensemble debate"
+      - "Routes prompts across multiple LLM backends via LiteLLM (Claude, GPT, Gemini, Ollama, and any compatible provider)"
+      - "Synthesizes a consensus answer from multi-model debate for robust, provider-agnostic agentic workflows"
+    extra_bullets:
+      - prefix: "PyPI: "
+        url: "https://pypi.org/project/dissenter/"
+        display: pypi.org/project/dissenter
+      - prefix: "Source: "
+        url: "https://github.com/PR0CK0/dissenter"
+        display: github.com/PR0CK0/dissenter
+
+  - id: proj/provtracer
+    title: "ProvTracer"
+    year: "2024-05"
+    repo_url: https://github.com/PR0CK0/ProvTracer
+    description: |
+      Desktop application built for dissertation research. Captures, models, and queries provenance
+      metadata for AI/ML model outputs using the PROV-O ontology and SPARQL. Enables reproducibility
+      auditing and lineage tracing for defense AI pipelines.
+    technologies:
+      - Python
+      - PyQt6
+      - SPARQL
+      - "PROV-O"
+      - RDFLib
+      - OWL
+    tags:
+      - provenance
+      - ontology
+      - "knowledge graphs"
+      - dissertation
+
+    date_display: May 2024
+    members: 1 member
+    bullets:
+      - "Desktop app for capturing and querying AI/ML provenance metadata using PROV-O and SPARQL"
+      - "Enables reproducibility auditing and lineage tracing for defense AI pipelines"
+      - "Built as part of Ph.D. dissertation research"
+    extra_bullets:
+      - prefix: "Source: "
+        url: "https://github.com/PR0CK0/ProvTracer"
+        display: github.com/PR0CK0/ProvTracer
+
   - id: proj/cloudcell-consulting
     title: "Linked Data Consultant and Scientific Writer"
     year: "2023-12"
@@ -1846,122 +1949,122 @@ skills:
   # Languages
   - id: skill/java
     name: Java
-    category: languages
+    category: prog_languages
     years_experience: 9
     proficiency: expert
   - id: skill/python
     name: Python
-    category: languages
+    category: prog_languages
     years_experience: 9
     proficiency: expert
   - id: skill/c
     name: C
-    category: languages
+    category: prog_languages
     years_experience: 9
     proficiency: expert
   - id: skill/html
     name: HTML
-    category: languages
+    category: prog_languages
     years_experience: 9
     proficiency: expert
   - id: skill/css
     name: CSS
-    category: languages
+    category: prog_languages
     years_experience: 9
     proficiency: expert
   - id: skill/markdown
     name: Markdown
-    category: languages
+    category: prog_languages
     years_experience: 9
     proficiency: expert
   - id: skill/owl
     name: OWL
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/turtle
     name: Turtle
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/trig
     name: TriG
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/shacl
     name: SHACL
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/swrl
     name: SWRL
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/sparql
     name: SPARQL
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/geosparql
     name: GeoSPARQL
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: advanced
   - id: skill/cypher
     name: Cypher
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: advanced
   - id: skill/sql
     name: SQL
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/xml
     name: XML
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/json
     name: JSON
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/csv
     name: CSV
-    category: languages
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/javascript
     name: JavaScript
-    category: languages
+    category: prog_languages
     years_experience: 2
     proficiency: intermediate
   - id: skill/csharp
     name: "C#"
-    category: languages
+    category: prog_languages
     years_experience: 2
     proficiency: intermediate
   - id: skill/fortran
     name: Fortran
-    category: languages
+    category: prog_languages
     years_experience: 2
     proficiency: intermediate
   - id: skill/typescript
     name: TypeScript
-    category: languages
+    category: prog_languages
     years_experience: 1
     proficiency: intermediate
   - id: skill/ruby
     name: "Ruby/Rails"
-    category: languages
+    category: prog_languages
     years_experience: 1
     proficiency: familiar
   - id: skill/r
     name: R
-    category: languages
+    category: prog_languages
     years_experience: 1
     proficiency: familiar
 
@@ -2210,12 +2313,12 @@ skills:
   # Vocabularies / Ontologies
   - id: skill/rdf
     name: RDF
-    category: vocabularies
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/rdfs
     name: RDFS
-    category: vocabularies
+    category: data_languages
     years_experience: 8
     proficiency: expert
   - id: skill/skos
@@ -2290,11 +2393,11 @@ skills:
     proficiency: intermediate
   - id: skill/rdfa
     name: RDFa
-    category: vocabularies
+    category: data_languages
     proficiency: advanced
   - id: skill/jsonld
     name: "JSON-LD"
-    category: vocabularies
+    category: data_languages
     proficiency: expert
 
   # AI Tools
