@@ -486,10 +486,10 @@ function StatsBar({ stats }: { stats: Stat[] }) {
             transition={{ delay: i * 0.07, duration: 0.4 }}
             className="flex flex-col items-center px-2 sm:px-5 py-3 sm:py-4"
           >
-            <span className="text-lg sm:text-xl font-mono font-bold text-terminal-green text-glow-green">
+            <span className="text-lg sm:text-xl font-mono font-bold text-terminal-green text-glow-green text-center">
               {s.value}
             </span>
-            <span className="text-xs font-mono text-terminal-muted mt-1 tracking-widest uppercase">
+            <span className="text-xs font-mono text-terminal-muted mt-1 tracking-widest uppercase text-center">
               {s.label}
             </span>
           </motion.div>
