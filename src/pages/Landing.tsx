@@ -612,7 +612,7 @@ function RankedView({ skills }: { skills: AggregatedSkill[] }) {
       <div className="flex flex-wrap gap-2">
         {visible.map((sk, i) => {
           const meta = CATEGORY_META[sk.category]
-          const opacity = Math.max(0.25, Math.pow(sk.count / maxCount, 0.6))
+          const opacity = Math.max(0.4, Math.pow(sk.count / maxCount, 0.35))
           return (
             <motion.div
               key={sk.name}
@@ -676,7 +676,7 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
             </p>
             <div className="flex flex-wrap gap-2">
               {catSkills.map((sk) => {
-                const opacity = Math.max(0.2, Math.pow(sk.count / maxCount, 0.6))
+                const opacity = Math.max(0.4, Math.pow(sk.count / maxCount, 0.35))
                 return <SkillChip key={sk.name} skill={sk} chipClass={meta.chipClass} opacity={opacity} />
               })}
             </div>
