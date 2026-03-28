@@ -442,14 +442,15 @@ function aggregateSkills(person: Person): AggregatedSkill[] {
   return result
 }
 
-function SkillChip({ skill, chipClass }: { skill: AggregatedSkill; chipClass: string }) {
+function SkillChip({ skill, chipClass, opacity }: { skill: AggregatedSkill; chipClass: string; opacity: number }) {
   const navigate = useNavigate()
   return (
     <motion.span
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, opacity: 1 }}
       onClick={() => navigate(`/graph?q=${encodeURIComponent(skill.name)}`)}
       className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono
                   transition-all duration-150 cursor-pointer ${chipClass}`}
+      style={{ opacity }}
     >
       {skill.name}
       {skill.count > 1 && (
@@ -494,9 +495,13 @@ function SkillsMatrix({ person }: { person: Person }) {
                 // {meta.label}
               </p>
               <div className="flex flex-wrap gap-2">
-                {catSkills.map((sk) => (
-                  <SkillChip key={sk.name} skill={sk} chipClass={meta.chipClass} />
-                ))}
+                {(() => {
+                  const maxCount = catSkills[0]?.count ?? 1
+                  return catSkills.map((sk) => {
+                    const opacity = Math.max(0.2, Math.pow(sk.count / maxCount, 0.6))
+                    return <SkillChip key={sk.name} skill={sk} chipClass={meta.chipClass} opacity={opacity} />
+                  })
+                })()}
               </div>
             </motion.div>
           )
