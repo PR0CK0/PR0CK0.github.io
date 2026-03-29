@@ -3916,7 +3916,17 @@ talks:
   description: Discussed using ontology to power AI in the construction industry
   soft_skills:
   - Virtual Presentation
-  - Stakeholder Presentation
+  - Public Speaking
+  domains:
+  - Ontology
+  - Taxonomy
+  - Machine Learning
+  - Knowledge Graphs
+  - Semantic Web
+  - Knowledge Representation
+  - Education
+  - XAI
+  - Cognitive Science
 references:
 - id: ref/omar-ochoa
   name: Dr. Omar Ochoa
