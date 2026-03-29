@@ -1138,6 +1138,12 @@ work_experiences:
   bullets:
   - Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps,
     graphs, recursion, sorting and searching algorithms
+  domains:
+  - Software Engineering
+  - Education
+  - SDLC
+  - SQA
+  - Requirements Engineering
 - id: work/publix
   title: Customer Service Clerk
   organization: Publix Supermarkets
