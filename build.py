@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build script: renders data/tyler-procko.yaml into public/legacy/index.html via Jinja2 templates."""
+"""Build script: renders public/data/tyler-procko.yaml into public/legacy/index.html via Jinja2 templates."""
 
 import yaml
 from jinja2 import Environment, FileSystemLoader
@@ -26,7 +26,7 @@ def pub_date(date_val):
     return s
 
 BASE_DIR = Path(__file__).parent
-DATA_FILE = BASE_DIR / "data" / "tyler-procko.yaml"
+DATA_FILE = BASE_DIR / "public" / "data" / "tyler-procko.yaml"
 TEMPLATE_DIR = BASE_DIR / "templates"
 OUTPUT_FILE = BASE_DIR / "public" / "legacy" / "cv.html"
 
