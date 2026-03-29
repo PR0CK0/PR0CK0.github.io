@@ -902,11 +902,14 @@ work_experiences:
   - Wrote and published several scientific papers
   technologies:
   - Python
-  - GPT
   - OpenAI
+  - GPT
   - SQL
-  - Microsoft Word
   - Visual Studio Code
+  - GitHub
+  - Microsoft Word
+  - Microsoft Teams
+  - Draw.io
   category: consulting
   date_display: Feb 2023 - Present
   title_line: 'Technology Consultant and Scientific Writer - '
@@ -919,6 +922,22 @@ work_experiences:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  domains:
+  - Scientific Writing
+  - LLMs
+  - Software Engineering
+  - Machine Learning
+  - NLP
+  - Education
+  - Prompt Engineering
+  - Text Extraction
+  - SDLC
+  - XAI
+  - Agile
+  - SQA
+  - Requirements Engineering
+  - NER
+  - RAG
 - id: work/wordlift
   title: Ontologist
   organization: WordLift SEO (international remote)
