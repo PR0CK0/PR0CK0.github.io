@@ -2697,6 +2697,8 @@ projects:
   - Sourced and created all the audio and visual media for the application, in addition to implementing some physics
   domains:
   - AR
+  - HCI
+  - UX
 - id: proj/vxworks-water-heater
   title: VxWorks C Water Heater Simulation
   year: 2019-05
@@ -2738,6 +2740,8 @@ projects:
     public key encryption
   domains:
   - Cryptography
+  - HCI
+  - UX
 - id: proj/lan-board-game
   title: LAN Multiplayer Board Game
   year: 2018-12
