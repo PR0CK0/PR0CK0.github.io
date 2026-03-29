@@ -251,12 +251,15 @@ export default function Graph() {
   useEffect(() => {
     loadPortfolioData()
       .then((person) => {
-        // rAF ensures the 'loading' spinner paints before buildGraph blocks the thread
+        // Double rAF: first frame paints the loading state (navbar + spinner),
+        // second frame starts buildGraph so the thread blocks only after paint.
         requestAnimationFrame(() => {
-          const { nodes, edges } = buildGraph(person)
-          setElements([...nodes, ...edges])
-          setStats({ nodes: nodes.length, edges: edges.length })
-          setPhase('layout') // spinner stays up; Cytoscape mounts invisibly
+          requestAnimationFrame(() => {
+            const { nodes, edges } = buildGraph(person)
+            setElements([...nodes, ...edges])
+            setStats({ nodes: nodes.length, edges: edges.length })
+            setPhase('layout') // spinner stays up; Cytoscape mounts invisibly
+          })
         })
       })
       .catch((err) => {
