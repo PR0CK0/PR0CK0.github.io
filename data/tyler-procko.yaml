@@ -3940,6 +3940,7 @@ courses:
   name: Scientific Programming in C
   technologies:
   - C
+  - Code::Blocks
   - Microsoft Word
   - Microsoft PowerPoint
 - number: CS222

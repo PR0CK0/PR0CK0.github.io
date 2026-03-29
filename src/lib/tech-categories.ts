@@ -136,6 +136,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   'Microsoft Word':     'tools',
   'Eclipse IDE':        'tools',
   Eclipse:              'tools',
+  'Code::Blocks':       'tools',
   MySQL:                'tools',
   PostgreSQL:           'tools',
   PostGIS:              'tools',
