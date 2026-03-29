@@ -9,7 +9,9 @@ export type SkillCategory =
   | 'prog_languages'
   | 'data_languages'
   | 'libraries'
-  | 'tools'
+  | 'dev_tools'
+  | 'office_tools'
+  | 'comm_tools'
   | 'ai_tools'
   | 'vocabularies'
   | 'cloud'
@@ -119,51 +121,55 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   'json-simple':        'libraries',
   JSoup:                'libraries',
 
-  // ── Tools ──────────────────────────────────────────────────────────────────
-  Git:                  'tools',
-  GitHub:               'tools',
-  Jira:                 'tools',
-  Confluence:           'tools',
-  Bitbucket:            'tools',
-  'Protégé':            'tools',
-  GraphDB:              'tools',
-  Stardog:              'tools',
-  TriplyDB:             'tools',
-  Neo4j:                'tools',
-  MongoDB:              'tools',
-  'Visual Studio Code': 'tools',
-  LaTeX:                'tools',
-  'Microsoft Word':     'tools',
-  'Eclipse IDE':        'tools',
-  Eclipse:              'tools',
-  'Code::Blocks':       'tools',
-  MySQL:                'tools',
-  PostgreSQL:           'tools',
-  PostGIS:              'tools',
-  PHPMyAdmin:           'tools',
-  QGIS:                 'tools',
-  'Jupyter Notebook':   'tools',
-  GraphViz:             'tools',
-  'Ontotext Refine':    'tools',
-  CVAT:                 'tools',
-  Docker:               'tools',
-  Kubernetes:           'tools',
-  Trello:               'tools',
-  KuzuDB:               'tools',
-  Wikidata:             'tools',
-  VxWorks:              'tools',
-  Fuseki:               'tools',
-  'DL-Learner':         'tools',
-  WordPress:            'tools',
-  MISTK:                'tools',
-  Arduino:              'tools',
-  CURL:                 'tools',
-  Wireshark:            'tools',
-  'Microsoft Teams':    'tools',
-  'Microsoft Excel':      'tools',
-  'Microsoft PowerPoint': 'tools',
-  Signal:               'tools',
-  Slack:                'tools',
+  // ── Development Tools ──────────────────────────────────────────────────────
+  Git:                  'dev_tools',
+  GitHub:               'dev_tools',
+  Jira:                 'dev_tools',
+  Confluence:           'dev_tools',
+  Bitbucket:            'dev_tools',
+  'Protégé':            'dev_tools',
+  GraphDB:              'dev_tools',
+  Stardog:              'dev_tools',
+  TriplyDB:             'dev_tools',
+  Neo4j:                'dev_tools',
+  MongoDB:              'dev_tools',
+  'Visual Studio Code': 'dev_tools',
+  'Eclipse IDE':        'dev_tools',
+  Eclipse:              'dev_tools',
+  'Code::Blocks':       'dev_tools',
+  MySQL:                'dev_tools',
+  PostgreSQL:           'dev_tools',
+  PostGIS:              'dev_tools',
+  PHPMyAdmin:           'dev_tools',
+  QGIS:                 'dev_tools',
+  'Jupyter Notebook':   'dev_tools',
+  GraphViz:             'dev_tools',
+  'Ontotext Refine':    'dev_tools',
+  CVAT:                 'dev_tools',
+  Docker:               'dev_tools',
+  Kubernetes:           'dev_tools',
+  Trello:               'dev_tools',
+  KuzuDB:               'dev_tools',
+  Wikidata:             'dev_tools',
+  VxWorks:              'dev_tools',
+  Fuseki:               'dev_tools',
+  'DL-Learner':         'dev_tools',
+  WordPress:            'dev_tools',
+  MISTK:                'dev_tools',
+  Arduino:              'dev_tools',
+  CURL:                 'dev_tools',
+  Wireshark:            'dev_tools',
+
+  // ── Office Tools ────────────────────────────────────────────────────────────
+  LaTeX:                'office_tools',
+  'Microsoft Word':     'office_tools',
+  'Microsoft Excel':    'office_tools',
+  'Microsoft PowerPoint': 'office_tools',
+
+  // ── Communication Tools ─────────────────────────────────────────────────────
+  'Microsoft Teams':    'comm_tools',
+  Signal:               'comm_tools',
+  Slack:                'comm_tools',
 
   // ── AI / ML ────────────────────────────────────────────────────────────────
   Claude:               'ai_tools',
@@ -268,7 +274,8 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   TSV:          'data_languages',
   WKT:          'data_languages',
 
-  TCP:                      'tools',
-  RAID:                     'tools',
-  Chirp:                    'tools',
+  // ── Development Tools ─── (additional) ──────────────────────────────────────
+  TCP:          'dev_tools',
+  RAID:         'dev_tools',
+  Chirp:        'dev_tools',
 }

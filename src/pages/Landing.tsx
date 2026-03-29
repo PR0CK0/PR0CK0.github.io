@@ -49,11 +49,23 @@ const CATEGORY_META: Record<string, { label: string; color: string; chipClass: s
     chipClass:
       'border border-terminal-blue/30 text-terminal-blue bg-terminal-blue/5 hover:bg-terminal-blue/15 hover:border-terminal-blue/60',
   },
-  tools: {
-    label: 'Tools',
+  dev_tools: {
+    label: 'Development Tools',
     color: 'text-terminal-purple',
     chipClass:
       'border border-terminal-purple/30 text-terminal-purple bg-terminal-purple/5 hover:bg-terminal-purple/15 hover:border-terminal-purple/60',
+  },
+  office_tools: {
+    label: 'Office Tools',
+    color: 'text-orange-400',
+    chipClass:
+      'border border-orange-400/30 text-orange-400 bg-orange-400/5 hover:bg-orange-400/15 hover:border-orange-400/60',
+  },
+  comm_tools: {
+    label: 'Communication Tools',
+    color: 'text-pink-400',
+    chipClass:
+      'border border-pink-400/30 text-pink-400 bg-pink-400/5 hover:bg-pink-400/15 hover:border-pink-400/60',
   },
   ai_tools: {
     label: 'AI / ML',
@@ -106,7 +118,7 @@ const CATEGORY_META: Record<string, { label: string; color: string; chipClass: s
 }
 
 const SHOWN_CATEGORIES = [
-  'prog_languages', 'data_languages', 'libraries', 'tools',
+  'prog_languages', 'data_languages', 'libraries', 'dev_tools', 'office_tools', 'comm_tools',
   'ai_tools', 'vocabularies', 'cloud', 'os', 'design', 'soft_skills', 'personal', 'paradigms',
 ]
 

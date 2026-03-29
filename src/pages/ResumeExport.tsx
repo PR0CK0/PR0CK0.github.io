@@ -161,13 +161,16 @@ function formatDateRange(start?: string, end?: string, isCurrent?: boolean): str
 
 // Exclude soft skills from resume — technical focus only
 const TECHNICAL_CATEGORIES = new Set([
-  'languages', 'libraries', 'tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os',
+  'prog_languages', 'data_languages', 'libraries', 'dev_tools', 'office_tools', 'comm_tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os',
 ])
 
 const CATEGORY_LABELS: Record<string, string> = {
-  languages: 'Languages',
+  prog_languages: 'Programming Languages',
+  data_languages: 'Data Languages',
   libraries: 'Libraries & Frameworks',
-  tools: 'Tools',
+  dev_tools: 'Development Tools',
+  office_tools: 'Office Tools',
+  comm_tools: 'Communication Tools',
   cloud: 'Cloud',
   vocabularies: 'Vocabularies & Standards',
   ai_tools: 'AI Tools',
