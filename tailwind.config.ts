@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import plugin from 'tailwindcss/plugin'
 
 const config: Config = {
   content: [
@@ -45,7 +46,13 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // ls: = landscape phone (wide but short — orientation:landscape + max-height:500px)
+    // Use alongside sm: to prevent upscaling on rotated phones
+    plugin(({ addVariant }) => {
+      addVariant('ls', '@media (orientation: landscape) and (max-height: 500px)')
+    }),
+  ],
 }
 
 export default config

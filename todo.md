@@ -60,6 +60,13 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [ ] Extracurriculars — add technologies/domains to 24 empty entries
 - [ ] work/publix — add technologies (minimal)
 - [ ] Publications UI — wire up `domains` as tag chips in PublicationRow
+- [ ] LLM model coverage — audit all work/project/pub/extracurricular entries and add specific model names where used:
+  - OpenAI: `GPT-3.5`, `GPT-4`, `GPT-4o`, `o1`, `o3`, `ChatGPT`, `Codex`, `OpenAI API`
+  - Anthropic: `Claude 3`, `Claude 3.5 Sonnet`, `Claude Code`, `Anthropic API`
+  - Google: `Gemini 1.5`, `Gemini 2.0`, `Gemini API`
+  - Meta: `Llama`, `Llama 3`
+  - Other: `Grok`, `Mistral`, `Mixtral`, `Copilot`
+  - Currently entries use generic "GPT", "Claude", "Gemini" — replace/supplement with specific model versions where known
 
 ## Projects — domains/technologies (need local clones)
 

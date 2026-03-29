@@ -70,6 +70,25 @@
   animation: scan-line 0.75s linear forwards;
 }
 
+/* Thin scrollbar for contribution graph */
+.contrib-scroll::-webkit-scrollbar {
+  height: 3px;
+}
+.contrib-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.contrib-scroll::-webkit-scrollbar-thumb {
+  background: #1e2d4a;
+  border-radius: 2px;
+}
+.contrib-scroll::-webkit-scrollbar-thumb:hover {
+  background: #00ff8844;
+}
+.contrib-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #1e2d4a transparent;
+}
+
 @layer utilities {
   .text-glow-green {
     text-shadow: 0 0 8px #00ff88, 0 0 16px #00ff88;

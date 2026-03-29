@@ -21,6 +21,7 @@ type NodeType =
   | 'award'
   | 'talk'
   | 'certificate'
+  | 'course'
 
 interface SelectedNode {
   id: string
@@ -45,6 +46,7 @@ const NODE_TYPES: NodeType[] = [
   'award',
   'talk',
   'certificate',
+  'course',
 ]
 
 const TYPE_META: Record<
@@ -60,6 +62,7 @@ const TYPE_META: Record<
   award:       { color: '#ffd700', label: 'Award',        shape: 'star',      size: 35 },
   talk:        { color: '#ff8800', label: 'Talk',         shape: 'ellipse',   size: 30 },
   certificate: { color: '#aaaaaa', label: 'Certificate',  shape: 'ellipse',   size: 28 },
+  course:      { color: '#34d399', label: 'Course',       shape: 'roundrectangle', size: 32 },
 }
 
 const LAYOUT_OPTIONS = {
@@ -278,7 +281,12 @@ export default function Graph() {
     []
   )
 
-  // Apply type visibility to Cytoscape whenever enabledTypes changes
+  // Apply type visibility whenever enabledTypes changes
+  // TODO: orphan pen — when filtering leaves nodes with no visible edges, move them into
+  // a fenced "// filtered nodes" area below the main graph with a dashed HTML overlay that
+  // tracks pan/zoom. Tricky state: hide/show cycles across multiple filter toggles need
+  // savedPositions + penNodeIds refs to survive, and edge visibility must use the
+  // "both endpoints visible" rule (not the old connectedEdges().show/hide approach).
   useEffect(() => {
     const cy = cyRef.current
     if (!cy) return

@@ -5,7 +5,7 @@ export interface CyNode {
   data: {
     id: string
     label: string
-    type: 'person' | 'education' | 'work' | 'publication' | 'project' | 'skill' | 'award' | 'certificate' | 'talk'
+    type: 'person' | 'education' | 'work' | 'publication' | 'project' | 'skill' | 'award' | 'certificate' | 'talk' | 'course'
     subtitle?: string
     detail?: string
     year?: string
@@ -30,6 +30,10 @@ export interface GraphData {
 
 function techId(tech: string) {
   return `skill-${tech.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
+}
+
+function courseId(number: string) {
+  return `course-${number.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
 }
 
 export function buildGraph(person: Person): GraphData {
@@ -67,13 +71,12 @@ export function buildGraph(person: Person): GraphData {
   const personId = person.id
   addNode({ data: { id: personId, label: person.name, type: 'person', subtitle: person.title } })
 
-  // ─── Skill nodes — aggregated from all technology arrays ────────────────────
+  // ─── Skill nodes — aggregated from all entity sources ───────────────────────
   const allTechs = new Set([
     ...(person.work_experiences ?? []).flatMap((w) => w.technologies ?? []),
     ...(person.projects ?? []).flatMap((p) => p.technologies ?? []),
     ...(person.publications ?? []).slice(0, 20).flatMap((p) => p.technologies ?? []),
     ...(person.courses ?? []).flatMap((c) => c.technologies ?? []),
-    ...(person.extracurriculars ?? []).flatMap((e) => e.technologies ?? []),
   ])
   allTechs.forEach((tech) => {
     addNode({
@@ -129,7 +132,7 @@ export function buildGraph(person: Person): GraphData {
   })
 
   // ─── Projects ────────────────────────────────────────────────────────────────
-  person.projects?.slice(0, 15).forEach((proj) => {
+  person.projects?.forEach((proj) => {
     addNode({
       data: {
         id: proj.id,
@@ -141,6 +144,21 @@ export function buildGraph(person: Person): GraphData {
     })
     addEdge({ data: { id: `e-${personId}-${proj.id}`, source: personId, target: proj.id, label: 'built' } })
     linkTechs(proj.id, proj.technologies)
+  })
+
+  // ─── Courses ─────────────────────────────────────────────────────────────────
+  person.courses?.forEach((course) => {
+    const cid = courseId(course.number)
+    addNode({
+      data: {
+        id: cid,
+        label: course.name.length > 40 ? course.name.slice(0, 40) + '…' : course.name,
+        type: 'course',
+        subtitle: course.number,
+      },
+    })
+    addEdge({ data: { id: `e-${personId}-${cid}`, source: personId, target: cid, label: 'took' } })
+    linkTechs(cid, course.technologies)
   })
 
   // ─── Awards ──────────────────────────────────────────────────────────────────

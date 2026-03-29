@@ -141,7 +141,7 @@ function formatDate(date?: string) {
 function ProfilePhoto({ visible }: { visible: boolean }) {
   return (
     <div
-      className="flex-shrink-0 relative w-[66px] h-[66px] sm:w-[88px] sm:h-[88px]"
+      className="flex-shrink-0 relative w-[66px] h-[66px] sm:w-[88px] sm:h-[88px] ls:w-[66px] ls:h-[66px]"
       style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.1s' }}
     >
       {/* Scan-reveal container */}
@@ -209,9 +209,9 @@ function SocialButton({ label, href, icon }: { label: string; href: string; icon
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-terminal-border
+      className="inline-flex items-center gap-1.5 sm:gap-2 ls:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 ls:px-2 ls:py-1 rounded-full border border-terminal-border
                  text-terminal-muted hover:text-terminal-green hover:border-terminal-green/50
-                 hover:bg-terminal-green/5 transition-all duration-200 text-xs font-mono"
+                 hover:bg-terminal-green/5 transition-all duration-200 text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono"
     >
       <span>{icon}</span>
       <span>{label}</span>
@@ -235,7 +235,7 @@ function CtaButton({
   return (
     <button
       onClick={onClick}
-      className={`px-5 py-2 rounded border font-mono text-sm transition-all duration-200 ${cls}`}
+      className={`px-3 py-1.5 sm:px-5 sm:py-2 ls:px-3 ls:py-1.5 rounded border font-mono text-xs sm:text-sm ls:text-xs transition-all duration-200 ${cls}`}
     >
       {children}
     </button>
@@ -324,7 +324,7 @@ function TypingPrompt({ onFirstTyped }: { onFirstTyped?: () => void }) {
   }, [phase, text, idx, onFirstTyped])
 
   return (
-    <div className="flex gap-2 items-center font-mono text-sm">
+    <div className="flex gap-2 items-center font-mono text-xs sm:text-sm ls:text-xs">
       <span className="text-terminal-green select-none">$</span>
       <span className="text-terminal-amber">{text}</span>
       <span className="animate-blink text-terminal-green leading-none">▮</span>
@@ -358,7 +358,7 @@ function BootSequence({ lines, onComplete, onFirstTyped }: { lines: BootLine[]; 
   }, [visibleLines, lines, onComplete])
 
   return (
-    <div className="font-mono text-sm space-y-1">
+    <div className="font-mono text-xs sm:text-sm ls:text-xs space-y-1">
       {lines.map((line, i) => (
         <motion.div
           key={i}
@@ -407,12 +407,12 @@ function HeroContent({ person }: { person: Person }) {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="mt-5 sm:mt-8 space-y-3"
+      className="mt-3 sm:mt-8 ls:mt-3 space-y-2 sm:space-y-3 ls:space-y-2"
     >
       {/* Name */}
       <motion.h1
         variants={itemVariants}
-        className="text-2xl sm:text-4xl lg:text-5xl font-mono font-bold tracking-widest
+        className="text-xl sm:text-4xl lg:text-5xl ls:text-xl font-mono font-bold tracking-widest
                    text-terminal-green text-glow-green animate-glow-pulse"
       >
         {person.name.toUpperCase()}
@@ -421,7 +421,7 @@ function HeroContent({ person }: { person: Person }) {
       {/* Title */}
       <motion.p
         variants={itemVariants}
-        className="text-terminal-blue text-glow-blue font-mono text-sm sm:text-base tracking-wide"
+        className="text-terminal-blue text-glow-blue font-mono text-xs sm:text-base ls:text-xs tracking-wide"
       >
         AI Engineer — Agentic LLMs · Knowledge Graphs · Ontologies
       </motion.p>
@@ -429,13 +429,13 @@ function HeroContent({ person }: { person: Person }) {
       {/* Tagline */}
       <motion.p
         variants={itemVariants}
-        className="italic text-terminal-muted font-mono text-sm"
+        className="italic text-terminal-muted font-mono text-[0.7rem] sm:text-sm ls:text-[0.7rem]"
       >
         &quot;{person.tagline ?? 'Casting the net for knowledge in a sea of infinite information.'}&quot;
       </motion.p>
 
       {/* Social links */}
-      <motion.div variants={itemVariants} className="flex flex-wrap gap-2">
+      <motion.div variants={itemVariants} className="flex flex-wrap gap-1.5 sm:gap-2 ls:gap-1.5">
         {socials.map((s) => {
           const meta = socialMeta[s.platform] ?? { icon: '→', label: s.platform }
           return <SocialButton key={s.id} label={meta.label} href={s.url} icon={meta.icon} />
@@ -443,7 +443,7 @@ function HeroContent({ person }: { person: Person }) {
       </motion.div>
 
       {/* CTA buttons */}
-      <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pt-2">
+      <motion.div variants={itemVariants} className="flex flex-wrap gap-2 sm:gap-3 ls:gap-2 pt-1 sm:pt-2 ls:pt-1">
         <CtaButton variant="green" onClick={() => navigate('/graph')}>
           ~/graph →
         </CtaButton>
@@ -486,40 +486,37 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
         {/* Terminal window chrome */}
         <div className="rounded-lg border border-terminal-border bg-terminal-surface/60 backdrop-blur-sm overflow-hidden shadow-2xl">
           {/* Title bar */}
-          <div className="flex items-center gap-2 px-4 py-2 border-b border-terminal-border bg-terminal-bg/80">
-            <span className="w-3 h-3 rounded-full bg-terminal-red/70" />
-            <span className="w-3 h-3 rounded-full bg-terminal-amber/70" />
-            <span className="w-3 h-3 rounded-full bg-terminal-green/70" />
-            <span className="ml-3 text-terminal-muted text-xs font-mono tracking-widest">
+          <div className="flex items-center gap-1.5 sm:gap-2 ls:gap-1.5 px-3 sm:px-4 ls:px-3 py-1.5 sm:py-2 ls:py-1.5 border-b border-terminal-border bg-terminal-bg/80">
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-red/70" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-amber/70" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-green/70" />
+            <span className="ml-2 sm:ml-3 ls:ml-2 text-terminal-muted text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono tracking-widest">
               procko@portfolio ~ bash
             </span>
           </div>
 
           {/* Terminal body */}
-          <div className="p-4 sm:p-6 lg:p-8">
-            <div className="flex gap-4 sm:gap-6 items-start">
-              {/* Left: boot + hero text */}
-              <div className="flex-1 min-w-0">
-                <BootSequence
-                  lines={bootLines}
-                  onComplete={() => setBootDone(true)}
-                  onFirstTyped={() => setHeroVisible(true)}
-                />
-
-                <motion.div
-                  animate={{ opacity: heroVisible ? 1 : 0 }}
-                  transition={{ duration: 0.5 }}
-                  style={{ pointerEvents: heroVisible ? 'auto' : 'none' }}
-                >
-                  <HeroContent person={person} />
-                </motion.div>
-              </div>
-
-              {/* Right: profile photo — reveals with hero */}
-              <div className="flex-shrink-0 mt-1">
-                <ProfilePhoto visible={heroVisible} />
-              </div>
+          <div className="p-4 sm:p-6 lg:p-8 ls:p-4">
+            {/* Photo floated right — boot lines wrap beside it; content below clears to full width */}
+            <div className="float-right ml-3 sm:ml-5 ls:ml-3 mt-1">
+              <ProfilePhoto visible={heroVisible} />
             </div>
+
+            <BootSequence
+              lines={bootLines}
+              onComplete={() => setBootDone(true)}
+              onFirstTyped={() => setHeroVisible(true)}
+            />
+
+            <motion.div
+              animate={{ opacity: heroVisible ? 1 : 0 }}
+              transition={{ duration: 0.5 }}
+              style={{ pointerEvents: heroVisible ? 'auto' : 'none' }}
+            >
+              <HeroContent person={person} />
+            </motion.div>
+
+            <div className="clear-both" />
           </div>
         </div>
 
@@ -559,9 +556,9 @@ function StatsBar({ stats }: { stats: Stat[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.07, duration: 0.4 }}
-            className="flex flex-col items-center px-2 sm:px-5 py-3 sm:py-4"
+            className="flex flex-col items-center px-2 sm:px-5 ls:px-2 py-3 sm:py-4 ls:py-3"
           >
-            <span className="text-lg sm:text-xl font-mono font-bold text-terminal-green text-glow-green text-center">
+            <span className="text-lg sm:text-xl ls:text-lg font-mono font-bold text-terminal-green text-glow-green text-center">
               {s.value}
             </span>
             <span className="text-xs font-mono text-terminal-muted mt-1 tracking-widest uppercase text-center">
@@ -620,7 +617,7 @@ function SkillChip({ skill, chipClass, opacity }: { skill: AggregatedSkill; chip
     <motion.span
       whileHover={{ scale: 1.05, opacity: 1 }}
       onClick={() => navigate(`/graph?q=${encodeURIComponent(skill.name)}`)}
-      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono
+      className={`inline-flex items-center gap-1 sm:gap-1.5 ls:gap-1 px-1.5 py-0.5 sm:px-2.5 sm:py-1 ls:px-1.5 ls:py-0.5 rounded text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono
                   transition-all duration-150 cursor-pointer ${chipClass}`}
       style={{ opacity }}
     >
@@ -638,14 +635,14 @@ type SkillView = 'categories' | 'ranked'
 
 function ViewToggle({ view, onChange }: { view: SkillView; onChange: (v: SkillView) => void }) {
   return (
-    <div className="inline-flex items-center rounded-lg border border-terminal-border bg-terminal-surface/40 p-0.5 gap-0.5 font-mono text-xs relative">
+    <div className="inline-flex items-center rounded-lg border border-terminal-border bg-terminal-surface/40 p-0.5 gap-0.5 font-mono text-[0.6rem] sm:text-xs ls:text-[0.6rem] relative">
       {(['ranked', 'categories'] as SkillView[]).map((v) => {
         const active = view === v
         return (
           <button
             key={v}
             onClick={() => onChange(v)}
-            className="relative px-3 py-1.5 rounded-md transition-colors duration-200 z-10"
+            className="relative px-2 py-1 sm:px-3 sm:py-1.5 ls:px-2 ls:py-1 rounded-md transition-colors duration-200 z-10"
             style={{ color: active ? '#b57bff' : '#4a5a7a' }}
           >
             {active && (
@@ -684,7 +681,7 @@ function RankedView({ skills }: { skills: AggregatedSkill[] }) {
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-1.5 sm:gap-2 ls:gap-1.5">
         {visible.map((sk, i) => {
           const meta = CATEGORY_META[sk.category]
           const opacity = Math.max(0.4, Math.pow(sk.count / maxCount, 0.35))
@@ -732,7 +729,7 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.3 }}
-      className="space-y-5"
+      className="space-y-3 sm:space-y-5 ls:space-y-3"
     >
       {SHOWN_CATEGORIES.map((cat, ci) => {
         const meta = CATEGORY_META[cat]
@@ -754,7 +751,7 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
                 /* used Windows since before I could walk — all others in professional/personal contexts below */
               </p>
             )}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {catSkills.map((sk) => {
                 const opacity = Math.max(0.4, Math.pow(sk.count / maxCount, 0.35))
                 return <SkillChip key={sk.name} skill={sk} chipClass={meta.chipClass} opacity={opacity} />
@@ -774,7 +771,7 @@ function SkillsMatrix({ person }: { person: Person }) {
   const [view, setView] = useState<SkillView>('ranked')
 
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-12">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 ls:px-4 py-7 sm:py-12 ls:py-7">
       <SectionHeader
         prompt="cat skills.json"
         title="Skills Matrix"
@@ -821,10 +818,10 @@ function SectionHeader({
       transition={{ duration: 0.4 }}
       className="space-y-2"
     >
-      <p className={`text-xs font-mono ${cls.prompt} opacity-70`}>$ {prompt}</p>
+      <p className={`text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono ${cls.prompt} opacity-70`}>$ {prompt}</p>
       <div className="flex items-center gap-3">
         <div className={`w-1 h-8 rounded ${cls.bar}`} />
-        <h2 className={`text-xl sm:text-2xl font-mono font-bold tracking-wider ${cls.title}`}>
+        <h2 className={`text-xl sm:text-2xl ls:text-xl font-mono font-bold tracking-wider ${cls.title}`}>
           {title}
         </h2>
       </div>
@@ -841,13 +838,13 @@ function PublicationRow({ pub, index }: { pub: Publication; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: index * 0.07, duration: 0.4 }}
-      className="group flex flex-col sm:flex-row gap-3 sm:gap-4 p-3 rounded-lg border border-terminal-border/50
+      className="group flex flex-col sm:flex-row gap-3 sm:gap-4 ls:gap-3 p-3 rounded-lg border border-terminal-border/50
                  bg-terminal-surface/30 hover:bg-terminal-surface/60 hover:border-terminal-blue/30
                  transition-all duration-200"
     >
       {/* Year badge */}
       <div className="shrink-0">
-        <span className="inline-block px-2 py-1 rounded text-xs font-mono font-bold
+        <span className="inline-block px-1.5 py-0.5 sm:px-2 sm:py-1 ls:px-1.5 ls:py-0.5 rounded text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono font-bold
                          border border-terminal-blue/40 text-terminal-blue bg-terminal-blue/10">
           {formatDate(pub.date)}
         </span>
@@ -856,7 +853,7 @@ function PublicationRow({ pub, index }: { pub: Publication; index: number }) {
       {/* Content */}
       <div className="flex-1 min-w-0 space-y-1">
         <div className="flex flex-wrap items-start gap-2">
-          <p className="font-mono text-sm text-terminal-text group-hover:text-terminal-blue
+          <p className="font-mono text-xs sm:text-sm ls:text-xs text-terminal-text group-hover:text-terminal-blue
                         transition-colors duration-200 leading-snug flex-1 min-w-0">
             {pub.url ? (
               <a
@@ -874,7 +871,7 @@ function PublicationRow({ pub, index }: { pub: Publication; index: number }) {
           {statusBadge(pub.status)}
         </div>
         {pub.venue && (
-          <p className="text-xs font-mono text-terminal-muted truncate">{pub.venue}</p>
+          <p className="text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono text-terminal-muted truncate">{pub.venue}</p>
         )}
       </div>
     </motion.div>
@@ -886,13 +883,13 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
 
   return (
     <section className="bg-terminal-surface/20 border-y border-terminal-border">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-12 ls:py-7 ls:px-4">
         <SectionHeader
           prompt="cat publications.bib | head -5"
           title="Recent Publications"
           accent="blue"
         />
-        <div className="mt-6 space-y-2">
+        <div className="mt-4 sm:mt-6 space-y-1.5 sm:space-y-2">
           {top5.map((pub, i) => (
             <PublicationRow key={pub.id} pub={pub} index={i} />
           ))}
@@ -908,7 +905,7 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
             href="https://scholar.google.com/citations?user=Xm7p7mQAAAAJ&hl=en"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-mono text-terminal-muted hover:text-terminal-blue transition-colors"
+            className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted hover:text-terminal-blue transition-colors"
           >
             View all {publications.length} publications on Google Scholar →
           </a>
@@ -928,13 +925,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: index * 0.08, duration: 0.45 }}
       whileHover={{ y: -3 }}
-      className="group flex flex-col p-4 rounded-lg border border-terminal-border
+      className="group flex flex-col p-3 sm:p-4 ls:p-3 rounded-lg border border-terminal-border
                  bg-terminal-surface/40 hover:bg-terminal-surface/70
                  hover:border-terminal-purple/40 transition-all duration-250"
     >
       {/* Header */}
       <div className="flex items-start justify-between gap-2 mb-2">
-        <h3 className="font-mono text-sm font-bold text-terminal-text
+        <h3 className="font-mono text-xs sm:text-sm ls:text-xs font-bold text-terminal-text
                        group-hover:text-terminal-purple transition-colors leading-snug">
           {project.url ? (
             <a
@@ -1007,7 +1004,7 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
     .slice(0, 6)
 
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-12">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 ls:px-4 py-7 sm:py-12 ls:py-7">
       <SectionHeader
         prompt="ls -la ~/projects/ | head -6"
         title="Featured Projects"
@@ -1030,7 +1027,7 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
           href="https://github.com/PR0CK0?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs font-mono text-terminal-muted hover:text-terminal-amber transition-colors"
+          className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted hover:text-terminal-amber transition-colors"
         >
           View all {projects.length} projects on GitHub →
         </a>
@@ -1075,6 +1072,13 @@ function ContributionGraph({ username }: { username: string }) {
   const [tooltip, setTooltip] = useState<{
     day: ContributionDay; commits: EventCommit[]; x: number; y: number
   } | null>(null)
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640)
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 640)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   useEffect(() => {
     const ghEventsFetch = (page: number) =>
@@ -1147,7 +1151,10 @@ function ContributionGraph({ username }: { username: string }) {
     }
   })
 
-  const cell = 11, gap = 3
+  const cell = isMobile ? 9 : 11
+  const gap  = isMobile ? 2 : 3
+  const labelFont = isMobile ? '8px' : '9px'
+  const headerText = isMobile ? '9px' : '10px'
 
   return (
     <motion.div
@@ -1155,11 +1162,11 @@ function ContributionGraph({ username }: { username: string }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5 }}
-      className="my-6"
+      className="my-4 sm:my-6"
     >
       <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
-        <span className="text-[10px] font-mono text-terminal-muted/60">// commit activity</span>
-        <span className="flex items-center gap-3 text-[10px] font-mono">
+        <span className="font-mono text-terminal-muted/60" style={{ fontSize: headerText }}>// commit activity</span>
+        <span className="flex items-center gap-3 font-mono" style={{ fontSize: headerText }}>
           <span className="text-terminal-green/50">{total.toLocaleString()} contributions in the last year</span>
           {lastPush && (
             <span className="text-terminal-muted/40">· last push <span className="text-terminal-blue/60">{timeAgo(lastPush)}</span></span>
@@ -1167,16 +1174,16 @@ function ContributionGraph({ username }: { username: string }) {
         </span>
       </div>
       <div
-        className="overflow-x-auto pb-1 rounded-lg border border-terminal-border/30 bg-terminal-surface/20 p-2.5"
+        className="contrib-scroll overflow-x-auto pb-1 rounded-lg border border-terminal-border/30 bg-terminal-surface/20 p-2.5"
         onMouseLeave={() => setTooltip(null)}
       >
         <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 0 }}>
           {/* Month labels */}
-          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '1px', height: '12px' }}>
+          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '1px', height: '11px' }}>
             {weeks.map((_, wi) => (
               <div key={wi} style={{ width: cell, flexShrink: 0, overflow: 'visible', position: 'relative' }}>
                 {monthLabels.has(wi) && (
-                  <span style={{ fontSize: '9px', color: 'rgba(200,214,240,0.35)', fontFamily: 'monospace', position: 'absolute', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontSize: labelFont, color: 'rgba(200,214,240,0.35)', fontFamily: 'monospace', position: 'absolute', whiteSpace: 'nowrap' }}>
                     {monthLabels.get(wi)}
                   </span>
                 )}
@@ -1184,11 +1191,11 @@ function ContributionGraph({ username }: { username: string }) {
             ))}
           </div>
           {/* Year labels */}
-          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '4px', height: '12px' }}>
+          <div style={{ display: 'flex', gap: `${gap}px`, marginBottom: '4px', height: '11px' }}>
             {weeks.map((_, wi) => (
               <div key={wi} style={{ width: cell, flexShrink: 0, overflow: 'visible', position: 'relative' }}>
                 {yearLabels.has(wi) && (
-                  <span style={{ fontSize: '9px', color: 'rgba(0,255,136,0.50)', fontFamily: 'monospace', fontWeight: 'bold', position: 'absolute', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontSize: labelFont, color: 'rgba(0,255,136,0.50)', fontFamily: 'monospace', fontWeight: 'bold', position: 'absolute', whiteSpace: 'nowrap' }}>
                     {yearLabels.get(wi)}
                   </span>
                 )}
@@ -1273,9 +1280,9 @@ function Footer() {
 
   return (
     <footer className="border-t border-terminal-border bg-terminal-surface/30">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs font-mono text-terminal-muted text-center sm:text-left">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+          <p className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted text-center sm:text-left">
             <span className="text-terminal-green">procko.pro</span>
             {' · '}built with{' '}
             <span className="text-terminal-blue">LinkML</span>
@@ -1284,7 +1291,7 @@ function Footer() {
             {' + '}
             <span className="text-terminal-amber">Cytoscape</span>
           </p>
-          <nav className="flex flex-wrap justify-center gap-4 sm:gap-5 text-xs font-mono text-terminal-muted">
+          <nav className="flex flex-wrap justify-center gap-3 sm:gap-5 ls:gap-3 text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted">
             {[
               { label: '~/graph', href: '/graph' },
               { label: '~/cv', href: '/cv' },
@@ -1301,7 +1308,7 @@ function Footer() {
             ))}
           </nav>
         </div>
-        <div className="mt-4 pt-4 border-t border-terminal-border/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-terminal-muted/40 text-[10px] font-mono">
+        <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-terminal-border/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-terminal-muted/40 text-[9px] sm:text-[10px] font-mono">
           <span className="flex items-center gap-2">
             <span className="animate-blink">▮</span>
             <span>© {new Date().getFullYear()} Tyler T. Procko. All rights reserved.</span>
