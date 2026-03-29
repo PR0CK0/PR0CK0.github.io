@@ -867,6 +867,9 @@ work_experiences:
   - SEON
   - Microsoft Word
   - Visual Studio Code
+  - SKOS
+  - DCTerms
+  - Neo4j
   category: consulting
   date_display: Mar 2023
   title_line: 'Knowledge Graph Engineer - '
@@ -876,6 +879,17 @@ work_experiences:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  domains:
+  - Ontology
+  - Software Engineering
+  - Knowledge Graphs
+  - Semantic Web
+  - Knowledge Representation
+  - Linked Data
+  - Education
+  - Taxonomy
+  - SDLC
+  - SQA
 - id: work/forumapi
   title: Technology Consultant and Scientific Writer
   organization: ForumAPI
