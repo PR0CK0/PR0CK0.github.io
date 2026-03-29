@@ -930,6 +930,24 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
 // ─── Projects ───────────────────────────────────────────────────────────────
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const navigate = useNavigate()
+  const [showOverflow, setShowOverflow] = useState(false)
+  const overflowRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!showOverflow) return
+    function handleClick(e: MouseEvent) {
+      if (overflowRef.current && !overflowRef.current.contains(e.target as Node)) {
+        setShowOverflow(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [showOverflow])
+
+  const visibleSkills = project.technologies?.slice(0, 6) ?? []
+  const overflowSkills = project.technologies?.slice(6) ?? []
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -974,22 +992,58 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       )}
 
       {/* Tech tags */}
-      {project.technologies && project.technologies.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 mt-auto">
-          {project.technologies.slice(0, 6).map((tech) => (
-            <span
+      {visibleSkills.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 mt-auto relative">
+          {visibleSkills.map((tech) => (
+            <button
               key={tech}
-              className="text-[10px] font-mono px-1.5 py-0.5 rounded
+              onClick={() => navigate(`/graph?q=${encodeURIComponent(tech)}`)}
+              className="text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
                          border border-terminal-purple/25 text-terminal-purple/80
-                         bg-terminal-purple/5"
+                         bg-terminal-purple/5 hover:bg-terminal-purple/15
+                         hover:border-terminal-purple/50 hover:text-terminal-purple
+                         transition-all duration-150"
             >
               {tech}
-            </span>
+            </button>
           ))}
-          {project.technologies.length > 6 && (
-            <span className="text-[10px] font-mono text-terminal-muted">
-              +{project.technologies.length - 6}
-            </span>
+          {overflowSkills.length > 0 && (
+            <div ref={overflowRef} className="relative">
+              <button
+                onClick={() => setShowOverflow((v) => !v)}
+                className="text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
+                           border border-terminal-muted/25 text-terminal-muted
+                           bg-terminal-surface/40 hover:bg-terminal-surface/80
+                           hover:border-terminal-purple/40 hover:text-terminal-purple/80
+                           transition-all duration-150"
+              >
+                +{overflowSkills.length} skills
+              </button>
+              {showOverflow && (
+                <div className="absolute bottom-full left-0 mb-2 z-50 w-56
+                                bg-terminal-bg border border-terminal-purple/30
+                                rounded-lg p-2.5 shadow-xl shadow-black/50">
+                  <p className="text-[9px] font-mono text-terminal-muted/60 uppercase tracking-widest mb-2">
+                    // more skills
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    {overflowSkills.map((tech) => (
+                      <button
+                        key={tech}
+                        onClick={() => { navigate(`/graph?q=${encodeURIComponent(tech)}`); setShowOverflow(false) }}
+                        className="text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
+                                   border border-terminal-purple/25 text-terminal-purple/80
+                                   bg-terminal-purple/5 hover:bg-terminal-purple/15
+                                   hover:border-terminal-purple/50 hover:text-terminal-purple
+                                   transition-all duration-150"
+                      >
+                        {tech}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           )}
         </div>
       )}
