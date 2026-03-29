@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 import yaml
 
-YAML_PATH = Path(__file__).parent.parent / "data" / "tyler-procko.yaml"
+YAML_PATH = Path(__file__).parent.parent / "public" / "data" / "tyler-procko.yaml"
 
 LIST_FIELDS = {"technologies", "domains", "tags", "soft_skills", "personal_skills"}
 
