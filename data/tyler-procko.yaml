@@ -2734,7 +2734,6 @@ projects:
     '
   technologies:
   - Java
-  - TCP
   - CSS
   - GitHub
   tags:
@@ -3826,6 +3825,7 @@ extracurriculars:
   - Networking
   technologies:
   - XigmaNAS
+  - RAID
 - id: extra/library-volunteer
   title: All-rounder Volunteer
   organization: Nassau County Public Library
@@ -3988,6 +3988,8 @@ courses:
   technologies:
   - Java
   - JSON
+  - PHPMyAdmin
+  - MySQL
   - CSV
   - JDBC
   - JavaFX
@@ -4245,6 +4247,7 @@ courses:
   - SQL
   - PostgreSQL
   - JDBC
+  - QGIS
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
