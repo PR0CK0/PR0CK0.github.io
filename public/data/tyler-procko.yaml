@@ -8,19 +8,26 @@ email_academic: prockot@my.erau.edu
 orcid: 0000-0002-7801-0124
 website: https://procko.pro
 tagline: Casting the net for knowledge in a sea of infinite information.
-summary: 'AI / Knowledge Graph Engineer | LLM-Focused | Defense ML Provenance and Ontology Specialist.
+summary: 'AI / Knowledge Graph Engineer | LLM-Focused | Defense ML Provenance and
+  Ontology Specialist.
 
-  Ph.D. researcher with 9+ years in Java/Python, Agile machine learning, ETL, ontology design,
+  Ph.D. researcher with 9+ years in Java/Python, Agile machine learning, ETL, ontology
+  design,
 
-  BFO/CCO standardization, and NLP for defense and aerospace applications. Experienced in GenAI,
+  BFO/CCO standardization, and NLP for defense and aerospace applications. Experienced
+  in GenAI,
 
-  LLM integration, ML pipelining, RAG systems, prompt/context engineering, taxonomies, graph-based
+  LLM integration, ML pipelining, RAG systems, prompt/context engineering, taxonomies,
+  graph-based
 
-  explainability, modular + testable software, and academic publication. Active contributor to
+  explainability, modular + testable software, and academic publication. Active contributor
+  to
 
-  AFRL, IEEE, and DoD FAIR AI data-standardization efforts. Tools: Claude, PyTorch, TensorFlow,
+  AFRL, IEEE, and DoD FAIR AI data-standardization efforts. Tools: Claude, PyTorch,
+  TensorFlow,
 
-  Hugging Face, Ollama, Stable Diffusion, GraphDB. Google & Stanford Deep Learning Certified.
+  Hugging Face, Ollama, Stable Diffusion, GraphDB. Google & Stanford Deep Learning
+  Certified.
 
   '
 clearance: Inactive Secret (Tier 3)
@@ -67,8 +74,8 @@ education:
   end_date: 2025-05
   gpa: 4.0
   notes:
-  - 'Dissertation: On the Provenance of Software Systems: Automating Software Traceability with Knowledge Graph and Large
-    Language Model Synergy'
+  - 'Dissertation: On the Provenance of Software Systems: Automating Software Traceability
+    with Knowledge Graph and Large Language Model Synergy'
   - 'Dissertation URL: https://commons.erau.edu/edt/898/'
   - 'Dissertation GitHub: https://github.com/PR0CK0/ProvTracer'
   - 'Doctoral advisor: Dr. Omar Ochoa'
@@ -80,7 +87,8 @@ education:
   end_date: 2023-12
   distinction: true
   notes:
-  - 'Thesis: Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering'
+  - 'Thesis: Towards Agile Academia: An Approach to Scientific Paper Writing Inspired
+    by Software Engineering'
   - 'Thesis URL: https://commons.erau.edu/edt/784/'
 - id: edu/bs-erau
   institution: Embry-Riddle Aeronautical University (ERAU), Daytona Beach, FL
@@ -290,8 +298,8 @@ work_experiences:
   end_date: 2023-08
   location: Rome, NY
   description:
-  - Curated multiple military documents and produced a proto-ontology in JSON-LD for recording the provenance of computer
-    vision tasks
+  - Curated multiple military documents and produced a proto-ontology in JSON-LD for
+    recording the provenance of computer vision tasks
   technologies:
   - Python
   - JSON-LD
@@ -312,8 +320,8 @@ work_experiences:
   title_line: 'SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD, '
   org: AFRL, Rome, NY
   bullets:
-  - Curated multiple military documents and produced a proto-ontology in JSON-LD for recording the provenance of computer
-    vision tasks
+  - Curated multiple military documents and produced a proto-ontology in JSON-LD for
+    recording the provenance of computer vision tasks
   domains:
   - Computer Vision
   - Ontology
@@ -321,16 +329,19 @@ work_experiences:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: work/afrl-2022
-  title: SMART Scholar AI Research Scientist - Machine Learning Interoperability with BFO
+  title: SMART Scholar AI Research Scientist - Machine Learning Interoperability with
+    BFO
   organization: Air Force Research Laboratory (AFRL)
   start_date: 2022-05
   end_date: 2022-08
   location: Rome, NY
   description:
-  - Represented the domain of machine learning and defense operations using the Basic Formal Ontology (of Barry Smith) and
-    the Common Core Ontologies
-  - Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO compliance
-  - The produced ontology allowed the answering of core competency questions useful for subject matter experts
+  - Represented the domain of machine learning and defense operations using the Basic
+    Formal Ontology (of Barry Smith) and the Common Core Ontologies
+  - Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO
+    compliance
+  - The produced ontology allowed the answering of core competency questions useful
+    for subject matter experts
   - Gained familiarity with SNOMED-CT and the OBO ontologies
   technologies:
   - BFO
@@ -352,13 +363,16 @@ work_experiences:
   - Visual Studio Code
   category: defense_research
   date_display: May 2022 - Aug 2022
-  title_line: 'SMART Scholar AI Research Scientist - Machine Learning Interoperability with Basic Formal Ontology (BFO), '
+  title_line: 'SMART Scholar AI Research Scientist - Machine Learning Interoperability
+    with Basic Formal Ontology (BFO), '
   org: AFRL, Rome, NY
   bullets:
-  - Represented the domain of machine learning and defense operations using the Basic Formal Ontology (of Barry Smith) and
-    the Common Core Ontologies
-  - Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO compliance
-  - The produced ontology allowed the answering of core competency questions useful for subject matter experts
+  - Represented the domain of machine learning and defense operations using the Basic
+    Formal Ontology (of Barry Smith) and the Common Core Ontologies
+  - Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO
+    compliance
+  - The produced ontology allowed the answering of core competency questions useful
+    for subject matter experts
   - Gained familiarity with SNOMED-CT and the OBO ontologies
   domains:
   - Ontology
@@ -375,8 +389,9 @@ work_experiences:
   end_date: 2021-08
   location: Rome, NY (remote)
   description:
-  - Worked remotely due to COVID-19; produced new geospatial relationships between suggested upper merged ontology (SUMO)
-    objects linked with ADE20K annotations and WKTs
+  - Worked remotely due to COVID-19; produced new geospatial relationships between
+    suggested upper merged ontology (SUMO) objects linked with ADE20K annotations
+    and WKTs
   technologies:
   - SUMO
   - ADE20K
@@ -398,11 +413,13 @@ work_experiences:
   - Visual Studio Code
   category: defense_research
   date_display: May 2021 - Aug 2021
-  title_line: 'SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing, '
+  title_line: 'SMART Scholar Remote AI Research Scientist - Geospatial Relationship
+    Inferencing, '
   org: AFRL, Rome, NY
   bullets:
-  - Worked remotely due to COVID-19; produced new geospatial relationships between suggested upper merged ontology (SUMO)
-    objects linked with ADE20K annotations and WKTs
+  - Worked remotely due to COVID-19; produced new geospatial relationships between
+    suggested upper merged ontology (SUMO) objects linked with ADE20K annotations
+    and WKTs
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -423,8 +440,8 @@ work_experiences:
   end_date: 2020-08
   location: Rome, NY (remote)
   description:
-  - Worked remotely due to COVID-19 and managed to produce explanations for machine learning, using background semantic knowledge
-    and the DL-Learner framework
+  - Worked remotely due to COVID-19 and managed to produce explanations for machine
+    learning, using background semantic knowledge and the DL-Learner framework
   technologies:
   - DL-Learner
   - Python
@@ -448,8 +465,8 @@ work_experiences:
   title_line: 'AFRL Scholars Remote AI Research Scientist - ML Explainability, '
   org: AFRL, Rome, NY
   bullets:
-  - Worked remotely due to COVID-19 and managed to produce “explanations” for machine learning, using background semantic
-    knowledge and the DL-Learner framework
+  - Worked remotely due to COVID-19 and managed to produce “explanations” for machine
+    learning, using background semantic knowledge and the DL-Learner framework
   domains:
   - Semantic Web
   - XAI
@@ -464,8 +481,10 @@ work_experiences:
   location: Rome, NY
   description:
   - Worked with others in boosting semantic graphs through ML
-  - Modelled topics from ontologies and eventually assessed ontology quality through metrics
-  - Produced multitudes of relevant data for the Air Force, as well as a basic ontology quality assessment framework
+  - Modelled topics from ontologies and eventually assessed ontology quality through
+    metrics
+  - Produced multitudes of relevant data for the Air Force, as well as a basic ontology
+    quality assessment framework
   technologies:
   - Python
   - Java
@@ -485,8 +504,10 @@ work_experiences:
   org: AFRL, Rome, NY
   bullets:
   - Worked with others in “boosting” semantic graphs through ML
-  - Modelled topics from ontologies and eventually assessed ontology quality through metrics
-  - Produced multitudes of relevant data for the Air Force, as well as a basic ontology quality assessment framework
+  - Modelled topics from ontologies and eventually assessed ontology quality through
+    metrics
+  - Produced multitudes of relevant data for the Air Force, as well as a basic ontology
+    quality assessment framework
   domains:
   - Knowledge Graphs
   - Machine Learning
@@ -500,7 +521,8 @@ work_experiences:
   start_date: 2025-05
   end_date: 2025-05
   description:
-  - Provided editorial services and guidance for the publication of an academic paper in the machine learning space
+  - Provided editorial services and guidance for the publication of an academic paper
+    in the machine learning space
   technologies:
   - Python
   - GPT
@@ -512,10 +534,33 @@ work_experiences:
   title_line: 'Academic Consultant and Editor - '
   org: Cloudcell Limited
   bullets:
-  - Provided editorial services and guidance for the publication of an academic paper in the machine learning space
+  - Provided editorial services and guidance for the publication of an academic paper
+    in the machine learning space
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  domains:
+  - Scientific Writing
+  - LLMs
+  - Ontology
+  - Machine Learning
+  - Knowledge Graphs
+  - Semantic Web
+  - Knowledge Representation
+  - Linked Data
+  - NLP
+  - Education
+  - Prompt Engineering
+  - Text Extraction
+  - Taxonomy
+  - XAI
+  - ML Provenance
+  - UX
+  - NER
+  - RAG
+  - Data Visualization
+  - Embeddings
+  - Cognitive Science
 - id: work/upwork-reasoning
   title: Reasoning Consultant
   organization: Upwork
@@ -574,7 +619,8 @@ work_experiences:
   start_date: 2024-06
   end_date: 2024-06
   description:
-  - Consulted on, and developed, an ontology to be used for nuclear facility construction process evaluation
+  - Consulted on, and developed, an ontology to be used for nuclear facility construction
+    process evaluation
   technologies:
   - OWL
   - RDF
@@ -586,7 +632,8 @@ work_experiences:
   title_line: 'Nuclear Construction Ontology Engineer - '
   org: Upwork
   bullets:
-  - Consulted on, and developed, an ontology to be used for nuclear facility construction process evaluation
+  - Consulted on, and developed, an ontology to be used for nuclear facility construction
+    process evaluation
   domains:
   - Ontology
   soft_skills:
@@ -636,7 +683,8 @@ work_experiences:
   start_date: 2023-11
   end_date: 2024-05
   description:
-  - Consulted on an ontology to be integrated with a WordPress ecosystem for a local content publishing company
+  - Consulted on an ontology to be integrated with a WordPress ecosystem for a local
+    content publishing company
   - Developed a Linked Data taxonomy for web post content
   technologies:
   - OWL
@@ -655,7 +703,8 @@ work_experiences:
   org: Hooray Media
   org_url: https://hooray.media/
   bullets:
-  - Consulted on an ontology to be integrated with a WordPress ecosystem for a local content publishing company
+  - Consulted on an ontology to be integrated with a WordPress ecosystem for a local
+    content publishing company
   - Developed a Linked Data taxonomy for web post content
   domains:
   - Linked Data
@@ -670,7 +719,8 @@ work_experiences:
   description:
   - Consulted on an ontology for the construction industry
   - Engineered a system for knowledge graph extraction from construction documents
-  - Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000 relations
+  - Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000
+    relations
   technologies:
   - Python
   - GPT
@@ -698,7 +748,8 @@ work_experiences:
   bullets:
   - Consulted on an ontology for the construction industry
   - Engineered a system for knowledge graph extraction from construction documents
-  - Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000 relations
+  - Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000
+    relations
   domains:
   - Knowledge Graphs
   - NER
@@ -815,8 +866,8 @@ work_experiences:
   start_date: 2023-02
   is_current: true
   description:
-  - Provided insight on automated documentation techniques and created artifacts related to scientific publication on a particular
-    domain for a client startup company
+  - Provided insight on automated documentation techniques and created artifacts related
+    to scientific publication on a particular domain for a client startup company
   - Worked with the GPT API suite to generate software-related documents
   - Wrote and published several scientific papers
   technologies:
@@ -831,8 +882,8 @@ work_experiences:
   title_line: 'Technology Consultant and Scientific Writer - '
   org: ForumAPI
   bullets:
-  - Provided insight on automated documentation techniques and created artifacts related to scientific publication on a particular
-    domain for a client startup company
+  - Provided insight on automated documentation techniques and created artifacts related
+    to scientific publication on a particular domain for a client startup company
   - Worked with the GPT API suite to generate software-related documents
   - Wrote and published several scientific papers
   soft_skills:
@@ -880,8 +931,9 @@ work_experiences:
   start_date: 2023-02
   end_date: 2023-05
   description:
-  - Developed a course intended to be an extension to a relational databases course, covering the history of knowledge representation,
-    focusing on applied ontology, Linked Data and contemporary NLP
+  - Developed a course intended to be an extension to a relational databases course,
+    covering the history of knowledge representation, focusing on applied ontology,
+    Linked Data and contemporary NLP
   technologies:
   - Python
   - OWL
@@ -900,19 +952,22 @@ work_experiences:
   title_line: 'University Course Engineer - '
   org: The Knowledge Representation Spectrum
   bullets:
-  - Developed a course intended to be an extension to a relational databases course, covering the history of knowledge representation,
-    focusing on applied ontology, Linked Data and contemporary NLP
+  - Developed a course intended to be an extension to a relational databases course,
+    covering the history of knowledge representation, focusing on applied ontology,
+    Linked Data and contemporary NLP
 - id: work/eram-research-team
   title: AI Research Team Lead and Semantic Web Consultant
   organization: ERAU Daytona
   start_date: 2019-01
   is_current: true
   description:
-  - Worked on projects related to ML, NLP, Linked Data and cybersecurity; produced many papers
-  - Performed work with other researchers, in addition to contributing to and writing papers on a multitude of research topics,
-    most of which centered around Semantic technology
-  - Acted as Semantic Web consultant for various other student researchers, in addition to providing assistance in paper review
-    and revision
+  - Worked on projects related to ML, NLP, Linked Data and cybersecurity; produced
+    many papers
+  - Performed work with other researchers, in addition to contributing to and writing
+    papers on a multitude of research topics, most of which centered around Semantic
+    technology
+  - Acted as Semantic Web consultant for various other student researchers, in addition
+    to providing assistance in paper review and revision
   technologies:
   - Python
   - Java
@@ -931,11 +986,13 @@ work_experiences:
   org: ERAU Daytona
   org_extra_after_italic: ', team lead Omar Ochoa'
   bullets:
-  - Worked on projects related to ML, NLP, Linked Data and cybersecurity; produced many papers
-  - Performed work with other researchers, in addition to contributing to and writing papers on a multitude of research topics,
-    most of which centered around Semantic technology
-  - Acted as Semantic Web consultant for various other student researchers, in addition to providing assistance in paper review
-    and revision
+  - Worked on projects related to ML, NLP, Linked Data and cybersecurity; produced
+    many papers
+  - Performed work with other researchers, in addition to contributing to and writing
+    papers on a multitude of research topics, most of which centered around Semantic
+    technology
+  - Acted as Semantic Web consultant for various other student researchers, in addition
+    to providing assistance in paper review and revision
   domains:
   - Cybersecurity
   - Linked Data
@@ -952,8 +1009,8 @@ work_experiences:
   start_date: 2019-01
   end_date: 2019-05
   description:
-  - Assessed content included Linux commands and intermediate C programming topics, such as structures, complex pointer manipulation
-    and memory management
+  - Assessed content included Linux commands and intermediate C programming topics,
+    such as structures, complex pointer manipulation and memory management
   technologies:
   - C
   - Linux
@@ -963,8 +1020,8 @@ work_experiences:
   title_line: 'Grader for CS344 - C Programming and UNIX, '
   org: ERAU Daytona
   bullets:
-  - Assessed content included Linux commands and intermediate C programming topics, such as structures, complex pointer manipulation
-    and memory management
+  - Assessed content included Linux commands and intermediate C programming topics,
+    such as structures, complex pointer manipulation and memory management
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
@@ -974,8 +1031,8 @@ work_experiences:
   start_date: 2018-08
   end_date: 2018-12
   description:
-  - Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps, graphs, recursion, sorting and searching
-    algorithms
+  - Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps,
+    graphs, recursion, sorting and searching algorithms
   technologies:
   - Java
   category: undergrad
@@ -983,8 +1040,8 @@ work_experiences:
   title_line: 'Grader for CS315 - Data Structures and Algorithms, '
   org: ERAU Daytona
   bullets:
-  - Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps, graphs, recursion, sorting and searching
-    algorithms
+  - Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps,
+    graphs, recursion, sorting and searching algorithms
 - id: work/publix
   title: Customer Service Clerk
   organization: Publix Supermarkets
@@ -998,12 +1055,15 @@ work_experiences:
   org: Publix Supermarkets
   bullets:
   - Assisted customers and managed merchandise loading
+  domains:
+  - Public Speaking
 publications:
 - id: pub/prompt-provenance
   title: 'Prompt Provenance: Toward Traceable LLM Interactions'
   authors:
   - Tyler T. Procko
-  venue: The 2nd International Conference on Advanced Machine Learning and Data Science (AMLDS 2026)
+  venue: The 2nd International Conference on Advanced Machine Learning and Data Science
+    (AMLDS 2026)
   date: '2026'
   status: awaiting_publication
   url: https://papers.ssrn.com/abstract=5682942
@@ -1031,10 +1091,12 @@ publications:
   - Prompt Engineering
   - Scientific Writing
 - id: pub/ml-lifecycle-provenance-survey
-  title: 'A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools'
+  title: 'A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and
+    Tools'
   authors:
   - Tyler T. Procko
-  venue: 2026 International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE)
+  venue: 2026 International Conference on Evaluation of Novel Approaches to Software
+    Engineering (ENASE)
   date: '2026'
   status: awaiting_publication
   url: https://papers.ssrn.com/abstract=5682822
@@ -1066,7 +1128,8 @@ publications:
   - LLMs
   - Scientific Writing
 - id: pub/verifying-ml-interpretability
-  title: Verifying Machine Learning Interpretability and Explainability Requirements Through Provenance
+  title: Verifying Machine Learning Interpretability and Explainability Requirements
+    Through Provenance
   authors:
   - Lynn Vonderhaar
   - Tyler T. Procko
@@ -1239,7 +1302,8 @@ publications:
   - Aerospace
   - Scientific Writing
 - id: pub/linked-data-aerospace
-  title: 'Leveraging Linked Data for Knowledge Management: A Proposal for the Aerospace Industry'
+  title: 'Leveraging Linked Data for Knowledge Management: A Proposal for the Aerospace
+    Industry'
   authors:
   - Tyler T. Procko
   venue: AIAA - Journal of Aerospace Information Systems
@@ -1261,7 +1325,8 @@ publications:
   - Aerospace
   - Scientific Writing
 - id: pub/robust-training-datasets-ontologies
-  title: 'Towards Robust Training Datasets for Machine Learning with Ontologies: A Case Study for Emergency Road Vehicle Detection'
+  title: 'Towards Robust Training Datasets for Machine Learning with Ontologies: A
+    Case Study for Emergency Road Vehicle Detection'
   authors:
   - Lynn Vonderhaar
   - Tyler T. Procko
@@ -1285,8 +1350,8 @@ publications:
   - Knowledge Representation
   - Scientific Writing
 - id: pub/prov-o-bfo-mapping
-  title: 'Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations
-    and Preliminary Implementation'
+  title: 'Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology
+    (BFO): Epistemological Considerations and Preliminary Implementation'
   authors:
   - Tyler T. Procko
   venue: SSRN
@@ -1376,7 +1441,8 @@ publications:
   - Semantic Web
   - Scientific Writing
 - id: pub/towards-agile-academia
-  title: 'Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering'
+  title: 'Towards Agile Academia: An Approach to Scientific Paper Writing Inspired
+    by Software Engineering'
   authors:
   - Tyler T. Procko
   venue: Embry-Riddle Aeronautical University Scholarly Commons
@@ -1445,7 +1511,8 @@ publications:
   - Networking
   - Scientific Writing
 - id: pub/auto-code-documentation
-  title: 'Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development’s Most Redundant Task'
+  title: 'Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software
+    Development’s Most Redundant Task'
   authors:
   - Tyler T. Procko
   venue: SSRN
@@ -1469,8 +1536,8 @@ publications:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: pub/gpt4-stochastic-parrot
-  title: 'GPT-4: A Stochastic Parrot or Ontological Craftsman? Discovering Implicit Knowledge Structures in Large Language
-    Models'
+  title: 'GPT-4: A Stochastic Parrot or Ontological Craftsman? Discovering Implicit
+    Knowledge Structures in Large Language Models'
   authors:
   - Tyler T. Procko
   venue: 2023 Fifth International Conference on Transdisciplinary AI (TransAI)
@@ -1495,7 +1562,8 @@ publications:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: pub/auto-bfo-aristotelian-definitions
-  title: Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies with GPT
+  title: Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies
+    with GPT
   authors:
   - Tyler T. Procko
   venue: 2023 Fifth International Conference on Transdisciplinary AI (TransAI)
@@ -1523,18 +1591,21 @@ publications:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: pub/catastrophic-forgetting
-  title: 'Impacts of Catastrophic Forgetting: From a Machine Learning Engineering Perspective'
+  title: 'Impacts of Catastrophic Forgetting: From a Machine Learning Engineering
+    Perspective'
   authors:
   - Timothy Elvira
   - Tyler T. Procko
-  venue: 2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)
+  venue: 2023 Congress in Computer Science, Computer Engineering, & Applied Computing
+    (CSCE)
   date: 2023-07
   status: published
   url: https://ieeexplore.ieee.org/abstract/document/10487405
   author_role: Tertiary author
   primary_author: Timothy Elvira
   primary_author_position: after_span
-  legacy_venue: ' 2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)'
+  legacy_venue: ' 2023 Congress in Computer Science, Computer Engineering, & Applied
+    Computing (CSCE)'
   tags:
   - machine learning
   - catastrophic forgetting
@@ -1549,14 +1620,16 @@ publications:
   authors:
   - Timothy Elvira
   - Tyler T. Procko
-  venue: 2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)
+  venue: 2023 Congress in Computer Science, Computer Engineering, & Applied Computing
+    (CSCE)
   date: 2023-07
   status: published
   url: https://ieeexplore.ieee.org/abstract/document/10487209
   author_role: Secondary author
   primary_author: Timothy Elvira
   primary_author_position: after_span
-  legacy_venue: ' 2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)'
+  legacy_venue: ' 2023 Congress in Computer Science, Computer Engineering, & Applied
+    Computing (CSCE)'
   tags:
   - LLM
   - extreme programming
@@ -1570,8 +1643,8 @@ publications:
   - Prompt Engineering
   - Scientific Writing
 - id: pub/swebok-kg-transformer
-  title: A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from the Software Engineering Body of Knowledge
-    with a Sequence-to-Sequence Transformer
+  title: A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from
+    the Software Engineering Body of Knowledge with a Sequence-to-Sequence Transformer
   authors:
   - Tyler T. Procko
   venue: SSRN
@@ -1594,7 +1667,8 @@ publications:
   - Text Extraction
   - Scientific Writing
 - id: pub/microelectronic-ai-dishonesty
-  title: 'Microelectronic Technology, AI and Academic Dishonesty: An Agile Engineering Approach'
+  title: 'Microelectronic Technology, AI and Academic Dishonesty: An Agile Engineering
+    Approach'
   authors:
   - Tyler T. Procko
   venue: American Society for Engineering Education (TELPhE) 2023
@@ -1619,7 +1693,8 @@ publications:
   - Public Speaking
   - Stakeholder Presentation
 - id: pub/interpersonal-chemistry-agile
-  title: The Influence of Interpersonal Chemistry on Learning in Agile Software Engineering Education
+  title: The Influence of Interpersonal Chemistry on Learning in Agile Software Engineering
+    Education
   authors:
   - Tyler T. Procko
   venue: SSRN
@@ -1640,7 +1715,8 @@ publications:
   - Software Engineering
   - Scientific Writing
 - id: pub/validating-security-requirements-kg
-  title: Validating Security Requirement Specifications through the use of a Knowledge Graph
+  title: Validating Security Requirement Specifications through the use of a Knowledge
+    Graph
   authors:
   - Sarah Reynolds
   - Tyler T. Procko
@@ -1664,8 +1740,8 @@ publications:
   - Software Engineering
   - Scientific Writing
 - id: pub/ontology-sdlc-aerospace
-  title: 'An Ontology Based Approach to the Software Engineering Lifecycle: Application to Software Quality Assurance in the
-    Aerospace Industry'
+  title: 'An Ontology Based Approach to the Software Engineering Lifecycle: Application
+    to Software Quality Assurance in the Aerospace Industry'
   authors:
   - Tyler T. Procko
   venue: SSRN
@@ -1712,11 +1788,13 @@ publications:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: pub/secure-development-ontology
-  title: Supporting Security Requirements Engineering through the Development of the Secure Development Ontology
+  title: Supporting Security Requirements Engineering through the Development of the
+    Secure Development Ontology
   authors:
   - Jessica Steinmann
   - Tyler T. Procko
-  venue: 2022 IEEE 16th International Conference on Semantic Computing (ICSC 2022), primary author Jessica Steinmann
+  venue: 2022 IEEE 16th International Conference on Semantic Computing (ICSC 2022),
+    primary author Jessica Steinmann
   date: 2022-01
   status: published
   author_role: Contributor in grammar, structure and spelling revision
@@ -1734,7 +1812,8 @@ publications:
   - SDLC
   - Scientific Writing
 - id: pub/vr-software-requirements
-  title: Incorporating a Virtual Reality Environment in the Teaching of Analysis of Software Requirements
+  title: Incorporating a Virtual Reality Environment in the Teaching of Analysis of
+    Software Requirements
   authors:
   - Omar Ochoa
   - Tyler T. Procko
@@ -1743,7 +1822,8 @@ publications:
   status: published
   url: https://ieeexplore.ieee.org/document/9028676
   author_role: Contributor
-  after_span_text: ' - 2019 IEEE Frontiers in Education Conference (FIE 2019), primary author Omar Ochoa'
+  after_span_text: ' - 2019 IEEE Frontiers in Education Conference (FIE 2019), primary
+    author Omar Ochoa'
   tags:
   - VR
   - education
@@ -1777,8 +1857,8 @@ publications:
   - SQA
   - Scientific Writing
 - id: pub/kg-geospatial-sumo
-  title: Knowledge Graph Relationship Inferencing using ADE20k Images, Geospatial Bounding Boxes and the Suggested Upper Merged
-    Ontology
+  title: Knowledge Graph Relationship Inferencing using ADE20k Images, Geospatial
+    Bounding Boxes and the Suggested Upper Merged Ontology
   authors:
   - Tyler T. Procko
   status: in_progress
@@ -1797,7 +1877,8 @@ publications:
   - Ontology
   - Scientific Writing
 - id: pub/sdlc-ontology-engineering
-  title: 'The Software Development Life Cycle and Ontology Engineering: Defining a Structured Process for Ontology Development'
+  title: 'The Software Development Life Cycle and Ontology Engineering: Defining a
+    Structured Process for Ontology Development'
   authors:
   - Tyler T. Procko
   status: in_progress
@@ -1813,7 +1894,8 @@ publications:
   - Software Engineering
   - Scientific Writing
 - id: pub/cognitive-assistants-aviation-inprogress
-  title: 'Navigating the Future of Aviation: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations'
+  title: 'Navigating the Future of Aviation: The Role, Needs, and State of Cognitive
+    Assistants in Single Pilot Operations'
   authors:
   - Alexandra Davidoff
   - Tyler T. Procko
@@ -1832,7 +1914,8 @@ publications:
   - LLMs
   - Scientific Writing
 - id: pub/colleague-thesis-vonderhaar
-  title: Eliminating Security Weaknesses in Requirement Specifications via a Knowledge Graph
+  title: Eliminating Security Weaknesses in Requirement Specifications via a Knowledge
+    Graph
   authors:
   - Lynn Vonder Haar
   - Tyler T. Procko
@@ -1853,7 +1936,8 @@ publications:
   - Software Engineering
   - Scientific Writing
 - id: pub/colleague-thesis-kiselev
-  title: Extracting a Body of Knowledge as a First Step Towards Defining a United Software Engineering Curriculum Guideline
+  title: Extracting a Body of Knowledge as a First Step Towards Defining a United
+    Software Engineering Curriculum Guideline
   authors:
   - Anton Kiselev
   - Tyler T. Procko
@@ -1875,7 +1959,8 @@ publications:
   - Text Extraction
   - Scientific Writing
 - id: pub/competition-proposal-nas
-  title: 'Expanding the Capabilities of the NAS through AI: A White Box for the Airspace Ecosystem'
+  title: 'Expanding the Capabilities of the NAS through AI: A White Box for the Airspace
+    Ecosystem'
   authors:
   - Tyler T. Procko
   date_display: Jan 2023 - Apr 2023
@@ -1895,16 +1980,16 @@ publications:
   - LLMs
   - Scientific Writing
 - id: pub/grant-proposal-nsf
-  title: Expanding the Nation’s STEM Talent Pool by Accelerating Graduate Degree Completion in Computer, Software, and Cybersecurity
-    Engineering
+  title: Expanding the Nation’s STEM Talent Pool by Accelerating Graduate Degree Completion
+    in Computer, Software, and Cybersecurity Engineering
   authors:
   - Omar Ochoa
   - Tyler T. Procko
   date_display: Jan 2022
   status: grant_proposal
   author_role: Contributor in grammar, structure and spelling revision
-  span_suffix: ' – NSF Award Number 2221602 amounting to $1,499,354 over the period 10/01/2022 – 09/30/2027, principal investigator
-    Omar Ochoa'
+  span_suffix: ' – NSF Award Number 2221602 amounting to $1,499,354 over the period
+    10/01/2022 – 09/30/2027, principal investigator Omar Ochoa'
   span_suffix_org: ERAU
   tags:
   - NSF
@@ -1944,12 +2029,15 @@ projects:
   url: https://procko.pro/ai-landscape-digest/
   repo_url: https://github.com/PR0CK0/ai-landscape-digest/
   featured: true
-  description: 'Built an automated AI news digest tool that fetches, deduplicates, and summarizes release feeds from 10+ sources
-    with LLMs across GitHub, blogs, and newsletters with a configurable schedule.
+  description: 'Built an automated AI news digest tool that fetches, deduplicates,
+    and summarizes release feeds from 10+ sources with LLMs across GitHub, blogs,
+    and newsletters with a configurable schedule.
 
-    Multi-platform trigger system (macOS launchd/sleepwatcher, Linux systemd, Windows Task Scheduler) to fire on lid open/login.
+    Multi-platform trigger system (macOS launchd/sleepwatcher, Linux systemd, Windows
+    Task Scheduler) to fire on lid open/login.
 
-    Cloud mode via GitHub Actions + GitHub Pages, running on a 6-hour cron with persistent dedup cache.
+    Cloud mode via GitHub Actions + GitHub Pages, running on a 6-hour cron with persistent
+    dedup cache.
 
     Works with Ollama, Claude/Codex/Gemini CLI.
 
@@ -1973,16 +2061,20 @@ projects:
   date_display: Mar 2026
   members: 1 member
   bullets:
-  - Built an automated AI news digest tool that fetches, deduplicates, and summarizes release feeds from 10+ sources with
-    LLMs across GitHub, blogs, and newsletters with a configurable schedule
-  - Multi-platform trigger system (macOS launchd/sleepwatcher, Linux systemd, Windows Task Scheduler) to fire on lid open/login
-  - Cloud mode via GitHub Actions + GitHub Pages, running on a 6-hour cron with persistent dedup cache
+  - Built an automated AI news digest tool that fetches, deduplicates, and summarizes
+    release feeds from 10+ sources with LLMs across GitHub, blogs, and newsletters
+    with a configurable schedule
+  - Multi-platform trigger system (macOS launchd/sleepwatcher, Linux systemd, Windows
+    Task Scheduler) to fire on lid open/login
+  - Cloud mode via GitHub Actions + GitHub Pages, running on a 6-hour cron with persistent
+    dedup cache
   - Works with Ollama, Claude/Codex/Gemini CLI
   extra_bullets:
   - prefix: 'Source: '
     url: https://github.com/PR0CK0/ai-landscape-digest/
     display: github.com/PR0CK0/ai-landscape-digest/
-  tagline: Your local AI release feed, summarized on login — powered by whatever LLM CLI you have.
+  tagline: Your local AI release feed, summarized on login — powered by whatever LLM
+    CLI you have.
   domains:
   - LLMs
   - Prompt Engineering
@@ -1992,9 +2084,11 @@ projects:
   url: https://github.com/PR0CK0/biomed-paper-extractor
   repo_url: https://github.com/PR0CK0/biomed-paper-extractor
   featured: true
-  description: 'VLM figure digitization + NER on PMC papers. Comprehensive VLM + NER model evaluation suite.
+  description: 'VLM figure digitization + NER on PMC papers. Comprehensive VLM + NER
+    model evaluation suite.
 
-    Integrated with flagship HuggingFace VLMs, Ollama, and cloud providers (OpenAI, Anthropic, Google).
+    Integrated with flagship HuggingFace VLMs, Ollama, and cloud providers (OpenAI,
+    Anthropic, Google).
 
     Integrated with SotA NER models, e.g., spaCy, DistilBERT, GLiNER, etc.
 
@@ -2033,13 +2127,15 @@ projects:
   bullets:
   - VLM figure digitization + NER on PMC papers
   - Comprehensive VLM + NER model evaluation suite
-  - Integrated with flagship HuggingFace VLMs, Ollama, and cloud providers (OpenAI, Anthropic, Google)
+  - Integrated with flagship HuggingFace VLMs, Ollama, and cloud providers (OpenAI,
+    Anthropic, Google)
   - Integrated with SotA NER models, e.g., spaCy, DistilBERT, GLiNER, etc.
   extra_bullets:
   - prefix: 'Hosted on HuggingFace (limited functionality with free hosting): '
     url: https://huggingface.co/spaces/prockot/biomed-paper-extractor
     display: huggingface.co/spaces/prockot/biomed-paper-extractor
-  tagline: 'End-to-end biomedical paper analysis: VLM figure digitization + NER. Gradio UI on HuggingFace Spaces.'
+  tagline: 'End-to-end biomedical paper analysis: VLM figure digitization + NER. Gradio
+    UI on HuggingFace Spaces.'
   domains:
   - NER
   - VLM
@@ -2052,15 +2148,20 @@ projects:
   url: https://procko.pro/health-optimization-knowledge-graph/
   repo_url: https://github.com/PR0CK0/health-optimization-knowledge-graph
   featured: true
-  description: 'BFO-aligned biomedical knowledge graph modeling evidence-graded relationships between health
+  description: 'BFO-aligned biomedical knowledge graph modeling evidence-graded relationships
+    between health
 
-    interventions (drugs, supplements, peptides, procedures) and outcomes. LinkML schema with full
+    interventions (drugs, supplements, peptides, procedures) and outcomes. LinkML
+    schema with full
 
-    OWL/RDF, JSON Schema, and TypeScript export targets. Ontology grounded in Medical Subject
+    OWL/RDF, JSON Schema, and TypeScript export targets. Ontology grounded in Medical
+    Subject
 
-    Headings (MeSH) pharmacological actions for forward-compatibility with RxNorm, PubChem,
+    Headings (MeSH) pharmacological actions for forward-compatibility with RxNorm,
+    PubChem,
 
-    SNOMED CT, UniProt, ChEBI, and Gene Ontology (GO) integration. React/TypeScript with Cytoscape.js.
+    SNOMED CT, UniProt, ChEBI, and Gene Ontology (GO) integration. React/TypeScript
+    with Cytoscape.js.
 
     '
   technologies:
@@ -2095,12 +2196,13 @@ projects:
   date_display: Mar 2026
   members: 1 member
   bullets:
-  - BFO-aligned biomedical knowledge graph modeling evidence-graded relationships between health interventions (drugs, supplements,
-    peptides, procedures) and outcomes
+  - BFO-aligned biomedical knowledge graph modeling evidence-graded relationships
+    between health interventions (drugs, supplements, peptides, procedures) and outcomes
   - LinkML schema with full OWL/RDF, JSON Schema, and TypeScript export targets
-  - Ontology grounded in Medical Subject Headings (MeSH) pharmacological actions for forward-compatibility with RxNorm, PubChem,
-    Systematized Nomenclature of Medicine Clinical Terms (SNOMED CT), UniProt, Chemical Entities of Biological Interest (ChEBI),
-    and Gene Ontology (GO) integration
+  - Ontology grounded in Medical Subject Headings (MeSH) pharmacological actions for
+    forward-compatibility with RxNorm, PubChem, Systematized Nomenclature of Medicine
+    Clinical Terms (SNOMED CT), UniProt, Chemical Entities of Biological Interest
+    (ChEBI), and Gene Ontology (GO) integration
   - React/TypeScript with Cytoscape.js
   extra_bullets:
   - prefix: 'Source: '
@@ -2121,7 +2223,8 @@ projects:
   url: https://procko.pro/ocsf-visualizer
   repo_url: https://github.com/PR0CK0/ocsf-visualizer
   featured: true
-  description: Simple, browser-based, Cytoscape.js interactive graph view of the Open Cybersecurity Framework
+  description: Simple, browser-based, Cytoscape.js interactive graph view of the Open
+    Cybersecurity Framework
   technologies:
   - Cytoscape.js
   - JavaScript
@@ -2136,12 +2239,14 @@ projects:
   date_display: Feb 2026
   members: 1 member
   bullets:
-  - Simple, browser-based, Cytoscape.js interactive graph view of the Open Cybersecurity Framework
+  - Simple, browser-based, Cytoscape.js interactive graph view of the Open Cybersecurity
+    Framework
   extra_bullets:
   - prefix: 'Source: '
     url: https://github.com/PR0CK0/ocsf-visualizer
     display: github.com/PR0CK0/ocsf-visualizer
-  tagline: Browser-based Cytoscape.js interactive graph view of the Open Cybersecurity Schema Framework.
+  tagline: Browser-based Cytoscape.js interactive graph view of the Open Cybersecurity
+    Schema Framework.
   domains:
   - Cybersecurity
   - Taxonomy
@@ -2150,9 +2255,11 @@ projects:
   year: 2025-11
   url: https://github.com/PR0CK0/BFO-Wikidata-Classifier
   repo_url: https://github.com/PR0CK0/BFO-Wikidata-Classifier
-  description: 'A transformer-based, multi-strategy, hierarchical classification system that maps Wikidata
+  description: 'A transformer-based, multi-strategy, hierarchical classification system
+    that maps Wikidata
 
-    entities to Basic Formal Ontology (BFO) classes. Employed cascading and ensembling NLP and
+    entities to Basic Formal Ontology (BFO) classes. Employed cascading and ensembling
+    NLP and
 
     ML techniques.
 
@@ -2178,10 +2285,11 @@ projects:
   date_display: Nov 2025
   members: 1 member
   bullets:
-  - A transformer-based, multi-strategy, hierarchical classification system that maps Wikidata entities to Basic Formal Ontology
-    (BFO) classes
+  - A transformer-based, multi-strategy, hierarchical classification system that maps
+    Wikidata entities to Basic Formal Ontology (BFO) classes
   - Employed cascading and ensembling NLP and ML techniques
-  tagline: Transformer-based hierarchical classifier mapping Wikidata entities to BFO classes.
+  tagline: Transformer-based hierarchical classifier mapping Wikidata entities to
+    BFO classes.
   domains:
   - NLP
   - Knowledge Graphs
@@ -2193,9 +2301,11 @@ projects:
   year: 2025-11
   url: https://github.com/PR0CK0/bert_benchmarking
   repo_url: https://github.com/PR0CK0/bert_benchmarking
-  description: 'A comprehensive benchmarking framework for comparing BERT model variants on inference speed,
+  description: 'A comprehensive benchmarking framework for comparing BERT model variants
+    on inference speed,
 
-    memory efficiency, and model size. Designed for compute-constrained environments and
+    memory efficiency, and model size. Designed for compute-constrained environments
+    and
 
     on-premise deployments.
 
@@ -2225,10 +2335,11 @@ projects:
   date_display: Nov 2025
   members: 1 member
   bullets:
-  - A comprehensive benchmarking framework for comparing BERT model variants on inference speed, memory efficiency, and model
-    size
+  - A comprehensive benchmarking framework for comparing BERT model variants on inference
+    speed, memory efficiency, and model size
   - Designed for compute-constrained environments and on-premise deployments
-  tagline: Benchmarks BERT variants on inference speed, memory, and size for compute-constrained deployments.
+  tagline: Benchmarks BERT variants on inference speed, memory, and size for compute-constrained
+    deployments.
   domains:
   - Machine Learning
   - NLP
@@ -2237,9 +2348,11 @@ projects:
   year: 2025-11
   url: https://github.com/PR0CK0/bfobert
   repo_url: https://github.com/PR0CK0/bfobert
-  description: 'A lightweight fine-tuning script for DistilBERT that classifies ontology terms as either
+  description: 'A lightweight fine-tuning script for DistilBERT that classifies ontology
+    terms as either
 
-    Continuant or Occurrent in the spirit of the Basic Formal Ontology (BFO). Designed as a
+    Continuant or Occurrent in the spirit of the Basic Formal Ontology (BFO). Designed
+    as a
 
     simple, reproducible proof of concept for text-based ontological classification.
 
@@ -2262,10 +2375,12 @@ projects:
   date_display: Nov 2025
   members: 1 member
   bullets:
-  - A lightweight fine-tuning script for DistilBERT that classifies ontology terms as either Continuant or Occurrent in the
-    spirit of the Basic Formal Ontology (BFO)
-  - Designed as a simple, reproducible proof of concept for text-based ontological classification
-  tagline: Fine-tunes DistilBERT to classify ontology terms as Continuant or Occurrent under BFO.
+  - A lightweight fine-tuning script for DistilBERT that classifies ontology terms
+    as either Continuant or Occurrent in the spirit of the Basic Formal Ontology (BFO)
+  - Designed as a simple, reproducible proof of concept for text-based ontological
+    classification
+  tagline: Fine-tunes DistilBERT to classify ontology terms as Continuant or Occurrent
+    under BFO.
   domains:
   - Knowledge Representation
   - Machine Learning
@@ -2277,11 +2392,14 @@ projects:
   url: https://pypi.org/project/dissenter/
   repo_url: https://github.com/PR0CK0/dissenter
   featured: true
-  description: 'A published PyPI package implementing a multi-LLM ensemble debate framework (Mixture of Agents).
+  description: 'A published PyPI package implementing a multi-LLM ensemble debate
+    framework (Mixture of Agents).
 
-    Routes prompts across multiple LLM backends (Claude, GPT, Gemini, Ollama, and any LiteLLM-compatible provider),
+    Routes prompts across multiple LLM backends (Claude, GPT, Gemini, Ollama, and
+    any LiteLLM-compatible provider),
 
-    aggregates responses, and synthesizes a consensus answer. Designed for robust, provider-agnostic agentic workflows.
+    aggregates responses, and synthesizes a consensus answer. Designed for robust,
+    provider-agnostic agentic workflows.
 
     '
   technologies:
@@ -2306,9 +2424,12 @@ projects:
   date_display: Mar 2026
   members: 1 member
   bullets:
-  - Published PyPI package implementing Mixture of Agents (MoA) multi-LLM ensemble debate
-  - Routes prompts across multiple LLM backends via LiteLLM (Claude, GPT, Gemini, Ollama, and any compatible provider)
-  - Synthesizes a consensus answer from multi-model debate for robust, provider-agnostic agentic workflows
+  - Published PyPI package implementing Mixture of Agents (MoA) multi-LLM ensemble
+    debate
+  - Routes prompts across multiple LLM backends via LiteLLM (Claude, GPT, Gemini,
+    Ollama, and any compatible provider)
+  - Synthesizes a consensus answer from multi-model debate for robust, provider-agnostic
+    agentic workflows
   extra_bullets:
   - prefix: 'PyPI: '
     url: https://pypi.org/project/dissenter/
@@ -2316,7 +2437,8 @@ projects:
   - prefix: 'Source: '
     url: https://github.com/PR0CK0/dissenter
     display: github.com/PR0CK0/dissenter
-  tagline: Run multiple LLMs through a structured debate, surface disagreements, synthesize a decision.
+  tagline: Run multiple LLMs through a structured debate, surface disagreements, synthesize
+    a decision.
   domains:
   - LLMs
   - Prompt Engineering
@@ -2324,9 +2446,11 @@ projects:
   title: ProvTracer
   year: 2024-05
   repo_url: https://github.com/PR0CK0/ProvTracer
-  description: 'Desktop application built for dissertation research. Captures, models, and queries provenance
+  description: 'Desktop application built for dissertation research. Captures, models,
+    and queries provenance
 
-    metadata for AI/ML model outputs using the PROV-O ontology and SPARQL. Enables reproducibility
+    metadata for AI/ML model outputs using the PROV-O ontology and SPARQL. Enables
+    reproducibility
 
     auditing and lineage tracing for defense AI pipelines.
 
@@ -2352,14 +2476,16 @@ projects:
   date_display: May 2024
   members: 1 member
   bullets:
-  - Desktop app for capturing and querying AI/ML provenance metadata using PROV-O and SPARQL
+  - Desktop app for capturing and querying AI/ML provenance metadata using PROV-O
+    and SPARQL
   - Enables reproducibility auditing and lineage tracing for defense AI pipelines
   - Built as part of Ph.D. dissertation research
   extra_bullets:
   - prefix: 'Source: '
     url: https://github.com/PR0CK0/ProvTracer
     display: github.com/PR0CK0/ProvTracer
-  tagline: Automatically captures digital artifact provenance using a multimodal LLM and knowledge graph serialization.
+  tagline: Automatically captures digital artifact provenance using a multimodal LLM
+    and knowledge graph serialization.
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
@@ -2374,11 +2500,13 @@ projects:
 - id: proj/personal
   title: Personal & Creative Work
   year: 2016-08
-  description: Creative and personal tools used outside of professional or academic contexts.
+  description: Creative and personal tools used outside of professional or academic
+    contexts.
   tags:
   - personal
   - creative
-  tagline: Personal creative and hobby projects spanning 3D modeling, photo/video editing, and game design.
+  tagline: Personal creative and hobby projects spanning 3D modeling, photo/video
+    editing, and game design.
   personal_skills:
   - Adobe After Effects
   - Adobe Illustrator
@@ -2402,9 +2530,11 @@ projects:
   year: 2023-04
   url: https://github.com/PR0CK0/StableDiffusionEndToEndGuide
   repo_url: https://github.com/PR0CK0/StableDiffusionEndToEndGuide
-  description: 'Used the SD WebUI, a variety of models, LoRAs and VAEs, along with prompting techniques,
+  description: 'Used the SD WebUI, a variety of models, LoRAs and VAEs, along with
+    prompting techniques,
 
-    to generate images. An investigation into the toolset for the purpose of future work on
+    to generate images. An investigation into the toolset for the purpose of future
+    work on
 
     generating synthetic data for military vision models.
 
@@ -2424,19 +2554,22 @@ projects:
   date_display: Apr 2023 - Present
   members: 1 member
   bullets:
-  - Used the SD WebUI, a variety of models, LoRAs and VAES, along with prompting techniques, to generate images
-  - An investigation into the toolset for the purpose of future work on generating synthetic data for military vision models
+  - Used the SD WebUI, a variety of models, LoRAs and VAES, along with prompting techniques,
+    to generate images
+  - An investigation into the toolset for the purpose of future work on generating
+    synthetic data for military vision models
   tagline: End-to-end guide for Stable Diffusion — from setup through LoRA fine-tuning.
   domains:
   - Computer Vision
   - Machine Learning
 - id: proj/nlp-optimization
-  title: An Investigation into Computational Efficiency Optimization of Natural Language Processing Vectorization Techniques
-    on Large Corpora in Python
+  title: An Investigation into Computational Efficiency Optimization of Natural Language
+    Processing Vectorization Techniques on Large Corpora in Python
   year: 2022-12
   url: https://github.com/PR0CK0/Mandelbrot-Set-Calculation-Optimization-in-Scientific-Python
   repo_url: https://github.com/PR0CK0/Mandelbrot-Set-Calculation-Optimization-in-Scientific-Python
-  description: 'Used Numpy, Numba, Numexpr, Cython, parallel Cython and MPI to improve the computational
+  description: 'Used Numpy, Numba, Numexpr, Cython, parallel Cython and MPI to improve
+    the computational
 
     efficiency of basic vectorization algorithms for NLP (e.g., TF-IDF and Naive Bayes).
 
@@ -2459,10 +2592,11 @@ projects:
   date_display: Aug 2022 - Dec 2022
   members: 1 member
   bullets:
-  - Used Numpy, Numba, Numexpr, Cython, parallel Cython and MPI to improve the computational efficiency of basic vectorization
-    algorithms for NLP (e.g., TF-IDF and Naïve Bayes)
+  - Used Numpy, Numba, Numexpr, Cython, parallel Cython and MPI to improve the computational
+    efficiency of basic vectorization algorithms for NLP (e.g., TF-IDF and Naïve Bayes)
   - Project shifted to optimization of Mandelbrot set calculation
-  tagline: Optimization of NLP vectorization on large corpora using Numba, Cython, and MPI.
+  tagline: Optimization of NLP vectorization on large corpora using Numba, Cython,
+    and MPI.
   domains:
   - Machine Learning
 - id: proj/bfo-buddy
@@ -2470,7 +2604,8 @@ projects:
   year: 2022-07
   url: https://github.com/PR0CK0/bfobuddy
   repo_url: https://github.com/PR0CK0/bfobuddy
-  description: A command-line Python tool for bootstrapping ontology development with BFO
+  description: A command-line Python tool for bootstrapping ontology development with
+    BFO
   technologies:
   - Python
   - BFO
@@ -2486,7 +2621,8 @@ projects:
   members: 1 member
   bullets:
   - A command-line Python tool for bootstrapping ontology development with BFO
-  tagline: CLI tool for bootstrapping ontology development with the Basic Formal Ontology (BFO).
+  tagline: CLI tool for bootstrapping ontology development with the Basic Formal Ontology
+    (BFO).
   domains:
   - Knowledge Representation
   - Ontology
@@ -2496,11 +2632,14 @@ projects:
   year: 2021-12
   url: https://github.com/PR0CK0/RandomDataAnalysisProjects
   repo_url: https://github.com/PR0CK0/RandomDataAnalysisProjects
-  description: 'A Pandas/Tableau visualization incorporating dozens of datasets with thousands of data points
+  description: 'A Pandas/Tableau visualization incorporating dozens of datasets with
+    thousands of data points
 
-    taken from public US Census datasets; analysis on obesity by region, age group, food quality
+    taken from public US Census datasets; analysis on obesity by region, age group,
+    food quality
 
-    and various other factors. Additionally, curated statistics on the World''s Strongest Man
+    and various other factors. Additionally, curated statistics on the World''s Strongest
+    Man
 
     competitors and performed analysis on their capabilities.
 
@@ -2517,9 +2656,11 @@ projects:
   date_display: Aug 2021 - Dec 2021
   members: 4 members
   bullets:
-  - A Pandas/Tableau visualization incorporating dozens of datasets with thousands of data points taken from public US Census
-    datasets; analysis on obesity by region, age group, food quality and various other factors
-  - Additionally, curated statistics on the World's Strongest Man competitors and performed analysis on their capabilities
+  - A Pandas/Tableau visualization incorporating dozens of datasets with thousands
+    of data points taken from public US Census datasets; analysis on obesity by region,
+    age group, food quality and various other factors
+  - Additionally, curated statistics on the World's Strongest Man competitors and
+    performed analysis on their capabilities
   tagline: Data analysis and Tableau visualization of USA obesity rates by state.
   domains:
   - Data Visualization
@@ -2528,8 +2669,8 @@ projects:
   year: 2021-07
   url: https://github.com/PR0CK0/UpperMartialArtsOntology
   repo_url: https://github.com/PR0CK0/UpperMartialArtsOntology
-  description: Represented the domain of martial arts using Schema.org as the base taxonomy, and Bruce Lee's Jeet Kune Do
-    book as the lexicon
+  description: Represented the domain of martial arts using Schema.org as the base
+    taxonomy, and Bruce Lee's Jeet Kune Do book as the lexicon
   technologies:
   - Schema.org
   - OWL
@@ -2543,8 +2684,8 @@ projects:
   date_display: July 2021
   members: 1 member
   bullets:
-  - Represented the domain of martial arts using Schema.org as the base taxonomy, and Bruce Lee's Jeet Kune Do book as the
-    lexicon
+  - Represented the domain of martial arts using Schema.org as the base taxonomy,
+    and Bruce Lee's Jeet Kune Do book as the lexicon
   tagline: OWL ontology modeling the upper-level concepts of martial arts disciplines.
   domains:
   - Knowledge Representation
@@ -2555,11 +2696,14 @@ projects:
   year: 2021-05
   url: https://github.com/PR0CK0/CS540_Project
   repo_url: https://github.com/PR0CK0/CS540_Project
-  description: 'A QGIS visualization utilizing several public shape files to display the approximate
+  description: 'A QGIS visualization utilizing several public shape files to display
+    the approximate
 
-    sea-level elevation of all parcels in Volusia County Florida. Used several complex GIS
+    sea-level elevation of all parcels in Volusia County Florida. Used several complex
+    GIS
 
-    functions to perform contour line elevation calculations and QGIS to visualize it.
+    functions to perform contour line elevation calculations and QGIS to visualize
+    it.
 
     '
   technologies:
@@ -2574,28 +2718,33 @@ projects:
   date_display: Jan 2021 - May 2021
   members: 1 member
   bullets:
-  - A QGIS visualization utilizing several public shape files to display the approximate sea-level elevation of all parcels
-    in Volusia County Florida
-  - Used several complex GIS functions to perform contour line elevation calculations and QGIS to visualize it
+  - A QGIS visualization utilizing several public shape files to display the approximate
+    sea-level elevation of all parcels in Volusia County Florida
+  - Used several complex GIS functions to perform contour line elevation calculations
+    and QGIS to visualize it
   tagline: Finding parcel elevations across Volusia County, FL using PostGIS and QGIS.
   domains:
   - Geospatial
 - id: proj/bittorrent-semp
   title: BitTorrent Systems Engineering Management Plan
   year: 2020-12
-  description: Produced an entire systems plan for the BitTorrent protocol and application, as a case study
+  description: Produced an entire systems plan for the BitTorrent protocol and application,
+    as a case study
   tags:
   - systems engineering
   date_display: Aug 2020 - Dec 2020
   members: 1 member
   bullets:
-  - Produced an entire systems plan for the BitTorrent protocol and application, as a case study
+  - Produced an entire systems plan for the BitTorrent protocol and application, as
+    a case study
 - id: proj/ms-word-usability
   title: Microsoft Word Usability Desiderata
   year: 2020-05
-  description: 'Evaluated the usability of Microsoft Word''s UX using the System Usability Scale and the
+  description: 'Evaluated the usability of Microsoft Word''s UX using the System Usability
+    Scale and the
 
-    Nielsen-Norman 5-point Likert scale. Developed UX personas and validated their accuracy
+    Nielsen-Norman 5-point Likert scale. Developed UX personas and validated their
+    accuracy
 
     with three empirical studies on personal contacts, using a systematized test plan.
 
@@ -2607,16 +2756,18 @@ projects:
   date_display: Jan 2020 - May 2020
   members: 1 member
   bullets:
-  - Evaluated the usability of Microsoft Word's UX using the System Usability Scale and the Nielsen-Norman 5-point Likert
-    scale
-  - Developed UX personas and validated their accuracy with three empirical studies on personal contacts, using a systematized
-    test plan
+  - Evaluated the usability of Microsoft Word's UX using the System Usability Scale
+    and the Nielsen-Norman 5-point Likert scale
+  - Developed UX personas and validated their accuracy with three empirical studies
+    on personal contacts, using a systematized test plan
 - id: proj/ecocar
   title: EcoCar
   year: 2020-05
-  description: 'Assisted Embry-Riddle''s EcoCar team with the car''s autopilot function. Was a member of the
+  description: 'Assisted Embry-Riddle''s EcoCar team with the car''s autopilot function.
+    Was a member of the
 
-    "core" team responsible for all system documentation, including user stories, requirements
+    "core" team responsible for all system documentation, including user stories,
+    requirements
 
     documents, Kanban board management, design documents and test plans.
 
@@ -2628,16 +2779,19 @@ projects:
   members: 6 teams, 6 members each
   bullets:
   - Assisted Embry-Riddle's EcoCar team with the car's autopilot function
-  - Was a member of the "core" team responsible for all system documentation, including user stories, requirements documents,
-    Kanban board management, design documents and test plans
+  - Was a member of the "core" team responsible for all system documentation, including
+    user stories, requirements documents, Kanban board management, design documents
+    and test plans
 - id: proj/meme-ontology
   title: Meme Ontology and Clustering Analysis
   year: 2020-02
   url: https://github.com/PR0CK0/knowyourmeme.com-Crawler
   repo_url: https://github.com/PR0CK0/knowyourmeme.com-Crawler
-  description: 'Scraped the website knowyourmeme.com and derived a taxonomy for memes. Populated this
+  description: 'Scraped the website knowyourmeme.com and derived a taxonomy for memes.
+    Populated this
 
-    taxonomy with over ten thousand memes and performed cluster analysis to find meme categories.
+    taxonomy with over ten thousand memes and performed cluster analysis to find meme
+    categories.
 
     '
   technologies:
@@ -2654,8 +2808,10 @@ projects:
   members: 3 members
   bullets:
   - Scraped the website knowyourmeme.com and derived a taxonomy for memes
-  - Populated this taxonomy with over ten thousand memes and performed cluster analysis to find meme categories
-  tagline: Crawls KnowYourMeme.com confirmed memes into a knowledge graph (MEMO — the Meme Ontology).
+  - Populated this taxonomy with over ten thousand memes and performed cluster analysis
+    to find meme categories
+  tagline: Crawls KnowYourMeme.com confirmed memes into a knowledge graph (MEMO —
+    the Meme Ontology).
   domains:
   - Cluster Analysis
   - Web Scraping
@@ -2664,9 +2820,11 @@ projects:
 - id: proj/nas-server
   title: Network Attached Storage (NAS) Server
   year: 2019-07
-  description: 'Built a personal NAS server with 16TB of hard drive space in RAID-1. Populated personal data,
+  description: 'Built a personal NAS server with 16TB of hard drive space in RAID-1.
+    Populated personal data,
 
-    practiced standardized data naming conventions, organizational principles, governance techniques
+    practiced standardized data naming conventions, organizational principles, governance
+    techniques
 
     and security measures on a LAN.
 
@@ -2681,15 +2839,16 @@ projects:
   members: 1 member
   bullets:
   - Built a personal NAS server with 16TB of hard drive space in RAID-1
-  - Populated personal data, practiced standardized data naming conventions, organizational principles, governance techniques
-    and security measures on a LAN
+  - Populated personal data, practiced standardized data naming conventions, organizational
+    principles, governance techniques and security measures on a LAN
   domains:
   - Networking
 - id: proj/ludum-dare-44
   title: Ludum Dare 44
   year: 2019-05
   url: https://ldjam.com/events/ludum-dare/44/grim
-  description: Produced a game in a 48 hour game jam. Placed top 3% globally. Responsible for all art and music.
+  description: Produced a game in a 48 hour game jam. Placed top 3% globally. Responsible
+    for all art and music.
   tags:
   - game development
   - art
@@ -2705,13 +2864,17 @@ projects:
   title: ARocket
   year: 2019-02
   url: https://devpost.com/software/arocket
-  description: 'Produced an augmented reality application for Android phones using Unity and C# for the 2019
+  description: 'Produced an augmented reality application for Android phones using
+    Unity and C# for the 2019
 
-    Hackathon at ERAU Daytona, winning 3rd place. The application allowed the user to create and
+    Hackathon at ERAU Daytona, winning 3rd place. The application allowed the user
+    to create and
 
-    launch a rocket in a virtual-physical space, in addition to refueling and landing the craft.
+    launch a rocket in a virtual-physical space, in addition to refueling and landing
+    the craft.
 
-    Sourced and created all the audio and visual media for the application, in addition to
+    Sourced and created all the audio and visual media for the application, in addition
+    to
 
     implementing some physics.
 
@@ -2727,11 +2890,12 @@ projects:
   date_display: Feb 2019
   members: 4 members
   bullets:
-  - Produced an augmented reality application for Android phones using Unity and C# for the 2019 Hackathon at ERAU Daytona,
-    winning 3rd place
-  - The application allowed the user to create and launch a rocket in a virtual-physical space, in addition to refueling and
-    landing the craft
-  - Sourced and created all the audio and visual media for the application, in addition to implementing some physics
+  - Produced an augmented reality application for Android phones using Unity and C#
+    for the 2019 Hackathon at ERAU Daytona, winning 3rd place
+  - The application allowed the user to create and launch a rocket in a virtual-physical
+    space, in addition to refueling and landing the craft
+  - Sourced and created all the audio and visual media for the application, in addition
+    to implementing some physics
   domains:
   - AR
   - HCI
@@ -2741,8 +2905,9 @@ projects:
   year: 2019-05
   url: https://github.com/PR0CK0/VxWorksWaterHeater
   repo_url: https://github.com/PR0CK0/VxWorksWaterHeater
-  description: Simulated the real-time system of a water heater in VxWorks C, utilizing complex techniques with semaphores,
-    watchdogs and various other multithreading concepts
+  description: Simulated the real-time system of a water heater in VxWorks C, utilizing
+    complex techniques with semaphores, watchdogs and various other multithreading
+    concepts
   technologies:
   - C
   - VxWorks
@@ -2753,17 +2918,18 @@ projects:
   date_display: Jan 2019 - May 2019
   members: 1 member
   bullets:
-  - Simulated the real-time system of a water heater in VxWorks C, utilizing complex techniques with semaphores, watchdogs
-    and various other multithreading concepts
-  tagline: Simulates a water heater in C using VxWorks threads, mutexes, semaphores, and watchdogs.
+  - Simulated the real-time system of a water heater in VxWorks C, utilizing complex
+    techniques with semaphores, watchdogs and various other multithreading concepts
+  tagline: Simulates a water heater in C using VxWorks threads, mutexes, semaphores,
+    and watchdogs.
   domains:
   - Real-Time Systems
   - Embedded Systems
 - id: proj/encrypted-sound-messages
   title: Encrypted Text Messages Transmitted Via Near-Field Sound
   year: 2019-05
-  description: Used the Chirp library of Python to produce a phone app that could transmit encrypted messages over proximal
-    sound with public key encryption
+  description: Used the Chirp library of Python to produce a phone app that could
+    transmit encrypted messages over proximal sound with public key encryption
   technologies:
   - Python
   - Chirp
@@ -2773,8 +2939,8 @@ projects:
   date_display: Jan 2019 - May 2019
   members: 3 members
   bullets:
-  - Used the Chirp library of Python to produce a phone app that could transmit encrypted messages over proximal sound with
-    public key encryption
+  - Used the Chirp library of Python to produce a phone app that could transmit encrypted
+    messages over proximal sound with public key encryption
   domains:
   - Cryptography
   - HCI
@@ -2784,9 +2950,11 @@ projects:
   year: 2018-12
   url: https://github.com/PR0CK0/SOS-Game-LAN-Capable
   repo_url: https://github.com/PR0CK0/SOS-Game-LAN-Capable
-  description: 'A 2D board game similar to Tic-Tac-Toe. Strict model-view separation and multithreading was
+  description: 'A 2D board game similar to Tic-Tac-Toe. Strict model-view separation
+    and multithreading was
 
-    implemented. Connectivity via LAN with the separate codebase of other students using a common
+    implemented. Connectivity via LAN with the separate codebase of other students
+    using a common
 
     interface of serialized classes and TCP sockets.
 
@@ -2803,8 +2971,8 @@ projects:
   bullets:
   - A 2D board game similar to Tic-Tac-Toe
   - Strict model-view separation and multithreading was implemented
-  - Connectivity via LAN with the separate codebase of other students using a common interface of serialized classes and TCP
-    sockets
+  - Connectivity via LAN with the separate codebase of other students using a common
+    interface of serialized classes and TCP sockets
   tagline: LAN-capable multiplayer SOS board game in Java with a Swing GUI.
   domains:
   - Networking
@@ -2813,11 +2981,13 @@ projects:
   year: 2018-05
   url: https://github.com/PR0CK0/mhw
   repo_url: https://github.com/PR0CK0/mhw
-  description: 'Created a Java/MySQL application for players of the game Monster Hunter: World. Populated 22
+  description: 'Created a Java/MySQL application for players of the game Monster Hunter:
+    World. Populated 22
 
     tables with over 1500 game-accurate entries. Developed MySQL schema using PHPMyAdmin,
 
-    connected the Java code to the database using JDBC, designed and created the UI and all
+    connected the Java code to the database using JDBC, designed and created the UI
+    and all
 
     functionality.
 
@@ -2836,9 +3006,10 @@ projects:
   bullets:
   - 'Created a Java/MySQL application for players of the game Monster Hunter: World'
   - Populated 22 tables with over 1500 game-accurate entries
-  - Developed MySQL schema using PHPMyAdmin, connected the Java code to the database using JDBC, designed and created the
-    user interface (UI) and all functionality
-  tagline: 'Java + SQL app for searching Monster Hunter: World items, monsters, and building armor sets.'
+  - Developed MySQL schema using PHPMyAdmin, connected the Java code to the database
+    using JDBC, designed and created the user interface (UI) and all functionality
+  tagline: 'Java + SQL app for searching Monster Hunter: World items, monsters, and
+    building armor sets.'
   domains:
   - Software Engineering
 - id: proj/eagle-listings
@@ -2846,9 +3017,11 @@ projects:
   year: 2017-12
   url: https://github.com/PR0CK0/EagleListings
   repo_url: https://github.com/PR0CK0/EagleListings
-  description: 'Created a Java/MySQL application for sales between students of ERAU Daytona. Implemented the
+  description: 'Created a Java/MySQL application for sales between students of ERAU
+    Daytona. Implemented the
 
-    database interface using JDBC, designed and created the UI. Acted as the SCRUM master for
+    database interface using JDBC, designed and created the UI. Acted as the SCRUM
+    master for
 
     the team.
 
@@ -2894,7 +3067,8 @@ projects:
   year: 2016-12
   url: https://github.com/PR0CK0/C_TextBasedRacingGame
   repo_url: https://github.com/PR0CK0/C_TextBasedRacingGame
-  description: Created a text-based, console racing game supporting up to four players in C
+  description: Created a text-based, console racing game supporting up to four players
+    in C
   technologies:
   - C
   - GitHub
@@ -2910,7 +3084,8 @@ projects:
 - id: proj/boe-bot-robot
   title: Boe-Bot Line Follower Robot
   year: 2016-12
-  description: Built and programmed an Arduino robot to follow lines and respond to the position of various colored objects
+  description: Built and programmed an Arduino robot to follow lines and respond to
+    the position of various colored objects
   technologies:
   - Arduino
   tags:
@@ -2919,7 +3094,8 @@ projects:
   date_display: Aug 2016 - Dec 2016
   members: 3 members
   bullets:
-  - Built and programmed an Arduino robot to follow lines and respond to the position of various colored objects
+  - Built and programmed an Arduino robot to follow lines and respond to the position
+    of various colored objects
   domains:
   - Embedded Systems
 skills:
@@ -3394,15 +3570,20 @@ awards:
   title: Science, Mathematics, and Research for Transformation (SMART) Scholarship
   issuer: Department of Defense / Air Force Research Lab (AFRL)
   date: 2020-08
-  description: 'Sponsored through the Air Force Research Lab (AFRL), Rome, NY. Consistent summer research
+  description: 'Sponsored through the Air Force Research Lab (AFRL), Rome, NY. Consistent
+    summer research
 
-    work with the nation''s top information analysts, AI experts and data visualization scientists
+    work with the nation''s top information analysts, AI experts and data visualization
+    scientists
 
-    at the Information Directorate of the AFRL. Mentorship by leading Semantic Web and Linked
+    at the Information Directorate of the AFRL. Mentorship by leading Semantic Web
+    and Linked
 
-    Data experts including Dr. Nicholas Del Rio and Dr. Timothy Lebo. Full tuition payment,
+    Data experts including Dr. Nicholas Del Rio and Dr. Timothy Lebo. Full tuition
+    payment,
 
-    annual stipend, internships and continued work after graduation. Active Aug 2020 - Nov 2025.
+    annual stipend, internships and continued work after graduation. Active Aug 2020
+    - Nov 2025.
 
     '
 - id: award/diamond-eagle-scholarship
@@ -3521,7 +3702,8 @@ talks:
 references:
 - id: ref/omar-ochoa
   name: Dr. Omar Ochoa
-  title: Associate Professor and Program Coordinator for M.S. in Computer Science and M.S. in Software Engineering
+  title: Associate Professor and Program Coordinator for M.S. in Computer Science
+    and M.S. in Software Engineering
   organization: Embry-Riddle Aeronautical University
   email: ochoao@erau.edu
   relationship: Doctoral advisor and research team lead
@@ -3544,7 +3726,8 @@ extracurriculars:
   organization: Multiple journals
   date: 2026-03
   type: scholarly
-  description: 'Reviewer (1 manuscript) - Concurrency and Computation: Practice and Experience, Wiley;
+  description: 'Reviewer (1 manuscript) - Concurrency and Computation: Practice and
+    Experience, Wiley;
 
     Reviewer (1 manuscript) - AI and Ethics, Springer Nature;
 
@@ -3556,7 +3739,8 @@ extracurriculars:
   date_display: Mar 2026
   h4: Manuscript reviews
   bullets:
-  - 'Reviewer (1 manuscript) - <i>Concurrency and Computation: Practice and Experience, Wiley</i>'
+  - 'Reviewer (1 manuscript) - <i>Concurrency and Computation: Practice and Experience,
+    Wiley</i>'
   - Reviewer (1 manuscript) - <i>AI and Ethics, Springer Nature</i>
   - Reviewer (1 manuscript) - <i>Discover Education, Springer Nature</i>
   - Reviewer (1 manuscript) - <i>Discover Computing, Springer Nature</i>
@@ -3571,7 +3755,8 @@ extracurriculars:
   organization: Springer Nature / Qeios
   date: 2026-01
   type: scholarly
-  description: 'Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature;
+  description: 'Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer
+    Nature;
 
     Reviewer (1 manuscript) - Computing, Springer Nature;
 
@@ -3601,7 +3786,8 @@ extracurriculars:
   organization: Discover Artificial Intelligence, Springer Nature
   date: 2025-12
   type: scholarly
-  description: Reviewer (2 manuscripts) - Discover Artificial Intelligence, Springer Nature
+  description: Reviewer (2 manuscripts) - Discover Artificial Intelligence, Springer
+    Nature
   date_display: Dec 2025
   h4: Manuscript reviews
   bullets:
@@ -3645,8 +3831,8 @@ extracurriculars:
   type: scholarly
   description: Created and published a CompTIA Security+ study guide on GitHub
   date_display: Nov 2025
-  h4: Creator - <i><a href='https://github.com/PR0CK0/CompTIA-Security-Study-Guides'>CompTIA Security+ SYS-701 Study Guide
-    Dump</a></i>
+  h4: Creator - <i><a href='https://github.com/PR0CK0/CompTIA-Security-Study-Guides'>CompTIA
+    Security+ SYS-701 Study Guide Dump</a></i>
   domains:
   - Cybersecurity
   - Education
@@ -3675,7 +3861,8 @@ extracurriculars:
   organization: Discover Artificial Intelligence, Springer Nature
   date: 2024-11
   type: scholarly
-  description: Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature
+  description: Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer
+    Nature
   date_display: Nov 2024
   h4: Reviewer (1 manuscript) - <i>Discover Artificial Intelligence, Springer Nature</i>
   domains:
@@ -3714,7 +3901,8 @@ extracurriculars:
   date: 2023-05
   type: scholarly
   date_display: May 2023
-  h4: Contributor to the <a href='https://github.com/monarch-initiative/ontogpt'>DAIR Prompt Engineering Guide</a>
+  h4: Contributor to the <a href='https://github.com/monarch-initiative/ontogpt'>DAIR
+    Prompt Engineering Guide</a>
   domains:
   - LLMs
   - Prompt Engineering
@@ -3724,7 +3912,8 @@ extracurriculars:
   date: 2023-05
   type: scholarly
   date_display: May 2023
-  h4: Contributor to the <a href='https://github.com/dair-ai/Prompt-Engineering-Guide'>OntoGPT</a> Github
+  h4: Contributor to the <a href='https://github.com/dair-ai/Prompt-Engineering-Guide'>OntoGPT</a>
+    Github
   domains:
   - LLMs
   - NLP
@@ -3737,7 +3926,8 @@ extracurriculars:
   date: 2023-04
   type: scholarly
   date_display: Apr 2023
-  h4: Contributor to the <a href='https://github.com/zhengzangw/awesome-huge-models'>Huge AI Models</a> Github
+  h4: Contributor to the <a href='https://github.com/zhengzangw/awesome-huge-models'>Huge
+    AI Models</a> Github
   domains:
   - LLMs
   - Machine Learning
@@ -3760,7 +3950,8 @@ extracurriculars:
   date: 2022-11
   type: scholarly
   date_display: Nov 2022
-  h4: 'Contributor to <i>Practical Natural Language Processing</i> (Vajalla et al.) errata '
+  h4: 'Contributor to <i>Practical Natural Language Processing</i> (Vajalla et al.)
+    errata '
   domains:
   - NLP
 - id: extra/cco-contributor
@@ -3768,12 +3959,13 @@ extracurriculars:
   organization: Common Core Ontologies GitHub
   date: 2022-07
   type: scholarly
-  description: Provided clarification of term definitions and term spelling in the official Common Core Ontologies Github
-    repository
+  description: Provided clarification of term definitions and term spelling in the
+    official Common Core Ontologies Github repository
   date_display: July 2022
   h4: Contributor to the Common Core Ontologies
   bullets:
-  - Provided clarification of term definitions and term spelling in the official Common Core Ontologies Github repository
+  - Provided clarification of term definitions and term spelling in the official Common
+    Core Ontologies Github repository
   domains:
   - Knowledge Representation
   - Ontology
@@ -3793,10 +3985,11 @@ extracurriculars:
   organization: GitHub
   date: 2022-06
   type: scholarly
-  description: Created a summarized list of BFO and BFO-related resources for other researchers
-  date_display: June 2022
-  h4: Created a summarized list of <a href='https://github.com/PR0CK0/awesome-bfo'>BFO and BFO-related resources</a> for other
+  description: Created a summarized list of BFO and BFO-related resources for other
     researchers
+  date_display: June 2022
+  h4: Created a summarized list of <a href='https://github.com/PR0CK0/awesome-bfo'>BFO
+    and BFO-related resources</a> for other researchers
   domains:
   - Knowledge Representation
   - Ontology
@@ -3826,15 +4019,17 @@ extracurriculars:
   date: 2019-01
   type: organization
   role: Member
-  description: Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book. Engaged
-    in several hands-on activities dealing with hacking.
+  description: Learned the principles of cybersecurity through weekly lectures taught
+    from the CompTIA Security+ book. Engaged in several hands-on activities dealing
+    with hacking.
   technologies:
   - Kali Linux
   - RedHat
   date_display: Jan 2019 - Jan 2020
   h4: White Hat Eagles Cybersecurity Club (WHECS) - Member
   bullets:
-  - Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book
+  - Learned the principles of cybersecurity through weekly lectures taught from the
+    CompTIA Security+ book
   - Engaged in several hands-on activities dealing with hacking
   domains:
   - Cybersecurity
@@ -3857,13 +4052,15 @@ extracurriculars:
   date: 2023-11
   type: volunteer
   role: Volunteer
-  description: Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an
-    in-person audience of ~100 and a livestream audience of ~10
+  description: Ensured A/V quality for worship and sermon services using ProPresenter,
+    vMix, StageMix and MonitorMix for an in-person audience of ~100 and a livestream
+    audience of ~10
   date_display: Nov 2023 - Present
   h4: Audio/Visual Technician, <i>River Road Baptist Church, Hilliard, FL</i>
   bullets:
-  - Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an in-person
-    audience of ~100 and a livestream audience of ~10
+  - Ensured A/V quality for worship and sermon services using ProPresenter, vMix,
+    StageMix and MonitorMix for an in-person audience of ~100 and a livestream audience
+    of ~10
   technologies:
   - ProPresenter
   - vMix
@@ -3873,8 +4070,8 @@ extracurriculars:
   date: 2014-01
   type: volunteer
   role: Volunteer
-  description: Assisted personal contacts with computer construction and setup. Resolved computer, network, software and peripheral
-    issues.
+  description: Assisted personal contacts with computer construction and setup. Resolved
+    computer, network, software and peripheral issues.
   date_display: Jan 2014 - Present
   h4: Personal Computer Construction Consultant, <i>Remote/In-Person</i>
   bullets:
@@ -3889,12 +4086,13 @@ extracurriculars:
   title: All-rounder Volunteer
   organization: Nassau County Public Library
   type: volunteer
-  description: Labeling and returning books, assisting customers; periodic maintenance of the library database software. 50+
-    hours.
+  description: Labeling and returning books, assisting customers; periodic maintenance
+    of the library database software. 50+ hours.
   date_display: Pre-2016 - 50+ hours
   h4: All-rounder, <i>Nassau County Public Library</i>
   bullets:
-  - Labeling and returning books, assisting customers; periodic maintenance of the library database software
+  - Labeling and returning books, assisting customers; periodic maintenance of the
+    library database software
 - id: extra/shrimp-fest
   title: Shrimp Fest Worker
   organization: Prince of Peace Lutheran Church
@@ -3908,12 +4106,14 @@ extracurriculars:
   title: Class Ambassador
   organization: Hugh O'Brian Youth Leadership Program
   type: volunteer
-  description: Selected as one out of 200+ students to represent high school in a leadership summit. Learned effective interpersonal
-    relational, communication and leadership skills. 10+ hours.
+  description: Selected as one out of 200+ students to represent high school in a
+    leadership summit. Learned effective interpersonal relational, communication and
+    leadership skills. 10+ hours.
   date_display: Pre-2016 - 10+ hours
   h4: Class Ambassador, <i>Hugh O'Brian Youth Leadership Program</i>
   bullets:
-  - Selected as one out of 200+ students to represent my high-school in a leadership summit
+  - Selected as one out of 200+ students to represent my high-school in a leadership
+    summit
   - Learned effective interpersonal relational, communication and leadership skills
 books_read:
 - A Knowledge Representation Practionary — Michael K. Bergman (WIP, started Feb 2023)
@@ -3966,8 +4166,8 @@ standards:
   - name: CIA Triad
     description: The basis of all my secure software engineering
   - name: SWEBOK
-    description: Not precisely a standard, but used in software engineering as a common reference manual; the subject of a
-      lot of my work over the years
+    description: Not precisely a standard, but used in software engineering as a common
+      reference manual; the subject of a lot of my work over the years
   familiar:
   - name: Open Cybersecurity Schema Framework (OCSF)
     description: Used in cybersecurity projects
@@ -3976,7 +4176,8 @@ standards:
   - name: MITRE D3FEND
     description: Used in cybersecurity projects
   - name: MasterFormat & SectionFormat 2020
-    description: Parsed the entirety of MasterFormat and SectionFormat and built knowledge graphs for them
+    description: Parsed the entirety of MasterFormat and SectionFormat and built knowledge
+      graphs for them
   - name: ISO/IEC/IEEE 12207:2017
     description: '"SDLC standard", familiar with the concepts and applications'
   - name: ISO 690:2021
@@ -4563,7 +4764,8 @@ literacy:
 dated_things:
   quantifications:
   - label: 'ACT Reading/Writing: Top 1%'
-    description: I took this as part of my entrance to the SMART program; I need to request my scores to get the proper numbers
+    description: I took this as part of my entrance to the SMART program; I need to
+      request my scores to get the proper numbers
   junior_high:
   - label: May 2016
     description: President's Education Awards Program - Outstanding Academic Excellence
@@ -4599,9 +4801,11 @@ skills_legacy:
     - bold: 9+ years
       text: in Java/JavaFX, C, Python, HTML, CSS and Markdown
     - bold: 8+ years
-      text: 'in most common RDF serializations and corrolaries: OWL-XML, Turtle, TriG, SHACL, SWRL etc.'
+      text: 'in most common RDF serializations and corrolaries: OWL-XML, Turtle, TriG,
+        SHACL, SWRL etc.'
     - bold: 8+ years
-      text: 'in most common data storage/query languages: CSV, TSV, XML, JSON, SQL, SPARQL, GeoSPARQL, Cypher'
+      text: 'in most common data storage/query languages: CSV, TSV, XML, JSON, SQL,
+        SPARQL, GeoSPARQL, Cypher'
     - bold: 2+ years
       text: in JavaScript, C# and Fortran
     - bold: 1 year
@@ -4610,11 +4814,12 @@ skills_legacy:
     ul_indent: extra_h3_ul
     items:
     - bold: 'Java:'
-      text: all common libraries, JavaFX, Swing, multithreading, socketing, JDBC, Jackson, json-simple, JSoup, OwlAPI, Apache
-        Jena, etc.
+      text: all common libraries, JavaFX, Swing, multithreading, socketing, JDBC,
+        Jackson, json-simple, JSoup, OwlAPI, Apache Jena, etc.
     - bold: 'Python:'
-      text: all common libraries, OpenAI, NumPy, Pandas, PyTorch, TensorFlow, transformers, PyVis, Gradio, Streamlit, FastAPI,
-        Pydantic, Numba, Numexpr, Cython, multiprocessing, mpi4py, Matplotlib, Seaborn, sklearn, NLTK, Chirp, RDFLib, SPARQLWrapper,
+      text: all common libraries, OpenAI, NumPy, Pandas, PyTorch, TensorFlow, transformers,
+        PyVis, Gradio, Streamlit, FastAPI, Pydantic, Numba, Numexpr, Cython, multiprocessing,
+        mpi4py, Matplotlib, Seaborn, sklearn, NLTK, Chirp, RDFLib, SPARQLWrapper,
         etc.
     - bold: 'JavaScript:'
       text: Node, React, Vite, Cytoscape
@@ -4638,7 +4843,8 @@ skills_legacy:
     - text: Discord, Element, Signal, Session, Telegram, various other IRC services
   - title: Office Software
     items:
-    - text: All Microsoft products (Onedrive, Word, Excel, PowerPoint, OneNote, Outlook, Teams, SharePoint)
+    - text: All Microsoft products (Onedrive, Word, Excel, PowerPoint, OneNote, Outlook,
+        Teams, SharePoint)
     - text: All LibreOffice products (Writer, Calc, Impress, Draw)
     - text: All Google products (Drive, Docs, Sheets, Slides)
     - text: LaTeX
@@ -4652,7 +4858,8 @@ skills_legacy:
   - title: Engineering Software
     items:
     - text: Git/Github (desktop, web, command line), Jira, Bitbucket, Confluence
-    - text: Protégé, Stardog, TriplyDB, GraphDB, Neo4j, MongoDB, GraphViz, Ontotext Refine
+    - text: Protégé, Stardog, TriplyDB, GraphDB, Neo4j, MongoDB, GraphViz, Ontotext
+        Refine
     - text: Eclipse IDE and Maven integration, pip, Python venv management
     - text: Visual Studio Code
     - text: Trello and other Kanban platforms
@@ -4669,8 +4876,9 @@ skills_legacy:
     - text: AWS S3, Bedrock
   - title: Consistently-Used Vocabularies
     items:
-    - text: OWL, RDF, RDFS, SKOS, BFO, CCO, DICO, JANES, SUMO, UFO, GFO, Schema.org, WordNet, DCTerms, FOAF, PROV, GeoSPARQL,
-        SPAR family, BIBO, SEON, SE-ON, MLSchema, ANNO, ANNETTO, OntoDM, IAO, DOLCE and many others
+    - text: OWL, RDF, RDFS, SKOS, BFO, CCO, DICO, JANES, SUMO, UFO, GFO, Schema.org,
+        WordNet, DCTerms, FOAF, PROV, GeoSPARQL, SPAR family, BIBO, SEON, SE-ON, MLSchema,
+        ANNO, ANNETTO, OntoDM, IAO, DOLCE and many others
   - title: Design/Analysis Software
     items:
     - text: Tableau, RStudio
@@ -4688,8 +4896,8 @@ skills_legacy:
       text: working with Elsevier-style single column manuscripts
   - title: AI Tools
     items:
-    - text: OpenAI's GPT series (including API work in Python), Microsoft Copilot, Gemini, Grok, Anthropic Claude Code (CLI,
-        VSCode, etc.)
+    - text: OpenAI's GPT series (including API work in Python), Microsoft Copilot,
+        Gemini, Grok, Anthropic Claude Code (CLI, VSCode, etc.)
     - text: Topaz Video AI
     - text: Ollama, Tensorboard, Stable Diffusion WebUI, Midjourney, LM Studio
     - text: CVAT
