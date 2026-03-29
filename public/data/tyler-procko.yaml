@@ -1017,6 +1017,12 @@ work_experiences:
   - Microsoft Word
   - Microsoft PowerPoint
   - Visual Studio Code
+  - Google Docs
+  - Google Slides
+  - Google Drive
+  - GPT
+  - OpenAI
+  - Draw.io
   category: graduate
   date_display: Feb 2023 - May 2023
   title_line: 'University Course Engineer - '
@@ -1025,6 +1031,17 @@ work_experiences:
   - Developed a course intended to be an extension to a relational databases course,
     covering the history of knowledge representation, focusing on applied ontology,
     Linked Data and contemporary NLP
+  soft_skills:
+  - Virtual Presentation
+  domains:
+  - LLMs
+  - Ontology
+  - Taxonomy
+  - Knowledge Graphs
+  - Semantic Web
+  - Knowledge Representation
+  - Linked Data
+  - XAI
 - id: work/eram-research-team
   title: AI Research Team Lead and Semantic Web Consultant
   organization: ERAU Daytona
