@@ -416,8 +416,6 @@ work_experiences:
   - Description Logics
   - FOL
   - Taxonomy
-  - SPARQL
-  - GraphDB
 - id: work/afrl-2020
   title: AFRL Scholars Remote AI Research Scientist - ML Explainability
   organization: Air Force Research Laboratory (AFRL)
