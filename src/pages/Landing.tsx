@@ -136,6 +136,71 @@ function formatDate(date?: string) {
   return (m >= 1 && m <= 12) ? `${MONTHS[m - 1]} ${year}` : year
 }
 
+// ─── Profile Photo ──────────────────────────────────────────────────────────
+
+function ProfilePhoto({ visible }: { visible: boolean }) {
+  return (
+    <div
+      className="flex-shrink-0 relative"
+      style={{ width: 88, height: 88, opacity: visible ? 1 : 0, transition: 'opacity 0.1s' }}
+    >
+      {/* Scan-reveal container */}
+      <div
+        className={`relative rounded-full overflow-hidden ${visible ? 'profile-scan-reveal' : ''}`}
+        style={{ width: 88, height: 88, clipPath: visible ? undefined : 'inset(0 0 100% 0)' }}
+      >
+        <img
+          src="/me.png"
+          alt="Tyler Procko"
+          className="w-full h-full object-cover rounded-full"
+          draggable={false}
+        />
+        {/* CRT scanlines overlay on photo */}
+        <div
+          className="absolute inset-0 rounded-full pointer-events-none"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.18) 2px, rgba(0,0,0,0.18) 4px)',
+          }}
+        />
+      </div>
+
+      {/* Electric border ring */}
+      {visible && (
+        <div
+          className="absolute inset-0 rounded-full pointer-events-none profile-electric"
+          style={{ border: '1.5px solid #00ff8877' }}
+        />
+      )}
+
+      {/* Scan line that sweeps down during reveal */}
+      {visible && (
+        <div
+          className="absolute left-0 right-0 h-px rounded-full pointer-events-none profile-scan-line"
+          style={{
+            background: 'linear-gradient(90deg, transparent, #00ff88, #00d4ff, #00ff88, transparent)',
+            boxShadow: '0 0 8px 2px #00ff88, 0 0 16px 4px #00d4ff44',
+            zIndex: 10,
+          }}
+        />
+      )}
+
+      {/* Corner brackets — techy frame */}
+      {visible && (
+        <>
+          {[['top-0 left-0', 'border-t border-l'], ['top-0 right-0', 'border-t border-r'],
+            ['bottom-0 left-0', 'border-b border-l'], ['bottom-0 right-0', 'border-b border-r']].map(([pos, borders], i) => (
+            <div
+              key={i}
+              className={`absolute w-3 h-3 ${pos} ${borders} pointer-events-none`}
+              style={{ borderColor: '#00ff8888' }}
+            />
+          ))}
+        </>
+      )}
+    </div>
+  )
+}
+
 // ─── Sub-components ────────────────────────────────────────────────────────
 
 function SocialButton({ label, href, icon }: { label: string; href: string; icon: string }) {
@@ -432,19 +497,29 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
 
           {/* Terminal body */}
           <div className="p-4 sm:p-6 lg:p-8">
-            <BootSequence
-              lines={bootLines}
-              onComplete={() => setBootDone(true)}
-              onFirstTyped={() => setHeroVisible(true)}
-            />
+            <div className="flex gap-4 sm:gap-6 items-start">
+              {/* Left: boot + hero text */}
+              <div className="flex-1 min-w-0">
+                <BootSequence
+                  lines={bootLines}
+                  onComplete={() => setBootDone(true)}
+                  onFirstTyped={() => setHeroVisible(true)}
+                />
 
-            <motion.div
-              animate={{ opacity: heroVisible ? 1 : 0 }}
-              transition={{ duration: 0.5 }}
-              style={{ pointerEvents: heroVisible ? 'auto' : 'none' }}
-            >
-              <HeroContent person={person} />
-            </motion.div>
+                <motion.div
+                  animate={{ opacity: heroVisible ? 1 : 0 }}
+                  transition={{ duration: 0.5 }}
+                  style={{ pointerEvents: heroVisible ? 'auto' : 'none' }}
+                >
+                  <HeroContent person={person} />
+                </motion.div>
+              </div>
+
+              {/* Right: profile photo — reveals with hero */}
+              <div className="flex-shrink-0 mt-1">
+                <ProfilePhoto visible={heroVisible} />
+              </div>
+            </div>
           </div>
         </div>
 
