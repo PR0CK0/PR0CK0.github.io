@@ -291,6 +291,7 @@ work_experiences:
   - Semantic Web
   - Knowledge Representation
   - Linked Data
+  - Taxonomy
 - id: work/afrl-2023
   title: SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD
   organization: Air Force Research Laboratory (AFRL)
@@ -325,6 +326,7 @@ work_experiences:
   domains:
   - Computer Vision
   - Ontology
+  - Taxonomy
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -512,6 +514,7 @@ work_experiences:
   - Knowledge Graphs
   - Machine Learning
   - Ontology
+  - Taxonomy
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
@@ -636,6 +639,7 @@ work_experiences:
     process evaluation
   domains:
   - Ontology
+  - Taxonomy
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -962,6 +966,11 @@ work_experiences:
   - Microsoft Word
   - Microsoft PowerPoint
   - Visual Studio Code
+  - Python
+  - GraphDB
+  - GitHub
+  - PROV-O
+  - Draw.io
   category: consulting
   date_display: Jan 2023 - Mar 2023
   title_line: 'Ontologist - '
@@ -974,6 +983,18 @@ work_experiences:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  domains:
+  - Ontology
+  - Taxonomy
+  - Knowledge Graphs
+  - Semantic Web
+  - Knowledge Representation
+  - Linked Data
+  - Provenance
+  - Web Scraping
+  - Description Logics
+  - FOL
+  - HOL
 - id: work/course-engineer
   title: University Course Engineer - The Knowledge Representation Spectrum
   organization: ERAU Daytona
@@ -1176,6 +1197,7 @@ publications:
   - Machine Learning
   - LLMs
   - Scientific Writing
+  - Taxonomy
 - id: pub/verifying-ml-interpretability
   title: Verifying Machine Learning Interpretability and Explainability Requirements
     Through Provenance
@@ -1230,6 +1252,7 @@ publications:
   - Computer Vision
   - Knowledge Representation
   - Scientific Writing
+  - Taxonomy
 - id: pub/exploring-testing-llms
   title: Exploring Testing Methods for Large Language Models
   authors:
@@ -1398,6 +1421,7 @@ publications:
   - Computer Vision
   - Knowledge Representation
   - Scientific Writing
+  - Taxonomy
 - id: pub/prov-o-bfo-mapping
   title: 'Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology
     (BFO): Epistemological Considerations and Preliminary Implementation'
@@ -1422,6 +1446,7 @@ publications:
   - Linked Data
   - Knowledge Representation
   - Scientific Writing
+  - Taxonomy
 - id: pub/semantic-science-beyond-pdf
   title: 'Semantic Science: Publication Beyond the PDF'
   authors:
@@ -1607,6 +1632,7 @@ publications:
   - Knowledge Representation
   - Knowledge Graphs
   - Scientific Writing
+  - Taxonomy
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -1636,6 +1662,7 @@ publications:
   - Semantic Web
   - Prompt Engineering
   - Scientific Writing
+  - Taxonomy
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -1812,6 +1839,7 @@ publications:
   - SQA
   - Software Engineering
   - Scientific Writing
+  - Taxonomy
 - id: pub/explainable-ml-semantic-web
   title: An Exploration of Explainable Machine Learning Using Semantic Web Technology
   authors:
@@ -1860,6 +1888,7 @@ publications:
   - Software Engineering
   - SDLC
   - Scientific Writing
+  - Taxonomy
 - id: pub/vr-software-requirements
   title: Incorporating a Virtual Reality Environment in the Teaching of Analysis of
     Software Requirements
@@ -1925,6 +1954,7 @@ publications:
   - Computer Vision
   - Ontology
   - Scientific Writing
+  - Taxonomy
 - id: pub/sdlc-ontology-engineering
   title: 'The Software Development Life Cycle and Ontology Engineering: Defining a
     Structured Process for Ontology Development'
@@ -1942,6 +1972,7 @@ publications:
   - SDLC
   - Software Engineering
   - Scientific Writing
+  - Taxonomy
 - id: pub/cognitive-assistants-aviation-inprogress
   title: 'Navigating the Future of Aviation: The Role, Needs, and State of Cognitive
     Assistants in Single Pilot Operations'
@@ -2071,6 +2102,7 @@ publications:
   - Knowledge Representation
   - LLMs
   - Scientific Writing
+  - Taxonomy
 projects:
 - id: proj/ai-landscape-digest
   title: AI Landscape Digest
@@ -2266,6 +2298,7 @@ projects:
   - Ontology
   - RAG
   - Semantic Web
+  - Taxonomy
 - id: proj/ocsf-visualizer
   title: OCSF Visualizer
   year: 2026-02
@@ -2345,6 +2378,7 @@ projects:
   - Knowledge Representation
   - Machine Learning
   - Ontology
+  - Taxonomy
 - id: proj/bert-benchmarking
   title: BERT Model Benchmarking Suite
   year: 2025-11
@@ -2435,6 +2469,7 @@ projects:
   - Machine Learning
   - NLP
   - Ontology
+  - Taxonomy
 - id: proj/dissenter
   title: dissenter
   year: 2026-03
@@ -2676,6 +2711,7 @@ projects:
   - Knowledge Representation
   - Ontology
   - Semantic Web
+  - Taxonomy
 - id: proj/usa-obesity-visualization
   title: USA Obesity Rates Visualization and Analysis
   year: 2021-12
@@ -4753,6 +4789,7 @@ courses:
   - Semantic Web
   - Text Extraction
   - XAI
+  - Taxonomy
 - number: SE800
   name: Dissertation Hours
   technologies:
@@ -4791,6 +4828,7 @@ courses:
   - Semantic Web
   - Text Extraction
   - XAI
+  - Taxonomy
 literacy:
 - date: Feb 2023 (WIP)
   title: A Knowledge Representation Practionary
