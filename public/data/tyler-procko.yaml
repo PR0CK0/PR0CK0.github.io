@@ -771,6 +771,7 @@ work_experiences:
   - RDFS
   - Protégé
   - Visual Studio Code
+  - GraphDB
   category: consulting
   date_display: May 2023
   title_line: 'Legal Ontology Consultant - '
@@ -780,6 +781,15 @@ work_experiences:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  domains:
+  - LLMs
+  - Ontology
+  - Knowledge Graphs
+  - Semantic Web
+  - Knowledge Representation
+  - Linked Data
+  - Text Extraction
+  - Taxonomy
 - id: work/upwork-software-test
   title: Software Test Engineer
   organization: Upwork
