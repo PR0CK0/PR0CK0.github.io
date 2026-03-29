@@ -1102,6 +1102,7 @@ work_experiences:
   - C
   - Linux
   - UNIX
+  - Code::Blocks
   category: undergrad
   date_display: Jan 2019 - May 2019
   title_line: 'Grader for CS344 - C Programming and UNIX, '
@@ -1112,6 +1113,14 @@ work_experiences:
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
+  - Virtual Presentation
+  domains:
+  - Software Engineering
+  - Education
+  - SDLC
+  - Embedded Systems
+  - SQA
+  - Requirements Engineering
 - id: work/grader-cs315
   title: Grader for CS315 - Data Structures and Algorithms
   organization: ERAU Daytona
