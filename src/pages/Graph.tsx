@@ -249,23 +249,24 @@ export default function Graph() {
   // ── Load data ────────────────────────────────────────────────────────────────
 
   useEffect(() => {
-    loadPortfolioData()
-      .then((person) => {
-        // Double rAF: first frame paints the loading state (navbar + spinner),
-        // second frame starts buildGraph so the thread blocks only after paint.
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            const { nodes, edges } = buildGraph(person)
-            setElements([...nodes, ...edges])
-            setStats({ nodes: nodes.length, edges: edges.length })
-            setPhase('layout') // spinner stays up; Cytoscape mounts invisibly
-          })
+    // setTimeout(0) is a macrotask — guarantees the browser paints the initial
+    // loading state (navbar active + spinner) before we call loadPortfolioData.
+    // Without this, a cached response resolves as a microtask and the first
+    // visible paint is skipped entirely.
+    const timer = setTimeout(() => {
+      loadPortfolioData()
+        .then((person) => {
+          const { nodes, edges } = buildGraph(person)
+          setElements([...nodes, ...edges])
+          setStats({ nodes: nodes.length, edges: edges.length })
+          setPhase('layout') // spinner stays up; Cytoscape mounts invisibly
         })
-      })
-      .catch((err) => {
-        setError(err.message ?? 'Failed to load graph data')
-        setPhase('ready')
-      })
+        .catch((err) => {
+          setError(err.message ?? 'Failed to load graph data')
+          setPhase('ready')
+        })
+    }, 0)
+    return () => clearTimeout(timer)
   }, [])
 
   // ── Type filter ──────────────────────────────────────────────────────────────
