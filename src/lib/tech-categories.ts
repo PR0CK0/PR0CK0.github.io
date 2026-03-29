@@ -84,6 +84,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   SPARQLWrapper:        'libraries',
   LlamaIndex:           'libraries',
   LiteLLM:              'libraries',
+  NetworkX:             'libraries',
   Gradio:               'libraries',
   Streamlit:            'libraries',
   FastAPI:              'libraries',
@@ -165,6 +166,10 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   'Microsoft Word':     'office_tools',
   'Microsoft Excel':    'office_tools',
   'Microsoft PowerPoint': 'office_tools',
+  'Google Docs':        'office_tools',
+  'Google Drive':       'office_tools',
+  'Google Sheets':      'office_tools',
+  'Google Slides':      'office_tools',
 
   // ── Communication Tools ─────────────────────────────────────────────────────
   'Microsoft Teams':    'comm_tools',
@@ -204,6 +209,15 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   YOLO:                 'ai_tools',
   AlexNet:              'ai_tools',
   VGGNet:               'ai_tools',
+  ADE20K:               'ai_tools',
+  CIFAR10:              'ai_tools',
+  'CIFAR-10':           'ai_tools',
+  CIFAR100:             'ai_tools',
+  'CIFAR-100':          'ai_tools',
+  COCO:                 'ai_tools',
+  ImageNet:             'ai_tools',
+  MNIST:                'ai_tools',
+  Places365:            'ai_tools',
 
   // ── Ontologies & Vocabularies ──────────────────────────────────────────────
   BFO:          'vocabularies',
@@ -236,6 +250,9 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   MEX:          'vocabularies',
   ANNO:         'vocabularies',
   ANNETTO:      'vocabularies',
+  ECO:          'vocabularies',
+  OBI:          'vocabularies',
+  RO:           'vocabularies',
 
   // ── Cloud & Deployment ─────────────────────────────────────────────────────
   'GitHub Actions': 'cloud',
