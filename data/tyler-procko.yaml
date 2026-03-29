@@ -360,6 +360,14 @@ work_experiences:
   - Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO compliance
   - The produced ontology allowed the answering of core competency questions useful for subject matter experts
   - Gained familiarity with SNOMED-CT and the OBO ontologies
+  domains:
+  - Ontology
+  - Machine Learning
+  - Knowledge Representation
+  - Semantic Web
+  - Linked Data
+  - Taxonomy
+  - XAI
 - id: work/afrl-2021
   title: SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing
   organization: Air Force Research Laboratory (AFRL)
@@ -398,6 +406,18 @@ work_experiences:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  domains:
+  - Knowledge Graphs
+  - Geospatial
+  - Computer Vision
+  - Ontology
+  - Semantic Web
+  - Linked Data
+  - Description Logics
+  - FOL
+  - Taxonomy
+  - SPARQL
+  - GraphDB
 - id: work/afrl-2020
   title: AFRL Scholars Remote AI Research Scientist - ML Explainability
   organization: Air Force Research Laboratory (AFRL)
