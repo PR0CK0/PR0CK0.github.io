@@ -76,7 +76,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   spaCy:                'libraries',
   scispaCy:             'libraries',
   Flair:                'libraries',
-  GLiNER:               'libraries',
+  GLiNER:               'ai_tools',
   'sentence-transformers': 'libraries',
   Transformers:         'libraries',
   'Hugging Face':       'libraries',
@@ -175,6 +175,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   'Microsoft Teams':    'comm_tools',
   Signal:               'comm_tools',
   Slack:                'comm_tools',
+  Discord:              'comm_tools',
 
   // ── AI / ML ────────────────────────────────────────────────────────────────
   Claude:               'ai_tools',
@@ -281,7 +282,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Mermaid:      'design',
   LucidChart:   'design',
   Miro:         'design',
-  Unity:        'design',
+  Unity:        'dev_tools',
   Kaggle:               'design',
   Figma:                'design',
   Balsamiq:             'design',

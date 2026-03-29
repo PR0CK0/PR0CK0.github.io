@@ -2650,6 +2650,20 @@ projects:
   tags:
   - consulting
   - biomedical
+  technologies:
+  - GPT
+  - Microsoft Word
+  - Discord
+  - LaTeX
+  - Visual Studio Code
+  - GitHub
+  domains:
+  - Scientific Writing
+  - LLMs
+  - Biomedical
+  - Cognitive Science
+  soft_skills:
+  - Virtual Presentation
 - id: proj/stable-diffusion-testing
   title: Stable Diffusion and Low-Rank Adaptation Testing
   year: 2023-04
@@ -2863,6 +2877,20 @@ projects:
   bullets:
   - Produced an entire systems plan for the BitTorrent protocol and application, as
     a case study
+  technologies:
+  - Microsoft Word
+  - Microsoft PowerPoint
+  - Microsoft Teams
+  - Draw.io
+  domains:
+  - Scientific Writing
+  - Software Engineering
+  - Cybersecurity
+  - SDLC
+  - Requirements Engineering
+  - Networking
+  soft_skills:
+  - Virtual Presentation
 - id: proj/ms-word-usability
   title: Microsoft Word Usability Desiderata
   year: 2020-05
@@ -2886,6 +2914,29 @@ projects:
     and the Nielsen-Norman 5-point Likert scale
   - Developed UX personas and validated their accuracy with three empirical studies
     on personal contacts, using a systematized test plan
+  technologies:
+  - Microsoft Word
+  - Microsoft PowerPoint
+  - Microsoft Excel
+  - Draw.io
+  - Mockingbird
+  - Balsamiq
+  domains:
+  - Scientific Writing
+  - Software Engineering
+  - Education
+  - SDLC
+  - SQA
+  - Requirements Engineering
+  - HCI
+  - UX
+  - Cognitive Science
+  - Data Visualization
+  soft_skills:
+  - Stakeholder Presentation
+  - Virtual Presentation
+  - Public Speaking
+  - Client Communication
 - id: proj/ecocar
   title: EcoCar
   year: 2020-05
@@ -2908,6 +2959,31 @@ projects:
   - Was a member of the "core" team responsible for all system documentation, including
     user stories, requirements documents, Kanban board management, design documents
     and test plans
+  technologies:
+  - Python
+  - Matlab
+  - GitHub
+  - Microsoft Word
+  - Microsoft PowerPoint
+  - Google Docs
+  - Google Slides
+  - Google Drive
+  - Google Sheets
+  - Draw.io
+  domains:
+  - Software Engineering
+  - Machine Learning
+  - SDLC
+  - SQA
+  - Agile
+  - Requirements Engineering
+  - Computer Vision
+  - Real-Time Systems
+  soft_skills:
+  - Stakeholder Presentation
+  - Virtual Presentation
+  - Public Speaking
+  - Client Communication
 - id: proj/meme-ontology
   title: Meme Ontology and Clustering Analysis
   year: 2020-02
@@ -2986,6 +3062,12 @@ projects:
   - Responsible for all art and music
   domains:
   - Game Development
+  - HCI
+  - UX
+  technologies:
+  - Discord
+  personal_skills:
+  - Adobe Photoshop
 - id: proj/arocket
   title: ARocket
   year: 2019-02
@@ -3006,8 +3088,9 @@ projects:
 
     '
   technologies:
-  - Unity
   - C#
+  - Visual Studio Code
+  - Unity
   - Android
   tags:
   - game development
@@ -3023,9 +3106,18 @@ projects:
   - Sourced and created all the audio and visual media for the application, in addition
     to implementing some physics
   domains:
-  - AR
+  - Software Engineering
+  - Agile
   - HCI
   - UX
+  - Aerospace
+  - Game Development
+  - AR
+  soft_skills:
+  - Public Speaking
+  personal_skills:
+  - Adobe Photoshop
+  - Adobe Illustrator
 - id: proj/vxworks-water-heater
   title: VxWorks C Water Heater Simulation
   year: 2019-05

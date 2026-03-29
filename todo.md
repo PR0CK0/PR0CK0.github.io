@@ -57,6 +57,10 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## Other pending
 
+- [ ] proj/personal — catch-all personal/creative entry (Adobe, AutoCAD, etc.); needs tech/domains review and possible restructure or deletion
+
+
+
 - [ ] **Tests: detect unmapped terms** — Test suite should flag technologies/domains/soft_skills/personal_skills that appear in YAML but aren't recognized/validated. Example: `Git` is in YAML but doesn't show in UI (unmapped in tech-categories). Need validation that catches these orphan terms.
 - [ ] Extracurriculars — add technologies/domains to 24 empty entries
 - [ ] work/publix — add technologies (minimal)
