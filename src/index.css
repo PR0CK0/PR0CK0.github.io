@@ -71,6 +71,10 @@
 }
 
 /* Thin scrollbar for contribution graph */
+/* Hide scrollbar on graph sidebar (keeps content full-width so HRs reach the edge) */
+.sidebar-scroll::-webkit-scrollbar { display: none; }
+.sidebar-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+
 .contrib-scroll::-webkit-scrollbar {
   height: 3px;
 }

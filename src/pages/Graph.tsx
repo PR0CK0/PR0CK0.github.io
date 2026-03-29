@@ -723,7 +723,7 @@ export default function Graph() {
         </div>
         {/* Desktop */}
         {sidebarOpen && (
-          <div className="hidden sm:flex flex-col overflow-y-auto flex-1" style={{ width: 280 }}>
+          <div className="hidden sm:flex flex-col overflow-y-auto flex-1 sidebar-scroll">
             {sidebarContent}
           </div>
         )}
@@ -769,28 +769,6 @@ export default function Graph() {
           </div>
         )}
 
-        {/* Graph legend — desktop only (mobile has it in the drawer) */}
-        <div
-          className="hidden sm:block absolute bottom-3 right-3 px-3 py-2 rounded text-xs font-mono pointer-events-none"
-          style={{
-            background: '#0f162988',
-            border: '1px solid #1e2d4a',
-            color: '#4a5a7a',
-            backdropFilter: 'blur(4px)',
-          }}
-        >
-          <div className="flex flex-wrap gap-x-3 gap-y-1 justify-end" style={{ maxWidth: '480px' }}>
-            {NODE_TYPES.filter((t) => enabledTypes.has(t)).map((type) => (
-              <span key={type} className="flex items-center gap-1">
-                <span
-                  className="w-2 h-2 rounded-full inline-block flex-shrink-0"
-                  style={{ backgroundColor: TYPE_META[type].color }}
-                />
-                <span style={{ color: '#4a5a7a' }}>{TYPE_META[type].label}</span>
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   )
