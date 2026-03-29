@@ -360,6 +360,14 @@ work_experiences:
   - Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO compliance
   - The produced ontology allowed the answering of core competency questions useful for subject matter experts
   - Gained familiarity with SNOMED-CT and the OBO ontologies
+  domains:
+  - Ontology
+  - Machine Learning
+  - Knowledge Representation
+  - Semantic Web
+  - Linked Data
+  - Taxonomy
+  - XAI
 - id: work/afrl-2021
   title: SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing
   organization: Air Force Research Laboratory (AFRL)
@@ -398,6 +406,16 @@ work_experiences:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  domains:
+  - Knowledge Graphs
+  - Geospatial
+  - Computer Vision
+  - Ontology
+  - Semantic Web
+  - Linked Data
+  - Description Logics
+  - FOL
+  - Taxonomy
 - id: work/afrl-2020
   title: AFRL Scholars Remote AI Research Scientist - ML Explainability
   organization: Air Force Research Laboratory (AFRL)
@@ -1011,6 +1029,7 @@ publications:
   - ML Provenance
   - LLMs
   - Prompt Engineering
+  - Scientific Writing
 - id: pub/ml-lifecycle-provenance-survey
   title: 'A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools'
   authors:
@@ -1045,6 +1064,7 @@ publications:
   - ML Provenance
   - Machine Learning
   - LLMs
+  - Scientific Writing
 - id: pub/verifying-ml-interpretability
   title: Verifying Machine Learning Interpretability and Explainability Requirements Through Provenance
   authors:
@@ -1072,6 +1092,7 @@ publications:
   - Provenance
   - ML Provenance
   - Machine Learning
+  - Scientific Writing
 - id: pub/creating-robust-datasets
   title: Creating Robust Data Sets for AI by Leveraging Ontological Structures
   authors:
@@ -1096,6 +1117,7 @@ publications:
   - Machine Learning
   - Computer Vision
   - Knowledge Representation
+  - Scientific Writing
 - id: pub/exploring-testing-llms
   title: Exploring Testing Methods for Large Language Models
   authors:
@@ -1120,6 +1142,7 @@ publications:
   - SQA
   - Machine Learning
   - Prompt Engineering
+  - Scientific Writing
 - id: pub/requirements-elicitation-ml
   title: 'Requirements Elicitation for Machine Learning Applications: A Research Preview'
   authors:
@@ -1142,6 +1165,7 @@ publications:
   - Machine Learning
   - Requirements Engineering
   - Software Engineering
+  - Scientific Writing
 - id: pub/leveraging-llms-scientific-writing
   title: Leveraging Large Language Models on the Traditional Scientific Writing Workflow
   authors:
@@ -1188,6 +1212,7 @@ publications:
   - LLMs
   - RAG
   - Semantic Web
+  - Scientific Writing
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -1212,6 +1237,7 @@ publications:
   - Microsoft Teams
   domains:
   - Aerospace
+  - Scientific Writing
 - id: pub/linked-data-aerospace
   title: 'Leveraging Linked Data for Knowledge Management: A Proposal for the Aerospace Industry'
   authors:
@@ -1233,6 +1259,7 @@ publications:
   - Knowledge Graphs
   - Semantic Web
   - Aerospace
+  - Scientific Writing
 - id: pub/robust-training-datasets-ontologies
   title: 'Towards Robust Training Datasets for Machine Learning with Ontologies: A Case Study for Emergency Road Vehicle Detection'
   authors:
@@ -1256,6 +1283,7 @@ publications:
   - Machine Learning
   - Computer Vision
   - Knowledge Representation
+  - Scientific Writing
 - id: pub/prov-o-bfo-mapping
   title: 'Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations
     and Preliminary Implementation'
@@ -1279,6 +1307,7 @@ publications:
   - Semantic Web
   - Linked Data
   - Knowledge Representation
+  - Scientific Writing
 - id: pub/semantic-science-beyond-pdf
   title: 'Semantic Science: Publication Beyond the PDF'
   authors:
@@ -1320,6 +1349,7 @@ publications:
   domains:
   - LLMs
   - Machine Learning
+  - Scientific Writing
 - id: pub/lm-kg-survey
   title: A Survey on the Intersection of Language Models and Knowledge Graphs
   authors:
@@ -1344,6 +1374,7 @@ publications:
   - NLP
   - Machine Learning
   - Semantic Web
+  - Scientific Writing
 - id: pub/towards-agile-academia
   title: 'Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering'
   authors:
@@ -1389,6 +1420,7 @@ publications:
   - Agile
   - Education
   - Software Engineering
+  - Scientific Writing
 - id: pub/gps-signal-strength
   title: Leveraging Signal Strength as a Mechanism to Secure GPS Messages
   authors:
@@ -1411,6 +1443,7 @@ publications:
   - Cybersecurity
   - Aerospace
   - Networking
+  - Scientific Writing
 - id: pub/auto-code-documentation
   title: 'Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development’s Most Redundant Task'
   authors:
@@ -1431,6 +1464,7 @@ publications:
   - Software Engineering
   - NLP
   - Prompt Engineering
+  - Scientific Writing
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -1456,6 +1490,7 @@ publications:
   - Ontology
   - Knowledge Representation
   - Knowledge Graphs
+  - Scientific Writing
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -1483,6 +1518,7 @@ publications:
   - Knowledge Representation
   - Semantic Web
   - Prompt Engineering
+  - Scientific Writing
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -1507,6 +1543,7 @@ publications:
   domains:
   - Machine Learning
   - LLMs
+  - Scientific Writing
 - id: pub/digital-rubber-duck
   title: 'Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming'
   authors:
@@ -1531,6 +1568,7 @@ publications:
   - Software Engineering
   - Agile
   - Prompt Engineering
+  - Scientific Writing
 - id: pub/swebok-kg-transformer
   title: A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from the Software Engineering Body of Knowledge
     with a Sequence-to-Sequence Transformer
@@ -1554,6 +1592,7 @@ publications:
   - Software Engineering
   - Taxonomy
   - Text Extraction
+  - Scientific Writing
 - id: pub/microelectronic-ai-dishonesty
   title: 'Microelectronic Technology, AI and Academic Dishonesty: An Agile Engineering Approach'
   authors:
@@ -1575,6 +1614,7 @@ publications:
   - Agile
   - Education
   - Software Engineering
+  - Scientific Writing
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
@@ -1598,6 +1638,7 @@ publications:
   - Agile
   - Education
   - Software Engineering
+  - Scientific Writing
 - id: pub/validating-security-requirements-kg
   title: Validating Security Requirement Specifications through the use of a Knowledge Graph
   authors:
@@ -1621,6 +1662,7 @@ publications:
   - Cybersecurity
   - Requirements Engineering
   - Software Engineering
+  - Scientific Writing
 - id: pub/ontology-sdlc-aerospace
   title: 'An Ontology Based Approach to the Software Engineering Lifecycle: Application to Software Quality Assurance in the
     Aerospace Industry'
@@ -1644,6 +1686,7 @@ publications:
   - Aerospace
   - SQA
   - Software Engineering
+  - Scientific Writing
 - id: pub/explainable-ml-semantic-web
   title: An Exploration of Explainable Machine Learning Using Semantic Web Technology
   authors:
@@ -1664,6 +1707,7 @@ publications:
   - Semantic Web
   - Machine Learning
   - Linked Data
+  - Scientific Writing
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -1688,6 +1732,7 @@ publications:
   - Requirements Engineering
   - Software Engineering
   - SDLC
+  - Scientific Writing
 - id: pub/vr-software-requirements
   title: Incorporating a Virtual Reality Environment in the Teaching of Analysis of Software Requirements
   authors:
@@ -1709,6 +1754,7 @@ publications:
   - Requirements Engineering
   - Software Engineering
   - Education
+  - Scientific Writing
 - id: pub/ml-misbehaviors-taxonomy
   title: Towards A Taxonomy of ML Misbehaviors and their Software Engineering Solutions
   authors:
@@ -1729,6 +1775,7 @@ publications:
   - Taxonomy
   - Software Engineering
   - SQA
+  - Scientific Writing
 - id: pub/kg-geospatial-sumo
   title: Knowledge Graph Relationship Inferencing using ADE20k Images, Geospatial Bounding Boxes and the Suggested Upper Merged
     Ontology
@@ -1748,6 +1795,7 @@ publications:
   - Geospatial
   - Computer Vision
   - Ontology
+  - Scientific Writing
 - id: pub/sdlc-ontology-engineering
   title: 'The Software Development Life Cycle and Ontology Engineering: Defining a Structured Process for Ontology Development'
   authors:
@@ -1763,6 +1811,7 @@ publications:
   - Ontology
   - SDLC
   - Software Engineering
+  - Scientific Writing
 - id: pub/cognitive-assistants-aviation-inprogress
   title: 'Navigating the Future of Aviation: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations'
   authors:
@@ -1781,6 +1830,7 @@ publications:
   - Aerospace
   - Machine Learning
   - LLMs
+  - Scientific Writing
 - id: pub/colleague-thesis-vonderhaar
   title: Eliminating Security Weaknesses in Requirement Specifications via a Knowledge Graph
   authors:
@@ -1801,6 +1851,7 @@ publications:
   - Cybersecurity
   - Requirements Engineering
   - Software Engineering
+  - Scientific Writing
 - id: pub/colleague-thesis-kiselev
   title: Extracting a Body of Knowledge as a First Step Towards Defining a United Software Engineering Curriculum Guideline
   authors:
@@ -1822,6 +1873,7 @@ publications:
   - Education
   - NLP
   - Text Extraction
+  - Scientific Writing
 - id: pub/competition-proposal-nas
   title: 'Expanding the Capabilities of the NAS through AI: A White Box for the Airspace Ecosystem'
   authors:
@@ -1841,6 +1893,7 @@ publications:
   - Machine Learning
   - Knowledge Graphs
   - LLMs
+  - Scientific Writing
 - id: pub/grant-proposal-nsf
   title: Expanding the Nation’s STEM Talent Pool by Accelerating Graduate Degree Completion in Computer, Software, and Cybersecurity
     Engineering
@@ -1863,6 +1916,7 @@ publications:
   - Education
   - Software Engineering
   - Cybersecurity
+  - Scientific Writing
 - id: pub/article-synthetic-ontologies
   title: 'Synthetic Ontologies: A Hypothesis'
   authors:
@@ -1882,6 +1936,7 @@ publications:
   - Ontology
   - Knowledge Representation
   - LLMs
+  - Scientific Writing
 projects:
 - id: proj/ai-landscape-digest
   title: AI Landscape Digest
@@ -2679,6 +2734,8 @@ projects:
   - Sourced and created all the audio and visual media for the application, in addition to implementing some physics
   domains:
   - AR
+  - HCI
+  - UX
 - id: proj/vxworks-water-heater
   title: VxWorks C Water Heater Simulation
   year: 2019-05
@@ -2720,6 +2777,8 @@ projects:
     public key encryption
   domains:
   - Cryptography
+  - HCI
+  - UX
 - id: proj/lan-board-game
   title: LAN Multiplayer Board Game
   year: 2018-12
@@ -2734,7 +2793,6 @@ projects:
     '
   technologies:
   - Java
-  - TCP
   - CSS
   - GitHub
   tags:
@@ -3826,6 +3884,7 @@ extracurriculars:
   - Networking
   technologies:
   - XigmaNAS
+  - RAID
 - id: extra/library-volunteer
   title: All-rounder Volunteer
   organization: Nassau County Public Library
@@ -3936,10 +3995,13 @@ courses:
   - C
   - Arduino
   - Microsoft Word
+  domains:
+  - Embedded Systems
 - number: CS223
   name: Scientific Programming in C
   technologies:
   - C
+  - Code::Blocks
   - Microsoft Word
   - Microsoft PowerPoint
 - number: CS222
@@ -3955,6 +4017,8 @@ courses:
   - Java
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Scientific Writing
 - number: CS225, CS225L
   name: Computer Science II (Java)
   technologies:
@@ -3964,6 +4028,7 @@ courses:
   - GitHub
   - Eclipse
   - Swing
+  - JavaFX
   - Jackson
   - json-simple
   - JSoup
@@ -3976,16 +4041,22 @@ courses:
   - Java
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Embedded Systems
 - number: AS120
   name: Principles of Aeronautical Science
   technologies:
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Aerospace
 - number: SE300
   name: Software Engineering Practices
   technologies:
   - Java
   - JSON
+  - PHPMyAdmin
+  - MySQL
   - CSV
   - JDBC
   - JavaFX
@@ -3995,6 +4066,8 @@ courses:
   - Eclipse
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
 - number: MA305
   name: Introduction to Scientific Computing
   technologies:
@@ -4023,6 +4096,9 @@ courses:
   - Draw.io
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - SDLC
 - number: MA412
   name: Probability and Statistics
   technologies:
@@ -4050,6 +4126,8 @@ courses:
   - Arduino
   - Microsoft Word
   - Microsoft Excel
+  domains:
+  - Embedded Systems
 - number: SE320
   name: Software Construction
   technologies:
@@ -4061,6 +4139,7 @@ courses:
   - Swing
   domains:
   - Game Development
+  - Software Engineering
 - number: EC225
   name: Engineering Economics
   technologies:
@@ -4083,6 +4162,8 @@ courses:
   - Assembly
   - Microsoft Word
   - Microsoft Excel
+  domains:
+  - Embedded Systems
 - number: SE410
   name: Software Modeling
   technologies:
@@ -4092,6 +4173,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - SDLC
 - number: CS428
   name: Applied Cryptography
   technologies:
@@ -4106,6 +4190,7 @@ courses:
   - Microsoft PowerPoint
   domains:
   - Cryptography
+  - Cybersecurity
 - number: CS303
   name: Network Security
   technologies:
@@ -4121,10 +4206,13 @@ courses:
   - Microsoft PowerPoint
   domains:
   - Cybersecurity
+  - Networking
 - number: CEC450
   name: Real-Time Systems
   technologies:
   - VxWorks
+  domains:
+  - Embedded Systems
 - number: HF300
   name: 'Human Factors I: Principles and Fundamentals'
   technologies:
@@ -4133,6 +4221,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - HCI
+  - UX
 - number: CS426
   name: Digital Forensics
   technologies:
@@ -4173,6 +4264,7 @@ courses:
   - Microsoft PowerPoint
   domains:
   - SQA
+  - Software Engineering
 - number: SE450, SE451
   name: Software Capstone Projects I & II
   technologies:
@@ -4181,6 +4273,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
 - number: HF325
   name: Human Factors and System Safety
   technologies:
@@ -4189,6 +4283,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - HCI
+  - UX
 - number: HF310
   name: Human-Computer Interaction
   technologies:
@@ -4197,6 +4294,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - HCI
+  - UX
 - number: SYS500
   name: Fundamentals of Systems Engineering
   technologies:
@@ -4215,6 +4315,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - SDLC
 - number: SE530
   name: Software Requirements Engineering
   technologies:
@@ -4226,6 +4329,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Requirements Engineering
+  - Software Engineering
 - number: SE510
   name: Software Project Management
   technologies:
@@ -4237,15 +4343,21 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - Agile
 - number: CS540
   name: Databases and Data Retrieval
   technologies:
   - SQL
   - PostgreSQL
   - JDBC
+  - QGIS
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Geospatial
   personal_skills:
   - sqlite3
 - number: CS527
@@ -4271,6 +4383,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Data Visualization
 - number: CS532
   name: Software Security Assessment
   technologies:
@@ -4298,6 +4412,9 @@ courses:
   - Mockingbird
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Cognitive Science
+  - HCI
 - number: MA553
   name: High-Performance Scientific Computing
   technologies:
@@ -4317,6 +4434,7 @@ courses:
   - Machine Learning
   - NLP
   - Real-Time Systems
+  - HPC
 - number: HFS525
   name: Human, Social & Organizational Factors in Emerging Technologies
   technologies:
@@ -4324,6 +4442,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - HCI
+  - UX
 - number: SE550
   name: Current Trends in Software Engineering
   technologies:
@@ -4334,6 +4455,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
 - number: EGR600
   name: Research Methods for Engineers
   technologies:
@@ -4377,7 +4500,6 @@ courses:
   - Linked Data
   - ML Provenance
   - Ontology
-  - Ontology
   - Semantic Web
   - Text Extraction
   - XAI
@@ -4415,7 +4537,6 @@ courses:
   - LLMs
   - Linked Data
   - ML Provenance
-  - Ontology
   - Ontology
   - Semantic Web
   - Text Extraction
