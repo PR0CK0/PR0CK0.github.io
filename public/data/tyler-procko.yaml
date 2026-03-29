@@ -4433,6 +4433,12 @@ courses:
   - Code::Blocks
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - SQA
+  - HCI
+  - UX
+  - Game Development
 - number: CS222
   name: Introduction to Discrete Structures
   technologies:
@@ -4440,6 +4446,9 @@ courses:
   - Java
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - FOL
+  - Cognitive Science
 - number: COM221
   name: Technical Report Writing
   technologies:
@@ -4463,6 +4472,15 @@ courses:
   - JSoup
   - Microsoft Word
   - Microsoft Excel
+  domains:
+  - Software Engineering
+  - SDLC
+  - Requirements Engineering
+  - SQA
+  - Agile
+  - HCI
+  - UX
+  - Game Development
 - number: CEC220, CEC222
   name: Digital Circuit Design
   technologies:
@@ -4508,6 +4526,8 @@ courses:
   - TSV
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - HPC
 - number: CS315
   name: Data Structures Analysis and Algorithms
   technologies:
@@ -4517,6 +4537,8 @@ courses:
   - Eclipse
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
 - number: SE310
   name: Analysis and Design of Software Systems
   technologies:
@@ -4534,6 +4556,9 @@ courses:
   - Java
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Data Visualization
+  - Cognitive Science
 - number: CS317
   name: Files and Database Systems
   technologies:
@@ -4584,6 +4609,8 @@ courses:
   - Eclipse
   - Microsoft Word
   - Microsoft Excel
+  domains:
+  - Software Engineering
 - number: CEC470
   name: Computer Architecture
   technologies:
@@ -4678,6 +4705,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Embedded Systems
 - number: SE625
   name: Software Quality Engineering and Assurance
   technologies:
@@ -4735,6 +4764,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - SDLC
 - number: SE610
   name: Software System Architecture and Design
   technologies:
@@ -4833,6 +4865,9 @@ courses:
   - Draw.io
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - SDLC
 - number: HFS620
   name: Memory and Cognition
   technologies:
@@ -4894,6 +4929,11 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Education
+  soft_skills:
+  - Virtual Presentation
+  - Public Speaking
 - number: SE690
   name: Graduate Research Project
   technologies:
