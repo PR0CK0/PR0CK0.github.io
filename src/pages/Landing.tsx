@@ -629,13 +629,13 @@ function SkillChip({ skill, chipClass, opacity }: { skill: AggregatedSkill; chip
     <motion.span
       whileHover={{ scale: 1.05, opacity: 1 }}
       onClick={() => navigate(`/graph?q=${encodeURIComponent(skill.name)}`)}
-      className={`inline-flex items-center gap-1 sm:gap-1.5 ls:gap-1 px-1.5 py-0.5 sm:px-2.5 sm:py-1 ls:px-1.5 ls:py-0.5 rounded text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono
+      className={`inline-flex items-center gap-1 sm:gap-1 ls:gap-1 px-1.5 py-0.5 sm:px-2 sm:py-1 ls:px-1.5 ls:py-0.5 rounded text-[0.55rem] sm:text-[0.68rem] ls:text-[0.55rem] font-mono
                   transition-all duration-150 cursor-pointer ${chipClass}`}
       style={{ opacity }}
     >
       {skill.name}
       {skill.count > 1 && (
-        <span className="opacity-50 text-[10px]">×{skill.count}</span>
+        <span className="opacity-50 text-[9px]">×{skill.count}</span>
       )}
     </motion.span>
   )
@@ -647,14 +647,14 @@ type SkillView = 'categories' | 'ranked'
 
 function ViewToggle({ view, onChange }: { view: SkillView; onChange: (v: SkillView) => void }) {
   return (
-    <div className="inline-flex items-center rounded-lg border border-terminal-border bg-terminal-surface/40 p-0.5 gap-0.5 font-mono text-[0.6rem] sm:text-xs ls:text-[0.6rem] relative">
+    <div className="inline-flex items-center rounded-lg border border-terminal-border bg-terminal-surface/40 p-0.5 gap-0.5 font-mono text-[0.55rem] sm:text-[0.68rem] ls:text-[0.55rem] relative">
       {(['ranked', 'categories'] as SkillView[]).map((v) => {
         const active = view === v
         return (
           <button
             key={v}
             onClick={() => onChange(v)}
-            className="relative px-2 py-1 sm:px-3 sm:py-1.5 ls:px-2 ls:py-1 rounded-md transition-colors duration-200 z-10"
+            className="relative px-2 py-0.5 sm:px-2.5 sm:py-1 ls:px-2 ls:py-0.5 rounded-md transition-colors duration-200 z-10"
             style={{ color: active ? '#b57bff' : '#4a5a7a' }}
           >
             {active && (
@@ -693,7 +693,7 @@ function RankedView({ skills }: { skills: AggregatedSkill[] }) {
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="flex flex-wrap gap-1.5 sm:gap-2 ls:gap-1.5">
+      <div className="flex flex-wrap gap-1 sm:gap-1.5 ls:gap-1">
         {visible.map((sk, i) => {
           const meta = CATEGORY_META[sk.category]
           const opacity = Math.max(0.4, Math.pow(sk.count / maxCount, 0.35))
@@ -715,9 +715,9 @@ function RankedView({ skills }: { skills: AggregatedSkill[] }) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.25 }}
           onClick={() => setExpanded(true)}
-          className="mt-4 text-xs font-mono text-terminal-purple/60 hover:text-terminal-purple
+          className="mt-3 text-[0.55rem] sm:text-xs font-mono text-terminal-purple/60 hover:text-terminal-purple
                      border border-terminal-purple/20 hover:border-terminal-purple/50
-                     px-3 py-1.5 rounded transition-all duration-200"
+                     px-2 py-1 sm:px-3 sm:py-1.5 rounded transition-all duration-200"
         >
           + {hidden} more →
         </motion.button>
@@ -741,7 +741,7 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.3 }}
-      className="space-y-3 sm:space-y-5 ls:space-y-3"
+      className="space-y-2.5 sm:space-y-4 ls:space-y-2.5"
     >
       {SHOWN_CATEGORIES.map((cat, ci) => {
         const meta = CATEGORY_META[cat]
@@ -755,15 +755,15 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: ci * 0.05, duration: 0.35 }}
           >
-            <p className={`text-xs font-mono tracking-widest uppercase mb-3 ${meta.color}`}>
+            <p className={`text-[11px] font-mono tracking-widest uppercase mb-2.5 ${meta.color}`}>
               // {meta.label}
             </p>
             {cat === 'os' && (
-              <p className="font-mono mb-3 italic text-terminal-dim/30" style={{ fontSize: '0.6rem' }}>
+              <p className="font-mono mb-2.5 italic text-terminal-dim/30" style={{ fontSize: '0.55rem' }}>
                 /* used Windows since before I could walk — all others in professional/personal contexts below */
               </p>
             )}
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+            <div className="flex flex-wrap gap-1 sm:gap-1.5">
               {catSkills.map((sk) => {
                 const opacity = Math.max(0.4, Math.pow(sk.count / maxCount, 0.35))
                 return <SkillChip key={sk.name} skill={sk} chipClass={meta.chipClass} opacity={opacity} />
