@@ -3844,69 +3844,130 @@ certificates:
   title: Security+
   issuer: CompTIA
   status: in_progress
+  domains:
+  - Cybersecurity
+  - Networking
+  - SDLC
 - id: cert/semantic-web-technologies
   title: Semantic Web Technologies
   issuer: Hasso Plattner Institute
   status: in_progress
+  deprecated: true
 - id: cert/upwork-ml
   title: Machine Learning
   issuer: Upwork
   date: 2024-10
   status: completed
   url: https://www.upwork.com/freelancers/~01a0532dff7b928594
+  domains:
+  - Machine Learning
 - id: cert/stanford-ml-specialization
   title: Machine Learning Specialization
   issuer: Stanford DeepLearning.AI
   date: 2024-01
   status: completed
   url: https://coursera.org/share/c4fca9ebb94a0b28c4abdf29bd58fce1
+  domains:
+  - Machine Learning
+  - Knowledge Representation
+  - NLP
+  - Text Extraction
+  - Computer Vision
+  - Cognitive Science
+  - Data Visualization
+  - Embeddings
+  technologies:
+  - Jupyter Notebook
 - id: cert/mlops-deployment
   title: 'MLOps Essentials: Model Deployment and Monitoring'
   issuer: LinkedIn Learning
   date: 2023-06
   status: completed
   url: https://www.linkedin.com/learning/certificates/362f6d53e97eaa88666ee2b0c90242871ba3b7e314a6b0d9f18d9a7abf7a9317
+  domains:
+  - Machine Learning
+  - SDLC
 - id: cert/mlops-development
   title: 'MLOps Essentials: Model Development and Integration'
   issuer: LinkedIn Learning
   date: 2023-06
   status: completed
   url: https://www.linkedin.com/learning/certificates/7f7c4b05b91c1998103d4ad8f33c3ba3b97f2ab33f4c50b845d7e9ce8c8b4c25
+  domains:
+  - Machine Learning
+  - SDLC
 - id: cert/research-with-genai
   title: How to Research and Write Using Generative AI Tools
   issuer: LinkedIn Learning
   date: 2023-06
   status: completed
   url: https://www.linkedin.com/learning/certificates/58b8794a8dc321620401e4c3deda53d52d2df7a3ac471d248e135d9b2d2c9fec
+  domains:
+  - LLMs
+  - Prompt Engineering
+  - Scientific Writing
 - id: cert/gpt4-release
   title: 'GPT-4: The New GPT Release'
   issuer: LinkedIn Learning
   date: 2023-05
   status: completed
   url: https://www.linkedin.com/learning/certificates/7808aeffcf04a28fa518189446d36a70559caf3a8eeea31d988e05f1d1b57cb1
+  technologies:
+  - OpenAI
+  - GPT
+  domains:
+  - LLMs
+  - Prompt Engineering
 - id: cert/prompt-engineering
   title: 'Prompt Engineering: How to Talk to the AIs'
   issuer: LinkedIn Learning
   date: 2023-05
   status: completed
   url: https://www.linkedin.com/learning/certificates/744a9027f4c0eb5460e36665c404743b5fe94b507eff6f411493a1f52e89beac
+  domains:
+  - Prompt Engineering
+  - LLMs
 - id: cert/remote-work-professional
   title: Remote Work Professional
   issuer: CertiProf
   date: 2023-03
   status: completed
   url: https://www.credly.com/badges/a3882756-7f83-4696-86ee-82736d713230/public_url
+  domains:
+  - HCI
+  - UX
+  soft_skills:
+  - Virtual Presentation
 - id: cert/google-data-analytics
   title: Data Analytics Professional
   issuer: Google
   date: 2022-11
   status: completed
   url: https://www.credly.com/badges/b3357b55-5b36-40b9-8a9f-f1ea50463a2b/public_url
+  technologies:
+  - Python
+  - JSON
+  - CSV
+  - TSV
+  - SQL
+  - NumPy
+  - Matplotlib
+  - Pandas
+  - Visual Studio Code
+  - Microsoft Excel
+  - Google Drive
+  - Jupyter Notebook
+  domains:
+  - Machine Learning
+  - Cognitive Science
+  - Data Visualization
 - id: cert/editing-proofreading
   title: Essential Editing and Proofreading
   issuer: Virtued Academy International (IAOTH)
   date: 2022-11
   status: completed
+  domains:
+  - Scientific Writing
 talks:
 - id: talk/powering-ai-ontology-construction
   title: Powering AI with Ontology in Construction
