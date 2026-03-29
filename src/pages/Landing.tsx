@@ -141,13 +141,13 @@ function formatDate(date?: string) {
 function ProfilePhoto({ visible }: { visible: boolean }) {
   return (
     <div
-      className="flex-shrink-0 relative"
-      style={{ width: 88, height: 88, opacity: visible ? 1 : 0, transition: 'opacity 0.1s' }}
+      className="flex-shrink-0 relative w-[66px] h-[66px] sm:w-[88px] sm:h-[88px]"
+      style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.1s' }}
     >
       {/* Scan-reveal container */}
       <div
-        className={`relative rounded-full overflow-hidden ${visible ? 'profile-scan-reveal' : ''}`}
-        style={{ width: 88, height: 88, clipPath: visible ? undefined : 'inset(0 0 100% 0)' }}
+        className={`relative rounded-full overflow-hidden w-full h-full ${visible ? 'profile-scan-reveal' : ''}`}
+        style={{ clipPath: visible ? undefined : 'inset(0 0 100% 0)' }}
       >
         <img
           src="/me.png"
