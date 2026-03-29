@@ -808,6 +808,12 @@ work_experiences:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  domains:
+  - Scientific Writing
+  - Software Engineering
+  - Education
+  - SDLC
+  - Agile
 - id: work/upwork-geospatial
   title: Geospatial Ontology Analyst
   organization: Upwork
