@@ -249,10 +249,8 @@ export default function Graph() {
   // ── Load data ────────────────────────────────────────────────────────────────
 
   useEffect(() => {
-    // setTimeout(0) is a macrotask — guarantees the browser paints the initial
-    // loading state (navbar active + spinner) before we call loadPortfolioData.
-    // Without this, a cached response resolves as a microtask and the first
-    // visible paint is skipped entirely.
+    // 250ms: ensures the navbar CSS transition (duration-200) fully completes
+    // before buildGraph/cose-bilkent blocks the main thread.
     const timer = setTimeout(() => {
       loadPortfolioData()
         .then((person) => {
@@ -265,7 +263,7 @@ export default function Graph() {
           setError(err.message ?? 'Failed to load graph data')
           setPhase('ready')
         })
-    }, 0)
+    }, 250)
     return () => clearTimeout(timer)
   }, [])
 
