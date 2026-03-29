@@ -632,7 +632,7 @@ export default function Graph() {
 
       {/* Footer hint — desktop only */}
       <div
-        className="hidden sm:block px-4 py-2 flex-shrink-0 text-xs"
+        className="hidden sm:block px-4 py-2 flex-shrink-0 text-xs text-center"
         style={{ borderTop: '1px solid #1e2d4a', color: '#2a3d5a' }}
       >
         scroll · pan · zoom · click · drag
@@ -680,12 +680,12 @@ export default function Graph() {
 
         {/* ── Desktop header with collapse toggle (hidden on mobile) ── */}
         <div
-          className="hidden sm:flex items-center justify-between px-4 py-3 flex-shrink-0 cursor-pointer select-none"
-          style={{ borderBottom: '1px solid #1e2d4a', minWidth: sidebarOpen ? 280 : 0 }}
-          onClick={() => setSidebarOpen((o) => !o)}
+          className="hidden sm:block relative flex-shrink-0"
+          style={{ borderBottom: '1px solid #1e2d4a', minWidth: sidebarOpen ? 280 : 21 }}
         >
+          {/* Title text — pr-7 keeps text clear of the absolute button */}
           {sidebarOpen && (
-            <div>
+            <div className="px-4 pr-7 py-3 cursor-pointer select-none" onClick={() => setSidebarOpen((o) => !o)}>
               <div className="text-xs font-bold tracking-widest uppercase mb-0.5" style={{ color: '#00ff88' }}>
                 Tyler Procko's Knowledge Graph
               </div>
@@ -694,17 +694,23 @@ export default function Graph() {
               </div>
             </div>
           )}
-          <span
-            className="ml-auto flex-shrink-0 flex items-center justify-center w-5 h-5 rounded text-xs font-bold transition-colors"
+
+          {/* Collapse button — flush with the right edge */}
+          <button
+            className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-5 rounded-l text-xs font-bold transition-colors cursor-pointer"
             style={{
               background: '#1e2d4a',
               border: '1px solid #2a3d5a',
               color: '#00ff88',
             }}
             title={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+            onClick={() => setSidebarOpen((o) => !o)}
           >
             {sidebarOpen ? '‹' : '›'}
-          </span>
+          </button>
+
+          {/* Placeholder height when collapsed so the button has something to center on */}
+          {!sidebarOpen && <div className="py-5" />}
         </div>
 
         {/* ── Collapsible content: mobile drawer or desktop panel ── */}
