@@ -251,6 +251,8 @@ work_experiences:
   - Agile
   - SQA
   - Web Scraping
+  soft_skills:
+  - Stakeholder Presentation
 - id: work/afrl-2024
   title: SMART Scholar AI Research Scientist - ML Provenance
   organization: Air Force Research Laboratory (AFRL)
@@ -292,6 +294,8 @@ work_experiences:
   - Knowledge Representation
   - Linked Data
   - Taxonomy
+  soft_skills:
+  - Stakeholder Presentation
 - id: work/afrl-2023
   title: SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD
   organization: Air Force Research Laboratory (AFRL)
@@ -384,6 +388,8 @@ work_experiences:
   - Linked Data
   - Taxonomy
   - XAI
+  soft_skills:
+  - Stakeholder Presentation
 - id: work/afrl-2021
   title: SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing
   organization: Air Force Research Laboratory (AFRL)
@@ -1144,6 +1150,8 @@ work_experiences:
   - SDLC
   - SQA
   - Requirements Engineering
+  soft_skills:
+  - Virtual Presentation
 - id: work/publix
   title: Customer Service Clerk
   organization: Publix Supermarkets
@@ -1159,6 +1167,8 @@ work_experiences:
   - Assisted customers and managed merchandise loading
   domains:
   - Public Speaking
+  soft_skills:
+  - Client Communication
 publications:
 - id: pub/prompt-provenance
   title: 'Prompt Provenance: Toward Traceable LLM Interactions'

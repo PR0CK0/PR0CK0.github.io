@@ -18,6 +18,14 @@ TECH_CATEGORIES_PATH = Path(__file__).parent.parent / "src" / "lib" / "tech-cate
 SKILL_FIELDS = ["technologies", "domains", "soft_skills", "personal_skills"]
 SECTIONS = ["work_experiences", "projects", "publications", "courses", "awards", "talks", "education", "certificates", "extra"]
 
+# Canonical soft skills list — add new values here when introducing them in the YAML
+VALID_SOFT_SKILLS = {
+    "Client Communication",
+    "Public Speaking",
+    "Stakeholder Presentation",
+    "Virtual Presentation",
+}
+
 
 def extract_tech_categories():
     """Parse tech-categories.ts and extract all mapped technologies."""
@@ -66,6 +74,10 @@ def main() -> None:
                         unmapped_techs.add(value)
                         issues.append(f"  {entry_id} → {field}: '{value}' NOT in tech-categories.ts")
 
+                    # Check soft_skills against canonical list
+                    if field == "soft_skills" and value not in VALID_SOFT_SKILLS:
+                        issues.append(f"  {entry_id} → {field}: '{value}' NOT in VALID_SOFT_SKILLS")
+
     # Report results
     if unmapped_techs:
         print(f"ERROR — {len(unmapped_techs)} unmapped technology(ies):\n")
@@ -73,7 +85,7 @@ def main() -> None:
             print(f"  • {tech}")
         print()
 
-    if issues and unmapped_techs:
+    if issues:
         print(f"FAIL — {len(issues)} validation issue(s):\n")
         for issue in sorted(issues):
             print(issue)
