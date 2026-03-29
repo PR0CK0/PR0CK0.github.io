@@ -3954,6 +3954,8 @@ courses:
   - C
   - Arduino
   - Microsoft Word
+  domains:
+  - Embedded Systems
 - number: CS223
   name: Scientific Programming in C
   technologies:
@@ -3974,6 +3976,8 @@ courses:
   - Java
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Scientific Writing
 - number: CS225, CS225L
   name: Computer Science II (Java)
   technologies:
@@ -3996,11 +4000,15 @@ courses:
   - Java
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Embedded Systems
 - number: AS120
   name: Principles of Aeronautical Science
   technologies:
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Aerospace
 - number: SE300
   name: Software Engineering Practices
   technologies:
@@ -4017,6 +4025,8 @@ courses:
   - Eclipse
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
 - number: MA305
   name: Introduction to Scientific Computing
   technologies:
@@ -4045,6 +4055,9 @@ courses:
   - Draw.io
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - SDLC
 - number: MA412
   name: Probability and Statistics
   technologies:
@@ -4072,6 +4085,8 @@ courses:
   - Arduino
   - Microsoft Word
   - Microsoft Excel
+  domains:
+  - Embedded Systems
 - number: SE320
   name: Software Construction
   technologies:
@@ -4083,6 +4098,7 @@ courses:
   - Swing
   domains:
   - Game Development
+  - Software Engineering
 - number: EC225
   name: Engineering Economics
   technologies:
@@ -4105,6 +4121,8 @@ courses:
   - Assembly
   - Microsoft Word
   - Microsoft Excel
+  domains:
+  - Embedded Systems
 - number: SE410
   name: Software Modeling
   technologies:
@@ -4114,6 +4132,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - SDLC
 - number: CS428
   name: Applied Cryptography
   technologies:
@@ -4128,6 +4149,7 @@ courses:
   - Microsoft PowerPoint
   domains:
   - Cryptography
+  - Cybersecurity
 - number: CS303
   name: Network Security
   technologies:
@@ -4143,10 +4165,13 @@ courses:
   - Microsoft PowerPoint
   domains:
   - Cybersecurity
+  - Networking
 - number: CEC450
   name: Real-Time Systems
   technologies:
   - VxWorks
+  domains:
+  - Embedded Systems
 - number: HF300
   name: 'Human Factors I: Principles and Fundamentals'
   technologies:
@@ -4155,6 +4180,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - HCI
+  - UX
 - number: CS426
   name: Digital Forensics
   technologies:
@@ -4195,6 +4223,7 @@ courses:
   - Microsoft PowerPoint
   domains:
   - SQA
+  - Software Engineering
 - number: SE450, SE451
   name: Software Capstone Projects I & II
   technologies:
@@ -4203,6 +4232,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
 - number: HF325
   name: Human Factors and System Safety
   technologies:
@@ -4211,6 +4242,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - HCI
+  - UX
 - number: HF310
   name: Human-Computer Interaction
   technologies:
@@ -4219,6 +4253,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - HCI
+  - UX
 - number: SYS500
   name: Fundamentals of Systems Engineering
   technologies:
@@ -4237,6 +4274,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - SDLC
 - number: SE530
   name: Software Requirements Engineering
   technologies:
@@ -4248,6 +4288,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Requirements Engineering
+  - Software Engineering
 - number: SE510
   name: Software Project Management
   technologies:
@@ -4259,6 +4302,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
+  - Agile
 - number: CS540
   name: Databases and Data Retrieval
   technologies:
@@ -4269,6 +4315,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Geospatial
   personal_skills:
   - sqlite3
 - number: CS527
@@ -4294,6 +4342,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Data Visualization
 - number: CS532
   name: Software Security Assessment
   technologies:
@@ -4321,6 +4371,9 @@ courses:
   - Mockingbird
   - Microsoft Word
   - Microsoft PowerPoint
+  domains:
+  - Cognitive Science
+  - HCI
 - number: MA553
   name: High-Performance Scientific Computing
   technologies:
@@ -4340,6 +4393,7 @@ courses:
   - Machine Learning
   - NLP
   - Real-Time Systems
+  - HPC
 - number: HFS525
   name: Human, Social & Organizational Factors in Emerging Technologies
   technologies:
@@ -4347,6 +4401,9 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - HCI
+  - UX
 - number: SE550
   name: Current Trends in Software Engineering
   technologies:
@@ -4357,6 +4414,8 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  domains:
+  - Software Engineering
 - number: EGR600
   name: Research Methods for Engineers
   technologies:
@@ -4400,7 +4459,6 @@ courses:
   - Linked Data
   - ML Provenance
   - Ontology
-  - Ontology
   - Semantic Web
   - Text Extraction
   - XAI
@@ -4438,7 +4496,6 @@ courses:
   - LLMs
   - Linked Data
   - ML Provenance
-  - Ontology
   - Ontology
   - Semantic Web
   - Text Extraction
