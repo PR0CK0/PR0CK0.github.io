@@ -2640,6 +2640,15 @@ projects:
   - Devise
   - Google SketchUp
   - sqlite3
+  - Skype
+  - Zoom
+  - Element
+  - Session
+  - Telegram
+  - LibreOffice Writer
+  - LibreOffice Calc
+  - LibreOffice Impress
+  - LibreOffice Draw
 - id: proj/cloudcell-consulting
   title: Linked Data Consultant and Scientific Writer
   year: 2023-12

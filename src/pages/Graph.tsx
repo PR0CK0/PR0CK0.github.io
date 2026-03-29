@@ -214,13 +214,11 @@ function TypeBadge({ type }: { type: NodeType }) {
   )
 }
 
-// TODO: spinner freezes because Cytoscape layout blocks the JS main thread.
-// Need a CSS-only animation or Web Worker approach to fix properly.
-function LoadingSpinner() {
+function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
   return (
-    <div className="flex flex-col items-center justify-center h-full gap-4">
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10" style={{ background: '#0a0e1a' }}>
       <div className="font-mono text-sm" style={{ color: '#4a5a7a' }}>
-        building knowledge graph...
+        {phase === 'loading' ? 'loading knowledge graph...' : 'running layout...'}
       </div>
     </div>
   )
@@ -233,7 +231,7 @@ export default function Graph() {
   const [searchParams] = useSearchParams()
 
   const [elements, setElements] = useState<(CyNode | CyEdge)[]>([])
-  const [loading, setLoading] = useState(true)
+  const [phase, setPhase] = useState<'loading' | 'layout' | 'ready'>('loading')
   const [error, setError] = useState<string | null>(null)
 
   const [enabledTypes, setEnabledTypes] = useState<Set<NodeType>>(
@@ -253,14 +251,17 @@ export default function Graph() {
   useEffect(() => {
     loadPortfolioData()
       .then((person) => {
-        const { nodes, edges } = buildGraph(person)
-        setElements([...nodes, ...edges])
-        setStats({ nodes: nodes.length, edges: edges.length })
-        setLoading(false)
+        // rAF ensures the 'loading' spinner paints before buildGraph blocks the thread
+        requestAnimationFrame(() => {
+          const { nodes, edges } = buildGraph(person)
+          setElements([...nodes, ...edges])
+          setStats({ nodes: nodes.length, edges: edges.length })
+          setPhase('layout') // spinner stays up; Cytoscape mounts invisibly
+        })
       })
       .catch((err) => {
         setError(err.message ?? 'Failed to load graph data')
-        setLoading(false)
+        setPhase('ready')
       })
   }, [])
 
@@ -336,6 +337,9 @@ export default function Graph() {
   const handleCyReady = useCallback((cy: cytoscape.Core) => {
     cyRef.current = cy
     setCyReady(true)
+
+    // Reveal graph after first layout completes
+    cy.one('layoutstop', () => setPhase('ready'))
 
     // Re-apply type visibility after cy is ready
     NODE_TYPES.forEach((type) => {
@@ -731,7 +735,7 @@ export default function Graph() {
 
       {/* ── Canvas ── */}
       <div className="flex-1 relative overflow-hidden" style={{ background: '#0a0e1a' }}>
-        {loading && <LoadingSpinner />}
+        {phase !== 'ready' && !error && <LoadingSpinner phase={phase} />}
 
         {error && (
           <div className="flex items-center justify-center h-full">
@@ -741,17 +745,26 @@ export default function Graph() {
           </div>
         )}
 
-        {!loading && !error && elements.length > 0 && (
-          <CytoscapeComponent
-            elements={elements}
-            stylesheet={buildStylesheet() as never}
-            layout={LAYOUT_OPTIONS as cytoscape.LayoutOptions}
-            style={{ width: '100%', height: '100%' }}
-            cy={handleCyReady}
-            minZoom={0.05}
-            maxZoom={4}
-            wheelSensitivity={0.3}
-          />
+        {phase !== 'loading' && !error && elements.length > 0 && (
+          <div
+            style={{
+              position: 'absolute', inset: 0,
+              opacity: phase === 'ready' ? 1 : 0,
+              pointerEvents: phase === 'ready' ? 'auto' : 'none',
+              transition: 'opacity 0.4s ease',
+            }}
+          >
+            <CytoscapeComponent
+              elements={elements}
+              stylesheet={buildStylesheet() as never}
+              layout={LAYOUT_OPTIONS as cytoscape.LayoutOptions}
+              style={{ width: '100%', height: '100%' }}
+              cy={handleCyReady}
+              minZoom={0.05}
+              maxZoom={4}
+              wheelSensitivity={0.3}
+            />
+          </div>
         )}
 
         {/* Search query badge */}

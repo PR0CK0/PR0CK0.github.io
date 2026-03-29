@@ -296,4 +296,15 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   TCP:          'dev_tools',
   RAID:         'dev_tools',
   Chirp:        'dev_tools',
+
+  // ── Personal ────────────────────────────────────────────────────────────────
+  Skype:                    'personal',
+  Zoom:                     'personal',
+  Element:                  'personal',
+  Session:                  'personal',
+  Telegram:                 'personal',
+  'LibreOffice Writer':     'personal',
+  'LibreOffice Calc':       'personal',
+  'LibreOffice Impress':    'personal',
+  'LibreOffice Draw':       'personal',
 }
