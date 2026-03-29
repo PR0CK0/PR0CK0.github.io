@@ -634,7 +634,7 @@ export default function Graph() {
 
   return (
     <div
-      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-full"
+      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-[calc(100dvh-65px)] sm:h-[calc(100dvh-79px)]"
       style={{ background: '#0a0e1a' }}
     >
       {/* ── Sidebar — desktop: left panel (collapsible); mobile: bottom drawer ── */}
@@ -647,8 +647,14 @@ export default function Graph() {
       >
         {/* ── Mobile toggle strip (hidden on desktop) ── */}
         <button
-          className="sm:hidden flex items-center justify-between px-3 h-9 flex-shrink-0 w-full text-left"
-          style={{ borderTop: '1px solid #1e2d4a', borderBottom: mobileOpen ? '1px solid #1e2d4a' : 'none', background: '#0f1629' }}
+          className="sm:hidden flex items-center justify-between px-3 flex-shrink-0 w-full text-left"
+          style={{
+            borderTop: '1px solid #1e2d4a',
+            borderBottom: mobileOpen ? '1px solid #1e2d4a' : 'none',
+            background: '#0f1629',
+            minHeight: 36,
+            paddingBottom: 'max(8px, env(safe-area-inset-bottom))',
+          }}
           onClick={() => setMobileOpen((o) => !o)}
         >
           <span className="flex items-center gap-2">
@@ -681,11 +687,15 @@ export default function Graph() {
             </div>
           )}
           <span
-            className="text-xs ml-auto flex-shrink-0"
-            style={{ color: '#4a5a7a' }}
+            className="ml-auto flex-shrink-0 flex items-center justify-center w-5 h-5 rounded text-xs font-bold transition-colors"
+            style={{
+              background: '#1e2d4a',
+              border: '1px solid #2a3d5a',
+              color: '#00ff88',
+            }}
             title={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
           >
-            {sidebarOpen ? '◂' : '▸'}
+            {sidebarOpen ? '‹' : '›'}
           </span>
         </div>
 
