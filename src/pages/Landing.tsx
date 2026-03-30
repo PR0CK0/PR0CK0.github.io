@@ -153,7 +153,7 @@ function formatDate(date?: string) {
 function ProfilePhoto({ visible }: { visible: boolean }) {
   return (
     <div
-      className="flex-shrink-0 relative w-[66px] h-[66px] sm:w-[88px] sm:h-[88px] ls:w-[66px] ls:h-[66px]"
+      className="flex-shrink-0 relative w-[66px] h-[66px] sm:w-[101px] sm:h-[101px] ls:w-[66px] ls:h-[66px]"
       style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.1s' }}
     >
       {/* Scan-reveal container */}
