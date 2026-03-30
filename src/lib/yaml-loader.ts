@@ -6,7 +6,7 @@ let cachedPerson: Person | null = null
 export async function loadPortfolioData(): Promise<Person> {
   if (cachedPerson) return cachedPerson
 
-  const response = await fetch('/data/tyler-procko.yaml')
+  const response = await fetch(`/data/tyler-procko.yaml?v=${__GIT_COMMIT__}`)
   if (!response.ok) {
     throw new Error(`Failed to load portfolio data: ${response.statusText}`)
   }
