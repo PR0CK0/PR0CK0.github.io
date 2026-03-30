@@ -6,6 +6,7 @@ import {
   View,
   StyleSheet,
   PDFDownloadLink,
+  Link,
 } from '@react-pdf/renderer'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import type { Person, Skill } from '@/lib/schema'
@@ -45,6 +46,11 @@ const pdfStyles = StyleSheet.create({
   contactItem: {
     fontSize: 9,
     color: '#444444',
+    marginRight: 12,
+  },
+  contactLink: {
+    fontSize: 9,
+    color: '#1a6bbf',
     marginRight: 12,
   },
   // Section headers
@@ -228,27 +234,26 @@ function CVDocument({ person }: { person: Person }) {
             {person.phone && (
               <Text style={pdfStyles.contactItem}>{person.phone}</Text>
             )}
+            {person.location && (
+              <Text style={pdfStyles.contactItem}>{person.location} · Remote</Text>
+            )}
             {linkedin && (
-              <Text style={pdfStyles.contactItem}>linkedin.com/in/{linkedin.handle}</Text>
+              <Link src={`https://linkedin.com/in/${linkedin.handle}`} style={pdfStyles.contactLink}>linkedin.com/in/{linkedin.handle}</Link>
             )}
             {github && (
-              <Text style={pdfStyles.contactItem}>github.com/{github.handle}</Text>
-            )}
-            {person.orcid && (
-              <Text style={pdfStyles.contactItem}>ORCiD: {person.orcid}</Text>
+              <Link src={`https://github.com/${github.handle}`} style={pdfStyles.contactLink}>github.com/{github.handle}</Link>
             )}
             {person.website && (
-              <Text style={pdfStyles.contactItem}>{person.website}</Text>
+              <Link src={person.website} style={pdfStyles.contactLink}>{person.website.replace('https://', '')}</Link>
             )}
+            {person.orcid && (
+              <Link src={`https://orcid.org/${person.orcid}`} style={pdfStyles.contactLink}>orcid.org/{person.orcid}</Link>
+            )}
+            <Text style={{ ...pdfStyles.contactItem, color: '#888', fontSize: 8 }}>
+              Last Updated: {new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+            </Text>
           </View>
         </View>
-
-        {/* ── Clearance ── */}
-        {person.clearance && (
-          <View style={pdfStyles.clearanceBox}>
-            <Text style={pdfStyles.clearanceText}>Security Clearance: {person.clearance}</Text>
-          </View>
-        )}
 
         {/* ── Summary ── */}
         {person.summary && (
@@ -388,6 +393,14 @@ function CVDocument({ person }: { person: Person }) {
                 </Text>
               </View>
             ))}
+          </>
+        )}
+
+        {/* ── Security Clearance ── */}
+        {person.clearance && (
+          <>
+            <Text style={pdfStyles.sectionHeader}>Security Clearance</Text>
+            <Text style={{ fontSize: 9.5, color: '#333333' }}>{person.clearance}</Text>
           </>
         )}
       </Page>
@@ -595,28 +608,14 @@ export default function CVExport() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 18px', marginTop: '8px', fontSize: '9.5px', color: '#555' }}>
             {person.email_personal && <span>{person.email_personal}</span>}
             {person.phone && <span>{person.phone}</span>}
-            {linkedin && <span>linkedin.com/in/{linkedin.handle}</span>}
-            {github && <span>github.com/{github.handle}</span>}
-            {person.orcid && <span>ORCiD: {person.orcid}</span>}
-            {person.website && <span>{person.website}</span>}
+            {person.location && <span>{person.location} · Remote</span>}
+            {linkedin && <a href={`https://linkedin.com/in/${linkedin.handle}`} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>linkedin.com/in/{linkedin.handle}</a>}
+            {github && <a href={`https://github.com/${github.handle}`} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>github.com/{github.handle}</a>}
+            {person.website && <a href={person.website} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{person.website.replace('https://', '')}</a>}
+            {person.orcid && <a href={`https://orcid.org/${person.orcid}`} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>orcid.org/{person.orcid}</a>}
+            <span style={{ color: '#888', fontSize: '8.5px' }}>Last Updated: {new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
           </div>
         </div>
-
-        {/* Clearance Banner */}
-        {person.clearance && (
-          <div style={{
-            background: '#f0f4ff',
-            borderLeft: '3px solid #1a3a6b',
-            padding: '6px 12px',
-            marginBottom: '4px',
-            fontSize: '10px',
-            fontWeight: 700,
-            color: '#1a3a6b',
-            fontFamily: 'sans-serif',
-          }}>
-            Security Clearance: {person.clearance}
-          </div>
-        )}
 
         {/* Summary */}
         {person.summary && (
@@ -757,6 +756,14 @@ export default function CVExport() {
                 </span>
               </div>
             ))}
+          </>
+        )}
+
+        {/* Security Clearance */}
+        {person.clearance && (
+          <>
+            <PreviewSectionHeader>Security Clearance</PreviewSectionHeader>
+            <p style={{ fontSize: '9.5px', color: '#333', margin: 0 }}>{person.clearance}</p>
           </>
         )}
       </div>
