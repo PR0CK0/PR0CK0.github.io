@@ -337,7 +337,7 @@ export default function Graph() {
     // Also enforces a minimum loading phase so the spinner has time to animate
     // before cose-bilkent's sync init block freezes JS intervals.
     const mountTime = Date.now()
-    const MIN_LOADING_MS = 3500
+    const MIN_LOADING_MS = 6500
 
     const timer = setTimeout(() => {
       loadPortfolioData()
