@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Theme variables ────────────────────────────────────────────────────────── */
+/* Values are space-separated R G B channels (for Tailwind opacity modifiers)   */
+
+:root {
+  /* dark (default) */
+  --color-terminal-bg:      10  14  26;
+  --color-terminal-surface: 15  22  41;
+  --color-terminal-border:  30  45  74;
+  --color-terminal-green:    0 255 136;
+  --color-terminal-amber:  255 179   0;
+  --color-terminal-blue:    77 159 255;
+  --color-terminal-purple: 181 123 255;
+  --color-terminal-red:    255  77 109;
+  --color-terminal-text:   200 214 240;
+  --color-terminal-muted:   74  90 122;
+}
+
+html.light {
+  --color-terminal-bg:      245 246 250;
+  --color-terminal-surface: 255 255 255;
+  --color-terminal-border:  213 220 233;
+  --color-terminal-green:     0 110  55;
+  --color-terminal-amber:   160 104   0;
+  --color-terminal-blue:     26  91 191;
+  --color-terminal-purple:   96  48 176;
+  --color-terminal-red:     204  34  68;
+  --color-terminal-text:     26  36  64;
+  --color-terminal-muted:   112 128 160;
+}
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -11,8 +41,8 @@
     margin: 0;
     padding: 0;
     min-height: 100%;
-    background-color: #0a0e1a;
-    color: #c8d6f0;
+    background-color: rgb(var(--color-terminal-bg));
+    color: rgb(var(--color-terminal-text));
     font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
     overflow-x: hidden;
   }
@@ -21,14 +51,14 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0a0e1a;
+    background: rgb(var(--color-terminal-bg));
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e2d4a;
+    background: rgb(var(--color-terminal-border));
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #4d9fff;
+    background: rgb(var(--color-terminal-blue));
   }
 }
 
@@ -112,6 +142,21 @@
   .border-glow-blue {
     box-shadow: 0 0 8px #4d9fff44, inset 0 0 8px #4d9fff11;
   }
+}
+
+/* In light mode, suppress glows — they look odd on white backgrounds */
+html.light .text-glow-green,
+html.light .text-glow-blue,
+html.light .text-glow-purple,
+html.light .text-glow-amber {
+  text-shadow: none;
+}
+html.light .border-glow-green,
+html.light .border-glow-blue {
+  box-shadow: none;
+}
+
+@layer utilities {
   .scanlines {
     background-image: repeating-linear-gradient(
       0deg,

@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useTheme } from '../hooks/useTheme'
 
 const navItems = [
   { to: '/', label: '~/home' },
@@ -18,6 +19,8 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const [theme, toggleTheme] = useTheme()
+
   return (
     <div className="h-screen flex flex-col bg-terminal-bg overflow-hidden">
       <nav className="border-b border-terminal-border bg-terminal-surface sticky top-0 z-50">
@@ -57,11 +60,22 @@ export default function Layout({ children }: LayoutProps) {
                 {label}
               </a>
             ))}
+            {/* Spacer */}
+            <div className="flex-1 min-w-0" />
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle light/dark mode"
+              className="flex-shrink-0 ml-1 sm:ml-2 px-2 py-0.5 sm:py-1 text-xs sm:text-sm rounded transition-all duration-200 text-terminal-muted hover:text-terminal-text hover:bg-terminal-border/50"
+              title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {theme === 'dark' ? '☀' : '☾'}
+            </button>
           </div>
           {/* Scroll fade indicator — mobile only */}
           <div
             className="pointer-events-none absolute right-0 top-0 h-full w-10 sm:hidden"
-            style={{ background: 'linear-gradient(to right, transparent, #0f1629)' }}
+            style={{ background: 'linear-gradient(to right, transparent, rgb(var(--color-terminal-surface)))' }}
           />
         </div>
       </nav>
@@ -71,6 +85,17 @@ export default function Layout({ children }: LayoutProps) {
       <main className="flex-1 overflow-auto min-h-0">
         {children}
       </main>
+      <footer className="border-t border-terminal-border bg-terminal-surface px-4 py-2 text-center font-mono text-[0.6rem] sm:text-xs text-terminal-muted">
+        Proudly hosted for free with{' '}
+        <a
+          href="https://pages.github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-terminal-blue hover:text-terminal-text transition-colors"
+        >
+          GitHub Pages
+        </a>
+      </footer>
     </div>
   )
 }

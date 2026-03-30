@@ -1,7 +1,14 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Anti-FOUC: apply saved theme before React renders
+      (function() {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light') document.documentElement.classList.add('light');
+      })();
+    </script>
     <script>
       // Restore path from SPA 404 redirect (see public/404.html)
       (function(l) {
