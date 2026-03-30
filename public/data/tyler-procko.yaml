@@ -2059,6 +2059,82 @@ publications:
   - Scientific Writing
   - Taxonomy
 projects:
+- id: proj/procko-pro
+  title: procko.pro
+  year: 2024-11
+  url: https://procko.pro
+  repo_url: https://github.com/PR0CK0/PR0CK0.github.io
+  featured: true
+  description: 'Personal portfolio and knowledge graph explorer, built as a React SPA
+    served from GitHub Pages. All content is driven by a single YAML source file —
+    no CMS, no database. Features an interactive Cytoscape.js knowledge graph with
+    ego-centric exploration, PDF CV/resume generation via react-pdf, SEO with JSON-LD
+    structured data (Person/WebSite/ProfilePage schemas), dark/light theming via CSS
+    custom properties, and a legacy Jinja2-rendered HTML CV.'
+  technologies:
+  - React
+  - TypeScript
+  - JavaScript
+  - Vite
+  - Tailwind CSS
+  - Cytoscape.js
+  - framer-motion
+  - react-pdf
+  - react-router
+  - react-helmet-async
+  - Zod
+  - Radix UI
+  - HTML
+  - CSS
+  - Python
+  - Jinja2
+  - PyYAML
+  - YAML
+  - JSON-LD
+  - Schema.org
+  - GitHub Actions
+  - GitHub Pages
+  - GitHub
+  - Node.js
+  - PostCSS
+  - Autoprefixer
+  - Visual Studio Code
+  - Claude
+  - Codex
+  - Gemini
+  - GPT
+  - Anthropic SDK
+  tags:
+  - portfolio
+  - knowledge graph
+  - SEO
+  - web development
+  date_display: Nov 2024 – present
+  members: 1 member
+  bullets:
+  - Single YAML source of truth drives the entire site — no CMS, no database, no
+    hardcoded content in components
+  - Interactive Cytoscape.js knowledge graph with type filtering, ego-centric node
+    expansion, and deep linking from the landing page
+  - PDF CV and resume generation via react-pdf with clickable links, date-stamped
+    filenames, and build-date injection
+  - JSON-LD structured data (Person, WebSite, ProfilePage) for Google Knowledge Panel
+    eligibility
+  - Dark/light mode via CSS custom properties with anti-FOUC and localStorage persistence
+  - Legacy HTML CV rendered at build time from YAML via Python/Jinja2
+  - CI/CD via GitHub Actions deploying to GitHub Pages
+  extra_bullets:
+  - prefix: 'Source: '
+    url: https://github.com/PR0CK0/PR0CK0.github.io
+    display: github.com/PR0CK0/PR0CK0.github.io
+  tagline: A terminal-themed portfolio powered by a single YAML file, a knowledge
+    graph, and zero compromises.
+  domains:
+  - Web Development
+  - Knowledge Graphs
+  - Linked Data
+  - Semantic Web
+  - SEO
 - id: proj/ai-landscape-digest
   title: AI Landscape Digest
   year: 2026-03

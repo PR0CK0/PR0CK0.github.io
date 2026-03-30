@@ -1065,24 +1065,77 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   )
 }
 
-function ProjectsSection({ projects }: { projects: Project[] }) {
-  const top6 = [...projects]
-    .sort((a, b) => (b.year ?? '').localeCompare(a.year ?? ''))
-    .slice(0, 6)
+interface GitHubRepo {
+  name: string
+  html_url: string
+  created_at: string
+  pushed_at: string
+  stargazers_count: number
+}
+
+function RecentReposSection({ projects }: { projects: Project[] }) {
+  const [repoCards, setRepoCards] = useState<Array<{ project: Project; created: string; updated: string; stars: number }>>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // Build lookup: normalize repo URL → YAML project
+    const repoMap = new Map<string, Project>()
+    for (const proj of projects) {
+      if (proj.repo_url) {
+        // Normalize: strip trailing slash, lowercase
+        const key = proj.repo_url.replace(/\/+$/, '').toLowerCase()
+        repoMap.set(key, proj)
+      }
+    }
+
+    fetch('https://api.github.com/users/PR0CK0/repos?sort=pushed&per_page=30')
+      .then((r) => r.json())
+      .then((data: GitHubRepo[]) => {
+        const matched: typeof repoCards = []
+        for (const repo of data) {
+          if (repo.name === 'PR0CK0') continue
+          const key = repo.html_url.replace(/\/+$/, '').toLowerCase()
+          const yamlProj = repoMap.get(key)
+          if (yamlProj) {
+            matched.push({
+              project: yamlProj,
+              created: repo.created_at,
+              updated: repo.pushed_at,
+              stars: repo.stargazers_count,
+            })
+          }
+          if (matched.length >= 6) break
+        }
+        setRepoCards(matched)
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false))
+  }, [projects])
+
+  const fmtDate = (iso: string) => {
+    const d = new Date(iso)
+    return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+  }
 
   return (
     <section className="max-w-5xl mx-auto px-4 sm:px-6 ls:px-4 py-7 sm:py-12 ls:py-7">
       <SectionHeader
-        prompt="ls -la ~/projects/ | head -6"
-        title="Featured Projects"
+        prompt="gh repo list --sort updated --limit 6"
+        title="Recent Repos"
         accent="amber"
       />
       <ContributionGraph username="PR0CK0" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {top6.map((proj, i) => (
-          <ProjectCard key={proj.id} project={proj} index={i} />
-        ))}
-      </div>
+      {loading ? (
+        <div className="text-center py-8">
+          <span className="text-xs font-mono text-terminal-muted animate-pulse">fetching repos...</span>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {repoCards.map(({ project, created, updated, stars }, i) => (
+            <RepoProjectCard key={project.id} project={project} created={created} updated={updated} stars={stars} index={i} />
+          ))}
+        </div>
+      )}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -1096,10 +1149,151 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
           rel="noopener noreferrer"
           className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted hover:text-terminal-amber transition-colors"
         >
-          View all {projects.length} projects on GitHub →
+          View all repos on GitHub →
         </a>
       </motion.div>
     </section>
+  )
+}
+
+function RepoProjectCard({ project, created, updated, stars, index }: {
+  project: Project; created: string; updated: string; stars: number; index: number
+}) {
+  const navigate = useNavigate()
+  const [showOverflow, setShowOverflow] = useState(false)
+  const overflowRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!showOverflow) return
+    function handleClick(e: MouseEvent) {
+      if (overflowRef.current && !overflowRef.current.contains(e.target as Node)) {
+        setShowOverflow(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [showOverflow])
+
+  const visibleSkills = project.technologies?.slice(0, 6) ?? []
+  const overflowSkills = project.technologies?.slice(6) ?? []
+  const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ delay: index * 0.08, duration: 0.45 }}
+      whileHover={{ y: -3 }}
+      className="group flex flex-col p-3 sm:p-4 ls:p-3 rounded-lg border border-terminal-border
+                 bg-terminal-surface/40 hover:bg-terminal-surface/70
+                 hover:border-terminal-purple/40 transition-all duration-250"
+    >
+      {/* Header */}
+      <div className="flex items-start justify-between gap-2 mb-1">
+        <h3 className="font-mono text-xs sm:text-sm ls:text-xs font-bold text-terminal-text
+                       group-hover:text-terminal-purple transition-colors leading-snug">
+          {project.url ? (
+            <a href={project.url} target="_blank" rel="noopener noreferrer"
+              className="hover:text-terminal-green hover:text-glow-green transition-all">
+              {project.title}
+            </a>
+          ) : project.title}
+        </h3>
+        {stars > 0 && (
+          <span className="shrink-0 text-[8px] sm:text-[10px] font-mono text-terminal-amber">
+            ★ {stars}
+          </span>
+        )}
+      </div>
+
+      {/* Date chips */}
+      <div className="flex gap-1.5 mb-2">
+        <span className="text-[7px] sm:text-[9px] font-mono text-terminal-muted border border-terminal-border rounded px-1 py-0.5">
+          created {fmtDate(created)}
+        </span>
+        <span className="text-[7px] sm:text-[9px] font-mono text-terminal-green/70 border border-terminal-green/20 rounded px-1 py-0.5">
+          updated {fmtDate(updated)}
+        </span>
+      </div>
+
+      {/* Description */}
+      {(project.tagline || project.description) && (
+        <p className="text-xs font-mono text-terminal-muted leading-relaxed mb-3 line-clamp-2 flex-1">
+          {project.tagline ?? project.description}
+        </p>
+      )}
+
+      {/* Tech tags */}
+      {visibleSkills.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 mt-auto relative">
+          {visibleSkills.map((tech) => (
+            <button
+              key={tech}
+              onClick={() => navigate(`/graph?q=${encodeURIComponent(tech)}`)}
+              className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
+                         border border-terminal-purple/25 text-terminal-purple/80
+                         bg-terminal-purple/5 hover:bg-terminal-purple/15
+                         hover:border-terminal-purple/50 hover:text-terminal-purple
+                         transition-all duration-150"
+            >
+              {tech}
+            </button>
+          ))}
+          {overflowSkills.length > 0 && (
+            <div ref={overflowRef} className="relative">
+              <button
+                onClick={() => setShowOverflow((v) => !v)}
+                className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
+                           border border-terminal-muted/25 text-terminal-muted
+                           bg-terminal-surface/40 hover:bg-terminal-surface/80
+                           hover:border-terminal-purple/40 hover:text-terminal-purple/80
+                           transition-all duration-150"
+              >
+                +{overflowSkills.length} skills
+              </button>
+              {showOverflow && (
+                <div className="absolute bottom-full left-0 mb-2 z-50 w-56
+                                bg-terminal-bg border border-terminal-purple/30
+                                rounded-lg p-2.5 shadow-xl shadow-black/50">
+                  <p className="text-[9px] font-mono text-terminal-muted/60 uppercase tracking-widest mb-2">
+                    // more skills
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    {overflowSkills.map((tech) => (
+                      <button
+                        key={tech}
+                        onClick={() => { navigate(`/graph?q=${encodeURIComponent(tech)}`); setShowOverflow(false) }}
+                        className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
+                                   border border-terminal-purple/25 text-terminal-purple/80
+                                   bg-terminal-purple/5 hover:bg-terminal-purple/15
+                                   hover:border-terminal-purple/50 hover:text-terminal-purple
+                                   transition-all duration-150"
+                      >
+                        {tech}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Repo link */}
+      {project.repo_url && (
+        <a
+          href={project.repo_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 text-[10px] font-mono text-terminal-muted hover:text-terminal-green
+                     transition-colors self-start"
+        >
+          ⌥ view repo →
+        </a>
+      )}
+    </motion.div>
   )
 }
 
@@ -1452,9 +1646,7 @@ export default function Landing() {
         <PublicationsSection publications={publications} />
       )}
 
-      {projects.length > 0 && (
-        <ProjectsSection projects={projects} />
-      )}
+      <RecentReposSection projects={projects} />
 
       <Footer />
     </div>
