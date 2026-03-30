@@ -433,27 +433,27 @@ function PreviewEntryBlock({
   inlineSubtitle?: boolean
 }) {
   return (
-    <div style={{ marginBottom: '10px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '4px' }}>
-        <span>
+    <div style={{ display: 'flex', gap: '10px', marginBottom: '10px', alignItems: 'flex-start' }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div>
           <span style={{ fontWeight: 700, fontSize: '10.5px', color: '#111' }}>{title}</span>
           {inlineSubtitle && subtitle && (
             <span style={{ fontSize: '9px', color: '#555', fontStyle: 'italic', marginLeft: '5px' }}>· {subtitle}</span>
           )}
-        </span>
-        {date && <span style={{ fontSize: '9.5px', color: '#666', whiteSpace: 'nowrap' }}>{date}</span>}
-      </div>
-      {!inlineSubtitle && subtitle && <div style={{ fontSize: '9.5px', color: '#444', marginTop: '1px' }}>{subtitle}</div>}
-      {notes?.map((note, i) => (
-        <div key={i} style={{ fontSize: '9px', color: '#555', marginLeft: '10px', marginTop: '1px' }}>• {note}</div>
-      ))}
-      {bullets?.map((b, i) => (
-        <div key={i} style={{ display: 'flex', gap: '6px', marginTop: '2px', marginLeft: '8px' }}>
-          <span style={{ color: '#333', fontSize: '9.5px', flexShrink: 0 }}>•</span>
-          <span style={{ fontSize: '9.5px', color: '#333', lineHeight: '1.4' }}>{b}</span>
         </div>
-      ))}
-      {extra && <div style={{ fontSize: '9px', color: '#777', marginLeft: '10px', marginTop: '2px' }}>{extra}</div>}
+        {!inlineSubtitle && subtitle && <div style={{ fontSize: '9.5px', color: '#444', marginTop: '1px' }}>{subtitle}</div>}
+        {notes?.map((note, i) => (
+          <div key={i} style={{ fontSize: '9px', color: '#555', marginLeft: '10px', marginTop: '1px' }}>• {note}</div>
+        ))}
+        {bullets?.map((b, i) => (
+          <div key={i} style={{ display: 'flex', gap: '6px', marginTop: '2px', marginLeft: '8px' }}>
+            <span style={{ color: '#333', fontSize: '9.5px', flexShrink: 0 }}>•</span>
+            <span style={{ fontSize: '9.5px', color: '#333', lineHeight: '1.4' }}>{b}</span>
+          </div>
+        ))}
+        {extra && <div style={{ fontSize: '9px', color: '#777', marginLeft: '10px', marginTop: '2px' }}>{extra}</div>}
+      </div>
+      {date && <span style={{ fontSize: '9.5px', color: '#666', whiteSpace: 'nowrap', flexShrink: 0 }}>{date}</span>}
     </div>
   )
 }

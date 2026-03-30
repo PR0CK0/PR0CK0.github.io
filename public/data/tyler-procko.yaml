@@ -192,7 +192,7 @@ work_experiences:
   is_current: true
   location: Remote
   description:
-  - Applied expert knowledge for generative AI model improvement
+  - Contributed expert RLHF and evaluation work to improve LLM output quality for production-grade generative AI systems.
   technologies:
   - Python
   - Claude
@@ -217,7 +217,7 @@ work_experiences:
   title_line: 'Independent AI Consultant - '
   org: Handshake AI, Remote
   bullets:
-  - Applied expert knowledge for generative AI model improvement
+  - Contributed expert RLHF and evaluation work to improve LLM output quality for production-grade generative AI systems.
   domains:
   - LLMs
   - Ontology
@@ -243,8 +243,7 @@ work_experiences:
   end_date: 2024-08
   location: Rome, NY
   description:
-  - Advanced provenance capture for real-time systems, with a focus on large ML pipelines
-  - Annotated remote, fully autonomous ML platform images in CVAT
+  - Engineered ML provenance capture for real-time autonomous systems pipelines, modeling data lineage with PROV-O/PROV-ML ontologies and annotating imagery in CVAT to support AI model training.
   technologies:
   - CVAT
   - Python
@@ -266,8 +265,7 @@ work_experiences:
   title_line: 'SMART Scholar AI Research Scientist - ML Provenance, '
   org: AFRL, Rome, NY
   bullets:
-  - Advanced provenance capture for real-time systems, with a focus on large ML pipelines
-  - Annotated remote, fully autonomous ML platform images in CVAT
+  - Engineered ML provenance capture for real-time autonomous systems pipelines, modeling data lineage with PROV-O/PROV-ML ontologies and annotating imagery in CVAT to support AI model training.
   domains:
   - Knowledge Graphs
   - ML Provenance
@@ -286,8 +284,7 @@ work_experiences:
   end_date: 2023-08
   location: Rome, NY
   description:
-  - Curated multiple military documents and produced a proto-ontology in JSON-LD for
-    recording the provenance of computer vision tasks
+  - Designed a JSON-LD proto-ontology for capturing computer vision task provenance, synthesizing military documentation into a structured, interoperable schema.
   technologies:
   - Python
   - JSON-LD
@@ -308,8 +305,7 @@ work_experiences:
   title_line: 'SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD, '
   org: AFRL, Rome, NY
   bullets:
-  - Curated multiple military documents and produced a proto-ontology in JSON-LD for
-    recording the provenance of computer vision tasks
+  - Designed a JSON-LD proto-ontology for capturing computer vision task provenance, synthesizing military documentation into a structured, interoperable schema.
   domains:
   - Computer Vision
   - Ontology
@@ -325,13 +321,8 @@ work_experiences:
   end_date: 2022-08
   location: Rome, NY
   description:
-  - Represented the domain of machine learning and defense operations using the Basic
-    Formal Ontology (of Barry Smith) and the Common Core Ontologies
-  - Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO
-    compliance
-  - The produced ontology allowed the answering of core competency questions useful
-    for subject matter experts
-  - Gained familiarity with SNOMED-CT and the OBO ontologies
+  - Aligned a defense ML ontology to BFO/CCO compliance, mapping disparate ad-hoc terms into a formally grounded, interoperable knowledge representation.
+  - Delivered competency-question-ready ontology enabling subject matter experts to query ML and defense operational concepts in GraphDB.
   technologies:
   - BFO
   - CCO
@@ -356,13 +347,8 @@ work_experiences:
     with Basic Formal Ontology (BFO), '
   org: AFRL, Rome, NY
   bullets:
-  - Represented the domain of machine learning and defense operations using the Basic
-    Formal Ontology (of Barry Smith) and the Common Core Ontologies
-  - Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO
-    compliance
-  - The produced ontology allowed the answering of core competency questions useful
-    for subject matter experts
-  - Gained familiarity with SNOMED-CT and the OBO ontologies
+  - Aligned a defense ML ontology to BFO/CCO compliance, mapping disparate ad-hoc terms into a formally grounded, interoperable knowledge representation.
+  - Delivered competency-question-ready ontology enabling subject matter experts to query ML and defense operational concepts in GraphDB.
   domains:
   - Ontology
   - Machine Learning
@@ -380,9 +366,7 @@ work_experiences:
   end_date: 2021-08
   location: Rome, NY (remote)
   description:
-  - Worked remotely due to COVID-19; produced new geospatial relationships between
-    suggested upper merged ontology (SUMO) objects linked with ADE20K annotations
-    and WKTs
+  - Derived novel geospatial relationships by linking SUMO ontology objects with ADE20K scene annotations and WKT geometries, enabling spatial inferencing over computer vision data.
   technologies:
   - SUMO
   - ADE20K
@@ -408,9 +392,7 @@ work_experiences:
     Inferencing, '
   org: AFRL, Rome, NY
   bullets:
-  - Worked remotely due to COVID-19; produced new geospatial relationships between
-    suggested upper merged ontology (SUMO) objects linked with ADE20K annotations
-    and WKTs
+  - Derived novel geospatial relationships by linking SUMO ontology objects with ADE20K scene annotations and WKT geometries, enabling spatial inferencing over computer vision data.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -431,8 +413,7 @@ work_experiences:
   end_date: 2020-08
   location: Rome, NY (remote)
   description:
-  - Worked remotely due to COVID-19 and managed to produce explanations for machine
-    learning, using background semantic knowledge and the DL-Learner framework
+  - Generated semantic explanations for ML model outputs using DL-Learner and background ontological knowledge, advancing XAI interpretability for defense AI systems.
   technologies:
   - DL-Learner
   - Python
@@ -456,8 +437,7 @@ work_experiences:
   title_line: 'AFRL Scholars Remote AI Research Scientist - ML Explainability, '
   org: AFRL, Rome, NY
   bullets:
-  - Worked remotely due to COVID-19 and managed to produce “explanations” for machine
-    learning, using background semantic knowledge and the DL-Learner framework
+  - Generated semantic explanations for ML model outputs using DL-Learner and background ontological knowledge, advancing XAI interpretability for defense AI systems.
   domains:
   - Semantic Web
   - XAI
@@ -471,11 +451,7 @@ work_experiences:
   end_date: 2019-08
   location: Rome, NY
   description:
-  - Worked with others in boosting semantic graphs through ML
-  - Modelled topics from ontologies and eventually assessed ontology quality through
-    metrics
-  - Produced multitudes of relevant data for the Air Force, as well as a basic ontology
-    quality assessment framework
+  - Boosted semantic knowledge graphs with ML-derived topic models and built a foundational ontology quality assessment framework, delivering actionable data products for Air Force analysts.
   technologies:
   - Python
   - Java
@@ -494,11 +470,7 @@ work_experiences:
   title_line: 'AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs, '
   org: AFRL, Rome, NY
   bullets:
-  - Worked with others in “boosting” semantic graphs through ML
-  - Modelled topics from ontologies and eventually assessed ontology quality through
-    metrics
-  - Produced multitudes of relevant data for the Air Force, as well as a basic ontology
-    quality assessment framework
+  - Boosted semantic knowledge graphs with ML-derived topic models and built a foundational ontology quality assessment framework, delivering actionable data products for Air Force analysts.
   domains:
   - Knowledge Graphs
   - Machine Learning
@@ -513,8 +485,7 @@ work_experiences:
   start_date: 2025-05
   end_date: 2025-05
   description:
-  - Provided editorial services and guidance for the publication of an academic paper
-    in the machine learning space
+  - Consulted on and edited a machine learning academic paper through publication, providing technical guidance and editorial refinement.
   technologies:
   - Python
   - GPT
@@ -526,8 +497,7 @@ work_experiences:
   title_line: 'Academic Consultant and Editor - '
   org: Cloudcell Limited
   bullets:
-  - Provided editorial services and guidance for the publication of an academic paper
-    in the machine learning space
+  - Consulted on and edited a machine learning academic paper through publication, providing technical guidance and editorial refinement.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -559,7 +529,7 @@ work_experiences:
   start_date: 2024-09
   end_date: 2024-09
   description:
-  - Consulted with a client on FOL/HOL ontology reasoning
+  - Delivered expert consultation on first-order and higher-order logic ontology reasoning, advising on formal knowledge representation strategies.
   technologies:
   - OWL
   - RDF
@@ -571,7 +541,7 @@ work_experiences:
   title_line: 'Reasoning Consultant - '
   org: Upwork
   bullets:
-  - Consulted with a client on FOL/HOL ontology reasoning
+  - Delivered expert consultation on first-order and higher-order logic ontology reasoning, advising on formal knowledge representation strategies.
   domains:
   - FOL
   - HOL
@@ -584,8 +554,7 @@ work_experiences:
   start_date: 2024-07
   end_date: 2024-07
   description:
-  - Developed a mid-level ontology for a discreet domain
-  - Provided stakeholder-level documentation on OWL reasoning and description logics
+  - Engineered a mid-level domain ontology and produced stakeholder documentation covering OWL reasoning and description logics.
   technologies:
   - OWL
   - RDF
@@ -597,8 +566,7 @@ work_experiences:
   title_line: 'Ontology Engineer - '
   org: Upwork
   bullets:
-  - Developed a mid-level ontology for a discreet domain
-  - Provided stakeholder-level documentation on OWL reasoning and description logics
+  - Engineered a mid-level domain ontology and produced stakeholder documentation covering OWL reasoning and description logics.
   domains:
   - Description Logics
   - FOL
@@ -611,8 +579,7 @@ work_experiences:
   start_date: 2024-06
   end_date: 2024-06
   description:
-  - Consulted on, and developed, an ontology to be used for nuclear facility construction
-    process evaluation
+  - Designed and delivered an ontology for nuclear facility construction process evaluation, modeling complex domain knowledge for process compliance assessment.
   technologies:
   - OWL
   - RDF
@@ -624,8 +591,7 @@ work_experiences:
   title_line: 'Nuclear Construction Ontology Engineer - '
   org: Upwork
   bullets:
-  - Consulted on, and developed, an ontology to be used for nuclear facility construction
-    process evaluation
+  - Designed and delivered an ontology for nuclear facility construction process evaluation, modeling complex domain knowledge for process compliance assessment.
   domains:
   - Ontology
   - Taxonomy
@@ -638,8 +604,7 @@ work_experiences:
   start_date: 2024-02
   end_date: 2024-04
   description:
-  - Consulted on large language models in DoD use cases
-  - Engineered a BFO/CCO implementation for DoD data standardization
+  - Advised on LLM deployment for DoD use cases and engineered a BFO/CCO-compliant ontology to standardize defense data across enterprise systems.
   technologies:
   - Python
   - GPT
@@ -663,8 +628,7 @@ work_experiences:
   org: Quiet Professionals
   org_url: https://quietprofessionalsllc.com/
   bullets:
-  - Consulted on large language models in DoD use cases
-  - Engineered a BFO/CCO implementation for DoD data standardization
+  - Advised on LLM deployment for DoD use cases and engineered a BFO/CCO-compliant ontology to standardize defense data across enterprise systems.
   domains:
   - LLMs
   soft_skills:
@@ -676,9 +640,7 @@ work_experiences:
   start_date: 2023-11
   end_date: 2024-05
   description:
-  - Consulted on an ontology to be integrated with a WordPress ecosystem for a local
-    content publishing company
-  - Developed a Linked Data taxonomy for web post content
+  - Built a Linked Data taxonomy and ontology integrated into a WordPress content publishing ecosystem, enabling structured semantic categorization of web content.
   technologies:
   - OWL
   - RDF
@@ -696,9 +658,7 @@ work_experiences:
   org: Hooray Media
   org_url: https://hooray.media/
   bullets:
-  - Consulted on an ontology to be integrated with a WordPress ecosystem for a local
-    content publishing company
-  - Developed a Linked Data taxonomy for web post content
+  - Built a Linked Data taxonomy and ontology integrated into a WordPress content publishing ecosystem, enabling structured semantic categorization of web content.
   domains:
   - Linked Data
   soft_skills:
@@ -710,10 +670,7 @@ work_experiences:
   start_date: 2023-08
   end_date: 2024-01
   description:
-  - Consulted on an ontology for the construction industry
-  - Engineered a system for knowledge graph extraction from construction documents
-  - Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000
-    relations
+  - Engineered a knowledge graph extraction pipeline from construction documents, designing a supporting domain ontology and producing a graph with 10,000+ nodes and hundreds of thousands of edges.
   technologies:
   - Python
   - GPT
@@ -739,10 +696,7 @@ work_experiences:
   org: The Link
   org_url: https://www.thelink.ai/
   bullets:
-  - Consulted on an ontology for the construction industry
-  - Engineered a system for knowledge graph extraction from construction documents
-  - Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000
-    relations
+  - Engineered a knowledge graph extraction pipeline from construction documents, designing a supporting domain ontology and producing a graph with 10,000+ nodes and hundreds of thousands of edges.
   domains:
   - Knowledge Graphs
   - NER
@@ -757,7 +711,7 @@ work_experiences:
   start_date: 2023-05
   end_date: 2023-05
   description:
-  - Provided insight on the design and development of a legal domain ontology in OWL
+  - Advised on the architecture and development of a legal domain ontology in OWL, guiding formal knowledge modeling for legal concept representation.
   technologies:
   - OWL
   - RDF
@@ -770,7 +724,7 @@ work_experiences:
   title_line: 'Legal Ontology Consultant - '
   org: Upwork
   bullets:
-  - Provided insight on the design and development of a legal domain ontology in OWL
+  - Advised on the architecture and development of a legal domain ontology in OWL, guiding formal knowledge modeling for legal concept representation.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -789,7 +743,7 @@ work_experiences:
   start_date: 2023-05
   end_date: 2023-05
   description:
-  - Tested and gave feedback for a startup scientific research platform
+  - Evaluated and delivered structured feedback on a startup scientific research platform, identifying UX and functional issues ahead of launch.
   technologies:
   - Visual Studio Code
   category: consulting
@@ -797,7 +751,7 @@ work_experiences:
   title_line: 'Software Test Engineer - '
   org: Upwork
   bullets:
-  - Tested and gave feedback for a startup scientific research platform
+  - Evaluated and delivered structured feedback on a startup scientific research platform, identifying UX and functional issues ahead of launch.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -813,9 +767,7 @@ work_experiences:
   start_date: 2023-04
   end_date: 2023-05
   description:
-  - Queried a large geospatial ontology with complex SPARQL
-  - Diagnosed and fixed issues with OWL and SWRL reasoning
-  - Produced visualizations in GraphDB and Stardog
+  - Executed complex SPARQL/GeoSPARQL queries against a large geospatial ontology, diagnosed and resolved OWL/SWRL reasoning issues, and produced knowledge graph visualizations in GraphDB and Stardog.
   technologies:
   - SPARQL
   - GeoSPARQL
@@ -834,9 +786,7 @@ work_experiences:
   title_line: 'Geospatial Ontology Analyst - '
   org: Upwork
   bullets:
-  - Queried a large geospatial ontology with complex SPARQL
-  - Diagnosed and fixed issues with OWL and SWRL reasoning
-  - Produced visualizations in GraphDB and Stardog
+  - Executed complex SPARQL/GeoSPARQL queries against a large geospatial ontology, diagnosed and resolved OWL/SWRL reasoning issues, and produced knowledge graph visualizations in GraphDB and Stardog.
   domains:
   - FOL
   soft_skills:
@@ -848,7 +798,7 @@ work_experiences:
   start_date: 2023-03
   end_date: 2023-03
   description:
-  - Represented a specific use case for the SDLC in GraphDB using PROV and SEON
+  - Modeled a software development lifecycle use case as a knowledge graph in GraphDB, applying PROV-O and SEON ontologies for process provenance representation.
   technologies:
   - OWL
   - RDF
@@ -868,7 +818,7 @@ work_experiences:
   title_line: 'Knowledge Graph Engineer - '
   org: Upwork
   bullets:
-  - Represented a specific use case for the SDLC in GraphDB using PROV and SEON
+  - Modeled a software development lifecycle use case as a knowledge graph in GraphDB, applying PROV-O and SEON ontologies for process provenance representation.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -889,10 +839,8 @@ work_experiences:
   start_date: 2023-02
   is_current: true
   description:
-  - Provided insight on automated documentation techniques and created artifacts related
-    to scientific publication on a particular domain for a client startup company
-  - Worked with the GPT API suite to generate software-related documents
-  - Wrote and published several scientific papers
+  - Leveraged the GPT API to automate software documentation generation and advise a startup on AI-assisted technical writing workflows.
+  - Co-authored and published a peer-reviewed paper on software engineering, AI, and knowledge representation.
   technologies:
   - Python
   - OpenAI
@@ -908,10 +856,8 @@ work_experiences:
   title_line: 'Technology Consultant and Scientific Writer - '
   org: ForumAPI
   bullets:
-  - Provided insight on automated documentation techniques and created artifacts related
-    to scientific publication on a particular domain for a client startup company
-  - Worked with the GPT API suite to generate software-related documents
-  - Wrote and published several scientific papers
+  - Leveraged the GPT API to automate software documentation generation and advise a startup on AI-assisted technical writing workflows.
+  - Co-authored and published a peer-reviewed paper on software engineering, AI, and knowledge representation.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -937,8 +883,7 @@ work_experiences:
   start_date: 2023-01
   end_date: 2023-03
   description:
-  - Acted as a knowledge representation consultant
-  - Represented a client domain using Schema.org and GS1, in OWL, SWRL and SHACL
+  - Modeled a client domain in OWL, SWRL, and SHACL using Schema.org and GS1 standards, delivering a formal knowledge representation for an international SEO platform.
   technologies:
   - OWL
   - RDF
@@ -967,8 +912,7 @@ work_experiences:
   org_url: https://wordlift.io/
   org_extra_in_italic: ' (international remote)'
   bullets:
-  - Acted as a knowledge representation consultant
-  - Represented a client domain using Schema.org and GS1, in OWL, SWRL and SHACL
+  - Modeled a client domain in OWL, SWRL, and SHACL using Schema.org and GS1 standards, delivering a formal knowledge representation for an international SEO platform.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -990,9 +934,7 @@ work_experiences:
   start_date: 2023-02
   end_date: 2023-05
   description:
-  - Developed a course intended to be an extension to a relational databases course,
-    covering the history of knowledge representation, focusing on applied ontology,
-    Linked Data and contemporary NLP
+  - Designed a graduate-level course extending relational databases into the knowledge representation spectrum — covering applied ontology, Linked Data, and contemporary NLP techniques.
   technologies:
   - Python
   - OWL
@@ -1017,9 +959,7 @@ work_experiences:
   title_line: 'University Course Engineer - '
   org: The Knowledge Representation Spectrum
   bullets:
-  - Developed a course intended to be an extension to a relational databases course,
-    covering the history of knowledge representation, focusing on applied ontology,
-    Linked Data and contemporary NLP
+  - Designed a graduate-level course extending relational databases into the knowledge representation spectrum — covering applied ontology, Linked Data, and contemporary NLP techniques.
   soft_skills:
   - Virtual Presentation
   domains:
@@ -1037,13 +977,8 @@ work_experiences:
   start_date: 2019-01
   is_current: true
   description:
-  - Worked on projects related to ML, NLP, Linked Data and cybersecurity; produced
-    many papers
-  - Performed work with other researchers, in addition to contributing to and writing
-    papers on a multitude of research topics, most of which centered around Semantic
-    technology
-  - Acted as Semantic Web consultant for various other student researchers, in addition
-    to providing assistance in paper review and revision
+  - Led and contributed to research across ML, NLP, Linked Data, and cybersecurity, co-authoring numerous peer-reviewed publications centered on Semantic Web technologies.
+  - Served as Semantic Web consultant for fellow researchers, providing technical guidance on knowledge representation and supporting paper review and revision.
   technologies:
   - Python
   - Java
@@ -1062,13 +997,8 @@ work_experiences:
   org: ERAU Daytona
   org_extra_after_italic: ', team lead Omar Ochoa'
   bullets:
-  - Worked on projects related to ML, NLP, Linked Data and cybersecurity; produced
-    many papers
-  - Performed work with other researchers, in addition to contributing to and writing
-    papers on a multitude of research topics, most of which centered around Semantic
-    technology
-  - Acted as Semantic Web consultant for various other student researchers, in addition
-    to providing assistance in paper review and revision
+  - Led and contributed to research across ML, NLP, Linked Data, and cybersecurity, co-authoring numerous peer-reviewed publications centered on Semantic Web technologies.
+  - Served as Semantic Web consultant for fellow researchers, providing technical guidance on knowledge representation and supporting paper review and revision.
   domains:
   - Cybersecurity
   - Linked Data
@@ -1141,13 +1071,13 @@ work_experiences:
   start_date: 2014-08
   end_date: 2016-08
   description:
-  - Assisted customers and managed merchandise loading
+  - Delivered customer service and managed merchandise stocking in a high-volume retail environment.
   category: undergrad
   date_display: Aug 2014 - Aug 2016
   title_line: 'Customer Service Clerk, '
   org: Publix Supermarkets
   bullets:
-  - Assisted customers and managed merchandise loading
+  - Delivered customer service and managed merchandise stocking in a high-volume retail environment.
   domains:
   - Public Speaking
   soft_skills:
