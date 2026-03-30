@@ -8,28 +8,11 @@ email_academic: prockot@my.erau.edu
 orcid: 0000-0002-7801-0124
 website: https://procko.pro
 tagline: Casting the net for knowledge in a sea of infinite information.
-summary: 'AI / Knowledge Graph Engineer | LLM-Focused | Defense ML Provenance and
-  Ontology Specialist.
-
-  Ph.D. researcher with 9+ years in Java/Python, Agile machine learning, ETL, ontology
-  design,
-
-  BFO/CCO standardization, and NLP for defense and aerospace applications. Experienced
-  in GenAI,
-
-  LLM integration, ML pipelining, RAG systems, prompt/context engineering, taxonomies,
-  graph-based
-
-  explainability, modular + testable software, and academic publication. Active contributor
-  to
-
-  AFRL, IEEE, and DoD FAIR AI data-standardization efforts. Tools: Claude, PyTorch,
-  TensorFlow,
-
-  Hugging Face, Ollama, Stable Diffusion, GraphDB. Google & Stanford Deep Learning
-  Certified.
-
-  '
+summary: Ph.D. researcher and AI engineer specializing in ontology-grounded LLM systems
+  and agentic software development. 9+ years building knowledge graphs, BFO/CCO-compliant
+  ontologies, and ML pipelines for defense and aerospace. Designing LLM agents that
+  reason over structured knowledge — RAG, provenance tracking, and explainability
+  backed by formal ontologies. Active contributor to AFRL, IEEE, and DoD FAIR AI standardization.
 clearance: Inactive Secret (Tier 3)
 availability: Spring 2026 — TueThu 07:00-20:00 ET, SatSun 11:00-20:00 ET
 birth_year: 1997
