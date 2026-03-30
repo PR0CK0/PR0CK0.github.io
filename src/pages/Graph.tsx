@@ -303,12 +303,14 @@ export default function Graph() {
   const [phase, setPhase] = useState<'loading' | 'layout' | 'ready'>('loading')
   const [error, setError] = useState<string | null>(null)
 
+  const DEFAULT_TYPES: NodeType[] = ['person', 'work', 'education', 'associate', 'publication', 'project']
   const [enabledTypes, setEnabledTypes] = useState<Set<NodeType>>(
-    new Set(NODE_TYPES)
+    new Set(DEFAULT_TYPES)
   )
   const [searchQuery, setSearchQuery] = useState('')
   const [cyReady, setCyReady] = useState(false)
   const [selectedNode, setSelectedNode] = useState<SelectedNode | null>(null)
+  const expandedNodesRef = useRef<Set<string>>(new Set())
   const [mobileOpen, setMobileOpen] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
@@ -395,18 +397,28 @@ export default function Graph() {
     const cy = cyRef.current
     if (!cy) return
 
+    // Clear expanded nodes when filter changes
+    expandedNodesRef.current.clear()
+
+    // First: show/hide nodes by type
     NODE_TYPES.forEach((type) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const nodes = cy.nodes(`[type = "${type}"]`) as any
       if (enabledTypes.has(type)) {
         nodes.show()
-        nodes.connectedEdges().show()
       } else {
         nodes.hide()
-        nodes.connectedEdges().hide()
       }
     })
-  }, [enabledTypes])
+
+    // Second: only show edges where both endpoints are visible
+    ;(cy.edges() as any).hide()
+    cy.edges().forEach((edge: any) => {
+      if (edge.source().visible() && edge.target().visible()) {
+        edge.show()
+      }
+    })
+  }, [enabledTypes, phase])
 
   // ── Search ───────────────────────────────────────────────────────────────────
 
@@ -471,32 +483,53 @@ export default function Graph() {
         connectedNodes,
       })
 
-      // Dim everything, highlight neighbourhood
-      cy.elements().removeClass('neighbour faded')
-      cy.elements().not(node).not(node.neighborhood()).addClass('faded')
-      node.neighborhood().addClass('neighbour')
-      node.removeClass('faded')
-
-      // Re-hide nodes whose type is filtered out (highlight must not override type filter)
+      // Expand hidden neighbors (ego-centric exploration)
       const types = enabledTypesRef.current
-      NODE_TYPES.forEach((t) => {
-        if (!types.has(t)) {
-          (cy.nodes(`[type = "${t}"]`) as any).hide().connectedEdges().hide()
+      const expanded = expandedNodesRef.current
+      node.neighborhood('node').forEach((n: any) => {
+        if (!n.visible()) {
+          n.show()
+          expanded.add(n.id())
         }
       })
+      // Show edges between now-visible nodes
+      node.connectedEdges().forEach((e: any) => {
+        if (e.source().visible() && e.target().visible()) e.show()
+      })
+
+      // Dim everything visible, highlight neighbourhood
+      const visible = cy.elements(':visible')
+      visible.removeClass('neighbour faded')
+      const neighbourhood = node.neighborhood().filter(':visible')
+      visible.not(node).not(neighbourhood).addClass('faded')
+      neighbourhood.addClass('neighbour')
+      node.removeClass('faded')
     })
 
     cy.on('tap', (evt) => {
       if (evt.target === cy) {
-        // Clicked on background — deselect
+        // Clicked on background — deselect and collapse expanded nodes
         setSelectedNode(null)
         cy.elements().removeClass('faded neighbour highlighted')
 
-        // Re-hide nodes whose type is filtered out
+        // Re-hide expanded nodes and type-filtered nodes
         const types = enabledTypesRef.current
+        const expanded = expandedNodesRef.current
+        expanded.forEach((id) => {
+          const n = cy.getElementById(id) as any
+          if (n.length && !types.has(n.data('type') as NodeType)) {
+            n.hide()
+            n.connectedEdges().hide()
+          }
+        })
+        expanded.clear()
+
+        // Re-show edges for enabled types
         NODE_TYPES.forEach((t) => {
-          if (!types.has(t)) {
-            (cy.nodes(`[type = "${t}"]`) as any).hide().connectedEdges().hide()
+          if (types.has(t)) {
+            (cy.nodes(`[type = "${t}"]`) as any).connectedEdges().forEach((e: any) => {
+              if (e.source().visible() && e.target().visible()) e.show()
+            })
           }
         })
       }
@@ -539,18 +572,24 @@ export default function Graph() {
       connectedNodes,
     })
 
-    cy.elements().removeClass('neighbour faded')
-    cy.elements().not(node).not(node.neighborhood()).addClass('faded')
-    node.neighborhood().addClass('neighbour')
-    node.removeClass('faded')
-
-    // Re-hide nodes whose type is filtered out
-    const types = enabledTypesRef.current
-    NODE_TYPES.forEach((t) => {
-      if (!types.has(t)) {
-        (cy.nodes(`[type = "${t}"]`) as any).hide().connectedEdges().hide()
+    // Expand hidden neighbors
+    const expanded = expandedNodesRef.current
+    node.neighborhood('node').forEach((n: any) => {
+      if (!n.visible()) {
+        n.show()
+        expanded.add(n.id())
       }
     })
+    node.connectedEdges().forEach((e: any) => {
+      if (e.source().visible() && e.target().visible()) e.show()
+    })
+
+    const visible = cy.elements(':visible')
+    visible.removeClass('neighbour faded')
+    const neighbourhood = node.neighborhood().filter(':visible')
+    visible.not(node).not(neighbourhood).addClass('faded')
+    neighbourhood.addClass('neighbour')
+    node.removeClass('faded')
 
     cy.animate({ center: { eles: node }, duration: 300 } as cytoscape.AnimationOptions)
   }, [])
@@ -618,18 +657,29 @@ export default function Graph() {
           <span className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider" style={{ color: '#4a5a7a' }}>
             Filter by type
           </span>
-          <button
-            className="text-[0.55rem] sm:text-[0.6rem] uppercase tracking-wider px-1.5 py-0.5 rounded transition-colors"
-            style={{ color: '#4a5a7a', border: '1px solid #1e2d4a' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = '#00ff88'; e.currentTarget.style.borderColor = '#00ff8844' }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = '#4a5a7a'; e.currentTarget.style.borderColor = '#1e2d4a' }}
-            onClick={() => {
-              const allEnabled = NODE_TYPES.every((t) => enabledTypes.has(t))
-              setEnabledTypes(new Set(allEnabled ? [] : NODE_TYPES))
-            }}
-          >
-            {NODE_TYPES.every((t) => enabledTypes.has(t)) ? 'none' : 'all'}
-          </button>
+          {(() => {
+            const isAll = NODE_TYPES.every((t) => enabledTypes.has(t))
+            const isFocus = !isAll && DEFAULT_TYPES.length === enabledTypes.size && DEFAULT_TYPES.every((t) => enabledTypes.has(t))
+            const isNone = enabledTypes.size === 0
+            const label = isAll ? 'all' : isFocus ? 'focus' : isNone ? 'none' : 'custom'
+            const color = isAll ? '#00ff88' : isFocus ? '#4d9fff' : isNone ? '#ff4d6d' : '#ffb300'
+            return (
+              <button
+                className="text-[0.55rem] sm:text-[0.6rem] uppercase tracking-wider px-1.5 py-0.5 rounded transition-colors"
+                style={{ color, border: `1px solid ${color}44` }}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.7' }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}
+                onClick={() => {
+                  if (isFocus) setEnabledTypes(new Set(NODE_TYPES))        // focus → all
+                  else if (isAll) setEnabledTypes(new Set<NodeType>([]))    // all → none
+                  else setEnabledTypes(new Set(DEFAULT_TYPES))              // none/custom → focus
+                }}
+                title={isFocus ? 'Show all types' : isAll ? 'Clear all' : 'Reset to focused set'}
+              >
+                {label}
+              </button>
+            )
+          })()}
         </div>
         {/* On mobile: wrap in a horizontal scroll row; on desktop: vertical list */}
         <div className="flex sm:flex-col gap-1.5 overflow-x-auto sm:overflow-x-visible pb-1 sm:pb-0" style={{ scrollbarWidth: 'none' }}>
@@ -734,6 +784,7 @@ export default function Graph() {
           ⊡ Fit to Screen
         </button>
       </div>
+
 
       {/* Selected node panel */}
       <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 overflow-y-auto">
