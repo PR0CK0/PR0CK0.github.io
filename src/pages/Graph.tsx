@@ -291,10 +291,10 @@ function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
 export default function Graph() {
   const cyRef = useRef<cytoscape.Core | null>(null)
   const layoutCacheKeyRef = useRef<string>('')
+  const savedPositionsRef = useRef<Record<string, { x: number; y: number }> | null>(null)
   const [searchParams] = useSearchParams()
 
   const [elements, setElements] = useState<(CyNode | CyEdge)[]>([])
-  const [activeLayout, setActiveLayout] = useState<object>(LAYOUT_OPTIONS)
   const [phase, setPhase] = useState<'loading' | 'layout' | 'ready'>('loading')
   const [error, setError] = useState<string | null>(null)
 
@@ -320,11 +320,7 @@ export default function Graph() {
           const { nodes, edges } = buildGraph(person)
           const cacheKey = `${LAYOUT_CACHE_PREFIX}-${nodes.length}`
           layoutCacheKeyRef.current = cacheKey
-          let saved: Record<string, { x: number; y: number }> | null = null
-          try { saved = JSON.parse(localStorage.getItem(cacheKey) ?? 'null') } catch { /* ignore */ }
-          if (saved) {
-            setActiveLayout({ name: 'preset', positions: (n: cytoscape.NodeSingular) => saved![n.id()], fit: true, padding: 40 })
-          }
+          try { savedPositionsRef.current = JSON.parse(localStorage.getItem(cacheKey) ?? 'null') } catch { /* ignore */ }
           setElements([...nodes, ...edges])
           setStats({ nodes: nodes.length, edges: edges.length })
           setPhase('layout')
@@ -338,6 +334,33 @@ export default function Graph() {
   }, [])
 
   // ── Type filter ──────────────────────────────────────────────────────────────
+
+  // ── Run layout once cy is ready and elements are loaded ──────────────────────
+
+  useEffect(() => {
+    if (phase !== 'layout') return
+    const cy = cyRef.current
+    if (!cy || !cyReady) return
+
+    const saved = savedPositionsRef.current
+    const opts: cytoscape.LayoutOptions = saved
+      ? ({ name: 'preset', positions: (n: cytoscape.NodeSingular) => saved[n.id()], fit: true, padding: 40 } as cytoscape.LayoutOptions)
+      : (LAYOUT_OPTIONS as cytoscape.LayoutOptions)
+
+    const layout = cy.layout(opts)
+    layout.one('layoutstop', () => {
+      setPhase('ready')
+      const key = layoutCacheKeyRef.current
+      if (key && !saved) {
+        try {
+          const positions: Record<string, { x: number; y: number }> = {}
+          cy.nodes().forEach((n) => { positions[n.id()] = n.position() })
+          localStorage.setItem(key, JSON.stringify(positions))
+        } catch { /* quota exceeded or private mode */ }
+      }
+    })
+    layout.run()
+  }, [phase, cyReady])
 
   const toggleType = useCallback(
     (type: NodeType) => {
@@ -409,19 +432,6 @@ export default function Graph() {
   const handleCyReady = useCallback((cy: cytoscape.Core) => {
     cyRef.current = cy
     setCyReady(true)
-
-    // Reveal graph after first layout completes; save positions for cache
-    cy.one('layoutstop', () => {
-      setPhase('ready')
-      const key = layoutCacheKeyRef.current
-      if (key) {
-        try {
-          const positions: Record<string, { x: number; y: number }> = {}
-          cy.nodes().forEach((n) => { positions[n.id()] = n.position() })
-          localStorage.setItem(key, JSON.stringify(positions))
-        } catch { /* quota exceeded or private mode */ }
-      }
-    })
 
     // Re-apply type visibility after cy is ready
     NODE_TYPES.forEach((type) => {
@@ -543,7 +553,19 @@ export default function Graph() {
     // Clear cache so positions get recomputed and re-saved after this run
     const key = layoutCacheKeyRef.current
     if (key) { try { localStorage.removeItem(key) } catch { /* ignore */ } }
-    cy.layout(LAYOUT_OPTIONS as cytoscape.LayoutOptions).run()
+    savedPositionsRef.current = null
+    const layout = cy.layout(LAYOUT_OPTIONS as cytoscape.LayoutOptions)
+    layout.one('layoutstop', () => {
+      if (key) {
+        try {
+          const positions: Record<string, { x: number; y: number }> = {}
+          cy.nodes().forEach((n) => { positions[n.id()] = n.position() })
+          localStorage.setItem(key, JSON.stringify(positions))
+          savedPositionsRef.current = positions
+        } catch { /* ignore */ }
+      }
+    })
+    layout.run()
   }, [])
 
   const fitToScreen = useCallback(() => {
@@ -889,7 +911,7 @@ export default function Graph() {
             <CytoscapeComponent
               elements={elements}
               stylesheet={buildStylesheet() as never}
-              layout={activeLayout as cytoscape.LayoutOptions}
+              layout={{ name: 'null' } as cytoscape.LayoutOptions}
               style={{ width: '100%', height: '100%' }}
               cy={handleCyReady}
               minZoom={0.05}
