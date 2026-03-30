@@ -33,7 +33,16 @@ interface SelectedNode {
   year?: string
   detail?: string
   category?: string
+  links: Array<{ label: string; url: string }>
   connectedNodes: Array<{ id: string; label: string; type: NodeType }>
+}
+
+function buildLinks(data: Record<string, unknown>): Array<{ label: string; url: string }> {
+  const links: Array<{ label: string; url: string }> = []
+  if (data.url)      links.push({ label: 'link ↗', url: data.url as string })
+  if (data.repo_url) links.push({ label: 'github ↗', url: data.repo_url as string })
+  if (data.doi)      links.push({ label: 'doi ↗', url: `https://doi.org/${data.doi}` })
+  return links
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -447,6 +456,7 @@ export default function Graph() {
         year: data.year,
         detail: data.detail,
         category: data.category,
+        links: buildLinks(data),
         connectedNodes,
       })
 
@@ -498,6 +508,7 @@ export default function Graph() {
       year: data.year,
       detail: data.detail,
       category: data.category,
+      links: buildLinks(data),
       connectedNodes,
     })
 
@@ -707,6 +718,23 @@ export default function Graph() {
                 </span>
               )}
             </div>
+
+            {selectedNode.links.length > 0 && (
+              <div className="flex flex-wrap gap-1">
+                {selectedNode.links.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded font-mono transition-opacity hover:opacity-80"
+                    style={{ background: '#1e2d4a', color: '#00ff88', border: '1px solid #00ff8833' }}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )}
 
             {selectedNode.connectedNodes.length > 0 && (
               <div>

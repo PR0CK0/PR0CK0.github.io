@@ -10,6 +10,9 @@ export interface CyNode {
     detail?: string
     year?: string
     category?: string
+    url?: string
+    repo_url?: string
+    doi?: string
   }
 }
 
@@ -170,6 +173,8 @@ export function buildGraph(person: Person): GraphData {
         subtitle: pub.venue,
         year: pub.date?.slice(0, 4),
         detail: pub.status,
+        url: pub.url,
+        doi: pub.doi,
       },
     })
     addEdge({ data: { id: `e-${personId}-${pub.id}`, source: personId, target: pub.id, label: 'authored' } })
@@ -186,6 +191,8 @@ export function buildGraph(person: Person): GraphData {
         type: 'project',
         subtitle: proj.technologies?.slice(0, 3).join(', '),
         year: proj.year,
+        url: proj.url,
+        repo_url: proj.repo_url,
       },
     })
     addEdge({ data: { id: `e-${personId}-${proj.id}`, source: personId, target: proj.id, label: 'built' } })
@@ -227,6 +234,7 @@ export function buildGraph(person: Person): GraphData {
         type: 'talk',
         subtitle: talk.venue,
         year: talk.date?.slice(0, 4),
+        url: talk.url,
       },
     })
     addEdge({ data: { id: `e-${personId}-${talk.id}`, source: personId, target: talk.id, label: 'presented' } })
