@@ -333,15 +333,22 @@ export default function Graph() {
   // ── Load data ────────────────────────────────────────────────────────────────
 
   useEffect(() => {
-    // 250ms: ensures the navbar CSS transition (duration-200) fully completes
-    // before cose-bilkent's sync init block freezes JS intervals.
+    // 250ms: ensures the navbar CSS transition (duration-200) fully completes.
+    // mountTime used to enforce a minimum loading phase — without it, cached
+    // YAML resolves as a microtask and cose-bilkent blocks before any log
+    // lines can cycle.
+    const mountTime = Date.now()
+    const MIN_LOADING_MS = 1500
+
     const timer = setTimeout(() => {
       loadPortfolioData()
         .then((person) => {
           const { nodes, edges } = buildGraph(person)
           setElements([...nodes, ...edges])
           setStats({ nodes: nodes.length, edges: edges.length })
-          setPhase('layout')
+          const elapsed = Date.now() - mountTime
+          const remaining = Math.max(0, MIN_LOADING_MS - elapsed)
+          setTimeout(() => setPhase('layout'), remaining)
         })
         .catch((err) => {
           setError(err.message ?? 'Failed to load graph data')
