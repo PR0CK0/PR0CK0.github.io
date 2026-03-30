@@ -547,7 +547,7 @@ export default function CVExport() {
           ~/cv.pdf
         </h1>
         <p className="text-terminal-green text-sm mt-1 opacity-80">
-          Generated from LinkML YAML source
+          Full academic and professional record — Generated from YAML source.
         </p>
 
         {/* ── Action Buttons ── */}

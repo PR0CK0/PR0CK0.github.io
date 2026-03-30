@@ -453,7 +453,7 @@ export default function ResumeExport() {
           ~/resume.pdf
         </h1>
         <p className="text-terminal-green text-sm mt-1 opacity-80">
-          Work experience &amp; projects — generated from YAML source
+          Work experience, projects, and skills — Generated from YAML source.
         </p>
 
         <div className="flex gap-3 mt-5">
