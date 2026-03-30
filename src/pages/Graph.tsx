@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import SEO from '@/components/SEO'
 import CytoscapeComponent from 'react-cytoscapejs'
 import cytoscape from 'cytoscape'
 // @ts-ignore — no bundled types for default import
@@ -798,6 +799,11 @@ export default function Graph() {
       className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-[calc(100dvh-65px)] sm:h-[calc(100dvh-79px)]"
       style={{ background: '#0a0e1a' }}
     >
+      <SEO
+        title="Knowledge Graph Explorer"
+        description="Interactive knowledge graph of Tyler Procko's publications, projects, skills, and work experience."
+        path="/graph"
+      />
       {/* ── Sidebar — desktop: left panel (collapsible); mobile: bottom drawer ── */}
       <aside
         className="flex flex-col flex-shrink-0"

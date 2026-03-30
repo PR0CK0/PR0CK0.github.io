@@ -10,6 +10,7 @@ import {
 } from '@react-pdf/renderer'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import type { Person, Skill } from '@/lib/schema'
+import SEO from '@/components/SEO'
 
 // ─── PDF Styles ────────────────────────────────────────────────────────────────
 
@@ -541,6 +542,11 @@ export default function CVExport() {
 
   return (
     <div className="min-h-screen bg-gray-950 font-mono py-10 px-4">
+      <SEO
+        title="CV / Curriculum Vitae"
+        description="Full academic and professional CV of Tyler T. Procko, Ph.D. — publications, work experience, education, and skills."
+        path="/cv"
+      />
       {/* ── Page Header ── */}
       <div className="max-w-4xl mx-auto mb-8">
         <h1 className="text-2xl font-bold text-terminal-amber tracking-tight">
@@ -562,7 +568,7 @@ export default function CVExport() {
                     className="px-4 py-2 bg-blue-900 border border-blue-500 text-blue-200 text-sm font-mono hover:bg-blue-800 transition-colors rounded"
                     disabled={pdfLoading}
                   >
-                    {pdfLoading ? '⏳ Preparing...' : '⬇ Download PDF'}
+                    ⬇ Download PDF
                   </button>
                 )}
               </PdfLink>

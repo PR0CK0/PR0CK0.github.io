@@ -22,13 +22,182 @@
         }
       }(window.location));
     </script>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Primary meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Tyler T. Procko, Ph.D. — AI Engineer — Agentic LLMs · Knowledge Graphs · Ontologies" />
-    <title>Tyler T. Procko, Ph.D.</title>
+    <meta name="description" content="Tyler T. Procko, Ph.D. — AI Engineer specializing in ontology-grounded LLM systems, knowledge graphs, and agentic AI. 37+ publications." />
+    <meta name="author" content="Tyler T. Procko" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://procko.pro/" />
+    <title>Tyler T. Procko, Ph.D. — AI Engineer — Ontologies · Knowledge Graphs · LLMs</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tyler T. Procko, Ph.D. — AI Engineer" />
+    <meta property="og:description" content="Ontology-grounded LLM systems, knowledge graphs, and agentic AI. 37+ publications spanning KG+LLM synergy, explainable AI, and applied ontology." />
+    <meta property="og:image" content="https://procko.pro/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Tyler T. Procko — AI Engineer — Ontologies, Knowledge Graphs, LLMs" />
+    <meta property="og:url" content="https://procko.pro/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="procko.pro" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tyler T. Procko, Ph.D. — AI Engineer" />
+    <meta name="twitter:description" content="Ontology-grounded LLM systems, knowledge graphs, and agentic AI. 37+ publications." />
+    <meta name="twitter:image" content="https://procko.pro/og-image.png" />
+    <meta name="twitter:image:alt" content="Tyler T. Procko — AI Engineer" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Preconnect / Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="/data/tyler-procko.yaml" as="fetch" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://procko.pro/#website",
+          "name": "Tyler T. Procko, Ph.D.",
+          "url": "https://procko.pro",
+          "description": "Personal site and portfolio of Tyler T. Procko, Ph.D. — AI Engineer specializing in ontologies, knowledge graphs, and LLMs.",
+          "author": { "@id": "https://procko.pro/#person" },
+          "publisher": { "@id": "https://procko.pro/#person" },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://procko.pro/#profilepage",
+          "dateModified": "2026-03-30T00:00:00-04:00",
+          "mainEntity": { "@id": "https://procko.pro/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://procko.pro/#person",
+          "name": "Tyler T. Procko",
+          "givenName": "Tyler",
+          "familyName": "Procko",
+          "honorificSuffix": "Ph.D.",
+          "jobTitle": "AI Engineer",
+          "description": "Ph.D. researcher and AI engineer specializing in ontology-grounded LLM systems and agentic software development. 9+ years building knowledge graphs, BFO/CCO-compliant ontologies, and ML pipelines for defense and aerospace. Designing LLM agents that reason over structured knowledge — RAG, provenance tracking, and explainability backed by formal ontologies.",
+          "url": "https://procko.pro",
+          "image": "https://procko.pro/me.png",
+          "email": "prockotyler@gmail.com",
+          "nationality": {
+            "@type": "Country",
+            "name": "United States"
+          },
+          "homeLocation": {
+            "@type": "Place",
+            "name": "Florida, USA",
+            "address": {
+              "@type": "PostalAddress",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            }
+          },
+          "knowsAbout": [
+            "Ontology Engineering",
+            "Large Language Models",
+            "Knowledge Graphs",
+            "Agentic AI",
+            "Retrieval-Augmented Generation",
+            "OWL",
+            "BFO",
+            "CCO",
+            "SPARQL",
+            "SHACL",
+            "PROV-O",
+            "Software Traceability",
+            "Natural Language Processing",
+            "Machine Learning",
+            "Explainable AI",
+            "ML Provenance"
+          ],
+          "knowsLanguage": ["en"],
+          "alumniOf": [
+            {
+              "@type": "EducationalOrganization",
+              "name": "Embry-Riddle Aeronautical University",
+              "url": "https://www.erau.edu"
+            },
+            {
+              "@type": "EducationalOrganization",
+              "name": "Florida State College at Jacksonville"
+            }
+          ],
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Ph.D. in Computer Science and Electrical Engineering",
+              "credentialCategory": "degree",
+              "educationalLevel": "Doctoral",
+              "recognizedBy": {
+                "@type": "EducationalOrganization",
+                "name": "Embry-Riddle Aeronautical University"
+              },
+              "dateCreated": "2025-05"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "M.S. in Software Engineering",
+              "credentialCategory": "degree",
+              "educationalLevel": "Master",
+              "recognizedBy": {
+                "@type": "EducationalOrganization",
+                "name": "Embry-Riddle Aeronautical University"
+              },
+              "dateCreated": "2023-12"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "B.S. in Software Engineering",
+              "credentialCategory": "degree",
+              "educationalLevel": "Bachelor",
+              "recognizedBy": {
+                "@type": "EducationalOrganization",
+                "name": "Embry-Riddle Aeronautical University"
+              },
+              "dateCreated": "2020-05"
+            }
+          ],
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "AI Engineer",
+            "occupationalCategory": "15-1252.00",
+            "skills": "Ontology Engineering, LLM Integration, Knowledge Graphs, RAG, Python, OWL, SPARQL, BFO, CCO, Agentic Systems, RLHF"
+          },
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Stealth Startup"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/tylerprocko",
+            "https://www.github.com/pr0ck0",
+            "https://scholar.google.com/citations?user=Xm7p7mQAAAAJ&hl=en",
+            "https://orcid.org/0000-0002-7801-0124",
+            "https://substack.com/@tylerprocko",
+            "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5883155"
+          ],
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "ORCID",
+            "value": "0000-0002-7801-0124",
+            "url": "https://orcid.org/0000-0002-7801-0124"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

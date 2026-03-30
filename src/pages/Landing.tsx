@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import SEO from '@/components/SEO'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import { TECH_CATEGORIES, type SkillCategory } from '@/lib/tech-categories'
 import type { Person, Publication, Project } from '@/lib/schema'
@@ -1441,6 +1442,7 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen bg-terminal-bg text-terminal-text font-mono">
+      <SEO path="/" />
       <HeroSection person={person} bootLines={bootLines} />
       <StatsBar stats={stats} />
 
