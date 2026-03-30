@@ -341,20 +341,27 @@ function PreviewEntryBlock({
   date,
   bullets,
   extra,
+  inlineSubtitle,
 }: {
   title: string
   subtitle?: string
   date?: string
   bullets?: string[]
   extra?: string
+  inlineSubtitle?: boolean
 }) {
   return (
     <div style={{ marginBottom: '10px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '4px' }}>
-        <span style={{ fontWeight: 700, fontSize: '10.5px', color: '#111' }}>{title}</span>
+        <span>
+          <span style={{ fontWeight: 700, fontSize: '10.5px', color: '#111' }}>{title}</span>
+          {inlineSubtitle && subtitle && (
+            <span style={{ fontSize: '9px', color: '#555', fontStyle: 'italic', marginLeft: '5px' }}>· {subtitle}</span>
+          )}
+        </span>
         {date && <span style={{ fontSize: '9.5px', color: '#666', whiteSpace: 'nowrap' }}>{date}</span>}
       </div>
-      {subtitle && <div style={{ fontSize: '9.5px', color: '#444', marginTop: '1px' }}>{subtitle}</div>}
+      {!inlineSubtitle && subtitle && <div style={{ fontSize: '9.5px', color: '#444', marginTop: '1px' }}>{subtitle}</div>}
       {bullets?.map((b, i) => (
         <div key={i} style={{ display: 'flex', gap: '6px', marginTop: '2px', marginLeft: '8px' }}>
           <span style={{ color: '#333', fontSize: '9.5px', flexShrink: 0 }}>•</span>
@@ -527,9 +534,10 @@ export default function ResumeExport() {
               <PreviewEntryBlock
                 key={exp.id}
                 title={exp.title}
-                subtitle={`${exp.organization}${exp.location ? `  |  ${exp.location}` : ''}`}
+                subtitle={`${exp.organization}${exp.location ? `  ·  ${exp.location}` : ''}`}
                 date={formatDateRange(exp.start_date, exp.end_date, exp.is_current)}
                 bullets={exp.description}
+                inlineSubtitle
               />
             ))}
           </>

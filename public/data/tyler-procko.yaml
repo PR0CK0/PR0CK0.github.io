@@ -109,7 +109,7 @@ work_experiences:
   is_current: true
   location: Remote
   description:
-  - Ontology + ML + Cybersecurity
+  - Leading ontology design, NLP model selection, and LLM integration (Claude, GPT) for a stealth-stage cybersecurity product.
   technologies:
   - Python
   - TypeScript
@@ -156,7 +156,7 @@ work_experiences:
   title_line: 'Principal Knowledge Architect - '
   org: Stealth Startup, Remote
   bullets:
-  - Ontology + ML + Cybersecurity
+  - Leading ontology design, NLP model selection, and LLM integration (Claude, GPT) for a stealth-stage cybersecurity product.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
