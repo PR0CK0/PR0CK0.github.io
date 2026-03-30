@@ -556,7 +556,7 @@ export default function CVExport() {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const PdfLink = PDFDownloadLink as any
             return (
-              <PdfLink document={pdfDoc} fileName="tyler-procko-cv.pdf">
+              <PdfLink document={pdfDoc} fileName={`tylerprocko_cv_${new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).replace(/\//g, '')}.pdf`}>
                 {({ loading: pdfLoading }: { loading: boolean }) => (
                   <button
                     className="px-4 py-2 bg-blue-900 border border-blue-500 text-blue-200 text-sm font-mono hover:bg-blue-800 transition-colors rounded"
