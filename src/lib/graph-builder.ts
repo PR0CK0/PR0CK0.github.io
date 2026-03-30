@@ -189,7 +189,6 @@ export function buildGraph(person: Person): GraphData {
         id: proj.id,
         label: proj.title,
         type: 'project',
-        subtitle: proj.technologies?.slice(0, 3).join(', '),
         year: proj.year,
         url: proj.url,
         repo_url: proj.repo_url,
