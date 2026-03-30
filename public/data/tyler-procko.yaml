@@ -3910,6 +3910,43 @@ talks:
   - Education
   - XAI
   - Cognitive Science
+associates:
+- id: assoc/omar-ochoa
+  name: Dr. Omar Ochoa
+  title: Associate Professor of Software Engineering and Computer Science
+  organization: Embry-Riddle Aeronautical University
+  relationship: Doctoral advisor and research team lead
+  social_links:
+  - platform: LinkedIn
+    url: https://www.linkedin.com/in/omar-ochoa-30a2a61b/
+  - platform: Google Scholar
+    url: https://scholar.google.com/citations?user=o12NwFgAAAAJ&hl=en
+  - platform: ResearchGate
+    url: https://www.researchgate.net/profile/Omar-Ochoa-5
+  - platform: Faculty Page
+    url: https://faculty.erau.edu/Omar.Ochoa
+- id: assoc/timothy-elvira
+  name: Timothy Elvira
+  title: Ph.D. Researcher, ML Engineering
+  organization: Embry-Riddle Aeronautical University / AFRL
+  relationship: Research collaborator and co-author
+  social_links:
+  - platform: LinkedIn
+    url: https://www.linkedin.com/in/timothy-elvira-511a20176/
+  - platform: ResearchGate
+    url: https://www.researchgate.net/profile/Timothy-Elvira
+- id: assoc/nicholas-del-rio
+  name: Dr. Nicholas Del Rio
+  title: Computer Scientist
+  organization: Air Force Research Laboratory - Information Directorate
+  relationship: SMART Scholarship mentor and AFRL supervisor
+  social_links:
+  - platform: LinkedIn
+    url: https://www.linkedin.com/in/nicholasdelrio/
+  - platform: Google Scholar
+    url: https://scholar.google.com/citations?user=FFrwAlUAAAAJ&hl=en
+  - platform: ResearchGate
+    url: https://www.researchgate.net/scientific-contributions/Nicholas-Del-Rio-2106130769
 references:
 - id: ref/omar-ochoa
   name: Dr. Omar Ochoa

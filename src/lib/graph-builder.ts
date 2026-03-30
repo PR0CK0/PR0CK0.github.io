@@ -5,7 +5,7 @@ export interface CyNode {
   data: {
     id: string
     label: string
-    type: 'person' | 'education' | 'work' | 'publication' | 'project' | 'skill' | 'domain' | 'soft_skill' | 'award' | 'certificate' | 'talk' | 'course'
+    type: 'person' | 'education' | 'work' | 'publication' | 'project' | 'skill' | 'domain' | 'soft_skill' | 'award' | 'certificate' | 'talk' | 'course' | 'associate'
     subtitle?: string
     detail?: string
     year?: string
@@ -251,6 +251,21 @@ export function buildGraph(person: Person): GraphData {
     addEdge({ data: { id: `e-${personId}-${talk.id}`, source: personId, target: talk.id, label: 'presented' } })
     linkDomains(talk.id, talk.domains)
     linkSoftSkills(talk.id, talk.soft_skills)
+  })
+
+  // ─── Associates ───────────────────────────────────────────────────────────
+  person.associates?.forEach((assoc) => {
+    addNode({
+      data: {
+        id: assoc.id,
+        label: assoc.name,
+        type: 'associate',
+        subtitle: assoc.title,
+        detail: assoc.relationship,
+        url: assoc.social_links?.[0]?.url,
+      },
+    })
+    addEdge({ data: { id: `e-${personId}-${assoc.id}`, source: personId, target: assoc.id, label: assoc.relationship ?? 'associate' } })
   })
 
   return { nodes, edges }

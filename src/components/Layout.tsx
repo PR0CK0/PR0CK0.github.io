@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useTheme } from '../hooks/useTheme'
 
 const navItems = [
@@ -20,6 +20,8 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const [theme, toggleTheme] = useTheme()
+  const { pathname } = useLocation()
+  const hideFooter = pathname === '/graph'
 
   return (
     <div className="h-screen flex flex-col bg-terminal-bg overflow-hidden">
@@ -85,7 +87,7 @@ export default function Layout({ children }: LayoutProps) {
       <main className="flex-1 overflow-auto min-h-0">
         {children}
       </main>
-      <footer className="border-t border-terminal-border bg-terminal-surface px-4 py-2 text-center font-mono text-[0.6rem] sm:text-xs text-terminal-muted">
+      {!hideFooter && <footer className="border-t border-terminal-border bg-terminal-surface px-4 py-2 text-center font-mono text-[0.6rem] sm:text-xs text-terminal-muted">
         Proudly hosted for free with{' '}
         <a
           href="https://pages.github.com"
@@ -95,7 +97,7 @@ export default function Layout({ children }: LayoutProps) {
         >
           GitHub Pages
         </a>
-      </footer>
+      </footer>}
     </div>
   )
 }

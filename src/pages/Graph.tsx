@@ -25,6 +25,7 @@ type NodeType =
   | 'talk'
   | 'certificate'
   | 'course'
+  | 'associate'
 
 interface SelectedNode {
   id: string
@@ -61,6 +62,7 @@ const NODE_TYPES: NodeType[] = [
   'talk',
   'certificate',
   'course',
+  'associate',
 ]
 
 const TYPE_META: Record<
@@ -79,6 +81,7 @@ const TYPE_META: Record<
   talk:        { color: '#ff8800', label: 'Talk',         shape: 'ellipse',   size: 30 },
   certificate: { color: '#aaaaaa', label: 'Certificate',  shape: 'ellipse',   size: 28 },
   course:      { color: '#34d399', label: 'Course',       shape: 'roundrectangle', size: 32 },
+  associate:   { color: '#06b6d4', label: 'Associate',    shape: 'diamond',        size: 40 },
 }
 
 const LAYOUT_OPTIONS = {
@@ -291,6 +294,7 @@ function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
 
 export default function Graph() {
   const cyRef = useRef<cytoscape.Core | null>(null)
+  const enabledTypesRef = useRef<Set<NodeType>>(new Set(NODE_TYPES))
   const layoutCacheKeyRef = useRef<string>('')
   const savedPositionsRef = useRef<Record<string, { x: number; y: number }> | null>(null)
   const [searchParams] = useSearchParams()
@@ -377,6 +381,9 @@ export default function Graph() {
     },
     []
   )
+
+  // Keep ref in sync for use inside Cytoscape event handlers
+  enabledTypesRef.current = enabledTypes
 
   // Apply type visibility whenever enabledTypes changes
   // TODO: orphan pen — when filtering leaves nodes with no visible edges, move them into
@@ -469,6 +476,14 @@ export default function Graph() {
       cy.elements().not(node).not(node.neighborhood()).addClass('faded')
       node.neighborhood().addClass('neighbour')
       node.removeClass('faded')
+
+      // Re-hide nodes whose type is filtered out (highlight must not override type filter)
+      const types = enabledTypesRef.current
+      NODE_TYPES.forEach((t) => {
+        if (!types.has(t)) {
+          (cy.nodes(`[type = "${t}"]`) as any).hide().connectedEdges().hide()
+        }
+      })
     })
 
     cy.on('tap', (evt) => {
@@ -476,6 +491,14 @@ export default function Graph() {
         // Clicked on background — deselect
         setSelectedNode(null)
         cy.elements().removeClass('faded neighbour highlighted')
+
+        // Re-hide nodes whose type is filtered out
+        const types = enabledTypesRef.current
+        NODE_TYPES.forEach((t) => {
+          if (!types.has(t)) {
+            (cy.nodes(`[type = "${t}"]`) as any).hide().connectedEdges().hide()
+          }
+        })
       }
     })
 
@@ -520,6 +543,15 @@ export default function Graph() {
     cy.elements().not(node).not(node.neighborhood()).addClass('faded')
     node.neighborhood().addClass('neighbour')
     node.removeClass('faded')
+
+    // Re-hide nodes whose type is filtered out
+    const types = enabledTypesRef.current
+    NODE_TYPES.forEach((t) => {
+      if (!types.has(t)) {
+        (cy.nodes(`[type = "${t}"]`) as any).hide().connectedEdges().hide()
+      }
+    })
+
     cy.animate({ center: { eles: node }, duration: 300 } as cytoscape.AnimationOptions)
   }, [])
 
@@ -582,8 +614,22 @@ export default function Graph() {
     <>
       {/* Filter by type */}
       <div className="px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
-        <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: '#4a5a7a' }}>
-          Filter by type
+        <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+          <span className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider" style={{ color: '#4a5a7a' }}>
+            Filter by type
+          </span>
+          <button
+            className="text-[0.55rem] sm:text-[0.6rem] uppercase tracking-wider px-1.5 py-0.5 rounded transition-colors"
+            style={{ color: '#4a5a7a', border: '1px solid #1e2d4a' }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = '#00ff88'; e.currentTarget.style.borderColor = '#00ff8844' }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = '#4a5a7a'; e.currentTarget.style.borderColor = '#1e2d4a' }}
+            onClick={() => {
+              const allEnabled = NODE_TYPES.every((t) => enabledTypes.has(t))
+              setEnabledTypes(new Set(allEnabled ? [] : NODE_TYPES))
+            }}
+          >
+            {NODE_TYPES.every((t) => enabledTypes.has(t)) ? 'none' : 'all'}
+          </button>
         </div>
         {/* On mobile: wrap in a horizontal scroll row; on desktop: vertical list */}
         <div className="flex sm:flex-col gap-1.5 overflow-x-auto sm:overflow-x-visible pb-1 sm:pb-0" style={{ scrollbarWidth: 'none' }}>
@@ -806,13 +852,10 @@ export default function Graph() {
       />
       {/* ── Sidebar — desktop: left panel (collapsible); mobile: bottom drawer ── */}
       <aside
-        className="flex flex-col flex-shrink-0"
+        className={`flex flex-col flex-shrink-0 w-full ${sidebarOpen ? 'sm:w-[280px] sm:min-w-[280px] sm:max-w-[280px]' : 'sm:w-[21px] sm:min-w-[21px] sm:max-w-[21px]'}`}
         style={{
           background: '#0f1629',
           borderRight: sidebarOpen ? '1px solid #1e2d4a' : 'none',
-          width: sidebarOpen ? 280 : 21,
-          minWidth: sidebarOpen ? 280 : 21,
-          maxWidth: sidebarOpen ? 280 : 21,
         }}
       >
         {/* ── Mobile toggle strip (hidden on desktop) ── */}
@@ -843,7 +886,7 @@ export default function Graph() {
         {/* ── Desktop header with collapse toggle (hidden on mobile) ── */}
         <div
           className="hidden sm:block relative flex-shrink-0"
-          style={{ borderBottom: '1px solid #1e2d4a', minWidth: sidebarOpen ? 280 : 21 }}
+          style={{ borderBottom: '1px solid #1e2d4a' }}
         >
           {/* Title text — pr-7 keeps text clear of the absolute button */}
           {sidebarOpen && (

@@ -106,6 +106,15 @@ export const TalkSchema = z.object({
   personal_skills: z.array(z.string()).optional(),
 })
 
+export const AssociateSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  title: z.string().optional(),
+  organization: z.string().optional(),
+  relationship: z.string().optional(),
+  social_links: z.array(SocialLinkSchema).optional(),
+})
+
 export const ReferenceSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -163,6 +172,7 @@ export const PersonSchema = z.object({
   awards: z.array(AwardSchema).optional(),
   certificates: z.array(CertificateSchema).optional(),
   talks: z.array(TalkSchema).optional(),
+  associates: z.array(AssociateSchema).optional(),
   references: z.array(ReferenceSchema).optional(),
   extracurriculars: z.array(ExtracurricularSchema).optional(),
   courses: z.array(CourseSchema).optional(),
@@ -181,6 +191,7 @@ export type Skill = z.infer<typeof SkillSchema>
 export type Award = z.infer<typeof AwardSchema>
 export type Certificate = z.infer<typeof CertificateSchema>
 export type Talk = z.infer<typeof TalkSchema>
+export type Associate = z.infer<typeof AssociateSchema>
 export type Reference = z.infer<typeof ReferenceSchema>
 export type Extracurricular = z.infer<typeof ExtracurricularSchema>
 export type Course = z.infer<typeof CourseSchema>
