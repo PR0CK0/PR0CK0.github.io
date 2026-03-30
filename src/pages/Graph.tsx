@@ -256,7 +256,7 @@ function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
 
   useEffect(() => {
     setLogIdx(1) // show first line immediately
-    const interval = phase === 'loading' ? 250 : 900
+    const interval = phase === 'loading' ? 500 : 900
     const t = setInterval(() => setLogIdx(i => i + 1), interval)
     return () => clearInterval(t)
   }, [phase])
@@ -334,7 +334,7 @@ export default function Graph() {
     // Also enforces a minimum loading phase so the spinner has time to animate
     // before cose-bilkent's sync init block freezes JS intervals.
     const mountTime = Date.now()
-    const MIN_LOADING_MS = 900
+    const MIN_LOADING_MS = 2000
 
     const timer = setTimeout(() => {
       loadPortfolioData()
