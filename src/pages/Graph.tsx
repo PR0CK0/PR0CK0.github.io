@@ -316,6 +316,7 @@ export default function Graph() {
 
   // Track stats
   const [stats, setStats] = useState({ nodes: 0, edges: 0 })
+  const [visibleCounts, setVisibleCounts] = useState({ nodes: 0, edges: 0 })
 
   // ── Load data ────────────────────────────────────────────────────────────────
 
@@ -418,6 +419,12 @@ export default function Graph() {
         edge.show()
       }
     })
+
+    // Update visible counts
+    setVisibleCounts({
+      nodes: cy.nodes(':visible').length,
+      edges: cy.edges(':visible').length,
+    })
   }, [enabledTypes, phase])
 
   // ── Search ───────────────────────────────────────────────────────────────────
@@ -452,14 +459,6 @@ export default function Graph() {
   const handleCyReady = useCallback((cy: cytoscape.Core) => {
     cyRef.current = cy
     setCyReady(true)
-
-    // Re-apply type visibility after cy is ready
-    NODE_TYPES.forEach((type) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const nodes = cy.nodes(`[type = "${type}"]`) as any
-      nodes.show()
-    })
-
 
     cy.on('tap', 'node', (evt) => {
       const node = evt.target
@@ -763,6 +762,21 @@ export default function Graph() {
         </div>
       </div>
 
+      {/* Visible count */}
+      <div className="px-3 sm:px-4 py-1.5 sm:py-2 flex-shrink-0 text-center font-mono" style={{ borderBottom: '1px solid #1e2d4a' }}>
+        {phase !== 'ready' ? (
+          <span className="text-[0.6rem] sm:text-xs" style={{ color: '#4a5a7a' }}>loading...</span>
+        ) : visibleCounts.nodes === 0 ? (
+          <span className="text-[0.6rem] sm:text-xs" style={{ color: '#ff4d6d' }}>no nodes displayed</span>
+        ) : visibleCounts.nodes === stats.nodes ? (
+          <span className="text-[0.6rem] sm:text-xs" style={{ color: '#00ff88' }}>all nodes displayed</span>
+        ) : (
+          <span className="text-[0.6rem] sm:text-xs" style={{ color: '#4d9fff' }}>
+            filtered to: {visibleCounts.nodes} nodes · {visibleCounts.edges} edges
+          </span>
+        )}
+      </div>
+
       {/* Controls */}
       <div className="px-3 sm:px-4 py-2 sm:py-3 flex gap-2 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
         <button
@@ -926,7 +940,7 @@ export default function Graph() {
               graph controls
             </span>
             <span className="text-[0.55rem]" style={{ color: '#4a5a7a' }}>
-              {phase === 'ready' ? `${stats.nodes}n · ${stats.edges}e` : 'loading...'}
+              {phase === 'ready' ? `total: ${stats.nodes}n · ${stats.edges}e` : 'loading...'}
             </span>
           </span>
           <span className="text-xs" style={{ color: '#4a5a7a' }}>
@@ -947,7 +961,7 @@ export default function Graph() {
               </div>
               <div className="text-xs" style={{ color: '#4a5a7a' }}>
                 {phase === 'ready'
-                  ? `${stats.nodes} nodes · ${stats.edges} edges`
+                  ? `total: ${stats.nodes} nodes · ${stats.edges} edges`
                   : phase === 'layout' ? 'rendering graph...' : 'loading graph...'}
               </div>
             </div>
