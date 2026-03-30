@@ -303,7 +303,7 @@ export default function Graph() {
   const [enabledTypes, setEnabledTypes] = useState<Set<NodeType>>(
     new Set(NODE_TYPES)
   )
-  const [searchQuery, setSearchQuery] = useState(() => searchParams.get('q') ?? '')
+  const [searchQuery, setSearchQuery] = useState('')
   const [cyReady, setCyReady] = useState(false)
   const [selectedNode, setSelectedNode] = useState<SelectedNode | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -518,8 +518,6 @@ export default function Graph() {
 
     if (!match.length) return
 
-    // Select the node and clear the search box
-    setSearchQuery('')
     selectNodeById(match.data('id') as string)
   }, [phase])
 
