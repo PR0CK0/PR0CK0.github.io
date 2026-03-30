@@ -100,7 +100,7 @@ const LAYOUT_OPTIONS = {
   piTol: 0.0000001,
 }
 
-const LAYOUT_CACHE_PREFIX = 'graph-layout-v2'
+const LAYOUT_CACHE_PREFIX = 'graph-layout-v4'
 
 // ─── Cytoscape stylesheet ──────────────────────────────────────────────────────
 
@@ -611,6 +611,23 @@ export default function Graph() {
       // No exact node — fall back to search filter so the term is still useful
       setSearchQuery(q)
       return
+    }
+
+    // Ensure the matched node's type is enabled in the filter
+    const nodeType = match.data('type') as NodeType
+    if (!enabledTypesRef.current.has(nodeType)) {
+      // Show the node and its edges immediately so selectNodeById works
+      ;(match as any).show()
+      ;(match as any).connectedEdges().forEach((e: any) => {
+        if (e.source().visible() && e.target().visible()) e.show()
+      })
+      expandedNodesRef.current.add(match.data('id') as string)
+      // Update filter state to include this type
+      setEnabledTypes((prev) => {
+        const next = new Set(prev)
+        next.add(nodeType)
+        return next
+      })
     }
 
     selectNodeById(match.data('id') as string)
