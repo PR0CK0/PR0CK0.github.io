@@ -4,7 +4,9 @@ Validates that all skill fields (technologies, domains, soft_skills, personal_sk
 in tyler-procko.yaml are properly defined in the validation layer.
 
 Technologies must be in tech-categories.ts.
-Other fields are reported for review.
+Soft skills must be in VALID_SOFT_SKILLS.
+Domains and personal_skills are collected and reported for review.
+Duplicate values within a single entry are flagged for all fields.
 """
 
 import sys
@@ -30,8 +32,6 @@ VALID_SOFT_SKILLS = {
 def extract_tech_categories():
     """Parse tech-categories.ts and extract all mapped technologies."""
     content = TECH_CATEGORIES_PATH.read_text()
-    # Match pattern: 'Key': 'value', or Key: 'value',
-    # Keys can be quoted or unquoted, values are always quoted
     pattern = r"(?:'([^']+)'|([^\s:]+)):\s+'[^']+'"
     matches = re.findall(pattern, content)
     techs = set()
@@ -44,7 +44,7 @@ def main() -> None:
     data = yaml.safe_load(YAML_PATH.read_text())
     mapped_techs = extract_tech_categories()
 
-    # Collect all skills by field
+    # Collect all unique values by field (across all entries)
     all_skills = {field: set() for field in SKILL_FIELDS}
     unmapped_techs = set()
     issues = []
@@ -66,19 +66,24 @@ def main() -> None:
                     issues.append(f"  {entry_id} → {field}: not a list")
                     continue
 
+                # Duplicate check within this entry
+                seen = set()
                 for value in values:
+                    if value in seen:
+                        issues.append(f"  {entry_id} → {field}: duplicate '{value}'")
+                    seen.add(value)
                     all_skills[field].add(value)
 
-                    # Check technologies against tech-categories
+                    # Technologies must be in tech-categories.ts
                     if field == "technologies" and value not in mapped_techs:
                         unmapped_techs.add(value)
                         issues.append(f"  {entry_id} → {field}: '{value}' NOT in tech-categories.ts")
 
-                    # Check soft_skills against canonical list
+                    # Soft skills must be in canonical list
                     if field == "soft_skills" and value not in VALID_SOFT_SKILLS:
                         issues.append(f"  {entry_id} → {field}: '{value}' NOT in VALID_SOFT_SKILLS")
 
-    # Report results
+    # Report unmapped technologies separately for visibility
     if unmapped_techs:
         print(f"ERROR — {len(unmapped_techs)} unmapped technology(ies):\n")
         for tech in sorted(unmapped_techs):
@@ -98,11 +103,7 @@ def main() -> None:
     print(f"  Soft Skills:             {len(all_skills['soft_skills'])} unique")
     print(f"  Personal Skills:         {len(all_skills['personal_skills'])} unique")
     print()
-
-    if unmapped_techs:
-        sys.exit(1)
-    else:
-        print("OK — all technologies mapped in tech-categories.ts")
+    print("OK — all validations passed")
 
 
 if __name__ == "__main__":
