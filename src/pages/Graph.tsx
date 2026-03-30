@@ -216,10 +216,27 @@ function TypeBadge({ type }: { type: NodeType }) {
 
 function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10" style={{ background: '#0a0e1a' }}>
-      <div className="font-mono text-sm" style={{ color: '#4a5a7a' }}>
-        {phase === 'loading' ? 'loading knowledge graph...' : 'running layout...'}
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10" style={{ background: '#0a0e1a' }}>
+      {/* CSS-only spinner — runs on compositor thread, unaffected by JS blocking */}
+      <div
+        className="rounded-full"
+        style={{
+          width: 28,
+          height: 28,
+          border: '2px solid #1e2d4a',
+          borderTopColor: '#00ff88',
+          animation: 'graph-spin 0.9s linear infinite',
+        }}
+      />
+      <div className="font-mono text-xs flex items-center gap-0" style={{ color: '#4a5a7a' }}>
+        <span style={{ color: '#00ff88', marginRight: 6 }}>$</span>
+        {phase === 'loading' ? 'load_knowledge_graph' : 'render_graph'}
+        <span style={{ animation: 'graph-blink 1s step-end infinite', color: '#00ff88', marginLeft: 1 }}>▮</span>
       </div>
+      <style>{`
+        @keyframes graph-spin  { to { transform: rotate(360deg); } }
+        @keyframes graph-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+      `}</style>
     </div>
   )
 }
@@ -430,6 +447,27 @@ export default function Graph() {
     cy.animate({ center: { eles: node }, duration: 300 } as cytoscape.AnimationOptions)
   }, [])
 
+  // ── Auto-select node from ?q= param after layout is ready ───────────────────
+
+  useEffect(() => {
+    if (phase !== 'ready') return
+    const cy = cyRef.current
+    if (!cy) return
+    const q = searchParams.get('q')
+    if (!q) return
+
+    // Find the node whose label matches the query (case-insensitive)
+    const match = cy.nodes().filter((n) =>
+      n.data('label')?.toLowerCase() === q.toLowerCase()
+    ).first()
+
+    if (!match.length) return
+
+    // Select the node and clear the search box
+    setSearchQuery('')
+    selectNodeById(match.data('id') as string)
+  }, [phase])
+
   // ── Layout controls ──────────────────────────────────────────────────────────
 
   const runLayout = useCallback(() => {
@@ -625,7 +663,7 @@ export default function Graph() {
                         <span className="font-bold uppercase tracking-wider flex-shrink-0" style={{ color: meta.color, fontSize: '0.55rem' }}>
                           {meta.label}
                         </span>
-                        <span style={{ color: '#c8d6f0' }}>{n.label}</span>
+                        <span className="truncate" style={{ color: '#c8d6f0' }}>{n.label}</span>
                       </button>
                     )
                   })}
@@ -657,6 +695,9 @@ export default function Graph() {
         style={{
           background: '#0f1629',
           borderRight: sidebarOpen ? '1px solid #1e2d4a' : 'none',
+          width: sidebarOpen ? 280 : 21,
+          minWidth: sidebarOpen ? 280 : 21,
+          maxWidth: sidebarOpen ? 280 : 21,
         }}
       >
         {/* ── Mobile toggle strip (hidden on desktop) ── */}

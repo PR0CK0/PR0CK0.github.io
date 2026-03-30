@@ -55,6 +55,10 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [ ] courses — add technologies/domains to course entries
 - [ ] talks — verify domains/technologies populated
 
+## Potential / Future
+
+- [ ] **LinkML schema migration** — Replace `schema.ts` (Zod) with a LinkML schema (`schema.yaml`). Data YAML stays identical. Gains: build-time `linkml-validate`, `gen-owl` produces an OWL ontology of the CV (cool talking point), `gen-python` for typed Python models, `gen-json-schema` for JSON Schema validation. Cost: Python codegen step added to build pipeline, no official Zod generator (would need to keep or regenerate Zod separately). Worth doing if OWL export or multi-language pipeline ever becomes a goal.
+
 ## Other pending
 
 - [ ] proj/personal — catch-all personal/creative entry (Adobe, AutoCAD, etc.); needs tech/domains review and possible restructure or deletion
