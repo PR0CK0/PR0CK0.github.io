@@ -5,7 +5,7 @@ export interface CyNode {
   data: {
     id: string
     label: string
-    type: 'person' | 'education' | 'work' | 'publication' | 'project' | 'skill' | 'award' | 'certificate' | 'talk' | 'course'
+    type: 'person' | 'education' | 'work' | 'publication' | 'project' | 'skill' | 'domain' | 'soft_skill' | 'award' | 'certificate' | 'talk' | 'course'
     subtitle?: string
     detail?: string
     year?: string
@@ -32,6 +32,14 @@ function techId(tech: string) {
   return `skill-${tech.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
 }
 
+function domainId(domain: string) {
+  return `domain-${domain.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
+}
+
+function softSkillId(skill: string) {
+  return `softskill-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
+}
+
 function courseId(number: string) {
   return `course-${number.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
 }
@@ -56,8 +64,7 @@ export function buildGraph(person: Person): GraphData {
     }
   }
 
-  // Connect an entity to each of its technology nodes (must be called after skill
-  // nodes are built so addedNodeIds contains them)
+  // Connect an entity to each of its technology nodes
   function linkTechs(entityId: string, techs: string[] | undefined) {
     techs?.forEach((tech) => {
       const sid = techId(tech)
@@ -67,17 +74,41 @@ export function buildGraph(person: Person): GraphData {
     })
   }
 
+  // Connect an entity to each of its domain nodes
+  function linkDomains(entityId: string, domains: string[] | undefined) {
+    domains?.forEach((d) => {
+      const did = domainId(d)
+      if (addedNodeIds.has(did)) {
+        addEdge({ data: { id: `e-${entityId}-${did}`, source: entityId, target: did, type: 'domain-usage' } })
+      }
+    })
+  }
+
+  // Connect an entity to each of its soft skill nodes
+  function linkSoftSkills(entityId: string, skills: string[] | undefined) {
+    skills?.forEach((s) => {
+      const ssid = softSkillId(s)
+      if (addedNodeIds.has(ssid)) {
+        addEdge({ data: { id: `e-${entityId}-${ssid}`, source: entityId, target: ssid, type: 'softskill-usage' } })
+      }
+    })
+  }
+
   // ─── Person ─────────────────────────────────────────────────────────────────
   const personId = person.id
   addNode({ data: { id: personId, label: person.name, type: 'person', subtitle: person.title } })
 
+  const allSections = [
+    ...(person.work_experiences ?? []),
+    ...(person.projects ?? []),
+    ...(person.publications ?? []).slice(0, 20),
+    ...(person.courses ?? []),
+    ...(person.talks ?? []),
+    ...(person.certificates ?? []),
+  ] as Array<{ technologies?: string[]; domains?: string[]; soft_skills?: string[] }>
+
   // ─── Skill nodes — aggregated from all entity sources ───────────────────────
-  const allTechs = new Set([
-    ...(person.work_experiences ?? []).flatMap((w) => w.technologies ?? []),
-    ...(person.projects ?? []).flatMap((p) => p.technologies ?? []),
-    ...(person.publications ?? []).slice(0, 20).flatMap((p) => p.technologies ?? []),
-    ...(person.courses ?? []).flatMap((c) => c.technologies ?? []),
-  ])
+  const allTechs = new Set(allSections.flatMap((e) => e.technologies ?? []))
   allTechs.forEach((tech) => {
     addNode({
       data: {
@@ -87,6 +118,18 @@ export function buildGraph(person: Person): GraphData {
         category: TECH_CATEGORIES[tech],
       },
     })
+  })
+
+  // ─── Domain nodes ────────────────────────────────────────────────────────────
+  const allDomains = new Set(allSections.flatMap((e) => e.domains ?? []))
+  allDomains.forEach((d) => {
+    addNode({ data: { id: domainId(d), label: d, type: 'domain' } })
+  })
+
+  // ─── Soft skill nodes ─────────────────────────────────────────────────────────
+  const allSoftSkills = new Set(allSections.flatMap((e) => e.soft_skills ?? []))
+  allSoftSkills.forEach((s) => {
+    addNode({ data: { id: softSkillId(s), label: s, type: 'soft_skill' } })
   })
 
   // ─── Education ───────────────────────────────────────────────────────────────
@@ -113,6 +156,8 @@ export function buildGraph(person: Person): GraphData {
     })
     addEdge({ data: { id: `e-${personId}-${work.id}`, source: personId, target: work.id, label: 'worked_at' } })
     linkTechs(work.id, work.technologies)
+    linkDomains(work.id, work.domains)
+    linkSoftSkills(work.id, work.soft_skills)
   })
 
   // ─── Publications ────────────────────────────────────────────────────────────
@@ -129,6 +174,7 @@ export function buildGraph(person: Person): GraphData {
     })
     addEdge({ data: { id: `e-${personId}-${pub.id}`, source: personId, target: pub.id, label: 'authored' } })
     linkTechs(pub.id, pub.technologies)
+    linkDomains(pub.id, pub.domains)
   })
 
   // ─── Projects ────────────────────────────────────────────────────────────────
@@ -144,6 +190,8 @@ export function buildGraph(person: Person): GraphData {
     })
     addEdge({ data: { id: `e-${personId}-${proj.id}`, source: personId, target: proj.id, label: 'built' } })
     linkTechs(proj.id, proj.technologies)
+    linkDomains(proj.id, proj.domains)
+    linkSoftSkills(proj.id, proj.soft_skills)
   })
 
   // ─── Courses ─────────────────────────────────────────────────────────────────
@@ -159,6 +207,7 @@ export function buildGraph(person: Person): GraphData {
     })
     addEdge({ data: { id: `e-${personId}-${cid}`, source: personId, target: cid, label: 'took' } })
     linkTechs(cid, course.technologies)
+    linkDomains(cid, course.domains)
   })
 
   // ─── Awards ──────────────────────────────────────────────────────────────────
@@ -181,6 +230,8 @@ export function buildGraph(person: Person): GraphData {
       },
     })
     addEdge({ data: { id: `e-${personId}-${talk.id}`, source: personId, target: talk.id, label: 'presented' } })
+    linkDomains(talk.id, talk.domains)
+    linkSoftSkills(talk.id, talk.soft_skills)
   })
 
   return { nodes, edges }

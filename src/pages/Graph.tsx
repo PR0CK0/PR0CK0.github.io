@@ -18,6 +18,8 @@ type NodeType =
   | 'publication'
   | 'project'
   | 'skill'
+  | 'domain'
+  | 'soft_skill'
   | 'award'
   | 'talk'
   | 'certificate'
@@ -43,6 +45,8 @@ const NODE_TYPES: NodeType[] = [
   'publication',
   'project',
   'skill',
+  'domain',
+  'soft_skill',
   'award',
   'talk',
   'certificate',
@@ -58,8 +62,10 @@ const TYPE_META: Record<
   work:        { color: '#ffb300', label: 'Work',         shape: 'rectangle', size: 45 },
   publication: { color: '#b57bff', label: 'Publication',  shape: 'ellipse',   size: 35 },
   project:     { color: '#ff4d6d', label: 'Project',      shape: 'triangle',  size: 35 },
-  skill:       { color: '#00d4ff', label: 'Skill',        shape: 'ellipse',   size: 28 },
-  award:       { color: '#ffd700', label: 'Award',        shape: 'star',      size: 35 },
+  skill:       { color: '#00d4ff', label: 'Skill',        shape: 'ellipse',        size: 28 },
+  domain:      { color: '#f472b6', label: 'Domain',       shape: 'ellipse',        size: 24 },
+  soft_skill:  { color: '#a3e635', label: 'Soft Skill',   shape: 'roundrectangle', size: 24 },
+  award:       { color: '#ffd700', label: 'Award',        shape: 'star',           size: 35 },
   talk:        { color: '#ff8800', label: 'Talk',         shape: 'ellipse',   size: 30 },
   certificate: { color: '#aaaaaa', label: 'Certificate',  shape: 'ellipse',   size: 28 },
   course:      { color: '#34d399', label: 'Course',       shape: 'roundrectangle', size: 32 },
@@ -516,7 +522,11 @@ export default function Graph() {
       n.data('label')?.toLowerCase() === q.toLowerCase()
     ).first()
 
-    if (!match.length) return
+    if (!match.length) {
+      // No exact node — fall back to search filter so the term is still useful
+      setSearchQuery(q)
+      return
+    }
 
     selectNodeById(match.data('id') as string)
   }, [phase])
