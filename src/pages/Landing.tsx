@@ -133,7 +133,7 @@ function statusBadge(status?: string) {
   const m = map[status]
   if (!m) return null
   return (
-    <span className={`px-2 py-0.5 rounded text-[10px] font-mono border ${m.cls} whitespace-nowrap`}>
+    <span className={`px-2 py-0.5 rounded text-[8px] sm:text-[10px] font-mono border ${m.cls} whitespace-nowrap`}>
       {m.label}
     </span>
   )
@@ -977,7 +977,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           )}
         </h3>
         {project.year && (
-          <span className="shrink-0 text-[10px] font-mono text-terminal-muted border border-terminal-border
+          <span className="shrink-0 text-[8px] sm:text-[10px] font-mono text-terminal-muted border border-terminal-border
                            rounded px-1.5 py-0.5">
             {formatDate(project.year)}
           </span>
@@ -998,7 +998,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <button
               key={tech}
               onClick={() => navigate(`/graph?q=${encodeURIComponent(tech)}`)}
-              className="text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
+              className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
                          border border-terminal-purple/25 text-terminal-purple/80
                          bg-terminal-purple/5 hover:bg-terminal-purple/15
                          hover:border-terminal-purple/50 hover:text-terminal-purple
@@ -1011,7 +1011,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <div ref={overflowRef} className="relative">
               <button
                 onClick={() => setShowOverflow((v) => !v)}
-                className="text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
+                className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
                            border border-terminal-muted/25 text-terminal-muted
                            bg-terminal-surface/40 hover:bg-terminal-surface/80
                            hover:border-terminal-purple/40 hover:text-terminal-purple/80
@@ -1031,7 +1031,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                       <button
                         key={tech}
                         onClick={() => { navigate(`/graph?q=${encodeURIComponent(tech)}`); setShowOverflow(false) }}
-                        className="text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
+                        className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
                                    border border-terminal-purple/25 text-terminal-purple/80
                                    bg-terminal-purple/5 hover:bg-terminal-purple/15
                                    hover:border-terminal-purple/50 hover:text-terminal-purple
