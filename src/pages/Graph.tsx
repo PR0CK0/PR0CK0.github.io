@@ -214,28 +214,77 @@ function TypeBadge({ type }: { type: NodeType }) {
   )
 }
 
+const BRAILLE = ['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏']
+
+const PHASE_LOGS: Record<'loading' | 'layout', string[]> = {
+  loading: [
+    '[INFO]  fetching portfolio data...',
+    '[INFO]  parsing YAML schema...',
+    '[INFO]  building node index...',
+    '[INFO]  resolving edge weights...',
+    '[INFO]  mapping skill categories...',
+  ],
+  layout: [
+    '[INFO]  initializing cytoscape...',
+    '[INFO]  running cose-bilkent layout...',
+    '[INFO]  computing node positions...',
+    '[INFO]  stabilizing graph...',
+    '[INFO]  rendering edges...',
+  ],
+}
+
+// Braille cycle duration: 10 chars × 80ms each = 800ms total
+const BRAILLE_DURATION_MS = BRAILLE.length * 80
+
 function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
+  const [logIdx, setLogIdx] = useState(0)
+
+  useEffect(() => {
+    setLogIdx(1) // show first line immediately
+    const interval = phase === 'loading' ? 250 : 900
+    const t = setInterval(() => setLogIdx(i => i + 1), interval)
+    return () => clearInterval(t)
+  }, [phase])
+
+  const logs = PHASE_LOGS[phase]
+  const visible = logs.slice(0, Math.min(logIdx, logs.length)).slice(-3)
+  const cmd = phase === 'loading' ? 'python kg.py --load' : 'python kg.py --render cose-bilkent'
+
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10" style={{ background: '#0a0e1a' }}>
-      {/* CSS-only spinner — runs on compositor thread, unaffected by JS blocking */}
-      <div
-        className="rounded-full"
-        style={{
-          width: 28,
-          height: 28,
-          border: '2px solid #1e2d4a',
-          borderTopColor: '#00ff88',
-          animation: 'graph-spin 0.9s linear infinite',
-        }}
-      />
-      <div className="font-mono text-xs flex items-center gap-0" style={{ color: '#4a5a7a' }}>
-        <span style={{ color: '#00ff88', marginRight: 6 }}>$</span>
-        {phase === 'loading' ? 'load_knowledge_graph' : 'render_graph'}
-        <span style={{ animation: 'graph-blink 1s step-end infinite', color: '#00ff88', marginLeft: 1 }}>▮</span>
+    <div className="absolute inset-0 flex flex-col items-center justify-center z-10" style={{ background: '#0a0e1a' }}>
+      {/* Command line — CSS-only braille spinner, unaffected by JS blocking */}
+      <div className="font-mono text-xs flex items-center" style={{ color: '#4a5a7a', gap: 6 }}>
+        <span style={{ position: 'relative', display: 'inline-block', width: '1ch', height: '1em', color: '#00ff88' }}>
+          {BRAILLE.map((char, i) => (
+            <span
+              key={char}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                animation: `braille-frame ${BRAILLE_DURATION_MS}ms step-end ${i * 80}ms infinite`,
+                opacity: 0,
+              }}
+            >
+              {char}
+            </span>
+          ))}
+        </span>
+        <span style={{ color: '#00ff88' }}>$</span>
+        <span>{cmd}</span>
+        <span style={{ animation: 'graph-blink 1s step-end infinite', color: '#00ff88' }}>▮</span>
+      </div>
+      {/* Scrolling log output */}
+      <div className="font-mono flex flex-col mt-3" style={{ fontSize: 10, minHeight: 48, gap: 3 }}>
+        {visible.map((line, i) => (
+          <div key={line} style={{ color: i === visible.length - 1 ? '#3a5a7a' : '#1e2d4a' }}>
+            {line}
+          </div>
+        ))}
       </div>
       <style>{`
-        @keyframes graph-spin  { to { transform: rotate(360deg); } }
-        @keyframes graph-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        @keyframes graph-blink  { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        @keyframes braille-frame { 0% { opacity: 1; } ${100 / BRAILLE.length}% { opacity: 0; } 100% { opacity: 0; } }
       `}</style>
     </div>
   )
@@ -266,15 +315,21 @@ export default function Graph() {
   // ── Load data ────────────────────────────────────────────────────────────────
 
   useEffect(() => {
-    // 250ms: ensures the navbar CSS transition (duration-200) fully completes
-    // before buildGraph/cose-bilkent blocks the main thread.
+    // 250ms: ensures the navbar CSS transition (duration-200) fully completes.
+    // Also enforces a minimum loading phase so the spinner has time to animate
+    // before cose-bilkent's sync init block freezes JS intervals.
+    const mountTime = Date.now()
+    const MIN_LOADING_MS = 900
+
     const timer = setTimeout(() => {
       loadPortfolioData()
         .then((person) => {
           const { nodes, edges } = buildGraph(person)
           setElements([...nodes, ...edges])
           setStats({ nodes: nodes.length, edges: edges.length })
-          setPhase('layout') // spinner stays up; Cytoscape mounts invisibly
+          const elapsed = Date.now() - mountTime
+          const remaining = Math.max(0, MIN_LOADING_MS - elapsed)
+          setTimeout(() => setPhase('layout'), remaining)
         })
         .catch((err) => {
           setError(err.message ?? 'Failed to load graph data')
@@ -717,7 +772,7 @@ export default function Graph() {
               graph controls
             </span>
             <span className="text-[0.55rem]" style={{ color: '#4a5a7a' }}>
-              {stats.nodes}n · {stats.edges}e
+              {phase === 'ready' ? `${stats.nodes}n · ${stats.edges}e` : 'loading...'}
             </span>
           </span>
           <span className="text-xs" style={{ color: '#4a5a7a' }}>
@@ -737,7 +792,9 @@ export default function Graph() {
                 Tyler Procko's Knowledge Graph
               </div>
               <div className="text-xs" style={{ color: '#4a5a7a' }}>
-                {stats.nodes} nodes &middot; {stats.edges} edges
+                {phase === 'ready'
+                  ? `${stats.nodes} nodes · ${stats.edges} edges`
+                  : phase === 'layout' ? 'rendering graph...' : 'loading graph...'}
               </div>
             </div>
           )}

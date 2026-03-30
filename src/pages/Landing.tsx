@@ -568,12 +568,12 @@ function StatsBar({ stats }: { stats: Stat[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.07, duration: 0.4 }}
-            className="flex flex-col items-center px-2 sm:px-5 ls:px-2 py-3 sm:py-4 ls:py-3"
+            className="flex flex-col items-center px-1 sm:px-5 ls:px-2 py-2 sm:py-4 ls:py-3"
           >
-            <span className="text-lg sm:text-xl ls:text-lg font-mono font-bold text-terminal-green text-glow-green text-center">
+            <span className="text-sm sm:text-xl ls:text-lg font-mono font-bold text-terminal-green text-glow-green text-center">
               {s.value}
             </span>
-            <span className="text-xs font-mono text-terminal-muted mt-1 tracking-widest uppercase text-center">
+            <span className="text-[10px] sm:text-xs font-mono text-terminal-muted mt-1 tracking-widest uppercase text-center">
               {s.label}
             </span>
           </motion.div>
