@@ -3,11 +3,11 @@ import { useSearchParams } from 'react-router-dom'
 import CytoscapeComponent from 'react-cytoscapejs'
 import cytoscape from 'cytoscape'
 // @ts-ignore — no bundled types for default import
-import coseBilkent from 'cytoscape-cose-bilkent'
+import fcose from 'cytoscape-fcose'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import { buildGraph, type CyNode, type CyEdge } from '@/lib/graph-builder'
 
-cytoscape.use(coseBilkent)
+cytoscape.use(fcose)
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -81,7 +81,7 @@ const TYPE_META: Record<
 }
 
 const LAYOUT_OPTIONS = {
-  name: 'cose-bilkent',
+  name: 'fcose',
   animate: 'end',
   animationEasing: 'ease-out',
   animationDuration: 1000,
@@ -90,7 +90,13 @@ const LAYOUT_OPTIONS = {
   idealEdgeLength: 100,
   nodeRepulsion: 8000,
   numIter: 2500,
+  // fcose-specific: improves quality for dense graphs
+  sampleSize: 25,
+  nodeSeparation: 75,
+  piTol: 0.0000001,
 }
+
+const LAYOUT_CACHE_PREFIX = 'graph-layout-v2'
 
 // ─── Cytoscape stylesheet ──────────────────────────────────────────────────────
 
@@ -231,42 +237,14 @@ function TypeBadge({ type }: { type: NodeType }) {
 
 const BRAILLE = ['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏']
 
-const PHASE_LOGS: Record<'loading' | 'layout', string[]> = {
-  loading: [
-    '[INFO]  fetching portfolio data...',
-    '[INFO]  parsing YAML schema...',
-    '[INFO]  validating entries...',
-    '[INFO]  building node index...',
-    '[INFO]  resolving edge weights...',
-    '[INFO]  mapping skill categories...',
-    '[INFO]  indexing domains...',
-    '[INFO]  initializing cytoscape...',
-  ],
-  layout: [
-    '[INFO]  running cose-bilkent layout...',
-    '[INFO]  computing node positions...',
-    '[INFO]  stabilizing graph...',
-    '[INFO]  rendering edges...',
-    '[INFO]  ready.',
-  ],
-}
-
 // Braille cycle duration: 10 chars × 80ms each = 800ms total
 const BRAILLE_DURATION_MS = BRAILLE.length * 80
 
 function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
-  const [logIdx, setLogIdx] = useState(0)
-
-  useEffect(() => {
-    setLogIdx(1) // show first line immediately
-    const interval = phase === 'loading' ? 750 : 900
-    const t = setInterval(() => setLogIdx(i => i + 1), interval)
-    return () => clearInterval(t)
-  }, [phase])
-
-  const logs = PHASE_LOGS[phase]
-  const visible = logs.slice(0, Math.min(logIdx, logs.length)).slice(-3)
-  const cmd = phase === 'loading' ? 'python kg.py --load' : 'python kg.py --render cose-bilkent'
+  const lines = phase === 'loading'
+    ? ['[INFO]  loading portfolio data...', '[WAIT]  running layout engine...']
+    : ['[WAIT]  running layout engine...']
+  const cmd = phase === 'loading' ? 'python kg.py --load' : 'python kg.py --render fcose'
 
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center z-10" style={{ background: '#0a0e1a' }}>
@@ -294,8 +272,8 @@ function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
       </div>
       {/* Scrolling log output */}
       <div className="font-mono flex flex-col mt-3" style={{ fontSize: 10, minHeight: 48, gap: 3 }}>
-        {visible.map((line, i) => (
-          <div key={line} style={{ color: i === visible.length - 1 ? '#3a5a7a' : '#1e2d4a' }}>
+        {lines.map((line, i) => (
+          <div key={line} style={{ color: i === lines.length - 1 ? '#3a5a7a' : '#1e2d4a' }}>
             {line}
           </div>
         ))}
@@ -312,9 +290,11 @@ function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
 
 export default function Graph() {
   const cyRef = useRef<cytoscape.Core | null>(null)
+  const layoutCacheKeyRef = useRef<string>('')
   const [searchParams] = useSearchParams()
 
   const [elements, setElements] = useState<(CyNode | CyEdge)[]>([])
+  const [activeLayout, setActiveLayout] = useState<object>(LAYOUT_OPTIONS)
   const [phase, setPhase] = useState<'loading' | 'layout' | 'ready'>('loading')
   const [error, setError] = useState<string | null>(null)
 
@@ -334,21 +314,20 @@ export default function Graph() {
 
   useEffect(() => {
     // 250ms: ensures the navbar CSS transition (duration-200) fully completes.
-    // mountTime used to enforce a minimum loading phase — without it, cached
-    // YAML resolves as a microtask and cose-bilkent blocks before any log
-    // lines can cycle.
-    const mountTime = Date.now()
-    const MIN_LOADING_MS = 3000
-
     const timer = setTimeout(() => {
       loadPortfolioData()
         .then((person) => {
           const { nodes, edges } = buildGraph(person)
+          const cacheKey = `${LAYOUT_CACHE_PREFIX}-${nodes.length}`
+          layoutCacheKeyRef.current = cacheKey
+          let saved: Record<string, { x: number; y: number }> | null = null
+          try { saved = JSON.parse(localStorage.getItem(cacheKey) ?? 'null') } catch { /* ignore */ }
+          if (saved) {
+            setActiveLayout({ name: 'preset', positions: (n: cytoscape.NodeSingular) => saved![n.id()], fit: true, padding: 40 })
+          }
           setElements([...nodes, ...edges])
           setStats({ nodes: nodes.length, edges: edges.length })
-          const elapsed = Date.now() - mountTime
-          const remaining = Math.max(0, MIN_LOADING_MS - elapsed)
-          setTimeout(() => setPhase('layout'), remaining)
+          setPhase('layout')
         })
         .catch((err) => {
           setError(err.message ?? 'Failed to load graph data')
@@ -431,8 +410,18 @@ export default function Graph() {
     cyRef.current = cy
     setCyReady(true)
 
-    // Reveal graph after first layout completes
-    cy.one('layoutstop', () => setPhase('ready'))
+    // Reveal graph after first layout completes; save positions for cache
+    cy.one('layoutstop', () => {
+      setPhase('ready')
+      const key = layoutCacheKeyRef.current
+      if (key) {
+        try {
+          const positions: Record<string, { x: number; y: number }> = {}
+          cy.nodes().forEach((n) => { positions[n.id()] = n.position() })
+          localStorage.setItem(key, JSON.stringify(positions))
+        } catch { /* quota exceeded or private mode */ }
+      }
+    })
 
     // Re-apply type visibility after cy is ready
     NODE_TYPES.forEach((type) => {
@@ -551,6 +540,9 @@ export default function Graph() {
   const runLayout = useCallback(() => {
     const cy = cyRef.current
     if (!cy) return
+    // Clear cache so positions get recomputed and re-saved after this run
+    const key = layoutCacheKeyRef.current
+    if (key) { try { localStorage.removeItem(key) } catch { /* ignore */ } }
     cy.layout(LAYOUT_OPTIONS as cytoscape.LayoutOptions).run()
   }, [])
 
@@ -897,7 +889,7 @@ export default function Graph() {
             <CytoscapeComponent
               elements={elements}
               stylesheet={buildStylesheet() as never}
-              layout={LAYOUT_OPTIONS as cytoscape.LayoutOptions}
+              layout={activeLayout as cytoscape.LayoutOptions}
               style={{ width: '100%', height: '100%' }}
               cy={handleCyReady}
               minZoom={0.05}
