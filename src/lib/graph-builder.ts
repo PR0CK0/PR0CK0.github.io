@@ -224,6 +224,18 @@ export function buildGraph(person: Person): GraphData {
     addEdge({ data: { id: `e-${personId}-${award.id}`, source: personId, target: award.id, label: 'received' } })
   })
 
+  // ─── Certificates ────────────────────────────────────────────────────────────
+  person.certificates?.forEach((cert) => {
+    if (cert.deprecated) return
+    addNode({
+      data: { id: cert.id, label: cert.title, type: 'certificate', subtitle: cert.issuer, year: cert.date?.slice(0, 4), url: cert.url },
+    })
+    addEdge({ data: { id: `e-${personId}-${cert.id}`, source: personId, target: cert.id, label: 'earned' } })
+    linkTechs(cert.id, cert.technologies)
+    linkDomains(cert.id, cert.domains)
+    linkSoftSkills(cert.id, cert.soft_skills)
+  })
+
   // ─── Talks ───────────────────────────────────────────────────────────────────
   person.talks?.forEach((talk) => {
     addNode({

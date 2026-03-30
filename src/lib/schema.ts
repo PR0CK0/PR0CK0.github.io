@@ -86,7 +86,11 @@ export const CertificateSchema = z.object({
   issuer: z.string().optional(),
   date: z.string().optional(),
   status: z.enum(['completed', 'in_progress']).optional(),
+  deprecated: z.boolean().optional(),
   url: z.string().optional(),
+  technologies: z.array(z.string()).optional(),
+  domains: z.array(z.string()).optional(),
+  soft_skills: z.array(z.string()).optional(),
 })
 
 export const TalkSchema = z.object({
