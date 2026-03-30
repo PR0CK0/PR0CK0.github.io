@@ -916,7 +916,7 @@ export default function Graph() {
 
   return (
     <div
-      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-[calc(100dvh-65px)] sm:h-[calc(100dvh-79px)]"
+      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-[calc(100dvh-65px)] sm:h-[calc(100dvh-79px)] max-w-[100vw]"
       style={{ background: '#0a0e1a' }}
     >
       <SEO
