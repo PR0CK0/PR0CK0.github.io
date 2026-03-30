@@ -613,21 +613,10 @@ export default function Graph() {
       return
     }
 
-    // Ensure the matched node's type is enabled in the filter
-    const nodeType = match.data('type') as NodeType
-    if (!enabledTypesRef.current.has(nodeType)) {
-      // Show the node and its edges immediately so selectNodeById works
+    // Show just this node if its type is filtered out (don't enable the whole type)
+    if (!match.visible()) {
       ;(match as any).show()
-      ;(match as any).connectedEdges().forEach((e: any) => {
-        if (e.source().visible() && e.target().visible()) e.show()
-      })
       expandedNodesRef.current.add(match.data('id') as string)
-      // Update filter state to include this type
-      setEnabledTypes((prev) => {
-        const next = new Set(prev)
-        next.add(nodeType)
-        return next
-      })
     }
 
     selectNodeById(match.data('id') as string)
