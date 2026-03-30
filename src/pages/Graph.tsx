@@ -235,9 +235,12 @@ const PHASE_LOGS: Record<'loading' | 'layout', string[]> = {
   loading: [
     '[INFO]  fetching portfolio data...',
     '[INFO]  parsing YAML schema...',
+    '[INFO]  validating entries...',
     '[INFO]  building node index...',
     '[INFO]  resolving edge weights...',
     '[INFO]  mapping skill categories...',
+    '[INFO]  indexing domains...',
+    '[INFO]  ready.',
   ],
   layout: [
     '[INFO]  initializing cytoscape...',
@@ -256,7 +259,7 @@ function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
 
   useEffect(() => {
     setLogIdx(1) // show first line immediately
-    const interval = phase === 'loading' ? 500 : 900
+    const interval = phase === 'loading' ? 750 : 900
     const t = setInterval(() => setLogIdx(i => i + 1), interval)
     return () => clearInterval(t)
   }, [phase])
@@ -334,7 +337,7 @@ export default function Graph() {
     // Also enforces a minimum loading phase so the spinner has time to animate
     // before cose-bilkent's sync init block freezes JS intervals.
     const mountTime = Date.now()
-    const MIN_LOADING_MS = 2000
+    const MIN_LOADING_MS = 3500
 
     const timer = setTimeout(() => {
       loadPortfolioData()
