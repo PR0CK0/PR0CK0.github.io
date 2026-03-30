@@ -100,7 +100,7 @@ const LAYOUT_OPTIONS = {
   piTol: 0.0000001,
 }
 
-const LAYOUT_CACHE_PREFIX = 'graph-layout-v4'
+const LAYOUT_CACHE_PREFIX = 'graph-layout-v5'
 
 // ─── Cytoscape stylesheet ──────────────────────────────────────────────────────
 
@@ -349,6 +349,9 @@ export default function Graph() {
     if (phase !== 'layout') return
     const cy = cyRef.current
     if (!cy || !cyReady) return
+
+    // Ensure all nodes are visible for layout computation (filter applies after)
+    ;(cy.elements() as any).show()
 
     const saved = savedPositionsRef.current
     const opts: cytoscape.LayoutOptions = saved
