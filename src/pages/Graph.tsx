@@ -240,14 +240,14 @@ const PHASE_LOGS: Record<'loading' | 'layout', string[]> = {
     '[INFO]  resolving edge weights...',
     '[INFO]  mapping skill categories...',
     '[INFO]  indexing domains...',
-    '[INFO]  ready.',
+    '[INFO]  initializing cytoscape...',
   ],
   layout: [
-    '[INFO]  initializing cytoscape...',
     '[INFO]  running cose-bilkent layout...',
     '[INFO]  computing node positions...',
     '[INFO]  stabilizing graph...',
     '[INFO]  rendering edges...',
+    '[INFO]  ready.',
   ],
 }
 
@@ -338,7 +338,7 @@ export default function Graph() {
     // YAML resolves as a microtask and cose-bilkent blocks before any log
     // lines can cycle.
     const mountTime = Date.now()
-    const MIN_LOADING_MS = 1500
+    const MIN_LOADING_MS = 3000
 
     const timer = setTimeout(() => {
       loadPortfolioData()
