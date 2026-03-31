@@ -83,7 +83,10 @@ function ResumePdfDocument({ data }: { data: CVData }) {
               </View>
             ))}
           </View>
-          <Text style={S.lastUpdated}>Last Updated: {h.lastUpdated}</Text>
+          <Text style={S.lastUpdated}>
+            {h.lastUpdated}{' – '}
+            <Link src={h.sourceUrl} style={{ color: '#1a6bbf', textDecoration: 'none', fontSize: 7.5 }}>View live version</Link>
+          </Text>
         </View>
 
         {/* Sections */}
@@ -179,7 +182,10 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
             </span>
           ))}
         </div>
-        <div style={HS.lastUpdated}>Last Updated: {h.lastUpdated}</div>
+        <div style={HS.lastUpdated}>
+          {h.lastUpdated}{' – '}
+          <a href={h.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>View live version</a>
+        </div>
       </div>
 
       {data.sections.map((sec, si) => (

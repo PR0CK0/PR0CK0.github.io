@@ -48,6 +48,7 @@ export interface CVHeaderData {
   contactLines: string[]
   links: CVLink[]
   lastUpdated: string
+  sourceUrl: string
   logoSrc?: string
 }
 
@@ -139,11 +140,12 @@ export function buildCVData(person: Person, buildDate: string): CVData {
   if (scholar) links.push({ label: 'Google Scholar', url: scholar.url })
   if (person.orcid) links.push({ label: 'ORCID', url: `https://orcid.org/${person.orcid}` })
 
-  const lastUpdated = new Date(buildDate).toLocaleDateString('en-US', {
-    month: 'short',
+  const dateStr = new Date(buildDate).toLocaleDateString('en-US', {
+    month: 'long',
     day: 'numeric',
     year: 'numeric',
   })
+  const lastUpdated = `Last updated ${dateStr}`
 
   const header: CVHeaderData = {
     name: person.name,
@@ -151,6 +153,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     contactLines,
     links,
     lastUpdated,
+    sourceUrl: 'https://procko.pro/cv',
   }
 
   // ── Sections ────────────────────────────────────────────────────────────
@@ -364,7 +367,8 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
       github && { label: 'GitHub', url: `https://github.com/${github.handle}` },
       person.website && { label: person.website.replace('https://', ''), url: person.website },
     ].filter(Boolean) as CVLink[],
-    lastUpdated: new Date(buildDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+    lastUpdated: `Last updated ${new Date(buildDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`,
+    sourceUrl: 'https://procko.pro/resume',
   }
 
   const sections: CVSection[] = []
