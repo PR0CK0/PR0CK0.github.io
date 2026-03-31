@@ -1,5 +1,15 @@
 # TODO
 
+## Full manual audit — legacy view + PDF review pass
+
+Comprehensive 1-by-1 audit of every publication and project. Upload each PDF/repo to Claude, extract all technologies, domains, and soft skills that are missing. Cross-reference with the legacy CV HTML view to catch anything the YAML doesn't cover.
+
+- [ ] Walk through legacy view (`/legacy`) entry by entry, compare against YAML for completeness
+- [ ] For each publication: upload the PDF, grep for tools/languages/frameworks/ontologies/datasets, update YAML
+- [ ] For each project: clone or browse the repo, identify all technologies used, update YAML
+- [ ] Verify no entries are missing from the YAML that appear in the legacy view
+- [ ] Reconcile any discrepancies between legacy CV content and YAML data
+
 ## Publications — add technologies (needs PDF review)
 
 Domains are done for all 40 pubs. Technologies still need a PDF review pass.
