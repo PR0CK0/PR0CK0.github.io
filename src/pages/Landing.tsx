@@ -544,7 +544,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.6 }}
-              className="text-terminal-muted text-xs font-mono flex flex-col items-center gap-1"
+              className="text-terminal-muted text-[0.6rem] sm:text-xs font-mono flex flex-col items-center gap-0.5 sm:gap-1"
             >
               <span>scroll</span>
               <span>↓</span>

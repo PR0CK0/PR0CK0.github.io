@@ -81,7 +81,7 @@ export default function Layout({ children }: LayoutProps) {
           />
         </div>
       </nav>
-      <div className="bg-red-950/60 border-b border-red-500/40 px-3 py-1 sm:py-1.5 text-center font-mono text-[0.65rem] sm:text-xs text-red-400/90 tracking-wide">
+      <div className="bg-red-950/60 border-b border-red-500/40 px-2 py-0.5 sm:px-3 sm:py-1.5 text-center font-mono text-[0.55rem] sm:text-xs text-red-400/90 tracking-wide">
         ⚠ under construction — content and features are incomplete
       </div>
       <main className="flex-1 overflow-auto min-h-0">
