@@ -1689,11 +1689,31 @@ publications:
   - transformers
   - NLP
   technologies:
+  - Python
+  - spaCy
+  - REBEL
+  - BART
+  - Hugging Face
+  - Neo4j
+  - GraphDB
+  - SPARQL
+  - Protégé
+  - OWL
+  - RDF
+  - RDFS
+  - pdfplumber
   - Microsoft Word
   domains:
   - Knowledge Graphs
   - NLP
+  - Semantic Web
+  - Linked Data
+  - Ontology
+  - Relationship Extraction
+  - Knowledge Representation
+  - Education
   - Software Engineering
+  - SDLC
   - Taxonomy
   - Text Extraction
   - Scientific Writing
@@ -1744,6 +1764,7 @@ publications:
   - Agile
   - Education
   - Software Engineering
+  - Cognitive Science
   - Scientific Writing
 - id: pub/validating-security-requirements-kg
   title: Validating Security Requirement Specifications through the use of a Knowledge
@@ -1809,12 +1830,31 @@ publications:
   - semantic web
   - machine learning
   technologies:
+  - Java
+  - Python
+  - Keras
+  - OWL
+  - RDF
+  - RDFS
+  - Protégé
+  - DL-Learner
+  - SUMO
+  - WordNet
+  - ImageNet
+  - ADE20K
+  - Eclipse
   - Microsoft Word
   domains:
   - XAI
-  - Semantic Web
   - Machine Learning
+  - ML Provenance
+  - Semantic Web
   - Linked Data
+  - Knowledge Graphs
+  - Computer Vision
+  - Ontology
+  - Description Logics
+  - FOL
   - Scientific Writing
   soft_skills:
   - Virtual Presentation
