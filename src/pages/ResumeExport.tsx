@@ -303,7 +303,7 @@ export default function ResumeExport() {
             )
           })()}
 
-          <a href="/data/tyler-procko.yaml" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/PR0CK0/PR0CK0.github.io/blob/main/public/data/tyler-procko.yaml" target="_blank" rel="noopener noreferrer">
             <button className="px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-800 border border-gray-600 text-gray-300 text-xs sm:text-sm font-mono hover:bg-gray-700 transition-colors rounded">
               {'<>'} View Raw YAML
             </button>
