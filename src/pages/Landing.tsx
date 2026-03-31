@@ -922,6 +922,7 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
             className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted hover:text-terminal-blue transition-colors"
           >
             <motion.span
+              style={{ display: 'inline-block' }}
               animate={{ x: [0, 4, 0, -4, 0] }}
               transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
             >
@@ -1156,6 +1157,7 @@ function RecentReposSection({ projects }: { projects: Project[] }) {
           className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted hover:text-terminal-amber transition-colors"
         >
           <motion.span
+            style={{ display: 'inline-block' }}
             animate={{ x: [0, 4, 0, -4, 0] }}
             transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
           >
