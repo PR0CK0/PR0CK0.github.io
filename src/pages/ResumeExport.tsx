@@ -261,12 +261,14 @@ function ResumeDocument({ person }: { person: Person }) {
             {person.work_experiences!.map(exp => (
               <View key={exp.id} style={pdfStyles.entryBlock}>
                 <View style={pdfStyles.entryRow}>
-                  <Text style={pdfStyles.entryTitle}>{exp.title}</Text>
+                  <Text style={{ ...pdfStyles.entryTitle, flex: 1 }}>
+                    {exp.title}
+                    <Text style={{ fontWeight: 'normal', fontStyle: 'italic', color: '#333' }}>
+                      {' – '}{exp.organization}{exp.location ? `, ${exp.location}` : ''}
+                    </Text>
+                  </Text>
                   <Text style={pdfStyles.entryDate}>{formatDateRange(exp.start_date, exp.end_date, exp.is_current)}</Text>
                 </View>
-                <Text style={pdfStyles.entrySubtitle}>
-                  {exp.organization}{exp.location ? `  |  ${exp.location}` : ''}
-                </Text>
                 {exp.description?.map((d, i) => (
                   <View key={i} style={pdfStyles.bulletRow}>
                     <Text style={pdfStyles.bullet}>•</Text>

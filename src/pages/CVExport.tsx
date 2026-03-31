@@ -8,115 +8,159 @@ import {
   PDFDownloadLink,
   PDFViewer,
   Link,
+  Font,
+  Image,
 } from '@react-pdf/renderer'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import type { Person, Skill } from '@/lib/schema'
 import SEO from '@/components/SEO'
+import erauLogo from '@/assets/erau-logo.png'
+
+// ─── Custom Fonts (Caladea ≈ Cambria, Carlito ≈ Calibri) ────────────────────
+import CaladeaRegular from '@/fonts/caladea/Caladea-Regular.ttf'
+import CaladeaBold from '@/fonts/caladea/Caladea-Bold.ttf'
+import CaladeaItalic from '@/fonts/caladea/Caladea-Italic.ttf'
+import CaladeaBoldItalic from '@/fonts/caladea/Caladea-BoldItalic.ttf'
+import CarlitoBold from '@/fonts/carlito/Carlito-Bold.ttf'
+
+Font.register({
+  family: 'Caladea',
+  fonts: [
+    { src: CaladeaRegular, fontWeight: 'normal', fontStyle: 'normal' },
+    { src: CaladeaBold, fontWeight: 'bold', fontStyle: 'normal' },
+    { src: CaladeaItalic, fontWeight: 'normal', fontStyle: 'italic' },
+    { src: CaladeaBoldItalic, fontWeight: 'bold', fontStyle: 'italic' },
+  ],
+})
+
+Font.register({
+  family: 'Carlito',
+  fonts: [
+    { src: CarlitoBold, fontWeight: 'bold' },
+  ],
+})
+
+/** Format GPA: 4 → "4.0", 3.93 → "3.93", 3 → "3.0" */
+function fmtGpa(n: number): string {
+  return Number.isInteger(n) ? n.toFixed(1) : String(n)
+}
 
 // ─── PDF Styles ────────────────────────────────────────────────────────────────
 
 const pdfStyles = StyleSheet.create({
   page: {
-    fontFamily: 'Helvetica',
+    fontFamily: 'Caladea',
     fontSize: 10,
     color: '#111111',
-    paddingTop: 40,
-    paddingBottom: 40,
-    paddingHorizontal: 48,
+    paddingTop: 36,
+    paddingBottom: 36,
+    paddingHorizontal: 44,
     lineHeight: 1.4,
   },
   // Header
   headerSection: {
-    marginBottom: 14,
+    marginBottom: 10,
   },
   name: {
-    fontSize: 20,
-    fontFamily: 'Helvetica-Bold',
-    color: '#1a3a6b',
-    marginBottom: 2,
+    fontSize: 22,
+    fontFamily: 'Carlito',
+    fontWeight: 'bold',
+    color: '#2E74B5',
+    marginBottom: 1,
   },
   title: {
-    fontSize: 11,
-    color: '#333333',
-    marginBottom: 6,
+    fontSize: 10,
+    color: '#444444',
+    fontStyle: 'italic',
+    marginBottom: 4,
   },
   contactRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
+    gap: 4,
+    marginBottom: 1,
   },
   contactItem: {
-    fontSize: 9,
+    fontSize: 8.5,
     color: '#444444',
-    marginRight: 12,
   },
   contactLink: {
-    fontSize: 9,
-    color: '#1a6bbf',
-    marginRight: 12,
+    fontSize: 8.5,
+    color: '#2E74B5',
+  },
+  contactSep: {
+    fontSize: 8.5,
+    color: '#999999',
   },
   // Section headers
   sectionHeader: {
-    fontSize: 14,
-    fontFamily: 'Helvetica-Bold',
-    color: '#1a3a6b',
-    marginTop: 12,
-    marginBottom: 4,
-    paddingBottom: 2,
-    borderBottomWidth: 1,
-    borderBottomColor: '#1a3a6b',
+    fontSize: 11,
+    fontWeight: 'bold',
+    color: '#2E74B5',
+    marginTop: 8,
+    marginBottom: 3,
+    paddingBottom: 1,
+    borderBottomWidth: 0.75,
+    borderBottomColor: '#2E74B5',
     borderBottomStyle: 'solid',
   },
   // Summary
   summaryText: {
-    fontSize: 9.5,
+    fontSize: 8.5,
     color: '#222222',
     lineHeight: 1.5,
   },
   // Education
   entryRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     marginBottom: 1,
   },
+  entryContent: {
+    flex: 83,
+    paddingRight: 6,
+  },
+  entryDateCol: {
+    flex: 17,
+    alignItems: 'flex-end',
+  },
   entryTitle: {
-    fontFamily: 'Helvetica-Bold',
-    fontSize: 10,
+    fontWeight: 'bold',
+    fontSize: 9,
     color: '#111111',
-    flex: 1,
   },
   entryDate: {
-    fontSize: 9,
+    fontSize: 8,
     color: '#555555',
+    fontStyle: 'italic',
     textAlign: 'right',
   },
   entrySubtitle: {
-    fontSize: 9.5,
+    fontSize: 8.5,
     color: '#333333',
     marginBottom: 1,
   },
   entryNote: {
-    fontSize: 9,
+    fontSize: 8,
     color: '#444444',
     marginLeft: 8,
   },
   entryBlock: {
-    marginBottom: 7,
+    marginBottom: 5,
   },
   // Bullets
   bulletRow: {
     flexDirection: 'row',
-    marginBottom: 2,
+    marginBottom: 1.5,
     marginLeft: 4,
   },
   bullet: {
-    fontSize: 9.5,
+    fontSize: 8.5,
     color: '#333333',
     marginRight: 4,
-    width: 10,
+    width: 8,
   },
   bulletText: {
-    fontSize: 9.5,
+    fontSize: 8.5,
     color: '#333333',
     flex: 1,
     lineHeight: 1.4,
@@ -126,12 +170,12 @@ const pdfStyles = StyleSheet.create({
     marginBottom: 4,
   },
   skillCategoryLabel: {
-    fontFamily: 'Helvetica-Bold',
-    fontSize: 9.5,
-    color: '#1a3a6b',
+    fontWeight: 'bold',
+    fontSize: 8.5,
+    color: '#2E74B5',
   },
   skillCategoryItems: {
-    fontSize: 9.5,
+    fontSize: 8.5,
     color: '#333333',
   },
   skillRow: {
@@ -226,35 +270,41 @@ function CVDocument({ person }: { person: Person }) {
     <Document title={`${person.name} — CV`} author={person.name}>
       <Page size="LETTER" style={pdfStyles.page}>
         {/* ── Header ── */}
-        <View style={pdfStyles.headerSection}>
-          <Text style={pdfStyles.name}>{person.name}</Text>
-          {person.title && <Text style={pdfStyles.title}>{person.title}</Text>}
-          <View style={pdfStyles.contactRow}>
-            {person.email_personal && (
-              <Text style={pdfStyles.contactItem}>{person.email_personal}</Text>
-            )}
-            {person.phone && (
-              <Text style={pdfStyles.contactItem}>{person.phone}</Text>
-            )}
-            {person.location && (
-              <Text style={pdfStyles.contactItem}>{person.location} · Remote</Text>
-            )}
-            {linkedin && (
-              <Link src={`https://linkedin.com/in/${linkedin.handle}`} style={pdfStyles.contactLink}>linkedin.com/in/{linkedin.handle}</Link>
-            )}
-            {github && (
-              <Link src={`https://github.com/${github.handle}`} style={pdfStyles.contactLink}>github.com/{github.handle}</Link>
-            )}
-            {person.website && (
-              <Link src={person.website} style={pdfStyles.contactLink}>{person.website.replace('https://', '')}</Link>
-            )}
-            {person.orcid && (
-              <Link src={`https://orcid.org/${person.orcid}`} style={pdfStyles.contactLink}>orcid.org/{person.orcid}</Link>
-            )}
-            <Text style={{ ...pdfStyles.contactItem, color: '#888', fontSize: 8 }}>
+        <View style={{ ...pdfStyles.headerSection, flexDirection: 'row', justifyContent: 'space-between' }}>
+          {/* Left: text */}
+          <View style={{ flex: 1 }}>
+            <Text style={pdfStyles.name}>{person.name}</Text>
+            {person.title && <Text style={pdfStyles.title}>{person.title.replace(/·/g, '\u00A0·\u00A0')}</Text>}
+            {/* Line 1: location | phone */}
+            <Text style={pdfStyles.contactItem}>
+              {[person.location && `${person.location} · Remote`, person.phone].filter(Boolean).join('  |  ')}
+            </Text>
+            {/* Line 2: emails */}
+            <Text style={pdfStyles.contactItem}>
+              {[person.email_personal, person.email_academic].filter(Boolean).join('  |  ')}
+            </Text>
+            {/* Line 3: links (clickable) */}
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 2, marginTop: 1 }}>
+              {linkedin && (
+                <><Link src={`https://linkedin.com/in/${linkedin.handle}`} style={pdfStyles.contactLink}>LinkedIn</Link><Text style={pdfStyles.contactSep}>{'\u00A0\u00A0|\u00A0\u00A0'}</Text></>
+              )}
+              {github && (
+                <><Link src={`https://github.com/${github.handle}`} style={pdfStyles.contactLink}>GitHub</Link><Text style={pdfStyles.contactSep}>{'\u00A0\u00A0|\u00A0\u00A0'}</Text></>
+              )}
+              {person.website && (
+                <><Link src={person.website} style={pdfStyles.contactLink}>{person.website.replace('https://', '')}</Link><Text style={pdfStyles.contactSep}>{'\u00A0\u00A0|\u00A0\u00A0'}</Text></>
+              )}
+              {person.orcid && (
+                <Link src={`https://orcid.org/${person.orcid}`} style={pdfStyles.contactLink}>ORCID</Link>
+              )}
+            </View>
+            {/* Line 4: last updated */}
+            <Text style={{ fontSize: 7.5, color: '#999', marginTop: 2 }}>
               Last Updated: {new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
             </Text>
           </View>
+          {/* Right: ERAU logo */}
+          <Image src={erauLogo} style={{ width: 70, height: 70, objectFit: 'contain' }} />
         </View>
 
         {/* ── Summary ── */}
@@ -270,37 +320,39 @@ function CVDocument({ person }: { person: Person }) {
           <>
             <Text style={pdfStyles.sectionHeader}>Education</Text>
             {person.education!.map(edu => (
-              <View key={edu.id} style={pdfStyles.entryBlock}>
-                <View style={pdfStyles.entryRow}>
+              <View key={edu.id} style={{ ...pdfStyles.entryBlock, ...pdfStyles.entryRow }}>
+                <View style={pdfStyles.entryContent}>
                   <Text style={pdfStyles.entryTitle}>{edu.degree}{edu.field && edu.field !== edu.degree ? ` in ${edu.field}` : ''}</Text>
+                  <Text style={pdfStyles.entrySubtitle}>
+                    <Text style={{ fontStyle: 'italic' }}>{edu.institution}</Text>
+                    {edu.gpa ? `  |  GPA: ${fmtGpa(edu.gpa)}/${fmtGpa(edu.gpa_max ?? 4.0)}` : ''}
+                  </Text>
+                  {edu.thesis_title && (
+                    <Text style={pdfStyles.entryNote}>• {edu.thesis_label ?? 'Thesis'}:{' '}
+                      {edu.thesis_url ? (
+                        <Link src={edu.thesis_url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.thesis_title}</Link>
+                      ) : edu.thesis_title}
+                    </Text>
+                  )}
+                  {edu.thesis_github && (
+                    <Text style={pdfStyles.entryNote}>• GitHub:{' '}
+                      <Link src={edu.thesis_github} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.thesis_github}</Link>
+                    </Text>
+                  )}
+                  {edu.advisor && (
+                    <Text style={pdfStyles.entryNote}>• Advisor:{' '}
+                      {edu.advisor_url ? (
+                        <Link src={edu.advisor_url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.advisor}</Link>
+                      ) : edu.advisor}
+                    </Text>
+                  )}
+                  {edu.notes?.map((note, i) => (
+                    <Text key={i} style={pdfStyles.entryNote}>• {note}</Text>
+                  ))}
+                </View>
+                <View style={pdfStyles.entryDateCol}>
                   <Text style={pdfStyles.entryDate}>{formatDateRange(edu.start_date, edu.end_date)}</Text>
                 </View>
-                <Text style={pdfStyles.entrySubtitle}>
-                  <Text style={{ fontStyle: 'italic' }}>{edu.institution}</Text>
-                  {edu.gpa ? `  |  GPA: ${String(edu.gpa)}/${String(edu.gpa_max ?? 4.0)}` : ''}
-                </Text>
-                {edu.thesis_title && (
-                  <Text style={pdfStyles.entryNote}>• {edu.thesis_label ?? 'Thesis'}:{' '}
-                    {edu.thesis_url ? (
-                      <Link src={edu.thesis_url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.thesis_title}</Link>
-                    ) : edu.thesis_title}
-                  </Text>
-                )}
-                {edu.thesis_github && (
-                  <Text style={pdfStyles.entryNote}>• GitHub:{' '}
-                    <Link src={edu.thesis_github} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.thesis_github}</Link>
-                  </Text>
-                )}
-                {edu.advisor && (
-                  <Text style={pdfStyles.entryNote}>• Advisor:{' '}
-                    {edu.advisor_url ? (
-                      <Link src={edu.advisor_url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.advisor}</Link>
-                    ) : edu.advisor}
-                  </Text>
-                )}
-                {edu.notes?.map((note, i) => (
-                  <Text key={i} style={pdfStyles.entryNote}>• {note}</Text>
-                ))}
               </View>
             ))}
           </>
@@ -311,20 +363,24 @@ function CVDocument({ person }: { person: Person }) {
           <>
             <Text style={pdfStyles.sectionHeader}>Work Experience</Text>
             {person.work_experiences!.map(exp => (
-              <View key={exp.id} style={pdfStyles.entryBlock}>
-                <View style={pdfStyles.entryRow}>
-                  <Text style={pdfStyles.entryTitle}>{exp.title}</Text>
+              <View key={exp.id} style={{ ...pdfStyles.entryBlock, ...pdfStyles.entryRow }}>
+                <View style={pdfStyles.entryContent}>
+                  <Text style={pdfStyles.entryTitle}>
+                    {exp.title}
+                    <Text style={{ fontWeight: 'normal', fontStyle: 'italic', color: '#333' }}>
+                      {' – '}{exp.organization}{exp.location ? `, ${exp.location}` : ''}
+                    </Text>
+                  </Text>
+                  {exp.description?.map((d, i) => (
+                    <View key={i} style={pdfStyles.bulletRow}>
+                      <Text style={pdfStyles.bullet}>•</Text>
+                      <Text style={pdfStyles.bulletText}>{d}</Text>
+                    </View>
+                  ))}
+                </View>
+                <View style={pdfStyles.entryDateCol}>
                   <Text style={pdfStyles.entryDate}>{formatDateRange(exp.start_date, exp.end_date, exp.is_current)}</Text>
                 </View>
-                <Text style={pdfStyles.entrySubtitle}>
-                  {exp.organization}{exp.location ? `  |  ${exp.location}` : ''}
-                </Text>
-                {exp.description?.map((d, i) => (
-                  <View key={i} style={pdfStyles.bulletRow}>
-                    <Text style={pdfStyles.bullet}>•</Text>
-                    <Text style={pdfStyles.bulletText}>{d}</Text>
-                  </View>
-                ))}
               </View>
             ))}
           </>
@@ -355,18 +411,24 @@ function CVDocument({ person }: { person: Person }) {
             {topProjects.map(proj => (
               <View key={proj.id} style={pdfStyles.entryBlock}>
                 <View style={pdfStyles.entryRow}>
-                  <Text style={pdfStyles.entryTitle}>{proj.title}</Text>
-                  {proj.year && <Text style={pdfStyles.entryDate}>{proj.year}</Text>}
+                  <View style={pdfStyles.entryContent}>
+                    <Text style={pdfStyles.entryTitle}>{proj.title}</Text>
+                    {proj.description && (
+                      <Text style={pdfStyles.entrySubtitle}>{proj.description}</Text>
+                    )}
+                    {proj.technologies && proj.technologies.length > 0 && (
+                      <Text style={pdfStyles.entryNote}>Tech: {proj.technologies.join(', ')}</Text>
+                    )}
+                    {(proj.url || proj.repo_url) && (
+                      <Text style={pdfStyles.entryNote}>
+                        <Link src={proj.url ?? proj.repo_url ?? ''} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{proj.url ?? proj.repo_url}</Link>
+                      </Text>
+                    )}
+                  </View>
+                  <View style={pdfStyles.entryDateCol}>
+                    {proj.year && <Text style={pdfStyles.entryDate}>{proj.year}</Text>}
+                  </View>
                 </View>
-                {proj.description && (
-                  <Text style={pdfStyles.entrySubtitle}>{proj.description}</Text>
-                )}
-                {proj.technologies && proj.technologies.length > 0 && (
-                  <Text style={pdfStyles.entryNote}>Tech: {proj.technologies.join(', ')}</Text>
-                )}
-                {(proj.url || proj.repo_url) && (
-                  <Text style={pdfStyles.entryNote}>{proj.url ?? proj.repo_url}</Text>
-                )}
               </View>
             ))}
           </>
