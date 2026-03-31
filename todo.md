@@ -55,6 +55,19 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [ ] courses — add technologies/domains to course entries
 - [ ] talks — verify domains/technologies populated
 
+## SEO & Discoverability
+
+- [ ] **Create OG image** — 1200x630px PNG at `public/og-image.png`. Name + title + terminal aesthetic. Without this, every LinkedIn/Slack/Discord share shows no preview image.
+- [ ] **Google Search Console** — verify procko.pro, submit sitemap.xml, request indexing.
+- [ ] **Bing Webmaster Tools** — import from Google Search Console (covers Bing + DuckDuckGo + Yahoo).
+- [ ] **Prerendering** — revisit with `vite-react-ssg` or custom Puppeteer build script. Social/AI crawlers still see empty `<div id="root">`.
+- [ ] **ScholarlyArticle JSON-LD** — add structured data for top publications to improve Google Scholar and search visibility.
+- [ ] **Backlinks audit** — ensure procko.pro is linked from: LinkedIn website field, Google Scholar profile, ORCID, Substack about page, SSRN author page, ERAU directory if possible.
+- [ ] **Blog/content section** — Google ranks pages with text content. Pull Substack RSS or add articles section for more indexable pages.
+- [ ] **Update GitHub bio** — "AI engineer bridging ontologies and LLMs — knowledge graphs, agentic RAG, provenance. PhD. DoD-cleared."
+- [ ] **Pin best GitHub repos** — PR0CK0.github.io, ProvTracer, awesome-bfo, StableDiffusionEndToEndGuide, dissenter, ai-landscape-digest.
+- [ ] **Star ecosystem repos** — star BFO, Protégé, cytoscape, etc. to signal your ecosystem to profile visitors.
+
 ## Potential / Future
 
 - [ ] **LinkML schema migration** — Replace `schema.ts` (Zod) with a LinkML schema (`schema.yaml`). Data YAML stays identical. Gains: build-time `linkml-validate`, `gen-owl` produces an OWL ontology of the CV (cool talking point), `gen-python` for typed Python models, `gen-json-schema` for JSON Schema validation. Cost: Python codegen step added to build pipeline, no official Zod generator (would need to keep or regenerate Zod separately). Worth doing if OWL export or multi-language pipeline ever becomes a goal.
