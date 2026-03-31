@@ -21,7 +21,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [theme, toggleTheme] = useTheme()
   const { pathname } = useLocation()
-  const hideFooter = pathname === '/graph'
+  const hideFooter = pathname !== '/'
 
   return (
     <div className="h-screen flex flex-col bg-terminal-bg overflow-hidden">
