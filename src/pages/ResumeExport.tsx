@@ -40,7 +40,7 @@ const S = StyleSheet.create({
   contactLine: { fontSize: 8.5, color: '#444' },
   contactLink: { fontSize: 8.5, color: '#1a3a6b' },
   contactSep: { fontSize: 8.5, color: '#999' },
-  sectionHeader: { fontSize: 11, fontWeight: 'bold', color: '#1a3a6b', marginTop: 8, marginBottom: 3, paddingBottom: 1, borderBottomWidth: 0.75, borderBottomColor: '#1a3a6b', borderBottomStyle: 'solid' as const, textTransform: 'uppercase' as const, letterSpacing: 0.5 },
+  sectionHeader: { fontSize: 12, fontWeight: 'bold', color: '#1a3a6b', marginTop: 8, marginBottom: 3, paddingBottom: 1, borderBottomWidth: 0.75, borderBottomColor: '#1a3a6b', borderBottomStyle: 'solid' as const, textTransform: 'uppercase' as const, letterSpacing: 0.5 },
   row: { flexDirection: 'row' as const, marginBottom: 5 },
   contentCol: { flex: 86, paddingRight: 6 },
   dateCol: { flex: 14, alignItems: 'flex-end' as const },
@@ -144,7 +144,7 @@ const HS = {
   contactLine: { fontSize: '8.5px', color: '#444' } as React.CSSProperties,
   link: { fontSize: '8.5px', color: '#1a3a6b', textDecoration: 'none' } as React.CSSProperties,
   sep: { fontSize: '8.5px', color: '#999' } as React.CSSProperties,
-  sectionHeader: { fontSize: '11px', fontWeight: 700, color: '#1a3a6b', marginTop: '8px', marginBottom: '3px', paddingBottom: '1px', borderBottom: '0.75px solid #1a3a6b', textTransform: 'uppercase' as const, letterSpacing: '0.02em' } as React.CSSProperties,
+  sectionHeader: { fontSize: '12px', fontWeight: 700, color: '#1a3a6b', marginTop: '8px', marginBottom: '3px', paddingBottom: '1px', borderBottom: '0.75px solid #1a3a6b', textTransform: 'uppercase' as const, letterSpacing: '0.02em' } as React.CSSProperties,
   row: { display: 'flex', gap: '6px', marginBottom: '5px' } as React.CSSProperties,
   contentCol: { flex: '86 1 0%' } as React.CSSProperties,
   dateCol: { flex: '14 0 0%', textAlign: 'right' as const } as React.CSSProperties,
@@ -321,7 +321,7 @@ export default function ResumeExport() {
       </div>
 
       {viewMode === 'html' ? (
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto origin-top scale-[0.85] sm:scale-100">
           <ResumeHtmlPreview data={resumeData} />
         </div>
       ) : (
