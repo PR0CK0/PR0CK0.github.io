@@ -4013,8 +4013,20 @@ talks:
   date: 2023-11
   url: https://www.linkedin.com/posts/hughseaton_tyler-procko-powering-ai-with-ontology-at-activity-7135290681022976000-EVpb?utm_source=share&utm_medium=member_desktop
   description: Discussed using ontology to power AI in the construction industry
+  technologies:
+  - OWL
+  - RDFS
+  - RDF
+  - Microsoft Word
+  - Slack
+  - GPT
+  - Protégé
+  - GraphDB
+  - BFO
   soft_skills:
+  - Stakeholder Presentation
   - Virtual Presentation
+  - Client Communication
   - Public Speaking
   domains:
   - Ontology
@@ -4023,6 +4035,7 @@ talks:
   - Knowledge Graphs
   - Semantic Web
   - Knowledge Representation
+  - Construction
   - Education
   - XAI
   - Cognitive Science
