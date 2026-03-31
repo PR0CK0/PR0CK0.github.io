@@ -115,6 +115,7 @@ work_experiences:
   - TypeScript
   - JavaScript
   - OWL
+  - Turtle
   - RDFS
   - RDF
   - SPARQL
@@ -176,6 +177,7 @@ work_experiences:
   - Text Extraction
   - ML Provenance
   - XAI
+  - Defense
   - Taxonomy
   - Provenance
   - SDLC
@@ -202,6 +204,7 @@ work_experiences:
   - RDF
   - RDFS
   - OWL
+  - Turtle
   - BFO
   - CCO
   - Schema.org
@@ -253,6 +256,7 @@ work_experiences:
   - RDF
   - RDFS
   - OWL
+  - Turtle
   - Visual Studio Code
   - UNIX
   - Linux
@@ -275,6 +279,7 @@ work_experiences:
   - Knowledge Representation
   - Linked Data
   - Taxonomy
+  - Defense
   soft_skills:
   - Stakeholder Presentation
 - id: work/afrl-2023
@@ -292,6 +297,7 @@ work_experiences:
   - RDF
   - RDFS
   - OWL
+  - Turtle
   - BFO
   - CCO
   - PROV-O
@@ -310,6 +316,7 @@ work_experiences:
   - Computer Vision
   - Ontology
   - Taxonomy
+  - Defense
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -327,6 +334,7 @@ work_experiences:
   - BFO
   - CCO
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - Protégé
@@ -357,6 +365,7 @@ work_experiences:
   - Linked Data
   - Taxonomy
   - XAI
+  - Defense
   soft_skills:
   - Stakeholder Presentation
 - id: work/afrl-2021
@@ -375,6 +384,7 @@ work_experiences:
   - RDF
   - RDFS
   - OWL
+  - Turtle
   - SKOS
   - PROV-O
   - SPARQL
@@ -406,6 +416,7 @@ work_experiences:
   - Description Logics
   - FOL
   - Taxonomy
+  - Defense
 - id: work/afrl-2020
   title: AFRL Scholars Remote AI Research Scientist - ML Explainability
   organization: Air Force Research Laboratory (AFRL)
@@ -420,6 +431,7 @@ work_experiences:
   - RDF
   - RDFS
   - OWL
+  - Turtle
   - SKOS
   - PROV-O
   - Protégé
@@ -441,6 +453,7 @@ work_experiences:
   domains:
   - Semantic Web
   - XAI
+  - Defense
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -458,6 +471,7 @@ work_experiences:
   - RDF
   - RDFS
   - OWL
+  - Turtle
   - SKOS
   - PROV-O
   - Protégé
@@ -476,6 +490,7 @@ work_experiences:
   - Machine Learning
   - Ontology
   - Taxonomy
+  - Defense
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
@@ -532,6 +547,7 @@ work_experiences:
   - Delivered expert consultation on first-order and higher-order logic ontology reasoning, advising on formal knowledge representation strategies.
   technologies:
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - Protégé
@@ -557,6 +573,7 @@ work_experiences:
   - Engineered a mid-level domain ontology and produced stakeholder documentation covering OWL reasoning and description logics.
   technologies:
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - Protégé
@@ -582,6 +599,7 @@ work_experiences:
   - Designed and delivered an ontology for nuclear facility construction process evaluation, modeling complex domain knowledge for process compliance assessment.
   technologies:
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - Protégé
@@ -613,6 +631,7 @@ work_experiences:
   - RDF
   - RDFS
   - OWL
+  - Turtle
   - BFO
   - CCO
   - GraphDB
@@ -631,6 +650,7 @@ work_experiences:
   - Advised on LLM deployment for DoD use cases and engineered a BFO/CCO-compliant ontology to standardize defense data across enterprise systems.
   domains:
   - LLMs
+  - Defense
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -643,6 +663,7 @@ work_experiences:
   - Built a Linked Data taxonomy and ontology integrated into a WordPress content publishing ecosystem, enabling structured semantic categorization of web content.
   technologies:
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - Schema.org
@@ -676,6 +697,7 @@ work_experiences:
   - GPT
   - OpenAI
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - SKOS
@@ -714,6 +736,7 @@ work_experiences:
   - Advised on the architecture and development of a legal domain ontology in OWL, guiding formal knowledge modeling for legal concept representation.
   technologies:
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - Protégé
@@ -772,6 +795,7 @@ work_experiences:
   - SPARQL
   - GeoSPARQL
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - SWRL
@@ -801,6 +825,7 @@ work_experiences:
   - Modeled a software development lifecycle use case as a knowledge graph in GraphDB, applying PROV-O and SEON ontologies for process provenance representation.
   technologies:
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - SPARQL
@@ -886,6 +911,7 @@ work_experiences:
   - Modeled a client domain in OWL, SWRL, and SHACL using Schema.org and GS1 standards, delivering a formal knowledge representation for an international SEO platform.
   technologies:
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - SWRL
@@ -938,6 +964,7 @@ work_experiences:
   technologies:
   - Python
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - SKOS
@@ -983,6 +1010,7 @@ work_experiences:
   - Python
   - Java
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - PROV-O
@@ -1104,6 +1132,7 @@ publications:
   - RDF
   - RDFS
   - OWL
+  - Turtle
   - Draw.io
   domains:
   - Knowledge Graphs
@@ -1138,10 +1167,13 @@ publications:
   - RDF
   - RDFS
   - OWL
+  - Turtle
   - MLSchema
   - MEX
   - OntoDM
   - ANNETTO
+  - Python
+  - GPT
   domains:
   - Ontology
   - XAI
@@ -1151,6 +1183,11 @@ publications:
   - ML Provenance
   - Machine Learning
   - LLMs
+  - FAIR Data
+  - Knowledge Representation
+  - Knowledge Graphs
+  - SDLC
+  - MLOps
   - Scientific Writing
   - Taxonomy
 - id: pub/verifying-ml-interpretability
@@ -1295,13 +1332,25 @@ publications:
   - LLM
   - survey
   technologies:
+  - OWL
+  - Turtle
+  - RDF
+  - GPT
+  - BERT
   - Microsoft Word
   - Microsoft Teams
   domains:
   - Knowledge Graphs
   - LLMs
   - RAG
+  - NLP
+  - Prompt Engineering
+  - Ontology
   - Semantic Web
+  - Linked Data
+  - Embeddings
+  - XAI
+  - Knowledge Representation
   - Scientific Writing
   soft_skills:
   - Virtual Presentation
@@ -1343,13 +1392,26 @@ publications:
   - aerospace
   - knowledge management
   technologies:
+  - OWL
+  - Turtle
+  - RDF
+  - RDFS
+  - SPARQL
   - Microsoft Word
   - Microsoft Teams
   domains:
   - Linked Data
   - Knowledge Graphs
   - Semantic Web
+  - Ontology
+  - Knowledge Representation
+  - Knowledge Management
+  - NLP
   - Aerospace
+  - Defense
+  - Description Logics
+  - FOL
+  - Taxonomy
   - Scientific Writing
 - id: pub/robust-training-datasets-ontologies
   title: 'Towards Robust Training Datasets for Machine Learning with Ontologies: A
@@ -1393,13 +1455,28 @@ publications:
   - PROV-O
   - ontology
   technologies:
+  - OWL
+  - Turtle
+  - RDF
+  - RDFS
+  - Protégé
+  - BFO
+  - CCO
+  - PROV-O
   - Microsoft Word
   domains:
   - Ontology
   - Provenance
+  - ML Provenance
   - Semantic Web
   - Linked Data
   - Knowledge Representation
+  - Knowledge Graphs
+  - Description Logics
+  - FOL
+  - FAIR Data
+  - XAI
+  - LLMs
   - Scientific Writing
   - Taxonomy
 - id: pub/semantic-science-beyond-pdf
@@ -1485,10 +1562,21 @@ publications:
   - software engineering
   technologies:
   - Microsoft Word
+  - Google Docs
+  - LaTeX
+  - GitHub
+  - Microsoft Excel
+  - Microsoft Teams
   domains:
   - Agile
   - Scientific Writing
   - Software Engineering
+  - Education
+  - SDLC
+  - Cognitive Science
+  - Taxonomy
+  - Requirements Engineering
+  - SQA
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
@@ -1604,18 +1692,38 @@ publications:
   tags:
   - BFO
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - GPT
   - ontology
   technologies:
+  - GPT
+  - OpenAI
+  - OWL
+  - RDF
+  - RDFS
+  - SPARQL
+  - SWRL
+  - Protégé
+  - BFO
+  - CCO
+  - FOAF
+  - SKOS
+  - Turtle
   - Microsoft Word
   domains:
   - Ontology
   - LLMs
+  - NLP
   - Knowledge Representation
   - Semantic Web
+  - Linked Data
+  - Description Logics
+  - FOL
   - Prompt Engineering
+  - SDLC
+  - Scientific Writing
   - Scientific Writing
   - Taxonomy
   soft_skills:
@@ -1699,6 +1807,7 @@ publications:
   - SPARQL
   - Protégé
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - pdfplumber
@@ -1733,11 +1842,23 @@ publications:
   - agile
   - academic integrity
   technologies:
+  - GPT
+  - BERT
   - Microsoft Word
   domains:
   - Machine Learning
-  - Agile
+  - LLMs
+  - NLP
   - Education
+  - Agile
+  - Cybersecurity
+  - Ethics
+  - Embedded Systems
+  - Real-Time Systems
+  - AR
+  - XAI
+  - Cognitive Science
+  - Scientific Writing
   - Software Engineering
   - Scientific Writing
   soft_skills:
@@ -1807,13 +1928,25 @@ publications:
   - aerospace
   - software quality
   technologies:
+  - OWL
+  - Turtle
+  - RDF
+  - RDFS
   - Microsoft Word
   domains:
   - Ontology
   - SDLC
   - Aerospace
+  - Defense
   - SQA
   - Software Engineering
+  - Semantic Web
+  - Linked Data
+  - Knowledge Representation
+  - Knowledge Graphs
+  - Requirements Engineering
+  - Description Logics
+  - FOL
   - Scientific Writing
   - Taxonomy
 - id: pub/explainable-ml-semantic-web
@@ -1834,6 +1967,7 @@ publications:
   - Python
   - Keras
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - Protégé
@@ -2319,6 +2453,7 @@ projects:
   - LinkML
   - BFO
   - OWL
+  - Turtle
   - RDFS
   - RDF
   - JSON Schema
@@ -2616,6 +2751,7 @@ projects:
   - PROV-O
   - RDFLib
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - GitHub
@@ -2651,6 +2787,7 @@ projects:
   - Provenance
   - SDLC
   - Semantic Web
+  - Knowledge Management
 - id: proj/personal
   title: Personal & Creative Work
   year: 2016-08
@@ -2787,6 +2924,7 @@ projects:
   - Python
   - BFO
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - GitHub
@@ -2852,6 +2990,7 @@ projects:
   technologies:
   - Schema.org
   - OWL
+  - Turtle
   - RDFS
   - RDF
   - GitHub
@@ -4015,6 +4154,7 @@ talks:
   description: Discussed using ontology to power AI in the construction industry
   technologies:
   - OWL
+  - Turtle
   - RDFS
   - RDF
   - Microsoft Word
@@ -5087,6 +5227,7 @@ courses:
   name: Graduate Research Project
   technologies:
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - SPARQL
@@ -5126,6 +5267,7 @@ courses:
   name: Dissertation Hours
   technologies:
   - OWL
+  - Turtle
   - RDF
   - RDFS
   - SPARQL
