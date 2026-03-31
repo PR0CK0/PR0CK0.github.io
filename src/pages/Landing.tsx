@@ -921,7 +921,12 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
             rel="noopener noreferrer"
             className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted hover:text-terminal-blue transition-colors"
           >
-            View all {publications.length} publications on Google Scholar →
+            <motion.span
+              animate={{ x: [0, 4, 0, -4, 0] }}
+              transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
+            >
+              View all {publications.length} publications on Google Scholar →
+            </motion.span>
           </a>
         </motion.div>
       </div>
@@ -1150,7 +1155,12 @@ function RecentReposSection({ projects }: { projects: Project[] }) {
           rel="noopener noreferrer"
           className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted hover:text-terminal-amber transition-colors"
         >
-          View all repos on GitHub →
+          <motion.span
+            animate={{ x: [0, 4, 0, -4, 0] }}
+            transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
+          >
+            View all repos on GitHub →
+          </motion.span>
         </a>
       </motion.div>
     </section>
