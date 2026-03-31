@@ -18,25 +18,28 @@ feed to Claude, and populate `technologies` in the YAML.
 
 Use scripts/update_pubs_batchN.py pattern to apply changes.
 
+- [x] pub/explainable-ml-semantic-web
+- [x] pub/interpersonal-chemistry-agile
+- [x] pub/swebok-kg-transformer
+- [x] pub/microelectronic-ai-dishonesty
+- [x] pub/auto-bfo-aristotelian-definitions
+- [x] pub/towards-agile-academia
+- [x] pub/prov-o-bfo-mapping
+- [x] pub/graph-rag-survey
+- [x] pub/ml-lifecycle-provenance-survey
+- [x] pub/linked-data-aerospace
+- [x] pub/ontology-sdlc-aerospace
 - [ ] pub/robust-training-datasets-ontologies
-- [ ] pub/prov-o-bfo-mapping
 - [ ] pub/semantic-science-beyond-pdf
 - [ ] pub/dawn-of-dialogue
 - [ ] pub/lm-kg-survey
-- [ ] pub/towards-agile-academia
 - [ ] pub/scrum-in-classroom
 - [ ] pub/gps-signal-strength
 - [ ] pub/auto-code-documentation
 - [ ] pub/gpt4-stochastic-parrot
-- [ ] pub/auto-bfo-aristotelian-definitions
 - [ ] pub/catastrophic-forgetting
 - [ ] pub/digital-rubber-duck
-- [ ] pub/swebok-kg-transformer
-- [ ] pub/microelectronic-ai-dishonesty
-- [ ] pub/interpersonal-chemistry-agile
 - [ ] pub/validating-security-requirements-kg
-- [ ] pub/ontology-sdlc-aerospace
-- [ ] pub/explainable-ml-semantic-web
 - [ ] pub/secure-development-ontology
 - [ ] pub/vr-software-requirements
 - [ ] pub/ml-misbehaviors-taxonomy
