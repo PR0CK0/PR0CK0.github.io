@@ -150,7 +150,7 @@ const HS = {
   dateCol: { flex: '14 0 0%', textAlign: 'right' as const } as React.CSSProperties,
   entryTitle: { fontWeight: 700, fontSize: '9px', color: '#111' } as React.CSSProperties,
   titleSuffix: { fontWeight: 400, fontStyle: 'italic', color: '#333', fontSize: '9px' } as React.CSSProperties,
-  date: { fontSize: '8px', color: '#555', fontStyle: 'italic' } as React.CSSProperties,
+  date: { fontSize: '8px', color: '#555', fontStyle: 'italic', whiteSpace: 'pre-line' } as React.CSSProperties,
   subtitle: { fontSize: '8.5px', color: '#333', fontStyle: 'italic', marginBottom: '1px' } as React.CSSProperties,
   note: { fontSize: '8px', color: '#444', marginLeft: '8px' } as React.CSSProperties,
   bullet: { display: 'flex', gap: '4px', marginBottom: '1.5px', marginLeft: '4px', fontSize: '8.5px', color: '#333', lineHeight: '1.4' } as React.CSSProperties,

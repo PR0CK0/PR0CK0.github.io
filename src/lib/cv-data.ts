@@ -84,7 +84,7 @@ export function formatDateRange(
   if (!s && !e) return ''
   if (!s) return e
   if (!e) return s
-  return `${s} \u2013 ${e}`
+  return `${s} \u2013\n ${e}`
 }
 
 /** Group flat skill list into labelled categories. */
