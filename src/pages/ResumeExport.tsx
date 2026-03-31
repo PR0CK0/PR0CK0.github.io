@@ -42,8 +42,8 @@ const S = StyleSheet.create({
   contactSep: { fontSize: 8.5, color: '#999' },
   sectionHeader: { fontSize: 11, fontWeight: 'bold', color: '#1a3a6b', marginTop: 8, marginBottom: 3, paddingBottom: 1, borderBottomWidth: 0.75, borderBottomColor: '#1a3a6b', borderBottomStyle: 'solid' as const, textTransform: 'uppercase' as const, letterSpacing: 0.5 },
   row: { flexDirection: 'row' as const, marginBottom: 5 },
-  contentCol: { flex: 83, paddingRight: 6 },
-  dateCol: { flex: 17, alignItems: 'flex-end' as const },
+  contentCol: { flex: 86, paddingRight: 6 },
+  dateCol: { flex: 14, alignItems: 'flex-end' as const },
   entryTitle: { fontWeight: 'bold', fontSize: 9, color: '#111' },
   titleSuffix: { fontWeight: 'normal', fontStyle: 'italic', color: '#333', fontSize: 9 },
   date: { fontSize: 8, color: '#555', fontStyle: 'italic', textAlign: 'right' as const },
@@ -138,7 +138,7 @@ function ResumePdfDocument({ data }: { data: CVData }) {
 // ─── HTML Preview ──────────────────────────────────────────────────────────────
 
 const HS = {
-  page: { background: '#fff', color: '#111', fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontSize: '10px', lineHeight: '1.4', padding: '48px 56px', maxWidth: '900px', margin: '0 auto', boxShadow: '0 4px 32px rgba(0,0,0,0.5)', borderRadius: '2px', textAlign: 'justify' } as React.CSSProperties,
+  page: { background: '#fff', color: '#111', fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontSize: '10px', lineHeight: '1.4', padding: 'clamp(16px, 4vw, 48px) clamp(12px, 4vw, 56px)', maxWidth: '900px', margin: '0 auto', boxShadow: '0 4px 32px rgba(0,0,0,0.5)', borderRadius: '2px', textAlign: 'justify' } as React.CSSProperties,
   name: { fontSize: '22px', fontWeight: 700, color: '#1a3a6b', marginBottom: '1px' } as React.CSSProperties,
   title: { fontSize: '10px', color: '#444', fontStyle: 'italic', marginBottom: '4px' } as React.CSSProperties,
   contactLine: { fontSize: '8.5px', color: '#444' } as React.CSSProperties,
@@ -146,8 +146,8 @@ const HS = {
   sep: { fontSize: '8.5px', color: '#999' } as React.CSSProperties,
   sectionHeader: { fontSize: '11px', fontWeight: 700, color: '#1a3a6b', marginTop: '8px', marginBottom: '3px', paddingBottom: '1px', borderBottom: '0.75px solid #1a3a6b', textTransform: 'uppercase' as const, letterSpacing: '0.02em' } as React.CSSProperties,
   row: { display: 'flex', gap: '6px', marginBottom: '5px' } as React.CSSProperties,
-  contentCol: { flex: '83 1 0%' } as React.CSSProperties,
-  dateCol: { flex: '17 0 0%', textAlign: 'right' as const, whiteSpace: 'nowrap' as const } as React.CSSProperties,
+  contentCol: { flex: '86 1 0%' } as React.CSSProperties,
+  dateCol: { flex: '14 0 0%', textAlign: 'right' as const } as React.CSSProperties,
   entryTitle: { fontWeight: 700, fontSize: '9px', color: '#111' } as React.CSSProperties,
   titleSuffix: { fontWeight: 400, fontStyle: 'italic', color: '#333', fontSize: '9px' } as React.CSSProperties,
   date: { fontSize: '8px', color: '#555', fontStyle: 'italic' } as React.CSSProperties,
