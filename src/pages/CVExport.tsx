@@ -274,7 +274,29 @@ function CVDocument({ person }: { person: Person }) {
                   <Text style={pdfStyles.entryTitle}>{edu.degree}{edu.field && edu.field !== edu.degree ? ` in ${edu.field}` : ''}</Text>
                   <Text style={pdfStyles.entryDate}>{formatDateRange(edu.start_date, edu.end_date)}</Text>
                 </View>
-                <Text style={pdfStyles.entrySubtitle}>{edu.institution}{edu.gpa ? `  |  GPA: ${edu.gpa}` : ''}</Text>
+                <Text style={pdfStyles.entrySubtitle}>
+                  <Text style={{ fontStyle: 'italic' }}>{edu.institution}</Text>
+                  {edu.gpa ? `  |  GPA: ${edu.gpa.toFixed(1)}/${(edu.gpa_max ?? 4.0).toFixed(1)}` : ''}
+                </Text>
+                {edu.thesis_title && (
+                  <Text style={pdfStyles.entryNote}>• {edu.thesis_label ?? 'Thesis'}:{' '}
+                    {edu.thesis_url ? (
+                      <Link src={edu.thesis_url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.thesis_title}</Link>
+                    ) : edu.thesis_title}
+                  </Text>
+                )}
+                {edu.thesis_github && (
+                  <Text style={pdfStyles.entryNote}>• GitHub:{' '}
+                    <Link src={edu.thesis_github} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.thesis_github}</Link>
+                  </Text>
+                )}
+                {edu.advisor && (
+                  <Text style={pdfStyles.entryNote}>• Advisor:{' '}
+                    {edu.advisor_url ? (
+                      <Link src={edu.advisor_url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.advisor}</Link>
+                    ) : edu.advisor}
+                  </Text>
+                )}
                 {edu.notes?.map((note, i) => (
                   <Text key={i} style={pdfStyles.entryNote}>• {note}</Text>
                 ))}
@@ -439,7 +461,7 @@ function PreviewEntryBlock({
   inlineSubtitle,
 }: {
   title: string
-  subtitle?: string
+  subtitle?: React.ReactNode
   date?: string
   notes?: string[]
   bullets?: string[]
@@ -637,15 +659,49 @@ export default function CVExport() {
         {(person.education?.length ?? 0) > 0 && (
           <>
             <PreviewSectionHeader>Education</PreviewSectionHeader>
-            {person.education!.map(edu => (
-              <PreviewEntryBlock
-                key={edu.id}
-                title={`${edu.degree}${edu.field && edu.field !== edu.degree ? ` in ${edu.field}` : ''}`}
-                subtitle={`${edu.institution}${edu.gpa ? `  |  GPA: ${edu.gpa}` : ''}`}
-                date={formatDateRange(edu.start_date, edu.end_date)}
-                notes={edu.notes}
-              />
-            ))}
+            {person.education!.map(edu => {
+              const gpaStr = edu.gpa ? `  |  GPA: ${edu.gpa.toFixed(1)}/${(edu.gpa_max ?? 4.0).toFixed(1)}` : ''
+              const eduNotes: string[] = []
+              if (edu.thesis_title) eduNotes.push(`__THESIS__`)
+              if (edu.thesis_github) eduNotes.push(`__GITHUB__`)
+              if (edu.advisor) eduNotes.push(`__ADVISOR__`)
+              if (edu.notes) eduNotes.push(...edu.notes)
+              return (
+                <div key={edu.id} style={{ marginBottom: '10px' }}>
+                  <PreviewEntryBlock
+                    title={`${edu.degree}${edu.field && edu.field !== edu.degree ? ` in ${edu.field}` : ''}`}
+                    subtitle={<><span style={{ fontStyle: 'italic' }}>{edu.institution}</span>{gpaStr}</>}
+                    date={formatDateRange(edu.start_date, edu.end_date)}
+                  />
+                  {(edu.thesis_title || edu.thesis_github || edu.advisor || edu.notes?.length) && (
+                    <div style={{ paddingLeft: '8px', fontSize: '9px', color: '#333', lineHeight: '1.5', marginTop: '-2px' }}>
+                      {edu.thesis_title && (
+                        <div>• {edu.thesis_label ?? 'Thesis'}:{' '}
+                          {edu.thesis_url ? (
+                            <a href={edu.thesis_url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.thesis_title}</a>
+                          ) : edu.thesis_title}
+                        </div>
+                      )}
+                      {edu.thesis_github && (
+                        <div>• GitHub:{' '}
+                          <a href={edu.thesis_github} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.thesis_github}</a>
+                        </div>
+                      )}
+                      {edu.advisor && (
+                        <div>• Advisor:{' '}
+                          {edu.advisor_url ? (
+                            <a href={edu.advisor_url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.advisor}</a>
+                          ) : edu.advisor}
+                        </div>
+                      )}
+                      {edu.notes?.map((note, i) => (
+                        <div key={i}>• {note}</div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </>
         )}
 

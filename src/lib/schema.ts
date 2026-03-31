@@ -15,8 +15,15 @@ export const EducationSchema = z.object({
   start_date: z.string().optional(),
   end_date: z.string().optional(),
   gpa: z.number().optional(),
+  gpa_max: z.number().optional(),
   distinction: z.boolean().optional(),
   notes: z.array(z.string()).optional(),
+  thesis_label: z.string().optional(),
+  thesis_title: z.string().optional(),
+  thesis_url: z.string().optional(),
+  thesis_github: z.string().optional(),
+  advisor: z.string().optional(),
+  advisor_url: z.string().optional(),
 })
 
 export const WorkExperienceSchema = z.object({

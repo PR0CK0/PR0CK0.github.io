@@ -56,26 +56,30 @@ education:
   start_date: 2020-08
   end_date: 2025-05
   gpa: 4.0
-  notes:
-  - 'Dissertation: On the Provenance of Software Systems: Automating Software Traceability
+  thesis_label: Dissertation
+  thesis_title: 'On the Provenance of Software Systems: Automating Software Traceability
     with Knowledge Graph and Large Language Model Synergy'
-  - 'Dissertation URL: https://commons.erau.edu/edt/898/'
-  - 'Dissertation GitHub: https://github.com/PR0CK0/ProvTracer'
-  - 'Doctoral advisor: Dr. Omar Ochoa'
+  thesis_url: https://commons.erau.edu/edt/898/
+  thesis_github: https://github.com/PR0CK0/ProvTracer
+  advisor: Dr. Omar Ochoa
+  advisor_url: https://faculty.erau.edu/Omar.Ochoa
 - id: edu/ms-erau
   institution: Embry-Riddle Aeronautical University (ERAU), Daytona Beach, FL
-  degree: Master of Science in Software Engineering
+  degree: Master of Science
   field: Software Engineering
   start_date: 2023-08
   end_date: 2023-12
+  gpa: 4.0
   distinction: true
-  notes:
-  - 'Thesis: Towards Agile Academia: An Approach to Scientific Paper Writing Inspired
+  thesis_label: Thesis
+  thesis_title: 'Towards Agile Academia: An Approach to Scientific Paper Writing Inspired
     by Software Engineering'
-  - 'Thesis URL: https://commons.erau.edu/edt/784/'
+  thesis_url: https://commons.erau.edu/edt/784/
+  advisor: Dr. Omar Ochoa
+  advisor_url: https://faculty.erau.edu/Omar.Ochoa
 - id: edu/bs-erau
   institution: Embry-Riddle Aeronautical University (ERAU), Daytona Beach, FL
-  degree: Bachelor of Science in Software Engineering
+  degree: Bachelor of Science
   field: Software Engineering
   start_date: 2016-08
   end_date: 2020-05
@@ -84,7 +88,7 @@ education:
   - Summa Cum Laude
   - Minor in Cybersecurity Engineering
 - id: edu/aa-fscj
-  institution: Florida State College at Jacksonville
+  institution: Florida State College at Jacksonville (FSCJ), Jacksonville, FL
   degree: Associate in Arts
   field: Arts
   start_date: 2014-06
@@ -93,12 +97,13 @@ education:
   notes:
   - With high honors
 - id: edu/hs-tca
-  institution: Trinity Christian Academy, Jacksonville, FL
+  institution: Trinity Christian Academy (TCA), Jacksonville, FL
   degree: High School Diploma
-  field: General
+  field: ''
   start_date: 2010-08
   end_date: 2016-05
   gpa: 3.0
+  gpa_max: 3.0
   notes:
   - Salutatorian
 work_experiences:
