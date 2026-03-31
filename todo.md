@@ -61,6 +61,8 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## Other pending
 
+- [ ] **Audit `tags` field in YAML schema** — Determine the purpose and usage of `tags` across entries. It overlaps with `domains` and `technologies`. Decide whether to keep, merge into domains, or remove.
+
 - [ ] **Audit YAML for redundant data** — Check for fields that duplicate other fields (e.g., `description` vs `bullets`, `title_line` vs `title`, `org` vs `organization`). Determine if legacy-only fields can be derived at build time rather than duplicated in the YAML.
 
 - [ ] proj/personal — catch-all personal/creative entry (Adobe, AutoCAD, etc.); needs tech/domains review and possible restructure or deletion
