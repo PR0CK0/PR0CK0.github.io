@@ -6,385 +6,225 @@ import {
   View,
   StyleSheet,
   PDFDownloadLink,
+  PDFViewer,
   Link,
+  Font,
 } from '@react-pdf/renderer'
 import { loadPortfolioData } from '@/lib/yaml-loader'
-import type { Person, Skill } from '@/lib/schema'
+import type { Person } from '@/lib/schema'
 import SEO from '@/components/SEO'
+import { buildResumeData, type CVData, type CVSection, type CVEntry, type CVHeaderData } from '@/lib/cv-data'
+
+// ─── Custom Fonts ────────────────────────────────────────────────────────────
+import CaladeaRegular from '@/fonts/caladea/Caladea-Regular.ttf'
+import CaladeaBold from '@/fonts/caladea/Caladea-Bold.ttf'
+import CaladeaItalic from '@/fonts/caladea/Caladea-Italic.ttf'
+import CaladeaBoldItalic from '@/fonts/caladea/Caladea-BoldItalic.ttf'
+
+Font.register({
+  family: 'Caladea',
+  fonts: [
+    { src: CaladeaRegular, fontWeight: 'normal', fontStyle: 'normal' },
+    { src: CaladeaBold, fontWeight: 'bold', fontStyle: 'normal' },
+    { src: CaladeaItalic, fontWeight: 'normal', fontStyle: 'italic' },
+    { src: CaladeaBoldItalic, fontWeight: 'bold', fontStyle: 'italic' },
+  ],
+})
 
 // ─── PDF Styles ────────────────────────────────────────────────────────────────
 
-const pdfStyles = StyleSheet.create({
-  page: {
-    fontFamily: 'Helvetica',
-    fontSize: 10,
-    color: '#111111',
-    paddingTop: 40,
-    paddingBottom: 40,
-    paddingHorizontal: 48,
-    lineHeight: 1.4,
-  },
-  headerSection: {
-    marginBottom: 14,
-  },
-  name: {
-    fontSize: 20,
-    fontFamily: 'Helvetica-Bold',
-    color: '#1a3a6b',
-    marginBottom: 2,
-  },
-  title: {
-    fontSize: 11,
-    color: '#333333',
-    marginBottom: 6,
-  },
-  contactRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  contactItem: {
-    fontSize: 9,
-    color: '#444444',
-    marginRight: 12,
-  },
-  contactLink: {
-    fontSize: 9,
-    color: '#1a6bbf',
-    marginRight: 12,
-  },
-  sectionHeader: {
-    fontSize: 14,
-    fontFamily: 'Helvetica-Bold',
-    color: '#1a3a6b',
-    marginTop: 12,
-    marginBottom: 4,
-    paddingBottom: 2,
-    borderBottomWidth: 1,
-    borderBottomColor: '#1a3a6b',
-    borderBottomStyle: 'solid',
-  },
-  summaryText: {
-    fontSize: 9.5,
-    color: '#222222',
-    lineHeight: 1.5,
-  },
-  entryRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 1,
-  },
-  entryTitle: {
-    fontFamily: 'Helvetica-Bold',
-    fontSize: 10,
-    color: '#111111',
-    flex: 1,
-  },
-  entryDate: {
-    fontSize: 9,
-    color: '#555555',
-    textAlign: 'right',
-  },
-  entrySubtitle: {
-    fontSize: 9.5,
-    color: '#333333',
-    marginBottom: 1,
-  },
-  entryNote: {
-    fontSize: 9,
-    color: '#444444',
-    marginLeft: 8,
-  },
-  entryBlock: {
-    marginBottom: 7,
-  },
-  bulletRow: {
-    flexDirection: 'row',
-    marginBottom: 2,
-    marginLeft: 4,
-  },
-  bullet: {
-    fontSize: 9.5,
-    color: '#333333',
-    marginRight: 4,
-    width: 10,
-  },
-  bulletText: {
-    fontSize: 9.5,
-    color: '#333333',
-    flex: 1,
-    lineHeight: 1.4,
-  },
-  skillCategory: {
-    marginBottom: 4,
-  },
-  skillCategoryLabel: {
-    fontFamily: 'Helvetica-Bold',
-    fontSize: 9.5,
-    color: '#1a3a6b',
-  },
-  skillCategoryItems: {
-    fontSize: 9.5,
-    color: '#333333',
-  },
-  skillRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginBottom: 3,
-  },
-  clearanceBox: {
-    marginTop: 4,
-    padding: 6,
-    backgroundColor: '#f0f4ff',
-    borderLeftWidth: 3,
-    borderLeftColor: '#1a3a6b',
-    borderLeftStyle: 'solid',
-  },
-  clearanceText: {
-    fontSize: 10,
-    fontFamily: 'Helvetica-Bold',
-    color: '#1a3a6b',
-  },
+const S = StyleSheet.create({
+  page: { fontFamily: 'Caladea', fontSize: 10, color: '#111', paddingTop: 36, paddingBottom: 36, paddingHorizontal: 44, lineHeight: 1.4, textAlign: 'justify' as const },
+  name: { fontSize: 22, fontWeight: 'bold', color: '#1a3a6b', marginBottom: 1 },
+  title: { fontSize: 10, color: '#444', fontStyle: 'italic', marginBottom: 4 },
+  contactLine: { fontSize: 8.5, color: '#444' },
+  contactLink: { fontSize: 8.5, color: '#1a3a6b' },
+  contactSep: { fontSize: 8.5, color: '#999' },
+  sectionHeader: { fontSize: 11, fontWeight: 'bold', color: '#1a3a6b', marginTop: 8, marginBottom: 3, paddingBottom: 1, borderBottomWidth: 0.75, borderBottomColor: '#1a3a6b', borderBottomStyle: 'solid' as const, textTransform: 'uppercase' as const, letterSpacing: 0.5 },
+  row: { flexDirection: 'row' as const, marginBottom: 5 },
+  contentCol: { flex: 83, paddingRight: 6 },
+  dateCol: { flex: 17, alignItems: 'flex-end' as const },
+  entryTitle: { fontWeight: 'bold', fontSize: 9, color: '#111' },
+  titleSuffix: { fontWeight: 'normal', fontStyle: 'italic', color: '#333', fontSize: 9 },
+  date: { fontSize: 8, color: '#555', fontStyle: 'italic', textAlign: 'right' as const },
+  subtitle: { fontSize: 8.5, color: '#333', marginBottom: 1 },
+  note: { fontSize: 8, color: '#444', marginLeft: 8 },
+  bulletRow: { flexDirection: 'row' as const, marginBottom: 1.5, marginLeft: 4 },
+  bulletDot: { fontSize: 8.5, color: '#333', marginRight: 4, width: 8 },
+  bulletText: { fontSize: 8.5, color: '#333', flex: 1, lineHeight: 1.4 },
+  summaryText: { fontSize: 8.5, color: '#222', lineHeight: 1.5 },
+  lastUpdated: { fontSize: 7.5, color: '#999', marginTop: 2 },
+  skillLabel: { fontWeight: 'bold', fontSize: 8.5, color: '#1a3a6b' },
+  skillItems: { fontSize: 8.5, color: '#333' },
+  skillRow: { flexDirection: 'row' as const, flexWrap: 'wrap' as const, marginBottom: 2 },
 })
 
-// ─── Helpers ───────────────────────────────────────────────────────────────────
-
-function formatDateRange(start?: string, end?: string, isCurrent?: boolean): string {
-  const fmt = (d?: string) => {
-    if (!d) return ''
-    const [year, month] = d.split('-')
-    if (!month) return year
-    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    return `${monthNames[parseInt(month, 10) - 1]} ${year}`
-  }
-  const s = fmt(start)
-  const e = isCurrent ? 'Present' : fmt(end)
-  if (!s && !e) return ''
-  if (!s) return e
-  if (!e) return s
-  return `${s} – ${e}`
-}
-
-// Exclude soft skills from resume — technical focus only
-const TECHNICAL_CATEGORIES = new Set([
-  'prog_languages', 'data_languages', 'libraries', 'dev_tools', 'office_tools', 'comm_tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os',
-])
-
-const CATEGORY_LABELS: Record<string, string> = {
-  prog_languages: 'Programming Languages',
-  data_languages: 'Data Languages',
-  libraries: 'Libraries & Frameworks',
-  dev_tools: 'Development Tools',
-  office_tools: 'Office Tools',
-  comm_tools: 'Communication Tools',
-  cloud: 'Cloud',
-  vocabularies: 'Vocabularies & Standards',
-  ai_tools: 'AI Tools',
-  design: 'Design',
-  os: 'Operating Systems',
-}
-
-function groupTechnicalSkills(skills: Skill[]): Record<string, string[]> {
-  const groups: Record<string, string[]> = {}
-  for (const sk of skills) {
-    if (!TECHNICAL_CATEGORIES.has(sk.category)) continue
-    const label = CATEGORY_LABELS[sk.category] ?? sk.category
-    if (!groups[label]) groups[label] = []
-    groups[label].push(sk.name)
-  }
-  return groups
-}
+const NBS = '\u00A0'
 
 // ─── PDF Document ──────────────────────────────────────────────────────────────
 
-function ResumeDocument({ person }: { person: Person }) {
-  const linkedin = person.social_links?.find(s => s.platform === 'LinkedIn')
-  const github = person.social_links?.find(s => s.platform === 'GitHub')
-
-  const topProjects = useMemo(() => {
-    return [...(person.projects ?? [])]
-      .sort((a, b) => {
-        if (a.featured && !b.featured) return -1
-        if (!a.featured && b.featured) return 1
-        return (b.year ?? '').localeCompare(a.year ?? '')
-      })
-      .slice(0, 8)
-  }, [person.projects])
-
-  const skillGroups = useMemo(() => groupTechnicalSkills(person.skills ?? []), [person.skills])
-
+function ResumePdfDocument({ data }: { data: CVData }) {
+  const h = data.header
   return (
-    <Document title={`${person.name} — Resume`} author={person.name}>
-      <Page size="LETTER" style={pdfStyles.page}>
-        {/* ── Header ── */}
-        <View style={pdfStyles.headerSection}>
-          <Text style={pdfStyles.name}>{person.name}</Text>
-          {person.title && <Text style={pdfStyles.title}>{person.title}</Text>}
-          <View style={pdfStyles.contactRow}>
-            {person.email_personal && (
-              <Text style={pdfStyles.contactItem}>{person.email_personal}</Text>
-            )}
-            {person.phone && (
-              <Text style={pdfStyles.contactItem}>{person.phone}</Text>
-            )}
-            {person.location && (
-              <Text style={pdfStyles.contactItem}>{person.location} · Remote</Text>
-            )}
-            {linkedin && (
-              <Link src={`https://linkedin.com/in/${linkedin.handle}`} style={pdfStyles.contactLink}>linkedin.com/in/{linkedin.handle}</Link>
-            )}
-            {github && (
-              <Link src={`https://github.com/${github.handle}`} style={pdfStyles.contactLink}>github.com/{github.handle}</Link>
-            )}
-            {person.website && (
-              <Link src={person.website} style={pdfStyles.contactLink}>{person.website.replace('https://', '')}</Link>
-            )}
-            <Text style={{ ...pdfStyles.contactItem, color: '#888', fontSize: 8 }}>
-              Last Updated: {new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-            </Text>
+    <Document title={`${h.name} — Resume`} author={h.name}>
+      <Page size="LETTER" style={S.page}>
+        {/* Header */}
+        <View style={{ marginBottom: 10 }}>
+          <Text style={S.name}>{h.name}</Text>
+          {h.title && <Text style={S.title}>{h.title}</Text>}
+          {h.contactLines.map((line, i) => (
+            <Text key={i} style={S.contactLine}>{line}</Text>
+          ))}
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 2, marginTop: 1 }}>
+            {h.links.map((link, i) => (
+              <View key={i} style={{ flexDirection: 'row' }}>
+                <Link src={link.url} style={S.contactLink}>{link.label}</Link>
+                {i < h.links.length - 1 && <Text style={S.contactSep}>{`${NBS}${NBS}|${NBS}${NBS}`}</Text>}
+              </View>
+            ))}
           </View>
+          <Text style={S.lastUpdated}>Last Updated: {h.lastUpdated}</Text>
         </View>
 
-        {/* ── Summary ── */}
-        {person.summary && (
-          <>
-            <Text style={pdfStyles.sectionHeader}>Summary</Text>
-            <Text style={pdfStyles.summaryText}>{person.summary.trim()}</Text>
-          </>
-        )}
-
-        {/* ── Work Experience ── */}
-        {(person.work_experiences?.length ?? 0) > 0 && (
-          <>
-            <Text style={pdfStyles.sectionHeader}>Work Experience</Text>
-            {person.work_experiences!.map(exp => (
-              <View key={exp.id} style={pdfStyles.entryBlock}>
-                <View style={pdfStyles.entryRow}>
-                  <Text style={{ ...pdfStyles.entryTitle, flex: 1 }}>
-                    {exp.title}
-                    <Text style={{ fontWeight: 'normal', fontStyle: 'italic', color: '#333' }}>
-                      {' – '}{exp.organization}{exp.location ? `, ${exp.location}` : ''}
-                    </Text>
+        {/* Sections */}
+        {data.sections.map((sec, si) => (
+          <View key={si}>
+            <Text style={S.sectionHeader}>{sec.header}</Text>
+            {sec.text && <Text style={S.summaryText}>{sec.text}</Text>}
+            {sec.entries?.map((entry, ei) => (
+              <View key={ei} style={S.row}>
+                <View style={S.contentCol}>
+                  <Text style={S.entryTitle}>
+                    {entry.title}
+                    {entry.titleSuffix && <Text style={S.titleSuffix}>{` – ${entry.titleSuffix}`}</Text>}
                   </Text>
-                  <Text style={pdfStyles.entryDate}>{formatDateRange(exp.start_date, exp.end_date, exp.is_current)}</Text>
+                  {entry.subtitle && (
+                    <Text style={S.subtitle}>
+                      <Text style={{ fontStyle: 'italic' }}>{entry.subtitle}</Text>
+                      {entry.gpa && <>{'  |  GPA: '}<Text style={{ fontWeight: 'bold' }}>{entry.gpa.value}</Text>{'/' + entry.gpa.max}</>}
+                    </Text>
+                  )}
+                  {entry.notes?.map((note, ni) => (
+                    <Text key={ni} style={S.note}>
+                      {'• '}
+                      {note.url ? <Link src={note.url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</Link> : note.text}
+                    </Text>
+                  ))}
+                  {entry.bullets?.map((b, bi) => (
+                    <View key={bi} style={S.bulletRow}>
+                      <Text style={S.bulletDot}>•</Text>
+                      <Text style={S.bulletText}>{b}</Text>
+                    </View>
+                  ))}
                 </View>
-                {exp.description?.map((d, i) => (
-                  <View key={i} style={pdfStyles.bulletRow}>
-                    <Text style={pdfStyles.bullet}>•</Text>
-                    <Text style={pdfStyles.bulletText}>{d}</Text>
-                  </View>
-                ))}
-              </View>
-            ))}
-          </>
-        )}
-
-        {/* ── Projects ── */}
-        {topProjects.length > 0 && (
-          <>
-            <Text style={pdfStyles.sectionHeader}>Projects</Text>
-            {topProjects.map(proj => (
-              <View key={proj.id} style={pdfStyles.entryBlock}>
-                <View style={pdfStyles.entryRow}>
-                  <Text style={pdfStyles.entryTitle}>{proj.title}</Text>
-                  {proj.year && <Text style={pdfStyles.entryDate}>{proj.year}</Text>}
-                </View>
-                {proj.description && (
-                  <Text style={pdfStyles.entrySubtitle}>{proj.description}</Text>
-                )}
-                {proj.technologies && proj.technologies.length > 0 && (
-                  <Text style={pdfStyles.entryNote}>Tech: {proj.technologies.join(', ')}</Text>
-                )}
-                {(proj.url || proj.repo_url) && (
-                  <Text style={pdfStyles.entryNote}>{proj.url ?? proj.repo_url}</Text>
-                )}
-              </View>
-            ))}
-          </>
-        )}
-
-        {/* ── Technical Skills ── */}
-        {Object.keys(skillGroups).length > 0 && (
-          <>
-            <Text style={pdfStyles.sectionHeader}>Technical Skills</Text>
-            {Object.entries(skillGroups).map(([category, items]) => (
-              <View key={category} style={pdfStyles.skillCategory}>
-                <View style={pdfStyles.skillRow}>
-                  <Text style={pdfStyles.skillCategoryLabel}>{category}: </Text>
-                  <Text style={pdfStyles.skillCategoryItems}>{items.join(', ')}</Text>
+                <View style={S.dateCol}>
+                  {entry.date && <Text style={S.date}>{entry.date}</Text>}
                 </View>
               </View>
             ))}
-          </>
-        )}
-
-        {/* ── Security Clearance ── */}
-        {person.clearance && (
-          <>
-            <Text style={pdfStyles.sectionHeader}>Security Clearance</Text>
-            <Text style={{ fontSize: 9.5, color: '#333333' }}>{person.clearance}</Text>
-          </>
-        )}
+            {sec.skillGroups && Object.entries(sec.skillGroups).map(([cat, items]) => (
+              <View key={cat} style={S.skillRow}>
+                <Text style={S.skillLabel}>{cat}: </Text>
+                <Text style={S.skillItems}>{items.join(', ')}</Text>
+              </View>
+            ))}
+          </View>
+        ))}
       </Page>
     </Document>
   )
 }
 
-// ─── HTML Preview Helpers ──────────────────────────────────────────────────────
+// ─── HTML Preview ──────────────────────────────────────────────────────────────
 
-function PreviewSectionHeader({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 style={{
-      fontSize: '14px',
-      fontWeight: 700,
-      color: '#1a3a6b',
-      borderBottom: '1.5px solid #1a3a6b',
-      paddingBottom: '4px',
-      marginTop: '20px',
-      marginBottom: '10px',
-      letterSpacing: '0.02em',
-      textTransform: 'uppercase',
-    }}>
-      {children}
-    </h2>
-  )
+const HS = {
+  page: { background: '#fff', color: '#111', fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontSize: '10px', lineHeight: '1.4', padding: '48px 56px', maxWidth: '900px', margin: '0 auto', boxShadow: '0 4px 32px rgba(0,0,0,0.5)', borderRadius: '2px', textAlign: 'justify' } as React.CSSProperties,
+  name: { fontSize: '22px', fontWeight: 700, color: '#1a3a6b', marginBottom: '1px' } as React.CSSProperties,
+  title: { fontSize: '10px', color: '#444', fontStyle: 'italic', marginBottom: '4px' } as React.CSSProperties,
+  contactLine: { fontSize: '8.5px', color: '#444' } as React.CSSProperties,
+  link: { fontSize: '8.5px', color: '#1a3a6b', textDecoration: 'none' } as React.CSSProperties,
+  sep: { fontSize: '8.5px', color: '#999' } as React.CSSProperties,
+  sectionHeader: { fontSize: '11px', fontWeight: 700, color: '#1a3a6b', marginTop: '8px', marginBottom: '3px', paddingBottom: '1px', borderBottom: '0.75px solid #1a3a6b', textTransform: 'uppercase' as const, letterSpacing: '0.02em' } as React.CSSProperties,
+  row: { display: 'flex', gap: '6px', marginBottom: '5px' } as React.CSSProperties,
+  contentCol: { flex: '83 1 0%' } as React.CSSProperties,
+  dateCol: { flex: '17 0 0%', textAlign: 'right' as const, whiteSpace: 'nowrap' as const } as React.CSSProperties,
+  entryTitle: { fontWeight: 700, fontSize: '9px', color: '#111' } as React.CSSProperties,
+  titleSuffix: { fontWeight: 400, fontStyle: 'italic', color: '#333', fontSize: '9px' } as React.CSSProperties,
+  date: { fontSize: '8px', color: '#555', fontStyle: 'italic' } as React.CSSProperties,
+  subtitle: { fontSize: '8.5px', color: '#333', fontStyle: 'italic', marginBottom: '1px' } as React.CSSProperties,
+  note: { fontSize: '8px', color: '#444', marginLeft: '8px' } as React.CSSProperties,
+  bullet: { display: 'flex', gap: '4px', marginBottom: '1.5px', marginLeft: '4px', fontSize: '8.5px', color: '#333', lineHeight: '1.4' } as React.CSSProperties,
+  summaryText: { fontSize: '8.5px', color: '#222', lineHeight: '1.5' } as React.CSSProperties,
+  lastUpdated: { fontSize: '7.5px', color: '#999', marginTop: '2px' } as React.CSSProperties,
+  skillRow: { display: 'flex', flexWrap: 'wrap' as const, marginBottom: '2px', fontSize: '8.5px' } as React.CSSProperties,
+  skillLabel: { fontWeight: 700, color: '#1a3a6b' } as React.CSSProperties,
+  skillItems: { color: '#333' } as React.CSSProperties,
 }
 
-function PreviewEntryBlock({
-  title,
-  subtitle,
-  date,
-  bullets,
-  extra,
-  inlineSubtitle,
-}: {
-  title: string
-  subtitle?: string
-  date?: string
-  bullets?: string[]
-  extra?: string
-  inlineSubtitle?: boolean
-}) {
+function ResumeHtmlPreview({ data }: { data: CVData }) {
+  const h = data.header
   return (
-    <div style={{ display: 'flex', gap: '10px', marginBottom: '10px', alignItems: 'flex-start' }}>
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div>
-          <span style={{ fontWeight: 700, fontSize: '10.5px', color: '#111' }}>{title}</span>
-          {inlineSubtitle && subtitle && (
-            <span style={{ fontSize: '9px', color: '#555', fontStyle: 'italic', marginLeft: '5px' }}>· {subtitle}</span>
-          )}
-        </div>
-        {!inlineSubtitle && subtitle && <div style={{ fontSize: '9.5px', color: '#444', marginTop: '1px' }}>{subtitle}</div>}
-        {bullets?.map((b, i) => (
-          <div key={i} style={{ display: 'flex', gap: '6px', marginTop: '2px', marginLeft: '8px' }}>
-            <span style={{ color: '#333', fontSize: '9.5px', flexShrink: 0 }}>•</span>
-            <span style={{ fontSize: '9.5px', color: '#333', lineHeight: '1.4' }}>{b}</span>
-          </div>
+    <div style={HS.page}>
+      <div style={{ marginBottom: '10px' }}>
+        <div style={HS.name}>{h.name}</div>
+        {h.title && <div style={HS.title}>{h.title}</div>}
+        {h.contactLines.map((line, i) => (
+          <div key={i} style={HS.contactLine}>{line}</div>
         ))}
-        {extra && <div style={{ fontSize: '9px', color: '#777', marginLeft: '10px', marginTop: '2px' }}>{extra}</div>}
+        <div style={{ marginTop: '1px' }}>
+          {h.links.map((link, i) => (
+            <span key={i}>
+              <a href={link.url} target="_blank" rel="noopener noreferrer" style={HS.link}>{link.label}</a>
+              {i < h.links.length - 1 && <span style={HS.sep}>{'\u00A0\u00A0|\u00A0\u00A0'}</span>}
+            </span>
+          ))}
+        </div>
+        <div style={HS.lastUpdated}>Last Updated: {h.lastUpdated}</div>
       </div>
-      {date && <span style={{ fontSize: '9.5px', color: '#666', whiteSpace: 'nowrap', flexShrink: 0 }}>{date}</span>}
+
+      {data.sections.map((sec, si) => (
+        <div key={si}>
+          <h2 style={HS.sectionHeader}>{sec.header}</h2>
+          {sec.text && <p style={HS.summaryText}>{sec.text}</p>}
+          {sec.entries?.map((entry, ei) => (
+            <div key={ei} style={HS.row}>
+              <div style={HS.contentCol}>
+                <div>
+                  <span style={HS.entryTitle}>{entry.title}</span>
+                  {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
+                </div>
+                {entry.subtitle && (
+                  <div style={HS.subtitle}>
+                    {entry.subtitle}
+                    {entry.gpa && <>{'\u00A0\u00A0|\u00A0\u00A0GPA: '}<strong>{entry.gpa.value}</strong>{'/' + entry.gpa.max}</>}
+                  </div>
+                )}
+                {entry.notes?.map((note, ni) => (
+                  <div key={ni} style={HS.note}>
+                    {'• '}
+                    {note.url ? <a href={note.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</a> : note.text}
+                  </div>
+                ))}
+                {entry.bullets?.map((b, bi) => (
+                  <div key={bi} style={HS.bullet}>
+                    <span style={{ flexShrink: 0 }}>•</span>
+                    <span>{b}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={HS.dateCol}>
+                {entry.date && <span style={HS.date}>{entry.date}</span>}
+              </div>
+            </div>
+          ))}
+          {sec.skillGroups && Object.entries(sec.skillGroups).map(([cat, items]) => (
+            <div key={cat} style={HS.skillRow}>
+              <span style={HS.skillLabel}>{cat}:&nbsp;</span>
+              <span style={HS.skillItems}>{items.join(', ')}</span>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   )
 }
@@ -395,42 +235,23 @@ export default function ResumeExport() {
   const [person, setPerson] = useState<Person | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [viewMode, setViewMode] = useState<'html' | 'pdf'>('html')
 
   useEffect(() => {
     loadPortfolioData()
-      .then(data => {
-        setPerson(data)
-        setLoading(false)
-      })
-      .catch(err => {
-        setError(String(err))
-        setLoading(false)
-      })
+      .then(data => { setPerson(data); setLoading(false) })
+      .catch(err => { setError(String(err)); setLoading(false) })
   }, [])
 
-  const pdfDoc = useMemo(() => {
+  const resumeData = useMemo(() => {
     if (!person) return null
-    return <ResumeDocument person={person} />
+    return buildResumeData(person, __BUILD_DATE__)
   }, [person])
 
-  const topProjects = useMemo(() => {
-    if (!person) return []
-    return [...(person.projects ?? [])]
-      .sort((a, b) => {
-        if (a.featured && !b.featured) return -1
-        if (!a.featured && b.featured) return 1
-        return (b.year ?? '').localeCompare(a.year ?? '')
-      })
-      .slice(0, 8)
-  }, [person])
-
-  const skillGroups = useMemo(() => {
-    if (!person) return {}
-    return groupTechnicalSkills(person.skills ?? [])
-  }, [person])
-
-  const linkedin = person?.social_links?.find(s => s.platform === 'LinkedIn')
-  const github = person?.social_links?.find(s => s.platform === 'GitHub')
+  const pdfDoc = useMemo(() => {
+    if (!resumeData) return null
+    return <ResumePdfDocument data={resumeData} />
+  }, [resumeData])
 
   if (loading) {
     return (
@@ -440,7 +261,7 @@ export default function ResumeExport() {
     )
   }
 
-  if (error || !person) {
+  if (error || !person || !resumeData) {
     return (
       <div className="min-h-screen bg-gray-950 flex items-center justify-center font-mono">
         <span className="text-red-400 text-sm">Error loading resume: {error ?? 'Unknown error'}</span>
@@ -455,26 +276,20 @@ export default function ResumeExport() {
         description="Resume of Tyler T. Procko, Ph.D. — work experience, projects, and technical skills in AI, ontology engineering, and knowledge graphs."
         path="/resume"
       />
-      {/* ── Page Header ── */}
       <div className="max-w-4xl mx-auto mb-8">
-        <h1 className="text-2xl font-bold text-terminal-amber tracking-tight">
-          ~/resume.pdf
-        </h1>
+        <h1 className="text-2xl font-bold text-terminal-amber tracking-tight">~/resume.pdf</h1>
         <p className="text-terminal-green text-sm mt-1 opacity-80">
           Work experience, projects, and skills — Generated from YAML source.
         </p>
 
-        <div className="flex gap-3 mt-5">
+        <div className="flex flex-wrap gap-3 mt-5 items-center">
           {pdfDoc && (() => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const PdfLink = PDFDownloadLink as any
             return (
               <PdfLink document={pdfDoc} fileName={`tylerprocko_resume_${new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).replace(/\//g, '')}.pdf`}>
                 {({ loading: pdfLoading }: { loading: boolean }) => (
-                  <button
-                    className="px-4 py-2 bg-blue-900 border border-blue-500 text-blue-200 text-sm font-mono hover:bg-blue-800 transition-colors rounded"
-                    disabled={pdfLoading}
-                  >
+                  <button className="px-4 py-2 bg-blue-900 border border-blue-500 text-blue-200 text-sm font-mono hover:bg-blue-800 transition-colors rounded" disabled={pdfLoading}>
                     ⬇ Download PDF
                   </button>
                 )}
@@ -482,116 +297,48 @@ export default function ResumeExport() {
             )
           })()}
 
-          <a href="/cv" className="px-4 py-2 bg-gray-800 border border-gray-600 text-gray-300 text-sm font-mono hover:bg-gray-700 transition-colors rounded inline-block">
-            View Full CV
+          <a href="/data/tyler-procko.yaml" target="_blank" rel="noopener noreferrer">
+            <button className="px-4 py-2 bg-gray-800 border border-gray-600 text-gray-300 text-sm font-mono hover:bg-gray-700 transition-colors rounded">
+              {'<>'} View Raw YAML
+            </button>
           </a>
-        </div>
-      </div>
 
-      {/* ── Resume Preview (white paper) ── */}
-      <div
-        className="max-w-4xl mx-auto"
-        style={{
-          background: '#ffffff',
-          color: '#111111',
-          boxShadow: '0 4px 32px rgba(0,0,0,0.5)',
-          borderRadius: '2px',
-          padding: '48px 56px',
-          fontFamily: 'Georgia, "Times New Roman", serif',
-          fontSize: '10.5px',
-          lineHeight: '1.5',
-        }}
-      >
-        {/* Name & Contact */}
-        <div style={{ marginBottom: '16px' }}>
-          <h1 style={{ fontSize: '26px', fontWeight: 800, color: '#1a3a6b', margin: 0, letterSpacing: '-0.01em' }}>
-            {person.name}
-          </h1>
-          {person.title && (
-            <div style={{ fontSize: '12px', color: '#444', marginTop: '3px', fontStyle: 'italic' }}>
-              {person.title}
-            </div>
-          )}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 18px', marginTop: '8px', fontSize: '9.5px', color: '#555' }}>
-            {person.email_personal && <span>{person.email_personal}</span>}
-            {person.phone && <span>{person.phone}</span>}
-            {person.location && <span>{person.location} · Remote</span>}
-            {linkedin && <a href={`https://linkedin.com/in/${linkedin.handle}`} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>linkedin.com/in/{linkedin.handle}</a>}
-            {github && <a href={`https://github.com/${github.handle}`} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>github.com/{github.handle}</a>}
-            {person.website && <a href={person.website} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{person.website.replace('https://', '')}</a>}
-            <span style={{ color: '#888', fontSize: '8.5px' }}>Last Updated: {new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+          <div className="flex rounded overflow-hidden border border-terminal-border ml-auto">
+            <button
+              onClick={() => setViewMode('html')}
+              className={`px-3 py-2 text-xs font-mono transition-colors ${viewMode === 'html' ? 'bg-terminal-green/20 text-terminal-green' : 'bg-gray-800 text-gray-400 hover:text-gray-200'}`}
+            >
+              HTML
+            </button>
+            <button
+              onClick={() => setViewMode('pdf')}
+              className={`px-3 py-2 text-xs font-mono transition-colors ${viewMode === 'pdf' ? 'bg-terminal-green/20 text-terminal-green' : 'bg-gray-800 text-gray-400 hover:text-gray-200'}`}
+            >
+              PDF
+            </button>
           </div>
         </div>
-
-        {/* Summary */}
-        {person.summary && (
-          <>
-            <PreviewSectionHeader>Summary</PreviewSectionHeader>
-            <p style={{ fontSize: '9.5px', color: '#222', lineHeight: '1.6', margin: 0 }}>
-              {person.summary.trim()}
-            </p>
-          </>
-        )}
-
-        {/* Work Experience */}
-        {(person.work_experiences?.length ?? 0) > 0 && (
-          <>
-            <PreviewSectionHeader>Work Experience</PreviewSectionHeader>
-            {person.work_experiences!.map(exp => (
-              <PreviewEntryBlock
-                key={exp.id}
-                title={exp.title}
-                subtitle={`${exp.organization}${exp.location ? `  ·  ${exp.location}` : ''}`}
-                date={formatDateRange(exp.start_date, exp.end_date, exp.is_current)}
-                bullets={exp.description}
-                inlineSubtitle
-              />
-            ))}
-          </>
-        )}
-
-        {/* Projects */}
-        {topProjects.length > 0 && (
-          <>
-            <PreviewSectionHeader>Projects</PreviewSectionHeader>
-            {topProjects.map(proj => (
-              <PreviewEntryBlock
-                key={proj.id}
-                title={proj.title}
-                subtitle={proj.description}
-                date={proj.year}
-                extra={[
-                  proj.technologies?.length ? `Tech: ${proj.technologies.join(', ')}` : '',
-                  proj.url ?? proj.repo_url ?? '',
-                ].filter(Boolean).join('  |  ')}
-              />
-            ))}
-          </>
-        )}
-
-        {/* Technical Skills */}
-        {Object.keys(skillGroups).length > 0 && (
-          <>
-            <PreviewSectionHeader>Technical Skills</PreviewSectionHeader>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px 24px' }}>
-              {Object.entries(skillGroups).map(([category, items]) => (
-                <div key={category} style={{ fontSize: '9.5px', marginBottom: '3px' }}>
-                  <span style={{ fontWeight: 700, color: '#1a3a6b' }}>{category}: </span>
-                  <span style={{ color: '#333' }}>{items.join(', ')}</span>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
-
-        {/* Security Clearance */}
-        {person.clearance && (
-          <>
-            <PreviewSectionHeader>Security Clearance</PreviewSectionHeader>
-            <p style={{ fontSize: '9.5px', color: '#333', margin: 0 }}>{person.clearance}</p>
-          </>
-        )}
       </div>
+
+      {viewMode === 'html' ? (
+        <div className="max-w-4xl mx-auto">
+          <ResumeHtmlPreview data={resumeData} />
+        </div>
+      ) : (
+        pdfDoc && (
+          <div className="max-w-4xl mx-auto" style={{ height: 'calc(100vh - 200px)', minHeight: '600px' }}>
+            {(() => {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              const Viewer = PDFViewer as any
+              return (
+                <Viewer width="100%" height="100%" style={{ border: 'none', borderRadius: '2px' }}>
+                  {pdfDoc}
+                </Viewer>
+              )
+            })()}
+          </div>
+        )
+      )}
     </div>
   )
 }

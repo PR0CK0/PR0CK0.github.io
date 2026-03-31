@@ -44,18 +44,20 @@ Font.register({
 // ─── PDF Styles ────────────────────────────────────────────────────────────────
 
 const S = StyleSheet.create({
-  page: { fontFamily: 'Caladea', fontSize: 10, color: '#111', paddingTop: 36, paddingBottom: 36, paddingHorizontal: 44, lineHeight: 1.4 },
-  name: { fontSize: 22, fontFamily: 'Carlito', fontWeight: 'bold', color: '#2E74B5', marginBottom: 1 },
+  page: { fontFamily: 'Caladea', fontSize: 10, color: '#111', paddingTop: 36, paddingBottom: 36, paddingHorizontal: 44, lineHeight: 1.4, textAlign: 'justify' as const },
+  name: { fontSize: 22, fontFamily: 'Caladea', fontWeight: 'bold', color: '#1a3a6b', marginBottom: 1 },
   title: { fontSize: 10, color: '#444', fontStyle: 'italic', marginBottom: 4 },
   contactLine: { fontSize: 8.5, color: '#444' },
-  contactLink: { fontSize: 8.5, color: '#2E74B5' },
+  contactLink: { fontSize: 8.5, color: '#1a3a6b' },
   contactSep: { fontSize: 8.5, color: '#999' },
-  sectionHeader: { fontSize: 11, fontWeight: 'bold', color: '#2E74B5', marginTop: 8, marginBottom: 3, paddingBottom: 1, borderBottomWidth: 0.75, borderBottomColor: '#2E74B5', borderBottomStyle: 'solid' as const },
+  sectionHeader: { fontSize: 11, fontWeight: 'bold', color: '#1a3a6b', marginTop: 8, marginBottom: 3, paddingBottom: 1, borderBottomWidth: 0.75, borderBottomColor: '#1a3a6b', borderBottomStyle: 'solid' as const, textTransform: 'uppercase' as const, letterSpacing: 0.5 },
+  subsectionHeader: { fontSize: 10.5, fontWeight: 'bold', color: '#1a3a6b', marginTop: 5, marginBottom: 2, textDecoration: 'underline' },
+  subsectionDesc: { fontSize: 8, color: '#555', fontStyle: 'italic', marginBottom: 3, lineHeight: 1.4 },
   row: { flexDirection: 'row' as const, marginBottom: 5 },
   contentCol: { flex: 83, paddingRight: 6 },
   dateCol: { flex: 17, alignItems: 'flex-end' as const },
   entryTitle: { fontWeight: 'bold', fontSize: 9, color: '#111' },
-  titleSuffix: { fontWeight: 'normal', fontStyle: 'italic', color: '#333' },
+  titleSuffix: { fontWeight: 'normal', fontStyle: 'italic', color: '#333', fontSize: 9 },
   date: { fontSize: 8, color: '#555', fontStyle: 'italic', textAlign: 'right' as const },
   subtitle: { fontSize: 8.5, color: '#333', marginBottom: 1 },
   note: { fontSize: 8, color: '#444', marginLeft: 8 },
@@ -65,7 +67,7 @@ const S = StyleSheet.create({
   pubTitle: { fontWeight: 'bold', fontSize: 9, color: '#111', marginBottom: 2 },
   pubMeta: { fontSize: 8, color: '#333', marginBottom: 1 },
   pubBlock: { marginBottom: 6 },
-  skillLabel: { fontWeight: 'bold', fontSize: 8.5, color: '#2E74B5' },
+  skillLabel: { fontWeight: 'bold', fontSize: 8.5, color: '#1a3a6b' },
   skillItems: { fontSize: 8.5, color: '#333' },
   skillRow: { flexDirection: 'row' as const, flexWrap: 'wrap' as const, marginBottom: 2 },
   summaryText: { fontSize: 8.5, color: '#222', lineHeight: 1.5 },
@@ -85,7 +87,7 @@ function CVPdfDocument({ data }: { data: CVData }) {
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10 }}>
           <View style={{ flex: 1 }}>
             <Text style={S.name}>{h.name}</Text>
-            {h.title && <Text style={S.title}>{h.title.replace(/·/g, `${NBS}·${NBS}`)}</Text>}
+            {h.title && <Text style={S.title}>{h.title}</Text>}
             {h.contactLines.map((line, i) => (
               <Text key={i} style={S.contactLine}>{line}</Text>
             ))}
@@ -119,6 +121,7 @@ function CVPdfDocument({ data }: { data: CVData }) {
                   {entry.subtitle && (
                     <Text style={S.subtitle}>
                       <Text style={{ fontStyle: 'italic' }}>{entry.subtitle}</Text>
+                      {entry.gpa && <>{'  |  GPA: '}<Text style={{ fontWeight: 'bold' }}>{entry.gpa.value}</Text>{'/' + entry.gpa.max}</>}
                     </Text>
                   )}
                   {entry.notes?.map((note, ni) => (
@@ -139,6 +142,44 @@ function CVPdfDocument({ data }: { data: CVData }) {
                 <View style={S.dateCol}>
                   {entry.date && <Text style={S.date}>{entry.date}</Text>}
                 </View>
+              </View>
+            ))}
+            {/* Subsections (e.g., work experience grouped by category) */}
+            {sec.subsections?.map((sub, ssi) => (
+              <View key={ssi}>
+                <Text style={S.subsectionHeader}>{sub.subheader}</Text>
+                {sub.description && <Text style={S.subsectionDesc}>{sub.description}</Text>}
+                {sub.entries.map((entry, ei) => (
+                  <View key={ei} style={S.row}>
+                    <View style={S.contentCol}>
+                      <Text style={S.entryTitle}>
+                        {entry.title}
+                        {entry.titleSuffix && <Text style={S.titleSuffix}>{` – ${entry.titleSuffix}`}</Text>}
+                      </Text>
+                      {entry.subtitle && (
+                        <Text style={S.subtitle}>
+                          <Text style={{ fontStyle: 'italic' }}>{entry.subtitle}</Text>
+                          {entry.gpa && <>{'  |  GPA: '}<Text style={{ fontWeight: 'bold' }}>{entry.gpa.value}</Text>{'/' + entry.gpa.max}</>}
+                        </Text>
+                      )}
+                      {entry.notes?.map((note, ni) => (
+                        <Text key={ni} style={S.note}>
+                          {'• '}
+                          {note.url ? <Link src={note.url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</Link> : note.text}
+                        </Text>
+                      ))}
+                      {entry.bullets?.map((b, bi) => (
+                        <View key={bi} style={S.bulletRow}>
+                          <Text style={S.bulletDot}>•</Text>
+                          <Text style={S.bulletText}>{b}</Text>
+                        </View>
+                      ))}
+                    </View>
+                    <View style={S.dateCol}>
+                      {entry.date && <Text style={S.date}>{entry.date}</Text>}
+                    </View>
+                  </View>
+                ))}
               </View>
             ))}
             {/* Publications */}
@@ -166,18 +207,18 @@ function CVPdfDocument({ data }: { data: CVData }) {
 // ─── HTML Preview ──────────────────────────────────────────────────────────────
 
 const HS = {
-  page: { background: '#fff', color: '#111', fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontSize: '10px', lineHeight: '1.4', padding: '48px 56px', maxWidth: '900px', margin: '0 auto', boxShadow: '0 4px 32px rgba(0,0,0,0.5)', borderRadius: '2px' } as React.CSSProperties,
-  name: { fontSize: '22px', fontFamily: "'Calibri', 'Carlito', sans-serif", fontWeight: 700, color: '#2E74B5', marginBottom: '1px' } as React.CSSProperties,
+  page: { background: '#fff', color: '#111', fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontSize: '10px', lineHeight: '1.4', padding: '48px 56px', maxWidth: '900px', margin: '0 auto', boxShadow: '0 4px 32px rgba(0,0,0,0.5)', borderRadius: '2px', textAlign: 'justify' } as React.CSSProperties,
+  name: { fontSize: '22px', fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontWeight: 700, color: '#1a3a6b', marginBottom: '1px' } as React.CSSProperties,
   title: { fontSize: '10px', color: '#444', fontStyle: 'italic', marginBottom: '4px' } as React.CSSProperties,
   contactLine: { fontSize: '8.5px', color: '#444' } as React.CSSProperties,
-  link: { fontSize: '8.5px', color: '#2E74B5', textDecoration: 'none' } as React.CSSProperties,
+  link: { fontSize: '8.5px', color: '#1a3a6b', textDecoration: 'none' } as React.CSSProperties,
   sep: { fontSize: '8.5px', color: '#999' } as React.CSSProperties,
-  sectionHeader: { fontSize: '11px', fontWeight: 700, color: '#2E74B5', marginTop: '8px', marginBottom: '3px', paddingBottom: '1px', borderBottom: '0.75px solid #2E74B5', textTransform: 'uppercase' as const, letterSpacing: '0.02em' } as React.CSSProperties,
+  sectionHeader: { fontSize: '11px', fontWeight: 700, color: '#1a3a6b', marginTop: '8px', marginBottom: '3px', paddingBottom: '1px', borderBottom: '0.75px solid #1a3a6b', textTransform: 'uppercase' as const, letterSpacing: '0.02em' } as React.CSSProperties,
   row: { display: 'flex', gap: '6px', marginBottom: '5px' } as React.CSSProperties,
   contentCol: { flex: '83 1 0%' } as React.CSSProperties,
   dateCol: { flex: '17 0 0%', textAlign: 'right' as const, whiteSpace: 'nowrap' as const } as React.CSSProperties,
   entryTitle: { fontWeight: 700, fontSize: '9px', color: '#111' } as React.CSSProperties,
-  titleSuffix: { fontWeight: 400, fontStyle: 'italic', color: '#333' } as React.CSSProperties,
+  titleSuffix: { fontWeight: 400, fontStyle: 'italic', color: '#333', fontSize: '9px' } as React.CSSProperties,
   date: { fontSize: '8px', color: '#555', fontStyle: 'italic' } as React.CSSProperties,
   subtitle: { fontSize: '8.5px', color: '#333', fontStyle: 'italic', marginBottom: '1px' } as React.CSSProperties,
   note: { fontSize: '8px', color: '#444', marginLeft: '8px' } as React.CSSProperties,
@@ -188,7 +229,7 @@ const HS = {
   pubTitle: { fontWeight: 700, fontSize: '9px', color: '#111', marginBottom: '2px' } as React.CSSProperties,
   pubMeta: { fontSize: '8px', color: '#333', marginBottom: '1px' } as React.CSSProperties,
   skillRow: { display: 'flex', flexWrap: 'wrap' as const, marginBottom: '2px', fontSize: '8.5px' } as React.CSSProperties,
-  skillLabel: { fontWeight: 700, color: '#2E74B5' } as React.CSSProperties,
+  skillLabel: { fontWeight: 700, color: '#1a3a6b' } as React.CSSProperties,
   skillItems: { color: '#333' } as React.CSSProperties,
 }
 
@@ -229,7 +270,12 @@ function CVHtmlPreview({ data }: { data: CVData }) {
                   <span style={HS.entryTitle}>{entry.title}</span>
                   {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
                 </div>
-                {entry.subtitle && <div style={HS.subtitle}>{entry.subtitle}</div>}
+                {entry.subtitle && (
+                  <div style={HS.subtitle}>
+                    {entry.subtitle}
+                    {entry.gpa && <>{'\u00A0\u00A0|\u00A0\u00A0GPA: '}<strong>{entry.gpa.value}</strong>{'/' + entry.gpa.max}</>}
+                  </div>
+                )}
                 {entry.notes?.map((note, ni) => (
                   <div key={ni} style={HS.note}>
                     {'• '}
@@ -248,6 +294,43 @@ function CVHtmlPreview({ data }: { data: CVData }) {
               <div style={HS.dateCol}>
                 {entry.date && <span style={HS.date}>{entry.date}</span>}
               </div>
+            </div>
+          ))}
+          {sec.subsections?.map((sub, ssi) => (
+            <div key={ssi}>
+              <h3 style={{ fontSize: '10.5px', fontWeight: 700, color: '#1a3a6b', marginTop: '5px', marginBottom: '2px', textDecoration: 'underline' }}>{sub.subheader}</h3>
+              {sub.description && <p style={{ fontSize: '8px', color: '#555', fontStyle: 'italic', marginBottom: '3px', lineHeight: '1.4', margin: 0 }}>{sub.description}</p>}
+              {sub.entries.map((entry, ei) => (
+                <div key={ei} style={HS.row}>
+                  <div style={HS.contentCol}>
+                    <div>
+                      <span style={HS.entryTitle}>{entry.title}</span>
+                      {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
+                    </div>
+                    {entry.subtitle && (
+                      <div style={HS.subtitle}>
+                        {entry.subtitle}
+                        {entry.gpa && <>{'\u00A0\u00A0|\u00A0\u00A0GPA: '}<strong>{entry.gpa.value}</strong>{'/' + entry.gpa.max}</>}
+                      </div>
+                    )}
+                    {entry.notes?.map((note, ni) => (
+                      <div key={ni} style={HS.note}>
+                        {'• '}
+                        {note.url ? <a href={note.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</a> : note.text}
+                      </div>
+                    ))}
+                    {entry.bullets?.map((b, bi) => (
+                      <div key={bi} style={HS.bullet}>
+                        <span style={{ flexShrink: 0 }}>•</span>
+                        <span>{b}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={HS.dateCol}>
+                    {entry.date && <span style={HS.date}>{entry.date}</span>}
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
           {sec.publications?.map((pub) => (

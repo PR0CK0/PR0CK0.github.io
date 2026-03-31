@@ -108,6 +108,7 @@ education:
   - Salutatorian
 work_experiences:
 - id: work/stealth-startup
+  work_section: Defense and AI Industry Experience
   title: Principal Knowledge Architect
   organization: Stealth Startup
   start_date: 2025-11
@@ -193,6 +194,7 @@ work_experiences:
   - AR
   - Embeddings
 - id: work/handshake-ai
+  work_section: Defense and AI Industry Experience
   title: Independent AI Consultant
   organization: Handshake AI
   start_date: 2025-11
@@ -245,6 +247,7 @@ work_experiences:
   soft_skills:
   - Stakeholder Presentation
 - id: work/afrl-2024
+  work_section: Defense and AI Research Experience
   title: SMART Scholar AI Research Scientist - ML Provenance
   organization: Air Force Research Laboratory (AFRL)
   start_date: 2024-05
@@ -288,6 +291,7 @@ work_experiences:
   soft_skills:
   - Stakeholder Presentation
 - id: work/afrl-2023
+  work_section: Defense and AI Research Experience
   title: SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD
   organization: Air Force Research Laboratory (AFRL)
   start_date: 2023-05
@@ -326,6 +330,7 @@ work_experiences:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: work/afrl-2022
+  work_section: Defense and AI Research Experience
   title: SMART Scholar AI Research Scientist - Machine Learning Interoperability with
     BFO
   organization: Air Force Research Laboratory (AFRL)
@@ -374,6 +379,7 @@ work_experiences:
   soft_skills:
   - Stakeholder Presentation
 - id: work/afrl-2021
+  work_section: Defense and AI Research Experience
   title: SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing
   organization: Air Force Research Laboratory (AFRL)
   start_date: 2021-05
@@ -423,6 +429,7 @@ work_experiences:
   - Taxonomy
   - Defense
 - id: work/afrl-2020
+  work_section: Defense and AI Research Experience
   title: AFRL Scholars Remote AI Research Scientist - ML Explainability
   organization: Air Force Research Laboratory (AFRL)
   start_date: 2020-05
@@ -463,6 +470,7 @@ work_experiences:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: work/afrl-2019
+  work_section: Defense and AI Research Experience
   title: AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs
   organization: Air Force Research Laboratory (AFRL)
   start_date: 2019-05
@@ -500,6 +508,7 @@ work_experiences:
   - Public Speaking
   - Stakeholder Presentation
 - id: work/cloudcell-consultant
+  work_section: Applied R&D and Consulting Experience
   title: Academic Consultant and Editor
   organization: Cloudcell Limited
   start_date: 2025-05
@@ -544,6 +553,7 @@ work_experiences:
   - Embeddings
   - Cognitive Science
 - id: work/upwork-reasoning
+  work_section: Applied R&D and Consulting Experience
   title: Reasoning Consultant
   organization: Upwork
   start_date: 2024-09
@@ -570,6 +580,7 @@ work_experiences:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: work/upwork-ontology-engineer-2024
+  work_section: Applied R&D and Consulting Experience
   title: Ontology Engineer
   organization: Upwork
   start_date: 2024-07
@@ -596,6 +607,7 @@ work_experiences:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: work/upwork-nuclear
+  work_section: Applied R&D and Consulting Experience
   title: Nuclear Construction Ontology Engineer
   organization: Upwork
   start_date: 2024-06
@@ -622,6 +634,7 @@ work_experiences:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: work/quiet-professionals
+  work_section: Applied R&D and Consulting Experience
   title: AI Consultant and Ontology Engineer
   organization: Quiet Professionals
   start_date: 2024-02
@@ -660,6 +673,7 @@ work_experiences:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: work/hooray-media
+  work_section: Applied R&D and Consulting Experience
   title: Ontologist and Linked Data Engineer
   organization: Hooray Media
   start_date: 2023-11
@@ -691,6 +705,7 @@ work_experiences:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: work/the-link
+  work_section: Applied R&D and Consulting Experience
   title: Ontologist and Knowledge Graph Engineer
   organization: The Link
   start_date: 2023-08
@@ -733,6 +748,7 @@ work_experiences:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: work/upwork-legal
+  work_section: Applied R&D and Consulting Experience
   title: Legal Ontology Consultant
   organization: Upwork
   start_date: 2023-05
@@ -766,6 +782,7 @@ work_experiences:
   - Text Extraction
   - Taxonomy
 - id: work/upwork-software-test
+  work_section: Applied R&D and Consulting Experience
   title: Software Test Engineer
   organization: Upwork
   start_date: 2023-05
@@ -790,6 +807,7 @@ work_experiences:
   - SDLC
   - Agile
 - id: work/upwork-geospatial
+  work_section: Applied R&D and Consulting Experience
   title: Geospatial Ontology Analyst
   organization: Upwork
   start_date: 2023-04
@@ -822,6 +840,7 @@ work_experiences:
   - Virtual Presentation
   - Stakeholder Presentation
 - id: work/upwork-kg-engineer
+  work_section: Applied R&D and Consulting Experience
   title: Knowledge Graph Engineer
   organization: Upwork
   start_date: 2023-03
@@ -864,6 +883,7 @@ work_experiences:
   - SDLC
   - SQA
 - id: work/forumapi
+  work_section: Applied R&D and Consulting Experience
   title: Technology Consultant and Scientific Writer
   organization: ForumAPI
   start_date: 2023-02
@@ -908,6 +928,7 @@ work_experiences:
   - NER
   - RAG
 - id: work/wordlift
+  work_section: Applied R&D and Consulting Experience
   title: Ontologist
   organization: WordLift SEO (international remote)
   start_date: 2023-01
@@ -960,6 +981,7 @@ work_experiences:
   - FOL
   - HOL
 - id: work/course-engineer
+  work_section: Graduate Positions
   title: University Course Engineer - The Knowledge Representation Spectrum
   organization: ERAU Daytona
   start_date: 2023-02
@@ -1004,6 +1026,7 @@ work_experiences:
   - Linked Data
   - XAI
 - id: work/eram-research-team
+  work_section: Graduate Positions
   title: AI Research Team Lead and Semantic Web Consultant
   organization: ERAU Daytona
   start_date: 2019-01
@@ -1043,6 +1066,7 @@ work_experiences:
   - Stakeholder Presentation
   - Virtual Presentation
 - id: work/grader-cs344
+  work_section: Undergrad and Prior
   title: Grader for CS344 - C Programming and UNIX
   organization: ERAU Daytona
   start_date: 2019-01
@@ -1074,6 +1098,7 @@ work_experiences:
   - SQA
   - Requirements Engineering
 - id: work/grader-cs315
+  work_section: Undergrad and Prior
   title: Grader for CS315 - Data Structures and Algorithms
   organization: ERAU Daytona
   start_date: 2018-08
@@ -1099,6 +1124,7 @@ work_experiences:
   soft_skills:
   - Virtual Presentation
 - id: work/publix
+  work_section: Undergrad and Prior
   title: Customer Service Clerk
   organization: Publix Supermarkets
   start_date: 2014-08

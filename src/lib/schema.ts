@@ -30,6 +30,7 @@ export const WorkExperienceSchema = z.object({
   id: z.string(),
   title: z.string(),
   organization: z.string(),
+  work_section: z.string().optional(),
   start_date: z.string().optional(),
   end_date: z.string().optional(),
   is_current: z.boolean().optional(),
