@@ -6,6 +6,7 @@ import {
   View,
   StyleSheet,
   PDFDownloadLink,
+  PDFViewer,
   Link,
 } from '@react-pdf/renderer'
 import { loadPortfolioData } from '@/lib/yaml-loader'
@@ -276,7 +277,7 @@ function CVDocument({ person }: { person: Person }) {
                 </View>
                 <Text style={pdfStyles.entrySubtitle}>
                   <Text style={{ fontStyle: 'italic' }}>{edu.institution}</Text>
-                  {edu.gpa ? `  |  GPA: ${edu.gpa.toFixed(1)}/${(edu.gpa_max ?? 4.0).toFixed(1)}` : ''}
+                  {edu.gpa ? `  |  GPA: ${String(edu.gpa)}/${String(edu.gpa_max ?? 4.0)}` : ''}
                 </Text>
                 {edu.thesis_title && (
                   <Text style={pdfStyles.entryNote}>• {edu.thesis_label ?? 'Thesis'}:{' '}
@@ -334,12 +335,14 @@ function CVDocument({ person }: { person: Person }) {
           <>
             <Text style={pdfStyles.sectionHeader}>Selected Publications (Top 10, Published)</Text>
             {topPubs.map((pub, i) => (
-              <View key={pub.id} style={pdfStyles.entryBlock}>
-                <Text style={pdfStyles.entryTitle}>[{i + 1}] {pub.title}</Text>
-                <Text style={pdfStyles.entrySubtitle}>
+              <View key={pub.id} style={{ marginBottom: 8 }}>
+                <Text style={{ fontFamily: 'Helvetica-Bold', fontSize: 9.5, color: '#111', marginBottom: 2 }}>[{i + 1}] {pub.title}</Text>
+                <Text style={{ fontSize: 8.5, color: '#333', marginBottom: 1 }}>
                   {pub.authors?.join(', ')}{pub.venue ? `. ${pub.venue}` : ''}{pub.date ? `. ${pub.date}` : ''}
                 </Text>
-                {pub.url && <Text style={pdfStyles.entryNote}>{pub.url}</Text>}
+                {pub.url && (
+                  <Link src={pub.url} style={{ fontSize: 8, color: '#1a6bbf', textDecoration: 'none' }}>{pub.url}</Link>
+                )}
               </View>
             ))}
           </>
@@ -609,226 +612,22 @@ export default function CVExport() {
         </div>
       </div>
 
-      {/* ── CV Preview (white paper) ── */}
-      <div
-        className="max-w-4xl mx-auto"
-        style={{
-          background: '#ffffff',
-          color: '#111111',
-          boxShadow: '0 4px 32px rgba(0,0,0,0.5)',
-          borderRadius: '2px',
-          padding: '48px 56px',
-          fontFamily: 'Georgia, "Times New Roman", serif',
-          fontSize: '10.5px',
-          lineHeight: '1.5',
-        }}
-      >
-        {/* Name & Contact Header */}
-        <div style={{ marginBottom: '16px' }}>
-          <h1 style={{ fontSize: '26px', fontWeight: 800, color: '#1a3a6b', margin: 0, letterSpacing: '-0.01em' }}>
-            {person.name}
-          </h1>
-          {person.title && (
-            <div style={{ fontSize: '12px', color: '#444', marginTop: '3px', fontStyle: 'italic' }}>
-              {person.title}
-            </div>
-          )}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 18px', marginTop: '8px', fontSize: '9.5px', color: '#555' }}>
-            {person.email_personal && <span>{person.email_personal}</span>}
-            {person.phone && <span>{person.phone}</span>}
-            {person.location && <span>{person.location} · Remote</span>}
-            {linkedin && <a href={`https://linkedin.com/in/${linkedin.handle}`} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>linkedin.com/in/{linkedin.handle}</a>}
-            {github && <a href={`https://github.com/${github.handle}`} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>github.com/{github.handle}</a>}
-            {person.website && <a href={person.website} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{person.website.replace('https://', '')}</a>}
-            {person.orcid && <a href={`https://orcid.org/${person.orcid}`} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>orcid.org/{person.orcid}</a>}
-            <span style={{ color: '#888', fontSize: '8.5px' }}>Last Updated: {new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-          </div>
+      {/* ── PDF Preview ── */}
+      {pdfDoc && (
+        <div className="max-w-4xl mx-auto" style={{ height: 'calc(100vh - 200px)', minHeight: '600px' }}>
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {(() => {
+            const Viewer = PDFViewer as any
+            return (
+              <Viewer width="100%" height="100%" style={{ border: 'none', borderRadius: '2px' }}>
+                {pdfDoc}
+              </Viewer>
+            )
+          })()}
         </div>
-
-        {/* Summary */}
-        {person.summary && (
-          <>
-            <PreviewSectionHeader>Summary</PreviewSectionHeader>
-            <p style={{ fontSize: '9.5px', color: '#222', lineHeight: '1.6', margin: 0 }}>
-              {person.summary.trim()}
-            </p>
-          </>
-        )}
-
-        {/* Education */}
-        {(person.education?.length ?? 0) > 0 && (
-          <>
-            <PreviewSectionHeader>Education</PreviewSectionHeader>
-            {person.education!.map(edu => {
-              const gpaStr = edu.gpa ? `  |  GPA: ${edu.gpa.toFixed(1)}/${(edu.gpa_max ?? 4.0).toFixed(1)}` : ''
-              const eduNotes: string[] = []
-              if (edu.thesis_title) eduNotes.push(`__THESIS__`)
-              if (edu.thesis_github) eduNotes.push(`__GITHUB__`)
-              if (edu.advisor) eduNotes.push(`__ADVISOR__`)
-              if (edu.notes) eduNotes.push(...edu.notes)
-              return (
-                <div key={edu.id} style={{ marginBottom: '10px' }}>
-                  <PreviewEntryBlock
-                    title={`${edu.degree}${edu.field && edu.field !== edu.degree ? ` in ${edu.field}` : ''}`}
-                    subtitle={<><span style={{ fontStyle: 'italic' }}>{edu.institution}</span>{gpaStr}</>}
-                    date={formatDateRange(edu.start_date, edu.end_date)}
-                  />
-                  {(edu.thesis_title || edu.thesis_github || edu.advisor || edu.notes?.length) && (
-                    <div style={{ paddingLeft: '8px', fontSize: '9px', color: '#333', lineHeight: '1.5', marginTop: '-2px' }}>
-                      {edu.thesis_title && (
-                        <div>• {edu.thesis_label ?? 'Thesis'}:{' '}
-                          {edu.thesis_url ? (
-                            <a href={edu.thesis_url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.thesis_title}</a>
-                          ) : edu.thesis_title}
-                        </div>
-                      )}
-                      {edu.thesis_github && (
-                        <div>• GitHub:{' '}
-                          <a href={edu.thesis_github} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.thesis_github}</a>
-                        </div>
-                      )}
-                      {edu.advisor && (
-                        <div>• Advisor:{' '}
-                          {edu.advisor_url ? (
-                            <a href={edu.advisor_url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{edu.advisor}</a>
-                          ) : edu.advisor}
-                        </div>
-                      )}
-                      {edu.notes?.map((note, i) => (
-                        <div key={i}>• {note}</div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )
-            })}
-          </>
-        )}
-
-        {/* Work Experience */}
-        {(person.work_experiences?.length ?? 0) > 0 && (
-          <>
-            <PreviewSectionHeader>Work Experience</PreviewSectionHeader>
-            {person.work_experiences!.map(exp => (
-              <PreviewEntryBlock
-                key={exp.id}
-                title={exp.title}
-                subtitle={`${exp.organization}${exp.location ? `  ·  ${exp.location}` : ''}`}
-                date={formatDateRange(exp.start_date, exp.end_date, exp.is_current)}
-                bullets={exp.description}
-                inlineSubtitle
-              />
-            ))}
-          </>
-        )}
-
-        {/* Publications */}
-        {topPubs.length > 0 && (
-          <>
-            <PreviewSectionHeader>Selected Publications (Top 10, Published)</PreviewSectionHeader>
-            {topPubs.map((pub, i) => (
-              <div key={pub.id} style={{ marginBottom: '9px' }}>
-                <span style={{ fontWeight: 700, fontSize: '10px', color: '#111' }}>
-                  [{i + 1}] {pub.title}
-                </span>
-                <div style={{ fontSize: '9px', color: '#444', marginTop: '2px' }}>
-                  {pub.authors?.join(', ')}
-                  {pub.venue ? `. ${pub.venue}` : ''}
-                  {pub.date ? `. ${pub.date}` : ''}
-                </div>
-                {pub.url && (
-                  <a
-                    href={pub.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ fontSize: '8.5px', color: '#1a3a6b', display: 'block', marginTop: '1px' }}
-                  >
-                    {pub.url}
-                  </a>
-                )}
-              </div>
-            ))}
-          </>
-        )}
-
-        {/* Projects */}
-        {topProjects.length > 0 && (
-          <>
-            <PreviewSectionHeader>Projects (Top 8)</PreviewSectionHeader>
-            {topProjects.map(proj => (
-              <PreviewEntryBlock
-                key={proj.id}
-                title={proj.title}
-                subtitle={proj.description}
-                date={proj.year}
-                extra={[
-                  proj.technologies?.length ? `Tech: ${proj.technologies.join(', ')}` : '',
-                  proj.url ?? proj.repo_url ?? '',
-                ].filter(Boolean).join('  |  ')}
-              />
-            ))}
-          </>
-        )}
-
-        {/* Skills */}
-        {Object.keys(skillGroups).length > 0 && (
-          <>
-            <PreviewSectionHeader>Skills</PreviewSectionHeader>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px 24px' }}>
-              {Object.entries(skillGroups).map(([category, items]) => (
-                <div key={category} style={{ fontSize: '9.5px', marginBottom: '3px' }}>
-                  <span style={{ fontWeight: 700, color: '#1a3a6b' }}>{category}: </span>
-                  <span style={{ color: '#333' }}>{items.join(', ')}</span>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
-
-        {/* Awards */}
-        {(person.awards?.length ?? 0) > 0 && (
-          <>
-            <PreviewSectionHeader>Awards & Honors</PreviewSectionHeader>
-            {person.awards!.map(award => (
-              <div key={award.id} style={{ display: 'flex', gap: '6px', marginBottom: '4px' }}>
-                <span style={{ color: '#333', fontSize: '9.5px', flexShrink: 0 }}>•</span>
-                <span style={{ fontSize: '9.5px', color: '#333' }}>
-                  <strong>{award.title}</strong>
-                  {award.issuer ? ` — ${award.issuer}` : ''}
-                  {award.date ? ` (${award.date})` : ''}
-                  {award.description ? <span style={{ color: '#666' }}> — {award.description}</span> : null}
-                </span>
-              </div>
-            ))}
-          </>
-        )}
-
-        {/* Certifications */}
-        {(person.certificates?.length ?? 0) > 0 && (
-          <>
-            <PreviewSectionHeader>Certifications</PreviewSectionHeader>
-            {person.certificates!.map(cert => (
-              <div key={cert.id} style={{ display: 'flex', gap: '6px', marginBottom: '4px' }}>
-                <span style={{ color: '#333', fontSize: '9.5px', flexShrink: 0 }}>•</span>
-                <span style={{ fontSize: '9.5px', color: '#333' }}>
-                  <strong>{cert.title}</strong>
-                  {cert.issuer ? ` — ${cert.issuer}` : ''}
-                  {cert.date ? ` (${cert.date})` : ''}
-                  {cert.status === 'in_progress' ? <em style={{ color: '#888' }}> [In Progress]</em> : ''}
-                </span>
-              </div>
-            ))}
-          </>
-        )}
-
-        {/* Security Clearance */}
-        {person.clearance && (
-          <>
-            <PreviewSectionHeader>Security Clearance</PreviewSectionHeader>
-            <p style={{ fontSize: '9.5px', color: '#333', margin: 0 }}>{person.clearance}</p>
-          </>
-        )}
-      </div>
+      )}
     </div>
   )
 }
+
+/* HTML preview removed — PDFViewer is now the canonical preview */
