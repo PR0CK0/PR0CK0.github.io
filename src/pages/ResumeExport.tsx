@@ -13,6 +13,7 @@ import {
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import type { Person } from '@/lib/schema'
 import SEO from '@/components/SEO'
+import SiteFooter from '@/components/SiteFooter'
 import { buildResumeData, type CVData, type CVSection, type CVEntry, type CVHeaderData } from '@/lib/cv-data'
 
 // ─── Custom Fonts ────────────────────────────────────────────────────────────
@@ -345,6 +346,7 @@ export default function ResumeExport() {
           </div>
         )
       )}
+      <SiteFooter />
     </div>
   )
 }

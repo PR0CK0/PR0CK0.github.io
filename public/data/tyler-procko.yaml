@@ -16,7 +16,7 @@ summary: Ph.D. researcher and AI engineer specializing in ontology-grounded LLM 
 clearance: Inactive Secret (Tier 3)
 availability: Spring 2026 — TueThu 07:00-20:00 ET, SatSun 11:00-20:00 ET
 birth_year: 1997
-mbti: ENTJ-T
+mbti: INTJ-T as a teenager ... ENTJ-T as a man
 social_links:
 - id: social/linkedin
   platform: LinkedIn
@@ -4692,6 +4692,13 @@ favorite_music:
 - Classical
 - Old Country
 - Dad Rock
+favorite_books:
+- Discourses on Livy (Machiavelli)
+- The Count of Monte Cristo (Dumas)
+- Paradise Lost (Milton)
+- Endurance (Lansing)
+- Redwall series (Jacques)
+favorite_show: The Sopranos
 citations:
 - date: Feb 2025
   description: Cited by a BlackRock + NVIDIA paper

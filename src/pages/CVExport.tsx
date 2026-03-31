@@ -14,6 +14,7 @@ import {
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import type { Person } from '@/lib/schema'
 import SEO from '@/components/SEO'
+import SiteFooter from '@/components/SiteFooter'
 import { buildCVData, type CVData, type CVSection, type CVEntry, type CVHeaderData } from '@/lib/cv-data'
 import erauLogo from '@/assets/erau-logo.png'
 
@@ -472,6 +473,7 @@ export default function CVExport() {
           </div>
         )
       )}
+      <SiteFooter />
     </div>
   )
 }

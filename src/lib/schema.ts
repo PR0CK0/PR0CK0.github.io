@@ -188,6 +188,8 @@ export const PersonSchema = z.object({
   hobbies: z.array(z.string()).optional(),
   favorite_artists: z.array(z.string()).optional(),
   favorite_music: z.array(z.string()).optional(),
+  favorite_books: z.array(z.string()).optional(),
+  favorite_show: z.string().optional(),
 })
 
 export type Person = z.infer<typeof PersonSchema>

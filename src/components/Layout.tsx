@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useTheme } from '../hooks/useTheme'
 
 const navItems = [
@@ -7,7 +7,6 @@ const navItems = [
   { to: '/graph', label: '~/graph' },
   { to: '/cv', label: '~/cv.pdf' },
   { to: '/resume', label: '~/resume.pdf' },
-  { to: '/legacy', label: '~/legacy' },
 ]
 
 const externalNavItems = [
@@ -20,28 +19,26 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const [theme, toggleTheme] = useTheme()
-  const { pathname } = useLocation()
-  const hideFooter = pathname !== '/'
 
   return (
     <div className="h-screen flex flex-col bg-terminal-bg overflow-hidden">
       <nav className="border-b border-terminal-border bg-terminal-surface sticky top-0 z-50">
         <div className="relative">
           <div
-            className="max-w-7xl mx-auto px-3 sm:px-4 flex items-center gap-0.5 sm:gap-1 h-10 sm:h-12 overflow-x-auto"
+            className="max-w-7xl mx-auto px-2 sm:px-4 flex items-center gap-0.5 sm:gap-1 h-9 sm:h-11 overflow-x-auto"
             style={{ scrollbarWidth: 'none' }}
           >
-            <span className="text-terminal-green font-bold mr-2 sm:mr-3 text-xs sm:text-sm text-glow-green tracking-wider flex-shrink-0">
+            <span className="text-terminal-green font-bold mr-1.5 sm:mr-3 text-[0.65rem] sm:text-sm text-glow-green tracking-wider flex-shrink-0">
               procko.pro
             </span>
-            <span className="text-terminal-muted text-xs sm:text-sm mr-1 sm:mr-3 flex-shrink-0">$</span>
+            <span className="text-terminal-muted text-[0.65rem] sm:text-sm mr-1 sm:mr-3 flex-shrink-0">$</span>
             {navItems.map(({ to, label }) => (
               <NavLink
                 key={to}
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm rounded transition-all duration-200 flex-shrink-0 ${
+                  `px-1.5 sm:px-3 py-0.5 sm:py-1 text-[0.65rem] sm:text-sm rounded transition-all duration-200 flex-shrink-0 ${
                     isActive
                       ? 'bg-terminal-border text-terminal-green border border-terminal-green/30 text-glow-green'
                       : 'text-terminal-muted hover:text-terminal-text hover:bg-terminal-border/50'
@@ -57,7 +54,7 @@ export default function Layout({ children }: LayoutProps) {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm rounded transition-all duration-200 text-terminal-muted hover:text-terminal-text hover:bg-terminal-border/50 flex-shrink-0"
+                className="px-1.5 sm:px-3 py-0.5 sm:py-1 text-[0.65rem] sm:text-sm rounded transition-all duration-200 text-terminal-muted hover:text-terminal-text hover:bg-terminal-border/50 flex-shrink-0"
               >
                 {label}
               </a>
@@ -68,7 +65,7 @@ export default function Layout({ children }: LayoutProps) {
             <button
               onClick={toggleTheme}
               aria-label="Toggle light/dark mode"
-              className="flex-shrink-0 ml-1 sm:ml-2 px-2 py-0.5 sm:py-1 text-xs sm:text-sm rounded transition-all duration-200 text-terminal-muted hover:text-terminal-text hover:bg-terminal-border/50"
+              className="flex-shrink-0 ml-1 sm:ml-2 px-1.5 py-0.5 sm:py-1 text-[0.65rem] sm:text-sm rounded transition-all duration-200 text-terminal-muted hover:text-terminal-text hover:bg-terminal-border/50"
               title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {theme === 'dark' ? '☀' : '☾'}
@@ -87,17 +84,6 @@ export default function Layout({ children }: LayoutProps) {
       <main className="flex-1 overflow-auto min-h-0">
         {children}
       </main>
-      {!hideFooter && <footer className="border-t border-terminal-border bg-terminal-surface px-4 py-2 text-center font-mono text-[0.6rem] sm:text-xs text-terminal-muted">
-        Proudly hosted for free with{' '}
-        <a
-          href="https://pages.github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-terminal-blue hover:text-terminal-text transition-colors"
-        >
-          GitHub Pages
-        </a>
-      </footer>}
     </div>
   )
 }

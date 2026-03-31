@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import SEO from '@/components/SEO'
+import SiteFooter from '@/components/SiteFooter'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import { TECH_CATEGORIES, type SkillCategory } from '@/lib/tech-categories'
 import type { Person, Publication, Project } from '@/lib/schema'
@@ -1648,7 +1649,7 @@ export default function Landing() {
 
       <RecentReposSection projects={projects} />
 
-      <Footer />
+      <SiteFooter />
     </div>
   )
 }
