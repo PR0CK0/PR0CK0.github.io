@@ -276,20 +276,20 @@ export default function ResumeExport() {
         description="Resume of Tyler T. Procko, Ph.D. — work experience, projects, and technical skills in AI, ontology engineering, and knowledge graphs."
         path="/resume"
       />
-      <div className="max-w-4xl mx-auto mb-8">
-        <h1 className="text-2xl font-bold text-terminal-amber tracking-tight">~/resume.pdf</h1>
-        <p className="text-terminal-green text-sm mt-1 opacity-80">
+      <div className="max-w-4xl mx-auto mb-4 sm:mb-8 cv-page-chrome">
+        <h1 className="text-xl sm:text-2xl font-bold text-terminal-amber tracking-tight">~/resume.pdf</h1>
+        <p className="text-terminal-green text-xs sm:text-sm mt-1 opacity-80">
           Work experience, projects, and skills — Generated from YAML source.
         </p>
 
-        <div className="flex flex-wrap gap-3 mt-5 items-center">
+        <div className="flex flex-wrap gap-2 sm:gap-3 mt-3 sm:mt-5 items-center">
           {pdfDoc && (() => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const PdfLink = PDFDownloadLink as any
             return (
               <PdfLink document={pdfDoc} fileName={`tylerprocko_resume_${new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).replace(/\//g, '')}.pdf`}>
                 {({ loading: pdfLoading }: { loading: boolean }) => (
-                  <button className="px-4 py-2 bg-blue-900 border border-blue-500 text-blue-200 text-sm font-mono hover:bg-blue-800 transition-colors rounded" disabled={pdfLoading}>
+                  <button className="px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-900 border border-blue-500 text-blue-200 text-xs sm:text-sm font-mono hover:bg-blue-800 transition-colors rounded" disabled={pdfLoading}>
                     ⬇ Download PDF
                   </button>
                 )}
@@ -298,7 +298,7 @@ export default function ResumeExport() {
           })()}
 
           <a href="/data/tyler-procko.yaml" target="_blank" rel="noopener noreferrer">
-            <button className="px-4 py-2 bg-gray-800 border border-gray-600 text-gray-300 text-sm font-mono hover:bg-gray-700 transition-colors rounded">
+            <button className="px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-800 border border-gray-600 text-gray-300 text-xs sm:text-sm font-mono hover:bg-gray-700 transition-colors rounded">
               {'<>'} View Raw YAML
             </button>
           </a>
@@ -306,13 +306,13 @@ export default function ResumeExport() {
           <div className="flex rounded overflow-hidden border border-terminal-border ml-auto">
             <button
               onClick={() => setViewMode('html')}
-              className={`px-3 py-2 text-xs font-mono transition-colors ${viewMode === 'html' ? 'bg-terminal-green/20 text-terminal-green' : 'bg-gray-800 text-gray-400 hover:text-gray-200'}`}
+              className={`px-2 py-1.5 sm:px-3 sm:py-2 text-[0.65rem] sm:text-xs font-mono transition-colors ${viewMode === 'html' ? 'bg-terminal-green/20 text-terminal-green' : 'bg-gray-800 text-gray-400 hover:text-gray-200'}`}
             >
               HTML
             </button>
             <button
               onClick={() => setViewMode('pdf')}
-              className={`px-3 py-2 text-xs font-mono transition-colors ${viewMode === 'pdf' ? 'bg-terminal-green/20 text-terminal-green' : 'bg-gray-800 text-gray-400 hover:text-gray-200'}`}
+              className={`px-2 py-1.5 sm:px-3 sm:py-2 text-[0.65rem] sm:text-xs font-mono transition-colors ${viewMode === 'pdf' ? 'bg-terminal-green/20 text-terminal-green' : 'bg-gray-800 text-gray-400 hover:text-gray-200'}`}
             >
               PDF
             </button>
