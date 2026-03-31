@@ -13,7 +13,7 @@ export interface CVEntry {
   date?: string           // right column
   subtitle?: string       // line below title (institution)
   gpa?: { value: string; max: string }  // GPA with bold value
-  notes?: Array<{ text: string; url?: string }>  // bullet notes with optional links
+  notes?: Array<{ prefix?: string; text: string; url?: string }>  // bullet notes with optional links
   bullets?: string[]      // description bullets
 }
 
@@ -167,19 +167,20 @@ export function buildCVData(person: Person, buildDate: string): CVData {
   // Education
   if ((person.education?.length ?? 0) > 0) {
     const entries: CVEntry[] = person.education!.map(edu => {
-      const notes: Array<{ text: string; url?: string }> = []
+      const notes: Array<{ prefix?: string; text: string; url?: string }> = []
 
       if (edu.thesis_title) {
         notes.push({
-          text: `${edu.thesis_label ?? 'Thesis'}: ${edu.thesis_title}`,
+          prefix: `${edu.thesis_label ?? 'Thesis'}: `,
+          text: edu.thesis_title,
           url: edu.thesis_url,
         })
       }
       if (edu.thesis_github) {
-        notes.push({ text: `GitHub: ${edu.thesis_github}`, url: edu.thesis_github })
+        notes.push({ prefix: 'GitHub: ', text: edu.thesis_github, url: edu.thesis_github })
       }
       if (edu.advisor) {
-        notes.push({ text: `Advisor: ${edu.advisor}`, url: edu.advisor_url })
+        notes.push({ prefix: 'Advisor: ', text: edu.advisor, url: edu.advisor_url })
       }
       if (edu.notes) {
         for (const note of edu.notes) {
@@ -261,7 +262,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
 
   if (topProjects.length > 0) {
     const entries: CVEntry[] = topProjects.map(proj => {
-      const notes: Array<{ text: string; url?: string }> = []
+      const notes: Array<{ prefix?: string; text: string; url?: string }> = []
       if (proj.technologies && proj.technologies.length > 0) {
         notes.push({ text: `Tech: ${proj.technologies.join(', ')}` })
       }
@@ -399,7 +400,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
     .slice(0, 8)
   if (projects.length > 0) {
     const entries: CVEntry[] = projects.map(proj => {
-      const notes: Array<{ text: string; url?: string }> = []
+      const notes: Array<{ prefix?: string; text: string; url?: string }> = []
       if (proj.description) notes.push({ text: proj.description })
       if (proj.technologies?.length) notes.push({ text: `Tech: ${proj.technologies.join(', ')}` })
       if (proj.url || proj.repo_url) notes.push({ text: proj.url ?? proj.repo_url ?? '', url: proj.url ?? proj.repo_url ?? '' })

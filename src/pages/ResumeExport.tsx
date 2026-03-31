@@ -110,7 +110,7 @@ function ResumePdfDocument({ data }: { data: CVData }) {
                   {entry.notes?.map((note, ni) => (
                     <Text key={ni} style={S.note}>
                       {'• '}
-                      {note.url ? <Link src={note.url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</Link> : note.text}
+                      {note.prefix}{note.url ? <Link src={note.url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</Link> : note.text}
                     </Text>
                   ))}
                   {entry.bullets?.map((b, bi) => (
@@ -208,7 +208,7 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
                 {entry.notes?.map((note, ni) => (
                   <div key={ni} style={HS.note}>
                     {'• '}
-                    {note.url ? <a href={note.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</a> : note.text}
+                    {note.prefix}{note.url ? <a href={note.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</a> : note.text}
                   </div>
                 ))}
                 {entry.bullets?.map((b, bi) => (
