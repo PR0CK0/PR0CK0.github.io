@@ -164,7 +164,7 @@ const HS = {
 function ResumeHtmlPreview({ data }: { data: CVData }) {
   const h = data.header
   return (
-    <div style={HS.page}>
+    <div className="cv-html-preview" style={HS.page}>
       <div style={{ marginBottom: '10px' }}>
         <div style={HS.name}>{h.name}</div>
         {h.title && <div style={HS.title}>{h.title}</div>}
@@ -321,7 +321,7 @@ export default function ResumeExport() {
       </div>
 
       {viewMode === 'html' ? (
-        <div className="max-w-4xl mx-auto origin-top scale-[0.85] sm:scale-100">
+        <div className="max-w-4xl mx-auto">
           <ResumeHtmlPreview data={resumeData} />
         </div>
       ) : (

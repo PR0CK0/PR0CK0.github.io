@@ -236,7 +236,7 @@ const HS = {
 function CVHtmlPreview({ data }: { data: CVData }) {
   const h = data.header
   return (
-    <div style={HS.page}>
+    <div className="cv-html-preview" style={HS.page}>
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
         <div style={{ flex: 1 }}>
@@ -448,7 +448,7 @@ export default function CVExport() {
 
       {/* ── Preview ── */}
       {viewMode === 'html' ? (
-        <div className="max-w-4xl mx-auto origin-top scale-[0.85] sm:scale-100">
+        <div className="max-w-4xl mx-auto">
           <CVHtmlPreview data={cvData} />
         </div>
       ) : (

@@ -156,6 +156,13 @@ html.light .border-glow-blue {
   box-shadow: none;
 }
 
+/* Mobile zoom for CV/Resume HTML previews */
+@media (max-width: 639px) {
+  .cv-html-preview {
+    zoom: 0.85;
+  }
+}
+
 @layer utilities {
   .scanlines {
     background-image: repeating-linear-gradient(
