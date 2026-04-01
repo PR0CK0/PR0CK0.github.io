@@ -367,24 +367,28 @@ const REDACTED_MSGS = [
 
 // ─── Typing Prompt ──────────────────────────────────────────────────────────
 
-const PROMPT_QUERIES = [
-  'tell me about tyler',
-  'who is tyler procko?',
-  'list publications --recent',
-  'grep -r "ontology" ./research/',
-  'git log --author=tyler --oneline',
-  'cat resume.pdf | summarize',
-  'describe tyler procko --verbose',
-  'ssh procko@agent-swarm.local',
-  'python3 deploy_agents.py',
-  'curl procko.pro/api/knowledge-graph',
-  './run_knowledge_graph.sh',
-  'find . -name "*.owl" | wc -l',
-]
+function buildPromptQueries(firstName: string, handle: string): string[] {
+  const fn = firstName.toLowerCase()
+  const h = handle.toLowerCase()
+  return [
+    `tell me about ${fn}`,
+    `who is ${fn} ${h}?`,
+    'list publications --recent',
+    'grep -r "ontology" ./research/',
+    `git log --author=${fn} --oneline`,
+    'cat resume.pdf | summarize',
+    `describe ${fn} ${h} --verbose`,
+    `ssh ${h}@agent-swarm.local`,
+    'python3 deploy_agents.py',
+    'curl procko.pro/api/knowledge-graph',
+    './run_knowledge_graph.sh',
+    'find . -name "*.owl" | wc -l',
+  ]
+}
 
 type TypingState = 'waiting' | 'typing' | 'pausing' | 'deleting'
 
-function TypingPrompt({ onFirstTyped }: { onFirstTyped?: () => void }) {
+function TypingPrompt({ onFirstTyped, queries }: { onFirstTyped?: () => void; queries: string[] }) {
   const [text, setText] = useState('')
   const [phase, setPhase] = useState<TypingState>('waiting')
   const [idx, setIdx] = useState(0)
@@ -393,11 +397,11 @@ function TypingPrompt({ onFirstTyped }: { onFirstTyped?: () => void }) {
 
   useEffect(() => {
     const clear = () => { if (timer.current) clearTimeout(timer.current) }
-    const query = PROMPT_QUERIES[idx]
+    const query = queries[idx]
 
     if (phase === 'waiting') {
       timer.current = setTimeout(() => {
-        setIdx(Math.floor(Math.random() * PROMPT_QUERIES.length))
+        setIdx(Math.floor(Math.random() * queries.length))
         setPhase('typing')
       }, 600)
     } else if (phase === 'typing') {
@@ -420,14 +424,13 @@ function TypingPrompt({ onFirstTyped }: { onFirstTyped?: () => void }) {
           setText((t) => t.slice(0, -1))
         }, 19 + Math.random() * 12)
       } else {
-        // Pick a different query next time
-        setIdx((i) => (i + 1 + Math.floor(Math.random() * (PROMPT_QUERIES.length - 1))) % PROMPT_QUERIES.length)
+        setIdx((i) => (i + 1 + Math.floor(Math.random() * (queries.length - 1))) % queries.length)
         setPhase('waiting')
       }
     }
 
     return clear
-  }, [phase, text, idx, onFirstTyped])
+  }, [phase, text, idx, onFirstTyped, queries])
 
   return (
     <div className="flex gap-2 items-center font-mono text-xs sm:text-sm ls:text-xs">
@@ -440,7 +443,7 @@ function TypingPrompt({ onFirstTyped }: { onFirstTyped?: () => void }) {
 
 // ─── Boot Sequence ───────────────────────────────────────────────────────────
 
-function BootSequence({ lines, onComplete, onFirstTyped }: { lines: BootLine[]; onComplete: () => void; onFirstTyped: () => void }) {
+function BootSequence({ lines, onComplete, onFirstTyped, promptQueries }: { lines: BootLine[]; onComplete: () => void; onFirstTyped: () => void; promptQueries: string[] }) {
   const [visibleLines, setVisibleLines] = useState<number>(0)
   const [showCursor, setShowCursor] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -464,7 +467,7 @@ function BootSequence({ lines, onComplete, onFirstTyped }: { lines: BootLine[]; 
   }, [visibleLines, lines, onComplete])
 
   return (
-    <div className="font-mono text-xs sm:text-sm ls:text-xs space-y-1">
+    <div className="font-mono text-[0.675rem] sm:text-sm ls:text-[0.675rem] space-y-1">
       {lines.map((line, i) => (
         <motion.div
           key={i}
@@ -478,7 +481,7 @@ function BootSequence({ lines, onComplete, onFirstTyped }: { lines: BootLine[]; 
         </motion.div>
       ))}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: showCursor ? 1 : 0 }}>
-        <TypingPrompt onFirstTyped={onFirstTyped} />
+        <TypingPrompt onFirstTyped={onFirstTyped} queries={promptQueries} />
       </motion.div>
     </div>
   )
@@ -564,6 +567,9 @@ function HeroContent({ person }: { person: Person }) {
 function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLine[] }) {
   const [bootDone, setBootDone] = useState(false)
   const [heroVisible, setHeroVisible] = useState(false)
+  const firstName = person.name.split(' ')[0]
+  const githubHandle = person.social_links?.find(s => s.platform === 'GitHub')?.handle ?? firstName
+  const promptQueries = buildPromptQueries(firstName, githubHandle)
 
   return (
     <section className="relative overflow-hidden bg-terminal-bg">
@@ -612,6 +618,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
               lines={bootLines}
               onComplete={() => setBootDone(true)}
               onFirstTyped={() => setHeroVisible(true)}
+              promptQueries={promptQueries}
             />
 
             <motion.div
