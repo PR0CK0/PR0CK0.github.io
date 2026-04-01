@@ -785,7 +785,17 @@ function SkillsMatrix({ person }: { person: Person }) {
   const [view, setView] = useState<SkillView>('ranked')
 
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 ls:px-4 py-7 sm:py-12 ls:py-7">
+    <section
+      className="max-w-5xl mx-auto px-4 sm:px-6 ls:px-4 py-7 sm:py-12 ls:py-7"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(77,159,255,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(77,159,255,0.04) 1px, transparent 1px),
+          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)
+        `,
+        backgroundSize: '40px 40px, 40px 40px, 100% 4px',
+      }}
+    >
       <SectionHeader
         prompt="cat skills.json"
         title="Skills Matrix"
@@ -964,7 +974,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       transition={{ delay: index * 0.08, duration: 0.45 }}
       whileHover={{ y: -3 }}
       className="group flex flex-col p-3 sm:p-4 ls:p-3 rounded-lg border border-terminal-border
-                 bg-terminal-surface/40 hover:bg-terminal-surface/70
+                 bg-terminal-surface/80 hover:bg-terminal-surface
                  hover:border-terminal-purple/40 transition-all duration-250"
     >
       {/* Header */}
@@ -1029,8 +1039,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               </button>
               {showOverflow && (
                 <div className="absolute bottom-full left-0 mb-2 z-50 w-56
-                                bg-terminal-bg border border-terminal-purple/30
-                                rounded-lg p-2.5 shadow-xl shadow-black/50">
+                                border border-terminal-purple/30
+                                rounded-lg p-2.5 shadow-xl shadow-black/50"
+                  style={{ backgroundColor: 'rgb(10, 14, 26)' }}>
                   <p className="text-[9px] font-mono text-terminal-muted/60 uppercase tracking-widest mb-2">
                     // more skills
                   </p>
@@ -1125,7 +1136,17 @@ function RecentReposSection({ projects }: { projects: Project[] }) {
   }
 
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 ls:px-4 py-7 sm:py-12 ls:py-7">
+    <section
+      className="max-w-5xl mx-auto px-4 sm:px-6 ls:px-4 py-7 sm:py-12 ls:py-7"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(77,159,255,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(77,159,255,0.04) 1px, transparent 1px),
+          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)
+        `,
+        backgroundSize: '40px 40px, 40px 40px, 100% 4px',
+      }}
+    >
       <SectionHeader
         prompt="gh repo list --sort updated --limit 6"
         title="Recent Repos"
@@ -1199,7 +1220,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
       transition={{ delay: index * 0.08, duration: 0.45 }}
       whileHover={{ y: -3 }}
       className="group flex flex-col p-3 sm:p-4 ls:p-3 rounded-lg border border-terminal-border
-                 bg-terminal-surface/40 hover:bg-terminal-surface/70
+                 bg-terminal-surface/80 hover:bg-terminal-surface
                  hover:border-terminal-purple/40 transition-all duration-250"
     >
       {/* Header */}
@@ -1267,8 +1288,9 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
               </button>
               {showOverflow && (
                 <div className="absolute bottom-full left-0 mb-2 z-50 w-56
-                                bg-terminal-bg border border-terminal-purple/30
-                                rounded-lg p-2.5 shadow-xl shadow-black/50">
+                                border border-terminal-purple/30
+                                rounded-lg p-2.5 shadow-xl shadow-black/50"
+                  style={{ backgroundColor: 'rgb(10, 14, 26)' }}>
                   <p className="text-[9px] font-mono text-terminal-muted/60 uppercase tracking-widest mb-2">
                     // more skills
                   </p>
@@ -1448,7 +1470,7 @@ function ContributionGraph({ username }: { username: string }) {
         </span>
       </div>
       <div
-        className="contrib-scroll overflow-x-auto pb-1 rounded-lg border border-terminal-border/30 bg-terminal-surface/20 p-2.5"
+        className="contrib-scroll overflow-x-auto pb-1 rounded-lg border border-terminal-border/50 bg-terminal-surface/80 p-2.5"
         onMouseLeave={() => setTooltip(null)}
       >
         <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 0 }}>

@@ -140,6 +140,7 @@ work_experiences:
   - Fuseki
   - Protégé
   - Ollama
+  - LM Studio
   - Claude
   - Gemini
   - Codex
@@ -518,6 +519,7 @@ work_experiences:
   technologies:
   - Python
   - GPT
+  - Session
   - LaTeX
   - Microsoft Word
   - Visual Studio Code
@@ -2418,6 +2420,8 @@ projects:
   - Ollama
   - OpenAI
   - Anthropic
+  - Claude
+  - GPT
   - Gemini
   - spaCy
   - DistilBERT
@@ -2506,6 +2510,9 @@ projects:
   - OBI
   - RO
   - Visual Studio Code
+  - Claude
+  - Codex
+  - GPT
   tags:
   - biomedical
   - knowledge graphs
@@ -2551,6 +2558,8 @@ projects:
   - HTML
   - CSS
   - Visual Studio Code
+  - Claude
+  - Codex
   tags:
   - cybersecurity
   - visualization
@@ -2858,6 +2867,7 @@ projects:
   - biomedical
   technologies:
   - GPT
+  - Session
   - Microsoft Word
   - Discord
   - LaTeX
