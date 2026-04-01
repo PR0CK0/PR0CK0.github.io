@@ -55,6 +55,7 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 ## Graph
 
 - [ ] Graph: clicking a skill chip navigates to the graph with `?q=<skill>` and the node is found/searched, but neighborhood dimming doesn't apply until you manually re-click the node. `layoutstop` approach attempted — Cytoscape class application timing is tricky here.
+- [ ] **Graph filter scroll shadows** — Add visual indicator on mobile when filter-by-type list is scrollable. Should show fade/shadow on edges only when content exists to scroll in that direction. Several attempts didn't work reliably; needs a different approach or library.
 
 ## Ensure full coverage of domains, technologies, soft_skills on all entries
 
