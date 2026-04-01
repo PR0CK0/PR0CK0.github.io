@@ -152,7 +152,68 @@ function formatDate(date?: string) {
 
 // ─── Profile Photo ──────────────────────────────────────────────────────────
 
+const CODE_SNIPPETS = [
+  ';',
+  'import',
+  'export',
+  '->',
+  '=>',
+  'const',
+  'async',
+  'await',
+  'null',
+  'type',
+  'interface',
+  'class',
+  'fn',
+  '{}',
+  '[]',
+  '()',
+  '<>',
+  'return',
+  'yield',
+  '...',
+  '=>',
+  'var',
+  'let',
+  'static',
+  'public',
+  'private',
+  'if',
+  'else',
+  'for',
+  'while',
+]
+
+interface FallingCode {
+  id: string
+  text: string
+  x: number
+}
+
 function ProfilePhoto({ visible }: { visible: boolean }) {
+  const [isShaking, setIsShaking] = useState(false)
+  const [fallingCodes, setFallingCodes] = useState<FallingCode[]>([])
+
+  const handleClick = () => {
+    setIsShaking(true)
+    setTimeout(() => setIsShaking(false), 500)
+
+    // Create 4-6 falling code pieces
+    const count = Math.floor(Math.random() * 3) + 4
+    const newCodes: FallingCode[] = Array.from({ length: count }, (_, i) => ({
+      id: `${Date.now()}-${i}`,
+      text: CODE_SNIPPETS[Math.floor(Math.random() * CODE_SNIPPETS.length)],
+      x: Math.random() * 40 - 20, // -20 to 20px offset
+    }))
+    setFallingCodes((prev) => [...prev, ...newCodes])
+
+    // Remove codes after animation completes
+    setTimeout(() => {
+      setFallingCodes((prev) => prev.filter((c) => !newCodes.find((nc) => nc.id === c.id)))
+    }, 2000)
+  }
+
   return (
     <div
       className="flex-shrink-0 relative w-[66px] h-[66px] sm:w-[101px] sm:h-[101px] ls:w-[66px] ls:h-[66px]"
@@ -163,11 +224,14 @@ function ProfilePhoto({ visible }: { visible: boolean }) {
         className={`relative rounded-full overflow-hidden w-full h-full ${visible ? 'profile-scan-reveal' : ''}`}
         style={{ clipPath: visible ? undefined : 'inset(0 0 100% 0)' }}
       >
-        <img
+        <motion.img
           src="/me.png"
           alt="Tyler Procko"
-          className="w-full h-full object-cover rounded-full"
+          className="w-full h-full object-cover rounded-full cursor-pointer"
           draggable={false}
+          animate={isShaking ? { rotate: [-3, 3, -3, 3, 0], x: [-2, 2, -2, 2, 0] } : {}}
+          transition={{ duration: 0.4 }}
+          onClick={handleClick}
         />
         {/* CRT scanlines overlay on photo */}
         <div
@@ -211,6 +275,28 @@ function ProfilePhoto({ visible }: { visible: boolean }) {
           ))}
         </>
       )}
+
+      {/* Falling code pieces */}
+      <AnimatePresence>
+        {fallingCodes.map((code) => (
+          <motion.div
+            key={code.id}
+            className="absolute text-xs font-mono pointer-events-none whitespace-nowrap"
+            style={{
+              left: `${50 + code.x}%`,
+              top: 0,
+              color: '#00ff88',
+              textShadow: '0 0 8px #00ff8844',
+            }}
+            initial={{ y: 0, opacity: 1 }}
+            animate={{ y: 200, opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2, ease: 'easeIn' }}
+          >
+            {code.text}
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   )
 }
