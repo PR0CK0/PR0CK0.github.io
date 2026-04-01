@@ -159,6 +159,9 @@ work_experiences:
   - Mermaid
   - Figma
   - CURL
+  - Kanban
+  - Zod
+  - YAML
   - Visual Studio Code
   category: defense_industry
   date_display: Nov 2025 - Present
@@ -666,6 +669,7 @@ work_experiences:
   - Microsoft Excel
   - DICO
   - JANES
+  - Kanban
   - Visual Studio Code
   category: consulting
   date_display: Feb 2024 - Apr 2024
@@ -741,6 +745,7 @@ work_experiences:
   - TSV
   - JSON
   - Stardog
+  - Kanban
   - Visual Studio Code
   category: consulting
   date_display: Aug 2023 - Jan 2024
@@ -2389,6 +2394,8 @@ projects:
   - GitHub Pages
   - feedparser
   - PyYAML
+  - YAML
+  - TOML
   - GitHub
   - Visual Studio Code
   tags:
@@ -2455,6 +2462,7 @@ projects:
   - GitHub
   - Transformers
   - NetworkX
+  - YAML
   - Visual Studio Code
   tags:
   - biomedical
@@ -2531,6 +2539,7 @@ projects:
   - Claude
   - Codex
   - GPT
+  - YAML
   tags:
   - biomedical
   - knowledge graphs
@@ -2762,6 +2771,8 @@ projects:
   - GitHub
   - GitHub Actions
   - Pydantic
+  - YAML
+  - TOML
   - Visual Studio Code
   tags:
   - AI
@@ -3811,6 +3822,9 @@ skills:
   category: tools
 - id: skill/trello
   name: Trello
+  category: tools
+- id: skill/kanban
+  name: Kanban
   category: tools
 - id: skill/aws-s3
   name: AWS S3
@@ -4866,6 +4880,7 @@ courses:
   - Jackson
   - GitHub
   - Eclipse
+  - Kanban
   - Microsoft Word
   - Microsoft PowerPoint
   domains:

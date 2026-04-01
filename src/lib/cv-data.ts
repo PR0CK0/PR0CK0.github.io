@@ -88,6 +88,18 @@ export function formatDateRange(
   return `${s} \u2013\n ${e}`
 }
 
+/** Format a single date as "Month YYYY" (full month name) or just "YYYY". Returns "N/A" if falsy. */
+export function fmtSingleDate(d?: string | null): string {
+  if (!d) return 'N/A'
+  const [year, month] = d.split('-')
+  if (!month) return year
+  const monthNames = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+  ]
+  return `${monthNames[parseInt(month, 10) - 1]} ${year}`
+}
+
 /** Group flat skill list into labelled categories. */
 export function groupSkills(skills: Skill[]): Record<string, string[]> {
   const labelMap: Record<string, string> = {
@@ -290,7 +302,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     const entries: CVEntry[] = person.awards!.map(award => ({
       title: award.title,
       titleSuffix: award.issuer,
-      date: award.date ? `(${award.date})` : undefined,
+      date: fmtSingleDate(award.date),
     }))
     sections.push({ header: 'Awards & Honors', entries })
   }
@@ -301,9 +313,9 @@ export function buildCVData(person: Person, buildDate: string): CVData {
       title: cert.title,
       titleSuffix: [
         cert.issuer,
-        cert.date ? `(${cert.date})` : null,
         cert.status === 'in_progress' ? '[In Progress]' : null,
       ].filter(Boolean).join(' ') || undefined,
+      date: fmtSingleDate(cert.date),
     }))
     sections.push({ header: 'Certifications', entries })
   }

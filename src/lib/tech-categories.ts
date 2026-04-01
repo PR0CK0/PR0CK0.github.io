@@ -121,6 +121,17 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Jackson:              'libraries',
   'json-simple':        'libraries',
   JSoup:                'libraries',
+  Keras:                'libraries',
+  Jinja2:               'libraries',
+  'Tailwind CSS':       'libraries',
+  PostCSS:              'libraries',
+  Autoprefixer:         'libraries',
+  'Radix UI':           'libraries',
+  Zod:                  'libraries',
+  'framer-motion':      'libraries',
+  'react-helmet-async': 'libraries',
+  'react-pdf':          'libraries',
+  'react-router':       'libraries',
 
   // ── Development Tools ──────────────────────────────────────────────────────
   Git:                  'dev_tools',
@@ -128,6 +139,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Jira:                 'dev_tools',
   Confluence:           'dev_tools',
   Bitbucket:            'dev_tools',
+  Kanban:               'dev_tools',
   'Protégé':            'dev_tools',
   GraphDB:              'dev_tools',
   Stardog:              'dev_tools',
@@ -166,6 +178,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   'Microsoft Word':     'office_tools',
   'Microsoft Excel':    'office_tools',
   'Microsoft PowerPoint': 'office_tools',
+  ProPresenter:           'office_tools',
   'Google Docs':        'office_tools',
   'Google Drive':       'office_tools',
   'Google Sheets':      'office_tools',
@@ -204,6 +217,8 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   NER:                  'ai_tools',
   NLP:                  'ai_tools',
   'Mixture of Agents':  'ai_tools',
+  BART:                 'ai_tools',
+  REBEL:                'ai_tools',
   GPT:                  'ai_tools',
   CLIP:                 'ai_tools',
   ResNet:               'ai_tools',
@@ -287,9 +302,12 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Figma:                'design',
   Balsamiq:             'design',
   Mockingbird:          'design',
+  vMix:                 'design',
 
   // ── Data Languages ─── (additional) ────────────────────────────────────────
   TSV:          'data_languages',
+  YAML:         'data_languages',
+  TOML:         'data_languages',
   WKT:          'data_languages',
 
   // ── Development Tools ─── (additional) ──────────────────────────────────────
