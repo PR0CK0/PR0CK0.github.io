@@ -376,6 +376,9 @@ export default function Graph() {
   // Track stats
   const [stats, setStats] = useState({ nodes: 0, edges: 0 })
   const [visibleCounts, setVisibleCounts] = useState({ nodes: 0, edges: 0 })
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(false)
+  const filterScrollRef = useRef<HTMLDivElement | null>(null)
 
   // ── Load data ────────────────────────────────────────────────────────────────
 
@@ -712,6 +715,22 @@ export default function Graph() {
     cy.fit(undefined, 40)
   }, [])
 
+  const checkFilterScroll = useCallback(() => {
+    const el = filterScrollRef.current
+    if (!el) return
+    const hasLeft = el.scrollLeft > 0
+    const hasRight = el.scrollLeft < el.scrollWidth - el.clientWidth - 5
+    setCanScrollLeft(hasLeft)
+    setCanScrollRight(hasRight)
+  }, [])
+
+  // Check filter scroll on mount and after filter changes
+  useEffect(() => {
+    setTimeout(checkFilterScroll, 0)
+    window.addEventListener('resize', checkFilterScroll)
+    return () => window.removeEventListener('resize', checkFilterScroll)
+  }, [checkFilterScroll])
+
   // ─── Render ─────────────────────────────────────────────────────────────────
 
   // Sidebar content shared between desktop and mobile drawer
@@ -750,8 +769,10 @@ export default function Graph() {
         {/* On mobile: wrap in a horizontal scroll row; on desktop: vertical list */}
         <div className="relative sm:hidden">
           <div
+            ref={filterScrollRef}
             className="flex gap-1.5 overflow-x-auto pb-1"
             style={{ scrollbarWidth: 'none' }}
+            onScroll={checkFilterScroll}
           >
             {NODE_TYPES.map((type) => {
             const meta = TYPE_META[type]
@@ -789,16 +810,20 @@ export default function Graph() {
             )
           })}
           </div>
-          {/* Left scroll fade — always visible */}
-          <div
-            className="pointer-events-none absolute left-0 top-0 h-full w-8 sm:hidden"
-            style={{ background: 'linear-gradient(to right, rgba(15, 22, 41, 0.4), transparent)' }}
-          />
-          {/* Right scroll fade — always visible */}
-          <div
-            className="pointer-events-none absolute right-0 top-0 h-full w-8 sm:hidden"
-            style={{ background: 'linear-gradient(to left, rgba(15, 22, 41, 0.4), transparent)' }}
-          />
+          {/* Left scroll fade — only when can scroll left */}
+          {canScrollLeft && (
+            <div
+              className="pointer-events-none absolute left-0 top-0 h-full w-8 sm:hidden"
+              style={{ background: 'linear-gradient(to right, #0f1629, transparent)' }}
+            />
+          )}
+          {/* Right scroll fade — only when can scroll right */}
+          {canScrollRight && (
+            <div
+              className="pointer-events-none absolute right-0 top-0 h-full w-8 sm:hidden"
+              style={{ background: 'linear-gradient(to left, #0f1629, transparent)' }}
+            />
+          )}
         </div>
       </div>
 
