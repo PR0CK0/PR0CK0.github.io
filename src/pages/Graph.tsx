@@ -356,6 +356,7 @@ export default function Graph() {
   const enabledTypesRef = useRef<Set<NodeType>>(new Set(NODE_TYPES))
   const layoutCacheKeyRef = useRef<string>('')
   const savedPositionsRef = useRef<Record<string, { x: number; y: number }> | null>(null)
+  const filterScrollRef = useRef<HTMLDivElement | null>(null)
   const [searchParams] = useSearchParams()
 
   const [elements, setElements] = useState<(CyNode | CyEdge)[]>([])
@@ -376,6 +377,8 @@ export default function Graph() {
   // Track stats
   const [stats, setStats] = useState({ nodes: 0, edges: 0 })
   const [visibleCounts, setVisibleCounts] = useState({ nodes: 0, edges: 0 })
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(false)
 
   // ── Load data ────────────────────────────────────────────────────────────────
 
@@ -514,7 +517,6 @@ export default function Graph() {
     // Show connected edges of matching nodes without faded
     matching.connectedEdges().removeClass('faded')
   }, [searchQuery, cyReady])
-
 
   // ── Node click ───────────────────────────────────────────────────────────────
 
@@ -713,6 +715,26 @@ export default function Graph() {
     cy.fit(undefined, 40)
   }, [])
 
+  const checkFilterScrollOverflow = useCallback(() => {
+    const el = filterScrollRef.current
+    if (!el) return
+    const hasLeft = el.scrollLeft > 0
+    const hasRight = el.scrollLeft < el.scrollWidth - el.clientWidth - 5
+    setCanScrollLeft(hasLeft)
+    setCanScrollRight(hasRight)
+  }, [])
+
+  // Check filter scroll on mount and after enabledTypes changes
+  useEffect(() => {
+    checkFilterScrollOverflow()
+    const timer = setTimeout(checkFilterScrollOverflow, 100)
+    window.addEventListener('resize', checkFilterScrollOverflow)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('resize', checkFilterScrollOverflow)
+    }
+  }, [enabledTypes, checkFilterScrollOverflow])
+
   // ─── Render ─────────────────────────────────────────────────────────────────
 
   // Sidebar content shared between desktop and mobile drawer
@@ -749,8 +771,14 @@ export default function Graph() {
           })()}
         </div>
         {/* On mobile: wrap in a horizontal scroll row; on desktop: vertical list */}
-        <div className="flex sm:flex-col gap-1.5 overflow-x-auto sm:overflow-x-visible pb-1 sm:pb-0" style={{ scrollbarWidth: 'none' }}>
-          {NODE_TYPES.map((type) => {
+        <div className="relative sm:hidden">
+          <div
+            ref={filterScrollRef}
+            className="flex gap-1.5 overflow-x-auto pb-1"
+            style={{ scrollbarWidth: 'none' }}
+            onScroll={checkFilterScrollOverflow}
+          >
+            {NODE_TYPES.map((type) => {
             const meta = TYPE_META[type]
             const enabled = enabledTypes.has(type)
             return (
@@ -785,6 +813,27 @@ export default function Graph() {
               </label>
             )
           })}
+          </div>
+          {/* Left shadow — shows when can scroll left */}
+          {canScrollLeft && (
+            <div
+              className="absolute left-0 top-0 bottom-0 w-8 pointer-events-none sm:hidden"
+              style={{
+                background: 'linear-gradient(to right, rgba(15, 22, 41, 0.8), transparent)',
+                zIndex: 10,
+              }}
+            />
+          )}
+          {/* Right shadow — shows when can scroll right */}
+          {canScrollRight && (
+            <div
+              className="absolute right-0 top-0 bottom-0 w-8 pointer-events-none sm:hidden"
+              style={{
+                background: 'linear-gradient(to left, rgba(15, 22, 41, 0.8), transparent)',
+                zIndex: 10,
+              }}
+            />
+          )}
         </div>
       </div>
 
