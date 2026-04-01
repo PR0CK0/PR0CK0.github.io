@@ -239,6 +239,65 @@ function TypeBadge({ type }: { type: NodeType }) {
   )
 }
 
+function ShapeIcon({ type }: { type: NodeType }) {
+  const meta = TYPE_META[type]
+  const size = 20
+  const centerX = size / 2
+  const centerY = size / 2
+
+  const shapeProps = {
+    fill: meta.color,
+    stroke: meta.color,
+    strokeWidth: 1.2,
+  }
+
+  let shape: JSX.Element
+
+  switch (meta.shape) {
+    case 'diamond':
+      shape = (
+        <polygon
+          points={`${centerX},2 ${size - 2},${centerY} ${centerX},${size - 2} 2,${centerY}`}
+          {...shapeProps}
+        />
+      )
+      break
+    case 'ellipse':
+      shape = <circle cx={centerX} cy={centerY} r={7} {...shapeProps} />
+      break
+    case 'rectangle':
+      shape = <rect x={3} y={6} width={14} height={8} {...shapeProps} />
+      break
+    case 'triangle':
+      shape = (
+        <polygon
+          points={`${centerX},2 ${size - 2},${size - 2} 2,${size - 2}`}
+          {...shapeProps}
+        />
+      )
+      break
+    case 'star':
+      shape = (
+        <polygon
+          points={`${centerX},2 ${centerX + 3},7 ${size - 2},8 ${centerX + 5},11 ${centerX + 4},${size - 2} ${centerX},14 ${centerX - 4},${size - 2} ${centerX - 5},11 2,8 ${centerX - 3},7`}
+          {...shapeProps}
+        />
+      )
+      break
+    case 'roundrectangle':
+      shape = <rect x={3} y={6} width={14} height={8} rx={2} ry={2} {...shapeProps} />
+      break
+    default:
+      shape = <circle cx={centerX} cy={centerY} r={7} {...shapeProps} />
+  }
+
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="flex-shrink-0">
+      {shape}
+    </svg>
+  )
+}
+
 const BRAILLE = ['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏']
 
 // Braille cycle duration: 10 chars × 80ms each = 800ms total
@@ -719,10 +778,7 @@ export default function Graph() {
                     </svg>
                   )}
                 </span>
-                <span
-                  className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full flex-shrink-0"
-                  style={{ backgroundColor: meta.color }}
-                />
+                <ShapeIcon type={type} />
                 <span className="text-[0.6rem] sm:text-xs whitespace-nowrap" style={{ color: '#c8d6f0' }}>
                   {meta.label}
                 </span>
