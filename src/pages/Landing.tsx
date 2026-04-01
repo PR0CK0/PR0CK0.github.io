@@ -189,6 +189,9 @@ interface FallingCode {
   id: string
   text: string
   x: number
+  vx: number
+  vy: number
+  rotation: number
 }
 
 function ProfilePhoto({ visible }: { visible: boolean }) {
@@ -199,19 +202,22 @@ function ProfilePhoto({ visible }: { visible: boolean }) {
     setIsShaking(true)
     setTimeout(() => setIsShaking(false), 500)
 
-    // Create 4-6 falling code pieces
-    const count = Math.floor(Math.random() * 3) + 4
+    // Create 1-4 falling code pieces
+    const count = Math.floor(Math.random() * 4) + 1
     const newCodes: FallingCode[] = Array.from({ length: count }, (_, i) => ({
       id: `${Date.now()}-${i}`,
       text: CODE_SNIPPETS[Math.floor(Math.random() * CODE_SNIPPETS.length)],
-      x: Math.random() * 40 - 20, // -20 to 20px offset
+      x: Math.random() * 80 - 40,
+      vx: (Math.random() - 0.5) * 180, // horizontal velocity spread
+      vy: Math.random() * 80 - 40,      // vertical variation
+      rotation: Math.random() * 360,    // initial rotation
     }))
     setFallingCodes((prev) => [...prev, ...newCodes])
 
     // Remove codes after animation completes
     setTimeout(() => {
       setFallingCodes((prev) => prev.filter((c) => !newCodes.find((nc) => nc.id === c.id)))
-    }, 2000)
+    }, 3600)
   }
 
   return (
@@ -288,10 +294,10 @@ function ProfilePhoto({ visible }: { visible: boolean }) {
               color: '#00ff88',
               textShadow: '0 0 8px #00ff8844',
             }}
-            initial={{ y: 0, opacity: 1 }}
-            animate={{ y: 200, opacity: 0 }}
+            initial={{ y: 85, opacity: 1, x: 0, rotate: code.rotation }}
+            animate={{ y: 300 + code.vy, opacity: 0, x: code.vx, rotate: code.rotation + 360 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 2, ease: 'easeIn' }}
+            transition={{ duration: 3.5, ease: 'easeIn' }}
           >
             {code.text}
           </motion.div>
