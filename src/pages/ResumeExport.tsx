@@ -346,7 +346,7 @@ export default function ResumeExport() {
           </div>
         )
       )}
-      <SiteFooter />
+      <SiteFooter name={person.name} />
     </div>
   )
 }

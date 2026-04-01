@@ -194,7 +194,7 @@ interface FallingCode {
   rotation: number
 }
 
-function ProfilePhoto({ visible }: { visible: boolean }) {
+function ProfilePhoto({ visible, name }: { visible: boolean; name: string }) {
   const [isShaking, setIsShaking] = useState(false)
   const [fallingCodes, setFallingCodes] = useState<FallingCode[]>([])
 
@@ -232,7 +232,7 @@ function ProfilePhoto({ visible }: { visible: boolean }) {
       >
         <motion.img
           src="/me.png"
-          alt="Tyler Procko"
+          alt={name}
           className="w-full h-full object-cover rounded-full cursor-pointer"
           draggable={false}
           animate={isShaking ? { rotate: [-3, 3, -3, 3, 0], x: [-2, 2, -2, 2, 0] } : {}}
@@ -529,7 +529,7 @@ function HeroContent({ person }: { person: Person }) {
         variants={itemVariants}
         className="text-terminal-blue text-glow-blue font-mono text-xs sm:text-base ls:text-xs tracking-wide"
       >
-        AI Engineer — Agentic LLMs · Knowledge Graphs · Ontologies
+        {person.title ?? 'Cybersecure AI Engineer — Agentic LLMs · Knowledge Graphs · Ontologies · Test-Driven Development'}
       </motion.p>
 
       {/* Tagline */}
@@ -597,7 +597,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
             <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-amber/70" />
             <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-green/70" />
             <span className="ml-2 sm:ml-3 ls:ml-2 text-terminal-muted text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono tracking-widest">
-              procko@portfolio ~ bash
+              {(person.social_links?.find(s => s.platform === 'GitHub')?.handle ?? person.name).toLowerCase()}@portfolio ~ bash
             </span>
           </div>
 
@@ -605,7 +605,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
           <div className="p-4 sm:p-6 lg:p-8 ls:p-4">
             {/* Photo floated right — boot lines wrap beside it; content below clears to full width */}
             <div className="float-right ml-3 sm:ml-5 ls:ml-3 mt-1">
-              <ProfilePhoto visible={heroVisible} />
+              <ProfilePhoto visible={heroVisible} name={person.name} />
             </div>
 
             <BootSequence
@@ -1183,7 +1183,7 @@ interface GitHubRepo {
   stargazers_count: number
 }
 
-function RecentReposSection({ projects }: { projects: Project[] }) {
+function RecentReposSection({ projects, githubHandle }: { projects: Project[]; githubHandle: string }) {
   const [repoCards, setRepoCards] = useState<Array<{ project: Project; created: string; updated: string; stars: number }>>([])
   const [loading, setLoading] = useState(true)
 
@@ -1198,12 +1198,12 @@ function RecentReposSection({ projects }: { projects: Project[] }) {
       }
     }
 
-    fetch('https://api.github.com/users/PR0CK0/repos?sort=pushed&per_page=30')
+    fetch(`https://api.github.com/users/${githubHandle}/repos?sort=pushed&per_page=30`)
       .then((r) => r.json())
       .then((data: GitHubRepo[]) => {
         const matched: typeof repoCards = []
         for (const repo of data) {
-          if (repo.name === 'PR0CK0') continue
+          if (repo.name === githubHandle) continue
           const key = repo.html_url.replace(/\/+$/, '').toLowerCase()
           const yamlProj = repoMap.get(key)
           if (yamlProj) {
@@ -1244,7 +1244,7 @@ function RecentReposSection({ projects }: { projects: Project[] }) {
         title="Recent Repos"
         accent="amber"
       />
-      <ContributionGraph username="PR0CK0" />
+      <ContributionGraph username={githubHandle} />
       {loading ? (
         <div className="text-center py-8">
           <span className="text-xs font-mono text-terminal-muted animate-pulse">fetching repos...</span>
@@ -1264,7 +1264,7 @@ function RecentReposSection({ projects }: { projects: Project[] }) {
         className="mt-6 text-center"
       >
         <a
-          href="https://github.com/PR0CK0?tab=repositories"
+          href={`https://github.com/${githubHandle}?tab=repositories`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted hover:text-terminal-amber transition-colors"
@@ -1773,9 +1773,9 @@ export default function Landing() {
         <PublicationsSection publications={publications} />
       )}
 
-      <RecentReposSection projects={projects} />
+      <RecentReposSection projects={projects} githubHandle={person.social_links?.find(s => s.platform === 'GitHub')?.handle ?? ''} />
 
-      <SiteFooter />
+      <SiteFooter name={person.name} />
     </div>
   )
 }

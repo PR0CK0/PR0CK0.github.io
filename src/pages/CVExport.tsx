@@ -473,7 +473,7 @@ export default function CVExport() {
           </div>
         )
       )}
-      <SiteFooter />
+      <SiteFooter name={person.name} />
     </div>
   )
 }

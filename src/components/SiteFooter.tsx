@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-export default function SiteFooter() {
+export default function SiteFooter({ name }: { name: string }) {
   const buildStr = useMemo(() => {
     try {
       return new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
@@ -41,7 +41,7 @@ export default function SiteFooter() {
         <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-terminal-border/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-terminal-muted/40 text-[7px] sm:text-[8px] font-mono">
           <span className="flex items-center gap-2">
             <span className="animate-blink">▮</span>
-            <span>© {new Date().getFullYear()} Tyler T. Procko. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} {name}. All rights reserved.</span>
           </span>
           <span className="flex items-center gap-2">
             <span className="text-terminal-green/30">commit</span>
