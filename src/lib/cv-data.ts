@@ -394,9 +394,10 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
     sections.push({ header: 'Summary', text: person.summary.trim() })
   }
 
-  // Work Experience
-  if ((person.work_experiences?.length ?? 0) > 0) {
-    const entries: CVEntry[] = person.work_experiences!.map(exp => ({
+  // Work Experience (exclude resume_exclude entries)
+  const resumeExps = (person.work_experiences ?? []).filter(exp => !exp.resume_exclude)
+  if (resumeExps.length > 0) {
+    const entries: CVEntry[] = resumeExps.map(exp => ({
       title: exp.title,
       titleSuffix: exp.location ? `${exp.organization} » ${exp.location}` : exp.organization,
       date: formatDateRange(exp.start_date, exp.end_date, exp.is_current),

@@ -512,8 +512,59 @@ work_experiences:
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
+- id: work/consulting-contract
+  work_section: Applied R&D and Consulting Experience
+  title: Ontology & AI Systems Consultant
+  organization: Independent Contract
+  location: Remote
+  start_date: 2023-01
+  is_current: true
+  description:
+  - Delivered knowledge graph, ontology engineering, and agentic AI solutions across defense intelligence, nuclear systems, construction, legal, media analytics, and higher education domains.
+  - Engineered BFO/CCO/PROV-O-aligned semantic data models for DoD-grade interoperability; deployed GraphDB, Stardog, and Neo4j triple stores for traceability and RAG-style retrieval.
+  - Built Python pipelines integrating LLM APIs (GPT, Claude) with OWL/RDF reasoning for automated ontology population, entity linking, and ML lifecycle provenance.
+  - Designed SHACL/SPARQL validation and reasoning workflows; produced GeoSPARQL analyses against large geospatial ontologies.
+  - Authored academic-grade technical documentation and ontology deliverables; co-published a peer-reviewed paper on AI-assisted knowledge representation.
+  - Consulted on LLM deployment strategy for DoD use cases and agentic AI-assisted technical writing workflows for early-stage startups.
+  technologies:
+  - Python
+  - OWL
+  - Turtle
+  - RDF
+  - RDFS
+  - SPARQL
+  - GeoSPARQL
+  - SHACL
+  - SWRL
+  - BFO
+  - CCO
+  - PROV-O
+  - SKOS
+  - Schema.org
+  - GS1
+  - SEON
+  - GraphDB
+  - Stardog
+  - Neo4j
+  - RDFLib
+  - Protégé
+  - GPT
+  - OpenAI
+  - Claude
+  - LiteLLM
+  - Visual Studio Code
+  domains:
+  - Knowledge Graphs
+  - Ontology Engineering
+  - LLMs
+  - Defense
+  - Geospatial
+  - Software Engineering
+  - Semantic Web
+  - Provenance
 - id: work/cloudcell-consultant
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Academic Consultant and Editor
   organization: Cloudcell Limited
   location: Remote
@@ -561,6 +612,7 @@ work_experiences:
   - Cognitive Science
 - id: work/upwork-reasoning
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Reasoning Consultant
   organization: Upwork
   location: Remote
@@ -589,6 +641,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/upwork-ontology-engineer-2024
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Ontology Engineer
   organization: Upwork
   location: Remote
@@ -617,6 +670,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/upwork-nuclear
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Nuclear Construction Ontology Engineer
   organization: Upwork
   location: Remote
@@ -645,6 +699,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/quiet-professionals
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: AI Consultant and Ontology Engineer
   organization: Quiet Professionals
   location: Remote
@@ -686,6 +741,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/hooray-media
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Ontologist and Linked Data Engineer
   organization: Hooray Media
   location: Remote
@@ -719,6 +775,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/the-link
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Ontologist and Knowledge Graph Engineer
   organization: The Link
   location: Remote
@@ -764,6 +821,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/upwork-legal
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Legal Ontology Consultant
   organization: Upwork
   location: Remote
@@ -799,6 +857,7 @@ work_experiences:
   - Taxonomy
 - id: work/upwork-software-test
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Software Test Engineer
   organization: Upwork
   location: Remote
@@ -825,6 +884,7 @@ work_experiences:
   - Agile
 - id: work/upwork-geospatial
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Geospatial Ontology Analyst
   organization: Upwork
   location: Remote
@@ -859,6 +919,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/upwork-kg-engineer
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Knowledge Graph Engineer
   organization: Upwork
   location: Remote
@@ -903,6 +964,7 @@ work_experiences:
   - SQA
 - id: work/forumapi
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Technology Consultant and Scientific Writer
   organization: ForumAPI
   location: Remote
@@ -949,6 +1011,7 @@ work_experiences:
   - RAG
 - id: work/wordlift
   work_section: Applied R&D and Consulting Experience
+  resume_exclude: true
   title: Ontologist
   organization: WordLift SEO
   location: Remote

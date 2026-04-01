@@ -40,6 +40,7 @@ export const WorkExperienceSchema = z.object({
   domains: z.array(z.string()).optional(),
   soft_skills: z.array(z.string()).optional(),
   personal_skills: z.array(z.string()).optional(),
+  resume_exclude: z.boolean().optional(),
 })
 
 export const PublicationSchema = z.object({
