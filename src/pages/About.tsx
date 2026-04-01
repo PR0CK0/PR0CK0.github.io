@@ -23,6 +23,8 @@ export default function About() {
 
   if (!person) return null
 
+  const funAwards = (person.awards ?? []).filter(a => a.about_only)
+
   const sections: Array<{ label: string; value: string | string[] }> = [
     { label: 'Birth Year', value: String(person.birth_year ?? '') },
     { label: 'MBTI Type', value: person.mbti ?? '' },
@@ -65,6 +67,21 @@ export default function About() {
               )}
             </div>
           ))}
+
+          {funAwards.length > 0 && (
+            <div className="border-b border-terminal-border/30 pb-4">
+              <h2 className="text-terminal-amber text-xs sm:text-sm font-bold uppercase tracking-wider mb-2">
+                Fun Awards
+              </h2>
+              <ul className="space-y-1">
+                {funAwards.map(award => (
+                  <li key={award.id} className="text-terminal-text text-sm sm:text-base">
+                    {award.title}{award.description ? ` — ${award.description}` : ''}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>

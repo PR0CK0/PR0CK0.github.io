@@ -4032,12 +4032,12 @@ awards:
   description: Recognized as a top 2% downloaded author on SSRN
 - id: award/outstanding-doctoral-student
   title: Outstanding Doctoral Student, Electrical Engineering and Computer Science
-  issuer: Embry-Riddle Aeronautical University
+  issuer: ERAU
   date: 2024-04
 - id: award/smart-scholarship
   title: Science, Mathematics, and Research for Transformation (SMART) Scholarship
-  issuer: Department of Defense / Air Force Research Lab (AFRL)
-  date: 2020-08
+  issuer: DoD / AFRL
+  date: 'Aug 2020 – Nov 2025'
   description: 'Sponsored through the Air Force Research Lab (AFRL), Rome, NY. Consistent
     summer research
 
@@ -4054,9 +4054,13 @@ awards:
     - Nov 2025.
 
     '
+- id: award/act-top-1-percent
+  title: 'ACT Reading/Writing: Top 1%'
+  date: '~2019'
+  description: Taken as part of entrance to the SMART program
 - id: award/diamond-eagle-scholarship
   title: Diamond Eagle Scholarship
-  issuer: Embry-Riddle Aeronautical University
+  issuer: ERAU
   date: 2016-08
   description: Highest-obtainable scholarship for new ERAU students
 - id: award/florida-bright-futures
@@ -4065,30 +4069,50 @@ awards:
   date: 2016-05
 - id: award/presidents-education-award
   title: President's Education Awards Program - Outstanding Academic Excellence
+  issuer: TCA
   date: 2016-05
 - id: award/principals-list
   title: Principal's List - All A Honor Roll
+  issuer: TCA
   date: 2016-05
 - id: award/national-honor-society
   title: National Honor Society Member
+  issuer: TCA
   date: '2013'
   description: Member 10th through 12th grade
 - id: award/national-junior-honor-society
   title: National Junior Honor Society Member
+  issuer: TCA
   date: '2010'
   description: Member 7th through 9th grade
+- id: award/math-contest-5th-place
+  title: 5th Place - Regional Math Contest (Team)
+  description: ~10th grade
+  about_only: true
+- id: award/science-club
+  title: Science Club Member
+  description: ~10th grade
+  about_only: true
+- id: award/egg-drop-1st-place
+  title: 1st Place - Physics Egg-Drop Survival Contest
+  description: ~10th grade
+  about_only: true
+- id: award/creative-essay-winner
+  title: Winner - Creative Essay Contest
+  description: ~9th grade
+  about_only: true
 - id: award/faacs-fine-arts-1st
   title: 1st Place - FAACS Fine Arts Competition
   description: 9th grade
-- id: award/act-top-1-percent
-  title: 'ACT Reading/Writing: Top 1%'
-  description: Taken as part of entrance to the SMART program
+  about_only: true
 - id: award/beta-club
   title: Beta Club Member
   description: Member 3rd through 6th grade
+  about_only: true
 - id: award/regional-spelling-bee
   title: 3rd Place - 2006 FAACS Regional Spelling Bee
   date: '2006'
+  about_only: true
 certificates:
 - id: cert/security-plus
   title: Security+

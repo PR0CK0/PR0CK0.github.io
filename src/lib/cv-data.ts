@@ -297,9 +297,10 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     sections.push({ header: 'Skills', skillGroups: skillGrps })
   }
 
-  // Awards
-  if ((person.awards?.length ?? 0) > 0) {
-    const entries: CVEntry[] = person.awards!.map(award => ({
+  // Awards (exclude about_only entries)
+  const cvAwards = (person.awards ?? []).filter(a => !a.about_only)
+  if (cvAwards.length > 0) {
+    const entries: CVEntry[] = cvAwards.map(award => ({
       title: award.title,
       titleSuffix: award.issuer,
       date: fmtSingleDate(award.date),

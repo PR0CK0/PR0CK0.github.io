@@ -86,6 +86,7 @@ export const AwardSchema = z.object({
   issuer: z.string().optional(),
   date: z.string().optional(),
   description: z.string().optional(),
+  about_only: z.boolean().optional(),
 })
 
 export const CertificateSchema = z.object({
