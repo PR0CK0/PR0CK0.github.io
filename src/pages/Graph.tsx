@@ -972,7 +972,7 @@ export default function Graph() {
 
   return (
     <div
-      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-[calc(100dvh-65px)] sm:h-[calc(100dvh-79px)] max-w-[100vw]"
+      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-full max-w-[100vw]"
       style={{ background: '#0a0e1a' }}
     >
       <SEO
@@ -996,7 +996,7 @@ export default function Graph() {
             borderBottom: mobileOpen ? '1px solid #1e2d4a' : 'none',
             background: '#0f1629',
             minHeight: 36,
-            paddingBottom: 'max(8px, env(safe-area-inset-bottom))',
+            paddingBottom: 'env(safe-area-inset-bottom)',
           }}
           onClick={() => setMobileOpen((o) => !o)}
         >
