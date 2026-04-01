@@ -253,6 +253,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/afrl-2024
   work_section: Defense and AI Research Experience
+  resume_exclude: true
   title: SMART Scholar AI Research Scientist - ML Provenance
   organization: AFRL
   start_date: 2024-05
@@ -297,6 +298,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/afrl-2023
   work_section: Defense and AI Research Experience
+  resume_exclude: true
   title: SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD
   organization: AFRL
   start_date: 2023-05
@@ -336,6 +338,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/afrl-2022
   work_section: Defense and AI Research Experience
+  resume_exclude: true
   title: SMART Scholar AI Research Scientist - Machine Learning Interoperability with
     BFO
   organization: AFRL
@@ -385,6 +388,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/afrl-2021
   work_section: Defense and AI Research Experience
+  resume_exclude: true
   title: SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing
   organization: AFRL
   start_date: 2021-05
@@ -435,6 +439,7 @@ work_experiences:
   - Defense
 - id: work/afrl-2020
   work_section: Defense and AI Research Experience
+  resume_exclude: true
   title: AFRL Scholars Remote AI Research Scientist - ML Explainability
   organization: AFRL
   start_date: 2020-05
@@ -474,8 +479,25 @@ work_experiences:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+- id: work/afrl-consolidated
+  work_section: Defense and AI Research Experience
+  graph_exclude: true
+  title: AI Research Scientist — Ontology-Grounded ML and Autonomous Systems
+  organization: Air Force Research Lab (AFRL)
+  location: Rome, NY · Hybrid · Remote
+  start_date: 2019-05
+  end_date: 2025-11
+  description:
+  - Conducted six years of sponsored research under the DoD SMART Scholarship program in ML provenance, knowledge graph engineering, and ontology design for defense AI applications.
+  - Engineered ML provenance capture for real-time autonomous systems pipelines, modeling data lineage with PROV-O/PROV-ML ontologies and CVAT-annotated imagery to support AI model training.
+  - Designed a JSON-LD proto-ontology for computer vision task provenance, synthesizing military documentation into interoperable, schema-aligned representations.
+  - Aligned a defense ML ontology to BFO/CCO compliance, delivering a competency-question-ready knowledge base enabling SME queries over ML and defense operational concepts in GraphDB.
+  - Derived novel geospatial relationships linking SUMO ontology entities with ADE20K scene annotations and WKT geometries, enabling spatial inferencing over computer vision data.
+  - Generated semantic XAI explanations for ML model outputs using DL-Learner and ontological background knowledge, advancing interpretability for defense AI pipelines.
+  - Boosted semantic knowledge graphs with ML-derived topic models; built an ontology quality assessment framework delivering actionable intelligence products for Air Force analysts.
 - id: work/afrl-2019
   work_section: Defense and AI Research Experience
+  resume_exclude: true
   title: AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs
   organization: AFRL
   start_date: 2019-05
@@ -514,6 +536,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/consulting-contract
   work_section: Applied R&D and Consulting Experience
+  graph_exclude: true
   title: Ontology & AI Systems Consultant
   organization: Independent Contract
   location: Remote
@@ -526,42 +549,6 @@ work_experiences:
   - Designed SHACL/SPARQL validation and reasoning workflows; produced GeoSPARQL analyses against large geospatial ontologies.
   - Authored academic-grade technical documentation and ontology deliverables; co-published a peer-reviewed paper on AI-assisted knowledge representation.
   - Consulted on LLM deployment strategy for DoD use cases and agentic AI-assisted technical writing workflows for early-stage startups.
-  technologies:
-  - Python
-  - OWL
-  - Turtle
-  - RDF
-  - RDFS
-  - SPARQL
-  - GeoSPARQL
-  - SHACL
-  - SWRL
-  - BFO
-  - CCO
-  - PROV-O
-  - SKOS
-  - Schema.org
-  - GS1
-  - SEON
-  - GraphDB
-  - Stardog
-  - Neo4j
-  - RDFLib
-  - Protégé
-  - GPT
-  - OpenAI
-  - Claude
-  - LiteLLM
-  - Visual Studio Code
-  domains:
-  - Knowledge Graphs
-  - Ontology Engineering
-  - LLMs
-  - Defense
-  - Geospatial
-  - Software Engineering
-  - Semantic Web
-  - Provenance
 - id: work/cloudcell-consultant
   work_section: Applied R&D and Consulting Experience
   resume_exclude: true
