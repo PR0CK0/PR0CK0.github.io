@@ -792,12 +792,12 @@ export default function Graph() {
           {/* Left scroll fade — always visible */}
           <div
             className="pointer-events-none absolute left-0 top-0 h-full w-8 sm:hidden"
-            style={{ background: 'linear-gradient(to right, #0f1629, transparent)' }}
+            style={{ background: 'linear-gradient(to right, rgba(15, 22, 41, 0.4), transparent)' }}
           />
           {/* Right scroll fade — always visible */}
           <div
             className="pointer-events-none absolute right-0 top-0 h-full w-8 sm:hidden"
-            style={{ background: 'linear-gradient(to left, #0f1629, transparent)' }}
+            style={{ background: 'linear-gradient(to left, rgba(15, 22, 41, 0.4), transparent)' }}
           />
         </div>
       </div>
