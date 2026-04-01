@@ -102,7 +102,7 @@ export function buildGraph(person: Person): GraphData {
   addNode({ data: { id: personId, label: person.name, type: 'person', subtitle: person.title } })
 
   const allSections = [
-    ...(person.work_experiences ?? []),
+    ...(person.work_experiences ?? []).filter(w => !w.graph_exclude),
     ...(person.projects ?? []),
     ...(person.publications ?? []).slice(0, 20),
     ...(person.courses ?? []),
@@ -144,7 +144,7 @@ export function buildGraph(person: Person): GraphData {
   })
 
   // ─── Work ────────────────────────────────────────────────────────────────────
-  person.work_experiences?.forEach((work) => {
+  person.work_experiences?.filter(w => !w.graph_exclude).forEach((work) => {
     addNode({
       data: {
         id: work.id, label: work.title, type: 'work', subtitle: work.organization,

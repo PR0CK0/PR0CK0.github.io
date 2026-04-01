@@ -41,6 +41,7 @@ export const WorkExperienceSchema = z.object({
   soft_skills: z.array(z.string()).optional(),
   personal_skills: z.array(z.string()).optional(),
   resume_exclude: z.boolean().optional(),
+  graph_exclude: z.boolean().optional(),
 })
 
 export const PublicationSchema = z.object({
