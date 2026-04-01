@@ -8,11 +8,12 @@ email_academic: prockot@my.erau.edu
 orcid: 0000-0002-7801-0124
 website: https://procko.pro
 tagline: Casting the net for knowledge in a sea of infinite information.
-summary: Ph.D. researcher and AI engineer specializing in ontology-grounded LLM systems
-  and agentic software development. 9+ years building knowledge graphs, BFO/CCO-compliant
-  ontologies, and ML pipelines for defense and aerospace. Designing LLM agents that
-  reason over structured knowledge — RAG, provenance tracking, and explainability
-  backed by formal ontologies. Active contributor to AFRL, IEEE, and DoD FAIR AI standardization.
+summary: Ph.D researcher, Air Force Research Laboratory (AFRL) award winner, and AI engineer
+  specializing in ontology-grounded LLM systems and agentic software development. 9+ years
+  building knowledge graphs, BFO/CCO-compliant ontologies, and ML pipelines for defense and
+  aerospace. Designing LLM agents that reason over structured knowledge — RAG, provenance
+  tracking, and explainability backed by formal ontologies. Active contributor to AFRL, IEEE,
+  and DoD FAIR AI standardization.
 clearance: Inactive Secret (Tier 3)
 availability: Spring 2026 — TueThu 07:00-20:00 ET, SatSun 11:00-20:00 ET
 birth_year: 1997
@@ -115,7 +116,7 @@ work_experiences:
   is_current: true
   location: Remote
   description:
-  - Leading ontology design, NLP model selection, and LLM integration (Claude, GPT) for a stealth-stage cybersecurity product.
+  - Leading ontology design, NLP model selection, and LLM integration (Claude, GPT, Gemini, Ollama, Bedrock) for a stealth-stage cybersecurity product.
   technologies:
   - Python
   - TypeScript
@@ -164,7 +165,7 @@ work_experiences:
   title_line: 'Principal Knowledge Architect - '
   org: Stealth Startup, Remote
   bullets:
-  - Leading ontology design, NLP model selection, and LLM integration (Claude, GPT) for a stealth-stage cybersecurity product.
+  - Leading ontology design, NLP model selection, and LLM integration (Claude, GPT, Gemini, Ollama, Bedrock) for a stealth-stage cybersecurity product.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -250,7 +251,7 @@ work_experiences:
 - id: work/afrl-2024
   work_section: Defense and AI Research Experience
   title: SMART Scholar AI Research Scientist - ML Provenance
-  organization: Air Force Research Laboratory (AFRL)
+  organization: AFRL
   start_date: 2024-05
   end_date: 2024-08
   location: Rome, NY
@@ -294,7 +295,7 @@ work_experiences:
 - id: work/afrl-2023
   work_section: Defense and AI Research Experience
   title: SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD
-  organization: Air Force Research Laboratory (AFRL)
+  organization: AFRL
   start_date: 2023-05
   end_date: 2023-08
   location: Rome, NY
@@ -334,7 +335,7 @@ work_experiences:
   work_section: Defense and AI Research Experience
   title: SMART Scholar AI Research Scientist - Machine Learning Interoperability with
     BFO
-  organization: Air Force Research Laboratory (AFRL)
+  organization: AFRL
   start_date: 2022-05
   end_date: 2022-08
   location: Rome, NY
@@ -382,10 +383,10 @@ work_experiences:
 - id: work/afrl-2021
   work_section: Defense and AI Research Experience
   title: SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing
-  organization: Air Force Research Laboratory (AFRL)
+  organization: AFRL
   start_date: 2021-05
   end_date: 2021-08
-  location: Rome, NY (remote)
+  location: Remote
   description:
   - Derived novel geospatial relationships by linking SUMO ontology objects with ADE20K scene annotations and WKT geometries, enabling spatial inferencing over computer vision data.
   technologies:
@@ -432,10 +433,10 @@ work_experiences:
 - id: work/afrl-2020
   work_section: Defense and AI Research Experience
   title: AFRL Scholars Remote AI Research Scientist - ML Explainability
-  organization: Air Force Research Laboratory (AFRL)
+  organization: AFRL
   start_date: 2020-05
   end_date: 2020-08
-  location: Rome, NY (remote)
+  location: Remote
   description:
   - Generated semantic explanations for ML model outputs using DL-Learner and background ontological knowledge, advancing XAI interpretability for defense AI systems.
   technologies:
@@ -473,7 +474,7 @@ work_experiences:
 - id: work/afrl-2019
   work_section: Defense and AI Research Experience
   title: AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs
-  organization: Air Force Research Laboratory (AFRL)
+  organization: AFRL
   start_date: 2019-05
   end_date: 2019-08
   location: Rome, NY
@@ -512,6 +513,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Academic Consultant and Editor
   organization: Cloudcell Limited
+  location: Remote
   start_date: 2025-05
   end_date: 2025-05
   description:
@@ -558,6 +560,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Reasoning Consultant
   organization: Upwork
+  location: Remote
   start_date: 2024-09
   end_date: 2024-09
   description:
@@ -585,6 +588,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Ontology Engineer
   organization: Upwork
+  location: Remote
   start_date: 2024-07
   end_date: 2024-07
   description:
@@ -612,6 +616,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Nuclear Construction Ontology Engineer
   organization: Upwork
+  location: Remote
   start_date: 2024-06
   end_date: 2024-06
   description:
@@ -639,6 +644,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: AI Consultant and Ontology Engineer
   organization: Quiet Professionals
+  location: Remote
   start_date: 2024-02
   end_date: 2024-04
   description:
@@ -678,6 +684,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Ontologist and Linked Data Engineer
   organization: Hooray Media
+  location: Remote
   start_date: 2023-11
   end_date: 2024-05
   description:
@@ -710,6 +717,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Ontologist and Knowledge Graph Engineer
   organization: The Link
+  location: Remote
   start_date: 2023-08
   end_date: 2024-01
   description:
@@ -753,6 +761,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Legal Ontology Consultant
   organization: Upwork
+  location: Remote
   start_date: 2023-05
   end_date: 2023-05
   description:
@@ -787,6 +796,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Software Test Engineer
   organization: Upwork
+  location: Remote
   start_date: 2023-05
   end_date: 2023-05
   description:
@@ -812,6 +822,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Geospatial Ontology Analyst
   organization: Upwork
+  location: Remote
   start_date: 2023-04
   end_date: 2023-05
   description:
@@ -845,6 +856,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Knowledge Graph Engineer
   organization: Upwork
+  location: Remote
   start_date: 2023-03
   end_date: 2023-03
   description:
@@ -888,6 +900,7 @@ work_experiences:
   work_section: Applied R&D and Consulting Experience
   title: Technology Consultant and Scientific Writer
   organization: ForumAPI
+  location: Remote
   start_date: 2023-02
   is_current: true
   description:
@@ -932,7 +945,8 @@ work_experiences:
 - id: work/wordlift
   work_section: Applied R&D and Consulting Experience
   title: Ontologist
-  organization: WordLift SEO (international remote)
+  organization: WordLift SEO
+  location: Remote
   start_date: 2023-01
   end_date: 2023-03
   description:
@@ -964,7 +978,6 @@ work_experiences:
   title_line: 'Ontologist - '
   org: WordLift SEO
   org_url: https://wordlift.io/
-  org_extra_in_italic: ' (international remote)'
   bullets:
   - Modeled a client domain in OWL, SWRL, and SHACL using Schema.org and GS1 standards, delivering a formal knowledge representation for an international SEO platform.
   soft_skills:
@@ -985,7 +998,8 @@ work_experiences:
 - id: work/course-engineer
   work_section: Graduate Positions
   title: University Course Engineer - The Knowledge Representation Spectrum
-  organization: ERAU Daytona
+  organization: ERAU
+  location: Daytona Beach, FL
   start_date: 2023-02
   end_date: 2023-05
   description:
@@ -1030,7 +1044,8 @@ work_experiences:
 - id: work/eram-research-team
   work_section: Graduate Positions
   title: AI Research Team Lead and Semantic Web Consultant
-  organization: ERAU Daytona
+  organization: ERAU
+  location: Daytona Beach, FL
   start_date: 2019-01
   is_current: true
   description:
@@ -1052,7 +1067,7 @@ work_experiences:
   category: graduate
   date_display: Jan 2019 - Present
   title_line: 'AI Research Team Lead and Semantic Web Consultant, '
-  org: ERAU Daytona
+  org: ERAU
   org_extra_after_italic: ', team lead Omar Ochoa'
   bullets:
   - Led and contributed to research across ML, NLP, Linked Data, and cybersecurity, co-authoring numerous peer-reviewed publications centered on Semantic Web technologies.
@@ -1070,7 +1085,8 @@ work_experiences:
 - id: work/grader-cs344
   work_section: Undergrad and Prior
   title: Grader for CS344 - C Programming and UNIX
-  organization: ERAU Daytona
+  organization: ERAU
+  location: Daytona Beach, FL
   start_date: 2019-01
   end_date: 2019-05
   description:
@@ -1084,7 +1100,7 @@ work_experiences:
   category: undergrad
   date_display: Jan 2019 - May 2019
   title_line: 'Grader for CS344 - C Programming and UNIX, '
-  org: ERAU Daytona
+  org: ERAU
   bullets:
   - Assessed content included Linux commands and intermediate C programming topics,
     such as structures, complex pointer manipulation and memory management
@@ -1102,7 +1118,8 @@ work_experiences:
 - id: work/grader-cs315
   work_section: Undergrad and Prior
   title: Grader for CS315 - Data Structures and Algorithms
-  organization: ERAU Daytona
+  organization: ERAU
+  location: Daytona Beach, FL
   start_date: 2018-08
   end_date: 2018-12
   description:
@@ -1113,7 +1130,7 @@ work_experiences:
   category: undergrad
   date_display: Aug 2018 - Dec 2018
   title_line: 'Grader for CS315 - Data Structures and Algorithms, '
-  org: ERAU Daytona
+  org: ERAU
   bullets:
   - Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps,
     graphs, recursion, sorting and searching algorithms
@@ -1129,6 +1146,7 @@ work_experiences:
   work_section: Undergrad and Prior
   title: Customer Service Clerk
   organization: Publix Supermarkets
+  location: Fernandina Beach, FL
   start_date: 2014-08
   end_date: 2016-08
   description:

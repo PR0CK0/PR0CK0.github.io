@@ -125,11 +125,11 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     // Line 1: location | phone
     [person.location && `${person.location} \u00B7 Remote`, person.phone]
       .filter(Boolean)
-      .join('  |  '),
+      .join('\u00A0\u00A0|\u00A0\u00A0'),
     // Line 2: emails
     [person.email_personal, person.email_academic]
       .filter(Boolean)
-      .join('  |  '),
+      .join('\u00A0\u00A0|\u00A0\u00A0'),
   ].filter(line => line.length > 0)
 
   const links: CVLink[] = []
@@ -216,7 +216,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
       if (!grouped.has(sec)) grouped.set(sec, [])
       grouped.get(sec)!.push({
         title: exp.title,
-        titleSuffix: `${exp.organization}${exp.location ? `, ${exp.location}` : ''}`,
+        titleSuffix: `${exp.organization}${exp.location ? ` » ${exp.location}` : ''}`,
         date: formatDateRange(exp.start_date, exp.end_date, exp.is_current),
         bullets: exp.description,
       })
@@ -355,18 +355,20 @@ export function groupTechnicalSkills(skills: Skill[]): Record<string, string[]> 
 export function buildResumeData(person: Person, buildDate: string): CVData {
   const linkedin = person.social_links?.find(s => s.platform === 'LinkedIn')
   const github = person.social_links?.find(s => s.platform === 'GitHub')
+  const scholar = person.social_links?.find(s => s.platform === 'Google Scholar')
 
   const header: CVHeaderData = {
     name: person.name,
     title: person.title?.replace(/\s*·\s*/g, '\u00A0\u00A0·\u00A0\u00A0'),
     contactLines: [
-      [person.location && `${person.location} \u00B7 Remote`, person.phone].filter(Boolean).join('  |  '),
-      [person.email_personal, person.email_academic].filter(Boolean).join('  |  '),
+      [person.location && `${person.location} \u00B7 Remote`, person.phone].filter(Boolean).join('\u00A0\u00A0|\u00A0\u00A0'),
+      [person.email_personal, person.email_academic].filter(Boolean).join('\u00A0\u00A0|\u00A0\u00A0'),
     ].filter(Boolean),
     links: [
       linkedin && { label: 'LinkedIn', url: `https://linkedin.com/in/${linkedin.handle}` },
       github && { label: 'GitHub', url: `https://github.com/${github.handle}` },
       person.website && { label: person.website.replace('https://', ''), url: person.website },
+      scholar && { label: 'Google Scholar', url: scholar.url },
     ].filter(Boolean) as CVLink[],
     lastUpdated: `Last updated ${new Date(buildDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`,
     sourceUrl: 'https://procko.pro/resume',
@@ -383,7 +385,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
   if ((person.work_experiences?.length ?? 0) > 0) {
     const entries: CVEntry[] = person.work_experiences!.map(exp => ({
       title: exp.title,
-      titleSuffix: [exp.organization, exp.location].filter(Boolean).join(', ') || undefined,
+      titleSuffix: exp.location ? `${exp.organization} » ${exp.location}` : exp.organization,
       date: formatDateRange(exp.start_date, exp.end_date, exp.is_current),
       bullets: Array.isArray(exp.description) ? exp.description : exp.description ? [exp.description] : undefined,
     }))
