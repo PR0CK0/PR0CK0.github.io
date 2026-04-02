@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import type { Person } from '@/lib/schema'
 import SEO from '@/components/SEO'
+import SiteFooter from '@/components/SiteFooter'
 
 export default function About() {
   const [person, setPerson] = useState<Person | null>(null)
@@ -47,7 +48,7 @@ export default function About() {
           ~/about
         </h1>
         <p className="text-terminal-muted text-xs sm:text-sm mb-8">
-          The person behind the terminal.
+          The man behind the terminal.
         </p>
 
         <div className="space-y-6">
@@ -84,6 +85,7 @@ export default function About() {
           )}
         </div>
       </div>
+      <SiteFooter name={person.name} />
     </div>
   )
 }
