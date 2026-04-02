@@ -698,6 +698,7 @@ function aggregateSkills(person: Person): AggregatedSkill[] {
   }
 
   const entities = [
+    ...(person.education ?? []),
     ...(person.projects ?? []),
     ...(person.work_experiences ?? []),
     ...(person.courses ?? []),
@@ -777,11 +778,11 @@ function ViewToggle({ view, onChange }: { view: SkillView; onChange: (v: SkillVi
 
 // ─── Ranked view ─────────────────────────────────────────────────────────────
 
-const RANKED_PAGE = 30
+const RANKED_PAGE = 35
 
 function RankedView({ skills }: { skills: AggregatedSkill[] }) {
   const [expanded, setExpanded] = useState(false)
-  const sorted = [...skills].sort((a, b) => b.count - a.count)
+  const sorted = [...skills].filter(s => s.category !== 'comm_tools' && s.category !== 'office_tools').sort((a, b) => b.count - a.count)
   const maxCount = sorted[0]?.count ?? 1
   const visible = expanded ? sorted : sorted.slice(0, RANKED_PAGE)
   const hidden = sorted.length - RANKED_PAGE
@@ -810,6 +811,9 @@ function RankedView({ skills }: { skills: AggregatedSkill[] }) {
           )
         })}
       </div>
+      <p className="mt-2 text-[0.495rem] sm:text-[0.55rem] font-mono text-gray-500" style={{ opacity: 0.40 }}>
+        {'/* office & communication tools not included */'}
+      </p>
       {!expanded && hidden > 0 && (
         <motion.button
           initial={{ opacity: 0 }}
@@ -860,7 +864,7 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
               // {meta.label}
             </p>
             {cat === 'os' && (
-              <p className="font-mono mb-2.5 italic text-terminal-dim/30" style={{ fontSize: '0.55rem' }}>
+              <p className="font-mono mb-2.5 italic text-[0.495rem] sm:text-[0.55rem] text-gray-500" style={{ opacity: 0.40 }}>
                 /* used Windows since before I could walk — all others in professional/personal contexts below */
               </p>
             )}
