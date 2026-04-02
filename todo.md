@@ -52,6 +52,10 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [ ] pub/grant-proposal-nsf
 - [ ] pub/article-synthetic-ontologies
 
+## Light Mode
+
+- [ ] **Light mode on Graph, CV, Resume pages** — Graph.tsx uses hundreds of hardcoded hex colors in inline styles and Cytoscape stylesheet; CV/Resume use hardcoded print colors. All need migrating to Tailwind CSS variable classes (`bg-terminal-bg` etc.) to respect `html.light`. About and Landing already work correctly.
+
 ## Graph
 
 - [ ] Graph: clicking a skill chip navigates to the graph with `?q=<skill>` and the node is found/searched, but neighborhood dimming doesn't apply until you manually re-click the node. `layoutstop` approach attempted — Cytoscape class application timing is tricky here.
