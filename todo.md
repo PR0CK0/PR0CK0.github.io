@@ -52,6 +52,10 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [ ] pub/grant-proposal-nsf
 - [ ] pub/article-synthetic-ontologies
 
+## Publications — citation count display
+
+- [ ] **Show total citation count on CV/Resume** — OpenAlex per-paper `cited_by_count` is already stored in YAML and updated weekly, but the aggregate is ~4× lower than Google Scholar (OpenAlex: ~61, Google Scholar: 238). Options: (a) add a `total_citations` field to the person object in YAML that you manually bump periodically; (b) find an API with Scholar-level coverage (Semantic Scholar may be better). For now, citation count is hidden from the display.
+
 ## Light Mode
 
 - [ ] **Light mode on Graph, CV, Resume pages** — Graph.tsx uses hundreds of hardcoded hex colors in inline styles and Cytoscape stylesheet; CV/Resume use hardcoded print colors. All need migrating to Tailwind CSS variable classes (`bg-terminal-bg` etc.) to respect `html.light`. About and Landing already work correctly.
