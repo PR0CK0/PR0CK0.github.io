@@ -119,7 +119,7 @@ function CVPdfDocument({ data }: { data: CVData }) {
               <View key={ei} style={S.row}>
                 <View style={S.contentCol}>
                   <Text style={S.entryTitle}>
-                    {entry.title}
+                    {entry.titleUrl ? <Link src={entry.titleUrl} style={{ color: '#111', textDecoration: 'none' }}>{entry.title}</Link> : entry.title}
                     {entry.titleSuffix && <Text style={S.titleSuffix}>{` – ${entry.titleSuffix}`}</Text>}
                   </Text>
                   {entry.subtitle && (
@@ -157,7 +157,7 @@ function CVPdfDocument({ data }: { data: CVData }) {
                   <View key={ei} style={S.row}>
                     <View style={S.contentCol}>
                       <Text style={S.entryTitle}>
-                        {entry.title}
+                        {entry.titleUrl ? <Link src={entry.titleUrl} style={{ color: '#111', textDecoration: 'none' }}>{entry.title}</Link> : entry.title}
                         {entry.titleSuffix && <Text style={S.titleSuffix}>{` – ${entry.titleSuffix}`}</Text>}
                       </Text>
                       {entry.subtitle && (
@@ -262,7 +262,7 @@ function CVHtmlPreview({ data }: { data: CVData }) {
             <a href={h.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>View live version</a>
           </div>
         </div>
-        <img src={erauLogo} alt="ERAU" style={{ width: '70px', height: '70px', objectFit: 'contain' }} />
+        <img src={erauLogo} alt="ERAU" style={{ width: '52px', height: '52px', objectFit: 'contain' }} />
       </div>
 
       {/* Sections */}
@@ -274,7 +274,9 @@ function CVHtmlPreview({ data }: { data: CVData }) {
             <div key={ei} style={HS.row}>
               <div style={HS.contentCol}>
                 <div>
-                  <span style={HS.entryTitle}>{entry.title}</span>
+                  {entry.titleUrl
+                    ? <a href={entry.titleUrl} target="_blank" rel="noopener noreferrer" style={{ ...HS.entryTitle, color: '#1a6bbf', textDecoration: 'none' }}>{entry.title}</a>
+                    : <span style={HS.entryTitle}>{entry.title}</span>}
                   {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
                 </div>
                 {entry.subtitle && (
@@ -311,7 +313,9 @@ function CVHtmlPreview({ data }: { data: CVData }) {
                 <div key={ei} style={HS.row}>
                   <div style={HS.contentCol}>
                     <div>
-                      <span style={HS.entryTitle}>{entry.title}</span>
+                      {entry.titleUrl
+                        ? <a href={entry.titleUrl} target="_blank" rel="noopener noreferrer" style={{ ...HS.entryTitle, color: '#1a6bbf', textDecoration: 'none' }}>{entry.title}</a>
+                        : <span style={HS.entryTitle}>{entry.title}</span>}
                       {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
                     </div>
                     {entry.subtitle && (

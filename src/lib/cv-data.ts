@@ -9,6 +9,7 @@ export interface CVLink {
 
 export interface CVEntry {
   title: string           // bold text
+  titleUrl?: string       // optional link on title
   titleSuffix?: string    // italic text after title (org, location)
   date?: string           // right column
   subtitle?: string       // line below title (institution)
@@ -306,6 +307,17 @@ export function buildCVData(person: Person, buildDate: string): CVData {
       date: fmtSingleDate(award.date),
     }))
     sections.push({ header: 'Awards & Honors', entries })
+  }
+
+  // Talks
+  if ((person.talks?.length ?? 0) > 0) {
+    const entries: CVEntry[] = person.talks!.map(talk => ({
+      title: talk.title,
+      titleUrl: talk.url,
+      titleSuffix: talk.venue,
+      date: fmtSingleDate(talk.date),
+    }))
+    sections.push({ header: 'Talks & Podcasts', entries })
   }
 
   // Certifications
