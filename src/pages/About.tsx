@@ -70,26 +70,26 @@ export default function About() {
         description="About Tyler T. Procko — hobbies, interests, and favorites."
         path="/about"
       />
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
-        <h1 className="text-xl sm:text-2xl font-bold text-terminal-green tracking-tight mb-1">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-14 text-[0.9em]">
+        <h1 className="text-lg sm:text-xl font-bold text-terminal-green tracking-tight mb-1">
           ~/about
         </h1>
-        <p className="text-terminal-muted text-xs sm:text-sm mb-8">
+        <p className="text-terminal-muted text-[0.675rem] sm:text-xs mb-8">
           The man behind the terminal.
         </p>
 
         <div className="space-y-6">
           {sections.map(({ label, value }) => (
             <div key={label} className="border-b border-terminal-border/30 pb-4">
-              <h2 className="text-terminal-amber text-xs sm:text-sm font-bold uppercase tracking-wider mb-2">
+              <h2 className="text-terminal-amber text-[0.675rem] sm:text-xs font-bold uppercase tracking-wider mb-2">
                 {label}
               </h2>
               {Array.isArray(value) ? (
-                <p className="text-terminal-text text-sm sm:text-base leading-relaxed">
+                <p className="text-terminal-text text-xs sm:text-sm leading-relaxed">
                   {value.join(', ')}
                 </p>
               ) : (
-                <p className="text-terminal-text text-sm sm:text-base leading-relaxed">
+                <p className="text-terminal-text text-xs sm:text-sm leading-relaxed">
                   {value}
                 </p>
               )}
@@ -98,7 +98,7 @@ export default function About() {
 
           {funAwards.length > 0 && (
             <div className="border-b border-terminal-border/30 pb-4">
-              <h2 className="text-terminal-amber text-xs sm:text-sm font-bold uppercase tracking-wider mb-4">
+              <h2 className="text-terminal-amber text-[0.675rem] sm:text-xs font-bold uppercase tracking-wider mb-4">
                 Fun Awards
               </h2>
               <div className="space-y-6">
@@ -109,14 +109,14 @@ export default function About() {
                   if (grouped.length === 0) return null
                   return (
                     <div key={group.label}>
-                      <h3 className="text-terminal-green text-xs font-bold uppercase tracking-wider mb-2 border-b border-terminal-border/20 pb-1">
+                      <h3 className="text-terminal-green text-[0.675rem] sm:text-xs font-bold uppercase tracking-wider mb-2 border-b border-terminal-border/20 pb-1">
                         {group.label}
                       </h3>
                       <ul className="space-y-1">
                         {grouped.map(award => {
                           const dateCol = award.description || fmtSingleDate(String(award.date ?? ''))
                           return (
-                            <li key={award.id} className="grid grid-cols-[1fr_8rem] sm:grid-cols-[1fr_9rem] gap-3 text-sm sm:text-base py-0.5">
+                            <li key={award.id} className="grid grid-cols-[1fr_7rem] sm:grid-cols-[1fr_8.5rem] gap-3 text-xs sm:text-sm py-0.5">
                               <span className="text-terminal-text">{award.title}</span>
                               <span className="text-terminal-muted text-right">{dateCol}</span>
                             </li>
