@@ -16,6 +16,7 @@ import type { Person } from '@/lib/schema'
 import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 import { buildCVData, type CVData, type CVSection, type CVEntry, type CVHeaderData } from '@/lib/cv-data'
+import { PAGE_TITLE, PAGE_SUBTITLE, BTN_PRIMARY, BTN_SECONDARY, BTN_TOGGLE_ACTIVE, BTN_TOGGLE_INACTIVE, BTN_ROW, PAGE_CHROME, LOADING_SCREEN } from '@/lib/ui-constants'
 import erauLogo from '@/assets/erau-logo.png'
 
 // ─── Custom Fonts (Caladea ≈ Cambria, Carlito ≈ Calibri) ────────────────────
@@ -515,7 +516,7 @@ export default function CVExport() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center font-mono">
+      <div className={LOADING_SCREEN}>
         <span className="text-terminal-amber text-sm animate-pulse">Loading CV data...</span>
       </div>
     )
@@ -523,7 +524,7 @@ export default function CVExport() {
 
   if (error || !person || !cvData) {
     return (
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center font-mono">
+      <div className={LOADING_SCREEN}>
         <span className="text-red-400 text-sm">Error loading CV: {error ?? 'Unknown error'}</span>
       </div>
     )
@@ -547,21 +548,21 @@ export default function CVExport() {
         path="/cv"
       />
       {/* ── Page Header ── */}
-      <div className="max-w-4xl mx-auto w-full px-4 mb-4 sm:mb-8 cv-page-chrome">
-        <h1 className="text-xl sm:text-2xl font-bold text-terminal-amber tracking-tight">~/cv.pdf</h1>
-        <p className="text-terminal-green text-xs sm:text-sm mt-1 opacity-80">
+      <div className={PAGE_CHROME}>
+        <h1 className={`${PAGE_TITLE} text-terminal-amber`}>~/cv.pdf</h1>
+        <p className={`text-terminal-green ${PAGE_SUBTITLE}`}>
           Full academic and professional record — Generated from YAML source.
         </p>
 
         {/* Action Buttons + View Toggle */}
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-3 sm:mt-5 items-center">
+        <div className={BTN_ROW}>
           {pdfDoc && (() => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const PdfLink = PDFDownloadLink as any
             return (
               <PdfLink document={pdfDoc} fileName={`tylerprocko_cv_${new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).replace(/\//g, '')}.pdf`}>
                 {({ loading: pdfLoading }: { loading: boolean }) => (
-                  <button className="px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-900 border border-blue-500 text-blue-200 text-xs sm:text-sm font-mono hover:bg-blue-800 transition-colors rounded" disabled={pdfLoading}>
+                  <button className={BTN_PRIMARY} disabled={pdfLoading}>
                     ⬇ Download PDF
                   </button>
                 )}
@@ -570,23 +571,17 @@ export default function CVExport() {
           })()}
 
           <a href="https://github.com/PR0CK0/PR0CK0.github.io/blob/main/public/data/tyler-procko.yaml" target="_blank" rel="noopener noreferrer">
-            <button className="px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-800 border border-gray-600 text-gray-300 text-xs sm:text-sm font-mono hover:bg-gray-700 transition-colors rounded">
+            <button className={BTN_SECONDARY}>
               {'<>'} View Raw YAML
             </button>
           </a>
 
           {/* View Toggle */}
           <div className="flex rounded overflow-hidden border border-terminal-border ml-auto">
-            <button
-              onClick={() => setViewMode('html')}
-              className={`px-2 py-1.5 sm:px-3 sm:py-2 text-[0.65rem] sm:text-xs font-mono transition-colors ${viewMode === 'html' ? 'bg-terminal-green/20 text-terminal-green' : 'bg-gray-800 text-gray-400 hover:text-gray-200'}`}
-            >
+            <button onClick={() => setViewMode('html')} className={viewMode === 'html' ? BTN_TOGGLE_ACTIVE : BTN_TOGGLE_INACTIVE}>
               HTML
             </button>
-            <button
-              onClick={() => setViewMode('pdf')}
-              className={`px-2 py-1.5 sm:px-3 sm:py-2 text-[0.65rem] sm:text-xs font-mono transition-colors ${viewMode === 'pdf' ? 'bg-terminal-green/20 text-terminal-green' : 'bg-gray-800 text-gray-400 hover:text-gray-200'}`}
-            >
+            <button onClick={() => setViewMode('pdf')} className={viewMode === 'pdf' ? BTN_TOGGLE_ACTIVE : BTN_TOGGLE_INACTIVE}>
               PDF
             </button>
           </div>
