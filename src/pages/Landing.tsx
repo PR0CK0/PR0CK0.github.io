@@ -1748,7 +1748,7 @@ export default function Landing() {
     )
   }
 
-  const publications = person.publications ?? []
+  const publications = (person.publications ?? []).filter(p => p.status !== 'in_progress')
   const projects = person.projects ?? []
   const bootLines = buildBootLines(publications.length)
   const stats = buildStats(publications.length, projects.length)
