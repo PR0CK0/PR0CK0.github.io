@@ -34,6 +34,11 @@ ORCID     = "0000-0002-7801-0124"
 MAILTO    = "prockot@my.erau.edu"
 PER_PAGE  = 50
 
+# DOIs to never import (reviews, non-papers, etc.) — use normalized lowercase doi.org form
+BLOCKED_DOIS: set[str] = {
+    "https://doi.org/10.32388/fprw4i",  # Qeios review — not a paper
+}
+
 
 def openalex_url(page: int = 1) -> str:
     return (
@@ -73,15 +78,21 @@ def fetch_openalex() -> list[dict]:
 
 
 def normalize_doi(doi: str | None) -> str | None:
-    """Normalize any DOI representation to 'https://doi.org/...' form."""
+    """Normalize any DOI representation to 'https://doi.org/...' form (case-insensitive suffix)."""
     if not doi:
         return None
     doi = doi.strip()
     if doi.startswith("10."):
-        return f"https://doi.org/{doi}"
+        return f"https://doi.org/{doi.lower()}"
     if "doi.org/" in doi:
-        return "https://doi.org/" + doi.split("doi.org/", 1)[1]
+        return "https://doi.org/" + doi.split("doi.org/", 1)[1].lower()
     return doi
+
+
+def normalize_title(title: str) -> str:
+    """Normalize a title for fuzzy deduplication (lowercase, replace hyphens with spaces, strip other punctuation)."""
+    t = title.lower().replace("-", " ")
+    return re.sub(r"[^a-z0-9 ]+", "", t).strip()
 
 
 def slug_from_title(title: str) -> str:
@@ -113,34 +124,81 @@ def main() -> None:
 
     pubs = data.get("publications") or []
 
-    # Collect all known DOIs from existing entries
-    known: set[str] = set()
+    # Collect all known DOIs and normalized titles from existing entries
+    known_dois: set[str] = set()
+    known_titles: set[str] = set()
     for pub in pubs:
         doi = normalize_doi(pub.get("doi"))
         if doi:
-            known.add(doi)
+            known_dois.add(doi)
         url = pub.get("url") or ""
         if "doi.org" in url:
             norm = normalize_doi(url)
             if norm:
-                known.add(norm)
+                known_dois.add(norm)
+        title = pub.get("title") or ""
+        if title:
+            known_titles.add(normalize_title(title))
 
-    print(f"Known publications: {len(pubs)} entries, {len(known)} with DOIs")
+    print(f"Known publications: {len(pubs)} entries, {len(known_dois)} with DOIs")
 
     works = fetch_openalex()
     print(f"OpenAlex returned:  {len(works)} works")
 
+    # Build DOI → work and title → work mappings for citation count updates
+    doi_to_work: dict[str, dict] = {}
+    title_to_work: dict[str, dict] = {}
+    for work in works:
+        doi = normalize_doi(work.get("doi"))
+        if doi:
+            doi_to_work[doi] = work
+        title = (work.get("title") or "").strip()
+        if title:
+            title_to_work[normalize_title(title)] = work
+
+    # Update citation counts on existing entries (match by DOI or title)
+    updated_counts = 0
+    for pub in pubs:
+        pub_doi = normalize_doi(pub.get("doi"))
+        if not pub_doi:
+            url = pub.get("url") or ""
+            if "doi.org" in url:
+                pub_doi = normalize_doi(url)
+        matched_work = None
+        if pub_doi and pub_doi in doi_to_work:
+            matched_work = doi_to_work[pub_doi]
+        else:
+            pub_title = normalize_title(pub.get("title") or "")
+            if pub_title and pub_title in title_to_work:
+                matched_work = title_to_work[pub_title]
+        if matched_work is not None:
+            new_count = matched_work.get("cited_by_count") or 0
+            if pub.get("cited_by_count") != new_count:
+                pub["cited_by_count"] = new_count
+                updated_counts += 1
+                print(f"  ↻ citations updated → {new_count}: {str(pub.get('title', ''))[:60]}")
+            # Also backfill DOI if missing
+            if not pub.get("doi"):
+                doi_from_work = normalize_doi(matched_work.get("doi"))
+                if doi_from_work:
+                    pub["doi"] = doi_from_work
+                    if doi_from_work not in known_dois:
+                        known_dois.add(doi_from_work)
+
     added = 0
     for work in works:
         doi = normalize_doi(work.get("doi"))
+        title = (work.get("title") or "Untitled").strip()
+        ntitle = normalize_title(title)
+
         if not doi:
             continue  # skip works without a DOI
 
-        if doi in known:
-            print(f"  ✓ {doi}")
-            continue
+        if doi in BLOCKED_DOIS:
+            continue  # explicitly excluded
 
-        title = (work.get("title") or "Untitled").strip()
+        if doi in known_dois or ntitle in known_titles:
+            continue
 
         raw_date = work.get("publication_date") or str(work.get("publication_year") or "")
         date = raw_date[:7] if len(raw_date) > 4 else raw_date  # prefer YYYY-MM over YYYY
@@ -155,6 +213,7 @@ def main() -> None:
         ]
 
         abstract = reconstruct_abstract(work.get("abstract_inverted_index"))
+        cited_by_count = work.get("cited_by_count") or 0
 
         pub_id = f"pub/{slug_from_title(title)}"
 
@@ -170,22 +229,25 @@ def main() -> None:
             "author_role": "",
             "source": "openalex",
             "featured": False,
+            "cited_by_count": cited_by_count,
         }
         if abstract:
             stub["abstract"] = abstract
 
         pubs.append(stub)
-        known.add(doi)
+        known_dois.add(doi)
+        known_titles.add(ntitle)
         added += 1
         print(f"  + ADDED: {title[:80]}")
 
-    if added:
+    changed = added + updated_counts
+    if changed:
         data["publications"] = pubs
         with open(YAML_PATH, "w", encoding="utf-8") as f:
             yaml.dump(data, f)
-        print(f"\n✓ {added} publication(s) added to {YAML_PATH}")
+        print(f"\n✓ {added} publication(s) added, {updated_counts} citation count(s) updated in {YAML_PATH}")
     else:
-        print("\nNo new publications found.")
+        print("\nNo new publications found and all citation counts are current.")
 
 
 if __name__ == "__main__":

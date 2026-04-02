@@ -39,7 +39,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet public/data/tyler-procko.yaml; then
             git add public/data/tyler-procko.yaml
-            git commit -m "chore: sync new publications from OpenAlex [skip ci]"
+            git commit -m "chore: sync publications and citation counts from OpenAlex [skip ci]"
             git push
           else
             echo "Nothing to commit."
