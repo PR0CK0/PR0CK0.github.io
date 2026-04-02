@@ -336,7 +336,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
       if (proj.description) notes.push({ text: proj.description })
       return {
         title: proj.title,
-        date: proj.year,
+        date: fmtSingleDate(proj.year),
         notes: notes.length > 0 ? notes : undefined,
         titleLinks: titleLinks.length > 0 ? titleLinks : undefined,
       }
@@ -522,7 +522,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
       if (proj.description) notes.push({ text: proj.description })
       return {
         title: proj.title,
-        date: proj.year,
+        date: fmtSingleDate(proj.year),
         notes: notes.length > 0 ? notes : undefined,
         titleLinks: titleLinks.length > 0 ? titleLinks : undefined,
       }

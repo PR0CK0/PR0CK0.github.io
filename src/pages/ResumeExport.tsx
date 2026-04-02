@@ -181,10 +181,9 @@ function ResumePdfDocument({ data }: { data: CVData }) {
               </View>
             ))}
             {sec.skillGroups && Object.entries(sec.skillGroups).map(([cat, items]) => (
-              <View key={cat} style={S.skillRow}>
-                <Text style={S.skillLabel}>{cat}: </Text>
-                <Text style={S.skillItems}>{items.join(', ')}</Text>
-              </View>
+              <Text key={cat} style={[S.skillItems, { marginBottom: 2 }]}>
+                <Text style={S.skillLabel}>{cat}: </Text>{items.join(', ')}
+              </Text>
             ))}
           </View>
         ))}
@@ -216,7 +215,7 @@ const HS = {
   bullet: { display: 'flex', gap: '4px', marginBottom: '1.5px', marginLeft: '4px', fontSize: '8.5px', color: '#333', lineHeight: '1.4' } as React.CSSProperties,
   summaryText: { fontSize: '8.5px', color: '#222', lineHeight: '1.5' } as React.CSSProperties,
   lastUpdated: { fontSize: '7.5px', color: '#999', marginTop: '2px' } as React.CSSProperties,
-  skillRow: { display: 'flex', flexWrap: 'wrap' as const, marginBottom: '2px', fontSize: '8.5px' } as React.CSSProperties,
+  skillRow: { marginBottom: '2px', fontSize: '8.5px' } as React.CSSProperties,
   skillLabel: { fontWeight: 700, color: '#1a3a6b' } as React.CSSProperties,
   skillItems: { color: '#333' } as React.CSSProperties,
 }
@@ -290,8 +289,7 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
           ))}
           {sec.skillGroups && Object.entries(sec.skillGroups).map(([cat, items]) => (
             <div key={cat} style={HS.skillRow}>
-              <span style={HS.skillLabel}>{cat}:&nbsp;</span>
-              <span style={HS.skillItems}>{items.join(', ')}</span>
+              <span style={HS.skillLabel}>{cat}:&nbsp;</span>{items.join(', ')}
             </div>
           ))}
         </div>

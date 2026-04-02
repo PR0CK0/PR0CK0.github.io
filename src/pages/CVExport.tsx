@@ -211,10 +211,9 @@ function CVPdfDocument({ data }: { data: CVData }) {
             ))}
             {/* Skills */}
             {sec.skillGroups && Object.entries(sec.skillGroups).map(([cat, items]) => (
-              <View key={cat} style={S.skillRow}>
-                <Text style={S.skillLabel}>{cat}: </Text>
-                <Text style={S.skillItems}>{items.join(', ')}</Text>
-              </View>
+              <Text key={cat} style={[S.skillItems, { marginBottom: 2 }]}>
+                <Text style={S.skillLabel}>{cat}: </Text>{items.join(', ')}
+              </Text>
             ))}
             {/* References */}
             {sec.references && (
@@ -306,7 +305,7 @@ const HS = {
   pubBlock: { marginBottom: '6px' } as React.CSSProperties,
   pubTitle: { fontWeight: 700, fontSize: '9px', color: '#111', marginBottom: '2px' } as React.CSSProperties,
   pubMeta: { fontSize: '8px', color: '#333', marginBottom: '1px' } as React.CSSProperties,
-  skillRow: { display: 'flex', flexWrap: 'wrap' as const, marginBottom: '2px', fontSize: '8.5px' } as React.CSSProperties,
+  skillRow: { marginBottom: '2px', fontSize: '8.5px' } as React.CSSProperties,
   skillLabel: { fontWeight: 700, color: '#1a3a6b' } as React.CSSProperties,
   skillItems: { color: '#333' } as React.CSSProperties,
 }
@@ -433,8 +432,7 @@ function CVHtmlPreview({ data }: { data: CVData }) {
           ))}
           {sec.skillGroups && Object.entries(sec.skillGroups).map(([cat, items]) => (
             <div key={cat} style={HS.skillRow}>
-              <span style={HS.skillLabel}>{cat}:&nbsp;</span>
-              <span style={HS.skillItems}>{items.join(', ')}</span>
+              <span style={HS.skillLabel}>{cat}:&nbsp;</span>{items.join(', ')}
             </div>
           ))}
           {sec.references && (
