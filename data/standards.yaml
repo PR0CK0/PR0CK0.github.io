@@ -1,0 +1,42 @@
+proficient:
+  - name: "CIA Triad"
+    content_html: |
+      <h4>The basis of all my secure software engineering</h4>
+
+  - name: "SWEBOK"
+    content_html: |
+      <h4>Not precisely a standard, but used in software engineering as a common reference manual; the subject of a lot of my work over the years</h4>
+
+familiar:
+  - name: "Open Cybersecurity Schema Framework (OCSF)"
+    content_html: |
+      <h4>Used in cybersecurity projects</h4>
+
+  - name: "MITRE ATT&CK"
+    content_html: |
+      <h4>Used in cybersecurity projects</h4>
+
+  - name: "MITRE D3FEND"
+    content_html: |
+      <h4>Used in cybersecurity projects</h4>
+
+  - name: "MasterFormat & SectionFormat 2020"
+    content_html: |
+      <h4>Parsed the entirety of MasterFormat and SectionFormat and built knowledge graphs for them</h4>
+
+  - name: "ISO/IEC/IEEE 12207:2017"
+    content_html: |
+      <h4>"SDLC standard", familiar with the concepts and applications</h4>
+
+  - name: "ISO 690:2021"
+    content_html: |
+      <h4>Familiar with the concepts and implementation of bibliographic referencing</h4>
+
+acquainted:
+  - name: "MIL-STD-40051/1"
+    content_html: |
+      <h4>Know the standard and have read it</h4>
+
+  - name: "MIL-STD-12D"
+    content_html: |
+      <h4>Have studied and parsed the document in an earlier project</h4>

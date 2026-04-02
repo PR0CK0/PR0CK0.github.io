@@ -1,0 +1,16 @@
+headline: "AI / Knowledge Graph Engineer | LLM-Focused | Defense ML Provenance and Ontology Specialist"
+bullets:
+  - text: "Ph.D. researcher with 9+ years in Java/Python, Agile machine learning, ETL, ontology design, BFO/CCO standardization, and NLP for defense and aerospace applications. Experienced in GenAI, LLM integration, ML pipelining, RAG systems, prompt/context engineering, taxonomies, graph-based explainability, "
+    italic_suffix: "modular + testable software"
+    text_suffix: ", and academic publication. Active contributor to AFRL, IEEE, and DoD FAIR AI data-standardization efforts."
+  - text: "Claude, PyTorch, TensorFlow, Hugging Face, Ollama, Stable Diffusion, GraphDB"
+  - text: "U.S. Citizen, Active Secret (Tier 3) Clearance"
+    bold: true
+  - text: "Google & Stanford Deep Learning Certified"
+    bold: true
+  - text: "CompTIA Security+ (in-progress Nov. 2025)"
+    bold: true
+  - text: "Refer to my entire "
+    link_text: "skillset"
+    link_href: "#skills"
+    text_suffix: " below. Feel free to contact me at any time."

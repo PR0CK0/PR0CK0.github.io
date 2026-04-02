@@ -1,0 +1,11 @@
+current_status: "I am cleared for Secret T3 but do not continually retain an explicit clearance."
+past:
+  - date: "May 2023 - Nov 2023"
+    content_html: |
+      <h4>Confidential, <i>cleared by DCSA, retained by USRA</i></h4>
+  - date: "May 2022 - Nov 2022"
+    content_html: |
+      <h4>Confidential, <i>cleared by DCSA, retained by USRA</i></h4>
+  - date: "May 2019 - Nov 2019"
+    content_html: |
+      <h4>Secret, <i>cleared by DCSA, retained by USRA</i></h4>

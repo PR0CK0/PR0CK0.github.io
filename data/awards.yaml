@@ -1,0 +1,48 @@
+entries:
+  - type: standard
+    date: "Oct 2024"
+    title: "Top 2% Downloaded Author"
+    issuer_text: "Social Science Research Network (SSRN)"
+    issuer_url: "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5883155"
+
+  - type: standard
+    date: "Apr 2024"
+    title: "Outstanding Doctoral Student, Electrical Engineering and Computer Science"
+    issuer: "Embry-Riddle Aeronautical University"
+
+  - type: double_column
+    date: "Aug 2020 - Nov 2025"
+    title: "Science, Mathematics, and Research for Transformation (SMART) Scholarship - Department of Defense"
+    issuer: "Sponsored through the Air Force Research Lab (AFRL), Rome, NY"
+    bullets:
+      - text: "Consistent summer research work with the nation's top information analysts, artificial intelligence experts and data visualization scientists at the Information Directorate of the AFRL"
+      - segments:
+          - text: "Mentorship by some of the nation's leading "
+          - text: "Semantic Web"
+            bold: true
+          - text: " and "
+          - text: "Linked Data"
+            bold: true
+          - text: " experts, including "
+          - text: "Dr. Nicholas Del Rio"
+            url: "https://www.linkedin.com/in/nicholasdelrio/"
+            property: "colleague"
+          - text: " and "
+          - text: "Dr. Timothy Lebo"
+            url: "https://www.linkedin.com/in/tim-lebo-73b2721/"
+            property: "colleague"
+      - text: "Full tuition payment, annual stipend, internships and continued work after graduation"
+    image_src: "icons/afrl.png"
+    image_alt: "Air Force Research Lab logo"
+
+  - type: standard
+    date: "Aug 2016 - May 2020"
+    title: "Diamond Eagle Scholarship"
+    issuer: "Embry-Riddle Aeronautical University"
+    bullets:
+      - text: "Highest-obtainable scholarship for new ERAU students"
+
+  - type: standard
+    date: "May 2016"
+    title: "The Florida Bright Future Scholarship - Academic Scholar Award"
+    issuer: "FSCJ & TCA"

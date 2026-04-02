@@ -1,4 +1,5 @@
 import type { Person, Skill } from '@/lib/schema'
+import { TECH_CATEGORIES } from '@/lib/tech-categories'
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────
 
@@ -14,8 +15,9 @@ export interface CVEntry {
   date?: string           // right column
   subtitle?: string       // line below title (institution)
   gpa?: { value: string; max: string }  // GPA with bold value
-  notes?: Array<{ prefix?: string; text: string; url?: string }>  // bullet notes with optional links
+  notes?: Array<{ prefix?: string; text: string; url?: string; indent?: boolean }>  // bullet notes with optional links
   bullets?: string[]      // description bullets
+  fullWidth?: boolean     // skip date column, content spans full width
 }
 
 export interface CVSubsection {
@@ -109,24 +111,56 @@ export function fmtSingleDate(d?: string | null): string {
   return `${monthNames[parseInt(month, 10) - 1]} ${year}`
 }
 
-/** Group flat skill list into labelled categories. */
-export function groupSkills(skills: Skill[]): Record<string, string[]> {
-  const labelMap: Record<string, string> = {
-    languages: 'Languages',
-    libraries: 'Libraries & Frameworks',
-    tools: 'Tools',
-    cloud: 'Cloud',
-    vocabularies: 'Vocabularies & Standards',
-    ai_tools: 'AI Tools',
-    design: 'Design',
-    os: 'Operating Systems',
-    soft_skills: 'Soft Skills',
-  }
+const SKILL_LABEL_MAP: Record<string, string> = {
+  prog_languages: 'Languages',
+  data_languages: 'Data & Markup',
+  libraries:      'Libraries & Frameworks',
+  dev_tools:      'Development Tools',
+  office_tools:   'Office Tools',
+  comm_tools:     'Communication Tools',
+  cloud:          'Cloud',
+  vocabularies:   'Vocabularies & Standards',
+  ai_tools:       'AI Tools',
+  design:         'Design',
+  soft_skills:    'Soft Skills',
+  // os excluded intentionally
+}
+
+/** Count technology occurrences across all entities — mirrors the landing page skill chip logic. */
+export function countTechOccurrences(person: Person): Map<string, number> {
+  const counts = new Map<string, number>()
+  const bump = (t: string) => counts.set(t, (counts.get(t) ?? 0) + 1)
+  const entities = [
+    ...(person.projects ?? []),
+    ...(person.work_experiences ?? []),
+    ...(person.courses ?? []),
+    ...(person.extracurriculars ?? []),
+    ...(person.publications ?? []),
+    ...(person.talks ?? []),
+  ] as Array<{ technologies?: string[] }>
+  for (const e of entities) for (const t of e.technologies ?? []) bump(t)
+  return counts
+}
+
+/**
+ * Build skill groups directly from occurrence counts + tech-categories lookup.
+ * Mirrors the landing page chip logic exactly: same sources, same names, same order.
+ * Top 20 per category; OS, soft_skills, personal, paradigms excluded.
+ */
+export function groupSkills(_skills: Skill[], occurrences: Map<string, number>): Record<string, string[]> {
   const groups: Record<string, string[]> = {}
-  for (const sk of skills) {
-    const label = labelMap[sk.category] ?? sk.category
+  for (const [tech, category] of Object.entries(TECH_CATEGORIES)) {
+    const label = SKILL_LABEL_MAP[category]
+    if (!label) continue  // excludes os, soft_skills, personal, paradigms
     if (!groups[label]) groups[label] = []
-    groups[label].push(sk.name)
+    groups[label].push(tech)
+  }
+  for (const label of Object.keys(groups)) {
+    groups[label] = groups[label]
+      .filter(t => (occurrences.get(t) ?? 0) > 0)  // only skills actually used
+      .sort((a, b) => (occurrences.get(b) ?? 0) - (occurrences.get(a) ?? 0))
+      .slice(0, 20)
+    if (groups[label].length === 0) delete groups[label]
   }
   return groups
 }
@@ -284,9 +318,6 @@ export function buildCVData(person: Person, buildDate: string): CVData {
   if (topProjects.length > 0) {
     const entries: CVEntry[] = topProjects.map(proj => {
       const notes: Array<{ prefix?: string; text: string; url?: string }> = []
-      if (proj.technologies && proj.technologies.length > 0) {
-        notes.push({ text: `Tech: ${proj.technologies.join(', ')}` })
-      }
       if (proj.url || proj.repo_url) {
         notes.push({ text: proj.url ?? proj.repo_url!, url: proj.url ?? proj.repo_url })
       }
@@ -301,7 +332,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
   }
 
   // Skills
-  const skillGrps = groupSkills(person.skills ?? [])
+  const skillGrps = groupSkills(person.skills ?? [], countTechOccurrences(person))
   if (Object.keys(skillGrps).length > 0) {
     sections.push({ header: 'Skills', skillGroups: skillGrps })
   }
@@ -363,38 +394,6 @@ export function buildCVData(person: Person, buildDate: string): CVData {
   return { header, sections }
 }
 
-// ─── Resume Builder ──────────────────────────────────────────────────────────
-
-const TECHNICAL_CATEGORIES = new Set([
-  'prog_languages', 'data_languages', 'libraries', 'dev_tools', 'office_tools',
-  'comm_tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os',
-])
-
-const TECH_CATEGORY_LABELS: Record<string, string> = {
-  prog_languages: 'Programming Languages',
-  data_languages: 'Data Languages',
-  libraries: 'Libraries & Frameworks',
-  dev_tools: 'Development Tools',
-  office_tools: 'Office Tools',
-  comm_tools: 'Communication Tools',
-  cloud: 'Cloud',
-  vocabularies: 'Vocabularies & Standards',
-  ai_tools: 'AI Tools',
-  design: 'Design',
-  os: 'Operating Systems',
-}
-
-export function groupTechnicalSkills(skills: Skill[]): Record<string, string[]> {
-  const groups: Record<string, string[]> = {}
-  for (const sk of skills) {
-    if (!TECHNICAL_CATEGORIES.has(sk.category)) continue
-    const label = TECH_CATEGORY_LABELS[sk.category] ?? sk.category
-    if (!groups[label]) groups[label] = []
-    groups[label].push(sk.name)
-  }
-  return groups
-}
-
 /**
  * Transform a Person object into the renderer-agnostic CVData model for a resume.
  * Includes: Summary, Work Experience, Projects, Technical Skills, Security Clearance.
@@ -444,6 +443,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
         prefix: 'GitHub: ',
         text: phd.thesis_github.replace('https://', ''),
         url: phd.thesis_github,
+        indent: true,
       })
     }
     if (ms) {
@@ -464,6 +464,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
         title: 'Embry-Riddle Aeronautical University (ERAU)',
         titleSuffix: 'Daytona Beach, FL',
         notes,
+        fullWidth: true,
       }],
     })
   }
@@ -492,7 +493,6 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
     const entries: CVEntry[] = projects.map(proj => {
       const notes: Array<{ prefix?: string; text: string; url?: string }> = []
       if (proj.description) notes.push({ text: proj.description })
-      if (proj.technologies?.length) notes.push({ text: `Tech: ${proj.technologies.join(', ')}` })
       if (proj.url || proj.repo_url) notes.push({ text: proj.url ?? proj.repo_url ?? '', url: proj.url ?? proj.repo_url ?? '' })
       return { title: proj.title, date: proj.year, notes }
     })
@@ -500,7 +500,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
   }
 
   // Technical Skills
-  const skillGroups = groupTechnicalSkills(person.skills ?? [])
+  const skillGroups = groupSkills(person.skills ?? [], countTechOccurrences(person))
   if (Object.keys(skillGroups).length > 0) {
     sections.push({ header: 'Technical Skills', skillGroups })
   }

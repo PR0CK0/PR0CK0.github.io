@@ -1,0 +1,226 @@
+id: https://procko.pro/schema/portfolio
+name: portfolio
+description: Schema for Tyler Procko's professional portfolio
+prefixes:
+  linkml: https://w3id.org/linkml/
+  portfolio: https://procko.pro/schema/portfolio/
+  schema: https://schema.org/
+
+imports:
+  - linkml:types
+
+default_prefix: portfolio
+default_range: string
+
+classes:
+  Person:
+    tree_root: true
+    description: The portfolio owner
+    attributes:
+      id:
+        identifier: true
+      name:
+      title:
+        description: Professional title/headline
+      location:
+      phone:
+      email_personal:
+      email_academic:
+      orcid:
+      website:
+      tagline:
+      summary:
+        description: Professional summary paragraph
+      clearance:
+        description: Security clearance status
+      availability:
+      birth_year:
+        range: integer
+      mbti:
+      social_links:
+        range: SocialLink
+        multivalued: true
+        inlined_as_list: true
+      education:
+        range: Education
+        multivalued: true
+        inlined_as_list: true
+      work_experiences:
+        range: WorkExperience
+        multivalued: true
+        inlined_as_list: true
+      publications:
+        range: Publication
+        multivalued: true
+        inlined_as_list: true
+      projects:
+        range: Project
+        multivalued: true
+        inlined_as_list: true
+      skills:
+        range: Skill
+        multivalued: true
+        inlined_as_list: true
+      awards:
+        range: Award
+        multivalued: true
+        inlined_as_list: true
+      certificates:
+        range: Certificate
+        multivalued: true
+        inlined_as_list: true
+      talks:
+        range: Talk
+        multivalued: true
+        inlined_as_list: true
+      references:
+        range: Reference
+        multivalued: true
+        inlined_as_list: true
+      extracurriculars:
+        range: Extracurricular
+        multivalued: true
+        inlined_as_list: true
+      books_read:
+        multivalued: true
+      hobbies:
+        multivalued: true
+      favorite_artists:
+        multivalued: true
+      favorite_music:
+        multivalued: true
+
+  Education:
+    attributes:
+      id:
+        identifier: true
+      institution:
+      degree:
+      field:
+      start_date:
+      end_date:
+      gpa:
+      distinction:
+        range: boolean
+      notes:
+        multivalued: true
+
+  WorkExperience:
+    attributes:
+      id:
+        identifier: true
+      title:
+      organization:
+      start_date:
+      end_date:
+      is_current:
+        range: boolean
+      location:
+      description:
+        multivalued: true
+      technologies:
+        multivalued: true
+
+  Publication:
+    attributes:
+      id:
+        identifier: true
+      title:
+      authors:
+        multivalued: true
+      venue:
+      date:
+      status:
+        description: published, awaiting_publication, in_progress
+      doi:
+      url:
+      abstract:
+      tags:
+        multivalued: true
+
+  Project:
+    attributes:
+      id:
+        identifier: true
+      title:
+      description:
+      year:
+      technologies:
+        multivalued: true
+      url:
+      repo_url:
+      featured:
+        range: boolean
+      tags:
+        multivalued: true
+
+  Skill:
+    attributes:
+      id:
+        identifier: true
+      name:
+      category:
+        description: "languages, libraries, tools, cloud, vocabularies, ai_tools, design, os, soft_skills"
+      years_experience:
+        range: integer
+      proficiency:
+        description: "expert, advanced, intermediate, familiar"
+
+  Award:
+    attributes:
+      id:
+        identifier: true
+      title:
+      issuer:
+      date:
+      description:
+
+  Certificate:
+    attributes:
+      id:
+        identifier: true
+      title:
+      issuer:
+      date:
+      status:
+        description: "completed, in_progress"
+      url:
+
+  Talk:
+    attributes:
+      id:
+        identifier: true
+      title:
+      venue:
+      date:
+      url:
+      description:
+
+  Reference:
+    attributes:
+      id:
+        identifier: true
+      name:
+      title:
+      organization:
+      email:
+      phone:
+      relationship:
+
+  Extracurricular:
+    attributes:
+      id:
+        identifier: true
+      title:
+      organization:
+      role:
+      description:
+      date:
+
+  SocialLink:
+    attributes:
+      id:
+        identifier: true
+      platform:
+      url:
+      handle:

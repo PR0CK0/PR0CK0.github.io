@@ -1,0 +1,178 @@
+defense_industry:
+  entries:
+    - date: "Nov 2025 - Present"
+      title: "Principal Knowledge Architect"
+      org: "Stealth Startup, Remote"
+      bullets:
+        - "Ontology + ML + Cybersecurity"
+    - date: "Nov 2025 - Present"
+      title: "Independent AI Consultant"
+      org: "Handshake AI, Remote"
+      bullets:
+        - "Applied expert knowledge for generative AI model improvement"
+
+defense_research:
+  intro: "Conducted multi-year sponsored research in ML provenance, knowledge graph design, and ontology alignment (BFO/CCO). Delivered interoperable AI data schemes and explainability frameworks for defense ML pipelines. The noted dates are for physical presence with the AFRL; research was continuous, whether remote or in-person."
+  entries:
+    - date: "May 2024 - Aug 2024"
+      title: "SMART Scholar AI Research Scientist - ML Provenance"
+      org: "AFRL, Rome, NY"
+      bullets:
+        - "Advanced provenance capture for real-time systems, with a focus on large ML pipelines"
+        - "Annotated remote, fully autonomous ML platform images in CVAT"
+    - date: "May 2023 - Aug 2023"
+      title: "SMART Scholar AI Research Scientist - Computer Vision Schema in JSON-LD"
+      org: "AFRL, Rome, NY"
+      bullets:
+        - "Curated multiple military documents and produced a proto-ontology in JSON-LD for recording the provenance of computer vision tasks"
+    - date: "May 2022 - Aug 2022"
+      title: "SMART Scholar AI Research Scientist - Machine Learning Interoperability with Basic Formal Ontology (BFO)"
+      org: "AFRL, Rome, NY"
+      bullets:
+        - "Represented the domain of machine learning and defense operations using the Basic Formal Ontology (of Barry Smith) and the Common Core Ontologies"
+        - "Mapped several disparate ontology terms from an ad-hoc ML ontology into BFO/CCO compliance"
+        - "The produced ontology allowed the answering of core competency questions useful for subject matter experts"
+        - "Gained familiarity with SNOMED-CT and the OBO ontologies"
+    - date: "May 2021 - Aug 2021"
+      title: "SMART Scholar Remote AI Research Scientist - Geospatial Relationship Inferencing"
+      org: "AFRL, Rome, NY"
+      bullets:
+        - "Worked remotely due to COVID-19; produced new geospatial relationships between suggested upper merged ontology (SUMO) objects linked with ADE20K annotations and WKTs"
+    - date: "May 2020 - Aug 2020"
+      title: "AFRL Scholars Remote AI Research Scientist - ML Explainability"
+      org: "AFRL, Rome, NY"
+      bullets:
+        - "Worked remotely due to COVID-19 and managed to produce \u201Cexplanations\u201D for machine learning, using background semantic knowledge and the DL-Learner framework"
+    - date: "May 2019 - Aug 2019"
+      title: "AFRL Scholars AI Research Scientist - ML-Boosted Knowledge Graphs"
+      org: "AFRL, Rome, NY"
+      bullets:
+        - "Worked with others in \u201Cboosting\u201D semantic graphs through ML"
+        - "Modelled topics from ontologies and eventually assessed ontology quality through metrics"
+        - "Produced multitudes of relevant data for the Air Force, as well as a basic ontology quality assessment framework"
+
+consulting:
+  intro_parts:
+    - text: "Working remotely as owner of "
+    - text: "Semantic Science"
+      url: "https://semanticscience.us"
+    - text: ", delivered applied ontology, provenance, and AI knowledge-graph solutions for multiple clients across defense and enterprise domains, e.g., defense intelligence, nuclear systems, construction engineering, law, media analytics, and higher education."
+  entries:
+    - date: "May 2025"
+      title: "Academic Consultant and Editor"
+      org: "Cloudcell Limited"
+      bullets:
+        - "Provided editorial services and guidance for the publication of an academic paper in the machine learning space"
+    - date: "Sep 2024"
+      title: "Reasoning Consultant"
+      org: "Upwork"
+      bullets:
+        - "Consulted with a client on FOL/HOL ontology reasoning"
+    - date: "July 2024"
+      title: "Ontology Engineer"
+      org: "Upwork"
+      bullets:
+        - "Developed a mid-level ontology for a discreet domain"
+        - "Provided stakeholder-level documentation on OWL reasoning and description logics"
+    - date: "June 2024"
+      title: "Nuclear Construction Ontology Engineer"
+      org: "Upwork"
+      bullets:
+        - "Consulted on, and developed, an ontology to be used for nuclear facility construction process evaluation"
+    - date: "Feb 2024 - Apr 2024"
+      title: "AI Consultant and Ontology Engineer"
+      org: "Quiet Professionals"
+      org_url: "https://quietprofessionalsllc.com/"
+      bullets:
+        - "Consulted on large language models in DoD use cases"
+        - "Engineered a BFO/CCO implementation for DoD data standardization"
+    - date: "Nov 2023 - May 2024"
+      title: "Ontologist and Linked Data Engineer"
+      org: "Hooray Media"
+      org_url: "https://hooray.media/"
+      bullets:
+        - "Consulted on an ontology to be integrated with a WordPress ecosystem for a local content publishing company"
+        - "Developed a Linked Data taxonomy for web post content"
+    - date: "Aug 2023 - Jan 2024"
+      title: "Ontologist and Knowledge Graph Engineer"
+      org: "The Link"
+      org_url: "https://www.thelink.ai/"
+      bullets:
+        - "Consulted on an ontology for the construction industry"
+        - "Engineered a system for knowledge graph extraction from construction documents"
+        - "Maintained an ecosystem of knowledge graphs containing over 10,000 nodes and 50,000 relations"
+    - date: "May 2023"
+      title: "Legal Ontology Consultant"
+      org: "Upwork"
+      bullets:
+        - "Provided insight on the design and development of a legal domain ontology in OWL"
+    - date: "May 2023"
+      title: "Software Test Engineer"
+      org: "Upwork"
+      bullets:
+        - "Tested and gave feedback for a startup scientific research platform"
+    - date: "Apr 2023 - May 2023"
+      title: "Geospatial Ontology Analyst"
+      org: "Upwork"
+      bullets:
+        - "Queried a large geospatial ontology with complex SPARQL"
+        - "Diagnosed and fixed issues with OWL and SWRL reasoning"
+        - "Produced visualizations in GraphDB and Stardog"
+    - date: "Mar 2023"
+      title: "Knowledge Graph Engineer"
+      org: "Upwork"
+      bullets:
+        - "Represented a specific use case for the SDLC in GraphDB using PROV and SEON"
+    - date: "Feb 2023 - Present"
+      title: "Technology Consultant and Scientific Writer"
+      org: "ForumAPI"
+      bullets:
+        - "Provided insight on automated documentation techniques and created artifacts related to scientific publication on a particular domain for a client startup company"
+        - "Worked with the GPT API suite to generate software-related documents"
+        - "Wrote and published several scientific papers"
+    - date: "Jan 2023 - Mar 2023"
+      title: "Ontologist"
+      org: "WordLift SEO"
+      org_url: "https://wordlift.io/"
+      org_suffix: " (international remote)"
+      bullets:
+        - "Acted as a knowledge representation consultant"
+        - "Represented a client domain using Schema.org and GS1, in OWL, SWRL and SHACL"
+
+graduate:
+  entries:
+    - date: "Feb 2023 - May 2023"
+      title: "University Course Engineer"
+      org: "The Knowledge Representation Spectrum"
+      bullets:
+        - "Developed a course intended to be an extension to a relational databases course, covering the history of knowledge representation, focusing on applied ontology, Linked Data and contemporary NLP"
+    - date: "Jan 2019 - Present"
+      title: "AI Research Team Lead and Semantic Web Consultant"
+      org: "ERAU Daytona"
+      org_comma: true
+      org_trailing: "team lead Omar Ochoa"
+      bullets:
+        - "Worked on projects related to ML, NLP, Linked Data and cybersecurity; produced many papers"
+        - "Performed work with other researchers, in addition to contributing to and writing papers on a multitude of research topics, most of which centered around Semantic technology"
+        - "Acted as Semantic Web consultant for various other student researchers, in addition to providing assistance in paper review and revision"
+
+undergrad:
+  entries:
+    - date: "Jan 2019 - May 2019"
+      title: "Grader for CS344 - C Programming and UNIX"
+      org: "ERAU Daytona"
+      bullets:
+        - "Assessed content included Linux commands and intermediate C programming topics, such as structures, complex pointer manipulation and memory management"
+    - date: "Aug 2018 - Dec 2018"
+      title: "Grader for CS315 - Data Structures and Algorithms"
+      org: "ERAU Daytona"
+      h4_newline: true
+      bullets:
+        - "Evaluated implementation of linked lists, queues, stacks, trees, heaps, maps, graphs, recursion, sorting and searching algorithms"
+    - date: "Aug 2014 - Aug 2016"
+      title: "Customer Service Clerk"
+      org: "Publix Supermarkets"
+      org_comma: true
+      h4_newline: true
+      bullets:
+        - "Assisted customers and managed merchandise loading"

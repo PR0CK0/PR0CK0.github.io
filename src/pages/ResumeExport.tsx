@@ -140,8 +140,8 @@ function ResumePdfDocument({ data }: { data: CVData }) {
             <Text style={S.sectionHeader}>{sec.header}</Text>
             {sec.text && <Text style={S.summaryText}>{sec.text}</Text>}
             {sec.entries?.map((entry, ei) => (
-              <View key={ei} style={S.row}>
-                <View style={S.contentCol}>
+              <View key={ei} style={entry.fullWidth ? { marginBottom: 5 } : S.row}>
+                <View style={entry.fullWidth ? undefined : S.contentCol}>
                   <Text style={S.entryTitle}>
                     {entry.title}
                     {entry.titleSuffix && <Text style={S.titleSuffix}>{` – ${entry.titleSuffix}`}</Text>}
@@ -153,7 +153,7 @@ function ResumePdfDocument({ data }: { data: CVData }) {
                     </Text>
                   )}
                   {entry.notes?.map((note, ni) => (
-                    <Text key={ni} style={S.note}>
+                    <Text key={ni} style={[S.note, note.indent ? { marginLeft: 20 } : {}]}>
                       {'• '}
                       {note.prefix}{note.url ? <Link src={note.url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</Link> : note.text}
                     </Text>
@@ -165,9 +165,11 @@ function ResumePdfDocument({ data }: { data: CVData }) {
                     </View>
                   ))}
                 </View>
-                <View style={S.dateCol}>
-                  {entry.date && <Text style={S.date}>{entry.date}</Text>}
-                </View>
+                {!entry.fullWidth && (
+                  <View style={S.dateCol}>
+                    {entry.date && <Text style={S.date}>{entry.date}</Text>}
+                  </View>
+                )}
               </View>
             ))}
             {sec.skillGroups && Object.entries(sec.skillGroups).map(([cat, items]) => (
@@ -238,8 +240,8 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
           <h2 style={HS.sectionHeader}>{sec.header}</h2>
           {sec.text && <p style={HS.summaryText}>{sec.text}</p>}
           {sec.entries?.map((entry, ei) => (
-            <div key={ei} style={HS.row}>
-              <div style={HS.contentCol}>
+            <div key={ei} style={entry.fullWidth ? { marginBottom: '5px' } : HS.row}>
+              <div style={entry.fullWidth ? undefined : HS.contentCol}>
                 <div>
                   <span style={HS.entryTitle}>{entry.title}</span>
                   {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
@@ -251,7 +253,7 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
                   </div>
                 )}
                 {entry.notes?.map((note, ni) => (
-                  <div key={ni} style={HS.note}>
+                  <div key={ni} style={{ ...HS.note, ...(note.indent ? { marginLeft: '24px' } : {}) }}>
                     {'• '}
                     {note.prefix}{note.url ? <a href={note.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</a> : note.text}
                   </div>
@@ -263,9 +265,11 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
                   </div>
                 ))}
               </div>
-              <div style={HS.dateCol}>
-                {entry.date && <span style={HS.date}>{entry.date}</span>}
-              </div>
+              {!entry.fullWidth && (
+                <div style={HS.dateCol}>
+                  {entry.date && <span style={HS.date}>{entry.date}</span>}
+                </div>
+              )}
             </div>
           ))}
           {sec.skillGroups && Object.entries(sec.skillGroups).map(([cat, items]) => (
