@@ -102,6 +102,10 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [ ] **Pin best GitHub repos** — PR0CK0.github.io, ProvTracer, awesome-bfo, StableDiffusionEndToEndGuide, dissenter, ai-landscape-digest.
 - [ ] **Star ecosystem repos** — star BFO, Protégé, cytoscape, etc. to signal your ecosystem to profile visitors.
 
+## YAML purity — no HTML or styling in source data
+
+- [ ] **Strip all HTML/styling artifacts from `tyler-procko.yaml`** — The YAML is a pure data file; presentation logic belongs in the React components. Known offenders include fields like `close_span_before_end_link`, `primary_author_position: in_span`, `after_span_text`, `after_link_text`, `org_extra_after_italic`, and any raw `<i>`, `<a>`, or similar HTML tags embedded in string values. Each of these is a legacy holdover from the old Jinja2/HTML build. Audit every field, remove the HTML-aware fields, and implement equivalent presentation logic in the components that render those entries.
+
 ## Potential / Future
 
 - [ ] **LinkML schema migration** — Replace `schema.ts` (Zod) with a LinkML schema (`schema.yaml`). Data YAML stays identical. Gains: build-time `linkml-validate`, `gen-owl` produces an OWL ontology of the CV (cool talking point), `gen-python` for typed Python models, `gen-json-schema` for JSON Schema validation. Cost: Python codegen step added to build pipeline, no official Zod generator (would need to keep or regenerate Zod separately). Worth doing if OWL export or multi-language pipeline ever becomes a goal.
