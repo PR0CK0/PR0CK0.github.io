@@ -121,7 +121,14 @@ function CVPdfDocument({ data }: { data: CVData }) {
         {/* Sections */}
         {data.sections.map((sec, si) => (
           <View key={si}>
-            <Text style={S.sectionHeader}>{sec.header}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', borderBottomWidth: 0.75, borderBottomColor: '#1a3a6b', borderBottomStyle: 'solid' as const, marginTop: 8, marginBottom: 3, paddingBottom: 1 }}>
+              <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#1a3a6b', textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>{sec.header}</Text>
+              {sec.headerLinks?.map((hl, hli) => (
+                <Text key={hli} style={{ fontSize: 8, color: '#1a6bbf', fontStyle: 'italic', fontWeight: 'normal', marginLeft: 4 }}>
+                  {hli === 0 ? ' – ' : ' · '}<Link src={hl.url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{hl.label}</Link>
+                </Text>
+              ))}
+            </View>
             {/* Simple text */}
             {sec.text && <Text style={S.summaryText}>{sec.text}</Text>}
             {/* Entries (education, work, projects, awards, certs, clearance) */}
@@ -203,11 +210,26 @@ function CVPdfDocument({ data }: { data: CVData }) {
               </View>
             ))}
             {/* Publications */}
-            {sec.publications?.map((pub) => (
-              <View key={pub.index} style={S.pubBlock}>
-                <Text style={S.pubTitle}>[{pub.index}] {pub.title}</Text>
-                <Text style={S.pubMeta}>{pub.authors}{pub.venue ? `. ${pub.venue}` : ''}{pub.date ? `. ${pub.date}` : ''}</Text>
-                {pub.url && <Link src={pub.url} style={{ fontSize: 7.5, color: '#1a6bbf', textDecoration: 'none' }}>{pub.url}</Link>}
+            {sec.pubGroups?.map((group, gi) => (
+              <View key={gi}>
+                {group.subheader && <Text style={S.subsectionHeader}>{group.subheader}</Text>}
+                {group.items.map((pub) => (
+                  <View key={pub.index} style={{ ...S.row, ...S.pubBlock }}>
+                    <View style={S.contentCol}>
+                      <Text style={S.pubTitle}>
+                        {pub.url
+                          ? <><Link src={pub.url} style={{ color: '#1a6bbf', textDecoration: 'none', fontWeight: 'bold' }}>{`[${pub.index}]`}</Link>{` ${pub.title}`}</>
+                          : `[${pub.index}] ${pub.title}`}
+                      </Text>
+                      <Text style={S.pubMeta}>
+                        {pub.authors}{pub.venue ? <Text style={{ fontStyle: 'italic' }}>{`. ${pub.venue}`}</Text> : ''}
+                      </Text>
+                    </View>
+                    <View style={S.dateCol}>
+                      {pub.date && <Text style={S.date}>{pub.date}</Text>}
+                    </View>
+                  </View>
+                ))}
               </View>
             ))}
             {/* Skills */}
@@ -342,7 +364,14 @@ function CVHtmlPreview({ data }: { data: CVData }) {
       {/* Sections */}
       {data.sections.map((sec, si) => (
         <div key={si}>
-          <h2 style={HS.sectionHeader}>{sec.header}</h2>
+          <h2 style={HS.sectionHeader}>
+            {sec.header}
+            {sec.headerLinks?.map((hl, hli) => (
+              <span key={hli} style={{ fontSize: '8px', fontWeight: 400, textTransform: 'none', fontStyle: 'italic', marginLeft: '4px', verticalAlign: 'middle' }}>
+                {hli === 0 ? ' – ' : ' · '}<a href={hl.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{hl.label}</a>
+              </span>
+            ))}
+          </h2>
           {sec.text && <p style={HS.summaryText}>{sec.text}</p>}
           {sec.entries?.map((entry, ei) => (
             <div key={ei} style={HS.row}>
@@ -424,11 +453,26 @@ function CVHtmlPreview({ data }: { data: CVData }) {
               ))}
             </div>
           ))}
-          {sec.publications?.map((pub) => (
-            <div key={pub.index} style={HS.pubBlock}>
-              <div style={HS.pubTitle}>[{pub.index}] {pub.title}</div>
-              <div style={HS.pubMeta}>{pub.authors}{pub.venue ? `. ${pub.venue}` : ''}{pub.date ? `. ${pub.date}` : ''}</div>
-              {pub.url && <a href={pub.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: '7.5px', color: '#1a6bbf', textDecoration: 'none' }}>{pub.url}</a>}
+          {sec.pubGroups?.map((group, gi) => (
+            <div key={gi}>
+              {group.subheader && <h3 style={{ fontSize: '10.5px', fontWeight: 700, color: '#1a3a6b', marginTop: '5px', marginBottom: '2px', textDecoration: 'underline' }}>{group.subheader}</h3>}
+              {group.items.map((pub) => (
+                <div key={pub.index} style={{ ...HS.row, ...HS.pubBlock }}>
+                  <div style={HS.contentCol}>
+                    <div style={HS.pubTitle}>
+                      {pub.url
+                        ? <><a href={pub.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none', fontWeight: 700 }}>{`[${pub.index}]`}</a>{` ${pub.title}`}</>
+                        : `[${pub.index}] ${pub.title}`}
+                    </div>
+                    <div style={HS.pubMeta}>
+                      {pub.authors}{pub.venue ? <span style={{ fontStyle: 'italic' }}>{`. ${pub.venue}`}</span> : ''}
+                    </div>
+                  </div>
+                  <div style={HS.dateCol}>
+                    {pub.date && <span style={HS.date}>{pub.date}</span>}
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
           {sec.skillGroups && Object.entries(sec.skillGroups).map(([cat, items]) => (

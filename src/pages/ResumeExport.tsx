@@ -140,7 +140,14 @@ function ResumePdfDocument({ data }: { data: CVData }) {
         {/* Sections */}
         {data.sections.map((sec, si) => (
           <View key={si}>
-            <Text style={S.sectionHeader}>{sec.header}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', borderBottomWidth: 0.75, borderBottomColor: '#1a3a6b', borderBottomStyle: 'solid' as const, marginTop: 8, marginBottom: 3, paddingBottom: 1 }}>
+              <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#1a3a6b', textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>{sec.header}</Text>
+              {sec.headerLinks?.map((hl, hli) => (
+                <Text key={hli} style={{ fontSize: 8, color: '#1a6bbf', fontStyle: 'italic', fontWeight: 'normal', marginLeft: 4 }}>
+                  {hli === 0 ? ' – ' : ' · '}<Link src={hl.url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{hl.label}</Link>
+                </Text>
+              ))}
+            </View>
             {sec.text && <Text style={S.summaryText}>{sec.text}</Text>}
             {sec.entries?.map((entry, ei) => (
               <View key={ei} style={entry.fullWidth ? { marginBottom: 5 } : S.row}>
@@ -247,7 +254,14 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
 
       {data.sections.map((sec, si) => (
         <div key={si}>
-          <h2 style={HS.sectionHeader}>{sec.header}</h2>
+          <h2 style={HS.sectionHeader}>
+            {sec.header}
+            {sec.headerLinks?.map((hl, hli) => (
+              <span key={hli} style={{ fontSize: '8px', fontWeight: 400, textTransform: 'none', fontStyle: 'italic', marginLeft: '4px', verticalAlign: 'middle' }}>
+                {hli === 0 ? ' – ' : ' · '}<a href={hl.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{hl.label}</a>
+              </span>
+            ))}
+          </h2>
           {sec.text && <p style={HS.summaryText}>{sec.text}</p>}
           {sec.entries?.map((entry, ei) => (
             <div key={ei} style={entry.fullWidth ? { marginBottom: '5px' } : HS.row}>
