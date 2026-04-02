@@ -223,7 +223,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     const grouped = new Map<string, CVEntry[]>()
     for (const sec of sectionOrder) grouped.set(sec, [])
 
-    for (const exp of person.work_experiences!) {
+    for (const exp of person.work_experiences!.filter(e => !e.cv_exclude)) {
       const sec = exp.work_section ?? 'Other'
       if (!grouped.has(sec)) grouped.set(sec, [])
       grouped.get(sec)!.push({

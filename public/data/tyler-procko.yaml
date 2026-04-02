@@ -481,6 +481,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/afrl-consolidated
   work_section: Defense and AI Research Experience
+  cv_exclude: true
   graph_exclude: true
   title: AI Research Scientist — Ontology-Grounded ML and Autonomous Systems
   organization: Air Force Research Lab (AFRL)
@@ -536,6 +537,7 @@ work_experiences:
   - Stakeholder Presentation
 - id: work/consulting-contract
   work_section: Applied R&D and Consulting Experience
+  cv_exclude: true
   graph_exclude: true
   title: Ontology & AI Systems Consultant
   organization: Independent Contract
@@ -1139,6 +1141,7 @@ work_experiences:
   - Virtual Presentation
 - id: work/grader-cs344
   work_section: Undergrad and Prior
+  resume_exclude: true
   title: Grader for CS344 - C Programming and UNIX
   organization: ERAU
   location: Daytona Beach, FL
@@ -1172,6 +1175,7 @@ work_experiences:
   - Requirements Engineering
 - id: work/grader-cs315
   work_section: Undergrad and Prior
+  resume_exclude: true
   title: Grader for CS315 - Data Structures and Algorithms
   organization: ERAU
   location: Daytona Beach, FL
@@ -1199,6 +1203,7 @@ work_experiences:
   - Virtual Presentation
 - id: work/publix
   work_section: Undergrad and Prior
+  resume_exclude: true
   title: Customer Service Clerk
   organization: Publix Supermarkets
   location: Fernandina Beach, FL
