@@ -1,0 +1,46 @@
+name: Sync OpenAlex Publications
+
+# Runs weekly and on manual trigger.
+# Queries OpenAlex for all works linked to the author's ORCID, compares
+# against existing YAML entries by DOI, and appends stub entries for any
+# new publications found. Stubs are tagged source: openalex and featured: false
+# for manual review and enrichment.
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'  # Every Monday at 07:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install ruamel.yaml
+
+      - name: Sync publications
+        run: python3 .github/scripts/sync_openalex_publications.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet public/data/tyler-procko.yaml; then
+            git add public/data/tyler-procko.yaml
+            git commit -m "chore: sync new publications from OpenAlex [skip ci]"
+            git push
+          else
+            echo "Nothing to commit."
+          fi
