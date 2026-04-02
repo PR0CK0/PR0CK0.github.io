@@ -339,13 +339,23 @@ export default function ResumeExport() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 font-mono flex flex-col pt-10 px-4">
+    <div
+      className="min-h-screen bg-terminal-bg font-mono flex flex-col pt-10"
+      style={{
+        backgroundImage: [
+          'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px)',
+          'linear-gradient(rgba(77,159,255,0.03) 1px, transparent 1px)',
+          'linear-gradient(90deg, rgba(77,159,255,0.03) 1px, transparent 1px)',
+        ].join(', '),
+        backgroundSize: 'auto, 40px 40px, 40px 40px',
+      }}
+    >
       <SEO
         title="Resume"
         description="Resume of Tyler T. Procko, Ph.D. — work experience, projects, and technical skills in AI, ontology engineering, and knowledge graphs."
         path="/resume"
       />
-      <div className="max-w-4xl mx-auto mb-4 sm:mb-8 cv-page-chrome">
+      <div className="max-w-4xl mx-auto w-full px-4 mb-4 sm:mb-8 cv-page-chrome">
         <h1 className="text-xl sm:text-2xl font-bold text-terminal-amber tracking-tight">~/resume.pdf</h1>
         <p className="text-terminal-green text-xs sm:text-sm mt-1 opacity-80">
           Work experience, projects, and skills — Generated from YAML source.
@@ -389,7 +399,7 @@ export default function ResumeExport() {
         </div>
       </div>
 
-      <div className="grow pb-10">
+      <div className="grow w-full px-4 pb-10">
         {viewMode === 'html' ? (
           <div className="max-w-4xl mx-auto">
             <ResumeHtmlPreview data={resumeData} />
