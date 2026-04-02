@@ -63,6 +63,8 @@ education:
   thesis_github: https://github.com/PR0CK0/ProvTracer
   advisor: Dr. Omar Ochoa
   advisor_url: https://faculty.erau.edu/Omar.Ochoa
+  domains:
+  - Software Engineering
 - id: edu/ms-erau
   institution: Embry-Riddle Aeronautical University (ERAU), Daytona Beach, FL
   degree: Master of Science
@@ -76,6 +78,8 @@ education:
   thesis_url: https://commons.erau.edu/edt/784/
   advisor: Dr. Omar Ochoa
   advisor_url: https://faculty.erau.edu/Omar.Ochoa
+  domains:
+  - Software Engineering
 - id: edu/bs-erau
   institution: Embry-Riddle Aeronautical University (ERAU), Daytona Beach, FL
   degree: Bachelor of Science
@@ -149,6 +153,8 @@ work_experiences:
   - CCO
   - OCSF
   - PROV-O
+  - MITRE ATT&CK
+  - MITRE D3FEND
   - GitHub Actions
   - AWS Bedrock
   - Docker
@@ -1282,6 +1288,65 @@ work_experiences:
   soft_skills:
   - Client Communication
 publications:
+- id: pub/phd-dissertation
+  title: 'On the Provenance of Software Systems: Automating Software Traceability with Knowledge Graph and Large Language
+    Model Synergy'
+  authors:
+  - Tyler T. Procko
+  venue: Embry-Riddle Aeronautical University Scholarly Commons
+  date: 2025-05
+  status: published
+  url: https://commons.erau.edu/edt/898/
+  author_role: Primary Author
+  tags:
+  - provenance
+  - knowledge graphs
+  - LLM
+  - software traceability
+  - dissertation
+  technologies:
+  - Python
+  - PyQt6
+  - SPARQL
+  - PROV-O
+  - RDFLib
+  - OWL
+  - Turtle
+  - RDF
+  - RDFS
+  - Neo4j
+  - GraphDB
+  - GitHub
+  - OpenAI
+  - GPT
+  - Microsoft Word
+  - Microsoft Teams
+  - Visual Studio Code
+  - Protégé
+  - Kanban
+  - Discord
+  - BFO
+  - CCO
+  - Draw.io
+  - SWEBOK
+  domains:
+  - Knowledge Graphs
+  - Provenance
+  - ML Provenance
+  - Semantic Web
+  - Linked Data
+  - Software Engineering
+  - SDLC
+  - LLMs
+  - Knowledge Representation
+  - Knowledge Management
+  - Scientific Writing
+  - Agile
+  - Ethics
+  - FAIR Data
+  soft_skills:
+  - Public Speaking
+  - Stakeholder Presentation
 - id: pub/prompt-provenance
   title: 'Prompt Provenance: Toward Traceable LLM Interactions'
   authors:
@@ -1731,6 +1796,7 @@ publications:
   - GitHub
   - Microsoft Excel
   - Microsoft Teams
+  - SWEBOK
   domains:
   - Agile
   - Scientific Writing
@@ -1969,6 +2035,7 @@ publications:
   - RDFS
   - pdfplumber
   - Microsoft Word
+  - SWEBOK
   domains:
   - Knowledge Graphs
   - NLP
@@ -3791,6 +3858,15 @@ skills:
   category: vocabularies
 - id: skill/iao
   name: IAO
+  category: vocabularies
+- id: skill/swebok
+  name: SWEBOK
+  category: vocabularies
+- id: skill/mitre-attck
+  name: MITRE ATT&CK
+  category: vocabularies
+- id: skill/mitre-d3fend
+  name: MITRE D3FEND
   category: vocabularies
 - id: skill/rdfa
   name: RDFa
