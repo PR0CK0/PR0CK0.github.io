@@ -27,6 +27,32 @@ export default function About() {
 
   const funAwards = (person.awards ?? []).filter(a => a.about_only)
 
+  const AWARD_GROUPS: Array<{ label: string; ids: string[] }> = [
+    {
+      label: 'Quantifications',
+      ids: ['award/act-top-1-percent'],
+    },
+    {
+      label: 'Junior High / High School',
+      ids: [
+        'award/florida-bright-futures',
+        'award/presidents-education-award',
+        'award/principals-list',
+        'award/national-honor-society',
+        'award/national-junior-honor-society',
+        'award/math-contest-5th-place',
+        'award/science-club',
+        'award/egg-drop-1st-place',
+        'award/creative-essay-winner',
+        'award/faacs-fine-arts-1st',
+      ],
+    },
+    {
+      label: 'Elementary School',
+      ids: ['award/beta-club', 'award/regional-spelling-bee'],
+    },
+  ]
+
   const sections: Array<{ label: string; value: string | string[] }> = [
     { label: 'Birth Year', value: String(person.birth_year ?? '') },
     { label: 'MBTI Type', value: person.mbti ?? '' },
@@ -72,21 +98,35 @@ export default function About() {
 
           {funAwards.length > 0 && (
             <div className="border-b border-terminal-border/30 pb-4">
-              <h2 className="text-terminal-amber text-xs sm:text-sm font-bold uppercase tracking-wider mb-2">
+              <h2 className="text-terminal-amber text-xs sm:text-sm font-bold uppercase tracking-wider mb-4">
                 Fun Awards
               </h2>
-              <ul className="space-y-2">
-                {funAwards.map(award => (
-                  <li key={award.id} className="flex justify-between gap-4 text-sm sm:text-base">
-                    <span className="text-terminal-text">
-                      {award.title}{award.description ? ` — ${award.description}` : ''}
-                    </span>
-                    {award.date && (
-                      <span className="text-terminal-muted shrink-0">{fmtSingleDate(String(award.date))}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
+              <div className="space-y-6">
+                {AWARD_GROUPS.map(group => {
+                  const grouped = group.ids
+                    .map(id => funAwards.find(a => a.id === id))
+                    .filter((a): a is NonNullable<typeof a> => !!a)
+                  if (grouped.length === 0) return null
+                  return (
+                    <div key={group.label}>
+                      <h3 className="text-terminal-green text-xs font-bold uppercase tracking-wider mb-2 border-b border-terminal-border/20 pb-1">
+                        {group.label}
+                      </h3>
+                      <ul className="space-y-1">
+                        {grouped.map(award => {
+                          const dateCol = award.description || fmtSingleDate(String(award.date ?? ''))
+                          return (
+                            <li key={award.id} className="grid grid-cols-[1fr_8rem] sm:grid-cols-[1fr_9rem] gap-3 text-sm sm:text-base py-0.5">
+                              <span className="text-terminal-text">{award.title}</span>
+                              <span className="text-terminal-muted text-right">{dateCol}</span>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           )}
         </div>

@@ -4112,7 +4112,6 @@ awards:
 - id: award/act-top-1-percent
   title: 'ACT Reading/Writing: Top 1%'
   date: '~2019'
-  description: Taken as part of entrance to the SMART program
   about_only: true
 - id: award/diamond-eagle-scholarship
   title: Diamond Eagle Scholarship
@@ -4138,37 +4137,37 @@ awards:
   title: National Honor Society Member
   issuer: TCA
   date: '2013'
-  description: Member 10th through 12th grade
+  description: 10th – 12th Grade
   about_only: true
 - id: award/national-junior-honor-society
   title: National Junior Honor Society Member
   issuer: TCA
   date: '2010'
-  description: Member 7th through 9th grade
+  description: 7th – 9th Grade
   about_only: true
 - id: award/math-contest-5th-place
   title: 5th Place - Regional Math Contest (Team)
-  description: ~10th grade
+  description: ~10th Grade
   about_only: true
 - id: award/science-club
   title: Science Club Member
-  description: ~10th grade
+  description: ~10th Grade
   about_only: true
 - id: award/egg-drop-1st-place
   title: 1st Place - Physics Egg-Drop Survival Contest
-  description: ~10th grade
+  description: ~10th Grade
   about_only: true
 - id: award/creative-essay-winner
   title: Winner - Creative Essay Contest
-  description: ~9th grade
+  description: ~9th Grade
   about_only: true
 - id: award/faacs-fine-arts-1st
   title: 1st Place - FAACS Fine Arts Competition
-  description: 9th grade
+  description: 9th Grade
   about_only: true
 - id: award/beta-club
   title: Beta Club Member
-  description: Member 3rd through 6th grade
+  description: 3rd – 6th Grade
   about_only: true
 - id: award/regional-spelling-bee
   title: 3rd Place - 2006 FAACS Regional Spelling Bee
