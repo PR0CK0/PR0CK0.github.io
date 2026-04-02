@@ -436,7 +436,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
     const notes: CVEntry['notes'] = []
     if (phd) {
       notes.push({
-        prefix: 'Ph.D., CS & Electrical Engineering (4.0 GPA) — Dissertation: ',
+        prefix: 'Ph.D., CS & Electrical Engineering — Dissertation: ',
         text: phd.thesis_title ?? '',
         url: phd.thesis_url,
       })
@@ -448,15 +448,14 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
     }
     if (ms) {
       notes.push({
-        prefix: 'M.S., Software Engineering (4.0 GPA) — Thesis: ',
+        prefix: 'M.S., Software Engineering — Thesis: ',
         text: ms.thesis_title ?? '',
         url: ms.thesis_url,
       })
     }
     if (bs) {
-      const bsExtras = (bs.notes ?? []).join(' · ')
       notes.push({
-        text: `B.S., Software Engineering (3.93 GPA) — Summa Cum Laude · Minor: Cybersecurity Engineering${bsExtras ? ' · ' + bsExtras : ''}`,
+        text: 'B.S., Software Engineering — Summa Cum Laude · Minor: Cybersecurity Engineering',
       })
     }
     sections.push({
