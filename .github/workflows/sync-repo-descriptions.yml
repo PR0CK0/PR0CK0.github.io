@@ -1,0 +1,47 @@
+name: Sync Repo Descriptions
+
+# Runs weekly and on manual trigger.
+# Fetches GitHub "About" descriptions for all projects in the YAML that have a
+# repo_url, updates the YAML if anything changed, and commits back to main.
+# The commit will trigger the normal deploy workflow automatically.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC
+  workflow_dispatch:      # Manual trigger from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install ruamel.yaml
+
+      - name: Sync descriptions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/sync_repo_descriptions.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet public/data/tyler-procko.yaml; then
+            git add public/data/tyler-procko.yaml
+            git commit -m "chore: sync GitHub repo descriptions [skip ci]"
+            git push
+          else
+            echo "Nothing to commit."
+          fi
