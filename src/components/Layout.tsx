@@ -21,7 +21,7 @@ export default function Layout({ children }: LayoutProps) {
   const [theme, toggleTheme] = useTheme()
 
   return (
-    <div className="h-screen flex flex-col bg-terminal-bg overflow-hidden">
+    <div className="h-[100dvh] flex flex-col bg-terminal-bg overflow-hidden">
       <nav className="border-b border-terminal-border bg-terminal-surface sticky top-0 z-50">
         <div className="relative">
           <div
