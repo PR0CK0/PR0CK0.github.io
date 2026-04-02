@@ -56,6 +56,18 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 - [ ] **Show total citation count on CV/Resume** — OpenAlex per-paper `cited_by_count` is already stored in YAML and updated weekly, but the aggregate is ~4× lower than Google Scholar (OpenAlex: ~61, Google Scholar: 238). Options: (a) add a `total_citations` field to the person object in YAML that you manually bump periodically; (b) find an API with Scholar-level coverage (Semantic Scholar may be better). For now, citation count is hidden from the display.
 
+## CV / Resume — typography normalization
+
+- [ ] **Normalize CV and Resume header fonts and sizes** — Section headers, entry titles, meta text, dates, and notes currently use hardcoded inline font sizes in both CVExport.tsx and ResumeExport.tsx. Extract into a shared style constant object (similar to `ui-constants.ts` for the web pages) so sizes are consistent and easy to adjust globally.
+
+## Legacy index.html — full port audit
+
+- [ ] **Ensure legacy view is fully ported to YAML/React** — Walk through `/legacy` (the old static CV HTML at `public/legacy/index.html`) entry by entry and verify every section, entry, bullet point, and nuance is captured in `public/data/tyler-procko.yaml`. The legacy view was the source of truth before the YAML migration; anything present there but absent from the YAML is a data loss.
+
+## Skill category labels — Landing and Schema normalization
+
+- [ ] **Normalize skill category headings between Landing page and schema** — The `SkillSchema` `category` enum uses snake_case keys (e.g. `prog_languages`, `ai_tools`, `soft_skills`) while the Landing page renders human-readable labels (e.g. "Programming Languages", "AI Tools"). These mappings live in separate places and can drift. Consolidate into a single `SKILL_CATEGORY_LABELS` constant shared between the schema/graph and the Landing render so adding a new category only requires one change.
+
 ## Light Mode
 
 - [ ] **Light mode on Graph, CV, Resume pages** — Graph.tsx uses hundreds of hardcoded hex colors in inline styles and Cytoscape stylesheet; CV/Resume use hardcoded print colors. All need migrating to Tailwind CSS variable classes (`bg-terminal-bg` etc.) to respect `html.light`. About and Landing already work correctly.
