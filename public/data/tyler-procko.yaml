@@ -1347,6 +1347,39 @@ publications:
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
+  source: manual
+  featured: false
+- id: pub/embedding-provenance-jsonld
+  title: Embedding Provenance in Computer Vision Datasets with JSON-LD
+  authors:
+  - Lynn Vonderhaar
+  - Timothy Elvira
+  - Tyler T. Procko
+  - Omar Ochoa
+  venue: arXiv
+  date: 2026-03
+  status: awaiting_publication
+  url: https://doi.org/10.48550/arxiv.2603.27348
+  doi: https://doi.org/10.48550/arxiv.2603.27348
+  author_role: Contributing Author
+  source: openalex
+  featured: false
+- id: pub/context-dropout
+  title: 'Context Dropout: A Novel Method to Reduce Contextual Reliance in Object Detection'
+  authors:
+  - Lynn Vonderhaar
+  - Timothy Elvira
+  - Tyler T. Procko
+  - Alexandra Newcomb
+  - Omar Ochoa
+  venue: 2025 IEEE International Conference on Future Machine Learning and Data Science (FMLDS)
+  date: 2025-11
+  status: published
+  url: https://doi.org/10.1109/fmlds67896.2025.00042
+  doi: https://doi.org/10.1109/fmlds67896.2025.00042
+  author_role: Contributing Author
+  source: openalex
+  featured: false
 - id: pub/prompt-provenance
   title: 'Prompt Provenance: Toward Traceable LLM Interactions'
   authors:
