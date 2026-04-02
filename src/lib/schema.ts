@@ -64,6 +64,7 @@ export const PublicationSchema = z.object({
   personal_skills: z.array(z.string()).optional(),
   source: z.enum(['manual', 'openalex']).optional(),
   featured: z.boolean().optional(),
+  cited_by_count: z.number().optional(),
 })
 
 export const ProjectSchema = z.object({
