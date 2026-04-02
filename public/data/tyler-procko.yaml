@@ -1358,12 +1358,13 @@ publications:
   - Omar Ochoa
   venue: arXiv
   date: 2026-03
-  status: awaiting_publication
+  status: published
   url: https://doi.org/10.48550/arxiv.2603.27348
   doi: https://doi.org/10.48550/arxiv.2603.27348
   author_role: Contributing Author
   source: openalex
   featured: false
+  cited_by_count: 0
 - id: pub/context-dropout
   title: 'Context Dropout: A Novel Method to Reduce Contextual Reliance in Object Detection'
   authors:
@@ -1380,6 +1381,7 @@ publications:
   author_role: Contributing Author
   source: openalex
   featured: false
+  cited_by_count: 0
 - id: pub/prompt-provenance
   title: 'Prompt Provenance: Toward Traceable LLM Interactions'
   authors:
@@ -1412,6 +1414,8 @@ publications:
   - LLMs
   - Prompt Engineering
   - Scientific Writing
+  cited_by_count: 0
+  doi: https://doi.org/10.2139/ssrn.5682942
 - id: pub/ml-lifecycle-provenance-survey
   title: 'A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools'
   authors:
@@ -1456,6 +1460,8 @@ publications:
   - MLOps
   - Scientific Writing
   - Taxonomy
+  cited_by_count: 0
+  doi: https://doi.org/10.2139/ssrn.5682822
 - id: pub/verifying-ml-interpretability
   title: Verifying Machine Learning Interpretability and Explainability Requirements Through Provenance
   authors:
@@ -1484,6 +1490,8 @@ publications:
   - ML Provenance
   - Machine Learning
   - Scientific Writing
+  cited_by_count: 1
+  doi: https://doi.org/10.3390/software5010009
 - id: pub/creating-robust-datasets
   title: Creating Robust Data Sets for AI by Leveraging Ontological Structures
   authors:
@@ -1510,17 +1518,19 @@ publications:
   - Knowledge Representation
   - Scientific Writing
   - Taxonomy
+  cited_by_count: 0
+  doi: https://doi.org/10.1109/icsc64641.2025.00030
 - id: pub/exploring-testing-llms
   title: Exploring Testing Methods for Large Language Models
   authors:
-  - Dr. Timothy R. Elvira
+  - Timothy R. Elvira
   - Tyler T. Procko
   venue: ICMLA 2024
   date: 2024-12
   status: published
   url: https://ieeexplore.ieee.org/abstract/document/10903339
   author_role: Secondary author
-  primary_author: Dr. Timothy R. Elvira
+  primary_author: Timothy R. Elvira
   primary_author_position: in_span
   tags:
   - LLM
@@ -1535,17 +1545,19 @@ publications:
   - Machine Learning
   - Prompt Engineering
   - Scientific Writing
+  cited_by_count: 1
+  doi: https://doi.org/10.1109/icmla61862.2024.00177
 - id: pub/requirements-elicitation-ml
   title: 'Requirements Elicitation for Machine Learning Applications: A Research Preview'
   authors:
-  - Dr. Timothy R. Elvira
+  - Timothy R. Elvira
   - Tyler T. Procko
   venue: TransAI AIxSET 2024
   date: 2024-12
   status: published
   url: https://ieeexplore.ieee.org/abstract/document/10771003
   author_role: Secondary author
-  primary_author: Dr. Timothy R. Elvira
+  primary_author: Timothy R. Elvira
   primary_author_position: in_span
   tags:
   - requirements engineering
@@ -1558,6 +1570,8 @@ publications:
   - Requirements Engineering
   - Software Engineering
   - Scientific Writing
+  cited_by_count: 1
+  doi: https://doi.org/10.1109/aixset62544.2024.00042
 - id: pub/leveraging-llms-scientific-writing
   title: Leveraging Large Language Models on the Traditional Scientific Writing Workflow
   authors:
@@ -1581,6 +1595,8 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  cited_by_count: 2
+  doi: https://doi.org/10.1109/aixset62544.2024.00028
 - id: pub/graph-rag-survey
   title: 'Graph Retrieval-Augmented Generation for Large Language Models: A Survey'
   authors:
@@ -1620,6 +1636,8 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  cited_by_count: 20
+  doi: https://doi.org/10.2139/ssrn.4895062
 - id: pub/cognitive-assistants-single-pilot
   title: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations
   authors:
@@ -1642,6 +1660,8 @@ publications:
   domains:
   - Aerospace
   - Scientific Writing
+  cited_by_count: 1
+  doi: https://doi.org/10.2514/1.I011432
 - id: pub/linked-data-aerospace
   title: 'Leveraging Linked Data for Knowledge Management: A Proposal for the Aerospace Industry'
   authors:
@@ -1677,6 +1697,8 @@ publications:
   - FOL
   - Taxonomy
   - Scientific Writing
+  cited_by_count: 0
+  doi: https://doi.org/10.2139/ssrn.4703237
 - id: pub/robust-training-datasets-ontologies
   title: 'Towards Robust Training Datasets for Machine Learning with Ontologies: A Case Study for Emergency Road Vehicle Detection'
   authors:
@@ -1702,6 +1724,8 @@ publications:
   - Knowledge Representation
   - Scientific Writing
   - Taxonomy
+  cited_by_count: 0
+  doi: https://doi.org/10.48550/arxiv.2406.15268
 - id: pub/prov-o-bfo-mapping
   title: 'Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations
     and Preliminary Implementation'
@@ -1742,6 +1766,8 @@ publications:
   - LLMs
   - Scientific Writing
   - Taxonomy
+  cited_by_count: 0
+  doi: https://doi.org/10.2139/ssrn.4852748
 - id: pub/semantic-science-beyond-pdf
   title: 'Semantic Science: Publication Beyond the PDF'
   authors:
@@ -1765,6 +1791,8 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  cited_by_count: 1
+  doi: https://doi.org/10.1109/southeastcon52093.2024.10500258
 - id: pub/dawn-of-dialogue
   title: 'Dawn of the Dialogue: AI''s Leap from Lab to Living Room'
   authors:
@@ -1784,17 +1812,19 @@ publications:
   - LLMs
   - Machine Learning
   - Scientific Writing
+  cited_by_count: 0
+  doi: https://doi.org/10.2139/ssrn.4696021
 - id: pub/lm-kg-survey
   title: A Survey on the Intersection of Language Models and Knowledge Graphs
   authors:
-  - Dr. Timothy R. Elvira
+  - Timothy R. Elvira
   - Tyler T. Procko
   venue: SSRN
   date: 2024-01
   status: published
   url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4739068
   author_role: Tertiary author
-  primary_author: Dr. Timothy R. Elvira
+  primary_author: Timothy R. Elvira
   primary_author_position: in_span
   tags:
   - language models
@@ -1867,6 +1897,8 @@ publications:
   - Education
   - Software Engineering
   - Scientific Writing
+  cited_by_count: 5
+  doi: https://doi.org/10.1109/fie58773.2023.10343213
 - id: pub/gps-signal-strength
   title: Leveraging Signal Strength as a Mechanism to Secure GPS Messages
   authors:
@@ -1890,6 +1922,8 @@ publications:
   - Aerospace
   - Networking
   - Scientific Writing
+  cited_by_count: 0
+  doi: https://doi.org/10.1109/dasc58513.2023.10311183
 - id: pub/auto-code-documentation
   title: 'Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development’s Most Redundant Task'
   authors:
@@ -1914,6 +1948,8 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  cited_by_count: 0
+  doi: https://doi.org/10.2139/ssrn.4571367
 - id: pub/gpt4-stochastic-parrot
   title: 'GPT-4: A Stochastic Parrot or Ontological Craftsman? Discovering Implicit Knowledge Structures in Large Language
     Models'
@@ -1941,6 +1977,8 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  cited_by_count: 3
+  doi: https://doi.org/10.1109/transai60598.2023.00043
 - id: pub/auto-bfo-aristotelian-definitions
   title: Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies with GPT
   authors:
@@ -1990,17 +2028,19 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  cited_by_count: 2
+  doi: https://doi.org/10.1109/transai60598.2023.00042
 - id: pub/catastrophic-forgetting
   title: 'Impacts of Catastrophic Forgetting: From a Machine Learning Engineering Perspective'
   authors:
-  - Dr. Timothy R. Elvira
+  - Timothy R. Elvira
   - Tyler T. Procko
   venue: 2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)
   date: 2023-07
   status: published
   url: https://ieeexplore.ieee.org/abstract/document/10487405
   author_role: Tertiary author
-  primary_author: Dr. Timothy R. Elvira
+  primary_author: Timothy R. Elvira
   primary_author_position: after_span
   legacy_venue: ' 2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)'
   tags:
@@ -2012,17 +2052,19 @@ publications:
   - Machine Learning
   - LLMs
   - Scientific Writing
+  cited_by_count: 2
+  doi: https://doi.org/10.1109/csce60160.2023.00010
 - id: pub/digital-rubber-duck
   title: 'Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming'
   authors:
-  - Dr. Timothy R. Elvira
+  - Timothy R. Elvira
   - Tyler T. Procko
   venue: 2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)
   date: 2023-07
   status: published
   url: https://ieeexplore.ieee.org/abstract/document/10487209
   author_role: Secondary author
-  primary_author: Dr. Timothy R. Elvira
+  primary_author: Timothy R. Elvira
   primary_author_position: after_span
   legacy_venue: ' 2023 Congress in Computer Science, Computer Engineering, & Applied Computing (CSCE)'
   tags:
@@ -2037,6 +2079,8 @@ publications:
   - Agile
   - Prompt Engineering
   - Scientific Writing
+  cited_by_count: 2
+  doi: https://doi.org/10.1109/csce60160.2023.00051
 - id: pub/swebok-kg-transformer
   title: A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from the Software Engineering Body of 
     Knowledge with a Sequence-to-Sequence Transformer
@@ -2083,6 +2127,8 @@ publications:
   - Taxonomy
   - Text Extraction
   - Scientific Writing
+  cited_by_count: 0
+  doi: https://doi.org/10.2139/ssrn.4493644
 - id: pub/microelectronic-ai-dishonesty
   title: 'Microelectronic Technology, AI and Academic Dishonesty: An Agile Engineering Approach'
   authors:
@@ -2120,6 +2166,8 @@ publications:
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
+  cited_by_count: 7
+  doi: https://doi.org/10.18260/1-2--43642
 - id: pub/interpersonal-chemistry-agile
   title: The Influence of Interpersonal Chemistry on Learning in Agile Software Engineering Education
   authors:
@@ -2142,6 +2190,8 @@ publications:
   - Software Engineering
   - Cognitive Science
   - Scientific Writing
+  cited_by_count: 0
+  doi: https://doi.org/10.2139/ssrn.4441503
 - id: pub/validating-security-requirements-kg
   title: Validating Security Requirement Specifications through the use of a Knowledge Graph
   authors:
@@ -2166,6 +2216,8 @@ publications:
   - Requirements Engineering
   - Software Engineering
   - Scientific Writing
+  cited_by_count: 1
+  doi: https://doi.org/10.1109/icsc56153.2023.00048
 - id: pub/ontology-sdlc-aerospace
   title: 'An Ontology Based Approach to the Software Engineering Lifecycle: Application to Software Quality Assurance in the
     Aerospace Industry'
@@ -2203,6 +2255,8 @@ publications:
   - FOL
   - Scientific Writing
   - Taxonomy
+  cited_by_count: 0
+  doi: https://doi.org/10.2139/ssrn.4703235
 - id: pub/explainable-ml-semantic-web
   title: An Exploration of Explainable Machine Learning Using Semantic Web Technology
   authors:
@@ -2247,6 +2301,8 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
+  cited_by_count: 6
+  doi: https://doi.org/10.1109/icsc52841.2022.00029
 - id: pub/secure-development-ontology
   title: Supporting Security Requirements Engineering through the Development of the Secure Development Ontology
   authors:
@@ -2273,7 +2329,7 @@ publications:
 - id: pub/vr-software-requirements
   title: Incorporating a Virtual Reality Environment in the Teaching of Analysis of Software Requirements
   authors:
-  - Dr. Omar Ochoa
+  - Omar Ochoa
   - Tyler T. Procko
   venue: 2019 IEEE Frontiers in Education Conference (FIE 2019)
   date: 2019-10
@@ -2295,11 +2351,11 @@ publications:
 - id: pub/ml-misbehaviors-taxonomy
   title: Towards A Taxonomy of ML Misbehaviors and their Software Engineering Solutions
   authors:
-  - Dr. Timothy R. Elvira
+  - Timothy R. Elvira
   - Tyler T. Procko
   status: in_progress
   author_role: Secondary Author
-  primary_author: Dr. Timothy R. Elvira
+  primary_author: Timothy R. Elvira
   primary_author_position: after_span
   tags:
   - machine learning
@@ -2438,7 +2494,7 @@ publications:
   title: Expanding the Nation’s STEM Talent Pool by Accelerating Graduate Degree Completion in Computer, Software, and 
     Cybersecurity Engineering
   authors:
-  - Dr. Omar Ochoa
+  - Omar Ochoa
   - Tyler T. Procko
   date_display: Jan 2022
   status: grant_proposal
@@ -2478,6 +2534,39 @@ publications:
   - LLMs
   - Scientific Writing
   - Taxonomy
+- id: pub/towards-improved-scientific-knowledge-proliferation-leveragi
+  title: 'Towards Improved Scientific Knowledge Proliferation: Leveraging Large Language Models on the Traditional Scientific
+    Writing Workflow'
+  authors:
+  - Tyler Procko
+  - Alexandra Davidoff
+  - Timothy Elvira
+  - Omar Ochoa
+  venue: SSRN Electronic Journal
+  date: 2023-01
+  status: published
+  url: https://doi.org/10.2139/ssrn.4594836
+  doi: https://doi.org/10.2139/ssrn.4594836
+  author_role: ''
+  source: openalex
+  featured: false
+  cited_by_count: 6
+- id: pub/a-survey-on-the-intersection-of-research-in-the-use-of-langu
+  title: A Survey on the Intersection of Research in the Use of Language Models and Knowledge Graphs
+  authors:
+  - Timothy Elvira
+  - Juan Ortiz Couder
+  - Tyler Procko
+  - Omar Ochoa
+  venue: SSRN Electronic Journal
+  date: 2024-01
+  status: published
+  url: https://doi.org/10.2139/ssrn.4739068
+  doi: https://doi.org/10.2139/ssrn.4739068
+  author_role: ''
+  source: openalex
+  featured: false
+  cited_by_count: 0
 projects:
 - id: proj/procko-pro
   title: procko.pro
