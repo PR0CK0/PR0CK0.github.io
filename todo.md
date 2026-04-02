@@ -90,6 +90,11 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 - [ ] **LinkML schema migration** — Replace `schema.ts` (Zod) with a LinkML schema (`schema.yaml`). Data YAML stays identical. Gains: build-time `linkml-validate`, `gen-owl` produces an OWL ontology of the CV (cool talking point), `gen-python` for typed Python models, `gen-json-schema` for JSON Schema validation. Cost: Python codegen step added to build pipeline, no official Zod generator (would need to keep or regenerate Zod separately). Worth doing if OWL export or multi-language pipeline ever becomes a goal.
 
+## Projects — link audit & display order
+
+- [ ] **Audit all `url` fields in YAML** — verify every project `url` actually resolves to a live page; fix or remove dead links
+- [ ] **Review project display order in CV/resume** — current sort is featured-first then year desc; decide if a manual ordering or different priority makes more sense for the top 8
+
 ## Other pending
 
 - [ ] **Audit `tags` field in YAML schema** — Determine the purpose and usage of `tags` across entries. It overlaps with `domains` and `technologies`. Decide whether to keep, merge into domains, or remove.
