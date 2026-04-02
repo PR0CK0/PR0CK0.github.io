@@ -556,8 +556,8 @@ function HeroContent({ person }: { person: Person }) {
         <CtaButton variant="green" onClick={() => navigate('/graph')}>
           ~/graph →
         </CtaButton>
-        <CtaButton variant="blue" onClick={() => navigate('/cv')}>
-          ~/cv.pdf →
+        <CtaButton variant="blue" onClick={() => navigate('/resume')}>
+          ~/resume.pdf →
         </CtaButton>
       </motion.div>
     </motion.div>
@@ -1689,8 +1689,8 @@ function Footer() {
           <nav className="flex flex-wrap justify-center gap-3 sm:gap-5 ls:gap-3 text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted">
             {[
               { label: '~/graph', href: '/graph' },
-              { label: '~/cv', href: '/cv' },
               { label: '~/resume', href: '/resume' },
+              { label: '~/cv', href: '/cv' },
               { label: '~/legacy', href: '/legacy' },
             ].map((l) => (
               <a

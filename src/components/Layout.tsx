@@ -5,8 +5,8 @@ import { useTheme } from '../hooks/useTheme'
 const navItems = [
   { to: '/', label: '~/home' },
   { to: '/graph', label: '~/graph' },
-  { to: '/cv', label: '~/cv.pdf' },
   { to: '/resume', label: '~/resume.pdf' },
+  { to: '/cv', label: '~/cv.pdf' },
 ]
 
 const externalNavItems = [

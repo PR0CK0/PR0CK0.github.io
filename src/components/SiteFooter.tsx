@@ -23,8 +23,8 @@ export default function SiteFooter({ name }: { name: string }) {
           <nav className="flex flex-wrap justify-center gap-3 sm:gap-5 text-[0.55rem] sm:text-[0.63rem] font-mono text-terminal-muted">
             {[
               { label: '~/graph', href: '/graph' },
-              { label: '~/cv', href: '/cv' },
               { label: '~/resume', href: '/resume' },
+              { label: '~/cv', href: '/cv' },
               { label: '~/legacy', href: '/legacy' },
               { label: '~/about', href: '/about' },
             ].map((l) => (
