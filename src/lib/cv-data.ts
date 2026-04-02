@@ -29,20 +29,24 @@ export interface CVSubsection {
 
 export interface CVSection {
   header: string
+  headerLinks?: Array<{ label: string; url: string }>
   entries?: CVEntry[]
   subsections?: CVSubsection[]
   // For skills section
   skillGroups?: Record<string, string[]>
   // For simple text sections
   text?: string
-  // For publications (different format)
-  publications?: Array<{
-    index: number
-    title: string
-    authors: string
-    venue: string
-    date: string
-    url?: string
+  // For publications (different format) — grouped by status
+  pubGroups?: Array<{
+    subheader?: string
+    items: Array<{
+      index: number
+      title: string
+      authors: string
+      venue: string
+      date: string
+      url?: string
+    }>
   }>
   // For references (2-column layout)
   references?: Array<{
@@ -303,16 +307,40 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
 
   if (allPubs.length > 0) {
+    const awaitingPubs = allPubs.filter(p => p.status === 'awaiting_publication')
+    const publishedPubs = allPubs.filter(p => p.status !== 'awaiting_publication')
+    let idx = 1
+    const pubGroups = []
+    if (awaitingPubs.length > 0) {
+      pubGroups.push({
+        subheader: 'Awaiting Publication',
+        items: awaitingPubs.map(pub => ({
+          index: idx++,
+          title: pub.title,
+          authors: pub.authors?.join(', ') ?? '',
+          venue: pub.venue ?? '',
+          date: fmtSingleDate(pub.date),
+          url: pub.url,
+        })),
+      })
+    }
+    if (publishedPubs.length > 0) {
+      pubGroups.push({
+        subheader: awaitingPubs.length > 0 ? 'Published' : undefined,
+        items: publishedPubs.map(pub => ({
+          index: idx++,
+          title: pub.title,
+          authors: pub.authors?.join(', ') ?? '',
+          venue: pub.venue ?? '',
+          date: fmtSingleDate(pub.date),
+          url: pub.url,
+        })),
+      })
+    }
     sections.push({
       header: 'Publications',
-      publications: allPubs.map((pub, i) => ({
-        index: i + 1,
-        title: pub.title,
-        authors: pub.authors?.join(', ') ?? '',
-        venue: pub.venue ?? '',
-        date: pub.date ?? '',
-        url: pub.url,
-      })),
+      headerLinks: scholar?.url ? [{ label: 'Google Scholar', url: scholar.url }] : undefined,
+      pubGroups,
     })
   }
 
@@ -340,7 +368,11 @@ export function buildCVData(person: Person, buildDate: string): CVData {
         titleLinks: titleLinks.length > 0 ? titleLinks : undefined,
       }
     })
-    sections.push({ header: 'Projects (Top 8)', entries })
+    sections.push({
+      header: 'Projects (Top 8)',
+      headerLinks: github?.url ? [{ label: 'GitHub', url: github.url }] : undefined,
+      entries,
+    })
   }
 
   // Skills
@@ -526,24 +558,33 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
         titleLinks: titleLinks.length > 0 ? titleLinks : undefined,
       }
     })
-    sections.push({ header: 'Projects', entries })
+    sections.push({
+      header: 'Projects',
+      headerLinks: github?.url ? [{ label: 'GitHub', url: github.url }] : undefined,
+      entries,
+    })
   }
 
-  // Selected Publications (featured: true only)
-  const featuredPubs = [...(person.publications ?? [])]
-    .filter(p => p.featured === true)
-    .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
-  if (featuredPubs.length > 0) {
+  // Publications — condensed summary for resume
+  const resumePubs = [...(person.publications ?? [])].filter(p => p.status !== 'in_progress')
+  if (resumePubs.length > 0) {
+    const domainCounts: Record<string, number> = {}
+    for (const p of resumePubs) for (const d of p.domains ?? []) domainCounts[d] = (domainCounts[d] ?? 0) + 1
+    const topTopics = Object.entries(domainCounts)
+      .sort(([, a], [, b]) => b - a)
+      .slice(0, 6)
+      .map(([d]) => d)
+    let pubSummary = `${resumePubs.length} peer-reviewed publications`
+    if (topTopics.length > 0) pubSummary += ` · ${topTopics.join(', ')}`
+    const scholarEntry: CVEntry = {
+      title: pubSummary,
+      fullWidth: true,
+      ...(scholar?.url ? { titleLinks: [{ label: 'Google Scholar', url: scholar.url }] } : {}),
+    }
     sections.push({
-      header: 'Selected Publications',
-      publications: featuredPubs.map((pub, i) => ({
-        index: i + 1,
-        title: pub.title,
-        authors: pub.authors?.join(', ') ?? '',
-        venue: pub.venue ?? '',
-        date: pub.date ?? '',
-        url: pub.url,
-      })),
+      header: 'Publications',
+      headerLinks: scholar?.url ? [{ label: 'Google Scholar', url: scholar.url }] : undefined,
+      entries: [scholarEntry],
     })
   }
 
