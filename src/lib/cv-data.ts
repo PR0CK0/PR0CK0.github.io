@@ -12,6 +12,7 @@ export interface CVEntry {
   title: string           // bold text
   titleUrl?: string       // optional link on title
   titleSuffix?: string    // italic text after title (org, location)
+  titleLinks?: Array<{ label: string; url: string }>  // inline links after title (e.g. GitHub · Live)
   date?: string           // right column
   subtitle?: string       // line below title (institution)
   gpa?: { value: string; max: string }  // GPA with bold value
@@ -51,6 +52,16 @@ export interface CVSection {
     email?: string
     emailSecondary?: string
   }>
+  // For government clearances
+  clearances?: {
+    currentStatus: string
+    past: Array<{
+      dateRange: string
+      level: string
+      grantor: string
+      holder: string
+    }>
+  }
 }
 
 export interface CVHeaderData {
@@ -317,15 +328,17 @@ export function buildCVData(person: Person, buildDate: string): CVData {
 
   if (topProjects.length > 0) {
     const entries: CVEntry[] = topProjects.map(proj => {
-      const notes: Array<{ prefix?: string; text: string; url?: string }> = []
-      if (proj.url || proj.repo_url) {
-        notes.push({ text: proj.url ?? proj.repo_url!, url: proj.url ?? proj.repo_url })
-      }
+      const titleLinks: Array<{ label: string; url: string }> = []
+      if (proj.repo_url) titleLinks.push({ label: 'GitHub', url: proj.repo_url })
+      const liveUrl = proj.url && proj.url !== proj.repo_url && !proj.url.includes('github.com') ? proj.url : undefined
+      if (liveUrl) titleLinks.push({ label: 'Live', url: liveUrl })
+      const notes: Array<{ text: string }> = []
+      if (proj.description) notes.push({ text: proj.description })
       return {
         title: proj.title,
         date: proj.year,
-        subtitle: proj.description,
         notes: notes.length > 0 ? notes : undefined,
+        titleLinks: titleLinks.length > 0 ? titleLinks : undefined,
       }
     })
     sections.push({ header: 'Projects (Top 8)', entries })
@@ -373,8 +386,19 @@ export function buildCVData(person: Person, buildDate: string): CVData {
   }
 
   // Security Clearance
-  if (person.clearance) {
-    sections.push({ header: 'Security Clearance', text: person.clearance })
+  if (person.clearance || (person.past_clearances?.length ?? 0) > 0) {
+    sections.push({
+      header: 'Government Clearances',
+      clearances: {
+        currentStatus: person.clearance ?? '',
+        past: (person.past_clearances ?? []).map(c => ({
+          dateRange: c.date_range,
+          level: c.level,
+          grantor: c.grantor,
+          holder: c.holder,
+        })),
+      },
+    })
   }
 
   // References
@@ -491,10 +515,17 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
     .slice(0, 8)
   if (projects.length > 0) {
     const entries: CVEntry[] = projects.map(proj => {
+      const titleLinks: Array<{ label: string; url: string }> = []
+      if (proj.repo_url) titleLinks.push({ label: 'GitHub', url: proj.repo_url })
+      if (proj.url) titleLinks.push({ label: 'Live', url: proj.url })
       const notes: Array<{ prefix?: string; text: string; url?: string }> = []
       if (proj.description) notes.push({ text: proj.description })
-      if (proj.url || proj.repo_url) notes.push({ text: proj.url ?? proj.repo_url ?? '', url: proj.url ?? proj.repo_url ?? '' })
-      return { title: proj.title, date: proj.year, notes }
+      return {
+        title: proj.title,
+        date: proj.year,
+        notes: notes.length > 0 ? notes : undefined,
+        titleLinks: titleLinks.length > 0 ? titleLinks : undefined,
+      }
     })
     sections.push({ header: 'Projects', entries })
   }
@@ -507,7 +538,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
 
   // Security Clearance
   if (person.clearance) {
-    sections.push({ header: 'Security Clearance', text: person.clearance })
+    sections.push({ header: 'Government Clearances', text: person.clearance })
   }
 
   return { header, sections }

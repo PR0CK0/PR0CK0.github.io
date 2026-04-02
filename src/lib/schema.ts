@@ -160,6 +160,13 @@ export const ExtracurricularSchema = z.object({
   personal_skills: z.array(z.string()).optional(),
 })
 
+export const PastClearanceSchema = z.object({
+  date_range: z.string(),
+  level: z.string(),
+  grantor: z.string(),
+  holder: z.string(),
+})
+
 export const PersonSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -173,6 +180,7 @@ export const PersonSchema = z.object({
   tagline: z.string().optional(),
   summary: z.string().optional(),
   clearance: z.string().optional(),
+  past_clearances: z.array(PastClearanceSchema).optional(),
   availability: z.string().optional(),
   birth_year: z.number().optional(),
   mbti: z.string().optional(),
