@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import type { Person } from '@/lib/schema'
+import { fmtSingleDate } from '@/lib/cv-data'
 import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 
@@ -74,10 +75,15 @@ export default function About() {
               <h2 className="text-terminal-amber text-xs sm:text-sm font-bold uppercase tracking-wider mb-2">
                 Fun Awards
               </h2>
-              <ul className="space-y-1">
+              <ul className="space-y-2">
                 {funAwards.map(award => (
-                  <li key={award.id} className="text-terminal-text text-sm sm:text-base">
-                    {award.title}{award.description ? ` — ${award.description}` : ''}
+                  <li key={award.id} className="flex justify-between gap-4 text-sm sm:text-base">
+                    <span className="text-terminal-text">
+                      {award.title}{award.description ? ` — ${award.description}` : ''}
+                    </span>
+                    {award.date && (
+                      <span className="text-terminal-muted shrink-0">{fmtSingleDate(String(award.date))}</span>
+                    )}
                   </li>
                 ))}
               </ul>
