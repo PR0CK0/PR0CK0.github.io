@@ -5,6 +5,7 @@ import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import { TECH_CATEGORIES, type SkillCategory } from '@/lib/tech-categories'
+import { TAG_CHIP, CARD_BASE, SECTION_CONTAINER, TAG_CONTAINER, META_TEXT } from '@/lib/ui-constants'
 import type { Person, Publication, Project } from '@/lib/schema'
 
 // ─── Boot sequence lines ───────────────────────────────────────────────────
@@ -889,7 +890,7 @@ function SkillsMatrix({ person }: { person: Person }) {
 
   return (
     <section
-      className="max-w-5xl mx-auto px-4 sm:px-6 ls:px-4 py-7 sm:py-12 ls:py-7"
+      className={SECTION_CONTAINER}
       style={{
         backgroundImage: `
           linear-gradient(rgba(77,159,255,0.04) 1px, transparent 1px),
@@ -1076,9 +1077,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: index * 0.08, duration: 0.45 }}
       whileHover={{ y: -3 }}
-      className="group flex flex-col p-3 sm:p-4 ls:p-3 rounded-lg border border-terminal-border
-                 bg-terminal-surface/80 hover:bg-terminal-surface
-                 hover:border-terminal-purple/40 transition-all duration-250"
+      className={CARD_BASE}
     >
       {/* Header */}
       <div className="flex items-start justify-between gap-2 mb-2">
@@ -1114,16 +1113,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       {/* Tech tags */}
       {visibleSkills.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 mt-auto relative">
+        <div className={TAG_CONTAINER}>
           {visibleSkills.map((tech) => (
             <button
               key={tech}
               onClick={() => navigate(`/graph?q=${encodeURIComponent(tech)}`)}
-              className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
-                         border border-terminal-purple/25 text-terminal-purple/80
-                         bg-terminal-purple/5 hover:bg-terminal-purple/15
-                         hover:border-terminal-purple/50 hover:text-terminal-purple
-                         transition-all duration-150"
+              className={`${TAG_CHIP} border border-terminal-purple/25 text-terminal-purple/80 bg-terminal-purple/5 hover:bg-terminal-purple/15 hover:border-terminal-purple/50 hover:text-terminal-purple`}
             >
               {tech}
             </button>
@@ -1132,11 +1127,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <div ref={overflowRef} className="relative">
               <button
                 onClick={() => setShowOverflow((v) => !v)}
-                className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
-                           border border-terminal-muted/25 text-terminal-muted
-                           bg-terminal-surface/40 hover:bg-terminal-surface/80
-                           hover:border-terminal-purple/40 hover:text-terminal-purple/80
-                           transition-all duration-150"
+                className={`${TAG_CHIP} border border-terminal-muted/25 text-terminal-muted bg-terminal-surface/40 hover:bg-terminal-surface/80 hover:border-terminal-purple/40 hover:text-terminal-purple/80`}
               >
                 +{overflowSkills.length} skills
               </button>
@@ -1240,7 +1231,7 @@ function RecentReposSection({ projects, githubHandle }: { projects: Project[]; g
 
   return (
     <section
-      className="max-w-5xl mx-auto px-4 sm:px-6 ls:px-4 py-7 sm:py-12 ls:py-7"
+      className={SECTION_CONTAINER}
       style={{
         backgroundImage: `
           linear-gradient(rgba(77,159,255,0.04) 1px, transparent 1px),
@@ -1322,9 +1313,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: index * 0.08, duration: 0.45 }}
       whileHover={{ y: -3 }}
-      className="group flex flex-col p-3 sm:p-4 ls:p-3 rounded-lg border border-terminal-border
-                 bg-terminal-surface/80 hover:bg-terminal-surface
-                 hover:border-terminal-purple/40 transition-all duration-250"
+      className={CARD_BASE}
     >
       {/* Header */}
       <div className="flex items-start justify-between gap-2 mb-1">
@@ -1363,16 +1352,12 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
 
       {/* Tech tags */}
       {visibleSkills.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 mt-auto relative">
+        <div className={TAG_CONTAINER}>
           {visibleSkills.map((tech) => (
             <button
               key={tech}
               onClick={() => navigate(`/graph?q=${encodeURIComponent(tech)}`)}
-              className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
-                         border border-terminal-purple/25 text-terminal-purple/80
-                         bg-terminal-purple/5 hover:bg-terminal-purple/15
-                         hover:border-terminal-purple/50 hover:text-terminal-purple
-                         transition-all duration-150"
+              className={`${TAG_CHIP} border border-terminal-purple/25 text-terminal-purple/80 bg-terminal-purple/5 hover:bg-terminal-purple/15 hover:border-terminal-purple/50 hover:text-terminal-purple`}
             >
               {tech}
             </button>
@@ -1381,11 +1366,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
             <div ref={overflowRef} className="relative">
               <button
                 onClick={() => setShowOverflow((v) => !v)}
-                className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
-                           border border-terminal-muted/25 text-terminal-muted
-                           bg-terminal-surface/40 hover:bg-terminal-surface/80
-                           hover:border-terminal-purple/40 hover:text-terminal-purple/80
-                           transition-all duration-150"
+                className={`${TAG_CHIP} border border-terminal-muted/25 text-terminal-muted bg-terminal-surface/40 hover:bg-terminal-surface/80 hover:border-terminal-purple/40 hover:text-terminal-purple/80`}
               >
                 +{overflowSkills.length} skills
               </button>
