@@ -141,6 +141,9 @@ export function buildGraph(person: Person): GraphData {
       data: { id: edu.id, label: edu.degree, type: 'education', subtitle: edu.institution, year: edu.end_date?.slice(0, 4) },
     })
     addEdge({ data: { id: `e-${personId}-${edu.id}`, source: personId, target: edu.id, label: 'studied_at' } })
+    linkTechs(edu.id, edu.technologies)
+    linkDomains(edu.id, edu.domains)
+    linkSoftSkills(edu.id, edu.soft_skills)
   })
 
   // ─── Work ────────────────────────────────────────────────────────────────────
