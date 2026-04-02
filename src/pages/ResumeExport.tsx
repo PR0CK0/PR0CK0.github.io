@@ -62,6 +62,50 @@ const S = StyleSheet.create({
 
 const NBS = '\u00A0'
 
+/** Parse [[marked]] text into styled segments. Used for both PDF and HTML renders. */
+function parseBullet(text: string): Array<{ text: string; highlight: boolean }> {
+  const parts: Array<{ text: string; highlight: boolean }> = []
+  const re = /\[\[(.+?)\]\]/g
+  let last = 0, m: RegExpExecArray | null
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) parts.push({ text: text.slice(last, m.index), highlight: false })
+    parts.push({ text: m[1], highlight: true })
+    last = m.index + m[0].length
+  }
+  if (last < text.length) parts.push({ text: text.slice(last), highlight: false })
+  return parts
+}
+
+/** PDF bullet text with [[highlight]] support */
+function PdfBulletText({ text, style }: { text: string; style: import('@react-pdf/types').Style }) {
+  const parts = parseBullet(text)
+  if (parts.length === 1 && !parts[0].highlight) return <Text style={style}>{text}</Text>
+  return (
+    <Text style={style}>
+      {parts.map((p, i) =>
+        p.highlight
+          ? <Text key={i} style={{ color: '#1a6bbf', fontStyle: 'italic' }}>{p.text}</Text>
+          : <Text key={i}>{p.text}</Text>
+      )}
+    </Text>
+  )
+}
+
+/** HTML bullet text with [[highlight]] support */
+function HtmlBulletText({ text }: { text: string }) {
+  const parts = parseBullet(text)
+  if (parts.length === 1 && !parts[0].highlight) return <>{text}</>
+  return (
+    <>
+      {parts.map((p, i) =>
+        p.highlight
+          ? <span key={i} style={{ color: '#1a6bbf', fontStyle: 'italic' }}>{p.text}</span>
+          : <span key={i}>{p.text}</span>
+      )}
+    </>
+  )
+}
+
 // ─── PDF Document ──────────────────────────────────────────────────────────────
 
 function ResumePdfDocument({ data }: { data: CVData }) {
@@ -117,7 +161,7 @@ function ResumePdfDocument({ data }: { data: CVData }) {
                   {entry.bullets?.map((b, bi) => (
                     <View key={bi} style={S.bulletRow}>
                       <Text style={S.bulletDot}>•</Text>
-                      <Text style={S.bulletText}>{b}</Text>
+                      <PdfBulletText text={b} style={S.bulletText} />
                     </View>
                   ))}
                 </View>
@@ -215,7 +259,7 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
                 {entry.bullets?.map((b, bi) => (
                   <div key={bi} style={HS.bullet}>
                     <span style={{ flexShrink: 0 }}>•</span>
-                    <span>{b}</span>
+                    <span><HtmlBulletText text={b} /></span>
                   </div>
                 ))}
               </div>
