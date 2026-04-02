@@ -73,11 +73,15 @@ const S = StyleSheet.create({
   skillRow: { flexDirection: 'row' as const, flexWrap: 'wrap' as const, marginBottom: 2 },
   summaryText: { fontSize: 8.5, color: '#222', lineHeight: 1.5 },
   lastUpdated: { fontSize: 7.5, color: '#999', marginTop: 2 },
+  titleLink: { fontSize: 8, color: '#1a6bbf', textDecoration: 'none' },
+  titleLinkSep: { fontSize: 8, color: '#999' },
   refGrid: { flexDirection: 'row' as const, flexWrap: 'wrap' as const, gap: 6 },
   refCard: { flex: 1, minWidth: 160 },
   refName: { fontWeight: 'bold', fontSize: 9, color: '#111', textDecoration: 'underline' },
   refDetail: { fontSize: 8.5, color: '#333' },
   refEmail: { fontSize: 8, color: '#1a6bbf' },
+  clearSubHeader: { fontWeight: 'bold', fontSize: 9.5, color: '#1a3a6b', textDecoration: 'underline', marginBottom: 2, marginTop: 4 },
+  clearStatusText: { fontSize: 8.5, color: '#222', lineHeight: 1.5, marginBottom: 4 },
 })
 
 const NBS = '\u00A0' // non-breaking space
@@ -126,6 +130,12 @@ function CVPdfDocument({ data }: { data: CVData }) {
                   <Text style={S.entryTitle}>
                     {entry.titleUrl ? <Link src={entry.titleUrl} style={{ color: '#111', textDecoration: 'none' }}>{entry.title}</Link> : entry.title}
                     {entry.titleSuffix && <Text style={S.titleSuffix}>{` – ${entry.titleSuffix}`}</Text>}
+                    {entry.titleLinks?.map((tl, tli) => (
+                      <Text key={tli} style={{ fontWeight: 'normal' }}>
+                        <Text style={S.titleLinkSep}>{tli === 0 ? '  ' : ' · '}</Text>
+                        <Link src={tl.url} style={S.titleLink}>{tl.label}</Link>
+                      </Text>
+                    ))}
                   </Text>
                   {entry.subtitle && (
                     <Text style={S.subtitle}>
@@ -227,6 +237,35 @@ function CVPdfDocument({ data }: { data: CVData }) {
                 ))}
               </View>
             )}
+            {/* Government Clearances */}
+            {sec.clearances && (
+              <View>
+                {sec.clearances.currentStatus && (
+                  <View>
+                    <Text style={S.clearSubHeader}>Current Clearance Status</Text>
+                    <Text style={S.clearStatusText}>{sec.clearances.currentStatus}</Text>
+                  </View>
+                )}
+                {sec.clearances.past.length > 0 && (
+                  <View>
+                    <Text style={S.clearSubHeader}>Past Clearances</Text>
+                    {sec.clearances.past.map((c, ci) => (
+                      <View key={ci} style={S.row}>
+                        <View style={S.contentCol}>
+                          <Text style={S.entryTitle}>
+                            {c.level}{', '}
+                            <Text style={{ fontWeight: 'normal', fontStyle: 'italic' }}>{'cleared by '}{c.grantor}{', retained by '}{c.holder}</Text>
+                          </Text>
+                        </View>
+                        <View style={S.dateCol}>
+                          <Text style={S.date}>{c.dateRange}</Text>
+                        </View>
+                      </View>
+                    ))}
+                  </View>
+                )}
+              </View>
+            )}
           </View>
         ))}
       </Page>
@@ -260,6 +299,10 @@ const HS = {
   refName: { fontWeight: 700, fontSize: '9px', color: '#111', textDecoration: 'underline' } as React.CSSProperties,
   refDetail: { fontSize: '8.5px', color: '#333' } as React.CSSProperties,
   refEmail: { fontSize: '8px', color: '#1a6bbf', textDecoration: 'none' } as React.CSSProperties,
+  titleLink: { fontSize: '8px', color: '#1a6bbf', textDecoration: 'none' } as React.CSSProperties,
+  titleLinkSep: { fontSize: '8px', color: '#999' } as React.CSSProperties,
+  clearSubHeader: { fontWeight: 700, fontSize: '9.5px', color: '#1a3a6b', textDecoration: 'underline', marginBottom: '2px', marginTop: '4px' } as React.CSSProperties,
+  clearStatusText: { fontSize: '8.5px', color: '#222', lineHeight: '1.5', marginBottom: '4px' } as React.CSSProperties,
   pubBlock: { marginBottom: '6px' } as React.CSSProperties,
   pubTitle: { fontWeight: 700, fontSize: '9px', color: '#111', marginBottom: '2px' } as React.CSSProperties,
   pubMeta: { fontSize: '8px', color: '#333', marginBottom: '1px' } as React.CSSProperties,
@@ -309,6 +352,12 @@ function CVHtmlPreview({ data }: { data: CVData }) {
                     ? <a href={entry.titleUrl} target="_blank" rel="noopener noreferrer" style={{ ...HS.entryTitle, color: '#1a6bbf', textDecoration: 'none' }}>{entry.title}</a>
                     : <span style={HS.entryTitle}>{entry.title}</span>}
                   {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
+                  {entry.titleLinks?.map((tl, tli) => (
+                    <span key={tli}>
+                      <span style={HS.titleLinkSep}>{tli === 0 ? '\u00A0\u00A0' : ' · '}</span>
+                      <a href={tl.url} target="_blank" rel="noopener noreferrer" style={HS.titleLink}>{tl.label}</a>
+                    </span>
+                  ))}
                 </div>
                 {entry.subtitle && (
                   <div style={HS.subtitle}>
@@ -406,6 +455,34 @@ function CVHtmlPreview({ data }: { data: CVData }) {
                   )}
                 </div>
               ))}
+            </div>
+          )}
+          {sec.clearances && (
+            <div>
+              {sec.clearances.currentStatus && (
+                <div>
+                  <div style={HS.clearSubHeader}>Current Clearance Status</div>
+                  <div style={HS.clearStatusText}>{sec.clearances.currentStatus}</div>
+                </div>
+              )}
+              {sec.clearances.past.length > 0 && (
+                <div>
+                  <div style={HS.clearSubHeader}>Past Clearances</div>
+                  {sec.clearances.past.map((c, ci) => (
+                    <div key={ci} style={HS.row}>
+                      <div style={HS.contentCol}>
+                        <span style={HS.entryTitle}>
+                          {c.level}{', '}
+                          <span style={{ fontWeight: 400, fontStyle: 'italic' }}>{'cleared by '}{c.grantor}{', retained by '}{c.holder}</span>
+                        </span>
+                      </div>
+                      <div style={HS.dateCol}>
+                        <span style={HS.date}>{c.dateRange}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>

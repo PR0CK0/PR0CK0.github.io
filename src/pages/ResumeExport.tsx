@@ -47,6 +47,8 @@ const S = StyleSheet.create({
   dateCol: { flex: 14, alignItems: 'flex-end' as const },
   entryTitle: { fontWeight: 'bold', fontSize: 9, color: '#111' },
   titleSuffix: { fontWeight: 'normal', fontStyle: 'italic', color: '#3d6ba8', fontSize: 9 },
+  titleLink: { fontSize: 8, color: '#1a6bbf', textDecoration: 'none' },
+  titleLinkSep: { fontSize: 8, color: '#999' },
   date: { fontSize: 8, color: '#555', fontStyle: 'italic', textAlign: 'right' as const },
   subtitle: { fontSize: 8.5, color: '#333', marginBottom: 1 },
   note: { fontSize: 8, color: '#444', marginLeft: 8 },
@@ -145,6 +147,12 @@ function ResumePdfDocument({ data }: { data: CVData }) {
                   <Text style={S.entryTitle}>
                     {entry.title}
                     {entry.titleSuffix && <Text style={S.titleSuffix}>{` – ${entry.titleSuffix}`}</Text>}
+                    {entry.titleLinks?.map((tl, tli) => (
+                      <Text key={tli} style={{ fontWeight: 'normal' }}>
+                        <Text style={S.titleLinkSep}>{tli === 0 ? '  ' : ' · '}</Text>
+                        <Link src={tl.url} style={S.titleLink}>{tl.label}</Link>
+                      </Text>
+                    ))}
                   </Text>
                   {entry.subtitle && (
                     <Text style={S.subtitle}>
@@ -200,6 +208,8 @@ const HS = {
   dateCol: { flex: '14 0 0%', textAlign: 'right' as const } as React.CSSProperties,
   entryTitle: { fontWeight: 700, fontSize: '9px', color: '#111' } as React.CSSProperties,
   titleSuffix: { fontWeight: 400, fontStyle: 'italic', color: '#3d6ba8', fontSize: '9px' } as React.CSSProperties,
+  titleLink: { fontSize: '8px', color: '#1a6bbf', textDecoration: 'none' } as React.CSSProperties,
+  titleLinkSep: { fontSize: '8px', color: '#999' } as React.CSSProperties,
   date: { fontSize: '8px', color: '#555', fontStyle: 'italic', whiteSpace: 'pre-line' } as React.CSSProperties,
   subtitle: { fontSize: '8.5px', color: '#333', fontStyle: 'italic', marginBottom: '1px' } as React.CSSProperties,
   note: { fontSize: '8px', color: '#444', marginLeft: '8px' } as React.CSSProperties,
@@ -245,6 +255,12 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
                 <div>
                   <span style={HS.entryTitle}>{entry.title}</span>
                   {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
+                  {entry.titleLinks?.map((tl, tli) => (
+                    <span key={tli}>
+                      <span style={HS.titleLinkSep}>{tli === 0 ? '\u00A0\u00A0' : ' · '}</span>
+                      <a href={tl.url} target="_blank" rel="noopener noreferrer" style={HS.titleLink}>{tl.label}</a>
+                    </span>
+                  ))}
                 </div>
                 {entry.subtitle && (
                   <div style={HS.subtitle}>
