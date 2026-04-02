@@ -530,7 +530,7 @@ export default function CVExport() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 font-mono py-10 px-4">
+    <div className="min-h-screen bg-gray-950 font-mono flex flex-col pt-10 px-4">
       <SEO
         title="CV / Curriculum Vitae"
         description="Full academic and professional CV of Tyler T. Procko, Ph.D. — publications, work experience, education, and skills."
@@ -584,25 +584,27 @@ export default function CVExport() {
       </div>
 
       {/* ── Preview ── */}
-      {viewMode === 'html' ? (
-        <div className="max-w-4xl mx-auto">
-          <CVHtmlPreview data={cvData} />
-        </div>
-      ) : (
-        pdfDoc && (
-          <div className="max-w-4xl mx-auto" style={{ height: 'calc(100vh - 200px)', minHeight: '600px' }}>
-            {(() => {
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              const Viewer = PDFViewer as any
-              return (
-                <Viewer width="100%" height="100%" style={{ border: 'none', borderRadius: '2px' }}>
-                  {pdfDoc}
-                </Viewer>
-              )
-            })()}
+      <div className="grow pb-10">
+        {viewMode === 'html' ? (
+          <div className="max-w-4xl mx-auto">
+            <CVHtmlPreview data={cvData} />
           </div>
-        )
-      )}
+        ) : (
+          pdfDoc && (
+            <div className="max-w-4xl mx-auto" style={{ height: 'calc(100vh - 200px)', minHeight: '600px' }}>
+              {(() => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const Viewer = PDFViewer as any
+                return (
+                  <Viewer width="100%" height="100%" style={{ border: 'none', borderRadius: '2px' }}>
+                    {pdfDoc}
+                  </Viewer>
+                )
+              })()}
+            </div>
+          )
+        )}
+      </div>
       <SiteFooter name={person.name} />
     </div>
   )
