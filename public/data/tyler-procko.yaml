@@ -1,6 +1,6 @@
 id: person/tyler-procko
 name: Tyler T. Procko, Ph.D.
-title: Cybersecure AI Engineer — LLM Agents · Knowledge Graphs · Ontologies · Test-Driven Development
+title: Cybersecure AI Engineer — LLM Agents · NLP · Knowledge Graphs · Ontologies · Test-Driven Development
 location: Florida, USA
 phone: 1-904-557-8383
 email_personal: prockotyler@gmail.com
@@ -545,7 +545,7 @@ work_experiences:
   start_date: 2023-01
   is_current: true
   description:
-  - Delivered knowledge graph, ontology engineering, and agentic AI solutions across defense intelligence, nuclear systems, construction, legal, media analytics, and higher education domains.
+  - Delivered knowledge graph, ontology engineering, and agentic AI solutions for clients including [[Quiet Professionals]] and [[WordLift SEO]], spanning defense intelligence, nuclear systems, construction, legal, media analytics, and higher education domains.
   - Engineered BFO/CCO/PROV-O-aligned semantic data models for DoD-grade interoperability; deployed GraphDB, Stardog, and Neo4j triple stores for traceability and RAG-style retrieval.
   - Built Python pipelines integrating LLM APIs (GPT, Claude) with OWL/RDF reasoning for automated ontology population, entity linking, and ML lifecycle provenance.
   - Designed SHACL/SPARQL validation and reasoning workflows; produced GeoSPARQL analyses against large geospatial ontologies.
@@ -1125,7 +1125,7 @@ work_experiences:
   date_display: Jan 2019 - Present
   title_line: 'AI Research Team Lead and Semantic Web Consultant, '
   org: ERAU
-  org_extra_after_italic: ', team lead Omar Ochoa'
+  org_extra_after_italic: ', team lead Dr. Omar Ochoa'
   bullets:
   - Led and contributed to research across ML, NLP, Linked Data, and cybersecurity, co-authoring numerous peer-reviewed publications centered on Semantic Web technologies.
   - Served as Semantic Web consultant for fellow researchers, providing technical guidance on knowledge representation and supporting paper review and revision.
@@ -1359,14 +1359,14 @@ publications:
 - id: pub/exploring-testing-llms
   title: Exploring Testing Methods for Large Language Models
   authors:
-  - Timothy Elvira
+  - Dr. Timothy R. Elvira
   - Tyler T. Procko
   venue: ICMLA 2024
   date: 2024-12
   status: published
   url: https://ieeexplore.ieee.org/abstract/document/10903339
   author_role: Secondary author
-  primary_author: Timothy Elvira
+  primary_author: Dr. Timothy R. Elvira
   primary_author_position: in_span
   tags:
   - LLM
@@ -1384,14 +1384,14 @@ publications:
 - id: pub/requirements-elicitation-ml
   title: 'Requirements Elicitation for Machine Learning Applications: A Research Preview'
   authors:
-  - Timothy Elvira
+  - Dr. Timothy R. Elvira
   - Tyler T. Procko
   venue: TransAI AIxSET 2024
   date: 2024-12
   status: published
   url: https://ieeexplore.ieee.org/abstract/document/10771003
   author_role: Secondary author
-  primary_author: Timothy Elvira
+  primary_author: Dr. Timothy R. Elvira
   primary_author_position: in_span
   tags:
   - requirements engineering
@@ -1635,14 +1635,14 @@ publications:
 - id: pub/lm-kg-survey
   title: A Survey on the Intersection of Language Models and Knowledge Graphs
   authors:
-  - Timothy Elvira
+  - Dr. Timothy R. Elvira
   - Tyler T. Procko
   venue: SSRN
   date: 2024-01
   status: published
   url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4739068
   author_role: Tertiary author
-  primary_author: Timothy Elvira
+  primary_author: Dr. Timothy R. Elvira
   primary_author_position: in_span
   tags:
   - language models
@@ -1844,7 +1844,7 @@ publications:
   title: 'Impacts of Catastrophic Forgetting: From a Machine Learning Engineering
     Perspective'
   authors:
-  - Timothy Elvira
+  - Dr. Timothy R. Elvira
   - Tyler T. Procko
   venue: 2023 Congress in Computer Science, Computer Engineering, & Applied Computing
     (CSCE)
@@ -1852,7 +1852,7 @@ publications:
   status: published
   url: https://ieeexplore.ieee.org/abstract/document/10487405
   author_role: Tertiary author
-  primary_author: Timothy Elvira
+  primary_author: Dr. Timothy R. Elvira
   primary_author_position: after_span
   legacy_venue: ' 2023 Congress in Computer Science, Computer Engineering, & Applied
     Computing (CSCE)'
@@ -1868,7 +1868,7 @@ publications:
 - id: pub/digital-rubber-duck
   title: 'Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming'
   authors:
-  - Timothy Elvira
+  - Dr. Timothy R. Elvira
   - Tyler T. Procko
   venue: 2023 Congress in Computer Science, Computer Engineering, & Applied Computing
     (CSCE)
@@ -1876,7 +1876,7 @@ publications:
   status: published
   url: https://ieeexplore.ieee.org/abstract/document/10487209
   author_role: Secondary author
-  primary_author: Timothy Elvira
+  primary_author: Dr. Timothy R. Elvira
   primary_author_position: after_span
   legacy_venue: ' 2023 Congress in Computer Science, Computer Engineering, & Applied
     Computing (CSCE)'
@@ -2133,7 +2133,7 @@ publications:
   title: Incorporating a Virtual Reality Environment in the Teaching of Analysis of
     Software Requirements
   authors:
-  - Omar Ochoa
+  - Dr. Omar Ochoa
   - Tyler T. Procko
   venue: 2019 IEEE Frontiers in Education Conference (FIE 2019)
   date: 2019-10
@@ -2141,7 +2141,7 @@ publications:
   url: https://ieeexplore.ieee.org/document/9028676
   author_role: Contributor
   after_span_text: ' - 2019 IEEE Frontiers in Education Conference (FIE 2019), primary
-    author Omar Ochoa'
+    author Dr. Omar Ochoa'
   tags:
   - VR
   - education
@@ -2156,11 +2156,11 @@ publications:
 - id: pub/ml-misbehaviors-taxonomy
   title: Towards A Taxonomy of ML Misbehaviors and their Software Engineering Solutions
   authors:
-  - Timothy Elvira
+  - Dr. Timothy R. Elvira
   - Tyler T. Procko
   status: in_progress
   author_role: Secondary Author
-  primary_author: Timothy Elvira
+  primary_author: Dr. Timothy R. Elvira
   primary_author_position: after_span
   tags:
   - machine learning
@@ -2287,7 +2287,7 @@ publications:
   status: competition_proposal
   url: https://faadatachallenge.nianet.org/
   author_role: Secondary author
-  after_link_text: ', top 10 finalist, faculty advisor Omar Ochoa'
+  after_link_text: ', top 10 finalist, faculty advisor Dr. Omar Ochoa'
   tags:
   - aerospace
   - AI
@@ -2303,13 +2303,13 @@ publications:
   title: Expanding the Nation’s STEM Talent Pool by Accelerating Graduate Degree Completion
     in Computer, Software, and Cybersecurity Engineering
   authors:
-  - Omar Ochoa
+  - Dr. Omar Ochoa
   - Tyler T. Procko
   date_display: Jan 2022
   status: grant_proposal
   author_role: Contributor in grammar, structure and spelling revision
   span_suffix: ' – NSF Award Number 2221602 amounting to $1,499,354 over the period
-    10/01/2022 – 09/30/2027, principal investigator Omar Ochoa'
+    10/01/2022 – 09/30/2027, principal investigator Dr. Omar Ochoa'
   span_suffix_org: ERAU
   tags:
   - NSF
@@ -4347,7 +4347,7 @@ associates:
   - platform: Faculty Page
     url: https://faculty.erau.edu/Omar.Ochoa
 - id: assoc/timothy-elvira
-  name: Timothy Elvira
+  name: Dr. Timothy R. Elvira
   title: Ph.D. Researcher, ML Engineering
   organization: Embry-Riddle Aeronautical University / AFRL
   relationship: Research collaborator and co-author
