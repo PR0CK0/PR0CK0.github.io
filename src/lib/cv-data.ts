@@ -297,16 +297,15 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     sections.push({ header: 'Work Experience', subsections })
   }
 
-  // Publications (top 10, published, sorted by date desc)
-  const topPubs = [...(person.publications ?? [])]
-    .filter(p => p.status === 'published')
+  // Publications — all non-in-progress, sorted by date desc
+  const allPubs = [...(person.publications ?? [])]
+    .filter(p => p.status !== 'in_progress')
     .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
-    .slice(0, 10)
 
-  if (topPubs.length > 0) {
+  if (allPubs.length > 0) {
     sections.push({
-      header: 'Selected Publications (Top 10, Published)',
-      publications: topPubs.map((pub, i) => ({
+      header: 'Publications',
+      publications: allPubs.map((pub, i) => ({
         index: i + 1,
         title: pub.title,
         authors: pub.authors?.join(', ') ?? '',
@@ -528,6 +527,24 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
       }
     })
     sections.push({ header: 'Projects', entries })
+  }
+
+  // Selected Publications (featured: true only)
+  const featuredPubs = [...(person.publications ?? [])]
+    .filter(p => p.featured === true)
+    .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
+  if (featuredPubs.length > 0) {
+    sections.push({
+      header: 'Selected Publications',
+      publications: featuredPubs.map((pub, i) => ({
+        index: i + 1,
+        title: pub.title,
+        authors: pub.authors?.join(', ') ?? '',
+        venue: pub.venue ?? '',
+        date: pub.date ?? '',
+        url: pub.url,
+      })),
+    })
   }
 
   // Technical Skills

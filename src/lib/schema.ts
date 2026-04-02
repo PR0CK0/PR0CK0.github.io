@@ -62,6 +62,8 @@ export const PublicationSchema = z.object({
   domains: z.array(z.string()).optional(),
   soft_skills: z.array(z.string()).optional(),
   personal_skills: z.array(z.string()).optional(),
+  source: z.enum(['manual', 'openalex']).optional(),
+  featured: z.boolean().optional(),
 })
 
 export const ProjectSchema = z.object({
