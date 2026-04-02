@@ -428,6 +428,47 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
     sections.push({ header: 'Summary', text: person.summary.trim() })
   }
 
+  // Education (consolidated ERAU only — no dates)
+  const phd = person.education?.find(e => e.id === 'edu/phd-erau')
+  const ms  = person.education?.find(e => e.id === 'edu/ms-erau')
+  const bs  = person.education?.find(e => e.id === 'edu/bs-erau')
+  if (phd || ms || bs) {
+    const notes: CVEntry['notes'] = []
+    if (phd) {
+      notes.push({
+        prefix: 'Ph.D., CS & Electrical Engineering (4.0 GPA) — Dissertation: ',
+        text: phd.thesis_title ?? '',
+        url: phd.thesis_url,
+      })
+      if (phd.thesis_github) notes.push({
+        prefix: 'GitHub: ',
+        text: phd.thesis_github.replace('https://', ''),
+        url: phd.thesis_github,
+      })
+    }
+    if (ms) {
+      notes.push({
+        prefix: 'M.S., Software Engineering (4.0 GPA) — Thesis: ',
+        text: ms.thesis_title ?? '',
+        url: ms.thesis_url,
+      })
+    }
+    if (bs) {
+      const bsExtras = (bs.notes ?? []).join(' · ')
+      notes.push({
+        text: `B.S., Software Engineering (3.93 GPA) — Summa Cum Laude · Minor: Cybersecurity Engineering${bsExtras ? ' · ' + bsExtras : ''}`,
+      })
+    }
+    sections.push({
+      header: 'Education',
+      entries: [{
+        title: 'Embry-Riddle Aeronautical University (ERAU)',
+        titleSuffix: 'Daytona Beach, FL',
+        notes,
+      }],
+    })
+  }
+
   // Work Experience (exclude resume_exclude entries)
   const resumeExps = (person.work_experiences ?? []).filter(exp => !exp.resume_exclude)
   if (resumeExps.length > 0) {
