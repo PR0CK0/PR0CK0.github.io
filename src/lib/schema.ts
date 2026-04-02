@@ -133,6 +133,7 @@ export const ReferenceSchema = z.object({
   title: z.string().optional(),
   organization: z.string().optional(),
   email: z.string().optional(),
+  email_secondary: z.string().optional(),
   phone: z.string().optional(),
   relationship: z.string().optional(),
 })

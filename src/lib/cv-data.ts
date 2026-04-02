@@ -41,6 +41,14 @@ export interface CVSection {
     date: string
     url?: string
   }>
+  // For references (2-column layout)
+  references?: Array<{
+    name: string
+    title?: string
+    organization?: string
+    email?: string
+    emailSecondary?: string
+  }>
 }
 
 export interface CVHeaderData {
@@ -336,6 +344,20 @@ export function buildCVData(person: Person, buildDate: string): CVData {
   // Security Clearance
   if (person.clearance) {
     sections.push({ header: 'Security Clearance', text: person.clearance })
+  }
+
+  // References
+  if ((person.references?.length ?? 0) > 0) {
+    sections.push({
+      header: 'References',
+      references: person.references!.map(ref => ({
+        name: ref.name,
+        title: ref.title,
+        organization: ref.organization,
+        email: ref.email,
+        emailSecondary: ref.email_secondary,
+      })),
+    })
   }
 
   return { header, sections }

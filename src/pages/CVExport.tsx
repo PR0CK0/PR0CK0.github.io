@@ -73,6 +73,11 @@ const S = StyleSheet.create({
   skillRow: { flexDirection: 'row' as const, flexWrap: 'wrap' as const, marginBottom: 2 },
   summaryText: { fontSize: 8.5, color: '#222', lineHeight: 1.5 },
   lastUpdated: { fontSize: 7.5, color: '#999', marginTop: 2 },
+  refGrid: { flexDirection: 'row' as const, flexWrap: 'wrap' as const, gap: 6 },
+  refCard: { flex: 1, minWidth: 160 },
+  refName: { fontWeight: 'bold', fontSize: 9, color: '#111', textDecoration: 'underline' },
+  refDetail: { fontSize: 8.5, color: '#333' },
+  refEmail: { fontSize: 8, color: '#1a6bbf' },
 })
 
 const NBS = '\u00A0' // non-breaking space
@@ -201,6 +206,27 @@ function CVPdfDocument({ data }: { data: CVData }) {
                 <Text style={S.skillItems}>{items.join(', ')}</Text>
               </View>
             ))}
+            {/* References */}
+            {sec.references && (
+              <View style={S.refGrid}>
+                {sec.references.map((ref, ri) => (
+                  <View key={ri} style={S.refCard}>
+                    <Text style={S.refName}>{ref.name}</Text>
+                    {(ref.title || ref.organization) && (
+                      <Text style={S.refDetail}>
+                        {'• '}{[ref.title, ref.organization].filter(Boolean).join(', ')}
+                      </Text>
+                    )}
+                    {ref.email && (
+                      <Link src={`mailto:${ref.email}`} style={S.refEmail}>{'• '}{ref.email}</Link>
+                    )}
+                    {ref.emailSecondary && (
+                      <Link src={`mailto:${ref.emailSecondary}`} style={S.refEmail}>{'• '}{ref.emailSecondary}</Link>
+                    )}
+                  </View>
+                ))}
+              </View>
+            )}
           </View>
         ))}
       </Page>
@@ -229,6 +255,11 @@ const HS = {
   bullet: { display: 'flex', gap: '4px', marginBottom: '1.5px', marginLeft: '4px', fontSize: '8.5px', color: '#333', lineHeight: '1.4' } as React.CSSProperties,
   summaryText: { fontSize: '8.5px', color: '#222', lineHeight: '1.5' } as React.CSSProperties,
   lastUpdated: { fontSize: '7.5px', color: '#999', marginTop: '2px' } as React.CSSProperties,
+  refGrid: { display: 'flex', flexWrap: 'wrap' as const, gap: '12px' } as React.CSSProperties,
+  refCard: { flex: '1 1 180px', minWidth: '160px' } as React.CSSProperties,
+  refName: { fontWeight: 700, fontSize: '9px', color: '#111', textDecoration: 'underline' } as React.CSSProperties,
+  refDetail: { fontSize: '8.5px', color: '#333' } as React.CSSProperties,
+  refEmail: { fontSize: '8px', color: '#1a6bbf', textDecoration: 'none' } as React.CSSProperties,
   pubBlock: { marginBottom: '6px' } as React.CSSProperties,
   pubTitle: { fontWeight: 700, fontSize: '9px', color: '#111', marginBottom: '2px' } as React.CSSProperties,
   pubMeta: { fontSize: '8px', color: '#333', marginBottom: '1px' } as React.CSSProperties,
@@ -357,6 +388,26 @@ function CVHtmlPreview({ data }: { data: CVData }) {
               <span style={HS.skillItems}>{items.join(', ')}</span>
             </div>
           ))}
+          {sec.references && (
+            <div style={HS.refGrid}>
+              {sec.references.map((ref, ri) => (
+                <div key={ri} style={HS.refCard}>
+                  <div style={HS.refName}>{ref.name}</div>
+                  {(ref.title || ref.organization) && (
+                    <div style={HS.refDetail}>
+                      {'• '}{[ref.title, ref.organization].filter(Boolean).join(', ')}
+                    </div>
+                  )}
+                  {ref.email && (
+                    <div><a href={`mailto:${ref.email}`} style={HS.refEmail}>{'• '}{ref.email}</a></div>
+                  )}
+                  {ref.emailSecondary && (
+                    <div><a href={`mailto:${ref.emailSecondary}`} style={HS.refEmail}>{'• '}{ref.emailSecondary}</a></div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       ))}
     </div>
