@@ -1054,6 +1054,7 @@ work_experiences:
   - HOL
 - id: work/course-engineer
   work_section: Graduate Positions
+  resume_exclude: true
   title: University Course Engineer - The Knowledge Representation Spectrum
   organization: ERAU
   location: Daytona Beach, FL
