@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import SEO from '@/components/SEO'
@@ -988,14 +989,17 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const navigate = useNavigate()
   const [showOverflow, setShowOverflow] = useState(false)
-  const [popupPos, setPopupPos] = useState<{ top: number; left: number } | null>(null)
-  const overflowRef = useRef<HTMLDivElement>(null)
+  const [popupPos, setPopupPos] = useState<{ btnTop: number; btnBottom: number; left: number } | null>(null)
   const btnRef = useRef<HTMLButtonElement>(null)
+  const popupRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!showOverflow) return
     function handleClick(e: MouseEvent) {
-      if (overflowRef.current && !overflowRef.current.contains(e.target as Node)) {
+      if (
+        btnRef.current && !btnRef.current.contains(e.target as Node) &&
+        popupRef.current && !popupRef.current.contains(e.target as Node)
+      ) {
         setShowOverflow(false)
       }
     }
@@ -1007,10 +1011,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     if (!showOverflow && btnRef.current) {
       const r = btnRef.current.getBoundingClientRect()
       const popupW = 224 // w-56
-      const popupH = 300 // rough max height estimate
-      const left = Math.min(r.left, window.innerWidth - popupW - 8)
-      const top = r.top - popupH - 8 < 0 ? r.bottom + 4 : r.top - popupH - 4
-      setPopupPos({ top, left })
+      const left = Math.min(Math.max(8, r.left), window.innerWidth - popupW - 8)
+      setPopupPos({ btnTop: r.top, btnBottom: r.bottom, left })
     }
     setShowOverflow(v => !v)
   }
@@ -1073,7 +1075,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </button>
           ))}
           {overflowSkills.length > 0 && (
-            <div ref={overflowRef} className="relative">
+            <div className="relative">
               <button
                 ref={btnRef}
                 onClick={toggleOverflow}
@@ -1081,9 +1083,21 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               >
                 +{overflowSkills.length} skills
               </button>
-              {showOverflow && popupPos && (
-                <div className="z-50 w-56 border border-terminal-purple/30 rounded-lg p-2.5 shadow-xl shadow-black/50"
-                  style={{ position: 'fixed', top: popupPos.top, left: popupPos.left, backgroundColor: 'rgb(10, 14, 26)' }}>
+              {showOverflow && popupPos && createPortal(
+                <div
+                  ref={popupRef}
+                  className="z-[9999] w-56 border border-terminal-purple/30 rounded-lg p-2.5 shadow-xl shadow-black/50"
+                  style={{
+                    position: 'fixed',
+                    left: popupPos.left,
+                    ...(popupPos.btnTop > window.innerHeight / 2
+                      ? { bottom: window.innerHeight - popupPos.btnTop + 4 }
+                      : { top: popupPos.btnBottom + 4 }),
+                    maxHeight: '50vh',
+                    overflowY: 'auto',
+                    backgroundColor: 'rgb(10, 14, 26)',
+                  }}
+                >
                   <p className="text-[9px] font-mono text-terminal-muted/60 uppercase tracking-widest mb-2">
                     // more skills
                   </p>
@@ -1102,7 +1116,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                       </button>
                     ))}
                   </div>
-                </div>
+                </div>,
+                document.body
               )}
             </div>
           )}
@@ -1237,14 +1252,17 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
 }) {
   const navigate = useNavigate()
   const [showOverflow, setShowOverflow] = useState(false)
-  const [popupPos, setPopupPos] = useState<{ top: number; left: number } | null>(null)
-  const overflowRef = useRef<HTMLDivElement>(null)
+  const [popupPos, setPopupPos] = useState<{ btnTop: number; btnBottom: number; left: number } | null>(null)
   const btnRef = useRef<HTMLButtonElement>(null)
+  const popupRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!showOverflow) return
     function handleClick(e: MouseEvent) {
-      if (overflowRef.current && !overflowRef.current.contains(e.target as Node)) {
+      if (
+        btnRef.current && !btnRef.current.contains(e.target as Node) &&
+        popupRef.current && !popupRef.current.contains(e.target as Node)
+      ) {
         setShowOverflow(false)
       }
     }
@@ -1256,10 +1274,8 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
     if (!showOverflow && btnRef.current) {
       const r = btnRef.current.getBoundingClientRect()
       const popupW = 224 // w-56
-      const popupH = 300 // rough max height estimate
-      const left = Math.min(r.left, window.innerWidth - popupW - 8)
-      const top = r.top - popupH - 8 < 0 ? r.bottom + 4 : r.top - popupH - 4
-      setPopupPos({ top, left })
+      const left = Math.min(Math.max(8, r.left), window.innerWidth - popupW - 8)
+      setPopupPos({ btnTop: r.top, btnBottom: r.bottom, left })
     }
     setShowOverflow(v => !v)
   }
@@ -1326,7 +1342,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
             </button>
           ))}
           {overflowSkills.length > 0 && (
-            <div ref={overflowRef} className="relative">
+            <div className="relative">
               <button
                 ref={btnRef}
                 onClick={toggleOverflow}
@@ -1334,9 +1350,21 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
               >
                 +{overflowSkills.length} skills
               </button>
-              {showOverflow && popupPos && (
-                <div className="z-50 w-56 border border-terminal-purple/30 rounded-lg p-2.5 shadow-xl shadow-black/50"
-                  style={{ position: 'fixed', top: popupPos.top, left: popupPos.left, backgroundColor: 'rgb(10, 14, 26)' }}>
+              {showOverflow && popupPos && createPortal(
+                <div
+                  ref={popupRef}
+                  className="z-[9999] w-56 border border-terminal-purple/30 rounded-lg p-2.5 shadow-xl shadow-black/50"
+                  style={{
+                    position: 'fixed',
+                    left: popupPos.left,
+                    ...(popupPos.btnTop > window.innerHeight / 2
+                      ? { bottom: window.innerHeight - popupPos.btnTop + 4 }
+                      : { top: popupPos.btnBottom + 4 }),
+                    maxHeight: '50vh',
+                    overflowY: 'auto',
+                    backgroundColor: 'rgb(10, 14, 26)',
+                  }}
+                >
                   <p className="text-[9px] font-mono text-terminal-muted/60 uppercase tracking-widest mb-2">
                     // more skills
                   </p>
@@ -1355,7 +1383,8 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
                       </button>
                     ))}
                   </div>
-                </div>
+                </div>,
+                document.body
               )}
             </div>
           )}
