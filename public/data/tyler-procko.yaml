@@ -4450,7 +4450,7 @@ extracurriculars:
   - Reviewer (1 manuscript) - Computing, Springer Nature
   - Reviewer (1 manuscript) - Discover Education, Springer Nature
   - Reviewer (1 manuscript) - Archives of Dermatological Research, Springer Nature
-  - Reviewer (1 article) - Qeios
+  - 'Reviewer (1 article) - [Qeios](https://www.qeios.com/profile/105985)'
   domains:
   - Education
   - LLMs
@@ -4696,6 +4696,7 @@ extracurriculars:
   organization: Nassau County Public Library
   type: volunteer
   cv_exclude: true
+  date: Pre-2016
   bullets:
   - Labeling and returning books, assisting customers; periodic maintenance of the library database software. 50+ hours.
 - id: extra/shrimp-fest
@@ -4703,6 +4704,7 @@ extracurriculars:
   organization: Prince of Peace Lutheran Church
   type: volunteer
   cv_exclude: true
+  date: Pre-2016
   bullets:
   - Preparing food, cashiering and assisting customers. 100+ hours.
 - id: extra/hoby
@@ -4710,6 +4712,7 @@ extracurriculars:
   organization: Hugh O'Brian Youth Leadership Program
   type: volunteer
   cv_exclude: true
+  date: Pre-2016
   bullets:
   - Selected as one out of 200+ students to represent my high-school in a leadership summit
   - Learned effective interpersonal relational, communication and leadership skills. 10+ hours.

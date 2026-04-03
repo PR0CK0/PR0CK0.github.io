@@ -87,6 +87,34 @@ const S = StyleSheet.create({
 
 const NBS = '\u00A0' // non-breaking space
 
+// Parses [label](url) inline links within bullet text for PDF rendering
+function PdfBulletText({ text, style }: { text: string; style: object }) {
+  const re = /\[([^\]]+)\]\(([^)]+)\)/g
+  const parts: React.ReactNode[] = []
+  let last = 0, m: RegExpExecArray | null
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) parts.push(text.slice(last, m.index))
+    parts.push(<Link key={m.index} src={m[2]} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{m[1]}</Link>)
+    last = m.index + m[0].length
+  }
+  if (last < text.length) parts.push(text.slice(last))
+  return <Text style={style}>{parts}</Text>
+}
+
+// Parses [label](url) inline links within bullet text for HTML rendering
+function HtmlBulletText({ text, style }: { text: string; style: React.CSSProperties }) {
+  const re = /\[([^\]]+)\]\(([^)]+)\)/g
+  const parts: React.ReactNode[] = []
+  let last = 0, m: RegExpExecArray | null
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) parts.push(text.slice(last, m.index))
+    parts.push(<a key={m.index} href={m[2]} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{m[1]}</a>)
+    last = m.index + m[0].length
+  }
+  if (last < text.length) parts.push(text.slice(last))
+  return <span style={style}>{parts}</span>
+}
+
 // ─── PDF Document ──────────────────────────────────────────────────────────────
 
 function CVPdfDocument({ data }: { data: CVData }) {
@@ -162,7 +190,7 @@ function CVPdfDocument({ data }: { data: CVData }) {
                   {entry.bullets?.map((b, bi) => (
                     <View key={bi} style={S.bulletRow}>
                       <Text style={S.bulletDot}>•</Text>
-                      <Text style={S.bulletText}>{b}</Text>
+                      <PdfBulletText text={b} style={S.bulletText} />
                     </View>
                   ))}
                 </View>
@@ -204,7 +232,7 @@ function CVPdfDocument({ data }: { data: CVData }) {
                       {entry.bullets?.map((b, bi) => (
                         <View key={bi} style={S.bulletRow}>
                           <Text style={S.bulletDot}>•</Text>
-                          <Text style={S.bulletText}>{b}</Text>
+                          <PdfBulletText text={b} style={S.bulletText} />
                         </View>
                       ))}
                     </View>
@@ -454,7 +482,7 @@ function CVHtmlPreview({ data }: { data: CVData }) {
                     {entry.bullets?.map((b, bi) => (
                       <div key={bi} style={HS.bullet}>
                         <span style={{ flexShrink: 0 }}>•</span>
-                        <span>{b}</span>
+                        <HtmlBulletText text={b} style={{}} />
                       </div>
                     ))}
                   </div>
