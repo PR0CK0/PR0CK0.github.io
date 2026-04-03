@@ -4096,6 +4096,8 @@ extracurriculars:
   - Ontology
   technologies:
   - BFO
+  bullets:
+  - Listed in [awesome-semantic-web](https://github.com/semantalytics/awesome-semantic-web)
 - id: extra/ieee-member
   title: IEEE Member (#98174383)
   organization: IEEE
@@ -4195,32 +4197,26 @@ extracurriculars:
   bullets:
   - Selected as one out of 200+ students to represent my high-school in a leadership summit
   - Learned effective interpersonal relational, communication and leadership skills. 10+ hours.
-- id: extra/awesome-bfo
-  title: awesome-bfo
-  url: https://github.com/PR0CK0/awesome-bfo
-  type: scholarly
-  description: A curated list of various BFO and BFO-related resources.
 - id: extra/generativeai-and-linkeddata
   title: Generative AI and Linked Data
   url: https://github.com/PR0CK0/GenerativeAI_and_LinkedData
   type: scholarly
-  description: A survey, experiment report and thought-dump of blending generative AI (e.g., GPT) with Linked Data. 
-    Also, stuff on ML workflows, alternatives to GPT and prompting.
+  date: 2023-07
 - id: extra/machine-learning-ontologies
   title: machine-learning-ontologies
   url: https://github.com/PR0CK0/machine-learning-ontologies
   type: scholarly
-  description: A dump of ML and ML-related RDF/OWL ontologies.
+  date: 2022-07
 - id: extra/openai-cybersecurity-grant-proposal
   title: OpenAI Cybersecurity Grant Proposal
   url: https://github.com/PR0CK0/OpenAI_Cybersecurity_Grant_Proposal
   type: scholarly
-  description: Compliant cybersec reqs for SW w/ GPT
+  date: 2023-06
 - id: extra/protegetutorials
   title: ProtegeTutorials
   url: https://github.com/PR0CK0/ProtegeTutorials
   type: scholarly
-  description: Dumping things I've learned while using the OWL tool Protege.
+  date: 2021-09
 books_read:
 - A Knowledge Representation Practionary — Michael K. Bergman (WIP, started Feb 2023)
 - An Enquiry Concerning Human Understanding — David Hume (Sep 2022)
