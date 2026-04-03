@@ -1001,6 +1001,16 @@ function PublicationRow({ pub, index }: { pub: Publication; index: number }) {
         {pub.venue && (
           <p className="text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono text-terminal-muted truncate">{pub.venue}</p>
         )}
+        {(pub.domains?.length ?? 0) > 0 && (
+          <div className="flex flex-wrap gap-1 pt-0.5">
+            {pub.domains!.map(d => (
+              <span key={d} className="px-1.5 py-0.5 rounded text-[0.55rem] sm:text-[0.6rem] ls:text-[0.55rem] font-mono
+                                       border border-indigo-400/30 text-indigo-400 bg-indigo-400/5">
+                {d}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </motion.div>
   )
