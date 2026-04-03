@@ -114,6 +114,10 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 - [ ] **LinkML schema migration** — Replace `schema.ts` (Zod) with a LinkML schema (`schema.yaml`). Data YAML stays identical. Gains: build-time `linkml-validate`, `gen-owl` produces an OWL ontology of the CV (cool talking point), `gen-python` for typed Python models, `gen-json-schema` for JSON Schema validation. Cost: Python codegen step added to build pipeline, no official Zod generator (would need to keep or regenerate Zod separately). Worth doing if OWL export or multi-language pipeline ever becomes a goal.
 
+## Projects — package version on landing cards
+
+- [ ] **Show package version on GitHub project cards** — for projects published to a package registry (crates.io, npm, PyPI, etc.), fetch and display the latest version number on the landing page card. The `url` field already points to the registry page for some projects (e.g. quizzical → crates.io); could use registry APIs (crates.io `/api/v1/crates/{name}`, npm registry, PyPI JSON API) at build time or runtime to pull the latest version string and render it as a small chip on the card.
+
 ## Projects — link audit & display order
 
 - [ ] **Audit all `url` fields in YAML** — verify every project `url` actually resolves to a live page; fix or remove dead links
