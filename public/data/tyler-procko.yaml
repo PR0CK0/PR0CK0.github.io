@@ -3184,6 +3184,19 @@ projects:
   - Linked Data
   - Semantic Web
   - Content Management
+- id: proj/quizzical
+  title: quizzical
+  year: 2026-04
+  repo_url: https://github.com/PR0CK0/quizzical
+  description: Terminal quiz game for cert exam prep. Beat mode, combo scoring, burning fuse timer. Security+ deck 
+    included.
+  technologies:
+  - Rust
+  - crossterm
+  domains:
+  - Cybersecurity
+  - Education
+  - CLI
 skills:
 - id: skill/java
   name: Java

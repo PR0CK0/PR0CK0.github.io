@@ -1,10 +1,9 @@
 name: Discover New Repos
 
 # Runs daily and on manual trigger.
-# Queries GitHub for public, non-forked repos not yet in the YAML and adds
-# skeleton project entries for any it finds. Repos without a GitHub "About"
-# description are skipped. After running, review new entries and set
-# cv_exclude: true on anything you don't want displayed.
+# Finds public non-fork repos not yet in the YAML, auto-populates technologies
+# and domains from GitHub languages/topics, then opens a PR for review.
+# Repos with no GitHub "About" description are skipped.
 
 on:
   schedule:
@@ -13,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   discover:
@@ -35,14 +35,28 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 .github/scripts/discover_new_repos.py
 
-      - name: Commit if changed
+      - name: Open PR if changed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet public/data/tyler-procko.yaml; then
+            BRANCH="auto/discover-repos-$(date +%Y%m%d-%H%M%S)"
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git checkout -b "$BRANCH"
             git add public/data/tyler-procko.yaml
-            git commit -m "chore: add skeleton entries for new GitHub repos [skip ci]"
-            git push
+            git commit -m "chore: add skeleton entries for new GitHub repos"
+            git push origin "$BRANCH"
+            gh pr create \
+              --title "New repos discovered — review before merging" \
+              --body "$(cat <<'EOF'
+Auto-discovered new public GitHub repos not yet in the YAML.
+
+Technologies and domains have been inferred from GitHub languages and topics — review and refine before merging. Set \`cv_exclude: true\` on anything you don't want displayed.
+EOF
+)" \
+              --base main \
+              --head "$BRANCH"
           else
             echo "Nothing to commit."
           fi
