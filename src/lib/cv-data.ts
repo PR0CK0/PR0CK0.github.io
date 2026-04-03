@@ -279,7 +279,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
         title: exp.title,
         titleSuffix: `${exp.organization}${exp.location ? ` » ${exp.location}` : ''}`,
         date: formatDateRange(exp.start_date, exp.end_date, exp.is_current),
-        bullets: exp.description,
+        bullets: exp.bullets ?? exp.description,
       })
     }
 
@@ -555,7 +555,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
       title: exp.title,
       titleSuffix: exp.location ? `${exp.organization} » ${exp.location}` : exp.organization,
       date: formatDateRange(exp.start_date, exp.end_date, exp.is_current),
-      bullets: Array.isArray(exp.description) ? exp.description : exp.description ? [exp.description] : undefined,
+      bullets: exp.bullets ?? (Array.isArray(exp.description) ? exp.description : exp.description ? [exp.description] : undefined),
     }))
     sections.push({ header: 'Work Experience', entries })
   }

@@ -39,6 +39,7 @@ export const WorkExperienceSchema = z.object({
   is_current: z.boolean().optional(),
   location: z.string().optional(),
   description: z.array(z.string()).optional(),
+  bullets: z.array(z.string()).optional(),
   technologies: z.array(z.string()).optional(),
   domains: z.array(z.string()).optional(),
   soft_skills: z.array(z.string()).optional(),
