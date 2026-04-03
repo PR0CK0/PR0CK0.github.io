@@ -104,7 +104,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## YAML purity — no HTML or styling in source data
 
-- [ ] **Strip all HTML/styling artifacts from `tyler-procko.yaml`** — The YAML is a pure data file; presentation logic belongs in the React components. Known offenders include fields like `close_span_before_end_link`, `primary_author_position: in_span`, `after_span_text`, `after_link_text`, `org_extra_after_italic`, and any raw `<i>`, `<a>`, or similar HTML tags embedded in string values. Each of these is a legacy holdover from the old Jinja2/HTML build. Audit every field, remove the HTML-aware fields, and implement equivalent presentation logic in the components that render those entries.
+- [x] **Strip all HTML/styling artifacts from `tyler-procko.yaml`** — Phase 1 done: removed tags (74), description duplicates in work/projects (57), close_span_before_end_link (1), primary_author_position (14), after_span_text (2), after_link_text (1), org_extra_after_italic (1). Remaining: date_display, title_line, org — need Jinja2 template updates first. — The YAML is a pure data file; presentation logic belongs in the React components. Known offenders include fields like `close_span_before_end_link`, `primary_author_position: in_span`, `after_span_text`, `after_link_text`, `org_extra_after_italic`, and any raw `<i>`, `<a>`, or similar HTML tags embedded in string values. Each of these is a legacy holdover from the old Jinja2/HTML build. Audit every field, remove the HTML-aware fields, and implement equivalent presentation logic in the components that render those entries.
 
 ## Web dev best practices audit
 
@@ -129,9 +129,9 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## Other pending
 
-- [ ] **Audit `tags` field in YAML schema** — Determine the purpose and usage of `tags` across entries. It overlaps with `domains` and `technologies`. Decide whether to keep, merge into domains, or remove.
+- [x] **Audit `tags` field in YAML schema** — Removed all 74 tags fields; content fully covered by `domains` and `technologies`.
 
-- [ ] **Audit YAML for redundant data** — Check for fields that duplicate other fields (e.g., `description` vs `bullets`, `title_line` vs `title`, `org` vs `organization`). Determine if legacy-only fields can be derived at build time rather than duplicated in the YAML.
+- [x] **Audit YAML for redundant data** — Removed description from 57 work/project entries where bullets was present (templates use bullets only). Remaining: date_display, title_line, org still needed by Jinja2 templates — defer until legacy view is ported.
 
 - [ ] proj/personal — catch-all personal/creative entry (Adobe, AutoCAD, etc.); needs tech/domains review and possible restructure or deletion
 
