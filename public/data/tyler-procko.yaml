@@ -3064,6 +3064,85 @@ projects:
   members: 3 members
   domains:
   - Embedded Systems
+- id: proj/awesome-bfo
+  title: awesome bfo
+  year: 2022-07
+  repo_url: https://github.com/PR0CK0/awesome-bfo
+  description: A curated list of various BFO and BFO-related resources.
+- id: proj/comptia-security-study-guides
+  title: CompTIA Security Study Guides
+  year: 2025-10
+  repo_url: https://github.com/PR0CK0/CompTIA-Security-Study-Guides
+  description: My collection from over the Web
+- id: proj/faadatachallenge
+  title: FAADataChallenge
+  year: 2023-05
+  repo_url: https://github.com/PR0CK0/FAADataChallenge
+  description: Repo for the 2023 FAA Data Challenge, ERAU team under Ochoa
+- id: proj/forsenstudy
+  title: ForsenStudy
+  year: 2023-11
+  repo_url: https://github.com/PR0CK0/ForsenStudy
+  description: Internet Anthropology investigation into Forsen and his community.
+- id: proj/generativeai-and-linkeddata
+  title: GenerativeAI and LinkedData
+  year: 2023-07
+  repo_url: https://github.com/PR0CK0/GenerativeAI_and_LinkedData
+  description: A survey, experiment report and thought-dump of blending generative AI (e.g., GPT) with Linked Data. 
+    Also, stuff on ML workflows, alternatives to GPT and prompting.
+- id: proj/htmlcss-tutorial-youtube-clone
+  title: htmlcss tutorial youtube clone
+  year: 2022-10
+  repo_url: https://github.com/PR0CK0/htmlcss-tutorial-youtube-clone
+  description: hand-written YT clone following https://www.youtube.com/watch?v=G3e-cpL7ofc
+- id: proj/machine-learning-ontologies
+  title: machine learning ontologies
+  year: 2022-07
+  repo_url: https://github.com/PR0CK0/machine-learning-ontologies
+  description: A dump of ML and ML-related RDF/OWL ontologies.
+- id: proj/openai-cybersecurity-grant-proposal
+  title: OpenAI Cybersecurity Grant Proposal
+  year: 2023-06
+  repo_url: https://github.com/PR0CK0/OpenAI_Cybersecurity_Grant_Proposal
+  description: Compliant cybersec reqs for SW w/ GPT
+- id: proj/pr0ck0
+  title: PR0CK0
+  year: 2026-03
+  repo_url: https://github.com/PR0CK0/PR0CK0
+  description: Github landing page repo
+- id: proj/protegetutorials
+  title: ProtegeTutorials
+  year: 2021-09
+  repo_url: https://github.com/PR0CK0/ProtegeTutorials
+  description: Dumping things I've learned while using the OWL tool Protege.
+- id: proj/rails-friends-tutorial
+  title: rails friends tutorial
+  year: 2022-10
+  repo_url: https://github.com/PR0CK0/rails-friends-tutorial
+  description: if the heroku link is dead it means heroku isn't free anymore... my following of john elder's codemy 
+    rails tutorial from https://www.youtube.com/watch?v=fmyvWz5TUWg&t=56s
+- id: proj/rdf-prefix-adder
+  title: RDF Prefix Adder
+  year: 2022-08
+  repo_url: https://github.com/PR0CK0/RDF-Prefix-Adder
+  description: Came out of issues working with GraphDB and not being able to refer to an imported ontology by its base 
+    prefix.
+- id: proj/rtd-test
+  title: rtd test
+  year: 2023-02
+  repo_url: https://github.com/PR0CK0/rtd-test
+  description: Read the Docs test/sandbox repo.
+- id: proj/swebok-rebel-rdf
+  title: swebok rebel rdf
+  year: 2023-03
+  repo_url: https://github.com/PR0CK0/swebok-rebel-rdf
+  description: Semi-automated SWEBOK knowledge graph extraction using REBEL seq2seq transformer and spaCy — RDF/OWL 
+    output.
+- id: proj/webpostontology
+  title: WebPostOntology
+  year: 2024-04
+  repo_url: https://github.com/PR0CK0/WebPostOntology
+  description: Web Post Ontology (WPO) for Hooray Media
 skills:
 - id: skill/java
   name: Java
