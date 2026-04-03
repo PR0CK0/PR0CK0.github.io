@@ -2667,6 +2667,7 @@ projects:
   - LibreOffice Calc
   - LibreOffice Impress
   - LibreOffice Draw
+  cv_exclude: true
 - id: proj/cloudcell-consulting
   title: Linked Data Consultant and Scientific Writer
   year: 2023-12
