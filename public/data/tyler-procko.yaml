@@ -3969,7 +3969,7 @@ extracurriculars:
   organization: GitHub
   url: https://github.com/PR0CK0/CompTIA-Security-Study-Guides
   date: 2025-11
-  type: scholarly
+  type: open_source
   domains:
   - Cybersecurity
   - Education
@@ -4022,7 +4022,7 @@ extracurriculars:
   organization: DAIR / GitHub
   url: https://github.com/dair-ai/Prompt-Engineering-Guide
   date: 2023-05
-  type: scholarly
+  type: open_source
   domains:
   - LLMs
   - Prompt Engineering
@@ -4031,7 +4031,7 @@ extracurriculars:
   organization: Monarch Initiative / GitHub
   url: https://github.com/monarch-initiative/ontogpt
   date: 2023-05
-  type: scholarly
+  type: open_source
   domains:
   - LLMs
   - NLP
@@ -4043,7 +4043,7 @@ extracurriculars:
   organization: GitHub
   url: https://github.com/zhengzangw/awesome-huge-models
   date: 2023-04
-  type: scholarly
+  type: open_source
   domains:
   - LLMs
   - Machine Learning
