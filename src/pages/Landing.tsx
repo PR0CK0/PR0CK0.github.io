@@ -1001,8 +1001,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     return () => document.removeEventListener('mousedown', handleClick)
   }, [showOverflow])
 
-  const visibleSkills = project.technologies?.slice(0, 6) ?? []
-  const overflowSkills = project.technologies?.slice(6) ?? []
+  const allSkills = [...(project.technologies ?? []), ...(project.domains ?? [])]
+  const visibleSkills = allSkills.slice(0, 6)
+  const overflowSkills = allSkills.slice(6)
 
   return (
     <motion.div
