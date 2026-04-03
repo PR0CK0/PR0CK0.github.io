@@ -3089,7 +3089,6 @@ projects:
   description: 2023 FAA Data Challenge — ERAU team entry under Dr. Ochoa; aviation safety data analysis with ML.
   technologies:
   - Python
-  - Machine Learning
   - GitHub
   domains:
   - Aviation
@@ -3390,86 +3389,86 @@ skills:
   category: libraries
 - id: skill/git
   name: Git
-  category: tools
+  category: dev_tools
   years_experience: 9
 - id: skill/github
   name: GitHub
-  category: tools
+  category: dev_tools
   years_experience: 9
 - id: skill/jira
   name: Jira
-  category: tools
+  category: dev_tools
 - id: skill/confluence
   name: Confluence
-  category: tools
+  category: dev_tools
 - id: skill/bitbucket
   name: Bitbucket
-  category: tools
+  category: dev_tools
 - id: skill/protege
   name: Protégé
-  category: tools
+  category: dev_tools
   years_experience: 8
 - id: skill/graphdb
   name: GraphDB
-  category: tools
+  category: dev_tools
   years_experience: 5
 - id: skill/stardog
   name: Stardog
-  category: tools
+  category: dev_tools
 - id: skill/triplydb
   name: TriplyDB
-  category: tools
+  category: dev_tools
 - id: skill/neo4j
   name: Neo4j
-  category: tools
+  category: dev_tools
 - id: skill/mongodb
   name: MongoDB
-  category: tools
+  category: dev_tools
 - id: skill/vscode
   name: Visual Studio Code
-  category: tools
+  category: dev_tools
 - id: skill/eclipse
   name: Eclipse
   category: dev_tools
 - id: skill/mysql
   name: MySQL
-  category: tools
+  category: dev_tools
 - id: skill/postgresql
   name: PostgreSQL
-  category: tools
+  category: dev_tools
 - id: skill/postgis
   name: PostGIS
-  category: tools
+  category: dev_tools
 - id: skill/phpmyadmin
   name: PHPMyAdmin
-  category: tools
+  category: dev_tools
 - id: skill/qgis
   name: QGIS
-  category: tools
+  category: dev_tools
 - id: skill/jupyter
   name: Jupyter Notebook
-  category: tools
+  category: dev_tools
 - id: skill/graphviz
   name: GraphViz
-  category: tools
+  category: dev_tools
 - id: skill/ontotext-refine
   name: Ontotext Refine
-  category: tools
+  category: dev_tools
 - id: skill/cvat
   name: CVAT
-  category: tools
+  category: dev_tools
 - id: skill/docker
   name: Docker
-  category: tools
+  category: dev_tools
 - id: skill/kubernetes
   name: Kubernetes
-  category: tools
+  category: dev_tools
 - id: skill/trello
   name: Trello
-  category: tools
+  category: dev_tools
 - id: skill/kanban
   name: Kanban
-  category: tools
+  category: dev_tools
 - id: skill/aws-s3
   name: AWS S3
   category: cloud

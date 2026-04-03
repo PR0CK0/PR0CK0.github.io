@@ -25,10 +25,14 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install Python dependencies
+        run: pip install jinja2 pyyaml ruamel.yaml
+
+      - name: Validate YAML terms
+        run: python3 .github/scripts/validate_yaml_terms.py
+
       - name: Build legacy HTML from YAML
-        run: |
-          pip install jinja2 pyyaml
-          python3 build.py
+        run: python3 build.py
 
       - name: Set up Node
         uses: actions/setup-node@v6
