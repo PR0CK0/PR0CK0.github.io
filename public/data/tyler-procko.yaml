@@ -3198,7 +3198,7 @@ projects:
   - serde_json
   - rand
   - JSON
-  - Claude Code
+  - Claude
   domains:
   - Cybersecurity
   - Education
