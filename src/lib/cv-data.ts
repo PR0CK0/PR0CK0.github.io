@@ -428,14 +428,16 @@ export function buildCVData(person: Person, buildDate: string): CVData {
         }
       })
 
-    const scholarly = extras.filter((e: any) => e.type === 'scholarly')
-    const orgs      = extras.filter((e: any) => e.type === 'organization')
-    const volunteer = extras.filter((e: any) => e.type === 'volunteer')
+    const scholarly   = extras.filter((e: any) => e.type === 'scholarly')
+    const orgs        = extras.filter((e: any) => e.type === 'organization')
+    const volunteer   = extras.filter((e: any) => e.type === 'volunteer')
+    const open_source = extras.filter((e: any) => e.type === 'open_source')
 
     const subsections: CVSubsection[] = []
-    if (scholarly.length > 0) subsections.push({ subheader: 'Scholarly Contributions', entries: makeEntries(scholarly) })
-    if (orgs.length > 0)      subsections.push({ subheader: 'Organizations', entries: makeEntries(orgs) })
-    if (volunteer.length > 0) subsections.push({ subheader: 'Service & Volunteer', entries: makeEntries(volunteer) })
+    if (scholarly.length > 0)   subsections.push({ subheader: 'Scholarly Contributions', entries: makeEntries(scholarly) })
+    if (orgs.length > 0)        subsections.push({ subheader: 'Organizations', entries: makeEntries(orgs) })
+    if (volunteer.length > 0)   subsections.push({ subheader: 'Service & Volunteer', entries: makeEntries(volunteer) })
+    if (open_source.length > 0) subsections.push({ subheader: 'Open-Source', entries: makeEntries(open_source) })
 
     if (subsections.length > 0) sections.push({ header: 'Extracurriculars', subsections })
   }

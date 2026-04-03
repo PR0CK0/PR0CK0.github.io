@@ -4090,7 +4090,7 @@ extracurriculars:
   organization: GitHub
   url: https://github.com/PR0CK0/awesome-bfo
   date: 2022-06
-  type: scholarly
+  type: open_source
   domains:
   - Knowledge Representation
   - Ontology
@@ -4200,22 +4200,22 @@ extracurriculars:
 - id: extra/generativeai-and-linkeddata
   title: Generative AI and Linked Data
   url: https://github.com/PR0CK0/GenerativeAI_and_LinkedData
-  type: scholarly
+  type: open_source
   date: 2023-07
 - id: extra/machine-learning-ontologies
   title: machine-learning-ontologies
   url: https://github.com/PR0CK0/machine-learning-ontologies
-  type: scholarly
+  type: open_source
   date: 2022-07
 - id: extra/openai-cybersecurity-grant-proposal
   title: OpenAI Cybersecurity Grant Proposal
   url: https://github.com/PR0CK0/OpenAI_Cybersecurity_Grant_Proposal
-  type: scholarly
+  type: open_source
   date: 2023-06
 - id: extra/protegetutorials
   title: ProtegeTutorials
   url: https://github.com/PR0CK0/ProtegeTutorials
-  type: scholarly
+  type: open_source
   date: 2021-09
 books_read:
 - A Knowledge Representation Practionary — Michael K. Bergman (WIP, started Feb 2023)
