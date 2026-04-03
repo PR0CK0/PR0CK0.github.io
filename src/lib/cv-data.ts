@@ -407,6 +407,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
   if ((person.certificates?.length ?? 0) > 0) {
     const entries: CVEntry[] = person.certificates!.map(cert => ({
       title: cert.title,
+      titleUrl: cert.url,
       titleSuffix: [
         cert.issuer,
         cert.status === 'in_progress' ? '[In Progress]' : null,
