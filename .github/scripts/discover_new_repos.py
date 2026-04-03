@@ -111,12 +111,16 @@ def main() -> None:
 
     projects = data.get("projects") or []
 
-    # Build set of all already-tracked repo URLs (from projects)
-    existing_urls = {
-        normalize_url(p.get("repo_url", ""))
-        for p in projects
-        if p.get("repo_url")
-    }
+    # Build set of all already-tracked GitHub URLs across projects AND
+    # extracurriculars (which use `url` instead of `repo_url`), so entries
+    # we've moved or excluded don't get re-added as project skeletons.
+    existing_urls: set[str] = set()
+    for p in projects:
+        if p.get("repo_url"):
+            existing_urls.add(normalize_url(p["repo_url"]))
+    for e in data.get("extracurriculars") or []:
+        if "github.com" in (e.get("url") or ""):
+            existing_urls.add(normalize_url(e["url"]))
 
     print(f"Fetching public repos for {GITHUB_USER} ...")
     gh_repos = fetch_all_repos()
