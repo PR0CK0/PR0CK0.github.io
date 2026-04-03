@@ -4620,7 +4620,6 @@ extracurriculars:
   organization: IEEE
   date: 2023-09
   start_date: 2023-09
-  is_current: true
   type: organization
   role: Member
 - id: extra/asee-member
@@ -4628,7 +4627,6 @@ extracurriculars:
   organization: American Society for Engineering Education
   date: 2021-12
   start_date: 2021-12
-  is_current: true
   type: organization
   role: Member
   domains:

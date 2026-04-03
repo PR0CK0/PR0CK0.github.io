@@ -419,11 +419,10 @@ export function buildCVData(person: Person, buildDate: string): CVData {
   // Extracurriculars — grouped by type (exclude cv_exclude entries)
   const extras = (person.extracurriculars ?? []).filter((e: any) => !e.cv_exclude)
   if (extras.length > 0) {
-    const extraDate = (e: typeof extras[0]) => {
-      if (e.start_date && e.end_date) return formatDateRange(e.start_date, e.end_date)
-      if (e.start_date) return fmtSingleDate(e.start_date)
-      return fmtSingleDate(e.date)
-    }
+    const extraDate = (e: typeof extras[0]) =>
+      e.start_date
+        ? formatDateRange(e.start_date, e.end_date, e.is_current)
+        : fmtSingleDate(e.date)
 
     const makeEntries = (items: typeof extras): CVEntry[] =>
       items.map(e => {
