@@ -1,5 +1,5 @@
 import type { Person, Skill } from '@/lib/schema'
-import { TECH_CATEGORIES } from '@/lib/tech-categories'
+import { TECH_CATEGORIES, SKILL_CATEGORY_LABELS } from '@/lib/tech-categories'
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────
 
@@ -126,20 +126,11 @@ export function fmtSingleDate(d?: string | null): string {
   return `${monthNames[parseInt(month, 10) - 1]} ${year}`
 }
 
-const SKILL_LABEL_MAP: Record<string, string> = {
-  prog_languages: 'Languages',
-  data_languages: 'Data & Markup',
-  libraries:      'Libraries & Frameworks',
-  dev_tools:      'Development Tools',
-  office_tools:   'Office Tools',
-  comm_tools:     'Communication Tools',
-  cloud:          'Cloud',
-  vocabularies:   'Vocabularies & Standards',
-  ai_tools:       'AI Tools',
-  design:         'Design',
-  soft_skills:    'Soft Skills',
-  // os excluded intentionally
-}
+// CV/Resume shows a subset of categories (os, personal, domains excluded)
+const CV_EXCLUDED_CATEGORIES = new Set(['os', 'personal', 'domains'])
+const SKILL_LABEL_MAP: Record<string, string> = Object.fromEntries(
+  Object.entries(SKILL_CATEGORY_LABELS).filter(([k]) => !CV_EXCLUDED_CATEGORIES.has(k))
+)
 
 /** Count technology occurrences across all entities — mirrors the landing page skill chip logic. */
 export function countTechOccurrences(person: Person): Map<string, number> {
@@ -160,13 +151,13 @@ export function countTechOccurrences(person: Person): Map<string, number> {
 /**
  * Build skill groups directly from occurrence counts + tech-categories lookup.
  * Mirrors the landing page chip logic exactly: same sources, same names, same order.
- * Top 20 per category; OS, soft_skills, personal, paradigms excluded.
+ * Top 20 per category; os, soft_skills, personal, domains excluded.
  */
 export function groupSkills(_skills: Skill[], occurrences: Map<string, number>): Record<string, string[]> {
   const groups: Record<string, string[]> = {}
   for (const [tech, category] of Object.entries(TECH_CATEGORIES)) {
     const label = SKILL_LABEL_MAP[category]
-    if (!label) continue  // excludes os, soft_skills, personal, paradigms
+    if (!label) continue  // excludes os, soft_skills, personal, domains
     if (!groups[label]) groups[label] = []
     groups[label].push(tech)
   }

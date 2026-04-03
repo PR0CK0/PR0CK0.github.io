@@ -85,7 +85,7 @@ export const ProjectSchema = z.object({
 export const SkillSchema = z.object({
   id: z.string(),
   name: z.string(),
-  category: z.enum(['prog_languages', 'data_languages', 'libraries', 'dev_tools', 'office_tools', 'comm_tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os', 'soft_skills', 'personal', 'paradigms']),
+  category: z.enum(['prog_languages', 'data_languages', 'libraries', 'dev_tools', 'office_tools', 'comm_tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os', 'soft_skills', 'personal', 'domains']),
   years_experience: z.number().optional(),
 })
 

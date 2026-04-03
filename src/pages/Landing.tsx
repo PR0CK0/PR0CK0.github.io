@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 import { loadPortfolioData } from '@/lib/yaml-loader'
-import { TECH_CATEGORIES, type SkillCategory } from '@/lib/tech-categories'
+import { TECH_CATEGORIES, SKILL_CATEGORY_LABELS, type SkillCategory } from '@/lib/tech-categories'
 import { TAG_CHIP, CARD_BASE, SECTION_CONTAINER, TAG_CONTAINER, META_TEXT } from '@/lib/ui-constants'
 import type { Person, Publication, Project } from '@/lib/schema'
 
@@ -33,96 +33,30 @@ function buildStats(pubCount: number, projCount: number) {
 type Stat = ReturnType<typeof buildStats>[number]
 
 // ─── Category meta ─────────────────────────────────────────────────────────
-const CATEGORY_META: Record<string, { label: string; color: string; chipClass: string }> = {
-  prog_languages: {
-    label: 'Programming Languages',
-    color: 'text-terminal-green',
-    chipClass:
-      'border border-terminal-green/30 text-terminal-green bg-terminal-green/5 hover:bg-terminal-green/15 hover:border-terminal-green/60',
-  },
-  data_languages: {
-    label: 'Data Languages',
-    color: 'text-emerald-400',
-    chipClass:
-      'border border-emerald-400/30 text-emerald-400 bg-emerald-400/5 hover:bg-emerald-400/15 hover:border-emerald-400/60',
-  },
-  libraries: {
-    label: 'Libraries',
-    color: 'text-terminal-blue',
-    chipClass:
-      'border border-terminal-blue/30 text-terminal-blue bg-terminal-blue/5 hover:bg-terminal-blue/15 hover:border-terminal-blue/60',
-  },
-  dev_tools: {
-    label: 'Development Tools',
-    color: 'text-terminal-purple',
-    chipClass:
-      'border border-terminal-purple/30 text-terminal-purple bg-terminal-purple/5 hover:bg-terminal-purple/15 hover:border-terminal-purple/60',
-  },
-  office_tools: {
-    label: 'Office Tools',
-    color: 'text-orange-400',
-    chipClass:
-      'border border-orange-400/30 text-orange-400 bg-orange-400/5 hover:bg-orange-400/15 hover:border-orange-400/60',
-  },
-  comm_tools: {
-    label: 'Communication Tools',
-    color: 'text-pink-400',
-    chipClass:
-      'border border-pink-400/30 text-pink-400 bg-pink-400/5 hover:bg-pink-400/15 hover:border-pink-400/60',
-  },
-  ai_tools: {
-    label: 'AI / ML',
-    color: 'text-terminal-amber',
-    chipClass:
-      'border border-terminal-amber/30 text-terminal-amber bg-terminal-amber/5 hover:bg-terminal-amber/15 hover:border-terminal-amber/60',
-  },
-  vocabularies: {
-    label: 'Ontologies & Vocabularies',
-    color: 'text-cyan-400',
-    chipClass:
-      'border border-cyan-400/30 text-cyan-400 bg-cyan-400/5 hover:bg-cyan-400/15 hover:border-cyan-400/60',
-  },
-  cloud: {
-    label: 'Cloud & Deployment',
-    color: 'text-sky-400',
-    chipClass:
-      'border border-sky-400/30 text-sky-400 bg-sky-400/5 hover:bg-sky-400/15 hover:border-sky-400/60',
-  },
-  os: {
-    label: 'Operating Systems',
-    color: 'text-slate-400',
-    chipClass:
-      'border border-slate-400/30 text-slate-400 bg-slate-400/5 hover:bg-slate-400/15 hover:border-slate-400/60',
-  },
-  design: {
-    label: 'Design & Analysis',
-    color: 'text-rose-400',
-    chipClass:
-      'border border-rose-400/30 text-rose-400 bg-rose-400/5 hover:bg-rose-400/15 hover:border-rose-400/60',
-  },
-  soft_skills: {
-    label: 'Soft Skills',
-    color: 'text-yellow-400',
-    chipClass:
-      'border border-yellow-400/30 text-yellow-400 bg-yellow-400/5 hover:bg-yellow-400/15 hover:border-yellow-400/60',
-  },
-  personal: {
-    label: 'Personal',
-    color: 'text-fuchsia-400',
-    chipClass:
-      'border border-fuchsia-400/30 text-fuchsia-400 bg-fuchsia-400/5 hover:bg-fuchsia-400/15 hover:border-fuchsia-400/60',
-  },
-  paradigms: {
-    label: 'Research Domains',
-    color: 'text-indigo-400',
-    chipClass:
-      'border border-indigo-400/30 text-indigo-400 bg-indigo-400/5 hover:bg-indigo-400/15 hover:border-indigo-400/60',
-  },
+const CATEGORY_STYLE: Record<SkillCategory, { color: string; chipClass: string }> = {
+  prog_languages: { color: 'text-terminal-green',  chipClass: 'border border-terminal-green/30 text-terminal-green bg-terminal-green/5 hover:bg-terminal-green/15 hover:border-terminal-green/60' },
+  data_languages: { color: 'text-emerald-400',     chipClass: 'border border-emerald-400/30 text-emerald-400 bg-emerald-400/5 hover:bg-emerald-400/15 hover:border-emerald-400/60' },
+  libraries:      { color: 'text-terminal-blue',   chipClass: 'border border-terminal-blue/30 text-terminal-blue bg-terminal-blue/5 hover:bg-terminal-blue/15 hover:border-terminal-blue/60' },
+  dev_tools:      { color: 'text-terminal-purple', chipClass: 'border border-terminal-purple/30 text-terminal-purple bg-terminal-purple/5 hover:bg-terminal-purple/15 hover:border-terminal-purple/60' },
+  office_tools:   { color: 'text-orange-400',      chipClass: 'border border-orange-400/30 text-orange-400 bg-orange-400/5 hover:bg-orange-400/15 hover:border-orange-400/60' },
+  comm_tools:     { color: 'text-pink-400',        chipClass: 'border border-pink-400/30 text-pink-400 bg-pink-400/5 hover:bg-pink-400/15 hover:border-pink-400/60' },
+  ai_tools:       { color: 'text-terminal-amber',  chipClass: 'border border-terminal-amber/30 text-terminal-amber bg-terminal-amber/5 hover:bg-terminal-amber/15 hover:border-terminal-amber/60' },
+  vocabularies:   { color: 'text-cyan-400',        chipClass: 'border border-cyan-400/30 text-cyan-400 bg-cyan-400/5 hover:bg-cyan-400/15 hover:border-cyan-400/60' },
+  cloud:          { color: 'text-sky-400',         chipClass: 'border border-sky-400/30 text-sky-400 bg-sky-400/5 hover:bg-sky-400/15 hover:border-sky-400/60' },
+  os:             { color: 'text-slate-400',       chipClass: 'border border-slate-400/30 text-slate-400 bg-slate-400/5 hover:bg-slate-400/15 hover:border-slate-400/60' },
+  design:         { color: 'text-rose-400',        chipClass: 'border border-rose-400/30 text-rose-400 bg-rose-400/5 hover:bg-rose-400/15 hover:border-rose-400/60' },
+  soft_skills:    { color: 'text-yellow-400',      chipClass: 'border border-yellow-400/30 text-yellow-400 bg-yellow-400/5 hover:bg-yellow-400/15 hover:border-yellow-400/60' },
+  personal:       { color: 'text-fuchsia-400',     chipClass: 'border border-fuchsia-400/30 text-fuchsia-400 bg-fuchsia-400/5 hover:bg-fuchsia-400/15 hover:border-fuchsia-400/60' },
+  domains:        { color: 'text-indigo-400',      chipClass: 'border border-indigo-400/30 text-indigo-400 bg-indigo-400/5 hover:bg-indigo-400/15 hover:border-indigo-400/60' },
 }
 
-const SHOWN_CATEGORIES = [
+const CATEGORY_META: Record<SkillCategory, { label: string; color: string; chipClass: string }> = Object.fromEntries(
+  (Object.keys(CATEGORY_STYLE) as SkillCategory[]).map(k => [k, { label: SKILL_CATEGORY_LABELS[k], ...CATEGORY_STYLE[k] }])
+) as Record<SkillCategory, { label: string; color: string; chipClass: string }>
+
+const SHOWN_CATEGORIES: SkillCategory[] = [
   'prog_languages', 'data_languages', 'libraries', 'dev_tools', 'office_tools', 'comm_tools',
-  'ai_tools', 'vocabularies', 'cloud', 'os', 'design', 'soft_skills', 'personal', 'paradigms',
+  'ai_tools', 'vocabularies', 'cloud', 'os', 'design', 'soft_skills', 'personal', 'domains',
 ]
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
@@ -718,7 +652,7 @@ function aggregateSkills(person: Person): AggregatedSkill[] {
       const cat = TECH_CATEGORIES[t]
       if (cat) add(t, cat)
     }
-    for (const d of e.domains ?? [])        add(d, 'paradigms')
+    for (const d of e.domains ?? [])        add(d, 'domains')
     for (const s of e.soft_skills ?? [])    add(s, 'soft_skills')
     for (const p of e.personal_skills ?? []) add(p, 'personal')
   }

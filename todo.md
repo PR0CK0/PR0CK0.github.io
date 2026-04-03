@@ -66,7 +66,7 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 ## Skill category labels — Landing and Schema normalization
 
-- [ ] **Normalize skill category headings between Landing page and schema** — The `SkillSchema` `category` enum uses snake_case keys (e.g. `prog_languages`, `ai_tools`, `soft_skills`) while the Landing page renders human-readable labels (e.g. "Programming Languages", "AI Tools"). These mappings live in separate places and can drift. Consolidate into a single `SKILL_CATEGORY_LABELS` constant shared between the schema/graph and the Landing render so adding a new category only requires one change.
+- [x] **Normalize skill category headings between Landing page and schema** — The `SkillSchema` `category` enum uses snake_case keys (e.g. `prog_languages`, `ai_tools`, `soft_skills`) while the Landing page renders human-readable labels (e.g. "Programming Languages", "AI Tools"). These mappings live in separate places and can drift. Consolidate into a single `SKILL_CATEGORY_LABELS` constant shared between the schema/graph and the Landing render so adding a new category only requires one change.
 
 ## Light Mode
 

@@ -19,7 +19,25 @@ export type SkillCategory =
   | 'design'
   | 'soft_skills'
   | 'personal'
-  | 'paradigms'
+  | 'domains'
+
+/** Single source of truth for human-readable skill category labels. */
+export const SKILL_CATEGORY_LABELS: Record<SkillCategory, string> = {
+  prog_languages: 'Programming Languages',
+  data_languages: 'Data Languages',
+  libraries:      'Libraries & Frameworks',
+  dev_tools:      'Development Tools',
+  office_tools:   'Office Tools',
+  comm_tools:     'Communication Tools',
+  ai_tools:       'AI Tools',
+  vocabularies:   'Ontologies, Vocabularies & Standards',
+  cloud:          'Cloud & Deployment',
+  os:             'Operating Systems',
+  design:         'Design & Analysis Tools',
+  soft_skills:    'Soft Skills',
+  personal:       'Personal',
+  domains:        'Research Domains',
+}
 
 export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   // ── Programming Languages ──────────────────────────────────────────────────
