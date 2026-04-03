@@ -3186,7 +3186,7 @@ projects:
   - Semantic Web
   - Content Management
 - id: proj/quizzical
-  title: quizzical
+  title: Quizzical
   year: 2026-04
   repo_url: https://github.com/PR0CK0/quizzical
   description: Terminal quiz game for cert exam prep. Beat mode, combo scoring, burning fuse timer. Security+ deck 
@@ -3194,10 +3194,19 @@ projects:
   technologies:
   - Rust
   - crossterm
+  - serde
+  - serde_json
+  - rand
+  - JSON
+  - Claude Code
   domains:
   - Cybersecurity
   - Education
   - CLI
+  - Game Development
+  - Cryptography
+  - HCI
+  - UX
 skills:
 - id: skill/java
   name: Java
