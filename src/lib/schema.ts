@@ -81,6 +81,7 @@ export const ProjectSchema = z.object({
   url: z.string().optional(),
   repo_url: z.string().optional(),
   featured: z.boolean().optional(),
+  cv_exclude: z.boolean().optional(),
 })
 
 export const SkillSchema = z.object({
