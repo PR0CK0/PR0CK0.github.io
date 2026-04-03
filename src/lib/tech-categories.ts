@@ -326,6 +326,9 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   Mockingbird:          'design',
   vMix:                 'design',
 
+  // ── Development Tools ─── (additional) ──────────────────────────────────────
+  Bash:         'dev_tools',
+
   // ── Data Languages ─── (additional) ────────────────────────────────────────
   TSV:          'data_languages',
   YAML:         'data_languages',
