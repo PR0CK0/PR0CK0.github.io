@@ -4096,8 +4096,6 @@ extracurriculars:
   - Ontology
   technologies:
   - BFO
-  bullets:
-  - Listed in [awesome-semantic-web](https://github.com/semantalytics/awesome-semantic-web)
 - id: extra/ieee-member
   title: IEEE Member (#98174383)
   organization: IEEE
