@@ -3215,13 +3215,40 @@ projects:
   technologies:
   - Bash
   - JavaScript
+  - Node.js
+  - Markdown
+  - JSON
+  - YAML
   - OWL
   - RDF
+  - SHACL
   - SPARQL
+  - Turtle
+  - JSON-LD
+  - Cypher
+  - Docker
+  - Neo4j
+  - Fuseki
+  - Claude
+  - Ollama
+  - Gemini
+  - GitHub Actions
+  - JSON Schema
+  - LinkML
+  - SKOS
+  - 'PROV-O'
   domains:
   - Knowledge Graphs
+  - Knowledge Representation
+  - Knowledge Management
   - LLMs
   - Ontology
+  - Semantic Web
+  - RAG
+  - Prompt Engineering
+  - Cybersecurity
+  - Software Engineering
+  - SQA
 skills:
 - id: skill/java
   name: Java
