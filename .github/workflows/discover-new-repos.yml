@@ -1,20 +1,21 @@
-name: Sync Repo Descriptions
+name: Discover New Repos
 
 # Runs daily and on manual trigger.
-# Fetches the current GitHub "About" description for every project that has a
-# repo_url and updates the YAML if anything changed. Does not add new entries —
-# see discover-new-repos.yml for that.
+# Queries GitHub for public, non-forked repos not yet in the YAML and adds
+# skeleton project entries for any it finds. Repos without a GitHub "About"
+# description are skipped. After running, review new entries and set
+# cv_exclude: true on anything you don't want displayed.
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # Every day at 06:00 UTC
+    - cron: '0 7 * * *'  # Every day at 07:00 UTC (1hr after description sync)
   workflow_dispatch:      # Manual trigger from the Actions tab
 
 permissions:
   contents: write
 
 jobs:
-  sync:
+  discover:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,10 +30,10 @@ jobs:
       - name: Install dependencies
         run: pip install ruamel.yaml
 
-      - name: Sync descriptions
+      - name: Discover new repos
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 .github/scripts/sync_repo_descriptions.py
+        run: python3 .github/scripts/discover_new_repos.py
 
       - name: Commit if changed
         run: |
@@ -40,7 +41,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet public/data/tyler-procko.yaml; then
             git add public/data/tyler-procko.yaml
-            git commit -m "chore: sync GitHub repo descriptions [skip ci]"
+            git commit -m "chore: add skeleton entries for new GitHub repos [skip ci]"
             git push
           else
             echo "Nothing to commit."
