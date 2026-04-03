@@ -3071,10 +3071,19 @@ projects:
   description: My collection from over the Web
   cv_exclude: true
 - id: proj/faadatachallenge
-  title: FAADataChallenge
+  title: FAA Data Challenge 2023
   year: 2023-05
   repo_url: https://github.com/PR0CK0/FAADataChallenge
-  description: Repo for the 2023 FAA Data Challenge, ERAU team under Ochoa
+  description: 2023 FAA Data Challenge — ERAU team entry under Dr. Ochoa; aviation safety data analysis with ML.
+  technologies:
+  - Python
+  - Machine Learning
+  - GitHub
+  domains:
+  - Aviation
+  - Safety
+  - Data Analysis
+  - Machine Learning
 - id: proj/forsenstudy
   title: ForsenStudy
   year: 2023-11
@@ -3104,8 +3113,19 @@ projects:
   title: RDF Prefix Adder
   year: 2022-08
   repo_url: https://github.com/PR0CK0/RDF-Prefix-Adder
-  description: Came out of issues working with GraphDB and not being able to refer to an imported ontology by its base 
-    prefix.
+  description: CLI utility to inject a base prefix into Turtle RDF files — workaround for GraphDB namespace resolution.
+  technologies:
+  - Python
+  - RDF
+  - Turtle
+  - OWL
+  - GraphDB
+  - SPARQL
+  domains:
+  - Semantic Web
+  - Ontology
+  - Knowledge Representation
+  - Linked Data
 - id: proj/rtd-test
   title: rtd test
   year: 2023-02
@@ -3113,16 +3133,46 @@ projects:
   description: Read the Docs test/sandbox repo.
   cv_exclude: true
 - id: proj/swebok-rebel-rdf
-  title: swebok rebel rdf
+  title: SWEBOK Knowledge Graph via REBEL
   year: 2023-03
   repo_url: https://github.com/PR0CK0/swebok-rebel-rdf
   description: Semi-automated SWEBOK knowledge graph extraction using REBEL seq2seq transformer and spaCy — RDF/OWL 
     output.
+  technologies:
+  - Python
+  - spaCy
+  - REBEL
+  - RDF
+  - OWL
+  - Turtle
+  - Transformers
+  domains:
+  - Knowledge Graphs
+  - NLP
+  - Semantic Web
+  - Ontology
+  - Software Engineering
 - id: proj/webpostontology
-  title: WebPostOntology
+  title: Web Post Ontology
   year: 2024-04
   repo_url: https://github.com/PR0CK0/WebPostOntology
-  description: Web Post Ontology (WPO) for Hooray Media
+  description: BFO-inspired content taxonomy ontology (OWL/TTL) for Hooray Media — GPT post classifier, PyLODE docs, 
+    versioned Turtle output.
+  technologies:
+  - OWL
+  - Turtle
+  - Protégé
+  - PyLODE
+  - Python
+  - RDF
+  - SPARQL
+  - GPT
+  domains:
+  - Ontology
+  - Taxonomy
+  - Linked Data
+  - Semantic Web
+  - Content Management
 skills:
 - id: skill/java
   name: Java
@@ -4085,6 +4135,7 @@ extracurriculars:
   domains:
   - Knowledge Representation
   - Semantic Web
+  url: https://github.com/semantalytics/awesome-semantic-web?tab=readme-ov-file
 - id: extra/awesome-bfo
   title: Created summarized list of BFO and BFO-related resources
   organization: GitHub
