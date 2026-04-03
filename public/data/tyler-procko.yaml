@@ -4694,6 +4694,8 @@ extracurriculars:
   title: IEEE Member (#98174383)
   organization: IEEE
   date: 2023-09
+  start_date: 2023-09
+  is_current: true
   type: organization
   role: Member
   date_display: Sep 2023 - Present
@@ -4702,6 +4704,8 @@ extracurriculars:
   title: American Society for Engineering Education Member
   organization: American Society for Engineering Education
   date: 2021-12
+  start_date: 2021-12
+  is_current: true
   type: organization
   role: Member
   date_display: Dec 2021 - Present
@@ -4712,6 +4716,8 @@ extracurriculars:
   title: White Hat Eagles Cybersecurity Club (WHECS)
   organization: ERAU Daytona
   date: 2019-01
+  start_date: 2019-01
+  end_date: 2020-01
   type: organization
   role: Member
   description: Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book. 
@@ -4730,6 +4736,8 @@ extracurriculars:
   title: Embry-Riddle Artificial Intelligence Club
   organization: ERAU Daytona
   date: 2018-08
+  start_date: 2018-08
+  end_date: 2019-01
   type: organization
   role: Member
   description: Worked with genetic algorithms in a variety of scenarios
@@ -4743,14 +4751,16 @@ extracurriculars:
   title: Audio/Visual Technician
   organization: River Road Baptist Church, Hilliard, FL
   date: 2023-11
+  start_date: 2023-11
+  end_date: 2025-09
   type: volunteer
   role: Volunteer
   description: Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for
     an in-person audience of ~100 and a livestream audience of ~10
-  date_display: Nov 2023 - Present
+  date_display: Nov 2023 - Sep 2025
   h4: Audio/Visual Technician, <i>River Road Baptist Church, Hilliard, FL</i>
   bullets:
-  - Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an 
+  - Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an
     in-person audience of ~100 and a livestream audience of ~10
   technologies:
   - ProPresenter
@@ -4759,6 +4769,8 @@ extracurriculars:
   title: Personal Computer Construction Consultant
   organization: Remote/In-Person
   date: 2014-01
+  start_date: 2014-01
+  is_current: true
   type: volunteer
   role: Volunteer
   description: Assisted personal contacts with computer construction and setup. Resolved computer, network, software and

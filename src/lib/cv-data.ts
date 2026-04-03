@@ -416,6 +416,34 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     sections.push({ header: 'Certifications', entries })
   }
 
+  // Extracurriculars — grouped by type
+  const extras = person.extracurriculars ?? []
+  if (extras.length > 0) {
+    const extraDate = (e: typeof extras[0]) =>
+      e.start_date
+        ? formatDateRange(e.start_date, e.end_date, e.is_current)
+        : fmtSingleDate(e.date)
+
+    const makeEntries = (items: typeof extras): CVEntry[] =>
+      items.map(e => ({
+        title: e.title,
+        titleSuffix: e.organization,
+        date: extraDate(e),
+        bullets: e.bullets,
+      }))
+
+    const scholarly = extras.filter((e: any) => e.type === 'scholarly')
+    const orgs      = extras.filter((e: any) => e.type === 'organization')
+    const volunteer = extras.filter((e: any) => e.type === 'volunteer')
+
+    const subsections: CVSubsection[] = []
+    if (scholarly.length > 0) subsections.push({ subheader: 'Scholarly Contributions', entries: makeEntries(scholarly) })
+    if (orgs.length > 0)      subsections.push({ subheader: 'Organizations', entries: makeEntries(orgs) })
+    if (volunteer.length > 0) subsections.push({ subheader: 'Service & Volunteer', entries: makeEntries(volunteer) })
+
+    if (subsections.length > 0) sections.push({ header: 'Extracurriculars', subsections })
+  }
+
   // Security Clearance
   if (person.clearance || (person.past_clearances?.length ?? 0) > 0) {
     sections.push({
