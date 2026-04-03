@@ -335,17 +335,17 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     })
   }
 
-  // Projects (top 8, featured first, then by year desc)
-  const topProjects = [...(person.projects ?? [])]
+  // Projects — all, featured first then year desc, cv_exclude filtered
+  const allProjects = [...(person.projects ?? [])]
+    .filter(p => !p.cv_exclude)
     .sort((a, b) => {
       if (a.featured && !b.featured) return -1
       if (!a.featured && b.featured) return 1
       return (b.year ?? '').localeCompare(a.year ?? '')
     })
-    .slice(0, 8)
 
-  if (topProjects.length > 0) {
-    const entries: CVEntry[] = topProjects.map(proj => {
+  if (allProjects.length > 0) {
+    const entries: CVEntry[] = allProjects.map(proj => {
       const titleLinks: Array<{ label: string; url: string }> = []
       if (proj.repo_url) titleLinks.push({ label: 'GitHub', url: proj.repo_url })
       const liveUrl = proj.url && proj.url !== proj.repo_url && !proj.url.includes('github.com') ? proj.url : undefined
@@ -360,7 +360,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
       }
     })
     sections.push({
-      header: 'Projects (Top 8)',
+      header: 'Projects',
       headerLinks: github?.url ? [{ label: 'GitHub', url: github.url }] : undefined,
       entries,
     })
