@@ -3206,6 +3206,7 @@ projects:
   - Cryptography
   - HCI
   - UX
+  url: https://crates.io/crates/quizzical
 skills:
 - id: skill/java
   name: Java
