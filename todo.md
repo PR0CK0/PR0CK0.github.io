@@ -125,7 +125,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## Certifications — add links
 
-- [ ] **Audit and add `url` fields to all certification entries** — Many certs in the YAML are missing `url` fields pointing to the credential verification page (e.g., Credly badge, issuer portal, LinkedIn credential). Add URLs so they render as clickable links in the CV/resume.
+- [x] **Audit and add `url` fields to all certification entries** — Many certs in the YAML are missing `url` fields pointing to the credential verification page (e.g., Credly badge, issuer portal, LinkedIn credential). Add URLs so they render as clickable links in the CV/resume.
 
 ## Other pending
 
