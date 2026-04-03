@@ -988,7 +988,9 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const navigate = useNavigate()
   const [showOverflow, setShowOverflow] = useState(false)
+  const [popupPos, setPopupPos] = useState<{ top: number; left: number } | null>(null)
   const overflowRef = useRef<HTMLDivElement>(null)
+  const btnRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     if (!showOverflow) return
@@ -1000,6 +1002,18 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     document.addEventListener('mousedown', handleClick)
     return () => document.removeEventListener('mousedown', handleClick)
   }, [showOverflow])
+
+  const toggleOverflow = () => {
+    if (!showOverflow && btnRef.current) {
+      const r = btnRef.current.getBoundingClientRect()
+      const popupW = 224 // w-56
+      const popupH = 300 // rough max height estimate
+      const left = Math.min(r.left, window.innerWidth - popupW - 8)
+      const top = r.top - popupH - 8 < 0 ? r.bottom + 4 : r.top - popupH - 4
+      setPopupPos({ top, left })
+    }
+    setShowOverflow(v => !v)
+  }
 
   const allSkills = [...(project.technologies ?? []), ...(project.domains ?? [])]
   const visibleSkills = allSkills.slice(0, 6)
@@ -1061,16 +1075,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {overflowSkills.length > 0 && (
             <div ref={overflowRef} className="relative">
               <button
-                onClick={() => setShowOverflow((v) => !v)}
+                ref={btnRef}
+                onClick={toggleOverflow}
                 className={`${TAG_CHIP} border border-terminal-muted/25 text-terminal-muted bg-terminal-surface/40 hover:bg-terminal-surface/80 hover:border-terminal-purple/40 hover:text-terminal-purple/80`}
               >
                 +{overflowSkills.length} skills
               </button>
-              {showOverflow && (
-                <div className="absolute bottom-full left-0 mb-2 z-50 w-56
-                                border border-terminal-purple/30
-                                rounded-lg p-2.5 shadow-xl shadow-black/50"
-                  style={{ backgroundColor: 'rgb(10, 14, 26)' }}>
+              {showOverflow && popupPos && (
+                <div className="z-50 w-56 border border-terminal-purple/30 rounded-lg p-2.5 shadow-xl shadow-black/50"
+                  style={{ position: 'fixed', top: popupPos.top, left: popupPos.left, backgroundColor: 'rgb(10, 14, 26)' }}>
                   <p className="text-[9px] font-mono text-terminal-muted/60 uppercase tracking-widest mb-2">
                     // more skills
                   </p>
@@ -1224,7 +1237,9 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
 }) {
   const navigate = useNavigate()
   const [showOverflow, setShowOverflow] = useState(false)
+  const [popupPos, setPopupPos] = useState<{ top: number; left: number } | null>(null)
   const overflowRef = useRef<HTMLDivElement>(null)
+  const btnRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     if (!showOverflow) return
@@ -1237,8 +1252,21 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
     return () => document.removeEventListener('mousedown', handleClick)
   }, [showOverflow])
 
-  const visibleSkills = project.technologies?.slice(0, 6) ?? []
-  const overflowSkills = project.technologies?.slice(6) ?? []
+  const toggleOverflow = () => {
+    if (!showOverflow && btnRef.current) {
+      const r = btnRef.current.getBoundingClientRect()
+      const popupW = 224 // w-56
+      const popupH = 300 // rough max height estimate
+      const left = Math.min(r.left, window.innerWidth - popupW - 8)
+      const top = r.top - popupH - 8 < 0 ? r.bottom + 4 : r.top - popupH - 4
+      setPopupPos({ top, left })
+    }
+    setShowOverflow(v => !v)
+  }
+
+  const allSkills = [...(project.technologies ?? []), ...(project.domains ?? [])]
+  const visibleSkills = allSkills.slice(0, 6)
+  const overflowSkills = allSkills.slice(6)
   const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
 
   return (
@@ -1300,16 +1328,15 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
           {overflowSkills.length > 0 && (
             <div ref={overflowRef} className="relative">
               <button
-                onClick={() => setShowOverflow((v) => !v)}
+                ref={btnRef}
+                onClick={toggleOverflow}
                 className={`${TAG_CHIP} border border-terminal-muted/25 text-terminal-muted bg-terminal-surface/40 hover:bg-terminal-surface/80 hover:border-terminal-purple/40 hover:text-terminal-purple/80`}
               >
                 +{overflowSkills.length} skills
               </button>
-              {showOverflow && (
-                <div className="absolute bottom-full left-0 mb-2 z-50 w-56
-                                border border-terminal-purple/30
-                                rounded-lg p-2.5 shadow-xl shadow-black/50"
-                  style={{ backgroundColor: 'rgb(10, 14, 26)' }}>
+              {showOverflow && popupPos && (
+                <div className="z-50 w-56 border border-terminal-purple/30 rounded-lg p-2.5 shadow-xl shadow-black/50"
+                  style={{ position: 'fixed', top: popupPos.top, left: popupPos.left, backgroundColor: 'rgb(10, 14, 26)' }}>
                   <p className="text-[9px] font-mono text-terminal-muted/60 uppercase tracking-widest mb-2">
                     // more skills
                   </p>
