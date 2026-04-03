@@ -102,25 +102,27 @@ export default function About() {
               <ul className="space-y-4">
                 {aboutExtras.map((e: any) => (
                   <li key={e.id}>
-                    <div className={`grid grid-cols-[1fr_7rem] sm:grid-cols-[1fr_8.5rem] gap-3 ${BODY_TEXT}`}>
+                    <div className={`grid grid-cols-[1fr_7rem] sm:grid-cols-[1fr_8.5rem] gap-3 items-start ${BODY_TEXT}`}>
                       <div>
-                        <span className="text-terminal-text font-semibold">{e.title}</span>
-                        {e.organization && (
-                          <span className="text-terminal-muted"> – {e.organization}</span>
+                        <div>
+                          <span className="text-terminal-text font-semibold">{e.title}</span>
+                          {e.organization && (
+                            <span className="text-terminal-muted"> – {e.organization}</span>
+                          )}
+                        </div>
+                        {e.bullets && e.bullets.length > 0 && (
+                          <ul className="mt-1 space-y-0.5">
+                            {e.bullets.map((b: string, bi: number) => (
+                              <li key={bi} className={`${BODY_TEXT} text-terminal-text flex gap-2`}>
+                                <span className="shrink-0">•</span>
+                                <span>{b}</span>
+                              </li>
+                            ))}
+                          </ul>
                         )}
                       </div>
                       <span className="text-terminal-muted text-right">{e.date ?? ''}</span>
                     </div>
-                    {e.bullets && e.bullets.length > 0 && (
-                      <ul className="mt-1 space-y-0.5">
-                        {e.bullets.map((b: string, bi: number) => (
-                          <li key={bi} className={`${BODY_TEXT} text-terminal-text flex gap-2`}>
-                            <span className="shrink-0">•</span>
-                            <span>{b}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
                   </li>
                 ))}
               </ul>
