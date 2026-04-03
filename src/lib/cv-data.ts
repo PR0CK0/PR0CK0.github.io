@@ -335,14 +335,10 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     })
   }
 
-  // Projects — all, featured first then year desc, cv_exclude filtered
+  // Projects — all by year desc (featured-first only applies to resume top-8)
   const allProjects = [...(person.projects ?? [])]
     .filter(p => !p.cv_exclude)
-    .sort((a, b) => {
-      if (a.featured && !b.featured) return -1
-      if (!a.featured && b.featured) return 1
-      return (b.year ?? '').localeCompare(a.year ?? '')
-    })
+    .sort((a, b) => (b.year ?? '').localeCompare(a.year ?? ''))
 
   if (allProjects.length > 0) {
     const entries: CVEntry[] = allProjects.map(proj => {
