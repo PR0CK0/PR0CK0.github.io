@@ -2825,6 +2825,8 @@ projects:
   - Networking
   soft_skills:
   - Virtual Presentation
+  description: Systems Engineering Management Plan for a BitTorrent-based distributed file sharing architecture — 
+    requirements, architecture diagrams, and project planning documents.
 - id: proj/ms-word-usability
   title: Microsoft Word Usability Desiderata
   year: 2020-05
@@ -2853,6 +2855,8 @@ projects:
   - Virtual Presentation
   - Public Speaking
   - Client Communication
+  description: Usability analysis and redesign proposal for Microsoft Word — wireframes, heuristic evaluation, and UX 
+    recommendations via Mockingbird/Balsamiq.
 - id: proj/ecocar
   title: EcoCar
   year: 2020-05
@@ -2883,6 +2887,8 @@ projects:
   - Virtual Presentation
   - Public Speaking
   - Client Communication
+  description: ERAU EcoCar competition entry — Python/MATLAB modeling and full project documentation for a 
+    fuel-efficient vehicle design challenge.
 - id: proj/meme-ontology
   title: Meme Ontology and Clustering Analysis
   year: 2020-02
@@ -2913,6 +2919,7 @@ projects:
   members: 1 member
   domains:
   - Networking
+  description: Custom-built Network Attached Storage server running XigmaNAS with RAID configuration for home lab use.
 - id: proj/ludum-dare-44
   title: Ludum Dare 44
   year: 2019-05
@@ -2927,6 +2934,7 @@ projects:
   - Discord
   personal_skills:
   - Adobe Photoshop
+  description: Entry for Ludum Dare 44 game jam — "Your life is currency" theme.
 - id: proj/arocket
   title: ARocket
   year: 2019-02
@@ -2951,6 +2959,7 @@ projects:
   personal_skills:
   - Adobe Photoshop
   - Adobe Illustrator
+  description: Android augmented-reality rocket launch simulation built in Unity/C# — point your phone at the sky.
 - id: proj/vxworks-water-heater
   title: VxWorks C Water Heater Simulation
   year: 2019-05
@@ -2979,6 +2988,7 @@ projects:
   - Cryptography
   - HCI
   - UX
+  description: Encodes and decodes encrypted text messages transmitted as near-field audio using the Chirp SDK — Python.
 - id: proj/lan-board-game
   title: LAN Multiplayer Board Game
   year: 2018-12
@@ -3064,6 +3074,7 @@ projects:
   members: 3 members
   domains:
   - Embedded Systems
+  description: Arduino-programmed Boe-Bot line follower robot — sensors, motor control, and autonomous path tracking.
 - id: proj/comptia-security-study-guides
   title: CompTIA Security Study Guides
   year: 2025-10
