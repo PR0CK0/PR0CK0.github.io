@@ -435,9 +435,9 @@ export function buildCVData(person: Person, buildDate: string): CVData {
 
     const subsections: CVSubsection[] = []
     if (scholarly.length > 0)   subsections.push({ subheader: 'Scholarly Contributions', entries: makeEntries(scholarly) })
+    if (open_source.length > 0) subsections.push({ subheader: 'Open-Source', entries: makeEntries(open_source) })
     if (orgs.length > 0)        subsections.push({ subheader: 'Organizations', entries: makeEntries(orgs) })
     if (volunteer.length > 0)   subsections.push({ subheader: 'Service & Volunteer', entries: makeEntries(volunteer) })
-    if (open_source.length > 0) subsections.push({ subheader: 'Open-Source', entries: makeEntries(open_source) })
 
     if (subsections.length > 0) sections.push({ header: 'Extracurriculars', subsections })
   }
