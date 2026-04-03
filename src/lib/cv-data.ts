@@ -416,8 +416,8 @@ export function buildCVData(person: Person, buildDate: string): CVData {
     sections.push({ header: 'Certifications', entries })
   }
 
-  // Extracurriculars — grouped by type
-  const extras = person.extracurriculars ?? []
+  // Extracurriculars — grouped by type (exclude cv_exclude entries)
+  const extras = (person.extracurriculars ?? []).filter((e: any) => !e.cv_exclude)
   if (extras.length > 0) {
     const extraDate = (e: typeof extras[0]) => {
       if (e.start_date && e.end_date) return formatDateRange(e.start_date, e.end_date)

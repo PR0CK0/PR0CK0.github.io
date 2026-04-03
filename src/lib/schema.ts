@@ -166,6 +166,7 @@ export const ExtracurricularSchema = z.object({
   end_date: z.string().optional(),
   is_current: z.boolean().optional(),
   bullets: z.array(z.string()).optional(),
+  cv_exclude: z.boolean().optional(),
   technologies: z.array(z.string()).optional(),
   domains: z.array(z.string()).optional(),
   soft_skills: z.array(z.string()).optional(),

@@ -27,6 +27,7 @@ export default function About() {
   if (!person) return null
 
   const funAwards = (person.awards ?? []).filter(a => a.about_only)
+  const aboutExtras = (person.extracurriculars ?? []).filter((e: any) => e.cv_exclude)
 
   const AWARD_GROUPS: Array<{ label: string; ids: string[] }> = [
     {
@@ -92,6 +93,36 @@ export default function About() {
               )}
             </div>
           ))}
+
+          {aboutExtras.length > 0 && (
+            <div className="border-b border-terminal-border/30 pb-4">
+              <h2 className={`${SECTION_LABEL} text-terminal-amber mb-4`}>
+                Volunteer & Service
+              </h2>
+              <ul className="space-y-4">
+                {aboutExtras.map((e: any) => (
+                  <li key={e.id}>
+                    <div className={BODY_TEXT}>
+                      <span className="text-terminal-text font-semibold">{e.title}</span>
+                      {e.organization && (
+                        <span className="text-terminal-muted"> – {e.organization}</span>
+                      )}
+                    </div>
+                    {e.bullets && e.bullets.length > 0 && (
+                      <ul className="mt-1 space-y-0.5">
+                        {e.bullets.map((b: string, bi: number) => (
+                          <li key={bi} className={`${BODY_TEXT} text-terminal-muted flex gap-2`}>
+                            <span className="shrink-0">•</span>
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {funAwards.length > 0 && (
             <div className="border-b border-terminal-border/30 pb-4">
