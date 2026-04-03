@@ -119,6 +119,10 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [ ] **Audit all `url` fields in YAML** — verify every project `url` actually resolves to a live page; fix or remove dead links
 - [ ] **Review project display order in CV/resume** — current sort is featured-first then year desc; decide if a manual ordering or different priority makes more sense for the top 8
 
+## Type hierarchy organization
+
+- [ ] **Organize and document skill/domain/extracurricular type hierarchies** — The `SkillSchema` `category` enum, extracurricular `type` values (scholarly/organization/volunteer), and similar categorical fields are scattered and undocumented. Audit all enum-like fields in `schema.ts`, define a canonical type hierarchy (e.g., skill categories, extracurricular types, publication statuses), and ensure every YAML entry uses valid values. Consider a shared `types.ts` or constants file so the hierarchy is explicit and easy to extend.
+
 ## Other pending
 
 - [ ] **Audit `tags` field in YAML schema** — Determine the purpose and usage of `tags` across entries. It overlaps with `domains` and `technologies`. Decide whether to keep, merge into domains, or remove.
