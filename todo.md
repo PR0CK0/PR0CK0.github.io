@@ -140,7 +140,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [ ] **Tests: detect unmapped terms** — Test suite should flag technologies/domains/soft_skills/personal_skills that appear in YAML but aren't recognized/validated. Example: `Git` is in YAML but doesn't show in UI (unmapped in tech-categories). Need validation that catches these orphan terms.
 - [ ] Extracurriculars — add technologies/domains to 24 empty entries
 - [ ] work/publix — add technologies (minimal)
-- [ ] Publications UI — wire up `domains` as tag chips in PublicationRow
+- [x] Publications UI — pub domains already aggregated into the landing page skill chips (paradigms category); no per-row chips needed
 - [ ] LLM model coverage — audit all work/project/pub/extracurricular entries and add specific model names where used:
   - OpenAI: `GPT-3.5`, `GPT-4`, `GPT-4o`, `o1`, `o3`, `ChatGPT`, `Codex`, `OpenAI API`
   - Anthropic: `Claude 3`, `Claude 3.5 Sonnet`, `Claude Code`, `Anthropic API`
