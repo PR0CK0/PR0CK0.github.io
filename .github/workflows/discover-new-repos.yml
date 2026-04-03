@@ -49,12 +49,7 @@ jobs:
             git push origin "$BRANCH"
             gh pr create \
               --title "New repos discovered — review before merging" \
-              --body "$(cat <<'EOF'
-Auto-discovered new public GitHub repos not yet in the YAML.
-
-Technologies and domains have been inferred from GitHub languages and topics — review and refine before merging. Set \`cv_exclude: true\` on anything you don't want displayed.
-EOF
-)" \
+              --body "Auto-discovered new public GitHub repos not yet in the YAML. Technologies and domains inferred from GitHub languages/topics — review and refine before merging. Set cv_exclude: true on anything you don't want displayed." \
               --base main \
               --head "$BRANCH"
           else
