@@ -4427,26 +4427,14 @@ references:
   relationship: Department Chair
 extracurriculars:
 - id: extra/review-mar-2026
-  title: Manuscript Reviewer
-  organization: Multiple journals
+  title: Manuscript reviews
   date: 2026-03
   type: scholarly
-  description: 'Reviewer (1 manuscript) - Concurrency and Computation: Practice and Experience, Wiley;
-
-    Reviewer (1 manuscript) - AI and Ethics, Springer Nature;
-
-    Reviewer (1 manuscript) - Discover Education, Springer Nature;
-
-    Reviewer (1 manuscript) - Discover Computing, Springer Nature
-
-    '
-  date_display: Mar 2026
-  h4: Manuscript reviews
   bullets:
-  - 'Reviewer (1 manuscript) - <i>Concurrency and Computation: Practice and Experience, Wiley</i>'
-  - Reviewer (1 manuscript) - <i>AI and Ethics, Springer Nature</i>
-  - Reviewer (1 manuscript) - <i>Discover Education, Springer Nature</i>
-  - Reviewer (1 manuscript) - <i>Discover Computing, Springer Nature</i>
+  - 'Reviewer (1 manuscript) - Concurrency and Computation: Practice and Experience, Wiley'
+  - Reviewer (1 manuscript) - AI and Ethics, Springer Nature
+  - Reviewer (1 manuscript) - Discover Education, Springer Nature
+  - Reviewer (1 manuscript) - Discover Computing, Springer Nature
   domains:
   - Education
   - LLMs
@@ -4454,29 +4442,15 @@ extracurriculars:
   technologies:
   - Microsoft Word
 - id: extra/review-jan-2026
-  title: Manuscript Reviewer
-  organization: Springer Nature / Qeios
+  title: Manuscript reviews
   date: 2026-01
   type: scholarly
-  description: 'Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature;
-
-    Reviewer (1 manuscript) - Computing, Springer Nature;
-
-    Reviewer (1 manuscript) - Discover Education, Springer Nature;
-
-    Reviewer (1 manuscript) - Archives of Dermatological Research, Springer Nature;
-
-    Reviewer (1 article) - Qeios
-
-    '
-  date_display: Jan 2026
-  h4: Manuscript reviews
   bullets:
-  - Reviewer (1 manuscript) - <i>Discover Artificial Intelligence, Springer Nature</i>
-  - Reviewer (1 manuscript) - <i>Computing, Springer Nature</i>
-  - Reviewer (1 manuscript) - <i>Discover Education, Springer Nature</i>
-  - Reviewer (1 manuscript) - <i>Archives of Dermatological Research, Springer Nature</i>
-  - Reviewer (1 article) - <i><a href='https://www.qeios.com/profile/105985'>Qeios</a></i>
+  - Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature
+  - Reviewer (1 manuscript) - Computing, Springer Nature
+  - Reviewer (1 manuscript) - Discover Education, Springer Nature
+  - Reviewer (1 manuscript) - Archives of Dermatological Research, Springer Nature
+  - Reviewer (1 article) - Qeios
   domains:
   - Education
   - LLMs
@@ -4484,41 +4458,25 @@ extracurriculars:
   technologies:
   - Microsoft Word
 - id: extra/review-dec-2025
-  title: Manuscript Reviewer
-  organization: Discover Artificial Intelligence, Springer Nature
+  title: Manuscript reviews
   date: 2025-12
   type: scholarly
-  description: Reviewer (2 manuscripts) - Discover Artificial Intelligence, Springer Nature
-  date_display: Dec 2025
-  h4: Manuscript reviews
   bullets:
-  - Reviewer (2 manuscripts) - <i>Discover Artificial Intelligence, Springer Nature</i>
+  - Reviewer (2 manuscripts) - Discover Artificial Intelligence, Springer Nature
   domains:
   - LLMs
   - Scientific Writing
   technologies:
   - Microsoft Word
 - id: extra/review-nov-2025
-  title: Manuscript Reviewer
-  organization: Multiple journals
+  title: Manuscript reviews
   date: 2025-11
   type: scholarly
-  description: 'Reviewer (1 manuscript) - Journal of Visualized Experiments (JoVE);
-
-    Reviewer (2 manuscripts) - Discover Education, Springer Nature;
-
-    Reviewer (5 manuscripts) - Discover Artificial Intelligence, Springer Nature;
-
-    Reviewer (2 manuscripts) - Computing, Springer Nature
-
-    '
-  date_display: Nov 2025
-  h4: Manuscript reviews
   bullets:
-  - Reviewer (1 manuscript) - <i>Journal of Visualized Experiments (JoVE)</i>
-  - Reviewer (2 manuscripts) - <i>Discover Education, Springer Nature</i>
-  - Reviewer (5 manuscripts) - <i>Discover Artificial Intelligence, Springer Nature</i>
-  - Reviewer (2 manuscripts) - <i>Computing, Springer Nature</i>
+  - Reviewer (1 manuscript) - Journal of Visualized Experiments (JoVE)
+  - Reviewer (2 manuscripts) - Discover Education, Springer Nature
+  - Reviewer (5 manuscripts) - Discover Artificial Intelligence, Springer Nature
+  - Reviewer (2 manuscripts) - Computing, Springer Nature
   domains:
   - Education
   - LLMs
@@ -4528,56 +4486,41 @@ extracurriculars:
 - id: extra/comptia-study-guide
   title: Creator - CompTIA Security+ SYS-701 Study Guide Dump
   organization: GitHub
+  url: https://github.com/PR0CK0/CompTIA-Security-Study-Guides
   date: 2025-11
   type: scholarly
-  description: Created and published a CompTIA Security+ study guide on GitHub
-  date_display: Nov 2025
-  h4: Creator - <i><a href='https://github.com/PR0CK0/CompTIA-Security-Study-Guides'>CompTIA Security+ SYS-701 Study 
-    Guide Dump</a></i>
   domains:
   - Cybersecurity
   - Education
 - id: extra/review-jan-2025
-  title: Manuscript Reviewer
-  organization: IEEE / Springer Nature
+  title: Manuscript reviews
   date: 2025-01
   type: scholarly
-  description: 'Reviewer (1 manuscript) - Wireless Communications Magazine, IEEE;
-
-    Reviewer (2 manuscripts) - Discover Computing, Springer Nature
-
-    '
-  date_display: Jan 2025
-  h4: Manuscript reviews
   bullets:
-  - Reviewer (1 manuscript) - <i>Wireless Communications Magazine, IEEE</i>
-  - Reviewer (2 manuscripts) - <i>Discover Computing, Springer Nature</i>
+  - Reviewer (1 manuscript) - Wireless Communications Magazine, IEEE
+  - Reviewer (2 manuscripts) - Discover Computing, Springer Nature
   domains:
   - Networking
   - Scientific Writing
   technologies:
   - Microsoft Word
 - id: extra/review-nov-2024
-  title: Manuscript Reviewer
-  organization: Discover Artificial Intelligence, Springer Nature
+  title: Manuscript reviews
   date: 2024-11
   type: scholarly
-  description: Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature
-  date_display: Nov 2024
-  h4: Reviewer (1 manuscript) - <i>Discover Artificial Intelligence, Springer Nature</i>
+  bullets:
+  - Reviewer (1 manuscript) - Discover Artificial Intelligence, Springer Nature
   domains:
   - LLMs
   - Scientific Writing
   technologies:
   - Microsoft Word
 - id: extra/review-fie-2024
-  title: Manuscript Reviewer
-  organization: 2024 IEEE ASEE Frontiers in Education (FIE)
+  title: Manuscript reviews
   date: 2024-03
   type: scholarly
-  description: Reviewer (4 manuscripts)
-  date_display: Mar 2024
-  h4: Reviewer (4 manuscripts) - <i>2024 IEEE ASEE Frontiers in Education (FIE)</i>
+  bullets:
+  - Reviewer (4 manuscripts) - 2024 IEEE ASEE Frontiers in Education (FIE)
   domains:
   - Education
   - Scientific Writing
@@ -4586,11 +4529,9 @@ extracurriculars:
 - id: extra/swebok-v4-review
   title: SWEBOK v4 Public Review Participant
   organization: IEEE Computer Society
+  url: https://www.computer.org/education/bodies-of-knowledge/software-engineering/v4
   date: 2024-01
   type: scholarly
-  date_display: Jan 2024
-  h4: Participated in public review of the <a 
-    href='https://www.computer.org/education/bodies-of-knowledge/software-engineering/v4'>SWEBOK v4 guide</a>
   domains:
   - Requirements Engineering
   - SDLC
@@ -4598,20 +4539,18 @@ extracurriculars:
 - id: extra/dair-prompt-engineering
   title: Contributor to the DAIR Prompt Engineering Guide
   organization: DAIR / GitHub
+  url: https://github.com/dair-ai/Prompt-Engineering-Guide
   date: 2023-05
   type: scholarly
-  date_display: May 2023
-  h4: Contributor to the <a href='https://github.com/monarch-initiative/ontogpt'>DAIR Prompt Engineering Guide</a>
   domains:
   - LLMs
   - Prompt Engineering
 - id: extra/ontogpt-contributor
   title: Contributor to OntoGPT GitHub
   organization: Monarch Initiative / GitHub
+  url: https://github.com/monarch-initiative/ontogpt
   date: 2023-05
   type: scholarly
-  date_display: May 2023
-  h4: Contributor to the <a href='https://github.com/dair-ai/Prompt-Engineering-Guide'>OntoGPT</a> Github
   domains:
   - LLMs
   - NLP
@@ -4621,21 +4560,18 @@ extracurriculars:
 - id: extra/huge-ai-models-contributor
   title: Contributor to Huge AI Models GitHub
   organization: GitHub
+  url: https://github.com/zhengzangw/awesome-huge-models
   date: 2023-04
   type: scholarly
-  date_display: Apr 2023
-  h4: Contributor to the <a href='https://github.com/zhengzangw/awesome-huge-models'>Huge AI Models</a> Github
   domains:
   - LLMs
   - Machine Learning
 - id: extra/review-fie-2023
-  title: Manuscript Reviewer
-  organization: 2023 IEEE ASEE Frontiers in Education (FIE)
+  title: Manuscript reviews
   date: 2023-03
   type: scholarly
-  description: Reviewer (2 manuscripts)
-  date_display: Mar 2023
-  h4: Reviewer (2 manuscripts) - <i>2023 IEEE ASEE Frontiers in Education (FIE)</i>
+  bullets:
+  - Reviewer (2 manuscripts) - 2023 IEEE ASEE Frontiers in Education (FIE)
   domains:
   - Education
   - Scientific Writing
@@ -4646,8 +4582,6 @@ extracurriculars:
   organization: Vajjala et al. (O'Reilly)
   date: 2022-11
   type: scholarly
-  date_display: Nov 2022
-  h4: 'Contributor to <i>Practical Natural Language Processing</i> (Vajalla et al.) errata '
   domains:
   - NLP
 - id: extra/cco-contributor
@@ -4655,10 +4589,6 @@ extracurriculars:
   organization: Common Core Ontologies GitHub
   date: 2022-07
   type: scholarly
-  description: Provided clarification of term definitions and term spelling in the official Common Core Ontologies 
-    Github repository
-  date_display: July 2022
-  h4: Contributor to the Common Core Ontologies
   bullets:
   - Provided clarification of term definitions and term spelling in the official Common Core Ontologies Github 
     repository
@@ -4671,20 +4601,15 @@ extracurriculars:
   title: Contributor to the Semantalytics Awesome Semantic Web list
   date: 2022-07
   type: scholarly
-  date_display: July 2022
-  h4: Contributor to the Semantalytics Awesome Semantic Web list
   domains:
   - Knowledge Representation
   - Semantic Web
 - id: extra/awesome-bfo
   title: Created summarized list of BFO and BFO-related resources
   organization: GitHub
+  url: https://github.com/PR0CK0/awesome-bfo
   date: 2022-06
   type: scholarly
-  description: Created a summarized list of BFO and BFO-related resources for other researchers
-  date_display: June 2022
-  h4: Created a summarized list of <a href='https://github.com/PR0CK0/awesome-bfo'>BFO and BFO-related resources</a> for
-    other researchers
   domains:
   - Knowledge Representation
   - Ontology
@@ -4698,8 +4623,6 @@ extracurriculars:
   is_current: true
   type: organization
   role: Member
-  date_display: Sep 2023 - Present
-  h4: IEEE - Member (#98174383)
 - id: extra/asee-member
   title: American Society for Engineering Education Member
   organization: American Society for Engineering Education
@@ -4708,8 +4631,6 @@ extracurriculars:
   is_current: true
   type: organization
   role: Member
-  date_display: Dec 2021 - Present
-  h4: American Society for Engineering Education - Member
   domains:
   - Education
 - id: extra/whecs
@@ -4720,13 +4641,9 @@ extracurriculars:
   end_date: 2020-01
   type: organization
   role: Member
-  description: Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book. 
-    Engaged in several hands-on activities dealing with hacking.
   technologies:
   - Kali Linux
   - RedHat
-  date_display: Jan 2019 - Jan 2020
-  h4: White Hat Eagles Cybersecurity Club (WHECS) - Member
   bullets:
   - Learned the principles of cybersecurity through weekly lectures taught from the CompTIA Security+ book
   - Engaged in several hands-on activities dealing with hacking
@@ -4740,9 +4657,6 @@ extracurriculars:
   end_date: 2019-01
   type: organization
   role: Member
-  description: Worked with genetic algorithms in a variety of scenarios
-  date_display: Aug 2018 - Jan 2019
-  h4: Embry-Riddle Artificial Intelligence Club - Member
   bullets:
   - Worked with genetic algorithms in a variety of scenarios
   domains:
@@ -4755,10 +4669,6 @@ extracurriculars:
   end_date: 2025-09
   type: volunteer
   role: Volunteer
-  description: Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for
-    an in-person audience of ~100 and a livestream audience of ~10
-  date_display: Nov 2023 - Sep 2025
-  h4: Audio/Visual Technician, <i>River Road Baptist Church, Hilliard, FL</i>
   bullets:
   - Ensured A/V quality for worship and sermon services using ProPresenter, vMix, StageMix and MonitorMix for an
     in-person audience of ~100 and a livestream audience of ~10
@@ -4773,10 +4683,6 @@ extracurriculars:
   is_current: true
   type: volunteer
   role: Volunteer
-  description: Assisted personal contacts with computer construction and setup. Resolved computer, network, software and
-    peripheral issues.
-  date_display: Jan 2014 - Present
-  h4: Personal Computer Construction Consultant, <i>Remote/In-Person</i>
   bullets:
   - Assisted personal contacts with computer construction and computer setup
   - Resolved computer, network, software and peripheral issues
@@ -4789,32 +4695,21 @@ extracurriculars:
   title: All-rounder Volunteer
   organization: Nassau County Public Library
   type: volunteer
-  description: Labeling and returning books, assisting customers; periodic maintenance of the library database software.
-    50+ hours.
-  date_display: Pre-2016 - 50+ hours
-  h4: All-rounder, <i>Nassau County Public Library</i>
   bullets:
-  - Labeling and returning books, assisting customers; periodic maintenance of the library database software
+  - Labeling and returning books, assisting customers; periodic maintenance of the library database software. 50+ hours.
 - id: extra/shrimp-fest
   title: Shrimp Fest Worker
   organization: Prince of Peace Lutheran Church
   type: volunteer
-  description: Preparing food, cashiering and assisting customers. 100+ hours.
-  date_display: Pre-2016 - 100+ hours
-  h4: Shrimp Fest Worker, <i>Prince of Peace Lutheran Church</i>
   bullets:
-  - Preparing food, cashiering and assisting customers
+  - Preparing food, cashiering and assisting customers. 100+ hours.
 - id: extra/hoby
   title: Class Ambassador
   organization: Hugh O'Brian Youth Leadership Program
   type: volunteer
-  description: Selected as one out of 200+ students to represent high school in a leadership summit. Learned effective 
-    interpersonal relational, communication and leadership skills. 10+ hours.
-  date_display: Pre-2016 - 10+ hours
-  h4: Class Ambassador, <i>Hugh O'Brian Youth Leadership Program</i>
   bullets:
   - Selected as one out of 200+ students to represent my high-school in a leadership summit
-  - Learned effective interpersonal relational, communication and leadership skills
+  - Learned effective interpersonal relational, communication and leadership skills. 10+ hours.
 books_read:
 - A Knowledge Representation Practionary — Michael K. Bergman (WIP, started Feb 2023)
 - An Enquiry Concerning Human Understanding — David Hume (Sep 2022)

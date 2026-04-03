@@ -425,12 +425,16 @@ export function buildCVData(person: Person, buildDate: string): CVData {
         : fmtSingleDate(e.date)
 
     const makeEntries = (items: typeof extras): CVEntry[] =>
-      items.map(e => ({
-        title: e.title,
-        titleSuffix: e.organization,
-        date: extraDate(e),
-        bullets: e.bullets,
-      }))
+      items.map(e => {
+        const isReview = e.title === 'Manuscript reviews'
+        return {
+          title: e.title,
+          titleUrl: !isReview && e.url ? e.url : undefined,
+          titleSuffix: !isReview && e.organization ? e.organization : undefined,
+          date: extraDate(e),
+          bullets: e.bullets,
+        }
+      })
 
     const scholarly = extras.filter((e: any) => e.type === 'scholarly')
     const orgs      = extras.filter((e: any) => e.type === 'organization')

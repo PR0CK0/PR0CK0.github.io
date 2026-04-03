@@ -159,6 +159,8 @@ export const ExtracurricularSchema = z.object({
   organization: z.string().optional(),
   role: z.string().optional(),
   description: z.string().optional(),
+  url: z.string().optional(),
+  type: z.string().optional(),
   date: z.string().optional(),
   start_date: z.string().optional(),
   end_date: z.string().optional(),

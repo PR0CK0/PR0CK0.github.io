@@ -56,8 +56,8 @@ const S = StyleSheet.create({
   subsectionHeader: { fontSize: 10.5, fontWeight: 'bold', color: '#1a3a6b', marginTop: 5, marginBottom: 2, textDecoration: 'underline' },
   subsectionDesc: { fontSize: 8, color: '#555', fontStyle: 'italic', marginBottom: 3, lineHeight: 1.4 },
   row: { flexDirection: 'row' as const, marginBottom: 5 },
-  contentCol: { flex: 86, paddingRight: 6 },
-  dateCol: { flex: 14, alignItems: 'flex-end' as const },
+  contentCol: { flex: 82, paddingRight: 6 },
+  dateCol: { flex: 18, alignItems: 'flex-end' as const },
   entryTitle: { fontWeight: 'bold', fontSize: 9, color: '#111' },
   titleSuffix: { fontWeight: 'normal', fontStyle: 'italic', color: '#3d6ba8', fontSize: 9 },
   date: { fontSize: 8, color: '#555', fontStyle: 'italic', textAlign: 'right' as const },
@@ -182,6 +182,12 @@ function CVPdfDocument({ data }: { data: CVData }) {
                       <Text style={S.entryTitle}>
                         {entry.titleUrl ? <Link src={entry.titleUrl} style={{ color: '#111', textDecoration: 'none' }}>{entry.title}</Link> : entry.title}
                         {entry.titleSuffix && <Text style={S.titleSuffix}>{` – ${entry.titleSuffix}`}</Text>}
+                        {entry.titleLinks?.map((tl, tli) => (
+                          <Text key={tli} style={{ fontWeight: 'normal' }}>
+                            <Text style={S.titleLinkSep}>{tli === 0 ? '  ' : ' · '}</Text>
+                            <Link src={tl.url} style={S.titleLink}>{tl.label}</Link>
+                          </Text>
+                        ))}
                       </Text>
                       {entry.subtitle && (
                         <Text style={S.subtitle}>
@@ -306,8 +312,8 @@ const HS = {
   sep: { fontSize: '8.5px', color: '#999' } as React.CSSProperties,
   sectionHeader: { fontSize: '12px', fontWeight: 700, color: '#1a3a6b', marginTop: '8px', marginBottom: '3px', paddingBottom: '1px', borderBottom: '0.75px solid #1a3a6b', textTransform: 'uppercase' as const, letterSpacing: '0.02em' } as React.CSSProperties,
   row: { display: 'flex', gap: '6px', marginBottom: '5px' } as React.CSSProperties,
-  contentCol: { flex: '86 1 0%' } as React.CSSProperties,
-  dateCol: { flex: '14 0 0%', textAlign: 'right' as const } as React.CSSProperties,
+  contentCol: { flex: '82 1 0%' } as React.CSSProperties,
+  dateCol: { flex: '18 0 0%', textAlign: 'right' as const } as React.CSSProperties,
   entryTitle: { fontWeight: 700, fontSize: '9px', color: '#111' } as React.CSSProperties,
   titleSuffix: { fontWeight: 400, fontStyle: 'italic', color: '#3d6ba8', fontSize: '9px' } as React.CSSProperties,
   date: { fontSize: '8px', color: '#555', fontStyle: 'italic', whiteSpace: 'pre-line' } as React.CSSProperties,
@@ -426,6 +432,12 @@ function CVHtmlPreview({ data }: { data: CVData }) {
                         ? <a href={entry.titleUrl} target="_blank" rel="noopener noreferrer" style={{ ...HS.entryTitle, color: '#1a6bbf', textDecoration: 'none' }}>{entry.title}</a>
                         : <span style={HS.entryTitle}>{entry.title}</span>}
                       {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
+                      {entry.titleLinks?.map((tl, tli) => (
+                        <span key={tli}>
+                          <span style={HS.titleLinkSep}>{tli === 0 ? '\u00A0\u00A0' : ' · '}</span>
+                          <a href={tl.url} target="_blank" rel="noopener noreferrer" style={HS.titleLink}>{tl.label}</a>
+                        </span>
+                      ))}
                     </div>
                     {entry.subtitle && (
                       <div style={HS.subtitle}>
