@@ -3207,6 +3207,21 @@ projects:
   - HCI
   - UX
   url: https://crates.io/crates/quizzical
+- id: proj/ai-config
+  title: ai config
+  year: 2026-04
+  repo_url: https://github.com/PR0CK0/ai-config
+  description: Agent config for ontology-driven LLM development. One source, minimal surface, secure by default.
+  technologies:
+  - Bash
+  - JavaScript
+  - OWL
+  - RDF
+  - SPARQL
+  domains:
+  - Knowledge Graphs
+  - LLMs
+  - Ontology
 skills:
 - id: skill/java
   name: Java
@@ -4339,8 +4354,7 @@ favorite_show: The Sopranos
 citations:
 - date: Feb 2025
   description: Cited by a BlackRock + NVIDIA paper
-  url: 
-    https://dl.acm.org/doi/abs/10.1145/3677052.3698671
+  url: https://dl.acm.org/doi/abs/10.1145/3677052.3698671
 past_clearances:
 - date_range: May 2023 - Nov 2023
   level: Confidential
