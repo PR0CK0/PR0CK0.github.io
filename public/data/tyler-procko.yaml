@@ -147,6 +147,7 @@ work_experiences:
   - Codex
   - Mixture of Agents
   - Streamlit
+  - XML
   - BFO
   - CCO
   - OCSF
@@ -213,6 +214,7 @@ work_experiences:
   - Python
   - Claude
   - Codex
+  - XML
   - Gemini
   - Protégé
   - RDF
@@ -444,6 +446,7 @@ work_experiences:
   technologies:
   - DL-Learner
   - Python
+  - XML
   - RDF
   - RDFS
   - OWL
@@ -509,6 +512,7 @@ work_experiences:
   technologies:
   - Python
   - Java
+  - XML
   - RDF
   - RDFS
   - OWL
@@ -700,6 +704,7 @@ work_experiences:
   end_date: 2024-04
   technologies:
   - Python
+  - XML
   - GPT
   - OpenAI
   - Protégé
@@ -1060,6 +1065,7 @@ work_experiences:
   end_date: 2023-05
   technologies:
   - Python
+  - XML
   - OWL
   - Turtle
   - RDF
@@ -2898,6 +2904,7 @@ projects:
   repo_url: https://github.com/PR0CK0/knowyourmeme.com-Crawler
   technologies:
   - Python
+  - XML
   - CSS
   - GitHub
   - HTML
@@ -4458,6 +4465,7 @@ courses:
   name: Computer Science II (Java)
   technologies:
   - Java
+  - XML
   - CSV
   - JSON
   - GitHub
@@ -4561,6 +4569,7 @@ courses:
   name: Files and Database Systems
   technologies:
   - Java
+  - XML
   - Eclipse
   - JDBC
   - JavaFX
