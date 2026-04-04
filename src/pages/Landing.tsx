@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 import { loadPortfolioData } from '@/lib/yaml-loader'
-import { TECH_CATEGORIES, SKILL_CATEGORY_LABELS, type SkillCategory } from '@/lib/tech-categories'
+import { COMPETENCY_CATEGORIES, COMPETENCY_CATEGORY_LABELS, type CompetencyCategory } from '@/lib/tech-categories'
 import { TAG_CHIP, CARD_BASE, SECTION_CONTAINER, TAG_CONTAINER, META_TEXT } from '@/lib/ui-constants'
 import type { Person, Publication, Project } from '@/lib/schema'
 
@@ -34,7 +34,7 @@ function buildStats(pubCount: number, projCount: number) {
 type Stat = ReturnType<typeof buildStats>[number]
 
 // ─── Category meta ─────────────────────────────────────────────────────────
-const CATEGORY_STYLE: Record<SkillCategory, { color: string; chipClass: string }> = {
+const CATEGORY_STYLE: Record<CompetencyCategory, { color: string; chipClass: string }> = {
   prog_languages: { color: 'text-terminal-green',  chipClass: 'border border-terminal-green/30 text-terminal-green bg-terminal-green/5 hover:bg-terminal-green/15 hover:border-terminal-green/60' },
   data_languages: { color: 'text-emerald-400',     chipClass: 'border border-emerald-400/30 text-emerald-400 bg-emerald-400/5 hover:bg-emerald-400/15 hover:border-emerald-400/60' },
   libraries:      { color: 'text-terminal-blue',   chipClass: 'border border-terminal-blue/30 text-terminal-blue bg-terminal-blue/5 hover:bg-terminal-blue/15 hover:border-terminal-blue/60' },
@@ -51,11 +51,11 @@ const CATEGORY_STYLE: Record<SkillCategory, { color: string; chipClass: string }
   domains:        { color: 'text-indigo-400',      chipClass: 'border border-indigo-400/30 text-indigo-400 bg-indigo-400/5 hover:bg-indigo-400/15 hover:border-indigo-400/60' },
 }
 
-const CATEGORY_META: Record<SkillCategory, { label: string; color: string; chipClass: string }> = Object.fromEntries(
-  (Object.keys(CATEGORY_STYLE) as SkillCategory[]).map(k => [k, { label: SKILL_CATEGORY_LABELS[k], ...CATEGORY_STYLE[k] }])
-) as Record<SkillCategory, { label: string; color: string; chipClass: string }>
+const CATEGORY_META: Record<CompetencyCategory, { label: string; color: string; chipClass: string }> = Object.fromEntries(
+  (Object.keys(CATEGORY_STYLE) as CompetencyCategory[]).map(k => [k, { label: COMPETENCY_CATEGORY_LABELS[k], ...CATEGORY_STYLE[k] }])
+) as Record<CompetencyCategory, { label: string; color: string; chipClass: string }>
 
-const SHOWN_CATEGORIES: SkillCategory[] = [
+const SHOWN_CATEGORIES: CompetencyCategory[] = [
   'prog_languages', 'data_languages', 'libraries', 'dev_tools', 'office_tools', 'comm_tools',
   'ai_tools', 'vocabularies', 'cloud', 'os', 'design', 'soft_skills', 'personal', 'domains',
 ]
@@ -622,12 +622,12 @@ function StatsBar({ stats }: { stats: Stat[] }) {
 
 // ─── Skills Matrix ─────────────────────────────────────────────────────────
 
-type AggregatedSkill = { name: string; count: number; category: SkillCategory }
+type AggregatedSkill = { name: string; count: number; category: CompetencyCategory }
 
 function aggregateSkills(person: Person): AggregatedSkill[] {
-  const skillMap = new Map<string, { count: number; category: SkillCategory }>()
+  const skillMap = new Map<string, { count: number; category: CompetencyCategory }>()
 
-  const add = (name: string, category: SkillCategory) => {
+  const add = (name: string, category: CompetencyCategory) => {
     const e = skillMap.get(name)
     if (e) e.count++
     else skillMap.set(name, { count: 1, category })
@@ -650,7 +650,7 @@ function aggregateSkills(person: Person): AggregatedSkill[] {
 
   for (const e of entities) {
     for (const t of e.technologies ?? []) {
-      const cat = TECH_CATEGORIES[t]
+      const cat = COMPETENCY_CATEGORIES[t]
       if (cat) add(t, cat)
     }
     for (const d of e.domains ?? [])        add(d, 'domains')
@@ -836,8 +836,8 @@ function SkillsMatrix({ person }: { person: Person }) {
       }}
     >
       <SectionHeader
-        prompt="cat skills.json"
-        title="Skills Matrix"
+        prompt="cat competencies.json"
+        title="Competencies"
         accent="purple"
       />
 

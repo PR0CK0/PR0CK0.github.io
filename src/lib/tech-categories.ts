@@ -5,7 +5,7 @@
  * Category keys match the SkillSchema category enum in schema.ts.
  */
 
-export type SkillCategory =
+export type CompetencyCategory =
   | 'prog_languages'
   | 'data_languages'
   | 'libraries'
@@ -21,8 +21,8 @@ export type SkillCategory =
   | 'personal'
   | 'domains'
 
-/** Single source of truth for human-readable skill category labels. */
-export const SKILL_CATEGORY_LABELS: Record<SkillCategory, string> = {
+/** Single source of truth for human-readable competency category labels. */
+export const COMPETENCY_CATEGORY_LABELS: Record<CompetencyCategory, string> = {
   prog_languages: 'Programming Languages',
   data_languages: 'Data Languages',
   libraries:      'Libraries & Frameworks',
@@ -39,7 +39,7 @@ export const SKILL_CATEGORY_LABELS: Record<SkillCategory, string> = {
   domains:        'Research Domains',
 }
 
-export const TECH_CATEGORIES: Record<string, SkillCategory> = {
+export const COMPETENCY_CATEGORIES: Record<string, CompetencyCategory> = {
   // ── Programming Languages ──────────────────────────────────────────────────
   Java:           'prog_languages',
   Python:         'prog_languages',

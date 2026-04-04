@@ -1,11 +1,11 @@
 import type { Person } from './schema'
-import { TECH_CATEGORIES } from './tech-categories'
+import { COMPETENCY_CATEGORIES } from './tech-categories'
 
 export interface CyNode {
   data: {
     id: string
     label: string
-    type: 'person' | 'education' | 'work' | 'publication' | 'project' | 'skill' | 'domain' | 'soft_skill' | 'award' | 'certificate' | 'talk' | 'course' | 'associate'
+    type: 'person' | 'education' | 'work' | 'publication' | 'project' | 'skill' | 'domain' | 'soft_skill' | 'personal_skill' | 'award' | 'certificate' | 'talk' | 'course' | 'associate'
     subtitle?: string
     detail?: string
     year?: string
@@ -42,6 +42,10 @@ function domainId(domain: string) {
 
 function softSkillId(skill: string) {
   return `softskill-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
+}
+
+function personalSkillId(skill: string) {
+  return `personalskill-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
 }
 
 function courseId(number: string) {
@@ -98,6 +102,16 @@ export function buildGraph(person: Person): GraphData {
     })
   }
 
+  // Connect an entity to each of its personal skill nodes
+  function linkPersonalSkills(entityId: string, skills: string[] | undefined) {
+    skills?.forEach((s) => {
+      const psid = personalSkillId(s)
+      if (addedNodeIds.has(psid)) {
+        addEdge({ data: { id: `e-${entityId}-${psid}`, source: entityId, target: psid, type: 'personalskill-usage' } })
+      }
+    })
+  }
+
   // ─── Person ─────────────────────────────────────────────────────────────────
   const personId = person.id
   addNode({ data: { id: personId, label: person.name, type: 'person', subtitle: person.title } })
@@ -110,7 +124,17 @@ export function buildGraph(person: Person): GraphData {
     ...(person.talks ?? []),
     ...(person.certificates ?? []),
     ...(person.extracurriculars ?? []),
-  ] as Array<{ technologies?: string[]; domains?: string[]; soft_skills?: string[] }>
+  ] as Array<{ technologies?: string[]; domains?: string[]; soft_skills?: string[]; personal_skills?: string[] }>
+
+  // ─── Personal skill nodes — aggregated from all entity sources ───────────────
+  const allPersonalSkills = new Set([
+    ...(person.work_experiences ?? []).flatMap(e => e.personal_skills ?? []),
+    ...(person.projects ?? []).flatMap(e => e.personal_skills ?? []),
+    ...(person.extracurriculars ?? []).flatMap(e => e.personal_skills ?? []),
+  ])
+  allPersonalSkills.forEach((s) => {
+    addNode({ data: { id: personalSkillId(s), label: s, type: 'personal_skill' } })
+  })
 
   // ─── Skill nodes — aggregated from all entity sources ───────────────────────
   const allTechs = new Set(allSections.flatMap((e) => e.technologies ?? []))
@@ -120,7 +144,7 @@ export function buildGraph(person: Person): GraphData {
         id: techId(tech),
         label: tech,
         type: 'skill',
-        category: TECH_CATEGORIES[tech],
+        category: COMPETENCY_CATEGORIES[tech],
       },
     })
   })
@@ -166,6 +190,7 @@ export function buildGraph(person: Person): GraphData {
     linkTechs(work.id, work.technologies)
     linkDomains(work.id, work.domains)
     linkSoftSkills(work.id, work.soft_skills)
+    linkPersonalSkills(work.id, work.personal_skills)
   })
 
   // ─── Publications ────────────────────────────────────────────────────────────
@@ -204,6 +229,7 @@ export function buildGraph(person: Person): GraphData {
     linkTechs(proj.id, proj.technologies)
     linkDomains(proj.id, proj.domains)
     linkSoftSkills(proj.id, proj.soft_skills)
+    linkPersonalSkills(proj.id, proj.personal_skills)
   })
 
   // ─── Courses ─────────────────────────────────────────────────────────────────
@@ -274,6 +300,7 @@ export function buildGraph(person: Person): GraphData {
     addEdge({ data: { id: `e-${personId}-${extra.id}`, source: personId, target: extra.id, label: 'contributed' } })
     linkTechs(extra.id, extra.technologies)
     linkDomains(extra.id, extra.domains)
+    linkPersonalSkills(extra.id, extra.personal_skills)
   })
 
   // ─── Associates ───────────────────────────────────────────────────────────

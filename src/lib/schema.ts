@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { SKILL_CATEGORY_LABELS } from './tech-categories'
+import { COMPETENCY_CATEGORY_LABELS } from './tech-categories'
 
 export const SocialLinkSchema = z.object({
   id: z.string(),
@@ -84,7 +84,7 @@ export const ProjectSchema = z.object({
   cv_exclude: z.boolean().optional(),
 })
 
-const skillCategories = Object.keys(SKILL_CATEGORY_LABELS) as [string, ...string[]]
+const skillCategories = Object.keys(COMPETENCY_CATEGORY_LABELS) as [string, ...string[]]
 
 export const SkillSchema = z.object({
   id: z.string(),

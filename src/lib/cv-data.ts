@@ -1,5 +1,5 @@
 import type { Person, Skill } from '@/lib/schema'
-import { TECH_CATEGORIES, SKILL_CATEGORY_LABELS } from '@/lib/tech-categories'
+import { COMPETENCY_CATEGORIES, COMPETENCY_CATEGORY_LABELS } from '@/lib/tech-categories'
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────
 
@@ -129,7 +129,7 @@ export function fmtSingleDate(d?: string | null): string {
 // CV/Resume shows a subset of categories (os, personal, domains excluded)
 const CV_EXCLUDED_CATEGORIES = new Set(['os', 'personal', 'domains'])
 const SKILL_LABEL_MAP: Record<string, string> = Object.fromEntries(
-  Object.entries(SKILL_CATEGORY_LABELS).filter(([k]) => !CV_EXCLUDED_CATEGORIES.has(k))
+  Object.entries(COMPETENCY_CATEGORY_LABELS).filter(([k]) => !CV_EXCLUDED_CATEGORIES.has(k))
 )
 
 /** Count technology occurrences across all entities — mirrors the landing page skill chip logic. */
@@ -155,7 +155,7 @@ export function countTechOccurrences(person: Person): Map<string, number> {
  */
 export function groupSkills(_skills: Skill[], occurrences: Map<string, number>): Record<string, string[]> {
   const groups: Record<string, string[]> = {}
-  for (const [tech, category] of Object.entries(TECH_CATEGORIES)) {
+  for (const [tech, category] of Object.entries(COMPETENCY_CATEGORIES)) {
     const label = SKILL_LABEL_MAP[category]
     if (!label) continue  // excludes os, soft_skills, personal, domains
     if (!groups[label]) groups[label] = []

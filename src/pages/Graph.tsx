@@ -21,6 +21,7 @@ type NodeType =
   | 'skill'
   | 'domain'
   | 'soft_skill'
+  | 'personal_skill'
   | 'award'
   | 'talk'
   | 'certificate'
@@ -59,12 +60,16 @@ const NODE_TYPES: NodeType[] = [
   'skill',
   'domain',
   'soft_skill',
+  'personal_skill',
   'award',
   'talk',
   'certificate',
   'course',
   'associate',
 ]
+
+// Competency sub-types grouped under "Competencies" in the filter UI
+const COMPETENCY_NODE_TYPES: NodeType[] = ['skill', 'domain', 'soft_skill', 'personal_skill']
 
 const TYPE_META: Record<
   NodeType,
@@ -75,9 +80,10 @@ const TYPE_META: Record<
   work:        { color: '#ffb300', label: 'Work',         shape: 'rectangle', size: 45 },
   publication: { color: '#b57bff', label: 'Publication',  shape: 'ellipse',   size: 35 },
   project:     { color: '#ff4d6d', label: 'Project',      shape: 'triangle',  size: 35 },
-  skill:       { color: '#00d4ff', label: 'Skill',        shape: 'ellipse',        size: 28 },
-  domain:      { color: '#f472b6', label: 'Domain',       shape: 'ellipse',        size: 24 },
-  soft_skill:  { color: '#a3e635', label: 'Soft Skill',   shape: 'roundrectangle', size: 24 },
+  skill:         { color: '#00d4ff', label: 'Tech Skill',     shape: 'ellipse',        size: 28 },
+  domain:        { color: '#f472b6', label: 'Domain',         shape: 'ellipse',        size: 24 },
+  soft_skill:    { color: '#a3e635', label: 'Soft Skill',     shape: 'roundrectangle', size: 24 },
+  personal_skill:{ color: '#e879f9', label: 'Personal Skill', shape: 'roundrectangle', size: 22 },
   award:       { color: '#ffd700', label: 'Award',        shape: 'star',           size: 35 },
   talk:        { color: '#ff8800', label: 'Talk',         shape: 'ellipse',   size: 30 },
   certificate: { color: '#aaaaaa', label: 'Certificate',  shape: 'ellipse',   size: 28 },
@@ -749,9 +755,9 @@ export default function Graph() {
             )
           })()}
         </div>
-        {/* On mobile: wrap in a horizontal scroll row; on desktop: vertical list */}
+        {/* On mobile: horizontal scroll row; on desktop: vertical list */}
         <div className="flex sm:flex-col gap-1.5 overflow-x-auto sm:overflow-x-visible pb-1 sm:pb-0" style={{ scrollbarWidth: 'none' }}>
-            {NODE_TYPES.map((type) => {
+          {NODE_TYPES.filter(t => !COMPETENCY_NODE_TYPES.includes(t)).map((type) => {
             const meta = TYPE_META[type]
             const enabled = enabledTypes.has(type)
             return (
@@ -760,18 +766,10 @@ export default function Graph() {
                 className="flex items-center gap-1.5 sm:gap-2 cursor-pointer select-none flex-shrink-0"
                 style={{ opacity: enabled ? 1 : 0.45 }}
               >
-                <input
-                  type="checkbox"
-                  checked={enabled}
-                  onChange={() => toggleType(type)}
-                  className="sr-only"
-                />
+                <input type="checkbox" checked={enabled} onChange={() => toggleType(type)} className="sr-only" />
                 <span
                   className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 rounded-sm border flex items-center justify-center transition-all"
-                  style={{
-                    borderColor: enabled ? meta.color : '#1e2d4a',
-                    backgroundColor: enabled ? meta.color + '33' : 'transparent',
-                  }}
+                  style={{ borderColor: enabled ? meta.color : '#1e2d4a', backgroundColor: enabled ? meta.color + '33' : 'transparent' }}
                 >
                   {enabled && (
                     <svg width="7" height="7" viewBox="0 0 8 8" fill="none">
@@ -780,9 +778,37 @@ export default function Graph() {
                   )}
                 </span>
                 <ShapeIcon type={type} />
-                <span className="text-[0.6rem] sm:text-xs whitespace-nowrap" style={{ color: '#c8d6f0' }}>
-                  {meta.label}
+                <span className="text-[0.6rem] sm:text-xs whitespace-nowrap" style={{ color: '#c8d6f0' }}>{meta.label}</span>
+              </label>
+            )
+          })}
+          {/* Competencies group separator */}
+          <span className="hidden sm:block text-[0.55rem] uppercase tracking-wider mt-1 mb-0 font-bold" style={{ color: '#4a5a7a' }}>
+            Competencies
+          </span>
+          <span className="sm:hidden text-[0.6rem] self-center flex-shrink-0 mx-0.5" style={{ color: '#4a5a7a' }}>│</span>
+          {COMPETENCY_NODE_TYPES.map((type) => {
+            const meta = TYPE_META[type]
+            const enabled = enabledTypes.has(type)
+            return (
+              <label
+                key={type}
+                className="flex items-center gap-1.5 sm:gap-2 cursor-pointer select-none flex-shrink-0 sm:pl-2"
+                style={{ opacity: enabled ? 1 : 0.45 }}
+              >
+                <input type="checkbox" checked={enabled} onChange={() => toggleType(type)} className="sr-only" />
+                <span
+                  className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 rounded-sm border flex items-center justify-center transition-all"
+                  style={{ borderColor: enabled ? meta.color : '#1e2d4a', backgroundColor: enabled ? meta.color + '33' : 'transparent' }}
+                >
+                  {enabled && (
+                    <svg width="7" height="7" viewBox="0 0 8 8" fill="none">
+                      <path d="M1 4L3 6L7 2" stroke={meta.color} strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                  )}
                 </span>
+                <ShapeIcon type={type} />
+                <span className="text-[0.6rem] sm:text-xs whitespace-nowrap" style={{ color: '#c8d6f0' }}>{meta.label}</span>
               </label>
             )
           })}
