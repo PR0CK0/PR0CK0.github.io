@@ -1,6 +1,6 @@
 """
 Validates that every technology, domain, soft_skill, and personal_skill value
-used across all YAML entries is recognised — either as a key in TECH_CATEGORIES
+used across all YAML entries is recognised — either as a key in COMPETENCY_CATEGORIES
 (src/lib/tech-categories.ts) or as a named skill in the YAML skills section.
 
 Exits 0 if everything is mapped; exits 1 and prints offending terms if not.
@@ -24,16 +24,16 @@ except ImportError:
 YAML_PATH       = Path("public/data/tyler-procko.yaml")
 TECH_CAT_PATH   = Path("src/lib/tech-categories.ts")
 
-# ── Parse TECH_CATEGORIES keys from TypeScript ────────────────────────────────
+# ── Parse COMPETENCY_CATEGORIES keys from TypeScript ────────────────────────────────
 
 def load_tech_category_keys() -> set[str]:
-    """Extract every key from TECH_CATEGORIES in tech-categories.ts."""
+    """Extract every key from COMPETENCY_CATEGORIES in tech-categories.ts."""
     src = TECH_CAT_PATH.read_text(encoding="utf-8")
-    # Match  'some key':  or  someKey:  inside the TECH_CATEGORIES block
+    # Match  'some key':  or  someKey:  inside the COMPETENCY_CATEGORIES block
     keys: set[str] = set()
     in_block = False
     for line in src.splitlines():
-        if "TECH_CATEGORIES" in line and "{" in line:
+        if "COMPETENCY_CATEGORIES" in line and "{" in line:
             in_block = True
         if in_block:
             if line.strip().startswith("}"):
@@ -98,7 +98,7 @@ def collect_terms(data: dict) -> dict[str, list[tuple[str, str]]]:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    # TECH_CATEGORIES is the single bounded vocabulary for all term types.
+    # COMPETENCY_CATEGORIES is the single bounded vocabulary for all term types.
     # technologies → any non-domain category
     # domains      → must map to 'domains'
     # soft_skills  → must map to 'soft_skills'
@@ -132,7 +132,7 @@ def main() -> None:
         for e in deduped:
             print(e)
         print(
-            "\nFix: add the term to TECH_CATEGORIES in src/lib/tech-categories.ts, "
+            "\nFix: add the term to COMPETENCY_CATEGORIES in src/lib/tech-categories.ts, "
             "or add a skill entry with the correct category to the YAML skills section."
         )
         sys.exit(1)
