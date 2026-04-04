@@ -2659,7 +2659,6 @@ projects:
   - AutoCAD LTE
   - Devise
   - Google SketchUp
-  - sqlite3
   - Skype
   - Zoom
   - Element
@@ -2935,7 +2934,6 @@ projects:
   - UX
   technologies:
   - Discord
-  personal_skills:
   - Adobe Photoshop
   description: Entry for Ludum Dare 44 game jam — "Your life is currency" theme.
 - id: proj/arocket
@@ -2947,6 +2945,8 @@ projects:
   - Visual Studio Code
   - Unity
   - Android
+  - Adobe Photoshop
+  - Adobe Illustrator
   date_display: Feb 2019
   members: 4 members
   domains:
@@ -2959,9 +2959,6 @@ projects:
   - AR
   soft_skills:
   - Public Speaking
-  personal_skills:
-  - Adobe Photoshop
-  - Adobe Illustrator
   description: Android augmented-reality rocket launch simulation built in Unity/C# — point your phone at the sky.
 - id: proj/vxworks-water-heater
   title: VxWorks C Water Heater Simulation
@@ -4720,6 +4717,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - SQA
   - Software Engineering
@@ -4731,6 +4729,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Software Engineering
 - number: HF325
@@ -4741,6 +4740,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - HCI
   - UX
@@ -4752,6 +4752,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - HCI
   - UX
@@ -4764,6 +4765,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Software Engineering
   - SDLC
@@ -4776,6 +4778,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Software Engineering
   - SDLC
@@ -4790,6 +4793,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Requirements Engineering
   - Software Engineering
@@ -4804,6 +4808,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Software Engineering
   - Agile
@@ -4812,15 +4817,15 @@ courses:
   technologies:
   - SQL
   - PostgreSQL
+  - sqlite3
   - JDBC
   - QGIS
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Geospatial
-  personal_skills:
-  - sqlite3
 - number: CS527
   name: System Exploitation and Penetration Testing
   technologies:
@@ -4832,6 +4837,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Cybersecurity
 - number: MA544
@@ -4844,6 +4850,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Data Visualization
 - number: CS532
@@ -4857,6 +4864,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Cybersecurity
 - number: SYS560
@@ -4865,6 +4873,7 @@ courses:
   - Draw.io
   - Microsoft Word
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Software Engineering
   - SDLC
@@ -4876,6 +4885,7 @@ courses:
   - Mockingbird
   - Microsoft Word
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Cognitive Science
   - HCI
@@ -4894,6 +4904,7 @@ courses:
   - Cython
   - MPI
   - spaCy
+  - Zoom
   domains:
   - Machine Learning
   - NLP
@@ -4906,6 +4917,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - HCI
   - UX
@@ -4919,6 +4931,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Software Engineering
 - number: EGR600
@@ -4929,6 +4942,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Education
   soft_skills:
@@ -4962,6 +4976,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Computer Vision
   - Cybersecurity
@@ -5002,6 +5017,7 @@ courses:
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
+  - Zoom
   domains:
   - Computer Vision
   - Cybersecurity

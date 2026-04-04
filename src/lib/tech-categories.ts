@@ -344,9 +344,9 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
 
   // ── Personal ────────────────────────────────────────────────────────────────
   Skype:                    'personal',
-  Zoom:                     'personal',
+  Zoom:                     'comm_tools',
   Element:                  'personal',
-  Session:                  'personal',
+  Session:                  'comm_tools',
   Telegram:                 'personal',
   'LibreOffice Writer':     'personal',
   'LibreOffice Calc':       'personal',
@@ -358,7 +358,7 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   'AutoCAD LTE':            'personal',
   'Google SketchUp':        'personal',
   Devise:                   'personal',
-  sqlite3:                  'personal',
+  sqlite3:                  'dev_tools',
 
   // ── Soft Skills ──────────────────────────────────────────────────────────────
   'Stakeholder Presentation':   'soft_skills',
