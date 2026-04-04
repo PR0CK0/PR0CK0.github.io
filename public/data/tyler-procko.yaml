@@ -496,7 +496,7 @@ work_experiences:
   location: Rome, NY · Hybrid · Remote
   start_date: 2019-05
   end_date: 2025-11
-  description:
+  bullets:
   - Conducted six years of sponsored research under the DoD SMART Scholarship program in ML provenance, knowledge graph 
     engineering, and ontology design for defense AI applications.
   - Engineered ML provenance capture for real-time autonomous systems pipelines, modeling data lineage with 
@@ -561,7 +561,7 @@ work_experiences:
   location: Remote
   start_date: 2023-01
   is_current: true
-  description:
+  bullets:
   - Delivered knowledge graph, ontology engineering, and agentic AI solutions for clients including [[Quiet 
     Professionals]] and [[WordLift SEO]], spanning defense intelligence, nuclear systems, construction, legal, media 
     analytics, and higher education domains.
@@ -2698,6 +2698,11 @@ projects:
   - LibreOffice Calc
   - LibreOffice Impress
   - LibreOffice Draw
+  - Ruby/Rails
+  - TriplyDB
+  - Kubernetes
+  - GoDaddy
+  - LucidChart
   cv_exclude: true
 - id: proj/cloudcell-consulting
   title: Linked Data Consultant and Scientific Writer
@@ -3370,10 +3375,6 @@ skills:
   name: TypeScript
   category: prog_languages
   years_experience: 1
-- id: skill/ruby
-  name: Ruby/Rails
-  category: personal
-  years_experience: 1
 - id: skill/r
   name: R
   category: prog_languages
@@ -3484,9 +3485,6 @@ skills:
 - id: skill/stardog
   name: Stardog
   category: dev_tools
-- id: skill/triplydb
-  name: TriplyDB
-  category: personal
 - id: skill/neo4j
   name: Neo4j
   category: dev_tools
@@ -3526,9 +3524,6 @@ skills:
 - id: skill/docker
   name: Docker
   category: dev_tools
-- id: skill/kubernetes
-  name: Kubernetes
-  category: personal
 - id: skill/kanban
   name: Kanban
   category: dev_tools
@@ -3544,9 +3539,6 @@ skills:
 - id: skill/heroku
   name: Heroku
   category: cloud
-- id: skill/godaddy
-  name: GoDaddy
-  category: personal
 - id: skill/rdf
   name: RDF
   category: data_languages
@@ -3656,9 +3648,6 @@ skills:
 - id: skill/drawio
   name: Draw.io
   category: design
-- id: skill/lucidchart
-  name: LucidChart
-  category: personal
 - id: skill/miro
   name: Miro
   category: design
