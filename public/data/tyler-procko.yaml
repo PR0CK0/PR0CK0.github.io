@@ -146,6 +146,7 @@ work_experiences:
   - Gemini
   - Codex
   - Mixture of Agents
+  - Streamlit
   - BFO
   - CCO
   - OCSF
@@ -826,6 +827,7 @@ work_experiences:
   - Protégé
   - Visual Studio Code
   - GraphDB
+  - MongoDB
   category: consulting
   date_display: May 2023
   title_line: 'Legal Ontology Consultant - '
@@ -1023,6 +1025,7 @@ work_experiences:
   - GraphDB
   - GitHub
   - PROV-O
+  - RDFa
   - Draw.io
   category: consulting
   date_display: Jan 2023 - Mar 2023
@@ -1222,6 +1225,7 @@ publications:
   - PyQt6
   - SPARQL
   - PROV-O
+  - RDFa
   - RDFLib
   - OWL
   - Turtle
@@ -2654,8 +2658,6 @@ projects:
   tagline: Personal creative and hobby projects spanning 3D modeling, photo/video editing, and game design.
   personal_skills:
   - Adobe After Effects
-  - Adobe Illustrator
-  - Adobe Photoshop
   - AutoCAD LTE
   - Devise
   - Google SketchUp
@@ -2796,6 +2798,7 @@ projects:
   technologies:
   - QGIS
   - SQL
+  - PostGIS
   - GIS
   - GitHub
   - Visual Studio Code
@@ -4816,6 +4819,7 @@ courses:
   - SQL
   - PostgreSQL
   - sqlite3
+  - PostGIS
   - JDBC
   - QGIS
   - Microsoft Word
@@ -4845,6 +4849,7 @@ courses:
   - Matplotlib
   - Plotly
   - NumPy
+  - RStudio
   - Microsoft Word
   - Microsoft Excel
   - Microsoft PowerPoint
