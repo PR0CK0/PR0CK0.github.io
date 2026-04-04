@@ -168,7 +168,7 @@ export function buildGraph(person: Person): GraphData {
   })
 
   // ─── Publications ────────────────────────────────────────────────────────────
-  person.publications?.slice(0, 20).forEach((pub) => {
+  person.publications?.forEach((pub) => {
     addNode({
       data: {
         id: pub.id,

@@ -3342,7 +3342,7 @@ skills:
   years_experience: 1
 - id: skill/ruby
   name: Ruby/Rails
-  category: prog_languages
+  category: personal
   years_experience: 1
 - id: skill/r
   name: R
@@ -3462,7 +3462,7 @@ skills:
   category: dev_tools
 - id: skill/triplydb
   name: TriplyDB
-  category: dev_tools
+  category: personal
 - id: skill/neo4j
   name: Neo4j
   category: dev_tools
@@ -3507,7 +3507,7 @@ skills:
   category: dev_tools
 - id: skill/kubernetes
   name: Kubernetes
-  category: dev_tools
+  category: personal
 - id: skill/trello
   name: Trello
   category: dev_tools
@@ -3528,7 +3528,7 @@ skills:
   category: cloud
 - id: skill/godaddy
   name: GoDaddy
-  category: cloud
+  category: personal
 - id: skill/rdf
   name: RDF
   category: data_languages
@@ -3658,7 +3658,7 @@ skills:
   category: design
 - id: skill/lucidchart
   name: LucidChart
-  category: design
+  category: personal
 - id: skill/miro
   name: Miro
   category: design
@@ -3694,10 +3694,10 @@ skills:
   name: Kali Linux
   category: os
 - id: skill/redhat
-  name: RedHat Linux
+  name: RedHat
   category: os
 - id: skill/android
-  name: Android OS
+  name: Android
   category: os
 - id: skill/xigmanas
   name: XigmaNAS
@@ -3706,24 +3706,16 @@ skills:
   name: VxWorks
   category: os
 - id: skill/agile
-  name: Agile / Scrum / Kanban
+  name: Agile
   category: soft_skills
   years_experience: 9
 - id: skill/technical-writing
-  name: Technical and Scientific Writing
+  name: Scientific Writing
   category: soft_skills
-  years_experience: 9
+  years_experience: 10
 - id: skill/stakeholder-presentation
-  name: Presenting to stakeholders (dozens/hundreds)
+  name: Stakeholder Presentation
   category: soft_skills
-- id: skill/ieee-manuscript
-  name: IEEE double-column manuscripts
-  category: soft_skills
-  years_experience: 10
-- id: skill/elsevier-manuscript
-  name: Elsevier-style single-column manuscripts
-  category: soft_skills
-  years_experience: 10
 awards:
 - id: award/ssrn-top-2-percent
   title: Top 2% Downloaded Author
