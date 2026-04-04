@@ -3208,7 +3208,7 @@ projects:
   - UX
   url: https://crates.io/crates/quizzical
 - id: proj/ai-config
-  title: ai config
+  title: AI Config
   year: 2026-04
   repo_url: https://github.com/PR0CK0/ai-config
   description: Agent config for ontology-driven LLM development. One source, minimal surface, secure by default.

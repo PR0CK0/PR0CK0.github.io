@@ -35,6 +35,7 @@ interface SelectedNode {
   year?: string
   detail?: string
   category?: string
+  description?: string
   links: Array<{ label: string; url: string }>
   connectedNodes: Array<{ id: string; label: string; type: NodeType }>
 }
@@ -539,6 +540,7 @@ export default function Graph() {
         year: data.year,
         detail: data.detail,
         category: data.category,
+        description: data.description,
         links: buildLinks(data),
         connectedNodes,
       })
@@ -894,6 +896,12 @@ export default function Graph() {
                 </div>
               )}
             </div>
+
+            {selectedNode.description && (
+              <div className="text-[0.6rem] sm:text-xs leading-relaxed" style={{ color: '#6b7a99' }}>
+                {selectedNode.description}
+              </div>
+            )}
 
             <div className="flex flex-wrap gap-1">
               {selectedNode.year && (

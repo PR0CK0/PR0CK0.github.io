@@ -13,6 +13,7 @@ export interface CyNode {
     url?: string
     repo_url?: string
     doi?: string
+    description?: string
   }
 }
 
@@ -195,6 +196,7 @@ export function buildGraph(person: Person): GraphData {
         year: proj.year,
         url: proj.url,
         repo_url: proj.repo_url,
+        description: proj.tagline ?? proj.description,
       },
     })
     addEdge({ data: { id: `e-${personId}-${proj.id}`, source: personId, target: proj.id, label: 'built' } })
