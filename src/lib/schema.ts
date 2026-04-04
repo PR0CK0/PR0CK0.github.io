@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { SKILL_CATEGORY_LABELS } from './tech-categories'
 
 export const SocialLinkSchema = z.object({
   id: z.string(),
@@ -38,7 +39,6 @@ export const WorkExperienceSchema = z.object({
   end_date: z.string().optional(),
   is_current: z.boolean().optional(),
   location: z.string().optional(),
-  description: z.array(z.string()).optional(),
   bullets: z.array(z.string()).optional(),
   technologies: z.array(z.string()).optional(),
   domains: z.array(z.string()).optional(),
@@ -84,10 +84,12 @@ export const ProjectSchema = z.object({
   cv_exclude: z.boolean().optional(),
 })
 
+const skillCategories = Object.keys(SKILL_CATEGORY_LABELS) as [string, ...string[]]
+
 export const SkillSchema = z.object({
   id: z.string(),
   name: z.string(),
-  category: z.enum(['prog_languages', 'data_languages', 'libraries', 'dev_tools', 'office_tools', 'comm_tools', 'cloud', 'vocabularies', 'ai_tools', 'design', 'os', 'soft_skills', 'personal', 'domains']),
+  category: z.enum(skillCategories),
   years_experience: z.number().optional(),
 })
 
@@ -147,6 +149,7 @@ export const ReferenceSchema = z.object({
 })
 
 export const CourseSchema = z.object({
+  id: z.string().optional(),
   number: z.string(),
   name: z.string(),
   technologies: z.array(z.string()).optional(),
