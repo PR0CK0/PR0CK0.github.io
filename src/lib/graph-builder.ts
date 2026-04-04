@@ -105,7 +105,7 @@ export function buildGraph(person: Person): GraphData {
   const allSections = [
     ...(person.work_experiences ?? []).filter(w => !w.graph_exclude),
     ...(person.projects ?? []),
-    ...(person.publications ?? []).slice(0, 20),
+    ...(person.publications ?? []),
     ...(person.courses ?? []),
     ...(person.talks ?? []),
     ...(person.certificates ?? []),
