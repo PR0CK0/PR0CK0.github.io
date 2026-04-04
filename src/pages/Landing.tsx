@@ -369,7 +369,7 @@ function TypingPrompt({ onFirstTyped, queries }: { onFirstTyped?: () => void; qu
   }, [phase, text, idx, onFirstTyped, queries])
 
   return (
-    <div className="flex gap-2 items-center font-mono text-xs sm:text-sm ls:text-xs">
+    <div className="flex gap-2 items-center font-mono text-[0.675rem] sm:text-sm ls:text-[0.675rem]">
       <span className="text-terminal-green select-none">$</span>
       <span className="text-terminal-amber">{text}</span>
       <span className="animate-blink text-terminal-green leading-none">▮</span>
