@@ -275,6 +275,8 @@ export const TECH_CATEGORIES: Record<string, SkillCategory> = {
   MeSH:         'vocabularies',
   OCSF:           'vocabularies',
   SWEBOK:         'vocabularies',
+  MasterFormat:   'vocabularies',
+  SectionFormat:  'vocabularies',
   'MITRE ATT&CK': 'vocabularies',
   'MITRE D3FEND': 'vocabularies',
   'SNOMED-CT':    'vocabularies',
