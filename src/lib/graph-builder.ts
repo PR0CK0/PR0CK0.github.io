@@ -109,6 +109,7 @@ export function buildGraph(person: Person): GraphData {
     ...(person.courses ?? []),
     ...(person.talks ?? []),
     ...(person.certificates ?? []),
+    ...(person.extracurriculars ?? []),
   ] as Array<{ technologies?: string[]; domains?: string[]; soft_skills?: string[] }>
 
   // ─── Skill nodes — aggregated from all entity sources ───────────────────────
@@ -256,6 +257,23 @@ export function buildGraph(person: Person): GraphData {
     addEdge({ data: { id: `e-${personId}-${talk.id}`, source: personId, target: talk.id, label: 'presented' } })
     linkDomains(talk.id, talk.domains)
     linkSoftSkills(talk.id, talk.soft_skills)
+  })
+
+  // ─── Extracurriculars ─────────────────────────────────────────────────────────
+  person.extracurriculars?.forEach((extra) => {
+    addNode({
+      data: {
+        id: extra.id,
+        label: extra.title.length > 45 ? extra.title.slice(0, 45) + '…' : extra.title,
+        type: 'project',
+        subtitle: extra.organization,
+        year: extra.date?.slice(0, 4),
+        url: extra.url,
+      },
+    })
+    addEdge({ data: { id: `e-${personId}-${extra.id}`, source: personId, target: extra.id, label: 'contributed' } })
+    linkTechs(extra.id, extra.technologies)
+    linkDomains(extra.id, extra.domains)
   })
 
   // ─── Associates ───────────────────────────────────────────────────────────
