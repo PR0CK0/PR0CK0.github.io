@@ -155,6 +155,7 @@ work_experiences:
   - MITRE ATT&CK
   - MITRE D3FEND
   - GitHub Actions
+  - GitHub CLI
   - AWS Bedrock
   - Docker
   - macOS
@@ -2364,6 +2365,7 @@ projects:
   - GitHub Actions
   - GitHub Pages
   - GitHub
+  - GitHub CLI
   - Node.js
   - PostCSS
   - Autoprefixer
@@ -2403,6 +2405,7 @@ projects:
   - YAML
   - TOML
   - GitHub
+  - GitHub CLI
   - Visual Studio Code
   date_display: Mar 2026
   members: 1 member
@@ -2439,6 +2442,7 @@ projects:
   - BeautifulSoup4
   - Anthropic SDK
   - GitHub
+  - GitHub CLI
   - Transformers
   - NetworkX
   - YAML
@@ -2478,6 +2482,7 @@ projects:
   - Vite
   - CSS
   - GitHub
+  - GitHub CLI
   - HTML
   - JavaScript
   - Python
@@ -2515,6 +2520,7 @@ projects:
   - JavaScript
   - OCSF
   - GitHub
+  - GitHub CLI
   - HTML
   - CSS
   - Visual Studio Code
@@ -2542,6 +2548,7 @@ projects:
   - RDFLib
   - Hugging Face
   - GitHub
+  - GitHub CLI
   - NumPy
   - PyYAML
   - Visual Studio Code
@@ -2574,6 +2581,7 @@ projects:
   - DeBERTa
   - Transformers
   - GitHub
+  - GitHub CLI
   - Matplotlib
   - NumPy
   - PyYAML
@@ -2599,6 +2607,7 @@ projects:
   - PyTorch
   - Transformers
   - GitHub
+  - GitHub CLI
   - Pandas
   - scikit-learn
   - Visual Studio Code
@@ -2631,6 +2640,7 @@ projects:
   - Rich
   - Mixture of Agents
   - GitHub
+  - GitHub CLI
   - GitHub Actions
   - Pydantic
   - YAML
@@ -3235,6 +3245,7 @@ projects:
   - rand
   - JSON
   - Claude
+  - GitHub CLI
   domains:
   - Cybersecurity
   - Education
@@ -3270,6 +3281,7 @@ projects:
   - Ollama
   - Gemini
   - GitHub Actions
+  - GitHub CLI
   - JSON Schema
   - LinkML
   - SKOS
