@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useAnimationControls } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
@@ -130,7 +130,7 @@ interface FallingCode {
   rotation: number
 }
 
-function ProfilePhoto({ visible, name }: { visible: boolean; name: string }) {
+function ProfilePhoto({ visible, name, angry }: { visible: boolean; name: string; angry: boolean }) {
   const [isShaking, setIsShaking] = useState(false)
   const [fallingCodes, setFallingCodes] = useState<FallingCode[]>([])
 
@@ -174,6 +174,12 @@ function ProfilePhoto({ visible, name }: { visible: boolean; name: string }) {
           animate={isShaking ? { rotate: [-3, 3, -3, 3, 0], x: [-2, 2, -2, 2, 0] } : {}}
           transition={{ duration: 0.4 }}
           onClick={handleClick}
+          style={{
+            filter: angry
+              ? 'brightness(0.55) contrast(1.6) saturate(0) sepia(1) hue-rotate(-20deg) saturate(3)'
+              : undefined,
+            transition: angry ? 'filter 0.1s ease' : 'filter 0.08s ease',
+          }}
         />
         {/* CRT scanlines overlay on photo */}
         <div
@@ -503,6 +509,18 @@ function HeroContent({ person }: { person: Person }) {
 function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLine[] }) {
   const [bootDone, setBootDone] = useState(false)
   const [heroVisible, setHeroVisible] = useState(false)
+  const [minimized, setMinimized] = useState(false)
+  const [angry, setAngry] = useState(false)
+  const terminalControls = useAnimationControls()
+
+  const handleRedClick = () => {
+    setAngry(true)
+    setTimeout(() => setAngry(false), 1400)
+    terminalControls.start({
+      x: [0, -10, 10, -8, 8, -4, 4, 0],
+      transition: { duration: 0.4, ease: 'easeInOut' },
+    })
+  }
   const firstName = person.name.split(' ')[0]
   const githubHandle = person.social_links?.find(s => s.platform === 'GitHub')?.handle ?? firstName
   const promptQueries = buildPromptQueries(firstName, githubHandle)
@@ -532,22 +550,57 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
 
       <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6 pb-4 sm:pb-6">
         {/* Terminal window chrome */}
-        <div className="rounded-lg border border-terminal-border bg-terminal-surface/60 backdrop-blur-sm overflow-hidden shadow-2xl">
+        <motion.div animate={terminalControls} className="relative rounded-lg border border-terminal-border bg-terminal-surface/60 backdrop-blur-sm overflow-hidden shadow-2xl">
           {/* Title bar */}
           <div className="flex items-center gap-1.5 sm:gap-2 ls:gap-1.5 px-3 sm:px-4 ls:px-3 py-1.5 sm:py-2 ls:py-1.5 border-b border-terminal-border bg-terminal-bg/80">
-            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-red/70" />
-            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-amber/70" />
+            <button
+              onClick={handleRedClick}
+              disabled={minimized}
+              className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-red/70 hover:bg-terminal-red transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-terminal-red/70"
+              aria-label="Close terminal"
+            />
+            <button
+              onClick={() => setMinimized(m => !m)}
+              className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-amber/70 hover:bg-terminal-amber transition-colors cursor-pointer"
+              aria-label="Minimize terminal"
+            />
             <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-green/70" />
             <span className="ml-2 sm:ml-3 ls:ml-2 text-terminal-muted text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono tracking-widest">
               {(person.social_links?.find(s => s.platform === 'GitHub')?.handle ?? person.name).toLowerCase()}@portfolio ~ bash
             </span>
           </div>
 
+          {/* Angry flash overlay */}
+          <AnimatePresence>
+            {angry && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 1, 0.3, 1, 0.3, 1, 0.3, 1, 0] }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.4, times: [0, 0.08, 0.22, 0.36, 0.50, 0.64, 0.78, 0.88, 1] }}
+                className="absolute inset-0 z-50 pointer-events-none rounded-lg flex flex-col items-center justify-center gap-2"
+                style={{ background: 'rgba(120,0,0,0.72)', border: '2px solid #ff0000aa', backdropFilter: 'blur(1px)' }}
+              >
+                <span className="font-mono font-bold text-red-300 text-sm sm:text-lg tracking-widest uppercase" style={{ textShadow: '0 0 12px #ff0000' }}>
+                  !! permission denied !!
+                </span>
+                <span className="font-mono text-red-400/80 text-[0.6rem] sm:text-xs tracking-wider">
+                  exit code 1
+                </span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           {/* Terminal body */}
+          <motion.div
+            animate={{ height: minimized ? 0 : 'auto', opacity: minimized ? 0 : angry ? 0.25 : 1 }}
+            transition={{ duration: angry ? 0.1 : 0.08 }}
+            style={{ overflow: 'hidden' }}
+          >
           <div className="p-4 sm:p-6 lg:p-8 ls:p-4">
             {/* Photo floated right — boot lines wrap beside it; content below clears to full width */}
             <div className="float-right ml-3 sm:ml-5 ls:ml-3 mt-1">
-              <ProfilePhoto visible={heroVisible} name={person.name} />
+              <ProfilePhoto visible={heroVisible} name={person.name} angry={angry} />
             </div>
 
             <BootSequence
@@ -567,7 +620,74 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
 
             <div className="clear-both" />
           </div>
-        </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Notepad easter egg */}
+        <AnimatePresence>
+          {minimized && (
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.97 }}
+              transition={{ duration: 0.25 }}
+              className="mt-3 rounded-lg overflow-hidden shadow-2xl border border-[#3c3c3c] text-xs font-mono"
+              style={{ background: '#1e1e1e' }}
+            >
+              {/* IDE title bar */}
+              <div className="flex items-center gap-0 border-b border-[#3c3c3c]" style={{ background: '#2d2d2d' }}>
+                <div className="px-4 py-1.5 border-r border-[#3c3c3c] border-b-2 border-b-[#007acc] text-[#ccc] text-[0.65rem]">
+                  tyler_procko.py
+                </div>
+                <div className="px-4 py-1.5 text-[#666] text-[0.65rem]">README.md</div>
+              </div>
+              {/* Code area */}
+              <div className="flex" style={{ background: '#1e1e1e' }}>
+                {/* Line numbers */}
+                <div className="select-none text-right pr-4 pl-3 py-3 leading-5 text-[0.65rem]" style={{ color: '#858585', minWidth: '2.5rem', background: '#1e1e1e' }}>
+                  {Array.from({ length: 21 }, (_, i) => <div key={i}>{i + 1}</div>)}
+                </div>
+                {/* Code */}
+                <div className="py-3 pr-6 leading-5 text-[0.65rem] whitespace-pre">
+                  <div><span style={{ color: '#6a9955' }}># tyler_procko.py — if you're seeing this, you're curious.</span></div>
+                  <div><span style={{ color: '#6a9955' }}># good. that's how this started.</span></div>
+                  <div />
+                  <div><span style={{ color: '#c586c0' }}>class </span><span style={{ color: '#4ec9b0' }}>TylerProcko</span><span style={{ color: '#fff' }}>:</span></div>
+                  <div><span style={{ color: '#fff' }}>    </span><span style={{ color: '#9cdcfe' }}>name</span><span style={{ color: '#fff' }}> = </span><span style={{ color: '#ce9178' }}>"Tyler T. Procko, Ph.D."</span></div>
+                  <div><span style={{ color: '#fff' }}>    </span><span style={{ color: '#9cdcfe' }}>degree</span><span style={{ color: '#fff' }}> = </span><span style={{ color: '#ce9178' }}>"Ph.D. EECS"</span><span style={{ color: '#6a9955' }}>  # ERAU, 2025</span></div>
+                  <div><span style={{ color: '#fff' }}>    </span><span style={{ color: '#9cdcfe' }}>clearance</span><span style={{ color: '#fff' }}> = </span><span style={{ color: '#ce9178' }}>"SECRET"</span><span style={{ color: '#6a9955' }}>  # AFRL-sponsored</span></div>
+                  <div><span style={{ color: '#fff' }}>    </span><span style={{ color: '#9cdcfe' }}>status</span><span style={{ color: '#fff' }}> = </span><span style={{ color: '#ce9178' }}>"AVAILABLE"</span></div>
+                  <div />
+                  <div><span style={{ color: '#fff' }}>    </span><span style={{ color: '#c586c0' }}>def </span><span style={{ color: '#dcdcaa' }}>init_knowledge_graph_engine</span><span style={{ color: '#fff' }}>(self):</span></div>
+                  <div><span style={{ color: '#fff' }}>        </span><span style={{ color: '#9cdcfe' }}>ontology</span><span style={{ color: '#fff' }}> = self.</span><span style={{ color: '#dcdcaa' }}>load_bfo_cco</span><span style={{ color: '#fff' }}>()</span></div>
+                  <div><span style={{ color: '#fff' }}>        </span><span style={{ color: '#9cdcfe' }}>graph</span><span style={{ color: '#fff' }}> = self.</span><span style={{ color: '#dcdcaa' }}>populate_kg</span><span style={{ color: '#fff' }}>(ontology)</span></div>
+                  <div><span style={{ color: '#fff' }}>        </span><span style={{ color: '#c586c0' }}>return </span><span style={{ color: '#9cdcfe' }}>graph</span></div>
+                  <div />
+                  <div><span style={{ color: '#fff' }}>    </span><span style={{ color: '#c586c0' }}>def </span><span style={{ color: '#dcdcaa' }}>deploy_agent_swarm</span><span style={{ color: '#fff' }}>(self, problem):</span></div>
+                  <div><span style={{ color: '#fff' }}>        </span><span style={{ color: '#9cdcfe' }}>kg</span><span style={{ color: '#fff' }}> = self.</span><span style={{ color: '#dcdcaa' }}>init_knowledge_graph_engine</span><span style={{ color: '#fff' }}>()</span></div>
+                  <div><span style={{ color: '#fff' }}>        </span><span style={{ color: '#c586c0' }}>return </span><span style={{ color: '#9cdcfe' }}>self</span><span style={{ color: '#fff' }}>.</span><span style={{ color: '#dcdcaa' }}>llm_reason</span><span style={{ color: '#fff' }}>(kg, problem)</span></div>
+                  <div />
+                  <div><span style={{ color: '#6a9955' }}># initializing procko.pro...</span></div>
+                  <div><span style={{ color: '#9cdcfe' }}>tyler</span><span style={{ color: '#fff' }}> = </span><span style={{ color: '#4ec9b0' }}>TylerProcko</span><span style={{ color: '#fff' }}>()</span></div>
+                  <div><span style={{ color: '#9cdcfe' }}>tyler</span><span style={{ color: '#fff' }}>.</span><span style={{ color: '#dcdcaa' }}>deploy_agent_swarm</span><span style={{ color: '#fff' }}>(</span><span style={{ color: '#ce9178' }}>"your hardest problem"</span><span style={{ color: '#fff' }}>)</span></div>
+                </div>
+              </div>
+              {/* Status bar */}
+              <div className="flex items-center justify-between px-3 py-0.5 text-[0.6rem]" style={{ background: '#007acc', color: '#fff' }}>
+                <div className="flex items-center gap-3">
+                  <span>⎇ main</span>
+                  <span>Python 3.12</span>
+                </div>
+                <button
+                  onClick={() => setMinimized(false)}
+                  className="hover:bg-white/20 px-2 py-0.5 rounded transition-colors"
+                >
+                  restore terminal ↑
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Scroll hint */}
         {heroVisible && (
