@@ -84,16 +84,6 @@ def main() -> int:
                 print(f"  Error  : {err}")
             print(f"  Source : {ctx}")
             print()
-        # Write report to file for the email action to read
-        report_path = Path("/tmp/broken_links.txt")
-        with report_path.open("w") as f:
-            f.write(f"{len(broken)} broken link(s) found in tyler-procko.yaml\n\n")
-            for url, ctx, status, err in broken:
-                f.write(f"URL    : {url}\n")
-                f.write(f"Status : {status or 'connection error'}\n")
-                if err:
-                    f.write(f"Error  : {err}\n")
-                f.write(f"Source : {ctx}\n\n")
         return 1
 
     print(f"\n✅  All {len(urls)} links OK.")

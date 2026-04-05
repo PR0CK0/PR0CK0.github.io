@@ -18,38 +18,5 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install pyyaml
-
       - name: Check links
-        id: check
-        run: |
-          python3 .github/scripts/check_links.py
-          echo "broken=false" >> "$GITHUB_OUTPUT"
-        continue-on-error: true
-
-      - name: Set broken flag
-        if: steps.check.outcome == 'failure'
-        run: echo "broken=true" >> "$GITHUB_OUTPUT"
-        id: flag
-
-      - name: Send email alert
-        if: steps.check.outcome == 'failure'
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "⚠️ procko.pro — broken links detected"
-          to: prockotyler@gmail.com
-          from: procko.pro link checker <${{ secrets.MAIL_USERNAME }}>
-          body: |
-            Weekly link check found broken URLs in tyler-procko.yaml.
-
-            See the full report below, or view the workflow run at:
-            https://github.com/PR0CK0/PR0CK0.github.io/actions
-
-            ---
-          attachments: /tmp/broken_links.txt
+        run: python3 .github/scripts/check_links.py
