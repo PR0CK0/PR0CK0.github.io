@@ -7,6 +7,7 @@ GitHub Actions workflow can decide whether to send an alert email.
 import re
 import sys
 import time
+import urllib.parse
 import urllib.request
 import urllib.error
 from pathlib import Path
@@ -21,6 +22,26 @@ URL_FIELDS = re.compile(
 TIMEOUT = 10  # seconds per request
 RETRY_CODES = {429, 503}  # retry once on rate-limit / temporary unavailable
 SKIP_PREFIXES = ("mailto:",)
+
+# Domains that reliably block headless requests with 403/405 — not real link rot
+BOT_BLOCKED_DOMAINS = {
+    "linkedin.com",
+    "ssrn.com",
+    "papers.ssrn.com",
+    "researchgate.net",
+    "upwork.com",
+    "fiverr.com",
+    "medium.com",
+    "substack.com",
+    "acm.org",
+    "dl.acm.org",
+    "mdpi.com",
+    "arc.aiaa.org",
+    "peer.asee.org",
+    "asee.org",
+    "crates.io",
+    "doi.org",
+}
 
 def extract_urls(path: Path) -> list[tuple[str, str]]:
     """Return list of (url, context_line) pairs from the YAML."""
@@ -68,6 +89,10 @@ def main() -> int:
     broken: list[tuple[str, str, int | None, str]] = []
 
     for url, context in urls:
+        domain = urllib.parse.urlparse(url).netloc.removeprefix("www.")
+        if domain in BOT_BLOCKED_DOMAINS:
+            print(f"  –  [SKIP]  {url}")
+            continue
         status, err = check_url(url)
         symbol = "✓" if status and 200 <= status < 400 else "✗"
         print(f"  {symbol}  [{status or 'ERR'}]  {url}")
