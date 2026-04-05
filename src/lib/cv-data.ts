@@ -1,4 +1,4 @@
-import type { Person, Skill } from '@/lib/schema'
+import type { Person } from '@/lib/schema'
 import { COMPETENCY_CATEGORIES, COMPETENCY_CATEGORY_LABELS } from '@/lib/tech-categories'
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────
@@ -153,7 +153,7 @@ export function countTechOccurrences(person: Person): Map<string, number> {
  * Mirrors the landing page chip logic exactly: same sources, same names, same order.
  * Top 20 per category; os, soft_skills, personal, domains excluded.
  */
-export function groupSkills(_skills: Skill[], occurrences: Map<string, number>): Record<string, string[]> {
+export function groupSkills(occurrences: Map<string, number>): Record<string, string[]> {
   const groups: Record<string, string[]> = {}
   for (const [tech, category] of Object.entries(COMPETENCY_CATEGORIES)) {
     const label = SKILL_LABEL_MAP[category]
@@ -363,7 +363,7 @@ export function buildCVData(person: Person, buildDate: string): CVData {
   }
 
   // Skills
-  const skillGrps = groupSkills(person.skills ?? [], countTechOccurrences(person))
+  const skillGrps = groupSkills(countTechOccurrences(person))
   if (Object.keys(skillGrps).length > 0) {
     sections.push({ header: 'Skills', skillGroups: skillGrps })
   }
@@ -611,7 +611,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
   }
 
   // Technical Skills
-  const skillGroups = groupSkills(person.skills ?? [], countTechOccurrences(person))
+  const skillGroups = groupSkills(countTechOccurrences(person))
   if (Object.keys(skillGroups).length > 0) {
     sections.push({ header: 'Technical Skills', skillGroups })
   }
