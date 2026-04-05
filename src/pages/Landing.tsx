@@ -631,24 +631,24 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.97 }}
               transition={{ duration: 0.25 }}
-              className="mt-3 rounded-lg overflow-hidden shadow-2xl border border-[#3c3c3c] text-xs font-mono"
+              className="mt-3 rounded-lg overflow-hidden shadow-2xl border border-[#3c3c3c] text-[0.55rem] sm:text-xs font-mono"
               style={{ background: '#1e1e1e' }}
             >
               {/* IDE title bar */}
               <div className="flex items-center gap-0 border-b border-[#3c3c3c]" style={{ background: '#2d2d2d' }}>
-                <div className="px-4 py-1.5 border-r border-[#3c3c3c] border-b-2 border-b-[#007acc] text-[#ccc] text-[0.65rem]">
+                <div className="px-2 sm:px-4 py-1.5 border-r border-[#3c3c3c] border-b-2 border-b-[#007acc] text-[#ccc]">
                   tyler_procko.py
                 </div>
-                <div className="px-4 py-1.5 text-[#666] text-[0.65rem]">README.md</div>
+                <div className="px-2 sm:px-4 py-1.5 text-[#666]">README.md</div>
               </div>
               {/* Code area */}
-              <div className="flex" style={{ background: '#1e1e1e' }}>
+              <div className="flex overflow-x-auto" style={{ background: '#1e1e1e' }}>
                 {/* Line numbers */}
-                <div className="select-none text-right pr-4 pl-3 py-3 leading-5 text-[0.65rem]" style={{ color: '#858585', minWidth: '2.5rem', background: '#1e1e1e' }}>
+                <div className="select-none text-right pr-2 sm:pr-4 pl-2 sm:pl-3 py-3 leading-5 flex-shrink-0" style={{ color: '#858585', background: '#1e1e1e' }}>
                   {Array.from({ length: 21 }, (_, i) => <div key={i}>{i + 1}</div>)}
                 </div>
                 {/* Code */}
-                <div className="py-3 pr-6 leading-5 text-[0.65rem] whitespace-pre">
+                <div className="py-3 pr-4 sm:pr-6 leading-5 whitespace-pre">
                   <div><span style={{ color: '#6a9955' }}># tyler_procko.py — if you're seeing this, you're curious.</span></div>
                   <div><span style={{ color: '#6a9955' }}># good. that's how this started.</span></div>
                   <div />
@@ -673,7 +673,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
                 </div>
               </div>
               {/* Status bar */}
-              <div className="flex items-center justify-between px-3 py-0.5 text-[0.6rem]" style={{ background: '#007acc', color: '#fff' }}>
+              <div className="flex items-center justify-between px-2 sm:px-3 py-0.5" style={{ background: '#007acc', color: '#fff' }}>
                 <div className="flex items-center gap-3">
                   <span>⎇ main</span>
                   <span>Python 3.12</span>
