@@ -135,6 +135,18 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 - [x] **Audit and add `url` fields to all certification entries** — Many certs in the YAML are missing `url` fields pointing to the credential verification page (e.g., Credly badge, issuer portal, LinkedIn credential). Add URLs so they render as clickable links in the CV/resume.
 
+## Skills section orphans — attach or drop
+
+These were in the now-deleted `skills:` YAML section but are not attached to any entry. Decide: attach to the right entry, or drop entirely.
+
+- [ ] `FastAPI` — used somewhere? check projects/work
+- [ ] `Git` — certainly used everywhere; just not explicitly tagged on any entry
+- [ ] `Linux Ubuntu` — OS; `Linux` is in COMPETENCY_CATEGORIES but not `Linux Ubuntu`; may need rename
+- [ ] `Microsoft Copilot` — used personally? attach or drop
+- [ ] `NLTK` — no repo evidence found in BFO-Wikidata, bert_benchmarking, bfobert, swebok-rebel-rdf
+- [ ] `TensorFlow` — no repo evidence found in same repos
+- [ ] `Windows (XP, Vista, 7, 8, 10, 11)` — name mismatch; COMPETENCY_CATEGORIES has `Windows` only
+
 ## Other pending
 
 - [x] **Audit `tags` field in YAML schema** — Removed all 74 tags fields; content fully covered by `domains` and `technologies`.
