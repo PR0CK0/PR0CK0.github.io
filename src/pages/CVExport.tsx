@@ -58,6 +58,7 @@ const S = StyleSheet.create({
   row: { flexDirection: 'row' as const, marginBottom: 5 },
   contentCol: { flex: 82, paddingRight: 6 },
   dateCol: { flex: 18, alignItems: 'flex-end' as const },
+  clearanceDateCol: { flex: 25, alignItems: 'flex-end' as const },
   entryTitle: { fontWeight: 'bold', fontSize: 9, color: '#111' },
   titleSuffix: { fontWeight: 'normal', fontStyle: 'italic', color: '#3d6ba8', fontSize: 9 },
   date: { fontSize: 8, color: '#555', fontStyle: 'italic', textAlign: 'right' as const },
@@ -313,7 +314,7 @@ function CVPdfDocument({ data }: { data: CVData }) {
                             <Text style={{ fontWeight: 'normal', fontStyle: 'italic' }}>{'cleared by '}{c.grantor}{', retained by '}{c.holder}</Text>
                           </Text>
                         </View>
-                        <View style={S.dateCol}>
+                        <View style={S.clearanceDateCol}>
                           <Text style={S.date}>{c.dateRange}</Text>
                         </View>
                       </View>
@@ -342,6 +343,7 @@ const HS = {
   row: { display: 'flex', gap: '6px', marginBottom: '5px' } as React.CSSProperties,
   contentCol: { flex: '82 1 0%' } as React.CSSProperties,
   dateCol: { flex: '18 0 0%', textAlign: 'right' as const } as React.CSSProperties,
+  clearanceDateCol: { flex: '25 0 0%', textAlign: 'right' as const } as React.CSSProperties,
   entryTitle: { fontWeight: 700, fontSize: '9px', color: '#111' } as React.CSSProperties,
   titleSuffix: { fontWeight: 400, fontStyle: 'italic', color: '#3d6ba8', fontSize: '9px' } as React.CSSProperties,
   date: { fontSize: '8px', color: '#555', fontStyle: 'italic', whiteSpace: 'pre-line' } as React.CSSProperties,
@@ -559,7 +561,7 @@ function CVHtmlPreview({ data }: { data: CVData }) {
                           <span style={{ fontWeight: 400, fontStyle: 'italic' }}>{'cleared by '}{c.grantor}{', retained by '}{c.holder}</span>
                         </span>
                       </div>
-                      <div style={HS.dateCol}>
+                      <div style={HS.clearanceDateCol}>
                         <span style={HS.date}>{c.dateRange}</span>
                       </div>
                     </div>
