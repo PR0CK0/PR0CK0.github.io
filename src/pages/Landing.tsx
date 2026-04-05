@@ -24,7 +24,7 @@ type BootLine = ReturnType<typeof buildBootLines>[number]
 function buildStats(pubCount: number, projCount: number) {
   return [
     { label: 'Degree', value: 'Ph.D. EECS' },
-    { label: 'Publications', value: `${pubCount}` },
+    { label: 'Refereed Publications', value: `${pubCount}` },
     { label: 'Java / Python', value: '9+ yrs' },
     { label: 'Projects', value: `${projCount}` },
     { label: 'AFRL Clearance', value: 'SECRET' },
@@ -457,10 +457,10 @@ function HeroContent({ person }: { person: Person }) {
       {/* Name */}
       <motion.h1
         variants={itemVariants}
-        className="text-xl sm:text-4xl lg:text-5xl ls:text-xl font-mono font-bold tracking-widest
+        className="text-xl sm:text-4xl lg:text-5xl ls:text-xl font-mono font-bold tracking-tight
                    text-terminal-green text-glow-green animate-glow-pulse"
       >
-        {person.name.toUpperCase()}
+        {person.name}
       </motion.h1>
 
       {/* Title */}
