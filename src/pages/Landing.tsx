@@ -561,7 +561,8 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
             />
             <button
               onClick={() => setMinimized(m => !m)}
-              className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-amber/70 hover:bg-terminal-amber transition-colors cursor-pointer"
+              disabled={angry}
+              className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-amber/70 hover:bg-terminal-amber transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-terminal-amber/70"
               aria-label="Minimize terminal"
             />
             <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-green/70" />
