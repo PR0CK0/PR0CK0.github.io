@@ -5,7 +5,7 @@ export interface CyNode {
   data: {
     id: string
     label: string
-    type: 'person' | 'education' | 'work' | 'publication' | 'project' | 'skill' | 'domain' | 'soft_skill' | 'personal_skill' | 'award' | 'certificate' | 'talk' | 'course' | 'associate'
+    type: 'person' | 'education' | 'work' | 'publication' | 'project' | 'extracurricular' | 'skill' | 'domain' | 'soft_skill' | 'personal_skill' | 'award' | 'certificate' | 'talk' | 'course' | 'associate'
     subtitle?: string
     detail?: string
     year?: string
@@ -291,7 +291,7 @@ export function buildGraph(person: Person): GraphData {
       data: {
         id: extra.id,
         label: extra.title.length > 45 ? extra.title.slice(0, 45) + '…' : extra.title,
-        type: 'project',
+        type: 'extracurricular',
         subtitle: extra.organization,
         year: extra.date?.slice(0, 4),
         url: extra.url,

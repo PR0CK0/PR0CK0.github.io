@@ -18,6 +18,7 @@ type NodeType =
   | 'work'
   | 'publication'
   | 'project'
+  | 'extracurricular'
   | 'skill'
   | 'domain'
   | 'soft_skill'
@@ -57,6 +58,7 @@ const NODE_TYPES: NodeType[] = [
   'work',
   'publication',
   'project',
+  'extracurricular',
   'skill',
   'domain',
   'soft_skill',
@@ -79,7 +81,8 @@ const TYPE_META: Record<
   education:   { color: '#4d9fff', label: 'Education',    shape: 'ellipse',   size: 45 },
   work:        { color: '#ffb300', label: 'Work',         shape: 'rectangle', size: 45 },
   publication: { color: '#b57bff', label: 'Publication',  shape: 'ellipse',   size: 35 },
-  project:     { color: '#ff4d6d', label: 'Project',      shape: 'triangle',  size: 35 },
+  project:        { color: '#ff4d6d', label: 'Project',        shape: 'triangle',  size: 35 },
+  extracurricular:{ color: '#fb923c', label: 'Extracurricular', shape: 'triangle',  size: 30 },
   skill:         { color: '#00d4ff', label: 'Tech Skill',     shape: 'ellipse',        size: 28 },
   domain:        { color: '#f472b6', label: 'Domain',         shape: 'ellipse',        size: 24 },
   soft_skill:    { color: '#a3e635', label: 'Soft Skill',     shape: 'roundrectangle', size: 24 },
