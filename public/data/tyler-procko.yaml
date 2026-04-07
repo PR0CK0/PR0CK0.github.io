@@ -3413,6 +3413,7 @@ certificates:
   issuer: Hasso Plattner Institute
   status: in_progress
   deprecated: true
+  resume_exclude: true
 - id: cert/upwork-ml
   title: Machine Learning
   issuer: Upwork
@@ -3461,6 +3462,7 @@ certificates:
   issuer: LinkedIn Learning
   date: 2023-06
   status: completed
+  resume_exclude: true
   url: https://www.linkedin.com/learning/certificates/58b8794a8dc321620401e4c3deda53d52d2df7a3ac471d248e135d9b2d2c9fec
   domains:
   - LLMs
@@ -3471,6 +3473,7 @@ certificates:
   issuer: LinkedIn Learning
   date: 2023-05
   status: completed
+  resume_exclude: true
   url: https://www.linkedin.com/learning/certificates/7808aeffcf04a28fa518189446d36a70559caf3a8eeea31d988e05f1d1b57cb1
   technologies:
   - OpenAI
@@ -3483,6 +3486,7 @@ certificates:
   issuer: LinkedIn Learning
   date: 2023-05
   status: completed
+  resume_exclude: true
   url: https://www.linkedin.com/learning/certificates/744a9027f4c0eb5460e36665c404743b5fe94b507eff6f411493a1f52e89beac
   domains:
   - Prompt Engineering
@@ -3526,6 +3530,7 @@ certificates:
   issuer: Virtued Academy International (IAOTH)
   date: 2022-11
   status: completed
+  resume_exclude: true
   domains:
   - Scientific Writing
 talks:

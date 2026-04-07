@@ -610,6 +610,21 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
     })
   }
 
+  // Certifications
+  const resumeCerts = (person.certificates ?? []).filter((c: any) => !c.resume_exclude)
+  if (resumeCerts.length > 0) {
+    const entries: CVEntry[] = resumeCerts.map((cert: any) => ({
+      title: cert.title,
+      titleUrl: cert.url,
+      titleSuffix: [
+        cert.issuer,
+        cert.status === 'in_progress' ? '[In Progress]' : null,
+      ].filter(Boolean).join(' ') || undefined,
+      date: fmtSingleDate(cert.date),
+    }))
+    sections.push({ header: 'Certifications', entries })
+  }
+
   // Technical Skills
   const skillGroups = groupSkills(countTechOccurrences(person))
   if (Object.keys(skillGroups).length > 0) {

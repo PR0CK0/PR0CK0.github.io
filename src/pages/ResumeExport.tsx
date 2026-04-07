@@ -153,7 +153,7 @@ function ResumePdfDocument({ data }: { data: CVData }) {
               <View key={ei} style={entry.fullWidth ? { marginBottom: 5 } : S.row}>
                 <View style={entry.fullWidth ? undefined : S.contentCol}>
                   <Text style={S.entryTitle}>
-                    {entry.title}
+                    {entry.titleUrl ? <Link src={entry.titleUrl} style={{ color: '#1a6bbf', textDecoration: 'none', fontWeight: 'bold' }}>{entry.title}</Link> : entry.title}
                     {entry.titleSuffix && <Text style={S.titleSuffix}>{` – ${entry.titleSuffix}`}</Text>}
                     {entry.titleLinks?.map((tl, tli) => (
                       <Text key={tli} style={{ fontWeight: 'normal' }}>
@@ -267,7 +267,9 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
             <div key={ei} style={entry.fullWidth ? { marginBottom: '5px' } : HS.row}>
               <div style={entry.fullWidth ? undefined : HS.contentCol}>
                 <div>
-                  <span style={HS.entryTitle}>{entry.title}</span>
+                  {entry.titleUrl
+                    ? <a href={entry.titleUrl} target="_blank" rel="noopener noreferrer" style={{ ...HS.entryTitle, color: '#1a6bbf', textDecoration: 'none' }}>{entry.title}</a>
+                    : <span style={HS.entryTitle}>{entry.title}</span>}
                   {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
                   {entry.titleLinks?.map((tl, tli) => (
                     <span key={tli}>
