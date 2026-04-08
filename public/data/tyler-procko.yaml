@@ -3687,7 +3687,7 @@ extracurriculars:
   title: Open Source Contributor — OCSF Server (PR #177)
   organization: Open Cybersecurity Schema Framework (OCSF) / GitHub
   url: https://github.com/ocsf/ocsf-server/pull/177
-  date: 2026-03
+  date: 2026-04
   type: open_source
   bullets:
   - Submitted PR adding a self-contained interactive graph visualizer for exploring the OCSF schema, served at /visualizer. Built on Cytoscape.js with no new dependencies — a single static HTML file fetching live schema data from existing API endpoints.
