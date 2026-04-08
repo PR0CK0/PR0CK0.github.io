@@ -3683,6 +3683,25 @@ extracurriculars:
   - Scientific Writing
   technologies:
   - Microsoft Word
+- id: extra/ocsf-server-contributor
+  title: Open Source Contributor — OCSF Server (PR #177)
+  organization: Open Cybersecurity Schema Framework (OCSF) / GitHub
+  url: https://github.com/ocsf/ocsf-server/pull/177
+  date: 2026-03
+  type: open_source
+  bullets:
+  - Submitted PR adding a self-contained interactive graph visualizer for exploring the OCSF schema, served at /visualizer. Built on Cytoscape.js with no new dependencies — a single static HTML file fetching live schema data from existing API endpoints.
+  technologies:
+  - Cytoscape.js
+  - HTML
+  - JavaScript
+  - CSS
+  - OCSF
+  domains:
+  - Cybersecurity
+  - Knowledge Graphs
+  - Web Development
+  - Data Visualization
 - id: extra/comptia-study-guide
   title: Creator - CompTIA Security+ SYS-701 Study Guide Dump
   organization: GitHub
