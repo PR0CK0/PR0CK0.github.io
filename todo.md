@@ -158,7 +158,21 @@ These were in the now-deleted `skills:` YAML section but are not attached to any
 
 
 - [ ] **Tests: detect unmapped terms** — Test suite should flag technologies/domains/soft_skills/personal_skills that appear in YAML but aren't recognized/validated. Example: `Git` is in YAML but doesn't show in UI (unmapped in tech-categories). Need validation that catches these orphan terms.
-- [ ] Extracurriculars — add technologies/domains to 24 empty entries
+- [ ] Extracurriculars — add technologies/domains to entries missing coverage:
+  - [ ] `extra/comptia-study-guide` — suggest: `Markdown`
+  - [ ] `extra/swebok-v4-review` — no obvious technologies; maybe just domains
+  - [ ] `extra/dair-prompt-engineering` — suggest: `Markdown`, `Git`
+  - [ ] `extra/ontogpt-contributor` — suggest: `Python`, `Git`, `OWL`
+  - [ ] `extra/huge-ai-models-contributor` — suggest: `Markdown`, `Git`
+  - [ ] `extra/practical-nlp-errata` — no obvious technologies
+  - [ ] `extra/semantalytics-contributor` — suggest: `RDF`, `OWL`
+  - [ ] `extra/generativeai-and-linkeddata` — suggest: `Python`, `RDF`, `JSON-LD`; needs domains too
+  - [ ] `extra/machine-learning-ontologies` — suggest: `OWL`, `Protégé`, `BFO`
+  - [ ] `extra/openai-cybersecurity-grant-proposal` — suggest: `Markdown`; needs domains too
+  - [ ] `extra/protegetutorials` — has `GraphViz`, no domains; suggest: `Protégé`, `OWL`
+  - [ ] `extra/ieee-member` — org membership; probably skip
+  - [ ] `extra/asee-member` — org membership; probably skip
+  - [ ] `extra/erau-ai-club` — suggest: `Python`
 - [ ] work/publix — add technologies (minimal)
 - [x] Publications UI — pub domains already aggregated into the landing page skill chips (paradigms category); no per-row chips needed
 - [ ] LLM model coverage — audit all work/project/pub/extracurricular entries and add specific model names where used:

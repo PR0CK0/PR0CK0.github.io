@@ -3690,16 +3690,10 @@ extracurriculars:
   date: 2026-04
   type: open_source
   technologies:
-  - Cytoscape.js
-  - HTML
-  - JavaScript
-  - CSS
   - OCSF
+  - GitHub
   domains:
   - Cybersecurity
-  - Knowledge Graphs
-  - Web Development
-  - Data Visualization
 - id: extra/comptia-study-guide
   title: Creator - CompTIA Security+ SYS-701 Study Guide Dump
   organization: GitHub
