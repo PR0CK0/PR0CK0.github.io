@@ -58,7 +58,7 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 ## CV / Resume — typography normalization
 
-- [ ] **Normalize CV and Resume header fonts and sizes** — Section headers, entry titles, meta text, dates, and notes currently use hardcoded inline font sizes in both CVExport.tsx and ResumeExport.tsx. Extract into a shared style constant object (similar to `ui-constants.ts` for the web pages) so sizes are consistent and easy to adjust globally.
+- [x] **Normalize CV and Resume header fonts and sizes** — Extracted into `src/lib/pdf-constants.ts` (`FS`, `COLOR`, `px`). Both CVExport and ResumeExport now reference shared tokens; no bare hex or numeric size literals remain in either file.
 
 ## Legacy index.html — full port audit
 
