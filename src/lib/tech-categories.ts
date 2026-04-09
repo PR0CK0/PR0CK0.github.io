@@ -425,4 +425,5 @@ export const COMPETENCY_CATEGORIES: Record<string, CompetencyCategory> = {
   Safety:                       'domains',
   Ethics:                       'domains',
   CLI:                          'domains',
+  Quantization:                 'domains',
 }
