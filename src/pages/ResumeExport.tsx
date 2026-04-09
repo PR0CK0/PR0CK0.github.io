@@ -16,6 +16,7 @@ import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 import { buildResumeData, type CVData, type CVSection, type CVEntry, type CVHeaderData } from '@/lib/cv-data'
 import { PAGE_TITLE, PAGE_SUBTITLE, BTN_PRIMARY, BTN_SECONDARY, BTN_TOGGLE_ACTIVE, BTN_TOGGLE_INACTIVE, BTN_ROW, PAGE_CHROME, LOADING_SCREEN } from '@/lib/ui-constants'
+import { FS, COLOR, px } from '@/lib/pdf-constants'
 
 // ─── Custom Fonts ────────────────────────────────────────────────────────────
 import CaladeaRegular from '@/fonts/caladea/Caladea-Regular.ttf'
@@ -36,30 +37,30 @@ Font.register({
 // ─── PDF Styles ────────────────────────────────────────────────────────────────
 
 const S = StyleSheet.create({
-  page: { fontFamily: 'Caladea', fontSize: 10, color: '#111', paddingTop: 36, paddingBottom: 36, paddingHorizontal: 44, lineHeight: 1.4, textAlign: 'justify' as const },
-  name: { fontSize: 22, fontWeight: 'bold', color: '#1a3a6b', marginBottom: 1 },
-  title: { fontSize: 10, color: '#444', fontStyle: 'italic', marginBottom: 4 },
-  contactLine: { fontSize: 8.5, color: '#444' },
-  contactLink: { fontSize: 8.5, color: '#1a3a6b' },
-  contactSep: { fontSize: 8.5, color: '#999' },
-  sectionHeader: { fontSize: 12, fontWeight: 'bold', color: '#1a3a6b', marginTop: 8, marginBottom: 3, paddingBottom: 1, borderBottomWidth: 0.75, borderBottomColor: '#1a3a6b', borderBottomStyle: 'solid' as const, textTransform: 'uppercase' as const, letterSpacing: 0.5 },
+  page: { fontFamily: 'Caladea', fontSize: FS.page, color: COLOR.body, paddingTop: 36, paddingBottom: 36, paddingHorizontal: 44, lineHeight: 1.4, textAlign: 'justify' as const },
+  name: { fontSize: FS.name, fontWeight: 'bold', color: COLOR.navy, marginBottom: 1 },
+  title: { fontSize: FS.page, color: COLOR.meta, fontStyle: 'italic', marginBottom: 4 },
+  contactLine: { fontSize: FS.subtitle, color: COLOR.meta },
+  contactLink: { fontSize: FS.subtitle, color: COLOR.navy },
+  contactSep: { fontSize: FS.subtitle, color: COLOR.sep },
+  sectionHeader: { fontSize: FS.sectionHeader, fontWeight: 'bold', color: COLOR.navy, marginTop: 8, marginBottom: 3, paddingBottom: 1, borderBottomWidth: 0.75, borderBottomColor: COLOR.navy, borderBottomStyle: 'solid' as const, textTransform: 'uppercase' as const, letterSpacing: 0.5 },
   row: { flexDirection: 'row' as const, marginBottom: 5 },
   contentCol: { flex: 86, paddingRight: 6 },
   dateCol: { flex: 14, alignItems: 'flex-end' as const },
-  entryTitle: { fontWeight: 'bold', fontSize: 9, color: '#111' },
-  titleSuffix: { fontWeight: 'normal', fontStyle: 'italic', color: '#3d6ba8', fontSize: 9 },
-  titleLink: { fontSize: 8, color: '#1a6bbf', textDecoration: 'none' },
-  titleLinkSep: { fontSize: 8, color: '#999' },
-  date: { fontSize: 8, color: '#555', fontStyle: 'italic', textAlign: 'right' as const },
-  subtitle: { fontSize: 8.5, color: '#333', marginBottom: 1 },
-  note: { fontSize: 8, color: '#444', marginLeft: 8 },
+  entryTitle: { fontWeight: 'bold', fontSize: FS.entryTitle, color: COLOR.body },
+  titleSuffix: { fontWeight: 'normal', fontStyle: 'italic', color: COLOR.linkMid, fontSize: FS.entryTitle },
+  titleLink: { fontSize: FS.small, color: COLOR.link, textDecoration: 'none' },
+  titleLinkSep: { fontSize: FS.small, color: COLOR.sep },
+  date: { fontSize: FS.small, color: COLOR.muted, fontStyle: 'italic', textAlign: 'right' as const },
+  subtitle: { fontSize: FS.subtitle, color: COLOR.text, marginBottom: 1 },
+  note: { fontSize: FS.small, color: COLOR.meta, marginLeft: 8 },
   bulletRow: { flexDirection: 'row' as const, marginBottom: 1.5, marginLeft: 4 },
-  bulletDot: { fontSize: 8.5, color: '#333', marginRight: 4, width: 8 },
-  bulletText: { fontSize: 8.5, color: '#333', flex: 1, lineHeight: 1.4 },
-  summaryText: { fontSize: 8.5, color: '#222', lineHeight: 1.5 },
-  lastUpdated: { fontSize: 7.5, color: '#999', marginTop: 2 },
-  skillLabel: { fontWeight: 'bold', fontSize: 8.5, color: '#1a3a6b' },
-  skillItems: { fontSize: 8.5, color: '#333' },
+  bulletDot: { fontSize: FS.subtitle, color: COLOR.text, marginRight: 4, width: 8 },
+  bulletText: { fontSize: FS.subtitle, color: COLOR.text, flex: 1, lineHeight: 1.4 },
+  summaryText: { fontSize: FS.subtitle, color: '#222', lineHeight: 1.5 },
+  lastUpdated: { fontSize: FS.tiny, color: COLOR.sep, marginTop: 2 },
+  skillLabel: { fontWeight: 'bold', fontSize: FS.subtitle, color: COLOR.navy },
+  skillItems: { fontSize: FS.subtitle, color: COLOR.text },
   skillRow: { flexDirection: 'row' as const, flexWrap: 'wrap' as const, marginBottom: 2 },
 })
 
@@ -87,7 +88,7 @@ function PdfBulletText({ text, style }: { text: string; style: import('@react-pd
     <Text style={style}>
       {parts.map((p, i) =>
         p.highlight
-          ? <Text key={i} style={{ color: '#1a6bbf', fontStyle: 'italic' }}>{p.text}</Text>
+          ? <Text key={i} style={{ color: COLOR.link, fontStyle: 'italic' }}>{p.text}</Text>
           : <Text key={i}>{p.text}</Text>
       )}
     </Text>
@@ -102,7 +103,7 @@ function HtmlBulletText({ text }: { text: string }) {
     <>
       {parts.map((p, i) =>
         p.highlight
-          ? <span key={i} style={{ color: '#1a6bbf', fontStyle: 'italic' }}>{p.text}</span>
+          ? <span key={i} style={{ color: COLOR.link, fontStyle: 'italic' }}>{p.text}</span>
           : <span key={i}>{p.text}</span>
       )}
     </>
@@ -133,18 +134,18 @@ function ResumePdfDocument({ data }: { data: CVData }) {
           </View>
           <Text style={S.lastUpdated}>
             {h.lastUpdated}{' – '}
-            <Link src={h.sourceUrl} style={{ color: '#1a6bbf', textDecoration: 'none', fontSize: 7.5 }}>View live version</Link>
+            <Link src={h.sourceUrl} style={{ color: COLOR.link, textDecoration: 'none', fontSize: FS.tiny }}>View live version</Link>
           </Text>
         </View>
 
         {/* Sections */}
         {data.sections.map((sec, si) => (
           <View key={si}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', borderBottomWidth: 0.75, borderBottomColor: '#1a3a6b', borderBottomStyle: 'solid' as const, marginTop: 8, marginBottom: 3, paddingBottom: 1 }}>
-              <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#1a3a6b', textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>{sec.header}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', borderBottomWidth: 0.75, borderBottomColor: COLOR.navy, borderBottomStyle: 'solid' as const, marginTop: 8, marginBottom: 3, paddingBottom: 1 }}>
+              <Text style={{ fontSize: FS.sectionHeader, fontWeight: 'bold', color: COLOR.navy, textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>{sec.header}</Text>
               {sec.headerLinks?.map((hl, hli) => (
-                <Text key={hli} style={{ fontSize: 8, color: '#1a6bbf', fontStyle: 'italic', fontWeight: 'normal', marginLeft: 4 }}>
-                  {hli === 0 ? ' – ' : ' · '}<Link src={hl.url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{hl.label}</Link>
+                <Text key={hli} style={{ fontSize: FS.small, color: COLOR.link, fontStyle: 'italic', fontWeight: 'normal', marginLeft: 4 }}>
+                  {hli === 0 ? ' – ' : ' · '}<Link src={hl.url} style={{ color: COLOR.link, textDecoration: 'none' }}>{hl.label}</Link>
                 </Text>
               ))}
             </View>
@@ -153,7 +154,7 @@ function ResumePdfDocument({ data }: { data: CVData }) {
               <View key={ei} style={entry.fullWidth ? { marginBottom: 5 } : S.row}>
                 <View style={entry.fullWidth ? undefined : S.contentCol}>
                   <Text style={S.entryTitle}>
-                    {entry.titleUrl ? <Link src={entry.titleUrl} style={{ color: '#1a6bbf', textDecoration: 'none', fontWeight: 'bold' }}>{entry.title}</Link> : entry.title}
+                    {entry.titleUrl ? <Link src={entry.titleUrl} style={{ color: COLOR.link, textDecoration: 'none', fontWeight: 'bold' }}>{entry.title}</Link> : entry.title}
                     {entry.titleSuffix && <Text style={S.titleSuffix}>{` – ${entry.titleSuffix}`}</Text>}
                     {entry.titleLinks?.map((tl, tli) => (
                       <Text key={tli} style={{ fontWeight: 'normal' }}>
@@ -171,7 +172,7 @@ function ResumePdfDocument({ data }: { data: CVData }) {
                   {entry.notes?.map((note, ni) => (
                     <Text key={ni} style={[S.note, note.indent ? { marginLeft: 20 } : {}]}>
                       {'• '}
-                      {note.prefix}{note.url ? <Link src={note.url} style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</Link> : note.text}
+                      {note.prefix}{note.url ? <Link src={note.url} style={{ color: COLOR.link, textDecoration: 'none' }}>{note.text}</Link> : note.text}
                     </Text>
                   ))}
                   {entry.bullets?.map((b, bi) => (
@@ -203,29 +204,29 @@ function ResumePdfDocument({ data }: { data: CVData }) {
 // ─── HTML Preview ──────────────────────────────────────────────────────────────
 
 const HS = {
-  page: { background: '#fff', color: '#111', fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontSize: '10px', lineHeight: '1.4', padding: 'clamp(16px, 4vw, 48px) clamp(12px, 4vw, 56px)', maxWidth: '900px', margin: '0 auto', boxShadow: '0 4px 32px rgba(0,0,0,0.5)', borderRadius: '2px', textAlign: 'justify' } as React.CSSProperties,
-  name: { fontSize: '22px', fontWeight: 700, color: '#1a3a6b', marginBottom: '1px' } as React.CSSProperties,
-  title: { fontSize: '10px', color: '#444', fontStyle: 'italic', marginBottom: '4px' } as React.CSSProperties,
-  contactLine: { fontSize: '8.5px', color: '#444' } as React.CSSProperties,
-  link: { fontSize: '8.5px', color: '#1a3a6b', textDecoration: 'none' } as React.CSSProperties,
-  sep: { fontSize: '8.5px', color: '#999' } as React.CSSProperties,
-  sectionHeader: { fontSize: '12px', fontWeight: 700, color: '#1a3a6b', marginTop: '8px', marginBottom: '3px', paddingBottom: '1px', borderBottom: '0.75px solid #1a3a6b', textTransform: 'uppercase' as const, letterSpacing: '0.02em' } as React.CSSProperties,
+  page: { background: '#fff', color: COLOR.body, fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontSize: px(FS.page), lineHeight: '1.4', padding: 'clamp(16px, 4vw, 48px) clamp(12px, 4vw, 56px)', maxWidth: '900px', margin: '0 auto', boxShadow: '0 4px 32px rgba(0,0,0,0.5)', borderRadius: '2px', textAlign: 'justify' } as React.CSSProperties,
+  name: { fontSize: px(FS.name), fontWeight: 700, color: COLOR.navy, marginBottom: '1px' } as React.CSSProperties,
+  title: { fontSize: px(FS.page), color: COLOR.meta, fontStyle: 'italic', marginBottom: '4px' } as React.CSSProperties,
+  contactLine: { fontSize: px(FS.subtitle), color: COLOR.meta } as React.CSSProperties,
+  link: { fontSize: px(FS.subtitle), color: COLOR.navy, textDecoration: 'none' } as React.CSSProperties,
+  sep: { fontSize: px(FS.subtitle), color: COLOR.sep } as React.CSSProperties,
+  sectionHeader: { fontSize: px(FS.sectionHeader), fontWeight: 700, color: COLOR.navy, marginTop: '8px', marginBottom: '3px', paddingBottom: '1px', borderBottom: `0.75px solid ${COLOR.navy}`, textTransform: 'uppercase' as const, letterSpacing: '0.02em' } as React.CSSProperties,
   row: { display: 'flex', gap: '6px', marginBottom: '5px' } as React.CSSProperties,
   contentCol: { flex: '86 1 0%' } as React.CSSProperties,
   dateCol: { flex: '14 0 0%', textAlign: 'right' as const } as React.CSSProperties,
-  entryTitle: { fontWeight: 700, fontSize: '9px', color: '#111' } as React.CSSProperties,
-  titleSuffix: { fontWeight: 400, fontStyle: 'italic', color: '#3d6ba8', fontSize: '9px' } as React.CSSProperties,
-  titleLink: { fontSize: '8px', color: '#1a6bbf', textDecoration: 'none' } as React.CSSProperties,
-  titleLinkSep: { fontSize: '8px', color: '#999' } as React.CSSProperties,
-  date: { fontSize: '8px', color: '#555', fontStyle: 'italic', whiteSpace: 'pre-line' } as React.CSSProperties,
-  subtitle: { fontSize: '8.5px', color: '#333', fontStyle: 'italic', marginBottom: '1px' } as React.CSSProperties,
-  note: { fontSize: '8px', color: '#444', marginLeft: '8px' } as React.CSSProperties,
-  bullet: { display: 'flex', gap: '4px', marginBottom: '1.5px', marginLeft: '4px', fontSize: '8.5px', color: '#333', lineHeight: '1.4' } as React.CSSProperties,
-  summaryText: { fontSize: '8.5px', color: '#222', lineHeight: '1.5' } as React.CSSProperties,
-  lastUpdated: { fontSize: '7.5px', color: '#999', marginTop: '2px' } as React.CSSProperties,
-  skillRow: { marginBottom: '2px', fontSize: '8.5px' } as React.CSSProperties,
-  skillLabel: { fontWeight: 700, color: '#1a3a6b' } as React.CSSProperties,
-  skillItems: { color: '#333' } as React.CSSProperties,
+  entryTitle: { fontWeight: 700, fontSize: px(FS.entryTitle), color: COLOR.body } as React.CSSProperties,
+  titleSuffix: { fontWeight: 400, fontStyle: 'italic', color: COLOR.linkMid, fontSize: px(FS.entryTitle) } as React.CSSProperties,
+  titleLink: { fontSize: px(FS.small), color: COLOR.link, textDecoration: 'none' } as React.CSSProperties,
+  titleLinkSep: { fontSize: px(FS.small), color: COLOR.sep } as React.CSSProperties,
+  date: { fontSize: px(FS.small), color: COLOR.muted, fontStyle: 'italic', whiteSpace: 'pre-line' } as React.CSSProperties,
+  subtitle: { fontSize: px(FS.subtitle), color: COLOR.text, fontStyle: 'italic', marginBottom: '1px' } as React.CSSProperties,
+  note: { fontSize: px(FS.small), color: COLOR.meta, marginLeft: '8px' } as React.CSSProperties,
+  bullet: { display: 'flex', gap: '4px', marginBottom: '1.5px', marginLeft: '4px', fontSize: px(FS.subtitle), color: COLOR.text, lineHeight: '1.4' } as React.CSSProperties,
+  summaryText: { fontSize: px(FS.subtitle), color: '#222', lineHeight: '1.5' } as React.CSSProperties,
+  lastUpdated: { fontSize: px(FS.tiny), color: COLOR.sep, marginTop: '2px' } as React.CSSProperties,
+  skillRow: { marginBottom: '2px', fontSize: px(FS.subtitle) } as React.CSSProperties,
+  skillLabel: { fontWeight: 700, color: COLOR.navy } as React.CSSProperties,
+  skillItems: { color: COLOR.text } as React.CSSProperties,
 }
 
 function ResumeHtmlPreview({ data }: { data: CVData }) {
@@ -248,7 +249,7 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
         </div>
         <div style={HS.lastUpdated}>
           {h.lastUpdated}{' – '}
-          <a href={h.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>View live version</a>
+          <a href={h.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: COLOR.link, textDecoration: 'none' }}>View live version</a>
         </div>
       </div>
 
@@ -257,8 +258,8 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
           <h2 style={HS.sectionHeader}>
             {sec.header}
             {sec.headerLinks?.map((hl, hli) => (
-              <span key={hli} style={{ fontSize: '8px', fontWeight: 400, textTransform: 'none', fontStyle: 'italic', marginLeft: '4px', verticalAlign: 'middle' }}>
-                {hli === 0 ? ' – ' : ' · '}<a href={hl.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{hl.label}</a>
+              <span key={hli} style={{ fontSize: px(FS.small), fontWeight: 400, textTransform: 'none', fontStyle: 'italic', marginLeft: '4px', verticalAlign: 'middle' }}>
+                {hli === 0 ? ' – ' : ' · '}<a href={hl.url} target="_blank" rel="noopener noreferrer" style={{ color: COLOR.link, textDecoration: 'none' }}>{hl.label}</a>
               </span>
             ))}
           </h2>
@@ -268,7 +269,7 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
               <div style={entry.fullWidth ? undefined : HS.contentCol}>
                 <div>
                   {entry.titleUrl
-                    ? <a href={entry.titleUrl} target="_blank" rel="noopener noreferrer" style={{ ...HS.entryTitle, color: '#1a6bbf', textDecoration: 'none' }}>{entry.title}</a>
+                    ? <a href={entry.titleUrl} target="_blank" rel="noopener noreferrer" style={{ ...HS.entryTitle, color: COLOR.link, textDecoration: 'none' }}>{entry.title}</a>
                     : <span style={HS.entryTitle}>{entry.title}</span>}
                   {entry.titleSuffix && <span style={HS.titleSuffix}>{` – ${entry.titleSuffix}`}</span>}
                   {entry.titleLinks?.map((tl, tli) => (
@@ -287,7 +288,7 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
                 {entry.notes?.map((note, ni) => (
                   <div key={ni} style={{ ...HS.note, ...(note.indent ? { marginLeft: '24px' } : {}) }}>
                     {'• '}
-                    {note.prefix}{note.url ? <a href={note.url} target="_blank" rel="noopener noreferrer" style={{ color: '#1a6bbf', textDecoration: 'none' }}>{note.text}</a> : note.text}
+                    {note.prefix}{note.url ? <a href={note.url} target="_blank" rel="noopener noreferrer" style={{ color: COLOR.link, textDecoration: 'none' }}>{note.text}</a> : note.text}
                   </div>
                 ))}
                 {entry.bullets?.map((b, bi) => (
