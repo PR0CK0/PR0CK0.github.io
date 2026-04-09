@@ -219,6 +219,7 @@ export const COMPETENCY_CATEGORIES: Record<string, CompetencyCategory> = {
   Grok:                 'ai_tools',
   'Microsoft Copilot':  'ai_tools',
   Ollama:               'ai_tools',
+  'DALL-E':             'ai_tools',
   'Stable Diffusion':   'ai_tools',
   'SD WebUI':           'ai_tools',
   LoRA:                 'ai_tools',

@@ -1694,9 +1694,21 @@ publications:
   author_role: Primary author
   technologies:
   - Microsoft Word
+  - DALL-E
+  - Stable Diffusion
   domains:
   - LLMs
   - Machine Learning
+  - Software Engineering
+  - SDLC
+  - Education
+  - NLP
+  - XAI
+  - Computer Vision
+  - Data Visualization
+  - FAIR Data
+  - Ethics
+  - Safety
   - Scientific Writing
   cited_by_count: 0
   doi: https://doi.org/10.2139/ssrn.4696021
