@@ -31,7 +31,7 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [x] pub/ontology-sdlc-aerospace
 - [ ] pub/robust-training-datasets-ontologies
 - [ ] pub/semantic-science-beyond-pdf
-- [ ] pub/dawn-of-dialogue
+- [x] pub/dawn-of-dialogue
 - [ ] pub/lm-kg-survey
 - [ ] pub/scrum-in-classroom
 - [ ] pub/gps-signal-strength
