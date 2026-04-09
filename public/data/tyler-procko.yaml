@@ -1694,6 +1694,8 @@ publications:
   author_role: Primary author
   technologies:
   - Microsoft Word
+  - OpenAI
+  - GPT
   - DALL-E
   - Stable Diffusion
   domains:
