@@ -32,7 +32,7 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [ ] pub/robust-training-datasets-ontologies
 - [ ] pub/semantic-science-beyond-pdf
 - [x] pub/dawn-of-dialogue
-- [ ] pub/lm-kg-survey
+- [x] pub/lm-kg-survey
 - [ ] pub/scrum-in-classroom
 - [ ] pub/gps-signal-strength
 - [x] pub/auto-code-documentation

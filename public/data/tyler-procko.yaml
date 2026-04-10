@@ -1727,12 +1727,29 @@ publications:
   primary_author: Timothy R. Elvira
   technologies:
   - Microsoft Word
+  - BERT
+  - RoBERTa
+  - DistilBERT
+  - ALBERT
+  - GPT
+  - Transformers
+  - RDF
+  - RDFS
+  - OWL
+  - BFO
+  - Discord
   domains:
   - Knowledge Graphs
   - LLMs
   - NLP
   - Machine Learning
   - Semantic Web
+  - Knowledge Representation
+  - Ontology
+  - Description Logics
+  - Embeddings
+  - Taxonomy
+  - Text Extraction
   - Scientific Writing
 - id: pub/towards-agile-academia
   title: 'Towards Agile Academia: An Approach to Scientific Paper Writing Inspired by Software Engineering'
