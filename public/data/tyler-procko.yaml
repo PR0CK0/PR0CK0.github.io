@@ -1806,7 +1806,7 @@ publications:
   cited_by_count: 0
   doi: https://doi.org/10.1109/dasc58513.2023.10311183
 - id: pub/auto-code-documentation
-  title: ‘Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development’’s Most Redundant Task’
+  title: "Automatic Code Documentation with Syntax Trees and GPT: Alleviating Software Development’s Most Redundant Task"
   authors:
   - Tyler T. Procko
   venue: SSRN
