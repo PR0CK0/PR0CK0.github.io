@@ -157,6 +157,7 @@ export const COMPETENCY_CATEGORIES: Record<string, CompetencyCategory> = {
   // ── Development Tools ──────────────────────────────────────────────────────
   Git:                  'dev_tools',
   GitHub:               'dev_tools',
+  Roslyn:               'dev_tools',
   'GitHub CLI':         'dev_tools',
   Jira:                 'dev_tools',
   Confluence:           'dev_tools',
