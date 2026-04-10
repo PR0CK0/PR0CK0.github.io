@@ -161,6 +161,7 @@ work_experiences:
   - macOS
   - Microsoft Teams
   - Signal
+  - Bash
   - Mermaid
   - Figma
   - Miro
@@ -1173,6 +1174,7 @@ work_experiences:
   end_date: 2019-05
   technologies:
   - C
+  - Bash
   - Linux
   - UNIX
   - Code::Blocks
@@ -1614,11 +1616,25 @@ publications:
   primary_author: Lynn Vonderhaar
   technologies:
   - Microsoft Word
+  - Python
+  - OpenCV
+  - SPARQL
+  - OWL
+  - RDF
+  - CSV
+  - BFO
+  - MLSchema
+  - Protégé
+  - YOLO
+  - Roboflow
   domains:
   - Ontology
   - Machine Learning
   - Computer Vision
   - Knowledge Representation
+  - Knowledge Graphs
+  - Safety
+  - XAI
   - Scientific Writing
   - Taxonomy
   cited_by_count: 0

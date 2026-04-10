@@ -119,6 +119,7 @@ export const COMPETENCY_CATEGORIES: Record<string, CompetencyCategory> = {
   Numexpr:              'libraries',
   Cython:               'libraries',
   mpi4py:               'libraries',
+  OpenCV:               'libraries',
   PyMuPDF:              'libraries',
   BeautifulSoup4:       'libraries',
   feedparser:           'libraries',
@@ -181,6 +182,7 @@ export const COMPETENCY_CATEGORIES: Record<string, CompetencyCategory> = {
   GraphViz:             'dev_tools',
   'Ontotext Refine':    'dev_tools',
   CVAT:                 'dev_tools',
+  Roboflow:             'dev_tools',
   Docker:               'dev_tools',
   Kubernetes:           'dev_tools',
   Trello:               'dev_tools',
@@ -190,7 +192,7 @@ export const COMPETENCY_CATEGORIES: Record<string, CompetencyCategory> = {
   Fuseki:               'dev_tools',
   'DL-Learner':         'dev_tools',
   WordPress:            'dev_tools',
-  MISTK:                'dev_tools',
+  MISTK:                'ai_tools',
   Arduino:              'dev_tools',
   CURL:                 'dev_tools',
   Wireshark:            'dev_tools',
@@ -329,8 +331,7 @@ export const COMPETENCY_CATEGORIES: Record<string, CompetencyCategory> = {
   Mockingbird:          'design',
   vMix:                 'design',
 
-  // ── Development Tools ─── (additional) ──────────────────────────────────────
-  Bash:         'dev_tools',
+  Bash:         'prog_languages',
 
   // ── Data Languages ─── (additional) ────────────────────────────────────────
   TSV:          'data_languages',
