@@ -25,6 +25,7 @@ import urllib.error
 
 try:
     from ruamel.yaml import YAML
+    from ruamel.yaml.scalarstring import DoubleQuotedScalarString as DQ
 except ImportError:
     print("ERROR: ruamel.yaml is required. Install with: pip install ruamel.yaml")
     sys.exit(1)
@@ -219,9 +220,9 @@ def main() -> None:
 
         stub: dict = {
             "id": pub_id,
-            "title": title,
+            "title": DQ(title),
             "authors": authors,
-            "venue": venue,
+            "venue": DQ(venue) if venue else venue,
             "date": date,
             "status": "published",
             "url": doi,
@@ -232,7 +233,7 @@ def main() -> None:
             "cited_by_count": cited_by_count,
         }
         if abstract:
-            stub["abstract"] = abstract
+            stub["abstract"] = DQ(abstract)
 
         pubs.append(stub)
         known_dois.add(doi)
