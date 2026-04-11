@@ -22,22 +22,22 @@ except ImportError:
     sys.exit(1)
 
 YAML_PATH       = Path("public/data/tyler-procko.yaml")
-TECH_CAT_PATH   = Path("src/lib/tech-categories.ts")
+VOCAB_DIR       = Path("src/lib/vocab")
 
 # ── Parse COMPETENCY_CATEGORIES keys from TypeScript ────────────────────────────────
 
-def load_tech_category_keys() -> set[str]:
-    """Extract every key from COMPETENCY_CATEGORIES in tech-categories.ts."""
-    src = TECH_CAT_PATH.read_text(encoding="utf-8")
-    # Match  'some key':  or  someKey:  inside the COMPETENCY_CATEGORIES block
+def _extract_keys_from_ts(src: str) -> set[str]:
+    """Extract Record keys from a TypeScript source string."""
     keys: set[str] = set()
     in_block = False
     for line in src.splitlines():
-        if "COMPETENCY_CATEGORIES" in line and "{" in line:
+        # Enter any object literal block (e.g. export const FOO_VOCAB: ... = {)
+        if re.search(r"=\s*\{", line) and ("VOCAB" in line or "CATEGORIES" in line):
             in_block = True
         if in_block:
             if line.strip().startswith("}"):
-                break
+                in_block = False
+                continue
             # quoted key: 'foo bar': or "foo bar":
             m = re.match(r"""^\s+['"](.+?)['"]\s*:""", line)
             if m:
@@ -47,6 +47,16 @@ def load_tech_category_keys() -> set[str]:
             m = re.match(r"""^\s+([A-Za-z][A-Za-z0-9_.+#/&\-]*)\s*:""", line)
             if m:
                 keys.add(m.group(1))
+    return keys
+
+
+def load_tech_category_keys() -> set[str]:
+    """Extract every term key from the vocab .ts files under src/lib/vocab/."""
+    keys: set[str] = set()
+    for ts_file in VOCAB_DIR.glob("*.ts"):
+        if ts_file.name.startswith("_"):
+            continue
+        keys |= _extract_keys_from_ts(ts_file.read_text(encoding="utf-8"))
     return keys
 
 

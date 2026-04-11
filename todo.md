@@ -125,7 +125,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## Split TECH_CATEGORIES vocabulary file
 
-- [ ] **Split `tech-categories.ts` into separate bounded vocabulary files** — `TECH_CATEGORIES` now contains technologies, domains, soft skills, and personal skills all in one Record, which is confusing naming. Split into e.g. `TECH_VOCAB`, `DOMAIN_VOCAB`, `SOFT_SKILL_VOCAB`, `PERSONAL_VOCAB` (or a unified `TERM_CATEGORIES` with a clearer name), update Landing.tsx and the validate script accordingly.
+- [x] **Split `tech-categories.ts` into separate bounded vocabulary files** — `TECH_CATEGORIES` now contains technologies, domains, soft skills, and personal skills all in one Record, which is confusing naming. Split into e.g. `TECH_VOCAB`, `DOMAIN_VOCAB`, `SOFT_SKILL_VOCAB`, `PERSONAL_VOCAB` (or a unified `TERM_CATEGORIES` with a clearer name), update Landing.tsx and the validate script accordingly.
 
 ## Type hierarchy organization
 
@@ -157,7 +157,7 @@ These were in the now-deleted `skills:` YAML section but are not attached to any
 
 
 
-- [ ] **Tests: detect unmapped terms** — Test suite should flag technologies/domains/soft_skills/personal_skills that appear in YAML but aren't recognized/validated. Example: `Git` is in YAML but doesn't show in UI (unmapped in tech-categories). Need validation that catches these orphan terms.
+- [x] **Tests: detect unmapped terms** — Test suite should flag technologies/domains/soft_skills/personal_skills that appear in YAML but aren't recognized/validated. Example: `Git` is in YAML but doesn't show in UI (unmapped in tech-categories). Need validation that catches these orphan terms.
 - [ ] Extracurriculars — add technologies/domains to entries missing coverage:
   - [ ] `extra/comptia-study-guide` — suggest: `Markdown`
   - [ ] `extra/swebok-v4-review` — no obvious technologies; maybe just domains
