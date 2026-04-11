@@ -46,10 +46,10 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [ ] pub/kg-geospatial-sumo
 - [ ] pub/sdlc-ontology-engineering
 - [ ] pub/cognitive-assistants-aviation-inprogress
-- [ ] pub/colleague-thesis-vonderhaar
-- [ ] pub/colleague-thesis-kiselev
-- [ ] pub/competition-proposal-nas
-- [ ] pub/grant-proposal-nsf
+- [x] pub/colleague-thesis-vonderhaar (skip)
+- [x] pub/colleague-thesis-kiselev (skip)
+- [x] pub/competition-proposal-nas (skip)
+- [x] pub/grant-proposal-nsf (skip)
 - [ ] pub/article-synthetic-ontologies
 
 ## Publications — citation count display

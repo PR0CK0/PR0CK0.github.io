@@ -2291,6 +2291,7 @@ publications:
   - LLMs
   - Scientific Writing
 - id: pub/colleague-thesis-vonderhaar
+  tech_review: skip
   title: Eliminating Security Weaknesses in Requirement Specifications via a Knowledge Graph
   authors:
   - Lynn Vonder Haar
@@ -2309,6 +2310,7 @@ publications:
   - Software Engineering
   - Scientific Writing
 - id: pub/colleague-thesis-kiselev
+  tech_review: skip
   title: Extracting a Body of Knowledge as a First Step Towards Defining a United Software Engineering Curriculum 
     Guideline
   authors:
@@ -2329,6 +2331,7 @@ publications:
   - Text Extraction
   - Scientific Writing
 - id: pub/competition-proposal-nas
+  tech_review: skip
   title: 'Expanding the Capabilities of the NAS through AI: A White Box for the Airspace Ecosystem'
   authors:
   - Tyler T. Procko
@@ -2346,6 +2349,7 @@ publications:
   - LLMs
   - Scientific Writing
 - id: pub/grant-proposal-nsf
+  tech_review: skip
   title: Expanding the Nation’s STEM Talent Pool by Accelerating Graduate Degree Completion in Computer, Software, and 
     Cybersecurity Engineering
   authors:
