@@ -36,7 +36,7 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [ ] pub/scrum-in-classroom
 - [ ] pub/gps-signal-strength
 - [x] pub/auto-code-documentation
-- [ ] pub/gpt4-stochastic-parrot
+- [x] pub/gpt4-stochastic-parrot
 - [ ] pub/catastrophic-forgetting
 - [ ] pub/digital-rubber-duck
 - [ ] pub/validating-security-requirements-kg

@@ -1882,13 +1882,28 @@ publications:
   author_role: Primary Author
   technologies:
   - Microsoft Word
+  - GPT
+  - OpenAI
+  - BFO
+  - OWL
+  - ANNETTO
   - UFO
   - GFO
+  - Markdown
   domains:
   - LLMs
   - Ontology
   - Knowledge Representation
   - Knowledge Graphs
+  - Knowledge Management
+  - Machine Learning
+  - NLP
+  - Prompt Engineering
+  - Description Logics
+  - Semantic Web
+  - Linked Data
+  - XAI
+  - Cognitive Science
   - Scientific Writing
   - Taxonomy
   soft_skills:
