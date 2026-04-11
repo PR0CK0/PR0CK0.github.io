@@ -2115,6 +2115,8 @@ publications:
   - Turtle
   - RDF
   - RDFS
+  - SPARQL
+  - SWEBOK
   - Microsoft Word
   domains:
   - Ontology
