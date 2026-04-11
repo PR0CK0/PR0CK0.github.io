@@ -25,15 +25,15 @@ export const FOOTER_META   = 'text-[7px] sm:text-[8px]'
 // ─── Buttons ──────────────────────────────────────────────────────────────────
 
 /** Primary action button — blue (Download PDF) */
-export const BTN_PRIMARY   = 'px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-900 border border-blue-500 text-blue-200 text-xs sm:text-sm font-mono hover:bg-blue-800 transition-colors rounded'
-/** Secondary action button — gray (View Raw YAML, etc.) */
-export const BTN_SECONDARY = 'px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-800 border border-gray-600 text-gray-300 text-xs sm:text-sm font-mono hover:bg-gray-700 transition-colors rounded'
+export const BTN_PRIMARY   = 'px-3 py-1.5 sm:px-4 sm:py-2 bg-terminal-blue/15 border border-terminal-blue/60 text-terminal-blue text-xs sm:text-sm font-mono hover:bg-terminal-blue/25 transition-colors rounded'
+/** Secondary action button — neutral (View Raw YAML, etc.) */
+export const BTN_SECONDARY = 'px-3 py-1.5 sm:px-4 sm:py-2 bg-terminal-surface border border-terminal-border text-terminal-text text-xs sm:text-sm font-mono hover:bg-terminal-border/40 transition-colors rounded'
 /** Base classes shared by both toggle states */
 export const BTN_TOGGLE_BASE     = 'px-2 py-1.5 sm:px-3 sm:py-2 text-[0.65rem] sm:text-xs font-mono transition-colors'
 /** Toggle button — active/selected state */
 export const BTN_TOGGLE_ACTIVE   = `${BTN_TOGGLE_BASE} bg-terminal-green/20 text-terminal-green`
 /** Toggle button — inactive state */
-export const BTN_TOGGLE_INACTIVE = `${BTN_TOGGLE_BASE} bg-gray-800 text-gray-400 hover:text-gray-200`
+export const BTN_TOGGLE_INACTIVE = `${BTN_TOGGLE_BASE} bg-terminal-surface border border-terminal-border text-terminal-muted hover:text-terminal-text`
 
 // ─── Layout ───────────────────────────────────────────────────────────────────
 

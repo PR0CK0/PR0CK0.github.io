@@ -39,13 +39,13 @@ export default function SiteFooter({ name }: { name: string }) {
             ))}
           </nav>
         </div>
-        <div className={`mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-terminal-border/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-terminal-muted/40 ${FOOTER_META} font-mono`}>
+        <div className={`mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-terminal-border/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-terminal-muted/70 ${FOOTER_META} font-mono`}>
           <span className="flex items-center gap-2">
             <span className="animate-blink">▮</span>
             <span>© {new Date().getFullYear()} {name}. All rights reserved.</span>
           </span>
           <span className="flex items-center gap-2">
-            <span className="text-terminal-green/30">commit</span>
+            <span className="text-terminal-green/60">commit</span>
             <a
               href={`https://github.com/PR0CK0/PR0CK0.github.io/commit/${__GIT_COMMIT__}`}
               target="_blank"
@@ -54,7 +54,7 @@ export default function SiteFooter({ name }: { name: string }) {
             >
               {__GIT_COMMIT__}
             </a>
-            <span className="text-terminal-muted/30">·</span>
+            <span className="text-terminal-muted/60">·</span>
             <span>updated {buildStr}</span>
           </span>
         </div>
