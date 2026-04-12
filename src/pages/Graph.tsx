@@ -50,6 +50,56 @@ function buildLinks(data: Record<string, unknown>): Array<{ label: string; url: 
   return links
 }
 
+// ─── Light-mode palette ───────────────────────────────────────────────────────
+
+const DARK = {
+  bg:            '#0a0e1a',
+  surface:       '#0f1629',
+  border:        '#1e2d4a',
+  border2:       '#2a3d5a',
+  borderHover:   '#243452',
+  text:          '#c8d6f0',
+  textFaint:     '#6b7a99',
+  muted:         '#4a5a7a',
+  logFaint:      '#1e2d4a',
+  edge:          'rgba(200, 214, 240, 0.3)',
+  edgeFaint:     'rgba(200, 214, 240, 0.1)',
+  edgeNeighbour: 'rgba(200, 214, 240, 0.6)',
+  labelBg:       '#0a0e1a',
+  surfaceAlpha:  '#0f162999',
+}
+
+const LIGHT = {
+  bg:            '#f5f6fa',
+  surface:       '#ffffff',
+  border:        '#d5dce9',
+  border2:       '#c0c8d8',
+  borderHover:   '#c0c8d8',
+  text:          '#1a2440',
+  textFaint:     '#5a6a8a',
+  muted:         '#7080a0',
+  logFaint:      '#b0b8cc',
+  edge:          'rgba(26, 36, 64, 0.25)',
+  edgeFaint:     'rgba(26, 36, 64, 0.08)',
+  edgeNeighbour: 'rgba(26, 36, 64, 0.5)',
+  labelBg:       '#f5f6fa',
+  surfaceAlpha:  '#ffffffcc',
+}
+
+function useIsLightMode() {
+  const [isLight, setIsLight] = useState(
+    () => document.documentElement.classList.contains('light')
+  )
+  useEffect(() => {
+    const obs = new MutationObserver(() =>
+      setIsLight(document.documentElement.classList.contains('light'))
+    )
+    obs.observe(document.documentElement, { attributeFilter: ['class'] })
+    return () => obs.disconnect()
+  }, [])
+  return isLight
+}
+
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const NODE_TYPES: NodeType[] = [
@@ -114,7 +164,7 @@ const LAYOUT_CACHE_PREFIX = 'graph-layout-v5'
 
 // ─── Cytoscape stylesheet ──────────────────────────────────────────────────────
 
-function buildStylesheet(): object[] {
+function buildStylesheet(C: typeof DARK): object[] {
   const nodeStyles = NODE_TYPES.map((type) => {
     const meta = TYPE_META[type]
     return {
@@ -138,13 +188,13 @@ function buildStylesheet(): object[] {
         'label': 'data(label)',
         'text-valign': 'bottom',
         'text-halign': 'center',
-        'color': '#c8d6f0',
+        'color': C.text,
         'font-size': '9px',
         'font-family': 'JetBrains Mono, Fira Code, Consolas, monospace',
         'text-margin-y': 4,
         'text-wrap': 'ellipsis',
         'text-max-width': '80px',
-        'text-background-color': '#0a0e1a',
+        'text-background-color': C.labelBg,
         'text-background-opacity': 0.7,
         'text-background-padding': '2px',
         'overlay-opacity': 0,
@@ -170,8 +220,8 @@ function buildStylesheet(): object[] {
       selector: 'edge',
       style: {
         'width': 1.5,
-        'line-color': 'rgba(200, 214, 240, 0.3)',
-        'target-arrow-color': 'rgba(200, 214, 240, 0.3)',
+        'line-color': C.edge,
+        'target-arrow-color': C.edge,
         'target-arrow-shape': 'triangle',
         'arrow-scale': 0.6,
         'curve-style': 'bezier',
@@ -183,8 +233,8 @@ function buildStylesheet(): object[] {
     {
       selector: 'edge[type = "skill-usage"]',
       style: {
-        'line-color': 'rgba(200, 214, 240, 0.1)',
-        'target-arrow-color': 'rgba(200, 214, 240, 0.1)',
+        'line-color': C.edgeFaint,
+        'target-arrow-color': C.edgeFaint,
         'width': 1,
       },
     },
@@ -221,15 +271,15 @@ function buildStylesheet(): object[] {
       style: {
         'opacity': 1,
         'border-width': 2,
-        'border-color': 'rgba(200, 214, 240, 0.6)',
+        'border-color': C.edgeNeighbour,
       },
     },
     {
       selector: 'edge.neighbour',
       style: {
         'opacity': 1,
-        'line-color': 'rgba(200, 214, 240, 0.6)',
-        'target-arrow-color': 'rgba(200, 214, 240, 0.6)',
+        'line-color': C.edgeNeighbour,
+        'target-arrow-color': C.edgeNeighbour,
       },
     },
   ]
@@ -313,16 +363,16 @@ const BRAILLE = ['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏']
 // Braille cycle duration: 10 chars × 80ms each = 800ms total
 const BRAILLE_DURATION_MS = BRAILLE.length * 80
 
-function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
+function LoadingSpinner({ phase, C }: { phase: 'loading' | 'layout'; C: typeof DARK }) {
   const lines = phase === 'loading'
     ? ['[INFO]  loading portfolio data...', '[WAIT]  running layout engine...']
     : ['[WAIT]  running layout engine...']
   const cmd = phase === 'loading' ? 'python kg.py --load' : 'python kg.py --render fcose'
 
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center z-10" style={{ background: '#0a0e1a' }}>
+    <div className="absolute inset-0 flex flex-col items-center justify-center z-10" style={{ background: C.bg }}>
       {/* Command line — CSS-only braille spinner, unaffected by JS blocking */}
-      <div className="font-mono text-xs flex items-center" style={{ color: '#4a5a7a', gap: 6 }}>
+      <div className="font-mono text-xs flex items-center" style={{ color: C.muted, gap: 6 }}>
         <span style={{ position: 'relative', display: 'inline-block', width: '1ch', height: '1em', color: '#00ff88' }}>
           {BRAILLE.map((char, i) => (
             <span
@@ -346,7 +396,7 @@ function LoadingSpinner({ phase }: { phase: 'loading' | 'layout' }) {
       {/* Scrolling log output */}
       <div className="font-mono flex flex-col mt-3" style={{ fontSize: 10, minHeight: 48, gap: 3 }}>
         {lines.map((line, i) => (
-          <div key={line} style={{ color: i === lines.length - 1 ? '#3a5a7a' : '#1e2d4a' }}>
+          <div key={line} style={{ color: i === lines.length - 1 ? C.muted : C.logFaint }}>
             {line}
           </div>
         ))}
@@ -382,6 +432,9 @@ export default function Graph() {
   const expandedNodesRef = useRef<Set<string>>(new Set())
   const [mobileOpen, setMobileOpen] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(true)
+
+  const isLight = useIsLightMode()
+  const C = isLight ? LIGHT : DARK
 
   // Track stats
   const [stats, setStats] = useState({ nodes: 0, edges: 0 })
@@ -694,6 +747,14 @@ export default function Graph() {
     selectNodeById(match.data('id') as string)
   }, [phase])
 
+  // ── Re-apply stylesheet when light/dark mode changes ────────────────────────
+
+  useEffect(() => {
+    const cy = cyRef.current
+    if (!cy) return
+    cy.style(buildStylesheet(C) as never)
+  }, [isLight])
+
   // ── Layout controls ──────────────────────────────────────────────────────────
 
   const runLayout = useCallback(() => {
@@ -729,9 +790,9 @@ export default function Graph() {
   const sidebarContent = (
     <>
       {/* Filter by type */}
-      <div className="px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
+      <div className="px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0" style={{ borderBottom: `1px solid ${C.border}` }}>
         <div className="flex items-center justify-between mb-1.5 sm:mb-2">
-          <span className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider" style={{ color: '#4a5a7a' }}>
+          <span className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider" style={{ color: C.muted }}>
             Filter by type
           </span>
           {(() => {
@@ -772,7 +833,7 @@ export default function Graph() {
                 <input type="checkbox" checked={enabled} onChange={() => toggleType(type)} className="sr-only" />
                 <span
                   className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 rounded-sm border flex items-center justify-center transition-all"
-                  style={{ borderColor: enabled ? meta.color : '#1e2d4a', backgroundColor: enabled ? meta.color + '33' : 'transparent' }}
+                  style={{ borderColor: enabled ? meta.color : C.border, backgroundColor: enabled ? meta.color + '33' : 'transparent' }}
                 >
                   {enabled && (
                     <svg width="7" height="7" viewBox="0 0 8 8" fill="none">
@@ -781,15 +842,15 @@ export default function Graph() {
                   )}
                 </span>
                 <ShapeIcon type={type} />
-                <span className="text-[0.6rem] sm:text-xs whitespace-nowrap" style={{ color: '#c8d6f0' }}>{meta.label}</span>
+                <span className="text-[0.6rem] sm:text-xs whitespace-nowrap" style={{ color: C.text }}>{meta.label}</span>
               </label>
             )
           })}
           {/* Competencies group separator */}
-          <span className="hidden sm:block text-[0.55rem] uppercase tracking-wider mt-1 mb-0 font-bold" style={{ color: '#4a5a7a' }}>
+          <span className="hidden sm:block text-[0.55rem] uppercase tracking-wider mt-1 mb-0 font-bold" style={{ color: C.muted }}>
             Competencies
           </span>
-          <span className="sm:hidden text-[0.6rem] self-center flex-shrink-0 mx-0.5" style={{ color: '#4a5a7a' }}>│</span>
+          <span className="sm:hidden text-[0.6rem] self-center flex-shrink-0 mx-0.5" style={{ color: C.muted }}>│</span>
           {COMPETENCY_NODE_TYPES.map((type) => {
             const meta = TYPE_META[type]
             const enabled = enabledTypes.has(type)
@@ -802,7 +863,7 @@ export default function Graph() {
                 <input type="checkbox" checked={enabled} onChange={() => toggleType(type)} className="sr-only" />
                 <span
                   className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 rounded-sm border flex items-center justify-center transition-all"
-                  style={{ borderColor: enabled ? meta.color : '#1e2d4a', backgroundColor: enabled ? meta.color + '33' : 'transparent' }}
+                  style={{ borderColor: enabled ? meta.color : C.border, backgroundColor: enabled ? meta.color + '33' : 'transparent' }}
                 >
                   {enabled && (
                     <svg width="7" height="7" viewBox="0 0 8 8" fill="none">
@@ -811,7 +872,7 @@ export default function Graph() {
                   )}
                 </span>
                 <ShapeIcon type={type} />
-                <span className="text-[0.6rem] sm:text-xs whitespace-nowrap" style={{ color: '#c8d6f0' }}>{meta.label}</span>
+                <span className="text-[0.6rem] sm:text-xs whitespace-nowrap" style={{ color: C.text }}>{meta.label}</span>
               </label>
             )
           })}
@@ -819,14 +880,14 @@ export default function Graph() {
       </div>
 
       {/* Search */}
-      <div className="px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
-        <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: '#4a5a7a' }}>
+      <div className="px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0" style={{ borderBottom: `1px solid ${C.border}` }}>
+        <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: C.muted }}>
           Search
         </div>
         <div className="relative">
           <span
             className="absolute left-2 top-1/2 -translate-y-1/2 text-xs"
-            style={{ color: '#4a5a7a' }}
+            style={{ color: C.muted }}
           >
             /
           </span>
@@ -837,19 +898,19 @@ export default function Graph() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-5 pr-3 py-1 sm:py-1.5 text-[0.65rem] sm:text-xs rounded outline-none transition-all"
             style={{
-              background: '#0a0e1a',
-              border: '1px solid #1e2d4a',
-              color: '#c8d6f0',
+              background: C.bg,
+              border: `1px solid ${C.border}`,
+              color: C.text,
               caretColor: '#00ff88',
             }}
             onFocus={(e) => { e.target.style.borderColor = '#00ff8855' }}
-            onBlur={(e) => { e.target.style.borderColor = '#1e2d4a' }}
+            onBlur={(e) => { e.target.style.borderColor = C.border }}
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
               className="absolute right-2 top-1/2 -translate-y-1/2 text-xs transition-opacity hover:opacity-100"
-              style={{ color: '#4a5a7a' }}
+              style={{ color: C.muted }}
             >
               ×
             </button>
@@ -858,9 +919,9 @@ export default function Graph() {
       </div>
 
       {/* Visible count */}
-      <div className="px-3 sm:px-4 py-1.5 sm:py-2 flex-shrink-0 text-center font-mono" style={{ borderBottom: '1px solid #1e2d4a' }}>
+      <div className="px-3 sm:px-4 py-1.5 sm:py-2 flex-shrink-0 text-center font-mono" style={{ borderBottom: `1px solid ${C.border}` }}>
         {phase !== 'ready' ? (
-          <span className="text-[0.6rem] sm:text-xs" style={{ color: '#4a5a7a' }}>loading...</span>
+          <span className="text-[0.6rem] sm:text-xs" style={{ color: C.muted }}>loading...</span>
         ) : visibleCounts.nodes === 0 ? (
           <span className="text-[0.6rem] sm:text-xs" style={{ color: '#ff4d6d' }}>no nodes displayed</span>
         ) : visibleCounts.nodes === stats.nodes ? (
@@ -873,22 +934,22 @@ export default function Graph() {
       </div>
 
       {/* Controls */}
-      <div className="px-3 sm:px-4 py-2 sm:py-3 flex gap-2 flex-shrink-0" style={{ borderBottom: '1px solid #1e2d4a' }}>
+      <div className="px-3 sm:px-4 py-2 sm:py-3 flex gap-2 flex-shrink-0" style={{ borderBottom: `1px solid ${C.border}` }}>
         <button
           onClick={runLayout}
           className="flex-1 py-1 sm:py-1.5 px-2 sm:px-3 text-[0.65rem] sm:text-xs rounded transition-all text-left"
-          style={{ background: '#1e2d4a', color: '#c8d6f0', border: '1px solid #2a3d5a' }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = '#243452'; e.currentTarget.style.color = '#00ff88' }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = '#1e2d4a'; e.currentTarget.style.color = '#c8d6f0' }}
+          style={{ background: C.border, color: C.text, border: `1px solid ${C.border2}` }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = C.borderHover; e.currentTarget.style.color = '#00ff88' }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = C.border; e.currentTarget.style.color = C.text }}
         >
           ↺ Reset Layout
         </button>
         <button
           onClick={fitToScreen}
           className="flex-1 py-1 sm:py-1.5 px-2 sm:px-3 text-[0.65rem] sm:text-xs rounded transition-all text-left"
-          style={{ background: '#1e2d4a', color: '#c8d6f0', border: '1px solid #2a3d5a' }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = '#243452'; e.currentTarget.style.color = '#4d9fff' }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = '#1e2d4a'; e.currentTarget.style.color = '#c8d6f0' }}
+          style={{ background: C.border, color: C.text, border: `1px solid ${C.border2}` }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = C.borderHover; e.currentTarget.style.color = '#4d9fff' }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = C.border; e.currentTarget.style.color = C.text }}
         >
           ⊡ Fit to Screen
         </button>
@@ -897,54 +958,54 @@ export default function Graph() {
 
       {/* Selected node panel */}
       <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 overflow-y-auto">
-        <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: '#4a5a7a' }}>
+        <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: C.muted }}>
           Selected Node
         </div>
 
         {!selectedNode ? (
           <div
             className="rounded p-2 sm:p-3 text-[0.65rem] sm:text-xs"
-            style={{ background: '#0a0e1a', border: '1px solid #1e2d4a', color: '#4a5a7a' }}
+            style={{ background: C.bg, border: `1px solid ${C.border}`, color: C.muted }}
           >
             <span className="animate-blink">▮</span> click a node to inspect
           </div>
         ) : (
           <div
             className="rounded p-2 sm:p-3 flex flex-col gap-1.5 sm:gap-2"
-            style={{ background: '#0a0e1a', border: `1px solid ${TYPE_META[selectedNode.type].color}33` }}
+            style={{ background: C.bg, border: `1px solid ${TYPE_META[selectedNode.type].color}33` }}
           >
             <TypeBadge type={selectedNode.type} />
 
             <div>
-              <div className="text-[0.65rem] sm:text-xs font-bold leading-snug" style={{ color: '#c8d6f0' }}>
+              <div className="text-[0.65rem] sm:text-xs font-bold leading-snug" style={{ color: C.text }}>
                 {selectedNode.label}
               </div>
               {selectedNode.subtitle && (
-                <div className="text-[0.6rem] sm:text-xs mt-0.5" style={{ color: '#4a5a7a' }}>
+                <div className="text-[0.6rem] sm:text-xs mt-0.5" style={{ color: C.muted }}>
                   {selectedNode.subtitle}
                 </div>
               )}
             </div>
 
             {selectedNode.description && (
-              <div className="text-[0.6rem] sm:text-xs leading-relaxed" style={{ color: '#6b7a99' }}>
+              <div className="text-[0.6rem] sm:text-xs leading-relaxed" style={{ color: C.textFaint }}>
                 {selectedNode.description}
               </div>
             )}
 
             <div className="flex flex-wrap gap-1">
               {selectedNode.year && (
-                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: '#1e2d4a', color: '#c8d6f0' }}>
+                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: C.border, color: C.text }}>
                   {selectedNode.year}
                 </span>
               )}
               {selectedNode.detail && (
-                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: '#1e2d4a', color: '#ffb300' }}>
+                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: C.border, color: '#ffb300' }}>
                   {selectedNode.detail}
                 </span>
               )}
               {selectedNode.category && (
-                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: '#1e2d4a', color: '#4d9fff' }}>
+                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: C.border, color: '#4d9fff' }}>
                   {selectedNode.category}
                 </span>
               )}
@@ -959,7 +1020,7 @@ export default function Graph() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded font-mono transition-opacity hover:opacity-80"
-                    style={{ background: '#1e2d4a', color: '#00ff88', border: '1px solid #00ff8833' }}
+                    style={{ background: C.border, color: '#00ff88', border: '1px solid #00ff8833' }}
                   >
                     {link.label}
                   </a>
@@ -969,7 +1030,7 @@ export default function Graph() {
 
             {selectedNode.connectedNodes.length > 0 && (
               <div>
-                <div className="text-[0.6rem] sm:text-xs uppercase tracking-wider mb-1" style={{ color: '#4a5a7a' }}>
+                <div className="text-[0.6rem] sm:text-xs uppercase tracking-wider mb-1" style={{ color: C.muted }}>
                   Connected ({selectedNode.connectedNodes.length})
                 </div>
                 <div className="flex flex-col gap-0.5 max-h-36 sm:max-h-48 overflow-y-auto">
@@ -980,12 +1041,12 @@ export default function Graph() {
                         key={i}
                         onClick={() => selectNodeById(n.id)}
                         className="text-[0.6rem] sm:text-xs py-0.5 px-2 rounded flex items-baseline gap-1.5 w-full text-left transition-opacity hover:opacity-80"
-                        style={{ background: '#1e2d4a', borderLeft: `2px solid ${meta.color}66`, cursor: 'pointer' }}
+                        style={{ background: C.border, borderLeft: `2px solid ${meta.color}66`, cursor: 'pointer' }}
                       >
                         <span className="font-bold uppercase tracking-wider flex-shrink-0" style={{ color: meta.color, fontSize: '0.55rem' }}>
                           {meta.label}
                         </span>
-                        <span className="truncate" style={{ color: '#c8d6f0' }}>{n.label}</span>
+                        <span className="truncate" style={{ color: C.text }}>{n.label}</span>
                       </button>
                     )
                   })}
@@ -999,7 +1060,7 @@ export default function Graph() {
       {/* Footer hint — desktop only */}
       <div
         className="hidden sm:block px-4 py-2 flex-shrink-0 text-xs text-center"
-        style={{ borderTop: '1px solid #1e2d4a', color: '#2a3d5a' }}
+        style={{ borderTop: `1px solid ${C.border}`, color: C.border2 }}
       >
         scroll · pan · zoom · click · drag
       </div>
@@ -1009,7 +1070,7 @@ export default function Graph() {
   return (
     <div
       className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-full max-w-[100vw]"
-      style={{ background: '#0a0e1a' }}
+      style={{ background: C.bg }}
     >
       <SEO
         title="Knowledge Graph Explorer"
@@ -1020,17 +1081,17 @@ export default function Graph() {
       <aside
         className={`flex flex-col flex-shrink-0 w-full ${sidebarOpen ? 'sm:w-[280px] sm:min-w-[280px] sm:max-w-[280px]' : 'sm:w-[21px] sm:min-w-[21px] sm:max-w-[21px]'}`}
         style={{
-          background: '#0f1629',
-          borderRight: sidebarOpen ? '1px solid #1e2d4a' : 'none',
+          background: C.surface,
+          borderRight: sidebarOpen ? `1px solid ${C.border}` : 'none',
         }}
       >
         {/* ── Mobile toggle strip (hidden on desktop) ── */}
         <button
           className="sm:hidden flex items-center justify-between px-3 flex-shrink-0 w-full text-left"
           style={{
-            borderTop: '1px solid #1e2d4a',
-            borderBottom: mobileOpen ? '1px solid #1e2d4a' : 'none',
-            background: '#0f1629',
+            borderTop: `1px solid ${C.border}`,
+            borderBottom: mobileOpen ? `1px solid ${C.border}` : 'none',
+            background: C.surface,
             minHeight: 36,
             paddingBottom: 'env(safe-area-inset-bottom)',
           }}
@@ -1040,11 +1101,11 @@ export default function Graph() {
             <span className="text-[0.6rem] font-bold tracking-widest uppercase" style={{ color: '#00ff88' }}>
               graph controls
             </span>
-            <span className="text-[0.55rem]" style={{ color: '#4a5a7a' }}>
+            <span className="text-[0.55rem]" style={{ color: C.muted }}>
               {phase === 'ready' ? `total: ${stats.nodes}n · ${stats.edges}e` : 'loading...'}
             </span>
           </span>
-          <span className="text-xs" style={{ color: '#4a5a7a' }}>
+          <span className="text-xs" style={{ color: C.muted }}>
             {mobileOpen ? '▾' : '▴'}
           </span>
         </button>
@@ -1052,7 +1113,7 @@ export default function Graph() {
         {/* ── Desktop header with collapse toggle (hidden on mobile) ── */}
         <div
           className="hidden sm:block relative flex-shrink-0"
-          style={{ borderBottom: '1px solid #1e2d4a' }}
+          style={{ borderBottom: `1px solid ${C.border}` }}
         >
           {/* Title text — pr-7 keeps text clear of the absolute button */}
           {sidebarOpen && (
@@ -1060,7 +1121,7 @@ export default function Graph() {
               <div className="text-xs font-bold tracking-widest uppercase mb-0.5" style={{ color: '#00ff88' }}>
                 Tyler Procko's Knowledge Graph
               </div>
-              <div className="text-xs" style={{ color: '#4a5a7a' }}>
+              <div className="text-xs" style={{ color: C.muted }}>
                 {phase === 'ready'
                   ? `total: ${stats.nodes} nodes · ${stats.edges} edges`
                   : phase === 'layout' ? 'rendering graph...' : 'loading graph...'}
@@ -1072,8 +1133,8 @@ export default function Graph() {
           <button
             className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-5 rounded-l text-xs font-bold transition-colors cursor-pointer"
             style={{
-              background: '#1e2d4a',
-              border: '1px solid #2a3d5a',
+              background: C.border,
+              border: `1px solid ${C.border2}`,
               color: '#00ff88',
             }}
             title={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
@@ -1103,8 +1164,8 @@ export default function Graph() {
       </aside>
 
       {/* ── Canvas ── */}
-      <div className="flex-1 relative overflow-hidden" style={{ background: '#0a0e1a' }}>
-        {phase !== 'ready' && !error && <LoadingSpinner phase={phase} />}
+      <div className="flex-1 relative overflow-hidden" style={{ background: C.bg }}>
+        {phase !== 'ready' && !error && <LoadingSpinner phase={phase} C={C} />}
 
         {error && (
           <div className="flex items-center justify-center h-full">
@@ -1125,7 +1186,7 @@ export default function Graph() {
           >
             <CytoscapeComponent
               elements={elements}
-              stylesheet={buildStylesheet() as never}
+              stylesheet={buildStylesheet(C) as never}
               layout={{ name: 'null' } as cytoscape.LayoutOptions}
               style={{ width: '100%', height: '100%' }}
               cy={handleCyReady}
@@ -1141,8 +1202,8 @@ export default function Graph() {
           <div
             className="absolute top-2 right-2 sm:top-3 sm:right-3 px-2 py-1 rounded text-[0.6rem] sm:text-xs font-mono pointer-events-none"
             style={{
-              background: '#0f162999',
-              border: '1px solid #1e2d4a',
+              background: C.surfaceAlpha,
+              border: `1px solid ${C.border}`,
               color: '#00ff88',
               backdropFilter: 'blur(4px)',
             }}
