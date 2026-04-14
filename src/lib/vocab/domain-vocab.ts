@@ -55,7 +55,6 @@ export const DOMAIN_VOCAB: Record<string, CompetencyCategory> = {
   'Cognitive Science':          'domains',
   'Content Management':         'domains',
   Construction:                 'domains',
-  'FAIR Data':                  'domains',
   Safety:                       'domains',
   Ethics:                       'domains',
   CLI:                          'domains',
