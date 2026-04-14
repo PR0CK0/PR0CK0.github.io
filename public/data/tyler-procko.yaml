@@ -2269,6 +2269,7 @@ publications:
   - Tyler T. Procko
   status: in_progress
   author_role: Primary author
+  tech_review: skip
   technologies:
   - Microsoft Word
   domains:
@@ -2284,6 +2285,7 @@ publications:
   - Tyler T. Procko
   status: in_progress
   author_role: Primary author
+  tech_review: skip
   technologies:
   - Microsoft Word
   domains:

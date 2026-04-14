@@ -30,7 +30,7 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [x] pub/linked-data-aerospace
 - [x] pub/ontology-sdlc-aerospace
 - [x] pub/robust-training-datasets-ontologies
-- [ ] pub/semantic-science-beyond-pdf
+- [x] pub/semantic-science-beyond-pdf
 - [x] pub/dawn-of-dialogue
 - [x] pub/lm-kg-survey
 - [ ] pub/scrum-in-classroom
@@ -43,8 +43,8 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [ ] pub/secure-development-ontology
 - [ ] pub/vr-software-requirements
 - [ ] pub/ml-misbehaviors-taxonomy
-- [ ] pub/kg-geospatial-sumo
-- [ ] pub/sdlc-ontology-engineering
+- [x] pub/kg-geospatial-sumo (skip — idea only)
+- [x] pub/sdlc-ontology-engineering (skip — idea only)
 - [ ] pub/cognitive-assistants-aviation-inprogress
 - [x] pub/colleague-thesis-vonderhaar (skip)
 - [x] pub/colleague-thesis-kiselev (skip)
@@ -70,7 +70,7 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 ## Light Mode
 
-- [ ] **Light mode on Graph, CV, Resume pages** — Graph.tsx uses hundreds of hardcoded hex colors in inline styles and Cytoscape stylesheet; CV/Resume use hardcoded print colors. All need migrating to Tailwind CSS variable classes (`bg-terminal-bg` etc.) to respect `html.light`. About and Landing already work correctly.
+- [x] **Light mode on Graph, CV, Resume pages** — Graph.tsx uses hundreds of hardcoded hex colors in inline styles and Cytoscape stylesheet; CV/Resume use hardcoded print colors. All need migrating to Tailwind CSS variable classes (`bg-terminal-bg` etc.) to respect `html.light`. About and Landing already work correctly.
 
 ## Graph
 
