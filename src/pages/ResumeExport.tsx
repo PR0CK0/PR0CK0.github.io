@@ -16,6 +16,7 @@ import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 import { buildResumeData, type CVData, type CVSection, type CVEntry, type CVHeaderData } from '@/lib/cv-data'
 import { PAGE_TITLE, PAGE_SUBTITLE, BTN_PRIMARY, BTN_SECONDARY, BTN_TOGGLE_ACTIVE, BTN_TOGGLE_INACTIVE, BTN_ROW, PAGE_CHROME, LOADING_SCREEN } from '@/lib/ui-constants'
+import { useIsLightMode } from '@/lib/useIsLightMode'
 import { FS, COLOR, px } from '@/lib/pdf-constants'
 
 // ─── Custom Fonts ────────────────────────────────────────────────────────────
@@ -230,9 +231,10 @@ const HS = {
 }
 
 function ResumeHtmlPreview({ data }: { data: CVData }) {
+  const isLight = useIsLightMode()
   const h = data.header
   return (
-    <div className="cv-html-preview" style={HS.page}>
+    <div className="cv-html-preview" style={{ ...HS.page, boxShadow: isLight ? '0 2px 16px rgba(0,0,0,0.12)' : '0 4px 32px rgba(0,0,0,0.5)' }}>
       <div style={{ marginBottom: '10px' }}>
         <div style={HS.name}>{h.name}</div>
         {h.title && <div style={HS.title}>{h.title}</div>}
@@ -320,6 +322,7 @@ function ResumeHtmlPreview({ data }: { data: CVData }) {
 
 export default function ResumeExport() {
   const [person, setPerson] = useState<Person | null>(null)
+  const isLight = useIsLightMode()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [viewMode, setViewMode] = useState<'html' | 'pdf'>('html')
@@ -361,7 +364,7 @@ export default function ResumeExport() {
       className="min-h-screen bg-terminal-bg font-mono flex flex-col pt-10"
       style={{
         backgroundImage: [
-          'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px)',
+          `repeating-linear-gradient(0deg, transparent, transparent 2px, ${isLight ? 'rgba(0,0,0,0.05)' : 'rgba(0,0,0,0.15)'} 2px, ${isLight ? 'rgba(0,0,0,0.05)' : 'rgba(0,0,0,0.15)'} 4px)`,
           'linear-gradient(rgba(77,159,255,0.03) 1px, transparent 1px)',
           'linear-gradient(90deg, rgba(77,159,255,0.03) 1px, transparent 1px)',
         ].join(', '),

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useIsLightMode } from '@/lib/useIsLightMode'
 import SEO from '@/components/SEO'
 import CytoscapeComponent from 'react-cytoscapejs'
 import cytoscape from 'cytoscape'
@@ -84,20 +85,6 @@ const LIGHT = {
   edgeNeighbour: 'rgba(26, 36, 64, 0.5)',
   labelBg:       '#f5f6fa',
   surfaceAlpha:  '#ffffffcc',
-}
-
-function useIsLightMode() {
-  const [isLight, setIsLight] = useState(
-    () => document.documentElement.classList.contains('light')
-  )
-  useEffect(() => {
-    const obs = new MutationObserver(() =>
-      setIsLight(document.documentElement.classList.contains('light'))
-    )
-    obs.observe(document.documentElement, { attributeFilter: ['class'] })
-    return () => obs.disconnect()
-  }, [])
-  return isLight
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
