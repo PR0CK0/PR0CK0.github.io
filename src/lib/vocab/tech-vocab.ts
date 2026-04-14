@@ -50,6 +50,7 @@ export const TECH_VOCAB: Record<string, CompetencyCategory> = {
   WKT:            'data_languages',
 
   // ── Libraries & Frameworks ─────────────────────────────────────────────────
+  Pandoc:               'libraries',
   PyTorch:              'libraries',
   TensorFlow:           'libraries',
   NumPy:                'libraries',

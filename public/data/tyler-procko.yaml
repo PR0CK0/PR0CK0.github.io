@@ -1689,11 +1689,28 @@ publications:
   author_role: Primary author
   technologies:
   - Microsoft Word
+  - Markdown
+  - HTML
+  - RDF
+  - RDFS
+  - RDFa
+  - JSON-LD
+  - GPT
+  - CSS
+  - Git
+  - GitHub
+  - 'Schema.org'
+  - 'Visual Studio Code'
+  - LaTeX
+  - YAML
+  - Pandoc
   domains:
   - Semantic Web
   - Linked Data
   - Scientific Writing
   - Knowledge Graphs
+  - 'FAIR Data'
+  - 'Knowledge Management'
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation

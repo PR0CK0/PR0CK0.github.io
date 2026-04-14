@@ -5,7 +5,6 @@ export const SOFT_SKILL_VOCAB: Record<string, CompetencyCategory> = {
   'Virtual Presentation':     'soft_skills',
   'Public Speaking':          'soft_skills',
   'Client Communication':     'soft_skills',
-  'Scientific Writing':       'soft_skills',
   'Technical Writing':        'soft_skills',
   Agile:                      'soft_skills',
 }

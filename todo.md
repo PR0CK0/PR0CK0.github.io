@@ -147,6 +147,10 @@ These were in the now-deleted `skills:` YAML section but are not attached to any
 - [ ] `TensorFlow` — no repo evidence found in same repos
 - [ ] `Windows (XP, Vista, 7, 8, 10, 11)` — name mismatch; COMPETENCY_CATEGORIES has `Windows` only
 
+## Scientific Writing — move from soft_skills to domains in YAML
+
+- [ ] **Move ~62 `Scientific Writing` entries from `soft_skills:` to `domains:` in YAML** — The vocab was updated to categorize it as a domain, but the YAML field placement (`soft_skills:` vs `domains:`) still needs manual cleanup entry by entry.
+
 ## Other pending
 
 - [x] **Audit `tags` field in YAML schema** — Removed all 74 tags fields; content fully covered by `domains` and `technologies`.
