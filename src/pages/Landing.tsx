@@ -1107,6 +1107,20 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
 
 // ─── Projects ───────────────────────────────────────────────────────────────
 
+function useGitHubRelease(repoUrl: string | undefined): string | null {
+  const [version, setVersion] = useState<string | null>(null)
+  useEffect(() => {
+    if (!repoUrl) return
+    const match = repoUrl.match(/github\.com\/([^/]+\/[^/]+?)(?:\.git)?\/?$/)
+    if (!match) return
+    fetch(`https://api.github.com/repos/${match[1]}/releases/latest`)
+      .then(r => r.ok ? r.json() : null)
+      .then((data: { tag_name?: string } | null) => { if (data?.tag_name) setVersion(data.tag_name) })
+      .catch(() => {})
+  }, [repoUrl])
+  return version
+}
+
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const navigate = useNavigate()
   const [showOverflow, setShowOverflow] = useState(false)
@@ -1401,6 +1415,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
     setShowOverflow(v => !v)
   }
 
+  const version = useGitHubRelease(project.repo_url)
   const allSkills = [...(project.technologies ?? []), ...(project.domains ?? [])]
   const visibleSkills = allSkills.slice(0, 6)
   const overflowSkills = allSkills.slice(6)
@@ -1418,13 +1433,18 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
       {/* Header */}
       <div className="flex items-start justify-between gap-2 mb-1">
         <h3 className="font-mono text-xs sm:text-sm ls:text-xs font-bold text-terminal-text
-                       group-hover:text-terminal-purple transition-colors leading-snug">
+                       group-hover:text-terminal-purple transition-colors leading-snug flex items-baseline gap-1.5 flex-wrap">
           {project.url ? (
             <a href={project.url} target="_blank" rel="noopener noreferrer"
               className="hover:text-terminal-green hover:text-glow-green transition-all">
               {project.title}
             </a>
           ) : project.title}
+          {version && (
+            <span className="text-[8px] font-mono font-normal text-terminal-green/70 border border-terminal-green/30 rounded px-1 py-0.5 leading-none">
+              {version}
+            </span>
+          )}
         </h3>
         {stars > 0 && (
           <span className="shrink-0 text-[8px] sm:text-[10px] font-mono text-terminal-amber">
