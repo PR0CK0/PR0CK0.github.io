@@ -3861,6 +3861,10 @@ extracurriculars:
   domains:
   - LLMs
   - Prompt Engineering
+  technologies:
+  - Markdown
+  - Git
+  - GPT
 - id: extra/ontogpt-contributor
   title: Contributor to OntoGPT GitHub
   organization: Monarch Initiative / GitHub

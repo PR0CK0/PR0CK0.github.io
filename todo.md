@@ -165,7 +165,7 @@ These were in the now-deleted `skills:` YAML section but are not attached to any
 - [ ] Extracurriculars — add technologies/domains to entries missing coverage:
   - [ ] `extra/comptia-study-guide` — suggest: `Markdown`
   - [x] `extra/swebok-v4-review` — no obvious technologies; maybe just domains
-  - [ ] `extra/dair-prompt-engineering` — suggest: `Markdown`, `Git`
+  - [x] `extra/dair-prompt-engineering` — suggest: `Markdown`, `Git`
   - [ ] `extra/ontogpt-contributor` — suggest: `Python`, `Git`, `OWL`
   - [ ] `extra/huge-ai-models-contributor` — suggest: `Markdown`, `Git`
   - [ ] `extra/practical-nlp-errata` — no obvious technologies
