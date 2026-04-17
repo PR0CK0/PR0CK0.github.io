@@ -164,7 +164,7 @@ These were in the now-deleted `skills:` YAML section but are not attached to any
 - [x] **Tests: detect unmapped terms** — Test suite should flag technologies/domains/soft_skills/personal_skills that appear in YAML but aren't recognized/validated. Example: `Git` is in YAML but doesn't show in UI (unmapped in tech-categories). Need validation that catches these orphan terms.
 - [ ] Extracurriculars — add technologies/domains to entries missing coverage:
   - [ ] `extra/comptia-study-guide` — suggest: `Markdown`
-  - [ ] `extra/swebok-v4-review` — no obvious technologies; maybe just domains
+  - [x] `extra/swebok-v4-review` — no obvious technologies; maybe just domains
   - [ ] `extra/dair-prompt-engineering` — suggest: `Markdown`, `Git`
   - [ ] `extra/ontogpt-contributor` — suggest: `Python`, `Git`, `OWL`
   - [ ] `extra/huge-ai-models-contributor` — suggest: `Markdown`, `Git`

@@ -3845,6 +3845,13 @@ extracurriculars:
   - Requirements Engineering
   - SDLC
   - Software Engineering
+  - Scientific Writing
+  - Education
+  - Knowledge Management
+  technologies:
+  - SWEBOK
+  - Microsoft Word
+  - Microsoft Excel
 - id: extra/dair-prompt-engineering
   title: Contributor to the DAIR Prompt Engineering Guide
   organization: DAIR / GitHub
