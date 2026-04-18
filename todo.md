@@ -167,7 +167,7 @@ These were in the now-deleted `skills:` YAML section but are not attached to any
   - [x] `extra/swebok-v4-review` — no obvious technologies; maybe just domains
   - [x] `extra/dair-prompt-engineering` — suggest: `Markdown`, `Git`
   - [ ] `extra/ontogpt-contributor` — suggest: `Python`, `Git`, `OWL`
-  - [ ] `extra/huge-ai-models-contributor` — suggest: `Markdown`, `Git`
+  - [x] `extra/huge-ai-models-contributor` — suggest: `Markdown`, `Git`
   - [ ] `extra/practical-nlp-errata` — no obvious technologies
   - [ ] `extra/semantalytics-contributor` — suggest: `RDF`, `OWL`
   - [ ] `extra/generativeai-and-linkeddata` — suggest: `Python`, `RDF`, `JSON-LD`; needs domains too

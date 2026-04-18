@@ -3886,6 +3886,11 @@ extracurriculars:
   domains:
   - LLMs
   - Machine Learning
+  technologies:
+  - Markdown
+  - GitHub
+  - OpenAI
+  - GPT
 - id: extra/review-fie-2023
   title: Manuscript reviews
   date: 2023-03
