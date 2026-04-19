@@ -3926,10 +3926,19 @@ extracurriculars:
   title: Contributor to the Semantalytics Awesome Semantic Web list
   date: 2022-07
   type: scholarly
+  url: https://github.com/semantalytics/awesome-semantic-web?tab=readme-ov-file
   domains:
   - Knowledge Representation
   - Semantic Web
-  url: https://github.com/semantalytics/awesome-semantic-web?tab=readme-ov-file
+  - Ontology
+  - Taxonomy
+  - Knowledge Graphs
+  technologies:
+  - Markdown
+  - GitHub
+  - BFO
+  - CCO
+  - RDFS
 - id: extra/awesome-bfo
   title: Created summarized list of BFO and BFO-related resources
   organization: GitHub
