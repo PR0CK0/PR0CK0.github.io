@@ -3938,7 +3938,9 @@ extracurriculars:
   - GitHub
   - BFO
   - CCO
+  - RDF
   - RDFS
+  - OWL
 - id: extra/awesome-bfo
   title: Created summarized list of BFO and BFO-related resources
   organization: GitHub
