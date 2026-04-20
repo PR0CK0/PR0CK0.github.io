@@ -41,6 +41,7 @@ BOT_BLOCKED_DOMAINS = {
     "asee.org",
     "crates.io",
     "doi.org",
+    "scholar.google.com",
 }
 
 def extract_urls(path: Path) -> list[tuple[str, str]]:
