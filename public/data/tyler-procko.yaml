@@ -4061,6 +4061,13 @@ extracurriculars:
   url: https://github.com/PR0CK0/machine-learning-ontologies
   type: open_source
   date: 2022-07
+  domains:
+  - Ontology
+  - Taxonomy
+  - Semantic Web
+  technologies:
+  - Markdown
+  - GitHub
 - id: extra/openai-cybersecurity-grant-proposal
   title: OpenAI Cybersecurity Grant Proposal
   url: https://github.com/PR0CK0/OpenAI_Cybersecurity_Grant_Proposal
