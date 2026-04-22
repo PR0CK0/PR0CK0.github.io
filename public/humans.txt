@@ -1,0 +1,19 @@
+/* TEAM */
+Name: Tyler T. Procko, Ph.D.
+Role: Developer, Designer, Author
+Location: United States
+Contact: prockotyler [at] gmail [dot] com
+
+/* SITE */
+Last update: 2026-04-22
+Language: English
+Technology: React, Vite, TypeScript, Tailwind CSS, Cytoscape.js
+Hosted: GitHub Pages
+Standards: HTML5, CSS3, WCAG 2.1
+
+/* FIND ME */
+Website:  https://procko.pro
+GitHub:   https://github.com/PR0CK0
+LinkedIn: https://www.linkedin.com/in/tyler-procko/
+ORCID:    https://orcid.org/0000-0003-4802-7816
+Scholar:  https://scholar.google.com/citations?user=Xm7p7mQAAAAJ
