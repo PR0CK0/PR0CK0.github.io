@@ -52,6 +52,9 @@ jobs:
       - name: Prerender routes
         run: npm run prerender
 
+      - name: Update humans.txt date
+        run: sed -i "s/Last update:.*/Last update: $(date -u +%Y-%m-%d)/" dist/humans.txt
+
       - name: Configure Pages
         uses: actions/configure-pages@v6
 
