@@ -110,6 +110,14 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 - [ ] **Research and apply web dev best practices** — As the site grows, audit against standard production patterns: code splitting and lazy loading (are all pages lazy-loaded via React.lazy?), bundle size analysis (`vite build --report`), image optimization, caching headers on GitHub Pages, accessibility (a11y — semantic HTML, ARIA labels, keyboard nav, color contrast), Core Web Vitals (LCP, CLS, FID), and scalability of the single YAML fetch (consider splitting into section-level files if the YAML grows large). Also review whether the runtime YAML fetch should be replaced with build-time static generation as content volume increases.
 
+## Markdown skill count — extracurriculars not aggregated
+
+- [ ] **Markdown appears only ~7 times in skill chips but is tagged on many more entries** — extracurricular `technologies` may not be feeding into the Landing page skill aggregation. Audit whether extracurricular entries are included in the skill chip count alongside work/projects/publications.
+
+## Personal page — art, creative work
+
+- [ ] **Restore personal/creative page** — Add a `/personal` route showcasing art, creative projects, and non-professional work. Was previously part of the site; needs to be rebuilt in the React app.
+
 ## Potential / Future
 
 - [ ] **LinkML schema migration** — Replace `schema.ts` (Zod) with a LinkML schema (`schema.yaml`). Data YAML stays identical. Gains: build-time `linkml-validate`, `gen-owl` produces an OWL ontology of the CV (cool talking point), `gen-python` for typed Python models, `gen-json-schema` for JSON Schema validation. Cost: Python codegen step added to build pipeline, no official Zod generator (would need to keep or regenerate Zod separately). Worth doing if OWL export or multi-language pipeline ever becomes a goal.

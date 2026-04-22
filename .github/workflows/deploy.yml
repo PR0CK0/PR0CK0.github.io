@@ -49,6 +49,9 @@ jobs:
       - name: Build Vite app
         run: npm run build
 
+      - name: Prerender routes
+        run: npm run prerender
+
       - name: Configure Pages
         uses: actions/configure-pages@v6
 
