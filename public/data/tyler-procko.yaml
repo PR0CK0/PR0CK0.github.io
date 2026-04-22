@@ -4056,6 +4056,11 @@ extracurriculars:
   url: https://github.com/PR0CK0/GenerativeAI_and_LinkedData
   type: open_source
   date: 2023-07
+  domains:
+  - Linked Data
+  technologies:
+  - GitHub
+  - Markdown
 - id: extra/machine-learning-ontologies
   title: machine-learning-ontologies
   url: https://github.com/PR0CK0/machine-learning-ontologies

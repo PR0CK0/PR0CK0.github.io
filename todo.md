@@ -170,7 +170,7 @@ These were in the now-deleted `skills:` YAML section but are not attached to any
   - [x] `extra/huge-ai-models-contributor` — suggest: `Markdown`, `Git`
   - [ ] `extra/practical-nlp-errata` — no obvious technologies
   - [x] `extra/semantalytics-contributor` — suggest: `RDF`, `OWL`
-  - [ ] `extra/generativeai-and-linkeddata` — suggest: `Python`, `RDF`, `JSON-LD`; needs domains too
+  - [x] `extra/generativeai-and-linkeddata` — suggest: `Python`, `RDF`, `JSON-LD`; needs domains too
   - [x] `extra/machine-learning-ontologies` — suggest: `OWL`, `Protégé`, `BFO`
   - [ ] `extra/openai-cybersecurity-grant-proposal` — suggest: `Markdown`; needs domains too
   - [ ] `extra/protegetutorials` — has `GraphViz`, no domains; suggest: `Protégé`, `OWL`
