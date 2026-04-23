@@ -94,9 +94,15 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [ ] **Create OG image** — 1200x630px PNG at `public/og-image.png`. Name + title + terminal aesthetic. Without this, every LinkedIn/Slack/Discord share shows no preview image.
 - [ ] **Google Search Console** — verify procko.pro, submit sitemap.xml, request indexing.
 - [ ] **Bing Webmaster Tools** — import from Google Search Console (covers Bing + DuckDuckGo + Yahoo).
-- [ ] **Prerendering** — revisit with `vite-react-ssg` or custom Puppeteer build script. Social/AI crawlers still see empty `<div id="root">`.
+- [x] **Prerendering** — Puppeteer-based prerender script added; all 6 routes generate static HTML snapshots on every deploy.
 - [ ] **ScholarlyArticle JSON-LD** — add structured data for top publications to improve Google Scholar and search visibility.
 - [ ] **Backlinks audit** — ensure procko.pro is linked from: LinkedIn website field, Google Scholar profile, ORCID, Substack about page, SSRN author page, ERAU directory if possible.
+  - [x] Substack — linked ✓
+  - [ ] Google Scholar — NOT linked; add procko.pro as homepage in Scholar profile settings
+  - [ ] ORCID — unverified (JS-rendered); manually check and add procko.pro as website
+  - [ ] LinkedIn — blocked by scraper; manually verify website field
+  - [ ] SSRN — blocked by scraper; manually verify author profile
+  - [ ] ERAU directory — not checked
 - [ ] **Blog/content section** — Google ranks pages with text content. Pull Substack RSS or add articles section for more indexable pages.
 - [ ] **Update GitHub bio** — "AI engineer bridging ontologies and LLMs — knowledge graphs, agentic RAG, provenance. PhD. DoD-cleared."
 - [ ] **Pin best GitHub repos** — PR0CK0.github.io, ProvTracer, awesome-bfo, StableDiffusionEndToEndGuide, dissenter, ai-landscape-digest.
