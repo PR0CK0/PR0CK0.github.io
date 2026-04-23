@@ -91,10 +91,13 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## SEO & Discoverability
 
-- [ ] **Create OG image** — 1200x630px PNG at `public/og-image.png`. Name + title + terminal aesthetic. Without this, every LinkedIn/Slack/Discord share shows no preview image.
+- [ ] **Create OG image** — 1200x630px PNG at `public/og-image.png`. MISSING — index.html references it but file does not exist; LinkedIn/Slack/Discord shares show no preview image.
 - [ ] **Google Search Console** — verify procko.pro, submit sitemap.xml, request indexing.
 - [ ] **Bing Webmaster Tools** — import from Google Search Console (covers Bing + DuckDuckGo + Yahoo).
 - [x] **Prerendering** — Puppeteer-based prerender script added; all 6 routes generate static HTML snapshots on every deploy.
+- [x] **sitemap.xml** — exists at `public/sitemap.xml`; covers 5 routes. Note: `/about` missing, lastmod dates are stale (2026-03-30).
+- [x] **robots.txt** — exists, allows all, points to sitemap.
+- [x] **humans.txt** — exists, auto-updated with deploy date on every push.
 - [ ] **ScholarlyArticle JSON-LD** — add structured data for top publications to improve Google Scholar and search visibility.
 - [ ] **Backlinks audit** — ensure procko.pro is linked from: LinkedIn website field, Google Scholar profile, ORCID, Substack about page, SSRN author page, ERAU directory if possible.
   - [x] Substack — linked ✓
