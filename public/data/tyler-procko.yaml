@@ -3835,6 +3835,25 @@ extracurriculars:
   - Scientific Writing
   technologies:
   - Microsoft Word
+- id: extra/reynolds-dissertation-committee
+  title: Doctoral Dissertation Committee Member
+  organization: Embry-Riddle Aeronautical University
+  date: 2026-03
+  date_display: Mar 2026 - Present
+  type: scholarly
+  bullets:
+  - Serving on doctoral dissertation committee for Sarah Reynolds — "An Ontology-Driven Extraction and Analysis of Machine Learning Specifications from Research Literature" (Dept. of EECS, ERAU)
+  domains:
+  - Ontology
+  - Machine Learning
+  - Knowledge Graphs
+  - Requirements Engineering
+  - Software Engineering
+  - LLMs
+  - Scientific Writing
+  technologies:
+  - Microsoft Word
+  - Microsoft Teams
 - id: extra/swebok-v4-review
   title: SWEBOK v4 Public Review Participant
   organization: IEEE Computer Society
