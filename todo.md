@@ -95,7 +95,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [ ] **Google Search Console** — verify procko.pro, submit sitemap.xml, request indexing.
 - [ ] **Bing Webmaster Tools** — import from Google Search Console (covers Bing + DuckDuckGo + Yahoo).
 - [x] **Prerendering** — Puppeteer-based prerender script added; all 6 routes generate static HTML snapshots on every deploy.
-- [x] **sitemap.xml** — exists at `public/sitemap.xml`; covers 5 routes. Note: `/about` missing, lastmod dates are stale (2026-03-30).
+- [x] **sitemap.xml** — exists, covers all 6 routes including `/about`; lastmod auto-updated on every deploy.
 - [x] **robots.txt** — exists, allows all, points to sitemap.
 - [x] **humans.txt** — exists, auto-updated with deploy date on every push.
 - [ ] **ScholarlyArticle JSON-LD** — add structured data for top publications to improve Google Scholar and search visibility.

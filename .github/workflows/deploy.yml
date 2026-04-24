@@ -56,6 +56,10 @@ jobs:
         run: |
           sed -i "s/Last update:.*/Last update: $(date -u +%Y-%m-%d)/" dist/humans.txt
 
+      - name: Update sitemap lastmod dates
+        run: |
+          sed -i "s/<lastmod>.*<\/lastmod>/<lastmod>$(date -u +%Y-%m-%d)<\/lastmod>/g" dist/sitemap.xml
+
       - name: Configure Pages
         uses: actions/configure-pages@v6
 
