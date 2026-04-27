@@ -121,7 +121,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## Markdown skill count — extracurriculars not aggregated
 
-- [ ] **Markdown appears only ~7 times in skill chips but is tagged on many more entries** — extracurricular `technologies` may not be feeding into the Landing page skill aggregation. Audit whether extracurricular entries are included in the skill chip count alongside work/projects/publications.
+- [x] **Markdown skill count** — audited; extracurriculars are included in aggregation. Count was low because entries hadn't been tagged yet — now resolved after extracurricular audit pass.
 
 ## Personal page — art, creative work
 
