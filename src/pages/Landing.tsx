@@ -1887,7 +1887,7 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen bg-terminal-bg text-terminal-text font-mono">
-      <SEO path="/" />
+      <SEO path="/" description={`Tyler T. Procko, Ph.D. — AI Engineer specializing in ontology-grounded LLM systems, knowledge graphs, and agentic AI. ${publications.length}+ publications.`} />
       <HeroSection person={person} bootLines={bootLines} />
       <StatsBar stats={stats} />
 
