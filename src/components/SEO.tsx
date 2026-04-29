@@ -8,7 +8,7 @@ interface SEOProps {
 
 const SITE = 'https://procko.pro'
 const DEFAULT_TITLE = 'Tyler T. Procko, Ph.D. — AI Engineer — Ontologies · Knowledge Graphs · LLMs'
-const DEFAULT_DESC = 'Tyler T. Procko, Ph.D. — AI Engineer specializing in ontology-grounded LLM systems, knowledge graphs, and agentic AI. 40+ publications.'
+const DEFAULT_DESC = 'PhD AI engineer building ontology-grounded LLM agents — knowledge graphs, agentic RAG, BFO/CCO, cybersecurity. DoD SECRET clearance. 40+ publications.'
 
 export default function SEO({ title, description, path = '/' }: SEOProps) {
   const t = title ? `${title} | procko.pro` : DEFAULT_TITLE
