@@ -175,6 +175,9 @@ work_experiences:
   - GFO
   - Grok
   - AWS S3
+  - GPT
+  - SKOS
+  - AJV
   category: defense_industry
   date_display: Nov 2025 - Present
   title_line: 'Principal Knowledge Architect - '

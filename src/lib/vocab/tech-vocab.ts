@@ -117,6 +117,7 @@ export const TECH_VOCAB: Record<string, CompetencyCategory> = {
   Autoprefixer:         'libraries',
   'Radix UI':           'libraries',
   Zod:                  'libraries',
+  AJV:                  'libraries',
   'framer-motion':      'libraries',
   'react-helmet-async': 'libraries',
   'react-pdf':          'libraries',
