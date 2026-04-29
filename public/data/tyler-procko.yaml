@@ -180,8 +180,8 @@ work_experiences:
   title_line: 'Principal Knowledge Architect - '
   org: Stealth Startup, Remote
   bullets:
-  - Leading ontology design, NLP model selection, and LLM integration (Claude, GPT, Gemini, Ollama, Bedrock) for a 
-    stealth-stage cybersecurity product.
+  - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini, Ollama,
+    Bedrock) for a stealth-stage cybersecurity product.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
