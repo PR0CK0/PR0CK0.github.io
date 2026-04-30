@@ -185,7 +185,7 @@ work_experiences:
   bullets:
   - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini, Ollama,
     Bedrock) for a stealth-stage cybersecurity product.
-  - Built an async LLM retry loop (Ollama + Claude/GPT) that translates natural language to structured queries in <500ms.
+  - Built a sub-500ms NL-to-structured-query engine with async multi-provider LLM retry logic (Ollama, Claude, GPT).
   - Engineered an adapter-driven pipeline mapping heterogeneous vocabularies into a coherent ontology for reasoning and lookup.
   - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size, accuracy), and stakeholder-ready HTML reports with interactive charts.
   soft_skills:
