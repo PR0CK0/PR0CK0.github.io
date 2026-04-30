@@ -102,8 +102,15 @@ html.light {
 
 /* Thin scrollbar for contribution graph */
 /* Hide scrollbar on graph sidebar (keeps content full-width so HRs reach the edge) */
-.sidebar-scroll::-webkit-scrollbar { display: none; }
-.sidebar-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+.sidebar-scroll { scrollbar-width: thin; scrollbar-color: #1e3a5f transparent; }
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 2px; }
+.sidebar-scroll::-webkit-scrollbar-thumb:hover { background: #2a5280; }
+
+/* Scale graph sidebar down on short viewports, mirroring width-based sm: breakpoints */
+@media (max-height: 700px) { .graph-sidebar { zoom: 0.88; } }
+@media (max-height: 560px) { .graph-sidebar { zoom: 0.76; } }
 
 .contrib-scroll::-webkit-scrollbar {
   height: 3px;

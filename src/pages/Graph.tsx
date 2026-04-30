@@ -429,6 +429,12 @@ export default function Graph() {
 
   // ── Load data ────────────────────────────────────────────────────────────────
 
+  // Lock body scroll so the graph page doesn't overflow the viewport
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+
   useEffect(() => {
     // 250ms: ensures the navbar CSS transition (duration-200) fully completes.
     const timer = setTimeout(() => {
@@ -944,7 +950,7 @@ export default function Graph() {
 
 
       {/* Selected node panel */}
-      <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 overflow-y-auto">
+      <div className="px-3 sm:px-4 py-2 sm:py-3">
         <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: C.muted }}>
           Selected Node
         </div>
@@ -1020,7 +1026,7 @@ export default function Graph() {
                 <div className="text-[0.6rem] sm:text-xs uppercase tracking-wider mb-1" style={{ color: C.muted }}>
                   Connected ({selectedNode.connectedNodes.length})
                 </div>
-                <div className="flex flex-col gap-0.5 max-h-36 sm:max-h-48 overflow-y-auto">
+                <div className="flex flex-col gap-0.5">
                   {selectedNode.connectedNodes.map((n, i) => {
                     const meta = TYPE_META[n.type] ?? TYPE_META.skill
                     return (
@@ -1044,19 +1050,12 @@ export default function Graph() {
         )}
       </div>
 
-      {/* Footer hint — desktop only */}
-      <div
-        className="hidden sm:block px-4 py-2 flex-shrink-0 text-xs text-center"
-        style={{ borderTop: `1px solid ${C.border}`, color: C.border2 }}
-      >
-        scroll · pan · zoom · click · drag
-      </div>
     </>
   )
 
   return (
     <div
-      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-full max-w-[100vw]"
+      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-screen max-w-[100vw]"
       style={{ background: C.bg }}
     >
       <SEO
@@ -1066,7 +1065,7 @@ export default function Graph() {
       />
       {/* ── Sidebar — desktop: left panel (collapsible); mobile: bottom drawer ── */}
       <aside
-        className={`flex flex-col flex-shrink-0 w-full ${sidebarOpen ? 'sm:w-[280px] sm:min-w-[280px] sm:max-w-[280px]' : 'sm:w-[21px] sm:min-w-[21px] sm:max-w-[21px]'}`}
+        className={`graph-sidebar flex flex-col flex-shrink-0 w-full ${sidebarOpen ? 'sm:w-[280px] sm:min-w-[280px] sm:max-w-[280px]' : 'sm:w-[21px] sm:min-w-[21px] sm:max-w-[21px]'}`}
         style={{
           background: C.surface,
           borderRight: sidebarOpen ? `1px solid ${C.border}` : 'none',
@@ -1099,8 +1098,8 @@ export default function Graph() {
 
         {/* ── Desktop header with collapse toggle (hidden on mobile) ── */}
         <div
-          className="hidden sm:block relative flex-shrink-0"
-          style={{ borderBottom: `1px solid ${C.border}` }}
+          className="hidden sm:block relative flex-shrink-0 sticky top-0 z-10"
+          style={{ borderBottom: `1px solid ${C.border}`, background: C.surface }}
         >
           {/* Title text — pr-7 keeps text clear of the absolute button */}
           {sidebarOpen && (
