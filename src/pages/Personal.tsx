@@ -91,7 +91,7 @@ function GallerySection({
       <div className="mb-4 sm:mb-6">
         <h2
           className="text-2xl sm:text-3xl mb-1"
-          style={{ fontFamily: 'Georgia, "Times New Roman", serif', color: '#1a1209', letterSpacing: '-0.01em' }}
+          style={{ fontFamily: 'Georgia, "Times New Roman", serif', color: '#e8dcc8', letterSpacing: '-0.01em' }}
         >
           {label}
         </h2>
@@ -108,7 +108,7 @@ function GallerySection({
           <div
             key={i}
             className="mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded"
-            style={{ border: '1px solid #ddd5c4' }}
+            style={{ border: '1px solid #3a2a1a' }}
             onClick={() => onOpen(src)}
           >
             <img
@@ -142,25 +142,25 @@ export default function Personal() {
 
       <main
         className="min-h-screen"
-        style={{ background: '#faf8f4' }}
+        style={{ background: '#1c1510' }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-8 py-12 sm:py-16">
 
           {/* Header */}
-          <header className="mb-12 sm:mb-16 border-b pb-8" style={{ borderColor: '#ddd5c4' }}>
+          <header className="mb-12 sm:mb-16 border-b pb-8" style={{ borderColor: '#3a2a1a' }}>
             <p
               className="text-xs uppercase tracking-widest mb-3"
-              style={{ color: '#9a8a78', fontFamily: 'Georgia, serif' }}
+              style={{ color: '#7a6a58', fontFamily: 'Georgia, serif' }}
             >
               Tyler Procko
             </p>
             <h1
               className="text-4xl sm:text-5xl mb-4"
-              style={{ fontFamily: 'Georgia, "Times New Roman", serif', color: '#1a1209', letterSpacing: '-0.02em' }}
+              style={{ fontFamily: 'Georgia, "Times New Roman", serif', color: '#e8dcc8', letterSpacing: '-0.02em' }}
             >
               Art
             </h1>
-            <p className="text-base leading-relaxed max-w-xl" style={{ color: '#5a4a38', fontFamily: 'Georgia, serif' }}>
+            <p className="text-base leading-relaxed max-w-xl" style={{ color: '#b4a48e', fontFamily: 'Georgia, serif' }}>
               I never took a formal art class — I just drew now and again.
               These are pencil sketches spanning several years of occasional practice.
             </p>
