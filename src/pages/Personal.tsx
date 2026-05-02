@@ -142,7 +142,14 @@ export default function Personal() {
 
       <main
         className="min-h-screen"
-        style={{ background: '#1c1510' }}
+        style={{
+          background: `
+            radial-gradient(ellipse 110% 35% at 50% 0%, rgba(180, 105, 28, 0.13) 0%, transparent 65%),
+            radial-gradient(ellipse 55% 45% at 10% 55%, rgba(120, 65, 15, 0.09) 0%, transparent 60%),
+            radial-gradient(ellipse 40% 40% at 90% 80%, rgba(90, 45, 10, 0.08) 0%, transparent 55%),
+            linear-gradient(180deg, #201610 0%, #181008 55%, #110b06 100%)
+          `.replace(/\s+/g, ' ').trim(),
+        }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-8 py-12 sm:py-16">
 
