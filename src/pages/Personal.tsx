@@ -87,7 +87,7 @@ function GallerySection({
   )
 
   return (
-    <section className="mb-16 sm:mb-20">
+    <section className="mb-12 sm:mb-16">
       <div className="mb-4 sm:mb-6">
         <h2
           className="text-2xl sm:text-3xl mb-1"
@@ -147,7 +147,7 @@ export default function Personal() {
         <div className="max-w-4xl mx-auto px-4 sm:px-8 py-12 sm:py-16">
 
           {/* Header */}
-          <header className="mb-12 sm:mb-16 border-b pb-8" style={{ borderColor: '#3a2a1a' }}>
+          <header className="mb-8 sm:mb-10 border-b pb-8" style={{ borderColor: '#3a2a1a' }}>
             <p
               className="text-xs uppercase tracking-widest mb-3"
               style={{ color: '#7a6a58', fontFamily: 'Georgia, serif' }}
