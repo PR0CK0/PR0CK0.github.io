@@ -28,6 +28,7 @@ export default function SiteFooter({ name }: { name: string }) {
               { label: '~/cv', href: '/cv' },
               { label: '~/legacy', href: '/legacy' },
               { label: '~/about', href: '/about' },
+              { label: '~/personal', href: '/personal' },
             ].map((l) => (
               <a
                 key={l.href}

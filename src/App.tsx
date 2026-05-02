@@ -6,6 +6,7 @@ import Legacy from '@/pages/Legacy'
 import CVExport from '@/pages/CVExport'
 import ResumeExport from '@/pages/ResumeExport'
 import About from '@/pages/About'
+import Personal from '@/pages/Personal'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/resume" element={<ResumeExport />} />
         <Route path="/legacy" element={<Legacy />} />
         <Route path="/about" element={<About />} />
+        <Route path="/personal" element={<Personal />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>
