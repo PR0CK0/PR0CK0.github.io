@@ -161,8 +161,7 @@ export default function Personal() {
               Art
             </h1>
             <p className="text-base leading-relaxed max-w-xl" style={{ color: '#b4a48e', fontFamily: 'Georgia, serif' }}>
-              I never took a formal art class — I just drew now and again.
-              These are pencil sketches spanning several years of occasional practice.
+              Pencil sketches drawn casually over the years.
             </p>
           </header>
 
