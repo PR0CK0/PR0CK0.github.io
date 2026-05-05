@@ -9,9 +9,6 @@ const navItems = [
   { to: '/cv', label: '~/cv.pdf' },
 ]
 
-const externalNavItems = [
-  { href: 'https://semanticscience.us', label: 'semanticscience.us' },
-]
 
 interface LayoutProps {
   children: ReactNode
@@ -47,17 +44,6 @@ export default function Layout({ children }: LayoutProps) {
               >
                 {label}
               </NavLink>
-            ))}
-            {externalNavItems.map(({ href, label }) => (
-              <a
-                key={href}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-1.5 sm:px-3 py-0.5 sm:py-1 text-[0.65rem] sm:text-sm rounded transition-all duration-200 text-terminal-muted hover:text-terminal-text hover:bg-terminal-border/50 flex-shrink-0"
-              >
-                {label}
-              </a>
             ))}
             {/* Spacer */}
             <div className="flex-1 min-w-0" />
