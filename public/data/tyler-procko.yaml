@@ -1,6 +1,7 @@
 id: person/tyler-procko
 name: Tyler T. Procko, Ph.D.
-title: Ontology-Based AI Engineer — LLM Agents · NLP · BFO/CCO · Knowledge Graphs · Cybersecurity · Test-Driven Development
+title: Ontology-Based AI Engineer — LLM Agents · NLP · BFO/CCO · Knowledge Graphs · Cybersecurity · Test-Driven 
+  Development
 location: Florida, USA
 phone: 1-904-557-8383
 email_personal: prockotyler@gmail.com
@@ -8,7 +9,8 @@ email_academic: prockot@my.erau.edu
 orcid: 0000-0002-7801-0124
 website: https://procko.pro
 tagline: Casting the net for knowledge in a sea of infinite information.
-seo_description: PhD AI engineer building ontology-grounded LLM agents — knowledge graphs, agentic RAG, BFO/CCO, cybersecurity. DoD SECRET clearance.
+seo_description: PhD AI engineer building ontology-grounded LLM agents — knowledge graphs, agentic RAG, BFO/CCO, 
+  cybersecurity. DoD SECRET clearance.
 summary: Ph.D researcher, Air Force Research Laboratory (AFRL) award winner, and AI engineer specializing in 
   ontology-grounded LLM systems and agentic software development. 9+ years building knowledge graphs, BFO/CCO-compliant 
   ontologies, and ML pipelines for defense and aerospace. Designing LLM agents that reason over structured knowledge — 
@@ -183,11 +185,14 @@ work_experiences:
   title_line: 'Principal Knowledge Architect - '
   org: Stealth Startup, Remote
   bullets:
-  - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini, Ollama,
-    Bedrock) for a stealth-stage cybersecurity product.
-  - Built a sub-500ms engine that translates natural language to structured queries using async multi-provider LLM retry logic (Ollama, Claude, GPT).
-  - Engineered an adapter-driven pipeline mapping heterogeneous vocabularies into a coherent ontology for reasoning and lookup.
-  - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size, accuracy), and stakeholder-ready HTML reports with interactive charts.
+  - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini, 
+    Ollama, Bedrock) for a stealth-stage cybersecurity product.
+  - Built a sub-500ms engine that translates natural language to structured queries using async multi-provider LLM retry
+    logic (Ollama, Claude, GPT).
+  - Engineered an adapter-driven pipeline mapping heterogeneous vocabularies into a coherent ontology for reasoning and 
+    lookup.
+  - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size, 
+    accuracy), and stakeholder-ready HTML reports with interactive charts.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -2445,6 +2450,36 @@ publications:
   source: openalex
   featured: false
   cited_by_count: 0
+- id: pub/mapping-traditional-software-non-functional-requirements-int
+  title: "Mapping Traditional Software Non-Functional Requirements into the Machine Learning Context"
+  authors:
+  - Timothy Elvira
+  - Lynn Vonderhaar
+  - Juan Couder
+  - Tyler Procko
+  - William Pate
+  - Omar Ochoa
+  venue: "ICCK Journal of Software Engineering"
+  date: 2026-05
+  status: published
+  url: https://doi.org/10.62762/jse.2026.908327
+  doi: https://doi.org/10.62762/jse.2026.908327
+  author_role: ''
+  source: openalex
+  featured: false
+  cited_by_count: 0
+  abstract: "Non-Functional Requirements (NFRs) are quality-focused attributes of a system that impact functional components.
+    There are 24 common NFR classes with some of the most used being performance, scalability, availability, reliability,
+    and security. The implementations of these classes are ambiguous and describe the attributes on the behavior of software.
+    Due to their nature, NFRs are typically realized through the specification and implementation of functional requirements.
+    For traditional software systems, the NFR definitions are well known. However, in Machine Learning (ML), which has numerous
+    applications across a multitude of domains, a current challenge is that traditional software non-functional class definitions
+    do not consider stochasticity and black-box nature of ML, and thus, are not appropriately reflecting the ML context. This
+    paper aims to address that challenge by mapping traditional software NFR definitions into ML-NFR definitions by redefining
+    them with ML characteristics in consideration. This research separates the 24 common NFRs into system NFRs and ML NFRs
+    to delineate which of the original 24 carries over to the ML context. Because of the proliferation of ML, requirement
+    engineers need to be cognizant of the nuances of ML behavior as it pertains to NFRs. This paper presents a mapping of
+    NFRs into the ML context including new definitions, as needed, for NFRs in ML systems."
 projects:
 - id: proj/procko-pro
   title: procko.pro
@@ -3849,7 +3884,8 @@ extracurriculars:
   date_display: Mar 2026 - Present
   type: scholarly
   bullets:
-  - Serving on doctoral dissertation committee for Sarah Reynolds — "An Ontology-Driven Extraction and Analysis of Machine Learning Specifications from Research Literature" (Dept. of EECS, ERAU)
+  - Serving on doctoral dissertation committee for Sarah Reynolds — "An Ontology-Driven Extraction and Analysis of 
+    Machine Learning Specifications from Research Literature" (Dept. of EECS, ERAU)
   domains:
   - Ontology
   - Machine Learning
