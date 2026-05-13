@@ -5,6 +5,10 @@ name: Sync OpenAlex Publications
 # against existing YAML entries by DOI, and appends stub entries for any
 # new publications found. Stubs are tagged source: openalex and featured: false
 # for manual review and enrichment.
+#
+# When new papers are added:
+#   - runs npm run build to validate the YAML/schema before committing
+#   - opens a GitHub issue (auto-closed on next run) listing the new entries
 
 on:
   schedule:
@@ -13,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   sync:
@@ -27,11 +32,49 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: pip install ruamel.yaml
 
+      - name: Close previous sync issues
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create publication-sync \
+            --color 0075ca \
+            --description "Auto-opened by OpenAlex publication sync" \
+            --force 2>/dev/null || true
+          OPEN=$(gh issue list --label publication-sync --state open --json number -q '.[].number')
+          for num in $OPEN; do
+            gh issue close "$num" --comment "Closed automatically — next sync run starting."
+          done
+
       - name: Sync publications
-        run: python3 .github/scripts/sync_openalex_publications.py
+        id: sync
+        run: |
+          OUTPUT=$(python3 .github/scripts/sync_openalex_publications.py)
+          echo "$OUTPUT"
+          ADDED=$(echo "$OUTPUT" | grep -c "^  + ADDED:" || true)
+          echo "added=$ADDED" >> $GITHUB_OUTPUT
+          {
+            echo "titles<<EOF"
+            echo "$OUTPUT" | grep "^  + ADDED:" | sed 's/^  + ADDED: /- /'
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Set up Node
+        if: steps.sync.outputs.added > 0
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        if: steps.sync.outputs.added > 0
+        run: npm ci
+
+      - name: Validate build (new papers only)
+        if: steps.sync.outputs.added > 0
+        run: npm run build
 
       - name: Commit if changed
         run: |
@@ -44,3 +87,13 @@ jobs:
           else
             echo "Nothing to commit."
           fi
+
+      - name: Open issue for new publications
+        if: steps.sync.outputs.added > 0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --label publication-sync \
+            --title "${{ steps.sync.outputs.added }} new publication(s) synced from OpenAlex" \
+            --body "$(printf 'New stubs were added to \`public/data/tyler-procko.yaml\` and validated.\n\n**New entries:**\n${{ steps.sync.outputs.titles }}\n\nReview and enrich these entries (set \`featured\`, add \`domains\`, \`technologies\`, etc.).\n\nThis issue auto-closes on the next weekly sync.')"
