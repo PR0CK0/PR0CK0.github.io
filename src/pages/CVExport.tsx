@@ -19,7 +19,6 @@ import { buildCVData, type CVData, type CVSection, type CVEntry, type CVHeaderDa
 import { PAGE_TITLE, PAGE_SUBTITLE, BTN_PRIMARY, BTN_SECONDARY, BTN_TOGGLE_ACTIVE, BTN_TOGGLE_INACTIVE, BTN_ROW, PAGE_CHROME, LOADING_SCREEN } from '@/lib/ui-constants'
 import { useIsLightMode } from '@/lib/useIsLightMode'
 import { FS, COLOR, px } from '@/lib/pdf-constants'
-import erauLogo from '@/assets/erau-logo.png'
 
 // ─── Custom Fonts (Caladea ≈ Cambria, Carlito ≈ Calibri) ────────────────────
 import CaladeaRegular from '@/fonts/caladea/Caladea-Regular.ttf'
@@ -146,7 +145,6 @@ function CVPdfDocument({ data }: { data: CVData }) {
               <Link src={h.sourceUrl} style={{ color: COLOR.link, textDecoration: 'none', fontSize: FS.tiny }}>View live version</Link>
             </Text>
           </View>
-          <Image src={erauLogo} style={{ width: 70, height: 70, objectFit: 'contain' }} />
         </View>
 
         {/* Sections */}
@@ -649,7 +647,7 @@ export default function CVExport() {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const PdfLink = PDFDownloadLink as any
             return (
-              <PdfLink document={pdfDoc} fileName={`tylerprocko_cv_${new Date(__BUILD_DATE__).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).replace(/\//g, '')}.pdf`}>
+              <PdfLink document={pdfDoc} fileName={`tylerprocko_cv_${new Date().toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }).replace(/\//g, '')}.pdf`}>
                 {({ loading: pdfLoading }: { loading: boolean }) => (
                   <button className={BTN_PRIMARY} disabled={pdfLoading}>
                     ⬇ Download PDF
