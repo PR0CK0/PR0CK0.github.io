@@ -44,6 +44,11 @@ BOT_BLOCKED_DOMAINS = {
     "scholar.google.com",
 }
 
+# Sites that are live but have broken/self-signed SSL certs — check with SSL verification disabled.
+SSL_SKIP_DOMAINS = {
+    "quietprofessionalsllc.com",
+}
+
 def extract_urls(path: Path) -> list[tuple[str, str]]:
     """Return list of (url, context_line) pairs from the YAML."""
     results = []
@@ -63,18 +68,23 @@ def extract_urls(path: Path) -> list[tuple[str, str]]:
     return results
 
 
-def check_url(url: str) -> tuple[int | None, str]:
+def check_url(url: str, verify_ssl: bool = True) -> tuple[int | None, str]:
     """Return (status_code, error_message). status_code None means request failed."""
+    import ssl as _ssl
     headers = {"User-Agent": "Mozilla/5.0 (link-checker; procko.pro)"}
     req = urllib.request.Request(url, headers=headers, method="HEAD")
+    ctx = None if verify_ssl else _ssl.create_default_context()
+    if ctx:
+        ctx.check_hostname = False
+        ctx.verify_mode = _ssl.CERT_NONE
     try:
-        with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+        with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as resp:
             return resp.status, ""
     except urllib.error.HTTPError as e:
         if e.code in RETRY_CODES:
             time.sleep(3)
             try:
-                with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+                with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as resp:
                     return resp.status, ""
             except Exception as e2:
                 return None, str(e2)
@@ -94,7 +104,8 @@ def main() -> int:
         if domain in BOT_BLOCKED_DOMAINS:
             print(f"  –  [SKIP]  {url}")
             continue
-        status, err = check_url(url)
+        verify_ssl = domain not in SSL_SKIP_DOMAINS
+        status, err = check_url(url, verify_ssl=verify_ssl)
         symbol = "✓" if status and 200 <= status < 400 else "✗"
         print(f"  {symbol}  [{status or 'ERR'}]  {url}")
         if not status or status >= 400:
