@@ -2871,6 +2871,7 @@ projects:
   year: 2023-12
   date_display: Aug 2023 - Dec 2023
   members: Cloudcell
+  description: Researched and authored a biomedical scientific paper for publication.
   technologies:
   - GPT
   - Session
