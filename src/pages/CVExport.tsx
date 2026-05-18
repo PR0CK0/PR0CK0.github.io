@@ -397,7 +397,6 @@ function CVHtmlPreview({ data }: { data: CVData }) {
             <a href={h.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: COLOR.link, textDecoration: 'none' }}>View live version</a>
           </div>
         </div>
-        <img src={erauLogo} alt="ERAU" style={{ width: '52px', height: '52px', objectFit: 'contain' }} />
       </div>
 
       {/* Sections */}
