@@ -187,17 +187,17 @@ work_experiences:
   title_line: 'Principal Knowledge Architect - '
   org: Stealth Startup, Remote
   bullets:
-  - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini, 
+  - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini,
     Ollama, Bedrock) for a stealth-stage cybersecurity product.
+  - Assisted in the design of a multi-stage entity intelligence MDM pipeline spanning multi-format ingestion, schema-guided
+    LLM extraction with evidence binding, Fellegi-Sunter probabilistic record linkage with review queues, survivorship-based
+    canonicalization, and cloud-based materialization with MCP linkage for user consumption.
   - Built a sub-500ms engine that translates natural language to structured queries using async multi-provider LLM retry
     logic (Ollama, Claude, GPT).
-  - Engineered an adapter-driven pipeline mapping heterogeneous vocabularies into a coherent ontology for reasoning and 
+  - Engineered an adapter-driven pipeline mapping heterogeneous vocabularies into a coherent ontology for reasoning and
     lookup.
   - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size,
     accuracy), and stakeholder-ready HTML reports with interactive charts.
-  - Designed a multi-stage entity intelligence MDM pipeline spanning multi-format ingestion, schema-guided LLM extraction
-    with evidence binding, Fellegi-Sunter probabilistic record linkage with review queues, survivorship-based
-    canonicalization, and cloud-based materialization with MCP linkage for user consumption.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
