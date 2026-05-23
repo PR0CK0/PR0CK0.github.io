@@ -193,8 +193,11 @@ work_experiences:
     logic (Ollama, Claude, GPT).
   - Engineered an adapter-driven pipeline mapping heterogeneous vocabularies into a coherent ontology for reasoning and 
     lookup.
-  - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size, 
+  - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size,
     accuracy), and stakeholder-ready HTML reports with interactive charts.
+  - Designed a multi-stage entity intelligence MDM pipeline spanning multi-format ingestion, schema-guided LLM extraction
+    with evidence binding, Fellegi-Sunter probabilistic record linkage with review queues, survivorship-based
+    canonicalization, and cloud-based materialization with MCP linkage for user consumption.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
