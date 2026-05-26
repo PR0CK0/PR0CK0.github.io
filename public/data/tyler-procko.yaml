@@ -228,6 +228,27 @@ work_experiences:
   - AR
   - Quantization
   - Embeddings
+- id: work/mercor
+  work_section: Defense and AI Industry Experience
+  title: Independent AI Consultant
+  organization: Mercor
+  start_date: 2026-05
+  is_current: true
+  location: Remote
+  category: defense_industry
+  date_display: May 2026 - Present
+  title_line: 'Independent AI Consultant - '
+  org: Mercor, Remote
+  bullets:
+  - Contributed expert RLHF and evaluation work to improve LLM output quality for production-grade generative AI
+    systems.
+  technologies:
+  - Claude
+  - GPT
+  domains:
+  - LLMs
+  - Machine Learning
+  - NLP
 - id: work/handshake-ai
   work_section: Defense and AI Industry Experience
   title: Independent AI Consultant
