@@ -144,6 +144,12 @@ Tableau, RStudio, Mermaid, Draw.io, CLIP, ResNet, YOLO, all-MiniLM
 
 ---
 
+## Backlog
+
+- **Formalize work entry ordering**: CV/resume renders `work_experiences` in YAML order, not by date. Implement date-descending sort in `cv-data.ts` (matching the extracurricular `byDateDesc` pattern) so entry order in the YAML is no longer load-bearing and new roles don't require manual placement.
+
+---
+
 ## Already Done (this session)
 
 - Removed "Semantic Science" from legacy nav tab
