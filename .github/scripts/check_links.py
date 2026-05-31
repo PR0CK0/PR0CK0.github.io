@@ -42,6 +42,7 @@ BOT_BLOCKED_DOMAINS = {
     "crates.io",
     "doi.org",
     "scholar.google.com",
+    "ldjam.com",  # Ludum Dare jam pages return 400; site unreliable
 }
 
 # Sites that are live but have broken/self-signed SSL certs — check with SSL verification disabled.
