@@ -560,7 +560,8 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
   }
 
   // Projects (top 8)
-  const projects = [...(person.projects ?? [])]
+  const allProjects = [...(person.projects ?? [])]
+  const projects = allProjects
     .sort((a, b) => {
       if (a.featured && !b.featured) return -1
       if (!a.featured && b.featured) return 1
@@ -582,7 +583,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
       }
     })
     sections.push({
-      header: 'Projects',
+      header: `Projects (Top ${projects.length} of ${allProjects.length})`,
       headerLinks: github?.url ? [{ label: 'GitHub', url: github.url }] : undefined,
       entries,
     })
