@@ -240,8 +240,8 @@ work_experiences:
   title_line: 'Independent AI Consultant - '
   org: Mercor, Remote
   bullets:
-  - Contributed expert RLHF and evaluation work for a top AI laboratory to improve LLM output quality for production-grade generative AI
-    systems.
+  - Contributed expert RLHF and evaluation work for a top AI laboratory to improve LLM output quality for 
+    production-grade generative AI systems.
   technologies:
   - Claude
   - GPT
@@ -282,8 +282,8 @@ work_experiences:
   title_line: 'Independent AI Consultant - '
   org: Handshake AI, Remote
   bullets:
-  - Contributed expert RLHF and evaluation work for a top AI laboratory to improve LLM output quality for production-grade generative AI
-    systems.
+  - Contributed expert RLHF and evaluation work for a top AI laboratory to improve LLM output quality for 
+    production-grade generative AI systems.
   domains:
   - LLMs
   - Ontology
@@ -1871,7 +1871,7 @@ publications:
   - Education
   - Software Engineering
   - Scientific Writing
-  cited_by_count: 5
+  cited_by_count: 6
   doi: https://doi.org/10.1109/fie58773.2023.10343213
 - id: pub/gps-signal-strength
   title: Leveraging Signal Strength as a Mechanism to Secure GPS Messages
