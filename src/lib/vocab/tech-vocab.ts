@@ -280,6 +280,7 @@ export const TECH_VOCAB: Record<string, CompetencyCategory> = {
   'GitHub Pages':          'cloud',
   'AWS S3':                'cloud',
   'AWS Bedrock':           'cloud',
+  'AWS CloudWatch':        'cloud',
   'Google Cloud Platform': 'cloud',
   Heroku:                  'cloud',
   GoDaddy:                 'cloud',
