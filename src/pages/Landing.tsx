@@ -29,7 +29,7 @@ function buildStats(pubCount: number, projCount: number) {
     { label: 'GitHub Projects', value: `${projCount}` },
     { label: 'AFRL Clearance', value: 'SECRET' },
     { label: 'Certified', value: 'Google + Stanford' },
-    { label: 'Model Providers', value: 'Anthropic · OpenAI · Google · AWS' },
+    { label: 'Daily AI Stack', value: 'Claude + GPT + Bedrock' },
   ]
 }
 type Stat = ReturnType<typeof buildStats>[number]
@@ -719,7 +719,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
 function StatsBar({ stats }: { stats: Stat[] }) {
   return (
     <section className="border-y border-terminal-border bg-terminal-surface/40 overflow-hidden">
-      <div className="grid grid-cols-3 sm:grid-cols-6 divide-x divide-y sm:divide-y-0 divide-terminal-border">
+      <div className="grid grid-cols-3 sm:grid-cols-7 divide-x divide-y sm:divide-y-0 divide-terminal-border">
         {stats.map((s, i) => (
           <motion.div
             key={s.label}
@@ -727,7 +727,7 @@ function StatsBar({ stats }: { stats: Stat[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.07, duration: 0.4 }}
-            className="flex flex-col items-center px-1 sm:px-5 ls:px-2 py-2 sm:py-4 ls:py-3"
+            className={`flex flex-col items-center justify-center px-1 sm:px-5 ls:px-2 py-2 sm:py-4 ls:py-3${i === stats.length - 1 ? ' col-span-3 sm:col-span-1' : ''}`}
           >
             <span className="text-sm sm:text-xl ls:text-lg font-mono font-bold text-terminal-green text-glow-green text-center">
               {s.value}
