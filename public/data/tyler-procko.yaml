@@ -15,7 +15,7 @@ summary: Ph.D researcher, Air Force Research Laboratory (AFRL) award winner, and
   ontology-grounded LLM systems and agentic software development. 9+ years building knowledge graphs, BFO/CCO-compliant 
   ontologies, and ML pipelines for defense and aerospace. Designing LLM agents that reason over structured knowledge — 
   RAG, provenance tracking, and explainability backed by formal ontologies. Active contributor to AFRL, IEEE, and DoD 
-  FAIR AI standardization.
+  FAIR AI standardization. Practicing safe, test-driven agentic development across frontier model providers (Anthropic, OpenAI, Google, AWS).
 clearance: I am cleared for Secret T3 but do not continually retain an explicit clearance.
 availability: Spring 2026 — TueThu 07:00-20:00 ET, SatSun 11:00-20:00 ET
 birth_year: 1997
@@ -162,6 +162,7 @@ work_experiences:
   - GitHub Actions
   - GitHub CLI
   - AWS Bedrock
+  - AWS CloudWatch
   - Docker
   - macOS
   - Microsoft Teams

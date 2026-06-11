@@ -26,9 +26,10 @@ function buildStats(pubCount: number, projCount: number) {
     { label: 'Degree', value: 'Ph.D. EECS' },
     { label: 'Refereed Publications', value: `${pubCount}` },
     { label: 'Java / Python', value: '9+ yrs' },
-    { label: 'Projects', value: `${projCount}` },
+    { label: 'GitHub Projects', value: `${projCount}` },
     { label: 'AFRL Clearance', value: 'SECRET' },
     { label: 'Certified', value: 'Google + Stanford' },
+    { label: 'Model Providers', value: 'Anthropic · OpenAI · Google · AWS' },
   ]
 }
 type Stat = ReturnType<typeof buildStats>[number]
