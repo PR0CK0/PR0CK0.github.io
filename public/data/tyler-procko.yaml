@@ -189,6 +189,8 @@ work_experiences:
   title_line: 'Principal Ontology & AI Architect - '
   org: Stealth Startup, Remote
   bullets:
+  - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini,
+    Ollama, Bedrock) for a stealth-stage cybersecurity product.
   - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size,
     accuracy), stakeholder-ready HTML reports with interactive charts, and cost projections across Ollama, AWS Bedrock,
     AWS SageMaker, and all major model providers.
@@ -281,8 +283,6 @@ work_experiences:
   title_line: 'Principal Knowledge Architect - '
   org: Stealth Startup, Remote
   bullets:
-  - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini,
-    Ollama, Bedrock) for a stealth-stage cybersecurity product.
   - Assisted in the design of a multi-stage entity intelligence MDM pipeline spanning multi-format ingestion,
     schema-guided LLM extraction with evidence binding, Fellegi-Sunter probabilistic record linkage with review queues,
     survivorship-based canonicalization, and cloud-based materialization with MCP linkage for user consumption.
