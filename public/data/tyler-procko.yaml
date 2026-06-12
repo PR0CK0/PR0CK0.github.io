@@ -162,6 +162,7 @@ work_experiences:
   - GitHub Actions
   - GitHub CLI
   - AWS Bedrock
+  - AWS SageMaker
   - AWS CloudWatch
   - Docker
   - macOS
@@ -197,8 +198,9 @@ work_experiences:
     logic (Ollama, Claude, GPT).
   - Engineered an adapter-driven pipeline mapping heterogeneous vocabularies into a coherent ontology for reasoning and 
     lookup.
-  - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size, 
-    accuracy), and stakeholder-ready HTML reports with interactive charts.
+  - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size,
+    accuracy), stakeholder-ready HTML reports with interactive charts, and cost projections across Ollama, AWS Bedrock,
+    AWS SageMaker, and all major model providers.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
