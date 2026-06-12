@@ -113,11 +113,11 @@ education:
   notes:
   - Salutatorian
 work_experiences:
-- id: work/stealth-startup
+- id: work/stealth-startup-architect
   work_section: Defense and AI Industry Experience
-  title: Principal Knowledge Architect
+  title: Principal Ontology & AI Architect
   organization: Stealth Startup
-  start_date: 2025-11
+  start_date: 2026-06
   is_current: true
   location: Remote
   technologies:
@@ -185,22 +185,111 @@ work_experiences:
   - SKOS
   - AJV
   category: defense_industry
-  date_display: Nov 2025 - Present
-  title_line: 'Principal Knowledge Architect - '
+  date_display: Jun 2026 - Present
+  title_line: 'Principal Ontology & AI Architect - '
   org: Stealth Startup, Remote
   bullets:
-  - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini, 
-    Ollama, Bedrock) for a stealth-stage cybersecurity product.
-  - Assisted in the design of a multi-stage entity intelligence MDM pipeline spanning multi-format ingestion, 
-    schema-guided LLM extraction with evidence binding, Fellegi-Sunter probabilistic record linkage with review queues, 
-    survivorship-based canonicalization, and cloud-based materialization with MCP linkage for user consumption.
-  - Built a sub-500ms engine that translates natural language to structured queries using async multi-provider LLM retry
-    logic (Ollama, Claude, GPT).
-  - Engineered an adapter-driven pipeline mapping heterogeneous vocabularies into a coherent ontology for reasoning and 
-    lookup.
   - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size,
     accuracy), stakeholder-ready HTML reports with interactive charts, and cost projections across Ollama, AWS Bedrock,
     AWS SageMaker, and all major model providers.
+  soft_skills:
+  - Virtual Presentation
+  - Stakeholder Presentation
+  domains:
+  - LLMs
+  - Cybersecurity
+  - Ontology
+  - Machine Learning
+  - Knowledge Graphs
+  - Software Engineering
+  - SQA
+  - Semantic Web
+- id: work/stealth-startup
+  work_section: Defense and AI Industry Experience
+  title: Principal Knowledge Architect
+  organization: Stealth Startup
+  start_date: 2025-11
+  end_date: 2026-06
+  is_current: false
+  location: Remote
+  technologies:
+  - Python
+  - TypeScript
+  - JavaScript
+  - OWL
+  - Turtle
+  - RDFS
+  - RDF
+  - SPARQL
+  - SPL
+  - Splunk
+  - JSON Schema
+  - JSON-LD
+  - SHACL
+  - Hugging Face
+  - OpenAI
+  - Cytoscape.js
+  - Anthropic SDK
+  - React
+  - sentence-transformers
+  - LiteLLM
+  - Node.js
+  - Fastify
+  - Fuseki
+  - Protégé
+  - Ollama
+  - LM Studio
+  - Claude
+  - Gemini
+  - Codex
+  - Mixture of Agents
+  - Streamlit
+  - XML
+  - BFO
+  - CCO
+  - OCSF
+  - PROV-O
+  - MITRE ATT&CK
+  - MITRE D3FEND
+  - GitHub Actions
+  - GitHub CLI
+  - AWS Bedrock
+  - AWS SageMaker
+  - AWS CloudWatch
+  - Docker
+  - macOS
+  - Microsoft Teams
+  - Signal
+  - Bash
+  - Mermaid
+  - Figma
+  - Miro
+  - CURL
+  - Kanban
+  - Zod
+  - YAML
+  - Visual Studio Code
+  - UFO
+  - GFO
+  - Grok
+  - AWS S3
+  - GPT
+  - SKOS
+  - AJV
+  category: defense_industry
+  date_display: Nov 2025 - Jun 2026
+  title_line: 'Principal Knowledge Architect - '
+  org: Stealth Startup, Remote
+  bullets:
+  - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini,
+    Ollama, Bedrock) for a stealth-stage cybersecurity product.
+  - Assisted in the design of a multi-stage entity intelligence MDM pipeline spanning multi-format ingestion,
+    schema-guided LLM extraction with evidence binding, Fellegi-Sunter probabilistic record linkage with review queues,
+    survivorship-based canonicalization, and cloud-based materialization with MCP linkage for user consumption.
+  - Built a sub-500ms engine that translates natural language to structured queries using async multi-provider LLM retry
+    logic (Ollama, Claude, GPT).
+  - Engineered an adapter-driven pipeline mapping heterogeneous vocabularies into a coherent ontology for reasoning and
+    lookup.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
