@@ -184,6 +184,8 @@ work_experiences:
   - GPT
   - SKOS
   - AJV
+  - BM25
+  - Fellegi-Sunter
   category: defense_industry
   date_display: Jun 2026 - Present
   title_line: 'Principal Ontology & AI Architect - '
@@ -279,6 +281,7 @@ work_experiences:
   - GPT
   - SKOS
   - AJV
+  - Fellegi-Sunter
   category: defense_industry
   date_display: Nov 2025 - Jun 2026
   title_line: 'Principal Knowledge Architect - '
@@ -2621,6 +2624,7 @@ projects:
   - XML
   - XBRL
   - RDFLib
+  - BM25
   date_display: Jun 2026
   members: 1 member
   tagline: Real SEC financial restatements as a PROV-O knowledge graph for provenance-aware RAG experiments.

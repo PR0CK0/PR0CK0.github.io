@@ -192,6 +192,7 @@ export const TECH_VOCAB: Record<string, CompetencyCategory> = {
 
   // ── AI / ML Tools & Models ─────────────────────────────────────────────────
   'BM25':              'ai_tools',
+  'Fellegi-Sunter':    'ai_tools',
   Claude:              'ai_tools',
   Anthropic:           'ai_tools',
   Gemini:              'ai_tools',
