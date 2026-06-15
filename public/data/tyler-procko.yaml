@@ -2599,6 +2599,39 @@ publications:
     engineers need to be cognizant of the nuances of ML behavior as it pertains to NFRs. This paper presents a mapping of
     NFRs into the ML context including new definitions, as needed, for NFRs in ML systems."
 projects:
+- id: proj/provenance-rag-financial-graph
+  title: provrag — Provenance-Aware RAG Financial Graph
+  year: 2026-06
+  repo_url: https://github.com/PR0CK0/provenance-rag-financial-graph
+  featured: true
+  technologies:
+  - Python
+  - JavaScript
+  - HTML
+  - RDF
+  - RDFS
+  - Turtle
+  - OWL
+  - SPARQL
+  - PROV-O
+  - JSON
+  - CSV
+  - XML
+  - XBRL
+  - RDFLib
+  date_display: Jun 2026
+  members: 1 member
+  tagline: Real SEC financial restatements as a PROV-O knowledge graph for provenance-aware RAG experiments.
+  domains:
+  - Knowledge Graphs
+  - Knowledge Representation
+  - Linked Data
+  - Semantic Web
+  - LLMs
+  - NLP
+  - Data Visualization
+  - FinTech
+  description: Real SEC financial restatements as a PROV-O knowledge graph for provenance-aware RAG experiments.
 - id: proj/procko-pro
   title: procko.pro
   year: 2024-11
