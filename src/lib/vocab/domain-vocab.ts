@@ -6,6 +6,7 @@ export const DOMAIN_VOCAB: Record<string, CompetencyCategory> = {
   'Knowledge Management':       'domains',
   'Scientific Writing':         'domains',
   'Semantic Web':               'domains',
+  'Semantic Search':            'domains',
   'Linked Data':                'domains',
   'FAIR Data':                  'domains',
   Ontology:                     'domains',

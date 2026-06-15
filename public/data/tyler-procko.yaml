@@ -2632,6 +2632,13 @@ projects:
   - Data Visualization
   - FinTech
   - Retrieval-Augmented Generation
+  - Provenance
+  - Ontology
+  - Taxonomy
+  - Machine Learning
+  - Prompt Engineering
+  - Text Extraction
+  - Semantic Search
   description: Real SEC financial restatements as a PROV-O knowledge graph for provenance-aware RAG experiments.
 - id: proj/procko-pro
   title: procko.pro
