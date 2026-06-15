@@ -206,6 +206,7 @@ work_experiences:
   - Software Engineering
   - SQA
   - Semantic Web
+  - Semantic Search
 - id: work/stealth-startup
   work_section: Defense and AI Industry Experience
   title: Principal Knowledge Architect
@@ -320,6 +321,7 @@ work_experiences:
   - AR
   - Quantization
   - Embeddings
+  - Semantic Search
 - id: work/mercor
   work_section: Defense and AI Industry Experience
   title: Independent AI Consultant
