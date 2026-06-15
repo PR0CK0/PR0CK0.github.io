@@ -30,6 +30,8 @@ export const DOMAIN_VOCAB: Record<string, CompetencyCategory> = {
   MLOps:                        'domains',
   Embeddings:                   'domains',
   RAG:                          'domains',
+  'Retrieval-Augmented Generation': 'domains',
+  FinTech:                      'domains',
   Cybersecurity:                'domains',
   Cryptography:                 'domains',
   Defense:                      'domains',

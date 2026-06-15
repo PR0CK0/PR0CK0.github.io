@@ -315,7 +315,7 @@ work_experiences:
   - SDLC
   - Agile
   - NER
-  - RAG
+  - Retrieval-Augmented Generation
   - Embedded Systems
   - AR
   - Quantization
@@ -757,7 +757,7 @@ work_experiences:
   - ML Provenance
   - UX
   - NER
-  - RAG
+  - Retrieval-Augmented Generation
   - Data Visualization
   - Embeddings
   - Cognitive Science
@@ -1152,7 +1152,7 @@ work_experiences:
   - SQA
   - Requirements Engineering
   - NER
-  - RAG
+  - Retrieval-Augmented Generation
 - id: work/wordlift
   work_section: Applied R&D and Consulting Experience
   resume_exclude: true
@@ -1666,7 +1666,7 @@ publications:
   domains:
   - Knowledge Graphs
   - LLMs
-  - RAG
+  - Retrieval-Augmented Generation
   - NLP
   - Prompt Engineering
   - Ontology
@@ -2631,6 +2631,7 @@ projects:
   - NLP
   - Data Visualization
   - FinTech
+  - Retrieval-Augmented Generation
   description: Real SEC financial restatements as a PROV-O knowledge graph for provenance-aware RAG experiments.
 - id: proj/procko-pro
   title: procko.pro
@@ -2801,7 +2802,7 @@ projects:
   - Linked Data
   - LLMs
   - Ontology
-  - RAG
+  - Retrieval-Augmented Generation
   - Semantic Web
   - Taxonomy
   description: BFO-aligned, evidence-graded knowledge graph for health optimization interventions. LinkML schema with 
@@ -3597,7 +3598,7 @@ projects:
   - LLMs
   - Ontology
   - Semantic Web
-  - RAG
+  - Retrieval-Augmented Generation
   - Prompt Engineering
   - Cybersecurity
   - Software Engineering

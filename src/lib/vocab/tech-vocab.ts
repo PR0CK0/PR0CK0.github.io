@@ -191,6 +191,7 @@ export const TECH_VOCAB: Record<string, CompetencyCategory> = {
   Session:           'comm_tools',
 
   // ── AI / ML Tools & Models ─────────────────────────────────────────────────
+  'BM25':              'ai_tools',
   Claude:              'ai_tools',
   Anthropic:           'ai_tools',
   Gemini:              'ai_tools',
