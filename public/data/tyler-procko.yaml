@@ -2627,6 +2627,8 @@ projects:
   - XBRL
   - RDFLib
   - BM25
+  - Claude
+  - Codex
   date_display: Jun 2026
   members: 1 member
   tagline: Real SEC financial restatements as a PROV-O knowledge graph for provenance-aware RAG experiments.
