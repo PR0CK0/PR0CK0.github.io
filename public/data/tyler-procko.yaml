@@ -3936,6 +3936,18 @@ references:
   email: towhid@erau.edu
   relationship: Department Chair
 extracurriculars:
+- id: extra/review-jun-2026
+  title: Manuscript reviews
+  date: 2026-06
+  type: scholarly
+  bullets:
+  - Reviewer (1 manuscript) - AI and Ethics, Springer Nature
+  domains:
+  - Scientific Writing
+  - LLMs
+  - Ethics
+  technologies:
+  - Microsoft Word
 - id: extra/review-mar-2026
   title: Manuscript reviews
   date: 2026-03
