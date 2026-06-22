@@ -130,6 +130,7 @@ export const TECH_VOCAB: Record<string, CompetencyCategory> = {
   Roslyn:               'dev_tools',
   'GitHub CLI':         'dev_tools',
   Jira:                 'dev_tools',
+  'Apple TestFlight':   'dev_tools',
   'Jira Product Discovery': 'dev_tools',
   Confluence:           'dev_tools',
   Bitbucket:            'dev_tools',
