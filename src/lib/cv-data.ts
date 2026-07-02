@@ -426,12 +426,14 @@ export function buildCVData(person: Person, buildDate: string): CVData {
 
     const byDateDesc = (a: any, b: any) => (b.date ?? '').localeCompare(a.date ?? '')
     const scholarly   = extras.filter((e: any) => e.type === 'scholarly').sort(byDateDesc)
+    const conferences = extras.filter((e: any) => e.type === 'conference').sort(byDateDesc)
     const orgs        = extras.filter((e: any) => e.type === 'organization').sort(byDateDesc)
     const volunteer   = extras.filter((e: any) => e.type === 'volunteer').sort(byDateDesc)
     const open_source = extras.filter((e: any) => e.type === 'open_source').sort(byDateDesc)
 
     const subsections: CVSubsection[] = []
     if (scholarly.length > 0)   subsections.push({ subheader: 'Scholarly Contributions', entries: makeEntries(scholarly) })
+    if (conferences.length > 0) subsections.push({ subheader: 'Conferences', entries: makeEntries(conferences) })
     if (open_source.length > 0) subsections.push({ subheader: 'Open-Source', entries: makeEntries(open_source) })
     if (orgs.length > 0)        subsections.push({ subheader: 'Organizations', entries: makeEntries(orgs) })
     if (volunteer.length > 0)   subsections.push({ subheader: 'Service & Volunteer', entries: makeEntries(volunteer) })
