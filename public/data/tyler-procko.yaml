@@ -3939,6 +3939,21 @@ references:
   email: towhid@erau.edu
   relationship: Department Chair
 extracurriculars:
+- id: extra/cognetcon-2026
+  title: CognetCon 2026
+  date: 2026-02
+  type: conference
+  bullets:
+  - Attendee — CognetCon 2026, Cognitive Security Institute / USF College of Education, Tampa, FL, Feb 4–5, 2026
+  domains:
+  - Cybersecurity
+  - HCI
+  - XAI
+  - UX
+  soft_skills:
+  - Stakeholder Presentation
+  - Public Speaking
+  - Client Communication
 - id: extra/review-jun-2026
   title: Manuscript reviews
   date: 2026-06
