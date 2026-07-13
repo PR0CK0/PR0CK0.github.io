@@ -1817,7 +1817,7 @@ publications:
   - LLMs
   - Scientific Writing
   - Taxonomy
-  cited_by_count: 0
+  cited_by_count: 1
   doi: https://doi.org/10.2139/ssrn.4852748
 - id: pub/semantic-science-beyond-pdf
   title: 'Semantic Science: Publication Beyond the PDF'
