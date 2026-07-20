@@ -1568,7 +1568,7 @@ publications:
   - ML Provenance
   - Machine Learning
   - Scientific Writing
-  cited_by_count: 1
+  cited_by_count: 2
   doi: https://doi.org/10.3390/software5010009
 - id: pub/creating-robust-datasets
   title: Creating Robust Data Sets for AI by Leveraging Ontological Structures
