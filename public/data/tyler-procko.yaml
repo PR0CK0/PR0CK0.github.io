@@ -1634,7 +1634,7 @@ publications:
   - Requirements Engineering
   - Software Engineering
   - Scientific Writing
-  cited_by_count: 1
+  cited_by_count: 2
   doi: https://doi.org/10.1109/aixset62544.2024.00042
 - id: pub/leveraging-llms-scientific-writing
   title: Leveraging Large Language Models on the Traditional Scientific Writing Workflow
