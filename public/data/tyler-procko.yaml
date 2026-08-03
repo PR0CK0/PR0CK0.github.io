@@ -2112,7 +2112,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 2
+  cited_by_count: 3
   doi: https://doi.org/10.1109/transai60598.2023.00042
 - id: pub/catastrophic-forgetting
   title: 'Impacts of Catastrophic Forgetting: From a Machine Learning Engineering Perspective'
