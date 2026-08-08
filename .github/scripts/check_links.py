@@ -43,6 +43,7 @@ BOT_BLOCKED_DOMAINS = {
     "doi.org",
     "scholar.google.com",
     "ldjam.com",  # Ludum Dare jam pages return 400; site unreliable
+    "ieeexplore.ieee.org",  # returns 418 to headless requests intermittently
 }
 
 # Sites that are live but have broken/self-signed SSL certs — check with SSL verification disabled.

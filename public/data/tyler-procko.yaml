@@ -200,6 +200,8 @@ work_experiences:
   - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size, 
     accuracy), stakeholder-ready HTML reports with interactive charts, and cost projections across Ollama, AWS Bedrock, 
     AWS SageMaker, and all major model providers.
+  - Represented the company as booth staff at Black Hat USA 2026, Las Vegas, through World Wide Technology (WWT),
+    demoing the product at the Interface room.
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
@@ -3940,6 +3942,21 @@ references:
   email: towhid@erau.edu
   relationship: Department Chair
 extracurriculars:
+- id: extra/blackhat-2026
+  title: Black Hat USA 2026
+  date: 2026-08
+  type: conference
+  bullets:
+  - Booth staff and product demonstrator — Black Hat USA 2026, Las Vegas, NV, through World Wide Technology (WWT) at the Interface room
+  domains:
+  - Cybersecurity
+  - LLMs
+  - Semantic Web
+  - Knowledge Graphs
+  soft_skills:
+  - Stakeholder Presentation
+  - Public Speaking
+  - Client Communication
 - id: extra/cognetcon-2026
   title: CognetCon 2026
   date: 2026-02
