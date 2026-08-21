@@ -24,11 +24,11 @@ type BootLine = ReturnType<typeof buildBootLines>[number]
 function buildStats(pubCount: number, projCount: number) {
   return [
     { label: 'Degree', value: 'Ph.D. EECS' },
+    { label: 'Certified', value: 'CompTIA + Google + Stanford' },
     { label: 'Refereed Publications', value: `${pubCount}` },
     { label: 'Java / Python', value: '9+ yrs' },
     { label: 'GitHub Projects', value: `${projCount}` },
     { label: 'AFRL Clearance', value: 'SECRET' },
-    { label: 'Certified', value: 'Google + Stanford' },
     { label: 'Daily AI Stack', value: 'Claude + GPT + Bedrock' },
   ]
 }
@@ -729,10 +729,10 @@ function StatsBar({ stats }: { stats: Stat[] }) {
             transition={{ delay: i * 0.07, duration: 0.4 }}
             className={`flex flex-col items-center justify-center px-1 sm:px-5 ls:px-2 py-2 sm:py-4 ls:py-3${i === stats.length - 1 ? ' col-span-3 sm:col-span-1' : ''}`}
           >
-            <span className="text-sm sm:text-xl ls:text-lg font-mono font-bold text-terminal-green text-glow-green text-center">
+            <span className={`font-mono font-bold text-terminal-green text-glow-green text-center ${s.value.length > 15 ? 'text-xs sm:text-sm ls:text-sm' : 'text-sm sm:text-xl ls:text-lg'}`}>
               {s.value}
             </span>
-            <span className="text-[10px] sm:text-xs font-mono text-terminal-muted mt-1 tracking-widest uppercase text-center">
+            <span className={`font-mono text-terminal-muted mt-1 tracking-widest uppercase text-center ${s.value.length > 15 ? 'text-[9px] sm:text-[10px]' : 'text-[10px] sm:text-xs'}`}>
               {s.label}
             </span>
           </motion.div>

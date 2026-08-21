@@ -11,12 +11,12 @@ website: https://procko.pro
 tagline: Casting the net for knowledge in a sea of infinite information.
 seo_description: PhD AI engineer building ontology-grounded LLM agents — knowledge graphs, agentic RAG, BFO/CCO, 
   cybersecurity. DoD SECRET clearance.
-summary: Ph.D researcher, Air Force Research Laboratory (AFRL) award winner, and AI engineer specializing in 
-  ontology-grounded LLM systems and agentic software development. 9+ years building knowledge graphs, BFO/CCO-compliant 
-  ontologies, and ML pipelines for defense and aerospace. Designing LLM agents that reason over structured knowledge — 
-  RAG, provenance tracking, and explainability backed by formal ontologies. Active contributor to AFRL, IEEE, and DoD 
-  FAIR AI standardization. Practicing safe, test-driven agentic development across frontier model providers (Anthropic, 
-  OpenAI, Google, AWS).
+summary: Ph.D researcher, Air Force Research Laboratory (AFRL) award winner, and AI engineer specializing in
+  ontology-grounded LLM systems and agentic software development. 9+ years building knowledge graphs, BFO/CCO-compliant
+  ontologies, and ML pipelines for defense and aerospace. Designing LLM agents that reason over structured knowledge —
+  RAG, provenance tracking, and explainability backed by formal ontologies. Active contributor to AFRL, IEEE, and DoD
+  FAIR AI standardization. Practicing safe, test-driven agentic development across frontier model providers (Anthropic,
+  OpenAI, Google, AWS). CompTIA, Google, and Stanford certified.
 clearance: I am cleared for Secret T3 but do not continually retain an explicit clearance.
 availability: Spring 2026 — TueThu 07:00-20:00 ET, SatSun 11:00-20:00 ET
 birth_year: 1997
@@ -3719,7 +3719,8 @@ certificates:
 - id: cert/security-plus
   title: Security+
   issuer: CompTIA
-  status: in_progress
+  date: 2026-08
+  status: completed
   domains:
   - Cybersecurity
   - Networking
