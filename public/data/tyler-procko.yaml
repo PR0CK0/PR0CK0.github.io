@@ -3721,6 +3721,7 @@ certificates:
   issuer: CompTIA
   date: 2026-08
   status: completed
+  url: https://www.credly.com/badges/726f1a82-145e-4066-a347-44097fdc4c4f/public_url
   domains:
   - Cybersecurity
   - Networking
