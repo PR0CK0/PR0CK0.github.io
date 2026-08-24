@@ -11,11 +11,11 @@ website: https://procko.pro
 tagline: Casting the net for knowledge in a sea of infinite information.
 seo_description: PhD AI engineer building ontology-grounded LLM agents — knowledge graphs, agentic RAG, BFO/CCO, 
   cybersecurity. DoD SECRET clearance.
-summary: Ph.D researcher, Air Force Research Laboratory (AFRL) award winner, CompTIA + Google + Stanford certified,
-  and AI engineer specializing in ontology-grounded LLM systems and agentic software development. 9+ years building
-  knowledge graphs, BFO/CCO-compliant ontologies, and ML pipelines for defense and aerospace. Designing LLM agents that
-  reason over structured knowledge — RAG, provenance tracking, and explainability backed by formal ontologies. Active
-  contributor to AFRL, IEEE, and DoD FAIR AI standardization. Practicing safe, test-driven agentic development across
+summary: Ph.D researcher, Air Force Research Laboratory (AFRL) award winner, CompTIA + Google + Stanford certified, and 
+  AI engineer specializing in ontology-grounded LLM systems and agentic software development. 9+ years building 
+  knowledge graphs, BFO/CCO-compliant ontologies, and ML pipelines for defense and aerospace. Designing LLM agents that 
+  reason over structured knowledge — RAG, provenance tracking, and explainability backed by formal ontologies. Active 
+  contributor to AFRL, IEEE, and DoD FAIR AI standardization. Practicing safe, test-driven agentic development across 
   frontier model providers (Anthropic, OpenAI, Google, AWS).
 clearance: I am cleared for Secret T3 but do not continually retain an explicit clearance.
 availability: Spring 2026 — TueThu 07:00-20:00 ET, SatSun 11:00-20:00 ET
@@ -200,7 +200,7 @@ work_experiences:
   - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size, 
     accuracy), stakeholder-ready HTML reports with interactive charts, and cost projections across Ollama, AWS Bedrock, 
     AWS SageMaker, and all major model providers.
-  - Represented the company as booth staff at Black Hat USA 2026, Las Vegas, through World Wide Technology (WWT),
+  - Represented the company as booth staff at Black Hat USA 2026, Las Vegas, through World Wide Technology (WWT), 
     demoing the product at the Interface room.
   soft_skills:
   - Virtual Presentation
@@ -1615,7 +1615,7 @@ publications:
   - Machine Learning
   - Prompt Engineering
   - Scientific Writing
-  cited_by_count: 1
+  cited_by_count: 2
   doi: https://doi.org/10.1109/icmla61862.2024.00177
 - id: pub/requirements-elicitation-ml
   title: 'Requirements Elicitation for Machine Learning Applications: A Research Preview'
@@ -3949,7 +3949,8 @@ extracurriculars:
   date: 2026-08
   type: conference
   bullets:
-  - Booth staff and product demonstrator — Black Hat USA 2026, Las Vegas, NV, through World Wide Technology (WWT) at the Interface room
+  - Booth staff and product demonstrator — Black Hat USA 2026, Las Vegas, NV, through World Wide Technology (WWT) at the
+    Interface room
   domains:
   - Cybersecurity
   - LLMs
