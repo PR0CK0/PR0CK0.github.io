@@ -199,6 +199,7 @@ export const TECH_VOCAB: Record<string, CompetencyCategory> = {
   Claude:              'ai_tools',
   Anthropic:           'ai_tools',
   Gemini:              'ai_tools',
+  'Google Antigravity': 'ai_tools',
   Codex:               'ai_tools',
   Grok:                'ai_tools',
   'Microsoft Copilot': 'ai_tools',

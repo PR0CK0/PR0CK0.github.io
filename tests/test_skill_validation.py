@@ -15,7 +15,7 @@ import yaml
 import re
 
 YAML_PATH = Path(__file__).parent.parent / "public" / "data" / "tyler-procko.yaml"
-TECH_CATEGORIES_PATH = Path(__file__).parent.parent / "src" / "lib" / "tech-categories.ts"
+TECH_VOCAB_PATH = Path(__file__).parent.parent / "src" / "lib" / "vocab" / "tech-vocab.ts"
 
 SKILL_FIELDS = ["technologies", "domains", "soft_skills", "personal_skills"]
 SECTIONS = ["work_experiences", "projects", "publications", "courses", "awards", "talks", "education", "certificates", "extra"]
@@ -30,8 +30,8 @@ VALID_SOFT_SKILLS = {
 
 
 def extract_tech_categories():
-    """Parse tech-categories.ts and extract all mapped technologies."""
-    content = TECH_CATEGORIES_PATH.read_text()
+    """Parse tech-vocab.ts and extract all mapped technologies."""
+    content = TECH_VOCAB_PATH.read_text()
     pattern = r"(?:'([^']+)'|([^\s:]+)):\s+'[^']+'"
     matches = re.findall(pattern, content)
     techs = set()

@@ -150,6 +150,7 @@ work_experiences:
   - LM Studio
   - Claude
   - Gemini
+  - Google Antigravity
   - Codex
   - Mixture of Agents
   - Streamlit
@@ -2109,7 +2110,6 @@ publications:
   - Prompt Engineering
   - SDLC
   - Scientific Writing
-  - Scientific Writing
   - Taxonomy
   soft_skills:
   - Virtual Presentation
@@ -2229,7 +2229,6 @@ publications:
   - Cognitive Science
   - Scientific Writing
   - Software Engineering
-  - Scientific Writing
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
