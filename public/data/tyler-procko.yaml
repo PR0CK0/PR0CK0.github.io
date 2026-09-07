@@ -1504,7 +1504,7 @@ publications:
   - LLMs
   - Prompt Engineering
   - Scientific Writing
-  cited_by_count: 0
+  cited_by_count: 1
   doi: https://doi.org/10.2139/ssrn.5682942
 - id: pub/ml-lifecycle-provenance-survey
   title: 'A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools'
@@ -1616,7 +1616,7 @@ publications:
   - Machine Learning
   - Prompt Engineering
   - Scientific Writing
-  cited_by_count: 2
+  cited_by_count: 3
   doi: https://doi.org/10.1109/icmla61862.2024.00177
 - id: pub/requirements-elicitation-ml
   title: 'Requirements Elicitation for Machine Learning Applications: A Research Preview'
