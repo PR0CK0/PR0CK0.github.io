@@ -1616,7 +1616,7 @@ publications:
   - Machine Learning
   - Prompt Engineering
   - Scientific Writing
-  cited_by_count: 3
+  cited_by_count: 4
   doi: https://doi.org/10.1109/icmla61862.2024.00177
 - id: pub/requirements-elicitation-ml
   title: 'Requirements Elicitation for Machine Learning Applications: A Research Preview'
@@ -1693,7 +1693,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 21
+  cited_by_count: 22
   doi: https://doi.org/10.2139/ssrn.4895062
 - id: pub/cognitive-assistants-single-pilot
   title: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations
