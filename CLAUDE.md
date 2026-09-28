@@ -10,4 +10,4 @@ The file lives in `public/data/` because Vite only serves the `public/` director
 
 After editing the YAML:
 - The React app picks up changes automatically at runtime (no rebuild needed for content).
-- Run `python3 build.py` to regenerate `public/legacy/index.html` from the updated YAML.
+- Run `python3 build.py` to regenerate `public/legacy/cv.html` from the updated YAML.
