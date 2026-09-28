@@ -33,6 +33,7 @@ jobs:
       - name: Discover new repos
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERS: PR0CK0,PR0CK0-2
         run: python3 .github/scripts/discover_new_repos.py
 
       - name: Open PR if changed

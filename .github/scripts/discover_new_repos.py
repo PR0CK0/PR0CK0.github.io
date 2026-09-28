@@ -2,7 +2,8 @@
 Auto-discovers new public GitHub repos and adds skeleton project entries to
 public/data/tyler-procko.yaml.
 
-Queries the GitHub API for all public, non-forked repos owned by GITHUB_USER.
+Queries the GitHub API for all public, non-forked repos owned by each account
+in GITHUB_USERS (comma-separated).
 Any repo whose html_url isn't already tracked as a project repo_url gets an
 entry appended to the projects list. Repos without a GitHub "About" description
 are skipped — they're usually incomplete or throwaway.
@@ -12,7 +13,7 @@ mapped through a known vocabulary. Domains are inferred from topics where
 possible. Both can be refined manually after the PR is merged.
 
 Usage:
-    GITHUB_TOKEN=<token> python3 .github/scripts/discover_new_repos.py
+    GITHUB_USERS=<user>[,<user>...] GITHUB_TOKEN=<token> python3 .github/scripts/discover_new_repos.py
 
 Exit codes:
     0 — completed (with or without changes)
@@ -37,9 +38,8 @@ except ImportError:
     sys.exit(1)
 
 YAML_PATH = "public/data/tyler-procko.yaml"
-GITHUB_USER = "PR0CK0"
+GITHUB_USERS = [u.strip() for u in os.environ.get("GITHUB_USERS", "").split(",") if u.strip()]
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
-REPO_RE = re.compile(r"https://github\.com/([^/]+)/([^/\s]+?)/?$")
 
 # GitHub language name → YAML technology name (pass-through if not listed)
 LANGUAGE_MAP: dict[str, str] = {
@@ -140,11 +140,11 @@ def gh_get(path: str) -> dict | list | None:
         return None
 
 
-def fetch_all_repos() -> list[dict]:
+def fetch_all_repos(user: str) -> list[dict]:
     repos: list[dict] = []
     page = 1
     while True:
-        batch = gh_get(f"/users/{GITHUB_USER}/repos?type=public&per_page=100&page={page}")
+        batch = gh_get(f"/users/{user}/repos?type=public&per_page=100&page={page}")
         if not batch:
             break
         repos.extend(r for r in batch if not r.get("fork"))
@@ -242,12 +242,16 @@ def main() -> None:
         if "github.com" in (e.get("url") or ""):
             existing_urls.add(normalize_url(e["url"]))
 
-    print(f"Fetching public repos for {GITHUB_USER} ...")
-    gh_repos = fetch_all_repos()
-    print(f"Found {len(gh_repos)} public non-fork repos on GitHub")
+    if not GITHUB_USERS:
+        print("ERROR: GITHUB_USERS is empty")
+        sys.exit(1)
 
-    m = REPO_RE.match(f"https://github.com/{GITHUB_USER}/x")
-    owner = GITHUB_USER
+    gh_repos: list[dict] = []
+    for user in GITHUB_USERS:
+        print(f"Fetching public repos for {user} ...")
+        user_repos = fetch_all_repos(user)
+        print(f"Found {len(user_repos)} public non-fork repos for {user}")
+        gh_repos.extend(user_repos)
 
     added = 0
     for repo in gh_repos:
@@ -259,8 +263,7 @@ def main() -> None:
             print(f"  SKIP (no description): {repo['name']}")
             continue
 
-        m2 = REPO_RE.match(repo["html_url"])
-        repo_owner = m2.group(1) if m2 else owner
+        repo_owner = repo["owner"]["login"]
 
         print(f"  NEW: proj/{repo_slug(repo['name'])} — {repo['html_url']}")
         entry = make_entry(repo, repo_owner)

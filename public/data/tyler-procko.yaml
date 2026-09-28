@@ -3074,6 +3074,21 @@ projects:
   - Cognitive Science
   soft_skills:
   - Virtual Presentation
+- id: proj/forsen-study
+  title: 'Internet Anthropology: Forsen and His Community'
+  year: 2023-11
+  repo_url: https://github.com/PR0CK0-2/Forsen-Study
+  technologies:
+  - Markdown
+  - CSV
+  date_display: Nov 2023
+  members: 1 member
+  tagline: An anthropological study of Twitch streamer Forsen and the language, customs, and history of his community.
+  soft_skills:
+  - Technical Writing
+  domains:
+  - Anthropology
+  description: "Internet Anthropology: An Investigation into Twitch's Forsen and His Community"
 - id: proj/stable-diffusion-testing
   title: Stable Diffusion and Low-Rank Adaptation Testing
   year: 2023-04
@@ -3484,12 +3499,6 @@ projects:
   - Safety
   - Data Analysis
   - Machine Learning
-- id: proj/forsenstudy
-  title: ForsenStudy
-  year: 2023-11
-  repo_url: https://github.com/PR0CK0/ForsenStudy
-  description: Internet Anthropology investigation into Forsen and his community.
-  cv_exclude: true
 - id: proj/htmlcss-tutorial-youtube-clone
   title: htmlcss tutorial youtube clone
   year: 2022-10

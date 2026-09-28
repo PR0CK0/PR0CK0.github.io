@@ -60,6 +60,7 @@ export const DOMAIN_VOCAB: Record<string, CompetencyCategory> = {
   Construction:                 'domains',
   Safety:                       'domains',
   Ethics:                       'domains',
+  Anthropology:                 'domains',
   CLI:                          'domains',
   Quantization:                 'domains',
 }
