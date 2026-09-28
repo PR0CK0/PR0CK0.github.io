@@ -2610,6 +2610,21 @@ publications:
     to delineate which of the original 24 carries over to the ML context. Because of the proliferation of ML, requirement
     engineers need to be cognizant of the nuances of ML behavior as it pertains to NFRs. This paper presents a mapping of
     NFRs into the ML context including new definitions, as needed, for NFRs in ML systems."
+- id: pub/verifying-machine-learning-testability-requirements-with-pro
+  title: "Verifying Machine Learning Testability Requirements with Provenance"
+  authors:
+  - Lynn Vonderhaar
+  - Tyler Procko
+  - Omar Ochoa
+  venue: ''
+  date: 2026-01
+  status: published
+  url: https://doi.org/10.5220/0015167700004088
+  doi: https://doi.org/10.5220/0015167700004088
+  author_role: ''
+  source: openalex
+  featured: false
+  cited_by_count: 0
 projects:
 - id: proj/provenance-rag-financial-graph
   title: provrag — Provenance-Aware RAG Financial Graph
