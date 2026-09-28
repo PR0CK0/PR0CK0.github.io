@@ -116,9 +116,11 @@ export function buildGraph(person: Person): GraphData {
   const personId = person.id
   addNode({ data: { id: personId, label: person.name, type: 'person', subtitle: person.title } })
 
+  const projects = (person.projects ?? []).filter(p => !p.cv_exclude)
+
   const allSections = [
     ...(person.work_experiences ?? []).filter(w => !w.graph_exclude),
-    ...(person.projects ?? []),
+    ...projects,
     ...(person.publications ?? []),
     ...(person.courses ?? []),
     ...(person.talks ?? []),
@@ -129,7 +131,7 @@ export function buildGraph(person: Person): GraphData {
   // ─── Personal skill nodes — aggregated from all entity sources ───────────────
   const allPersonalSkills = new Set([
     ...(person.work_experiences ?? []).flatMap(e => e.personal_skills ?? []),
-    ...(person.projects ?? []).flatMap(e => e.personal_skills ?? []),
+    ...projects.flatMap(e => e.personal_skills ?? []),
     ...(person.extracurriculars ?? []).flatMap(e => e.personal_skills ?? []),
   ])
   allPersonalSkills.forEach((s) => {
@@ -213,7 +215,7 @@ export function buildGraph(person: Person): GraphData {
   })
 
   // ─── Projects ────────────────────────────────────────────────────────────────
-  person.projects?.forEach((proj) => {
+  projects.forEach((proj) => {
     addNode({
       data: {
         id: proj.id,

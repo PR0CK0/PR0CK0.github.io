@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build script: renders public/data/tyler-procko.yaml into public/legacy/index.html via Jinja2 templates."""
+"""Build script: renders public/data/tyler-procko.yaml into public/legacy/cv.html via Jinja2 templates."""
 
 import yaml
 from jinja2 import Environment, FileSystemLoader
@@ -36,8 +36,15 @@ def load_data():
         return yaml.safe_load(f)
 
 
+def drop_cv_excluded(data):
+    return {
+        k: [e for e in v if not (isinstance(e, dict) and e.get("cv_exclude"))] if isinstance(v, list) else v
+        for k, v in data.items()
+    }
+
+
 def build():
-    data = load_data()
+    data = drop_cv_excluded(load_data())
 
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_DIR)),
