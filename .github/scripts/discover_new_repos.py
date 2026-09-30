@@ -61,6 +61,7 @@ LANGUAGE_MAP: dict[str, str] = {
 
 # GitHub topic → YAML technology name
 TOPIC_TECH_MAP: dict[str, str] = {
+    "wikidata":         "Wikidata",
     "python":           "Python",
     "javascript":       "JavaScript",
     "typescript":       "TypeScript",
@@ -72,6 +73,7 @@ TOPIC_TECH_MAP: dict[str, str] = {
     "transformers":     "Transformers",
     "spacy":            "spaCy",
     "rdf":              "RDF",
+    "rdfs":             "RDFS",
     "owl":              "OWL",
     "sparql":           "SPARQL",
     "turtle":           "Turtle",
@@ -115,6 +117,7 @@ TOPIC_DOMAIN_MAP: dict[str, str] = {
     "software-engineering":     "Software Engineering",
     "web-development":          "Web Development",
     "taxonomy":                 "Taxonomy",
+    "anthropology":             "Anthropology",
     "provenance":               "ML Provenance",
     "safety":                   "Safety",
 }
