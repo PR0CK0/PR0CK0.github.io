@@ -12,11 +12,14 @@ public/data/tyler-procko.yaml   ← single source of truth for all CV/portfolio 
 ├── .github/
 │   ├── workflows/
 │   │   ├── deploy.yml                        ← build + deploy to GitHub Pages on push to main
-│   │   ├── sync-repo-descriptions.yml        ← weekly sync of GitHub project descriptions
-│   │   └── sync-openalex-publications.yml    ← weekly sync of new publications from OpenAlex
+│   │   ├── sync-repo-descriptions.yml        ← daily sync of GitHub project descriptions
+│   │   ├── discover-new-repos.yml            ← daily discovery; avoids duplicate open PRs and cleans closed branches
+│   │   ├── sync-openalex-publications.yml    ← weekly sync of new publications from OpenAlex
+│   │   └── check-links.yml                   ← weekly link check
 │   └── scripts/
-│       └── sync_openalex_publications.py     ← queries OpenAlex by ORCID, deduplicates by DOI + title,
-│                                                updates cited_by_count, appends new stubs
+│       ├── sync_openalex_publications.py     ← queries OpenAlex by ORCID; deduplicates, updates citation counts, adds stubs
+│       ├── discover_new_repos.py             ← finds public repos and infers technologies/domains from metadata
+│       └── sync_repo_descriptions.py         ← syncs project descriptions from GitHub
 │
 ├── build.py                    ← Python/Jinja2 builder → public/legacy/cv.html
 │   templates/                  ← Jinja2 partials (one per section)

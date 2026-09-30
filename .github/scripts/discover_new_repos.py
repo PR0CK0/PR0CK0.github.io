@@ -13,7 +13,8 @@ mapped through a known vocabulary. Domains are inferred from topics where
 possible. Both can be refined manually after the PR is merged.
 
 Usage:
-    GITHUB_USERS=<user>[,<user>...] GITHUB_TOKEN=<token> python3 .github/scripts/discover_new_repos.py
+    GITHUB_REPOSITORY=<owner/repo> GITHUB_USERS=<user>[,<user>...] \
+        GITHUB_TOKEN=<token> python3 .github/scripts/discover_new_repos.py
 
 Exit codes:
     0 — completed (with or without changes)
@@ -61,6 +62,7 @@ LANGUAGE_MAP: dict[str, str] = {
 
 # GitHub topic → YAML technology name
 TOPIC_TECH_MAP: dict[str, str] = {
+    "wikidata":         "Wikidata",
     "python":           "Python",
     "javascript":       "JavaScript",
     "typescript":       "TypeScript",
@@ -72,6 +74,7 @@ TOPIC_TECH_MAP: dict[str, str] = {
     "transformers":     "Transformers",
     "spacy":            "spaCy",
     "rdf":              "RDF",
+    "rdfs":             "RDFS",
     "owl":              "OWL",
     "sparql":           "SPARQL",
     "turtle":           "Turtle",
@@ -115,6 +118,7 @@ TOPIC_DOMAIN_MAP: dict[str, str] = {
     "software-engineering":     "Software Engineering",
     "web-development":          "Web Development",
     "taxonomy":                 "Taxonomy",
+    "anthropology":             "Anthropology",
     "provenance":               "ML Provenance",
     "safety":                   "Safety",
 }
@@ -153,6 +157,18 @@ def fetch_all_repos(user: str) -> list[dict]:
         page += 1
         time.sleep(0.2)
     return repos
+
+
+def has_open_discovery_pr(repository: str) -> bool:
+    """Return whether this repository already has an open discovery PR."""
+    pulls = gh_get(f"/repos/{repository}/pulls?state=open&base=main&per_page=100")
+    if pulls is None:
+        raise RuntimeError("could not verify open discovery PRs; aborting to prevent duplicates")
+    return any(
+        pull.get("head", {}).get("ref", "").startswith("auto/discover-repos-")
+        and pull.get("head", {}).get("repo", {}).get("full_name") == repository
+        for pull in pulls
+    )
 
 
 def infer_technologies(owner: str, repo_name: str, topics: list[str]) -> list[str]:
@@ -225,6 +241,14 @@ def make_entry(repo: dict, owner: str) -> CommentedMap:
 
 
 def main() -> None:
+    repository = os.environ.get("GITHUB_REPOSITORY", "")
+    if not repository:
+        print("ERROR: GITHUB_REPOSITORY is required")
+        sys.exit(1)
+    if has_open_discovery_pr(repository):
+        print("An auto-discovery PR is already open; skipping this run.")
+        return
+
     yaml = YAML()
     yaml.preserve_quotes = True
     yaml.width = 120

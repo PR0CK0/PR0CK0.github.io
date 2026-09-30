@@ -3649,6 +3649,19 @@ projects:
   - Cybersecurity
   - Software Engineering
   - SQA
+- id: proj/wikidata-ontology---christian-denominations-reconciliation
+  title: Wikidata Ontology Christian Denominations Reconciliation
+  year: 2026-09
+  repo_url: https://github.com/PR0CK0/Wikidata-Ontology---Christian-Denominations-Reconciliation
+  description: An investigation and analysis of christian denomination/schism representation w.r.t. Wikidata's ontology.
+  technologies:
+  - Wikidata
+  - SPARQL
+  - OWL
+  - RDF
+  - RDFS
+  domains:
+  - Anthropology
 awards:
 - id: award/ssrn-top-2-percent
   title: Top 2% Downloaded Author
