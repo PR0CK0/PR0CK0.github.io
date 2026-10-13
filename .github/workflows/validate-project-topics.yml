@@ -21,7 +21,13 @@ jobs:
           python-version: "3.11"
 
       - name: Install validator dependency
-        run: pip install ruamel.yaml
+        run: pip install jinja2 pyyaml ruamel.yaml
+
+      - name: Validate YAML terms
+        run: python3 .github/scripts/validate_yaml_terms.py
+
+      - name: Build legacy HTML from YAML
+        run: python3 build.py
 
       - name: Require topics on newly added repositories
         env:
@@ -29,3 +35,21 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 .github/scripts/validate_project_topics.py
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build Vite app
+        run: npm run build
+
+      - name: Prerender routes
+        run: npm run prerender
