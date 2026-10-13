@@ -94,7 +94,7 @@ jobs:
             BRANCH="automation/openalex-sync-${GITHUB_RUN_ID}"
             git switch --create "$BRANCH"
             git add public/data/tyler-procko.yaml
-            git commit -m "chore: sync publications and citation counts from OpenAlex [skip ci]"
+            git commit -m "chore: sync publications and citation counts from OpenAlex"
             git push --set-upstream origin "$BRANCH"
             PR_URL=$(gh pr create \
               --base main \
