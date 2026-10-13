@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   issues: write
 
 jobs:
@@ -26,6 +26,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          # AUTOMATION_TOKEN should be fine-grained: Contents read/write, Pull requests write.
+          token: ${{ secrets.AUTOMATION_TOKEN || github.token }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -77,13 +80,28 @@ jobs:
         run: npm run build
 
       - name: Commit if changed
+        env:
+          AUTOMATION_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
+          GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet public/data/tyler-procko.yaml; then
+            if [ -z "$AUTOMATION_TOKEN" ]; then
+              echo "AUTOMATION_TOKEN is required to create a PR that can run checks automatically." >&2
+              exit 1
+            fi
+            BRANCH="automation/openalex-sync-${GITHUB_RUN_ID}"
+            git switch --create "$BRANCH"
             git add public/data/tyler-procko.yaml
             git commit -m "chore: sync publications and citation counts from OpenAlex [skip ci]"
-            git push
+            git push --set-upstream origin "$BRANCH"
+            PR_URL=$(gh pr create \
+              --base main \
+              --head "$BRANCH" \
+              --title "chore: sync OpenAlex publications" \
+              --body "Automated publication and citation count sync. This PR will merge after the required validation checks pass.")
+            gh pr merge "$PR_URL" --auto --squash
           else
             echo "Nothing to commit."
           fi
