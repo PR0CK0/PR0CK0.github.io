@@ -1546,7 +1546,7 @@ publications:
   - MLOps
   - Scientific Writing
   - Taxonomy
-  cited_by_count: 0
+  cited_by_count: 1
   doi: https://doi.org/10.2139/ssrn.5682822
 - id: pub/verifying-ml-interpretability
   title: Verifying Machine Learning Interpretability and Explainability Requirements Through Provenance
@@ -1594,7 +1594,7 @@ publications:
   - Knowledge Representation
   - Scientific Writing
   - Taxonomy
-  cited_by_count: 0
+  cited_by_count: 1
   doi: https://doi.org/10.1109/icsc64641.2025.00030
 - id: pub/exploring-testing-llms
   title: Exploring Testing Methods for Large Language Models
@@ -1658,7 +1658,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 3
+  cited_by_count: 4
   doi: https://doi.org/10.1109/aixset62544.2024.00028
 - id: pub/graph-rag-survey
   title: 'Graph Retrieval-Augmented Generation for Large Language Models: A Survey'
@@ -1693,7 +1693,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 91
+  cited_by_count: 94
   doi: https://doi.org/10.2139/ssrn.4895062
 - id: pub/cognitive-assistants-single-pilot
   title: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations
@@ -2350,7 +2350,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 6
+  cited_by_count: 7
   doi: https://doi.org/10.1109/icsc52841.2022.00029
 - id: pub/secure-development-ontology
   title: Supporting Security Requirements Engineering through the Development of the Secure Development Ontology
