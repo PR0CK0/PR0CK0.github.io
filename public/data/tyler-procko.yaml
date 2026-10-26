@@ -1693,7 +1693,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 94
+  cited_by_count: 96
   doi: https://doi.org/10.2139/ssrn.4895062
 - id: pub/cognitive-assistants-single-pilot
   title: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations
@@ -1889,7 +1889,7 @@ publications:
   - Ethics
   - Safety
   - Scientific Writing
-  cited_by_count: 6
+  cited_by_count: 7
   doi: https://doi.org/10.2139/ssrn.4696021
 - id: pub/lm-kg-survey
   title: A Survey on the Intersection of Language Models and Knowledge Graphs
@@ -2070,7 +2070,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 3
+  cited_by_count: 4
   doi: https://doi.org/10.1109/transai60598.2023.00043
 - id: pub/auto-bfo-aristotelian-definitions
   title: Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies with GPT
