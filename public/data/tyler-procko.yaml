@@ -3660,8 +3660,22 @@ projects:
   - OWL
   - RDF
   - RDFS
+  - Codex
+  - Markdown
   domains:
   - Anthropology
+  - Ontology
+  - Knowledge Graphs
+  - Knowledge Representation
+  - Semantic Web
+  - Data Analysis
+  - Taxonomy
+  soft_skills:
+  - Technical Writing
+  - Stakeholder Presentation
+  - Virtual Presentation
+  personal_skills:
+  - Telegram
 awards:
 - id: award/ssrn-top-2-percent
   title: Top 2% Downloaded Author
