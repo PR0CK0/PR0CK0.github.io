@@ -400,6 +400,7 @@ function LoadingSpinner({ phase, C }: { phase: 'loading' | 'layout'; C: typeof D
 
 export default function Graph() {
   const cyRef = useRef<cytoscape.Core | null>(null)
+  const cleanupCyEventsRef = useRef<(() => void) | null>(null)
   const enabledTypesRef = useRef<Set<NodeType>>(new Set(NODE_TYPES))
   const layoutCacheKeyRef = useRef<string>('')
   const savedPositionsRef = useRef<Record<string, { x: number; y: number }> | null>(null)
@@ -573,11 +574,20 @@ export default function Graph() {
 
   // ── Node click ───────────────────────────────────────────────────────────────
 
+  useEffect(() => () => {
+    cleanupCyEventsRef.current?.()
+    cleanupCyEventsRef.current = null
+    cyRef.current = null
+  }, [])
+
   const handleCyReady = useCallback((cy: cytoscape.Core) => {
+    // react-cytoscapejs calls this after updates as well as initial mount.
+    if (cyRef.current === cy) return
+    cleanupCyEventsRef.current?.()
     cyRef.current = cy
     setCyReady(true)
 
-    cy.on('tap', 'node', (evt) => {
+    const onNodeTap = (evt: cytoscape.EventObject) => {
       const node = evt.target
       const data = node.data()
 
@@ -621,9 +631,9 @@ export default function Graph() {
       visible.not(node).not(neighbourhood).addClass('faded')
       neighbourhood.addClass('neighbour')
       node.removeClass('faded')
-    })
+    }
 
-    cy.on('tap', (evt) => {
+    const onBackgroundTap = (evt: cytoscape.EventObject) => {
       if (evt.target === cy) {
         // Clicked on background — deselect and collapse expanded nodes
         setSelectedNode(null)
@@ -650,17 +660,28 @@ export default function Graph() {
           }
         })
       }
-    })
+    }
 
-    cy.on('mouseover', 'node', (evt) => {
+    const onMouseOver = () => {
       const container = cy.container()
       if (container) container.style.cursor = 'pointer'
-    })
+    }
 
-    cy.on('mouseout', 'node', () => {
+    const onMouseOut = () => {
       const container = cy.container()
       if (container) container.style.cursor = 'default'
-    })
+    }
+
+    cy.on('tap', 'node', onNodeTap)
+    cy.on('tap', onBackgroundTap)
+    cy.on('mouseover', 'node', onMouseOver)
+    cy.on('mouseout', 'node', onMouseOut)
+    cleanupCyEventsRef.current = () => {
+      cy.off('tap', 'node', onNodeTap)
+      cy.off('tap', onBackgroundTap)
+      cy.off('mouseover', 'node', onMouseOver)
+      cy.off('mouseout', 'node', onMouseOut)
+    }
   }, [])
 
   // ── Programmatic node selection ──────────────────────────────────────────────
