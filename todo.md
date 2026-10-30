@@ -75,6 +75,8 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 ## Graph
 
+- [x] **Restore omitted competency relationships** — One linking helper handles all supported fields across education, work, publications, projects, courses, certificates, talks, and extracurriculars. It creates nodes only from included records. Regression tests cover each record type, isolated skills, duplicate tags, and excluded records. Current data gains 38 missing edges.
+
 - [x] **Stop graph event listeners accumulating on React updates** — Register each graph handler once per Cytoscape instance and remove it on replacement/unmount. Regression coverage: `src/lib/__tests__/graph-listeners.test.ts`.
 
 - [ ] Graph: clicking a skill chip navigates to the graph with `?q=<skill>` and the node is found/searched, but neighborhood dimming doesn't apply until you manually re-click the node. `layoutstop` approach attempted — Cytoscape class application timing is tricky here.

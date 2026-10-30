@@ -72,44 +72,26 @@ export function buildGraph(person: Person): GraphData {
     }
   }
 
-  // Connect an entity to each of its technology nodes
-  function linkTechs(entityId: string, techs: string[] | undefined) {
-    techs?.forEach((tech) => {
-      const sid = techId(tech)
-      if (addedNodeIds.has(sid)) {
-        addEdge({ data: { id: `e-${entityId}-${sid}`, source: entityId, target: sid, type: 'skill-usage' } })
+  // Create competency nodes and their evidence edges together, only for included records.
+  function linkCompetencies(entityId: string, entry: {
+    technologies?: string[]; domains?: string[]; soft_skills?: string[]; personal_skills?: string[]
+  }) {
+    const fields = [
+      ['technologies', techId, 'skill', 'skill-usage'],
+      ['domains', domainId, 'domain', 'domain-usage'],
+      ['soft_skills', softSkillId, 'soft_skill', 'softskill-usage'],
+      ['personal_skills', personalSkillId, 'personal_skill', 'personalskill-usage'],
+    ] as const
+    for (const [field, makeId, type, edgeType] of fields) {
+      for (const label of entry[field] ?? []) {
+        const id = makeId(label)
+        addNode({ data: {
+          id, label, type,
+          ...(type === 'skill' ? { category: COMPETENCY_CATEGORIES[label] } : {}),
+        } })
+        addEdge({ data: { id: `e-${entityId}-${id}`, source: entityId, target: id, type: edgeType } })
       }
-    })
-  }
-
-  // Connect an entity to each of its domain nodes
-  function linkDomains(entityId: string, domains: string[] | undefined) {
-    domains?.forEach((d) => {
-      const did = domainId(d)
-      if (addedNodeIds.has(did)) {
-        addEdge({ data: { id: `e-${entityId}-${did}`, source: entityId, target: did, type: 'domain-usage' } })
-      }
-    })
-  }
-
-  // Connect an entity to each of its soft skill nodes
-  function linkSoftSkills(entityId: string, skills: string[] | undefined) {
-    skills?.forEach((s) => {
-      const ssid = softSkillId(s)
-      if (addedNodeIds.has(ssid)) {
-        addEdge({ data: { id: `e-${entityId}-${ssid}`, source: entityId, target: ssid, type: 'softskill-usage' } })
-      }
-    })
-  }
-
-  // Connect an entity to each of its personal skill nodes
-  function linkPersonalSkills(entityId: string, skills: string[] | undefined) {
-    skills?.forEach((s) => {
-      const psid = personalSkillId(s)
-      if (addedNodeIds.has(psid)) {
-        addEdge({ data: { id: `e-${entityId}-${psid}`, source: entityId, target: psid, type: 'personalskill-usage' } })
-      }
-    })
+    }
   }
 
   // ─── Person ─────────────────────────────────────────────────────────────────
@@ -118,60 +100,13 @@ export function buildGraph(person: Person): GraphData {
 
   const projects = (person.projects ?? []).filter(p => !p.cv_exclude)
 
-  const allSections = [
-    ...(person.work_experiences ?? []).filter(w => !w.graph_exclude),
-    ...projects,
-    ...(person.publications ?? []),
-    ...(person.courses ?? []),
-    ...(person.talks ?? []),
-    ...(person.certificates ?? []),
-    ...(person.extracurriculars ?? []),
-  ] as Array<{ technologies?: string[]; domains?: string[]; soft_skills?: string[]; personal_skills?: string[] }>
-
-  // ─── Personal skill nodes — aggregated from all entity sources ───────────────
-  const allPersonalSkills = new Set([
-    ...(person.work_experiences ?? []).flatMap(e => e.personal_skills ?? []),
-    ...projects.flatMap(e => e.personal_skills ?? []),
-    ...(person.extracurriculars ?? []).flatMap(e => e.personal_skills ?? []),
-  ])
-  allPersonalSkills.forEach((s) => {
-    addNode({ data: { id: personalSkillId(s), label: s, type: 'personal_skill' } })
-  })
-
-  // ─── Skill nodes — aggregated from all entity sources ───────────────────────
-  const allTechs = new Set(allSections.flatMap((e) => e.technologies ?? []))
-  allTechs.forEach((tech) => {
-    addNode({
-      data: {
-        id: techId(tech),
-        label: tech,
-        type: 'skill',
-        category: COMPETENCY_CATEGORIES[tech],
-      },
-    })
-  })
-
-  // ─── Domain nodes ────────────────────────────────────────────────────────────
-  const allDomains = new Set(allSections.flatMap((e) => e.domains ?? []))
-  allDomains.forEach((d) => {
-    addNode({ data: { id: domainId(d), label: d, type: 'domain' } })
-  })
-
-  // ─── Soft skill nodes ─────────────────────────────────────────────────────────
-  const allSoftSkills = new Set(allSections.flatMap((e) => e.soft_skills ?? []))
-  allSoftSkills.forEach((s) => {
-    addNode({ data: { id: softSkillId(s), label: s, type: 'soft_skill' } })
-  })
-
   // ─── Education ───────────────────────────────────────────────────────────────
   person.education?.forEach((edu) => {
     addNode({
       data: { id: edu.id, label: edu.degree, type: 'education', subtitle: edu.institution, year: edu.end_date?.slice(0, 4) },
     })
     addEdge({ data: { id: `e-${personId}-${edu.id}`, source: personId, target: edu.id, label: 'studied_at' } })
-    linkTechs(edu.id, edu.technologies)
-    linkDomains(edu.id, edu.domains)
-    linkSoftSkills(edu.id, edu.soft_skills)
+    linkCompetencies(edu.id, edu)
   })
 
   // ─── Work ────────────────────────────────────────────────────────────────────
@@ -189,10 +124,7 @@ export function buildGraph(person: Person): GraphData {
       },
     })
     addEdge({ data: { id: `e-${personId}-${work.id}`, source: personId, target: work.id, label: 'worked_at' } })
-    linkTechs(work.id, work.technologies)
-    linkDomains(work.id, work.domains)
-    linkSoftSkills(work.id, work.soft_skills)
-    linkPersonalSkills(work.id, work.personal_skills)
+    linkCompetencies(work.id, work)
   })
 
   // ─── Publications ────────────────────────────────────────────────────────────
@@ -210,8 +142,7 @@ export function buildGraph(person: Person): GraphData {
       },
     })
     addEdge({ data: { id: `e-${personId}-${pub.id}`, source: personId, target: pub.id, label: 'authored' } })
-    linkTechs(pub.id, pub.technologies)
-    linkDomains(pub.id, pub.domains)
+    linkCompetencies(pub.id, pub)
   })
 
   // ─── Projects ────────────────────────────────────────────────────────────────
@@ -228,10 +159,7 @@ export function buildGraph(person: Person): GraphData {
       },
     })
     addEdge({ data: { id: `e-${personId}-${proj.id}`, source: personId, target: proj.id, label: 'built' } })
-    linkTechs(proj.id, proj.technologies)
-    linkDomains(proj.id, proj.domains)
-    linkSoftSkills(proj.id, proj.soft_skills)
-    linkPersonalSkills(proj.id, proj.personal_skills)
+    linkCompetencies(proj.id, proj)
   })
 
   // ─── Courses ─────────────────────────────────────────────────────────────────
@@ -246,8 +174,7 @@ export function buildGraph(person: Person): GraphData {
       },
     })
     addEdge({ data: { id: `e-${personId}-${cid}`, source: personId, target: cid, label: 'took' } })
-    linkTechs(cid, course.technologies)
-    linkDomains(cid, course.domains)
+    linkCompetencies(cid, course)
   })
 
   // ─── Awards ──────────────────────────────────────────────────────────────────
@@ -265,9 +192,7 @@ export function buildGraph(person: Person): GraphData {
       data: { id: cert.id, label: cert.title, type: 'certificate', subtitle: cert.issuer, year: cert.date?.slice(0, 4), url: cert.url },
     })
     addEdge({ data: { id: `e-${personId}-${cert.id}`, source: personId, target: cert.id, label: 'earned' } })
-    linkTechs(cert.id, cert.technologies)
-    linkDomains(cert.id, cert.domains)
-    linkSoftSkills(cert.id, cert.soft_skills)
+    linkCompetencies(cert.id, cert)
   })
 
   // ─── Talks ───────────────────────────────────────────────────────────────────
@@ -283,8 +208,7 @@ export function buildGraph(person: Person): GraphData {
       },
     })
     addEdge({ data: { id: `e-${personId}-${talk.id}`, source: personId, target: talk.id, label: 'presented' } })
-    linkDomains(talk.id, talk.domains)
-    linkSoftSkills(talk.id, talk.soft_skills)
+    linkCompetencies(talk.id, talk)
   })
 
   // ─── Extracurriculars ─────────────────────────────────────────────────────────
@@ -300,9 +224,7 @@ export function buildGraph(person: Person): GraphData {
       },
     })
     addEdge({ data: { id: `e-${personId}-${extra.id}`, source: personId, target: extra.id, label: 'contributed' } })
-    linkTechs(extra.id, extra.technologies)
-    linkDomains(extra.id, extra.domains)
-    linkPersonalSkills(extra.id, extra.personal_skills)
+    linkCompetencies(extra.id, extra)
   })
 
   // ─── Associates ───────────────────────────────────────────────────────────
