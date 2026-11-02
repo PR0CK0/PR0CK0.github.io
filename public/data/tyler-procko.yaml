@@ -117,7 +117,7 @@ work_experiences:
 - id: work/stealth-startup-architect
   work_section: Defense and AI Industry Experience
   title: Principal Ontology & AI Architect
-  organization: Stealth Cybersecurity Startup
+  organization: Apacen
   start_date: 2026-06
   is_current: true
   location: Remote
@@ -194,10 +194,11 @@ work_experiences:
   category: defense_industry
   date_display: Jun 2026 - Present
   title_line: 'Principal Ontology & AI Architect - '
-  org: Stealth Cybersecurity Startup, Remote
+  org: Apacen, Remote
+  org_url: https://www.linkedin.com/company/apacen/
   bullets:
   - Leading ontology design, NLP model selection, embedding/vector use, and LLM integration (Claude, GPT, Gemini, 
-    Ollama, Bedrock) for a stealth-stage cybersecurity product.
+    Ollama, Bedrock) for Apacen's cybersecurity product.
   - Built a provider-agnostic LLM evaluation testbed with configurable tasks, weighted scoring (latency, cost, size, 
     accuracy), stakeholder-ready HTML reports with interactive charts, and cost projections across Ollama, AWS Bedrock, 
     AWS SageMaker, and all major model providers.
@@ -221,7 +222,7 @@ work_experiences:
 - id: work/stealth-startup
   work_section: Defense and AI Industry Experience
   title: Principal Knowledge Architect
-  organization: Stealth Cybersecurity Startup
+  organization: Apacen
   start_date: 2025-11
   end_date: 2026-06
   is_current: false
@@ -294,7 +295,8 @@ work_experiences:
   category: defense_industry
   date_display: Nov 2025 - Jun 2026
   title_line: 'Principal Knowledge Architect - '
-  org: Stealth Cybersecurity Startup, Remote
+  org: Apacen, Remote
+  org_url: https://www.linkedin.com/company/apacen/
   bullets:
   - Assisted in the design of a multi-stage entity intelligence MDM pipeline spanning multi-format ingestion, 
     schema-guided LLM extraction with evidence binding, Fellegi-Sunter probabilistic record linkage with review queues, 
