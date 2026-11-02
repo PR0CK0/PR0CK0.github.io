@@ -1693,7 +1693,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 96
+  cited_by_count: 97
   doi: https://doi.org/10.2139/ssrn.4895062
 - id: pub/cognitive-assistants-single-pilot
   title: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations
@@ -1858,7 +1858,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 1
+  cited_by_count: 2
   doi: https://doi.org/10.1109/southeastcon52093.2024.10500258
 - id: pub/dawn-of-dialogue
   title: 'Dawn of the Dialogue: AI''s Leap from Lab to Living Room'
