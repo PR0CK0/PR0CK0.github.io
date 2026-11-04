@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 import { loadPortfolioData } from '@/lib/yaml-loader'
-import { COMPETENCY_CATEGORIES, COMPETENCY_CATEGORY_LABELS, type CompetencyCategory } from '@/lib/tech-categories'
+import { COMPETENCY_CATEGORY_LABELS, type CompetencyCategory } from '@/lib/tech-categories'
+import { aggregateCompetencies, getRecordCompetencies, type AggregatedSkill } from '@/lib/competencies'
 import { TAG_CHIP, CARD_BASE, SECTION_CONTAINER, TAG_CONTAINER, META_TEXT } from '@/lib/ui-constants'
 import type { Person, Publication, Project } from '@/lib/schema'
 
@@ -744,51 +745,12 @@ function StatsBar({ stats }: { stats: Stat[] }) {
 
 // ─── Skills Matrix ─────────────────────────────────────────────────────────
 
-type AggregatedSkill = { name: string; count: number; category: CompetencyCategory }
-
-function aggregateSkills(person: Person): AggregatedSkill[] {
-  const skillMap = new Map<string, { count: number; category: CompetencyCategory }>()
-
-  const add = (name: string, category: CompetencyCategory) => {
-    const e = skillMap.get(name)
-    if (e) e.count++
-    else skillMap.set(name, { count: 1, category })
-  }
-
-  const entities = [
-    ...(person.education ?? []),
-    ...(person.projects ?? []),
-    ...(person.work_experiences ?? []),
-    ...(person.courses ?? []),
-    ...(person.extracurriculars ?? []),
-    ...(person.publications ?? []),
-    ...(person.talks ?? []),
-  ] as Array<{
-    technologies?: string[]
-    domains?: string[]
-    soft_skills?: string[]
-    personal_skills?: string[]
-  }>
-
-  for (const e of entities) {
-    for (const t of e.technologies ?? []) {
-      const cat = COMPETENCY_CATEGORIES[t]
-      if (cat) add(t, cat)
-    }
-    for (const d of e.domains ?? [])        add(d, 'domains')
-    for (const s of e.soft_skills ?? [])    add(s, 'soft_skills')
-    for (const p of e.personal_skills ?? []) add(p, 'personal')
-  }
-
-  return Array.from(skillMap.entries()).map(([name, { count, category }]) => ({ name, count, category }))
-}
-
 function SkillChip({ skill, chipClass, opacity }: { skill: AggregatedSkill; chipClass: string; opacity: number }) {
   const navigate = useNavigate()
   return (
     <motion.span
       whileHover={{ scale: 1.05, opacity: 1 }}
-      onClick={() => navigate(`/graph?q=${encodeURIComponent(skill.name)}`)}
+      onClick={() => navigate(`/graph?term=${encodeURIComponent(skill.id)}`)}
       className={`inline-flex items-center gap-1 sm:gap-1 ls:gap-1 px-1.5 py-0.5 sm:px-2 sm:py-1 ls:px-1.5 ls:py-0.5 rounded text-[0.55rem] sm:text-[0.68rem] ls:text-[0.55rem] font-mono
                   transition-all duration-150 cursor-pointer ${chipClass}`}
       style={{ opacity }}
@@ -859,7 +821,7 @@ function RankedView({ skills }: { skills: AggregatedSkill[] }) {
           const opacity = Math.max(0.4, Math.pow(sk.count / maxCount, 0.35))
           return (
             <motion.div
-              key={sk.name}
+              key={sk.id}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.008, duration: 0.2 }}
@@ -929,7 +891,7 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
             <div className="flex flex-wrap gap-1 sm:gap-1.5">
               {catSkills.map((sk) => {
                 const opacity = Math.max(0.4, Math.pow(sk.count / maxCount, 0.35))
-                return <SkillChip key={sk.name} skill={sk} chipClass={meta.chipClass} opacity={opacity} />
+                return <SkillChip key={sk.id} skill={sk} chipClass={meta.chipClass} opacity={opacity} />
               })}
             </div>
           </motion.div>
@@ -942,7 +904,7 @@ function CategoriesView({ skills }: { skills: AggregatedSkill[] }) {
 // ─── Skills Matrix ───────────────────────────────────────────────────────────
 
 function SkillsMatrix({ person }: { person: Person }) {
-  const skills = aggregateSkills(person)
+  const skills = aggregateCompetencies(person)
   const [view, setView] = useState<SkillView>('ranked')
 
   return (
@@ -1153,7 +1115,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     setShowOverflow(v => !v)
   }
 
-  const allSkills = [...(project.technologies ?? []), ...(project.domains ?? [])]
+  const allSkills = getRecordCompetencies(project)
   const visibleSkills = allSkills.slice(0, 6)
   const overflowSkills = allSkills.slice(6)
 
@@ -1203,11 +1165,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <div className={TAG_CONTAINER}>
           {visibleSkills.map((tech) => (
             <button
-              key={tech}
-              onClick={() => navigate(`/graph?q=${encodeURIComponent(tech)}`)}
+              key={tech.id}
+              onClick={() => navigate(`/graph?term=${encodeURIComponent(tech.id)}`)}
               className={`${TAG_CHIP} border border-terminal-purple/25 text-terminal-purple/80 bg-terminal-purple/5 hover:bg-terminal-purple/15 hover:border-terminal-purple/50 hover:text-terminal-purple`}
             >
-              {tech}
+              {tech.label}
             </button>
           ))}
           {overflowSkills.length > 0 && (
@@ -1240,15 +1202,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                   <div className="flex flex-wrap gap-1">
                     {overflowSkills.map((tech) => (
                       <button
-                        key={tech}
-                        onClick={() => { navigate(`/graph?q=${encodeURIComponent(tech)}`); setShowOverflow(false) }}
+                        key={tech.id}
+                        onClick={() => { navigate(`/graph?term=${encodeURIComponent(tech.id)}`); setShowOverflow(false) }}
                         className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
                                    border border-terminal-purple/25 text-terminal-purple/80
                                    bg-terminal-purple/5 hover:bg-terminal-purple/15
                                    hover:border-terminal-purple/50 hover:text-terminal-purple
                                    transition-all duration-150"
                       >
-                        {tech}
+                        {tech.label}
                       </button>
                     ))}
                   </div>
@@ -1417,7 +1379,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
   }
 
   const version = useGitHubRelease(project.repo_url)
-  const allSkills = [...(project.technologies ?? []), ...(project.domains ?? [])]
+  const allSkills = getRecordCompetencies(project)
   const visibleSkills = allSkills.slice(0, 6)
   const overflowSkills = allSkills.slice(6)
   const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
@@ -1476,11 +1438,11 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
         <div className={TAG_CONTAINER}>
           {visibleSkills.map((tech) => (
             <button
-              key={tech}
-              onClick={() => navigate(`/graph?q=${encodeURIComponent(tech)}`)}
+              key={tech.id}
+              onClick={() => navigate(`/graph?term=${encodeURIComponent(tech.id)}`)}
               className={`${TAG_CHIP} border border-terminal-purple/25 text-terminal-purple/80 bg-terminal-purple/5 hover:bg-terminal-purple/15 hover:border-terminal-purple/50 hover:text-terminal-purple`}
             >
-              {tech}
+              {tech.label}
             </button>
           ))}
           {overflowSkills.length > 0 && (
@@ -1513,15 +1475,15 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
                   <div className="flex flex-wrap gap-1">
                     {overflowSkills.map((tech) => (
                       <button
-                        key={tech}
-                        onClick={() => { navigate(`/graph?q=${encodeURIComponent(tech)}`); setShowOverflow(false) }}
+                        key={tech.id}
+                        onClick={() => { navigate(`/graph?term=${encodeURIComponent(tech.id)}`); setShowOverflow(false) }}
                         className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
                                    border border-terminal-purple/25 text-terminal-purple/80
                                    bg-terminal-purple/5 hover:bg-terminal-purple/15
                                    hover:border-terminal-purple/50 hover:text-terminal-purple
                                    transition-all duration-150"
                       >
-                        {tech}
+                        {tech.label}
                       </button>
                     ))}
                   </div>

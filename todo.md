@@ -145,9 +145,12 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [ ] **Audit all `url` fields in YAML** — verify every project `url` actually resolves to a live page; fix or remove dead links
 - [ ] **Review project display order in CV/resume** — current sort is featured-first then year desc; decide if a manual ordering or different priority makes more sense for the top 8
 
-## Split TECH_CATEGORIES vocabulary file
+## Shared competency catalog
 
-- [x] **Split `tech-categories.ts` into separate bounded vocabulary files** — `TECH_CATEGORIES` now contains technologies, domains, soft skills, and personal skills all in one Record, which is confusing naming. Split into e.g. `TECH_VOCAB`, `DOMAIN_VOCAB`, `SOFT_SKILL_VOCAB`, `PERSONAL_VOCAB` (or a unified `TERM_CATEGORIES` with a clearer name), update Landing.tsx and the validate script accordingly.
+- [x] Replace separate vocabulary lists with `public/data/competencies.json`; share canonical identities/categories across homepage, graph, and React CV/resume.
+- [x] Count supporting records consistently, including education/certificates; deduplicate repeated tags; use stable graph links.
+- [x] Validate unknown/ambiguous references and test graph/count agreement before deployment.
+- [ ] Review the [57 field/category disagreements and possible aliases](docs/competency-review.md). Do not merge distinct concepts based on spelling alone.
 
 ## Type hierarchy organization
 

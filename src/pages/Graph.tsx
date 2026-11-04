@@ -7,6 +7,7 @@ import cytoscape from 'cytoscape'
 // @ts-ignore — no bundled types for default import
 import fcose from 'cytoscape-fcose'
 import { loadPortfolioData } from '@/lib/yaml-loader'
+import { competencyNodeId, resolveCompetency } from '@/lib/competencies'
 import { buildGraph, type CyNode, type CyEdge } from '@/lib/graph-builder'
 
 cytoscape.use(fcose)
@@ -147,7 +148,7 @@ const LAYOUT_OPTIONS = {
   piTol: 0.0000001,
 }
 
-const LAYOUT_CACHE_PREFIX = 'graph-layout-v5'
+const LAYOUT_CACHE_PREFIX = 'graph-layout-v6'
 
 // ─── Cytoscape stylesheet ──────────────────────────────────────────────────────
 
@@ -732,23 +733,28 @@ export default function Graph() {
     cy.animate({ center: { eles: node }, duration: 300 } as cytoscape.AnimationOptions)
   }, [])
 
-  // ── Auto-select node from ?q= param after layout is ready ───────────────────
+  // ── Select a stable competency ID or a free-text query after layout ───────────────────
 
   useEffect(() => {
     if (phase !== 'ready') return
     const cy = cyRef.current
     if (!cy) return
-    const q = searchParams.get('q')
-    if (!q) return
+    const reference = searchParams.get('term') ?? searchParams.get('q')
+    if (!reference) return
 
-    // Find the node whose label matches the query (case-insensitive)
-    const match = cy.nodes().filter((n) =>
-      n.data('label')?.toLowerCase() === q.toLowerCase()
-    ).first()
+    let match
+    try {
+      match = cy.getElementById(competencyNodeId(resolveCompetency(reference)))
+    } catch {
+      // Free-text links can also select records such as projects or publications.
+      match = cy.nodes().filter(n =>
+        n.data('label')?.toLowerCase() === reference.trim().toLowerCase()
+      ).first()
+    }
 
     if (!match.length) {
       // No exact node — fall back to search filter so the term is still useful
-      setSearchQuery(q)
+      setSearchQuery(reference)
       return
     }
 
@@ -759,7 +765,7 @@ export default function Graph() {
     }
 
     selectNodeById(match.data('id') as string)
-  }, [phase])
+  }, [phase, searchParams, selectNodeById])
 
   // ── Re-apply stylesheet when light/dark mode changes ────────────────────────
 

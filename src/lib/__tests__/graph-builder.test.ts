@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { buildGraph } from '../graph-builder'
+import { competencyNodeId, resolveCompetency } from '../competencies'
 import type { Person } from '../schema'
 
 describe('buildGraph', () => {
@@ -44,8 +45,9 @@ describe('competency evidence coverage', () => {
       }],
     } as Person
     const graph = buildGraph(person)
-    const expectedTargets = ['skill-sparql', 'domain-ontology', 'softskill-technical-writing']
-    if (supportsPersonal) expectedTargets.push('personalskill-telegram')
+    const expectedTerms = ['SPARQL', 'Ontology', 'Technical Writing']
+    if (supportsPersonal) expectedTerms.push('Telegram')
+    const expectedTargets = expectedTerms.map(term => competencyNodeId(resolveCompetency(term)))
     expect(graph.edges.filter(edge => edge.data.source === source).map(edge => edge.data.target).sort())
       .toEqual(expectedTargets.sort())
     for (const target of expectedTargets) expect(graph.nodes.some(node => node.data.id === target)).toBe(true)
@@ -60,5 +62,45 @@ describe('competency evidence coverage', () => {
       certificates: [{ id: 'certificate/old', title: 'Old', deprecated: true, technologies: ['SPARQL'], domains: ['Ontology'], soft_skills: ['Technical Writing'] }],
     } as Person
     expect(buildGraph(person)).toEqual({ nodes: [{ data: { id: 'person/test', label: 'Test', type: 'person', subtitle: undefined } }], edges: [] })
+  })
+})
+
+
+describe('catalog-backed competency identity', () => {
+  it('uses one canonical node and evidence edge when a term appears in different fields', () => {
+    const person = {
+      id: 'person/test', name: 'Test',
+      projects: [{
+        id: 'project/test', title: 'Project',
+        technologies: ['Technical Writing'],
+        domains: ['Technical Writing'],
+        soft_skills: ['Technical Writing'],
+      }],
+    } as Person
+    const graph = buildGraph(person)
+    const terms = graph.nodes.filter(node => node.data.label === 'Technical Writing')
+    expect(terms).toHaveLength(1)
+    expect(terms[0].data).toMatchObject({ type: 'soft_skill', category: 'soft_skills' })
+    expect(graph.edges.filter(edge => edge.data.source === 'project/test'))
+      .toEqual([{ data: {
+        id: `e-project/test-${terms[0].data.id}`,
+        source: 'project/test', target: terms[0].data.id, type: 'softskill-usage',
+      } }])
+  })
+
+  it('uses catalog categories even when separate records put the term in different fields', () => {
+    const person = {
+      id: 'person/test', name: 'Test',
+      projects: [
+        { id: 'project/one', title: 'One', technologies: ['NLP'] },
+        { id: 'project/two', title: 'Two', domains: ['NLP'] },
+      ],
+    } as Person
+    const graph = buildGraph(person)
+    const terms = graph.nodes.filter(node => node.data.label === 'NLP')
+    expect(terms).toHaveLength(1)
+    expect(terms[0].data).toMatchObject({ type: 'skill', category: 'ai_tools' })
+    expect(graph.edges.filter(edge => edge.data.target === terms[0].data.id)
+      .map(edge => edge.data.source).sort()).toEqual(['project/one', 'project/two'])
   })
 })

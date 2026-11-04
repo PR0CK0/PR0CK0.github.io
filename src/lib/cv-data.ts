@@ -1,5 +1,6 @@
 import type { Person } from '@/lib/schema'
 import { COMPETENCY_CATEGORIES, COMPETENCY_CATEGORY_LABELS } from '@/lib/tech-categories'
+import { aggregateCompetencies } from '@/lib/competencies'
 
 // ─── Interfaces ───────────────────────────────────────────────────────────────
 
@@ -132,32 +133,21 @@ const SKILL_LABEL_MAP: Record<string, string> = Object.fromEntries(
   Object.entries(COMPETENCY_CATEGORY_LABELS).filter(([k]) => !CV_EXCLUDED_CATEGORIES.has(k))
 )
 
-/** Count technology occurrences across all entities — mirrors the landing page skill chip logic. */
+/** Use the shared, canonical competency counts from distinct supporting records. */
 export function countTechOccurrences(person: Person): Map<string, number> {
-  const counts = new Map<string, number>()
-  const bump = (t: string) => counts.set(t, (counts.get(t) ?? 0) + 1)
-  const entities = [
-    ...(person.projects ?? []),
-    ...(person.work_experiences ?? []),
-    ...(person.courses ?? []),
-    ...(person.extracurriculars ?? []),
-    ...(person.publications ?? []),
-    ...(person.talks ?? []),
-  ] as Array<{ technologies?: string[] }>
-  for (const e of entities) for (const t of e.technologies ?? []) bump(t)
-  return counts
+  return new Map(aggregateCompetencies(person).map(({ name, count }) => [name, count]))
 }
 
 /**
- * Build skill groups directly from occurrence counts + tech-categories lookup.
- * Mirrors the landing page chip logic exactly: same sources, same names, same order.
- * Top 20 per category; os, soft_skills, personal, domains excluded.
+ * Group the shared canonical counts for CV/Resume display.
+ * Keep the top 20 observed skills per category; exclude os, personal, and domains.
+ * Soft skills use the same supporting records as the site’s competency chips.
  */
 export function groupSkills(occurrences: Map<string, number>): Record<string, string[]> {
   const groups: Record<string, string[]> = {}
   for (const [tech, category] of Object.entries(COMPETENCY_CATEGORIES)) {
     const label = SKILL_LABEL_MAP[category]
-    if (!label) continue  // excludes os, soft_skills, personal, domains
+    if (!label) continue  // CV-specific category exclusions
     if (!groups[label]) groups[label] = []
     groups[label].push(tech)
   }

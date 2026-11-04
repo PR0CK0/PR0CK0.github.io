@@ -4,19 +4,27 @@ Enrich project technologies from GitHub:
   - Adds 'GitHub' to any project with a repo_url on github.com
   - Fetches repo languages via GitHub API
   - Fetches requirements.txt / package.json to detect libraries
-  - Only adds techs that are already mapped in tech-categories.ts
+  - Only adds names and aliases from the validated competency catalog
+  - Updates public/data/tyler-procko.yaml, the single portfolio data source
 """
 
+import importlib.util
 import json
+from pathlib import Path
 import re
 import time
 import urllib.request
 import urllib.error
 import yaml
 
-YAML_PATH = "data/tyler-procko.yaml"
-PUBLIC_YAML_PATH = "public/data/tyler-procko.yaml"
-TECH_CAT_PATH = "src/lib/tech-categories.ts"
+ROOT = Path(__file__).resolve().parents[1]
+YAML_PATH = ROOT / "public" / "data" / "tyler-procko.yaml"
+CATALOG_PATH = ROOT / "public" / "data" / "competencies.json"
+VALIDATOR_SPEC = importlib.util.spec_from_file_location(
+    "validate_yaml_terms", ROOT / ".github" / "scripts" / "validate_yaml_terms.py",
+)
+validator = importlib.util.module_from_spec(VALIDATOR_SPEC)
+VALIDATOR_SPEC.loader.exec_module(validator)
 
 # ── Map GitHub language names → our tech strings ──────────────────────────────
 LANGUAGE_MAP = {
@@ -99,13 +107,12 @@ NPM_MAP = {
 }
 
 
-def load_known_techs(path: str) -> set[str]:
-    """Parse all keys from TECH_CATEGORIES in tech-categories.ts."""
-    with open(path) as f:
-        content = f.read()
-    # Match quoted or unquoted keys before the colon
-    keys = re.findall(r"^\s+['\"]?([^'\":,\n]+)['\"]?\s*:", content, re.MULTILINE)
-    return {k.strip().strip("'\"") for k in keys if k.strip()}
+def load_known_techs(path: Path) -> set[str]:
+    """Read names and aliases through the shared catalog validator."""
+    return {
+        name for term in validator.load_catalog(path).values()
+        for name in (term['label'], *term.get('aliases', []))
+    }
 
 
 def gh_api(path: str):
@@ -219,8 +226,8 @@ def main():
     with open(YAML_PATH) as f:
         data = yaml.safe_load(f)
 
-    known_techs = load_known_techs(TECH_CAT_PATH)
-    print(f"Loaded {len(known_techs)} known techs from tech-categories.ts\n")
+    known_techs = load_known_techs(CATALOG_PATH)
+    print(f"Loaded {len(known_techs)} known names/aliases from competencies.json\n")
 
     changed = 0
     for project in data.get("projects", []):
@@ -242,9 +249,6 @@ def main():
     print(f"\nUpdated {changed} projects.")
 
     with open(YAML_PATH, "w") as f:
-        yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False, width=120)
-
-    with open(PUBLIC_YAML_PATH, "w") as f:
         yaml.dump(data, f, allow_unicode=True, sort_keys=False, default_flow_style=False, width=120)
 
     print("Wrote updated YAML.")

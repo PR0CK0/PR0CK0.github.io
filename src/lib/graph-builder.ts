@@ -1,5 +1,5 @@
 import type { Person } from './schema'
-import { COMPETENCY_CATEGORIES } from './tech-categories'
+import { competencyNodeId, getCompetencyNodeType, getRecordCompetencies } from './competencies'
 
 export interface CyNode {
   data: {
@@ -32,22 +32,6 @@ export interface GraphData {
   edges: CyEdge[]
 }
 
-function techId(tech: string) {
-  return `skill-${tech.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
-}
-
-function domainId(domain: string) {
-  return `domain-${domain.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
-}
-
-function softSkillId(skill: string) {
-  return `softskill-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
-}
-
-function personalSkillId(skill: string) {
-  return `personalskill-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
-}
-
 function courseId(number: string) {
   return `course-${number.toLowerCase().replace(/[^a-z0-9]/g, '-')}`
 }
@@ -76,21 +60,17 @@ export function buildGraph(person: Person): GraphData {
   function linkCompetencies(entityId: string, entry: {
     technologies?: string[]; domains?: string[]; soft_skills?: string[]; personal_skills?: string[]
   }) {
-    const fields = [
-      ['technologies', techId, 'skill', 'skill-usage'],
-      ['domains', domainId, 'domain', 'domain-usage'],
-      ['soft_skills', softSkillId, 'soft_skill', 'softskill-usage'],
-      ['personal_skills', personalSkillId, 'personal_skill', 'personalskill-usage'],
-    ] as const
-    for (const [field, makeId, type, edgeType] of fields) {
-      for (const label of entry[field] ?? []) {
-        const id = makeId(label)
-        addNode({ data: {
-          id, label, type,
-          ...(type === 'skill' ? { category: COMPETENCY_CATEGORIES[label] } : {}),
-        } })
-        addEdge({ data: { id: `e-${entityId}-${id}`, source: entityId, target: id, type: edgeType } })
-      }
+    const edgeTypes = {
+      skill: 'skill-usage', domain: 'domain-usage',
+      soft_skill: 'softskill-usage', personal_skill: 'personalskill-usage',
+    } as const
+    for (const term of getRecordCompetencies(entry)) {
+      const id = competencyNodeId(term)
+      const type = getCompetencyNodeType(term)
+      addNode({ data: { id, label: term.label, type, category: term.category } })
+      addEdge({ data: {
+        id: `e-${entityId}-${id}`, source: entityId, target: id, type: edgeTypes[type],
+      } })
     }
   }
 
