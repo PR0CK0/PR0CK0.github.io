@@ -19,7 +19,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 YAML_PATH = ROOT / "public" / "data" / "tyler-procko.yaml"
-CATALOG_PATH = ROOT / "public" / "data" / "competencies.json"
+CATALOG_PATH = ROOT / "src" / "data" / "competencies.json"
 VALIDATOR_SPEC = importlib.util.spec_from_file_location(
     "validate_yaml_terms", ROOT / ".github" / "scripts" / "validate_yaml_terms.py",
 )

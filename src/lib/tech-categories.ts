@@ -1,4 +1,4 @@
-import catalog from '../../public/data/competencies.json'
+import catalog from '../data/competencies.json'
 import { resolveCompetency, type CompetencyCategory } from './competencies'
 
 export { COMPETENCY_CATEGORY_LABELS, type CompetencyCategory } from './competencies'

@@ -1,4 +1,4 @@
-"""Validate portfolio references against public/data/competencies.json.
+"""Validate portfolio references against src/data/competencies.json.
 
 Unknown references, ambiguous catalog entries, and duplicate usage fail validation.
 Field/category disagreements are reported for editorial review without changing data.
@@ -13,7 +13,7 @@ from ruamel.yaml import YAML
 
 ROOT = Path(__file__).resolve().parents[2]
 YAML_PATH = ROOT / 'public' / 'data' / 'tyler-procko.yaml'
-CATALOG_PATH = ROOT / 'public' / 'data' / 'competencies.json'
+CATALOG_PATH = ROOT / 'src' / 'data' / 'competencies.json'
 ENTRY_SECTIONS = (
     'work_experiences', 'publications', 'projects', 'extracurriculars',
     'talks', 'courses', 'education', 'certificates',
@@ -115,7 +115,7 @@ def main() -> int:
         print(f'FAIL: {len(errors)} invalid references:')
         for message in errors:
             print(f'  {message}')
-        print('Correct references or update public/data/competencies.json.')
+        print('Correct references or update src/data/competencies.json.')
         return 1
     print('All competency references resolve.')
     return 0

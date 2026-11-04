@@ -147,7 +147,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## Shared competency catalog
 
-- [x] Replace separate vocabulary lists with `public/data/competencies.json`; share canonical identities/categories across homepage, graph, and React CV/resume.
+- [x] Replace separate vocabulary lists with `src/data/competencies.json`; share canonical identities/categories across homepage, graph, and React CV/resume.
 - [x] Count supporting records consistently, including education/certificates; deduplicate repeated tags; use stable graph links.
 - [x] Validate unknown/ambiguous references and test graph/count agreement before deployment.
 - [ ] Review the [57 field/category disagreements and possible aliases](docs/competency-review.md). Do not merge distinct concepts based on spelling alone.

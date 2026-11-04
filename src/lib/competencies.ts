@@ -1,4 +1,4 @@
-import catalog from '../../public/data/competencies.json'
+import catalog from '../data/competencies.json'
 import type { Person } from './schema'
 
 export const COMPETENCY_CATEGORY_LABELS = catalog.categories
