@@ -1618,7 +1618,7 @@ publications:
   - Machine Learning
   - Prompt Engineering
   - Scientific Writing
-  cited_by_count: 4
+  cited_by_count: 5
   doi: https://doi.org/10.1109/icmla61862.2024.00177
 - id: pub/requirements-elicitation-ml
   title: 'Requirements Elicitation for Machine Learning Applications: A Research Preview'
@@ -1695,7 +1695,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 97
+  cited_by_count: 125
   doi: https://doi.org/10.2139/ssrn.4895062
 - id: pub/cognitive-assistants-single-pilot
   title: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations
@@ -1783,7 +1783,7 @@ publications:
   - XAI
   - Scientific Writing
   - Taxonomy
-  cited_by_count: 0
+  cited_by_count: 1
   doi: https://doi.org/10.48550/arxiv.2406.15268
 - id: pub/prov-o-bfo-mapping
   title: 'Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations
@@ -2072,7 +2072,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 4
+  cited_by_count: 5
   doi: https://doi.org/10.1109/transai60598.2023.00043
 - id: pub/auto-bfo-aristotelian-definitions
   title: Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies with GPT
@@ -2158,7 +2158,7 @@ publications:
   - Agile
   - Prompt Engineering
   - Scientific Writing
-  cited_by_count: 2
+  cited_by_count: 5
   doi: https://doi.org/10.1109/csce60160.2023.00051
 - id: pub/swebok-kg-transformer
   title: A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from the Software Engineering Body of 
@@ -2201,7 +2201,7 @@ publications:
   - Taxonomy
   - Text Extraction
   - Scientific Writing
-  cited_by_count: 0
+  cited_by_count: 1
   doi: https://doi.org/10.2139/ssrn.4493644
 - id: pub/microelectronic-ai-dishonesty
   title: 'Microelectronic Technology, AI and Academic Dishonesty: An Agile Engineering Approach'
@@ -2234,7 +2234,7 @@ publications:
   soft_skills:
   - Public Speaking
   - Stakeholder Presentation
-  cited_by_count: 7
+  cited_by_count: 10
   doi: https://doi.org/10.18260/1-2--43642
 - id: pub/interpersonal-chemistry-agile
   title: The Influence of Interpersonal Chemistry on Learning in Agile Software Engineering Education
@@ -2352,7 +2352,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 7
+  cited_by_count: 8
   doi: https://doi.org/10.1109/icsc52841.2022.00029
 - id: pub/secure-development-ontology
   title: Supporting Security Requirements Engineering through the Development of the Secure Development Ontology
