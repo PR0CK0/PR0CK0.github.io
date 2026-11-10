@@ -113,6 +113,14 @@ Pushes to `main` trigger `.github/workflows/deploy.yml`, which:
 2. Runs `npm run build` to produce the Vite `dist/`
 3. Deploys `dist/` to GitHub Pages at `procko.pro`
 
+The daily repository-description sync uses `AUTOMATION_TOKEN` to open an auto-merge PR after validating updated references. Required PR checks run before merging; the merge to `main` triggers deployment. Unchanged descriptions create no commit or PR. If descriptions change but the token is missing, the job fails explicitly instead of publishing an update that cannot trigger validation. The token needs Contents and Pull requests write permissions, as used by the publication-sync workflow. Sync runs are serialized and only publish from `main`.
+
+Workflow regression checks:
+
+```bash
+python3 -m pytest tests/test_description_sync_workflow.py -q
+```
+
 ## History
 
 The tag `pre-redesign` marks the last commit before the YAML-driven architecture was introduced. Prior to that, the site was a manually maintained static HTML file with no build system or data layer.

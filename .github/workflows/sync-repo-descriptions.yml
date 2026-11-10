@@ -11,15 +11,22 @@ on:
   workflow_dispatch:      # Manual trigger from the Actions tab
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: sync-repo-descriptions
+  cancel-in-progress: false
 
 jobs:
   sync:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.AUTOMATION_TOKEN || github.token }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -34,14 +41,32 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 .github/scripts/sync_repo_descriptions.py
 
-      - name: Commit if changed
+      - name: Validate updated references
+        run: python3 .github/scripts/validate_yaml_terms.py
+
+      - name: Open auto-merge PR if changed
+        env:
+          AUTOMATION_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
+          GH_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet public/data/tyler-procko.yaml; then
+            if [ -z "$AUTOMATION_TOKEN" ]; then
+              echo "AUTOMATION_TOKEN is required to create a PR that can run checks automatically." >&2
+              exit 1
+            fi
+            SYNC_BRANCH="automation/repo-description-sync-${GITHUB_RUN_ID}"
+            git switch --create "$SYNC_BRANCH"
             git add public/data/tyler-procko.yaml
-            git commit -m "chore: sync GitHub repo descriptions [skip ci]"
-            git push
+            git commit -m "chore: sync GitHub repo descriptions"
+            git push --set-upstream origin "$SYNC_BRANCH"
+            PR_URL=$(gh pr create \
+              --base main \
+              --head "$SYNC_BRANCH" \
+              --title "chore: sync GitHub repo descriptions" \
+              --body "Updates project descriptions from GitHub About fields. Automatically merges after the required validation checks pass; the merge triggers site deployment.")
+            gh pr merge "$PR_URL" --auto --squash
           else
             echo "Nothing to commit."
           fi

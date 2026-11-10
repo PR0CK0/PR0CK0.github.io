@@ -241,3 +241,7 @@ Local clones not available; grab and analyze with Claude when possible.
 - [ ] proj/eagle-listings — https://github.com/PR0CK0/EagleListings
 - [ ] proj/tiles-game — https://github.com/PR0CK0/TilesGame
 - [ ] proj/text-racing-game — https://github.com/PR0CK0/C_TextBasedRacingGame
+
+## Automatic updates
+
+- [x] **Deploy repository-description updates** — Use the existing automation token and auto-merge PR pattern so validation and deployment run; unchanged data creates no PR, and missing credentials fail explicitly.
