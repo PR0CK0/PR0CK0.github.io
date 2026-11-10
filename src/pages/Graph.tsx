@@ -612,7 +612,6 @@ export default function Graph() {
       })
 
       // Expand hidden neighbors (ego-centric exploration)
-      const types = enabledTypesRef.current
       const expanded = expandedNodesRef.current
       node.neighborhood('node').forEach((n: any) => {
         if (!n.visible()) {
@@ -693,42 +692,8 @@ export default function Graph() {
     const node = cy.getElementById(id)
     if (!node.length) return
 
-    const data = node.data()
-    const connectedNodes = node
-      .neighborhood('node')
-      .map((n: cytoscape.NodeSingular) => ({ id: n.data('id') as string, label: n.data('label') as string, type: n.data('type') as NodeType }))
-      .filter((n: { id: string; label: string; type: NodeType }) => Boolean(n.label))
-
-    setSelectedNode({
-      id: data.id,
-      label: data.label,
-      type: data.type as NodeType,
-      subtitle: data.subtitle,
-      year: data.year,
-      detail: data.detail,
-      category: data.category,
-      links: buildLinks(data),
-      connectedNodes,
-    })
-
-    // Expand hidden neighbors
-    const expanded = expandedNodesRef.current
-    node.neighborhood('node').forEach((n: any) => {
-      if (!n.visible()) {
-        n.show()
-        expanded.add(n.id())
-      }
-    })
-    node.connectedEdges().forEach((e: any) => {
-      if (e.source().visible() && e.target().visible()) e.show()
-    })
-
-    const visible = cy.elements(':visible')
-    visible.removeClass('neighbour faded')
-    const neighbourhood = node.neighborhood().filter(':visible')
-    visible.not(node).not(neighbourhood).addClass('faded')
-    neighbourhood.addClass('neighbour')
-    node.removeClass('faded')
+    // Links and sidebar navigation use the same selection behavior as a node click.
+    node.emit('tap')
 
     cy.animate({ center: { eles: node }, duration: 300 } as cytoscape.AnimationOptions)
   }, [])
