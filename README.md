@@ -91,6 +91,8 @@ npm test
 npm run build
 ```
 
+Project and recent-repository cards share `CARD_DESCRIPTION` in `src/lib/ui-constants.ts`: descriptions stay within two lines without flex growth; tag rows handle bottom alignment.
+
 ## Artwork
 
 `public/art/` is the single source for all 54 drawings. Both `/personal` and `/legacy/personal/personal.html` reference these PNGs directly; the modern gallery also uses them in its lightbox. Keep originals at full quality and avoid duplicating them under `legacy/`. Legacy gallery references were matched by image content to preserve its original order, which differs from the modern gallery's order.

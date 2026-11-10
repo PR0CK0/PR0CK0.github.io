@@ -50,6 +50,8 @@ export const LOADING_SCREEN = 'min-h-screen flex items-center justify-center bg-
 export const TAG_CHIP = 'text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer transition-all duration-150'
 /** Project / publication card wrapper */
 export const CARD_BASE = 'group flex flex-col p-3 sm:p-4 ls:p-3 rounded-lg border border-terminal-border bg-terminal-surface/80 hover:bg-terminal-surface hover:border-terminal-purple/40 transition-all duration-250'
+/** Clamp descriptions without stretching the text box; tag rows handle bottom alignment. */
+export const CARD_DESCRIPTION = 'text-xs font-mono text-terminal-muted leading-relaxed mb-3 line-clamp-2 flex-none'
 /** Outer section container (skills matrix, repos, etc.) */
 export const SECTION_CONTAINER = 'max-w-5xl mx-auto px-4 sm:px-6 ls:px-4 py-7 sm:py-12 ls:py-7'
 /** Tag row inside cards */

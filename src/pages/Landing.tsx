@@ -7,7 +7,7 @@ import SiteFooter from '@/components/SiteFooter'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import { COMPETENCY_CATEGORY_LABELS, type CompetencyCategory } from '@/lib/tech-categories'
 import { aggregateCompetencies, getRecordCompetencies, type AggregatedSkill } from '@/lib/competencies'
-import { TAG_CHIP, CARD_BASE, SECTION_CONTAINER, TAG_CONTAINER, META_TEXT } from '@/lib/ui-constants'
+import { TAG_CHIP, CARD_BASE, CARD_DESCRIPTION, SECTION_CONTAINER, TAG_CONTAINER, META_TEXT } from '@/lib/ui-constants'
 import type { Person, Publication, Project } from '@/lib/schema'
 
 // ─── Boot sequence lines ───────────────────────────────────────────────────
@@ -1155,7 +1155,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       {/* Description — prefer short tagline, fall back to clamped description */}
       {(project.tagline || project.description) && (
-        <p className="text-xs font-mono text-terminal-muted leading-relaxed mb-3 line-clamp-2 flex-1">
+        <p className={CARD_DESCRIPTION}>
           {project.tagline ?? project.description}
         </p>
       )}
@@ -1428,7 +1428,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
 
       {/* Description */}
       {(project.tagline || project.description) && (
-        <p className="text-xs font-mono text-terminal-muted leading-relaxed mb-3 line-clamp-2 flex-1">
+        <p className={CARD_DESCRIPTION}>
           {project.tagline ?? project.description}
         </p>
       )}
