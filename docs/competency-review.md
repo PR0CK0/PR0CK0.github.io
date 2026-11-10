@@ -1,6 +1,6 @@
 # Competency classification review
 
-The original 2026-11-04 migration preserved 374 labels and categories. After the NLP consolidation, the catalog has 373 terms and 30 outstanding field/category placements. Views consistently use the catalog category even when a record stores a reference under a different field.
+The original 2026-11-04 migration preserved 374 labels and categories. After the NLP and RAG consolidations, the catalog has 372 terms and 30 outstanding field/category placements. Views consistently use the catalog category even when a record stores a reference under a different field.
 
 ## Resolved: Natural Language Processing
 
@@ -8,9 +8,12 @@ The original 2026-11-04 migration preserved 374 labels and categories. After the
 
 All 27 existing supporting records remain connected, and their domain placements now agree with the catalog. New repository discovery emits the full name. The current CV/resume policy excludes research domains from skill groups, so NLP no longer appears under AI Tools there. Whether domains should appear in those skill groups is a separate presentation decision.
 
+## Resolved: Retrieval-Augmented Generation
+
+`RAG` is now an alias of **Retrieval-Augmented Generation**, retaining the used `retrieval-augmented-generation` ID. Case-insensitive alias lookup also preserves the retired `rag` link ID. All seven existing supporting records remain connected to the same research-domain node. The category and CV/resume visibility are unchanged; new repository discovery already emits the full name.
+
 ## Decisions to review
 
-- `RAG` and `Retrieval-Augmented Generation` are potential aliases. Confirm intended meaning before merging records under one permanent ID.
 - `NER` and `VLM` are categorized as AI tools but occur in domains. Decide whether these are techniques, domains, or tools in this portfolio's taxonomy.
 - `Agile` and `Public Speaking` occur in domains but are cataloged as soft skills.
 - Some technical tools were stored in `personal_skills` on a personal project. A project's context need not change a tool's category.

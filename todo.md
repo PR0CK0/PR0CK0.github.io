@@ -151,6 +151,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [x] Count supporting records consistently, including education/certificates; deduplicate repeated tags; use stable graph links.
 - [x] Validate unknown/ambiguous references and test graph/count agreement before deployment.
 - [x] Consolidate NLP/Natural Language Processing as one research domain, retaining existing IDs and evidence.
+- [x] Consolidate RAG as an alias of Retrieval-Augmented Generation, retaining the existing domain node and seven supporting records.
 - [ ] Review whether research domains should appear in CV/resume skill groups; NLP follows the current exclusion policy.
 - [ ] Review the [30 remaining field/category disagreements and possible aliases](docs/competency-review.md). Do not merge distinct concepts based on spelling alone.
 

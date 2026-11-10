@@ -61,38 +61,46 @@ describe('competency catalog', () => {
   })
 })
 
-describe('Natural Language Processing identity', () => {
-  const references = ['NLP', 'nlp', 'Natural Language Processing', 'natural-language-processing']
+describe.each([
+  {
+    name: 'Natural Language Processing', id: 'nlp',
+    references: ['NLP', 'nlp', 'Natural Language Processing', 'natural-language-processing'],
+  },
+  {
+    name: 'Retrieval-Augmented Generation', id: 'retrieval-augmented-generation',
+    references: ['RAG', 'rag', 'Retrieval-Augmented Generation', 'retrieval-augmented-generation'],
+  },
+])('$name identity', ({ name, id, references }) => {
   const person = {
     id: 'person/test', name: 'Test', projects: [
       { id: 'project/one', title: 'One', domains: references },
-      { id: 'project/two', title: 'Two', domains: ['Natural Language Processing'] },
+      { id: 'project/two', title: 'Two', domains: [name] },
     ],
   } as Person
 
-  it('resolves both names and existing link IDs to the original NLP node', () => {
+  it('resolves both names and existing link IDs to the retained node', () => {
     for (const reference of references) {
       const resolved = resolveCompetency(reference)
-      expect(resolved).toMatchObject({ id: 'nlp', label: 'Natural Language Processing', category: 'domains' })
-      expect(competencyNodeId(resolved)).toBe('competency-nlp')
+      expect(resolved).toMatchObject({ id, label: name, category: 'domains' })
+      expect(competencyNodeId(resolved)).toBe(`competency-${id}`)
     }
   })
 
   it('combines supporting records without double-counting aliases', () => {
     expect(aggregateCompetencies(person)).toEqual([
-      { id: 'nlp', name: 'Natural Language Processing', category: 'domains', count: 2 },
+      { id, name, category: 'domains', count: 2 },
     ])
     const graph = buildGraph(person)
     expect(graph.nodes.filter(node => node.data.type === 'domain')).toEqual([
-      { data: { id: 'competency-nlp', label: 'Natural Language Processing', category: 'domains', type: 'domain' } },
+      { data: { id: `competency-${id}`, label: name, category: 'domains', type: 'domain' } },
     ])
-    expect(graph.edges.filter(edge => edge.data.target === 'competency-nlp')
+    expect(graph.edges.filter(edge => edge.data.target === `competency-${id}`)
       .map(edge => edge.data.source).sort()).toEqual(['project/one', 'project/two'])
   })
 
   it('follows the existing CV policy of excluding domains from skill groups', () => {
     const counts = countTechOccurrences(person)
-    expect(counts.get('Natural Language Processing')).toBe(2)
+    expect(counts.get(name)).toBe(2)
     expect(groupSkills(counts)).toEqual({})
   })
 })
