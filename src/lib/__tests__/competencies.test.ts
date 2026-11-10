@@ -6,6 +6,7 @@ import {
   getRecordCompetencies, aggregateCompetencies, type Competency,
 } from '../competencies'
 import { buildGraph } from '../graph-builder'
+import { countTechOccurrences, groupSkills } from '../cv-data'
 import type { Person } from '../schema'
 
 const term: Competency = {
@@ -57,6 +58,42 @@ describe('competency catalog', () => {
     expect(terms).toEqual([resolveCompetency('Technical Writing')])
     expect(terms[0].category).toBe('soft_skills')
     expect(resolveCompetency('Telegram').category).toBe('personal')
+  })
+})
+
+describe('Natural Language Processing identity', () => {
+  const references = ['NLP', 'nlp', 'Natural Language Processing', 'natural-language-processing']
+  const person = {
+    id: 'person/test', name: 'Test', projects: [
+      { id: 'project/one', title: 'One', domains: references },
+      { id: 'project/two', title: 'Two', domains: ['Natural Language Processing'] },
+    ],
+  } as Person
+
+  it('resolves both names and existing link IDs to the original NLP node', () => {
+    for (const reference of references) {
+      const resolved = resolveCompetency(reference)
+      expect(resolved).toMatchObject({ id: 'nlp', label: 'Natural Language Processing', category: 'domains' })
+      expect(competencyNodeId(resolved)).toBe('competency-nlp')
+    }
+  })
+
+  it('combines supporting records without double-counting aliases', () => {
+    expect(aggregateCompetencies(person)).toEqual([
+      { id: 'nlp', name: 'Natural Language Processing', category: 'domains', count: 2 },
+    ])
+    const graph = buildGraph(person)
+    expect(graph.nodes.filter(node => node.data.type === 'domain')).toEqual([
+      { data: { id: 'competency-nlp', label: 'Natural Language Processing', category: 'domains', type: 'domain' } },
+    ])
+    expect(graph.edges.filter(edge => edge.data.target === 'competency-nlp')
+      .map(edge => edge.data.source).sort()).toEqual(['project/one', 'project/two'])
+  })
+
+  it('follows the existing CV policy of excluding domains from skill groups', () => {
+    const counts = countTechOccurrences(person)
+    expect(counts.get('Natural Language Processing')).toBe(2)
+    expect(groupSkills(counts)).toEqual({})
   })
 })
 

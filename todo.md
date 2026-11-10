@@ -150,7 +150,9 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [x] Replace separate vocabulary lists with `src/data/competencies.json`; share canonical identities/categories across homepage, graph, and React CV/resume.
 - [x] Count supporting records consistently, including education/certificates; deduplicate repeated tags; use stable graph links.
 - [x] Validate unknown/ambiguous references and test graph/count agreement before deployment.
-- [ ] Review the [57 field/category disagreements and possible aliases](docs/competency-review.md). Do not merge distinct concepts based on spelling alone.
+- [x] Consolidate NLP/Natural Language Processing as one research domain, retaining existing IDs and evidence.
+- [ ] Review whether research domains should appear in CV/resume skill groups; NLP follows the current exclusion policy.
+- [ ] Review the [30 remaining field/category disagreements and possible aliases](docs/competency-review.md). Do not merge distinct concepts based on spelling alone.
 
 ## Type hierarchy organization
 

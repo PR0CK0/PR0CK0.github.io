@@ -97,9 +97,9 @@ describe('catalog-backed competency identity', () => {
       ],
     } as Person
     const graph = buildGraph(person)
-    const terms = graph.nodes.filter(node => node.data.label === 'NLP')
+    const terms = graph.nodes.filter(node => node.data.id === 'competency-nlp')
     expect(terms).toHaveLength(1)
-    expect(terms[0].data).toMatchObject({ type: 'skill', category: 'ai_tools' })
+    expect(terms[0].data).toMatchObject({ label: 'Natural Language Processing', type: 'domain', category: 'domains' })
     expect(graph.edges.filter(edge => edge.data.target === terms[0].data.id)
       .map(edge => edge.data.source).sort()).toEqual(['project/one', 'project/two'])
   })

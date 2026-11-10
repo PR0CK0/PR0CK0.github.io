@@ -96,12 +96,14 @@ TOPIC_TECH_MAP: dict[str, str] = {
     "tailwindcss":      "Tailwind CSS",
 }
 
+NLP_DOMAIN = "Natural Language Processing"
+
 # GitHub topic → YAML domain name
 TOPIC_DOMAIN_MAP: dict[str, str] = {
     "machine-learning":         "Machine Learning",
     "deep-learning":            "Machine Learning",
-    "nlp":                      "NLP",
-    "natural-language-processing": "NLP",
+    "nlp":                      NLP_DOMAIN,
+    "natural-language-processing": NLP_DOMAIN,
     "knowledge-graph":          "Knowledge Graphs",
     "ontology":                 "Ontology",
     "semantic-web":             "Semantic Web",

@@ -28,6 +28,12 @@ def test_christian_project_topics_map_to_known_skills_and_domains(monkeypatch):
     assert set(technologies + domains) <= known_terms
 
 
+def test_nlp_topics_share_one_canonical_domain():
+    domains = discover.infer_domains(["nlp", "natural-language-processing"])
+    assert domains == ["Natural Language Processing"]
+    assert set(domains) <= validator.load_tech_category_keys()
+
+
 def test_open_discovery_pr_is_detected(monkeypatch):
     repository = "PR0CK0/PR0CK0.github.io"
     monkeypatch.setattr(
