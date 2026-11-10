@@ -3974,6 +3974,46 @@ associates:
     url: https://scholar.google.com/citations?user=FFrwAlUAAAAJ&hl=en
   - platform: ResearchGate
     url: https://www.researchgate.net/scientific-contributions/Nicholas-Del-Rio-2106130769
+- id: assoc/len-crosson
+  name: Len Crosson
+  title: Chief Revenue Officer
+  organization: Apacen
+  relationship: Apacen colleague
+  social_links:
+  - platform: LinkedIn
+    url: https://www.linkedin.com/in/lencrosson/
+- id: assoc/konstantin-bokarius
+  name: Konstantin Bokarius
+  title: Chief Technology Officer
+  organization: Apacen
+  relationship: Apacen colleague
+  social_links:
+  - platform: LinkedIn
+    url: https://www.linkedin.com/in/kbokarius/
+- id: assoc/drew-martin
+  name: Drew Martin
+  title: Front-end Developer
+  organization: Apacen
+  relationship: Apacen colleague
+  social_links:
+  - platform: LinkedIn
+    url: https://www.linkedin.com/in/drew-martin-tn/
+- id: assoc/john-enete
+  name: John Enete
+  title: Designer
+  organization: Apacen
+  relationship: Apacen colleague
+  social_links:
+  - platform: LinkedIn
+    url: https://www.linkedin.com/in/john-enete/
+- id: assoc/constantine-nicolaidis
+  name: Constantine Nicolaidis
+  title: Chief Executive Officer
+  organization: Apacen
+  relationship: Apacen colleague
+  social_links:
+  - platform: LinkedIn
+    url: https://www.linkedin.com/in/constantine-nicolaidis-9443245/
 references:
 - id: ref/omar-ochoa
   name: Dr. Omar Ochoa
