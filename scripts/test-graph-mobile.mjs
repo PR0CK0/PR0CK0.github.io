@@ -51,6 +51,7 @@ try {
     const panel = document.querySelector('#graph-mobile-details')
     return panel?.clientHeight > 0 && panel.innerText.includes(label)
   }, {}, target.label)
+  await page.waitForFunction(() => document.querySelector('#graph-mobile-panel').getAnimations().length === 0)
   await assertControlsVisible()
   const details = await page.evaluate(() => {
     const drawer = document.querySelector('#graph-mobile-details')
@@ -103,6 +104,7 @@ try {
   if (touch) await page.tap(toggle)
   else await page.click(toggle)
   await page.waitForFunction(() => document.querySelector('[aria-controls="graph-mobile-details"]').getAttribute('aria-expanded') === 'false')
+  await page.waitForFunction(() => document.querySelector('#graph-mobile-panel').getAnimations().length === 0)
   await assertControlsVisible()
   for (const size of [{ width: 1280, height: 900 }, { width: 390, height: 844 }, { width: 375, height: 667 }, { width: 600, height: 400 }]) {
     await page.setViewport({ ...size, hasTouch: touch, isMobile: touch })

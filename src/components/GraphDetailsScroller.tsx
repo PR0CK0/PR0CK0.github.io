@@ -39,23 +39,30 @@ export default function GraphDetailsScroller({ children, open, selectionId, back
   }, [selectionId])
 
   return (
-    <div className={`relative min-w-0 sm:hidden ${open ? 'block' : 'hidden'}`}>
-      <div id="graph-mobile-details" ref={viewport}
-        className="max-h-[55dvh] overflow-x-hidden overflow-y-auto overscroll-contain"
-      >
-        <div ref={content} className="flex min-w-0 flex-col pb-8">
-          {children}
-        </div>
-      </div>
-      {(['top', 'bottom'] as const).map(edge => edges[edge] && (
-        <button key={edge} type="button" aria-label={`Scroll details ${edge === 'top' ? 'up' : 'down'}`}
-          className={`absolute inset-x-0 z-10 h-8 text-xs font-bold ${edge === 'top' ? 'top-0' : 'bottom-0'}`}
-          style={{ color, background: `linear-gradient(to ${edge === 'top' ? 'bottom' : 'top'}, ${backgroundColor} 65%, transparent)` }}
-          onClick={() => viewport.current?.scrollBy({ top: (edge === 'top' ? -1 : 1) * viewport.current.clientHeight * 0.75, behavior: 'smooth' })}
+    <div id="graph-mobile-panel"
+      className="grid min-w-0 transition-[grid-template-rows,opacity] duration-[220ms] ease-in-out motion-reduce:transition-none sm:hidden"
+      style={{ gridTemplateRows: open ? '1fr' : '0fr', opacity: open ? 1 : 0 }}
+      aria-hidden={!open}
+      {...(!open ? { inert: '' } : {})}
+    >
+      <div className="relative min-h-0 min-w-0 overflow-hidden">
+        <div id="graph-mobile-details" ref={viewport}
+          className="max-h-[55dvh] overflow-x-hidden overflow-y-auto overscroll-contain"
         >
-          {edge === 'top' ? '↑ More above' : '↓ More below'}
-        </button>
-      ))}
+          <div ref={content} className="flex min-w-0 flex-col pb-8">
+            {children}
+          </div>
+        </div>
+        {(['top', 'bottom'] as const).map(edge => edges[edge] && (
+          <button key={edge} type="button" aria-label={`Scroll details ${edge === 'top' ? 'up' : 'down'}`}
+            className={`absolute inset-x-0 z-10 h-8 text-xs font-bold ${edge === 'top' ? 'top-0' : 'bottom-0'}`}
+            style={{ color, background: `linear-gradient(to ${edge === 'top' ? 'bottom' : 'top'}, ${backgroundColor} 65%, transparent)` }}
+            onClick={() => viewport.current?.scrollBy({ top: (edge === 'top' ? -1 : 1) * viewport.current.clientHeight * 0.75, behavior: 'smooth' })}
+          >
+            {edge === 'top' ? '↑ More above' : '↓ More below'}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }
