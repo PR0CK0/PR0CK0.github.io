@@ -318,7 +318,7 @@ work_experiences:
   - SQA
   - Semantic Web
   - Knowledge Representation
-  - NLP
+  - Natural Language Processing
   - Linked Data
   - Prompt Engineering
   - Text Extraction
@@ -329,7 +329,7 @@ work_experiences:
   - Provenance
   - SDLC
   - Agile
-  - NER
+  - Named Entity Recognition
   - Retrieval-Augmented Generation
   - Embedded Systems
   - AR
@@ -356,7 +356,7 @@ work_experiences:
   domains:
   - LLMs
   - Machine Learning
-  - NLP
+  - Natural Language Processing
 - id: work/handshake-ai
   work_section: Defense and AI Industry Experience
   title: Independent AI Consultant
@@ -399,7 +399,7 @@ work_experiences:
   - Knowledge Graphs
   - Semantic Web
   - Knowledge Representation
-  - NLP
+  - Natural Language Processing
   - Linked Data
   - Scientific Writing
   - Prompt Engineering
@@ -764,7 +764,7 @@ work_experiences:
   - Semantic Web
   - Knowledge Representation
   - Linked Data
-  - NLP
+  - Natural Language Processing
   - Education
   - Prompt Engineering
   - Text Extraction
@@ -772,7 +772,7 @@ work_experiences:
   - XAI
   - ML Provenance
   - UX
-  - NER
+  - Named Entity Recognition
   - Retrieval-Augmented Generation
   - Data Visualization
   - Embeddings
@@ -978,8 +978,8 @@ work_experiences:
     and producing a graph with 10,000+ nodes and hundreds of thousands of edges.
   domains:
   - Knowledge Graphs
-  - NER
-  - NLP
+  - Named Entity Recognition
+  - Natural Language Processing
   - Text Extraction
   soft_skills:
   - Virtual Presentation
@@ -1158,7 +1158,7 @@ work_experiences:
   - LLMs
   - Software Engineering
   - Machine Learning
-  - NLP
+  - Natural Language Processing
   - Education
   - Prompt Engineering
   - Text Extraction
@@ -1167,7 +1167,7 @@ work_experiences:
   - Agile
   - SQA
   - Requirements Engineering
-  - NER
+  - Named Entity Recognition
   - Retrieval-Augmented Generation
 - id: work/wordlift
   work_section: Applied R&D and Consulting Experience
@@ -1304,7 +1304,7 @@ work_experiences:
   - Cybersecurity
   - Linked Data
   - Machine Learning
-  - NLP
+  - Natural Language Processing
   - Semantic Web
   soft_skills:
   - Public Speaking
@@ -1683,7 +1683,7 @@ publications:
   - Knowledge Graphs
   - LLMs
   - Retrieval-Augmented Generation
-  - NLP
+  - Natural Language Processing
   - Prompt Engineering
   - Ontology
   - Semantic Web
@@ -1740,7 +1740,7 @@ publications:
   - Ontology
   - Knowledge Representation
   - Knowledge Management
-  - NLP
+  - Natural Language Processing
   - Aerospace
   - Defense
   - Description Logics
@@ -1883,7 +1883,7 @@ publications:
   - Software Engineering
   - SDLC
   - Education
-  - NLP
+  - Natural Language Processing
   - XAI
   - Computer Vision
   - Data Visualization
@@ -1920,7 +1920,7 @@ publications:
   domains:
   - Knowledge Graphs
   - LLMs
-  - NLP
+  - Natural Language Processing
   - Machine Learning
   - Semantic Web
   - Knowledge Representation
@@ -2025,7 +2025,7 @@ publications:
   - Software Engineering
   - SDLC
   - SQA
-  - NLP
+  - Natural Language Processing
   - Prompt Engineering
   - Scientific Writing
   soft_skills:
@@ -2060,7 +2060,7 @@ publications:
   - Knowledge Graphs
   - Knowledge Management
   - Machine Learning
-  - NLP
+  - Natural Language Processing
   - Prompt Engineering
   - Description Logics
   - Semantic Web
@@ -2103,7 +2103,7 @@ publications:
   domains:
   - Ontology
   - LLMs
-  - NLP
+  - Natural Language Processing
   - Knowledge Representation
   - Semantic Web
   - Linked Data
@@ -2189,7 +2189,7 @@ publications:
   - SWEBOK
   domains:
   - Knowledge Graphs
-  - NLP
+  - Natural Language Processing
   - Semantic Web
   - Linked Data
   - Ontology
@@ -2219,7 +2219,7 @@ publications:
   domains:
   - Machine Learning
   - LLMs
-  - NLP
+  - Natural Language Processing
   - Education
   - Agile
   - Cybersecurity
@@ -2490,7 +2490,7 @@ publications:
   - Knowledge Graphs
   - Software Engineering
   - Education
-  - NLP
+  - Natural Language Processing
   - Text Extraction
   - Scientific Writing
 - id: pub/competition-proposal-nas
@@ -2660,7 +2660,7 @@ projects:
   - Linked Data
   - Semantic Web
   - LLMs
-  - NLP
+  - Natural Language Processing
   - Data Visualization
   - FinTech
   - Retrieval-Augmented Generation
@@ -2788,9 +2788,9 @@ projects:
   members: 1 member
   tagline: 'End-to-end biomedical paper analysis: VLM figure digitization + NER. Gradio UI on HuggingFace Spaces.'
   domains:
-  - NER
-  - VLM
-  - NLP
+  - Named Entity Recognition
+  - Vision-Language Models
+  - Natural Language Processing
   - Text Extraction
   - Machine Learning
   description: 'End-to-end biomedical paper analysis: VLM figure digitization + NER. Evaluated against HuggingFace VLMs, Ollama,
@@ -2893,7 +2893,7 @@ projects:
   members: 1 member
   tagline: Transformer-based hierarchical classifier mapping Wikidata entities to BFO classes.
   domains:
-  - NLP
+  - Natural Language Processing
   - Knowledge Graphs
   - Knowledge Representation
   - Machine Learning
@@ -2929,7 +2929,7 @@ projects:
   tagline: Benchmarks BERT variants on inference speed, memory, and size for compute-constrained deployments.
   domains:
   - Machine Learning
-  - NLP
+  - Natural Language Processing
   description: A comprehensive benchmarking framework for comparing BERT model variants on inference speed, memory 
     efficiency, and model size. Designed for compute-constrained environments and on-premise deployments.
 - id: proj/bfobert
@@ -2955,7 +2955,7 @@ projects:
   domains:
   - Knowledge Representation
   - Machine Learning
-  - NLP
+  - Natural Language Processing
   - Ontology
   - Taxonomy
   description: A fine-tuning script for DistilBERT that classifies ontology terms as Continuant or Occurrent per Basic 
@@ -3559,7 +3559,7 @@ projects:
   - Transformers
   domains:
   - Knowledge Graphs
-  - NLP
+  - Natural Language Processing
   - Semantic Web
   - Ontology
   - Software Engineering
@@ -3801,7 +3801,7 @@ certificates:
   domains:
   - Machine Learning
   - Knowledge Representation
-  - NLP
+  - Natural Language Processing
   - Text Extraction
   - Computer Vision
   - Cognitive Science
@@ -4210,7 +4210,7 @@ extracurriculars:
   type: open_source
   domains:
   - LLMs
-  - NLP
+  - Natural Language Processing
   - Ontology
   - Text Extraction
   technologies: []
@@ -4245,7 +4245,7 @@ extracurriculars:
   date: 2022-11
   type: scholarly
   domains:
-  - NLP
+  - Natural Language Processing
 - id: extra/cco-contributor
   title: Contributor to the Common Core Ontologies
   organization: Common Core Ontologies GitHub
@@ -5005,7 +5005,7 @@ courses:
   - Zoom
   domains:
   - Machine Learning
-  - NLP
+  - Natural Language Processing
   - Real-Time Systems
   - HPC
 - number: HFS525

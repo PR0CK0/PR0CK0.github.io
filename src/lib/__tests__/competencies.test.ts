@@ -61,7 +61,7 @@ describe('competency catalog', () => {
   })
 })
 
-describe.each([
+const REVIEWED_COMPETENCIES = [
   {
     name: 'Natural Language Processing', id: 'nlp',
     references: ['NLP', 'nlp', 'Natural Language Processing', 'natural-language-processing'],
@@ -78,7 +78,9 @@ describe.each([
     name: 'Vision-Language Models', id: 'vlm',
     references: ['VLM', 'vlm', 'Vision-Language Models'],
   },
-])('$name identity', ({ name, id, references }) => {
+]
+
+describe.each(REVIEWED_COMPETENCIES)('$name identity', ({ name, id, references }) => {
   const person = {
     id: 'person/test', name: 'Test', projects: [
       { id: 'project/one', title: 'One', domains: references },
@@ -119,6 +121,20 @@ describe('portfolio evidence', () => {
   it('resolves every reference in every record, including excluded records', () => {
     for (const section of ['education', 'work_experiences', 'publications', 'projects', 'courses', 'certificates', 'talks', 'extracurriculars'] as const) {
       for (const entry of person[section] ?? []) expect(() => getRecordCompetencies(entry)).not.toThrow()
+    }
+  })
+
+  it('stores reviewed competency references using their full display labels', () => {
+    const reviewedIds = new Set(REVIEWED_COMPETENCIES.map(term => term.id))
+    for (const section of ['education', 'work_experiences', 'publications', 'projects', 'courses', 'certificates', 'talks', 'extracurriculars'] as const) {
+      for (const entry of person[section] ?? []) {
+        for (const field of ['technologies', 'domains', 'soft_skills', 'personal_skills'] as const) {
+          for (const reference of (entry as Partial<Record<typeof field, string[]>>)[field] ?? []) {
+            const term = resolveCompetency(reference)
+            if (reviewedIds.has(term.id)) expect(reference, `${section}.${field}`).toBe(term.label)
+          }
+        }
+      }
     }
   })
 

@@ -14,7 +14,7 @@ DOMAINS = {
     "pub/dawn-of-dialogue":
         ["LLMs", "Machine Learning"],
     "pub/lm-kg-survey":
-        ["Knowledge Graphs", "LLMs", "NLP", "Machine Learning", "Semantic Web"],
+        ["Knowledge Graphs", "LLMs", "Natural Language Processing", "Machine Learning", "Semantic Web"],
     "pub/towards-agile-academia":
         ["Agile", "Scientific Writing", "Software Engineering"],
     "pub/scrum-in-classroom":
@@ -22,7 +22,7 @@ DOMAINS = {
     "pub/gps-signal-strength":
         ["Cybersecurity", "Aerospace", "Networking"],
     "pub/auto-code-documentation":
-        ["LLMs", "Software Engineering", "NLP", "Prompt Engineering"],
+        ["LLMs", "Software Engineering", "Natural Language Processing", "Prompt Engineering"],
     "pub/gpt4-stochastic-parrot":
         ["LLMs", "Ontology", "Knowledge Representation", "Knowledge Graphs"],
     "pub/auto-bfo-aristotelian-definitions":
@@ -32,7 +32,7 @@ DOMAINS = {
     "pub/digital-rubber-duck":
         ["LLMs", "Software Engineering", "Agile", "Prompt Engineering"],
     "pub/swebok-kg-transformer":
-        ["Knowledge Graphs", "NLP", "Software Engineering", "Taxonomy", "Text Extraction"],
+        ["Knowledge Graphs", "Natural Language Processing", "Software Engineering", "Taxonomy", "Text Extraction"],
     "pub/microelectronic-ai-dishonesty":
         ["Machine Learning", "Agile", "Education", "Software Engineering"],
     "pub/interpersonal-chemistry-agile":
@@ -58,7 +58,7 @@ DOMAINS = {
     "pub/colleague-thesis-vonderhaar":
         ["Knowledge Graphs", "Cybersecurity", "Requirements Engineering", "Software Engineering"],
     "pub/colleague-thesis-kiselev":
-        ["Knowledge Graphs", "Software Engineering", "Education", "NLP", "Text Extraction"],
+        ["Knowledge Graphs", "Software Engineering", "Education", "Natural Language Processing", "Text Extraction"],
     "pub/competition-proposal-nas":
         ["Aerospace", "Machine Learning", "Knowledge Graphs", "LLMs"],
     "pub/grant-proposal-nsf":

@@ -46,9 +46,10 @@ KNOWN_DOMAINS = {
     "SQA", "Ontology", "Description Logics", "FOL", "HOL", "LLMs", "FAIR AI",
     "Provenance", "Knowledge Representation", "Cryptography", "Networking",
     "Embedded Systems", "Real-Time Systems", "Cluster Analysis", "Web Scraping",
-    "Game Development", "AR", "NLP", "NER", "VLM", "Prompt Engineering", "Agile",
+    "Game Development", "AR", "Natural Language Processing",
+    "Named Entity Recognition", "Vision-Language Models", "Prompt Engineering", "Agile",
     "Aerospace", "Scientific Writing", "Requirements Engineering",
-    "Software Engineering", "SDLC", "RAG", "Geospatial", "Taxonomy", "Education",
+    "Software Engineering", "SDLC", "Retrieval-Augmented Generation", "Geospatial", "Taxonomy", "Education",
     "Data Visualization",
 }
 
@@ -138,8 +139,10 @@ Knowledge Graphs, Text Extraction, ML Provenance, Semantic Web, Machine Learning
 XAI, Computer Vision, Linked Data, Cybersecurity, SQA, Ontology, Description Logics,
 FOL, HOL, LLMs, FAIR AI, Provenance, Knowledge Representation, Cryptography,
 Networking, Embedded Systems, Real-Time Systems, Cluster Analysis, Web Scraping,
-Game Development, AR, NLP, NER, VLM, Prompt Engineering, Agile, Aerospace,
-Scientific Writing, Requirements Engineering, Software Engineering, SDLC, RAG,
+Game Development, AR, Natural Language Processing, Named Entity Recognition,
+Vision-Language Models, Prompt Engineering, Agile, Aerospace,
+Scientific Writing, Requirements Engineering, Software Engineering, SDLC,
+Retrieval-Augmented Generation,
 Geospatial, Taxonomy, Education, Data Visualization
 
 Return ONLY valid JSON. No markdown fences, no commentary outside the JSON."""

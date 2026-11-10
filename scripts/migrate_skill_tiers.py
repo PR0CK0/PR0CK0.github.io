@@ -18,9 +18,10 @@ DOMAIN_TERMS = {
     "SQA", "Ontology", "Description Logics", "FOL", "HOL",
     "LLMs", "FAIR AI", "Provenance", "Knowledge Representation", "Cryptography",
     "Networking", "Embedded Systems", "Real-Time Systems", "Cluster Analysis",
-    "Web Scraping", "Game Development", "AR", "NLP", "NER", "VLM",
+    "Web Scraping", "Game Development", "AR", "Natural Language Processing",
+    "Named Entity Recognition", "Vision-Language Models",
     "Prompt Engineering", "Agile", "Aerospace", "Scientific Writing",
-    "Requirements Engineering", "Software Engineering", "SDLC", "RAG",
+    "Requirements Engineering", "Software Engineering", "SDLC", "Retrieval-Augmented Generation",
     "Geospatial", "Taxonomy", "Education",
 }
 

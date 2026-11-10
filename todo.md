@@ -154,6 +154,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [x] Consolidate RAG as an alias of Retrieval-Augmented Generation, retaining the existing domain node and seven supporting records.
 - [x] Classify NER as Named Entity Recognition under Research Domains, preserving its ID and five supporting records.
 - [x] Classify VLM as Vision-Language Models under Research Domains, preserving its ID and project connection.
+- [x] Normalize NLP, NER, VLM, and RAG competency reference values and helper lists to their full canonical labels; preserve prose and link IDs.
 - [ ] Review whether research domains should appear in CV/resume skill groups; NLP, NER, and VLM follow the current exclusion policy.
 - [ ] Review the [24 remaining field/category disagreements and possible aliases](docs/competency-review.md). Do not merge distinct concepts based on spelling alone.
 

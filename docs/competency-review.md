@@ -4,7 +4,7 @@ The original 2026-11-04 migration preserved 374 labels and categories. After the
 
 ## Resolved: Natural Language Processing
 
-`NLP` and `Natural Language Processing` now resolve to one research domain, displayed as **Natural Language Processing**. The used `nlp` ID is retained; the retired `natural-language-processing` ID is an alias. Case-insensitive ID lookup keeps `NLP` valid without requiring portfolio records to be rewritten. Both old graph-link IDs continue to resolve.
+`NLP` and `Natural Language Processing` now resolve to one research domain, displayed as **Natural Language Processing**. The used `nlp` ID is retained; the retired `natural-language-processing` ID is an alias. Case-insensitive ID lookup keeps the short form `NLP` valid for older references and links. Both old graph-link IDs continue to resolve.
 
 All 27 existing supporting records remain connected, and their domain placements now agree with the catalog. New repository discovery emits the full name. The current CV/resume policy excludes research domains from skill groups, so NLP no longer appears under AI Tools there. Whether domains should appear in those skill groups is a separate presentation decision.
 
@@ -21,6 +21,12 @@ All 27 existing supporting records remain connected, and their domain placements
 `VLM` is displayed as **Vision-Language Models** under Research Domains, alongside the existing LLMs domain. The `vlm` ID and case-insensitive `VLM` references continue to resolve to this single entry. The Biomedical Paper Information Extractor retains its connection; its domain placement now agrees with the catalog. VLM follows the existing CV/resume policy that excludes domains from skill groups.
 
 Only the canonical full label is rendered on competency chips and graph nodes. Preserved abbreviations are alternate references, not extra entries or additional displayed labels. Existing prose descriptions retain their wording.
+
+## Stored references
+
+Portfolio competency fields use the full canonical labels for Natural Language Processing, Named Entity Recognition, Vision-Language Models, and Retrieval-Augmented Generation. The 33 abbreviated values were normalized (27 NLP, five NER, one VLM); all seven RAG references already used the full name. Helper reference lists and the project-analysis prompt use those same names. A regression test guards these stored references against abbreviated values returning.
+
+Stable IDs and alias mappings remain for existing links. Prose descriptions, titles, repository URLs, and other record fields retain their original wording. This normalization changes neither graph connections nor evidence counts.
 
 ## Decisions to review
 

@@ -15,7 +15,7 @@ PUB_UPDATES = {
     },
     "pub/graph-rag-survey": {
         "technologies": ["Microsoft Word", "Microsoft Teams"],
-        "domains": ["Knowledge Graphs", "LLMs", "RAG", "Semantic Web"],
+        "domains": ["Knowledge Graphs", "LLMs", "Retrieval-Augmented Generation", "Semantic Web"],
     },
     "pub/cognitive-assistants-single-pilot": {
         "technologies": ["Microsoft Word", "Microsoft Teams"],
