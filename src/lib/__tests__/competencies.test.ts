@@ -74,6 +74,10 @@ describe.each([
     name: 'Named Entity Recognition', id: 'ner',
     references: ['NER', 'ner', 'Named Entity Recognition'],
   },
+  {
+    name: 'Vision-Language Models', id: 'vlm',
+    references: ['VLM', 'vlm', 'Vision-Language Models'],
+  },
 ])('$name identity', ({ name, id, references }) => {
   const person = {
     id: 'person/test', name: 'Test', projects: [
