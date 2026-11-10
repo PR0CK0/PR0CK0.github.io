@@ -421,7 +421,14 @@ export default function Graph() {
   const [selectedNode, setSelectedNode] = useState<SelectedNode | null>(null)
   const expandedNodesRef = useRef<Set<string>>(new Set())
   const [mobileOpen, setMobileOpen] = useState(false)
+  const mobileDrawerRef = useRef<HTMLDivElement>(null)
   const [sidebarOpen, setSidebarOpen] = useState(true)
+
+  useEffect(() => {
+    if (!selectedNode) return
+    setMobileOpen(true)
+    if (mobileDrawerRef.current) mobileDrawerRef.current.scrollTop = 0
+  }, [selectedNode])
 
   const isLight = useIsLightMode()
   const C = isLight ? LIGHT : DARK
@@ -943,7 +950,7 @@ export default function Graph() {
 
 
       {/* Selected node panel */}
-      <div className="px-3 sm:px-4 py-2 sm:py-3">
+      <div aria-label="Selected node details" className={`px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0 ${selectedNode ? 'order-first sm:order-none' : ''}`}>
         <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: C.muted }}>
           Selected Node
         </div>
@@ -1048,7 +1055,7 @@ export default function Graph() {
 
   return (
     <div
-      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-screen max-w-[100vw]"
+      className="flex flex-col-reverse sm:flex-row overflow-hidden font-mono h-full min-h-0 max-w-[100vw]"
       style={{ background: C.bg }}
     >
       <SEO
@@ -1067,6 +1074,8 @@ export default function Graph() {
         {/* ── Mobile toggle strip (hidden on desktop) ── */}
         <button
           className="sm:hidden flex items-center justify-between px-3 flex-shrink-0 w-full text-left"
+          aria-controls="graph-mobile-details"
+          aria-expanded={mobileOpen}
           style={{
             borderTop: `1px solid ${C.border}`,
             borderBottom: mobileOpen ? `1px solid ${C.border}` : 'none',
@@ -1129,8 +1138,10 @@ export default function Graph() {
         {/* ── Collapsible content: mobile drawer or desktop panel ── */}
         {/* Mobile */}
         <div
-          className={`sm:hidden flex flex-col overflow-y-auto ${mobileOpen ? 'flex' : 'hidden'}`}
-          style={mobileOpen ? { maxHeight: '55vh' } : {}}
+          id="graph-mobile-details"
+          ref={mobileDrawerRef}
+          className={`sm:hidden flex-col overflow-y-auto ${mobileOpen ? 'flex' : 'hidden'}`}
+          style={mobileOpen ? { maxHeight: '55dvh' } : {}}
         >
           {sidebarContent}
         </div>
@@ -1143,7 +1154,7 @@ export default function Graph() {
       </aside>
 
       {/* ── Canvas ── */}
-      <div className="flex-1 relative overflow-hidden" style={{ background: C.bg }}>
+      <div className="flex-1 min-h-0 min-w-0 relative overflow-hidden" style={{ background: C.bg }}>
         {phase !== 'ready' && !error && <LoadingSpinner phase={phase} C={C} />}
 
         {error && (

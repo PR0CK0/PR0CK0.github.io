@@ -75,6 +75,8 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 ## Graph
 
+- [x] **Keep mobile graph controls visible** — Fit the graph below the navigation bar; open selected-node details first in the mobile drawer. Browser regression checks cover viewport bounds, desktop resizing, canvas clicks/taps, and connected-node navigation.
+
 - [x] **Restore omitted competency relationships** — One linking helper handles all supported fields across education, work, publications, projects, courses, certificates, talks, and extracurriculars. It creates nodes only from included records. Regression tests cover each record type, isolated skills, duplicate tags, and excluded records. Current data gains 38 missing edges.
 
 - [x] **Stop graph event listeners accumulating on React updates** — Register each graph handler once per Cytoscape instance and remove it on replacement/unmount. Regression coverage: `src/lib/__tests__/graph-listeners.test.ts`.
