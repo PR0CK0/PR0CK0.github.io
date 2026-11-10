@@ -158,7 +158,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 - [x] Classify Agile under Research Domains, preserving its name, ID, and 14 supporting records.
 - [x] Move Public Speaking on the Publix record into Soft Skills, preserving its existing identity and connections.
 - [ ] Review whether research domains should appear in CV/resume skill groups; NLP, NER, VLM, and Agile follow the current exclusion policy.
-- [ ] Review the [9 remaining field/category disagreements and possible aliases](docs/competency-review.md). Do not merge distinct concepts based on spelling alone.
+- [x] Resolve the [remaining field/category disagreements](docs/competency-review.md): keep the nine tools used only in Personal & Creative Work under Personal, retaining their references and exclusions.
 
 ## Type hierarchy organization
 

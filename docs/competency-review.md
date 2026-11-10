@@ -1,6 +1,6 @@
 # Competency classification review
 
-The original 2026-11-04 migration preserved 374 labels and categories. After the NLP and RAG consolidations, the catalog has 372 terms and 9 outstanding field/category placements. Views consistently use the catalog category even when a record stores a reference under a different field.
+The original 2026-11-04 migration preserved 374 labels and categories. After the NLP and RAG consolidations, the catalog has 372 terms and no outstanding field/category placements. Views consistently use the catalog category even when a record stores a reference under a different field.
 
 ## Resolved: Natural Language Processing
 
@@ -36,39 +36,24 @@ Portfolio competency fields use the full canonical labels for Natural Language P
 
 Stable IDs and alias mappings remain for existing links. Prose descriptions, titles, repository URLs, and other record fields retain their original wording. This normalization changes neither graph connections nor evidence counts.
 
-## Decisions to review
+## Resolved: Personal tools
 
-- Some technical tools were stored in `personal_skills` on a personal project. A project's context need not change a tool's category.
-- `Telegram` remains personal as requested. `Technical Writing` and `Scientific Writing` remain distinct.
+The nine tools below are categorized as Personal, matching their existing `personal_skills` references on **Personal & Creative Work**. Here, Personal describes the owner's experience outside professional or academic work, rather than the tool's technical type. Their names, IDs, aliases, and references are preserved.
 
-After deciding, change the catalog/category or record placement and rerun validation. To merge terms, keep one ID, move the retired label/ID into aliases, and remove the redundant term. Never reuse an existing ID for another concept.
-
-## Placement summary
-
-| Term | Record field | Catalog category | Occurrences |
-|---|---|---|---:|
-| Topaz Video AI | `personal_skills` | `ai_tools` | 1 |
-| Ruby/Rails | `personal_skills` | `prog_languages` | 1 |
-| TriplyDB | `personal_skills` | `dev_tools` | 1 |
-| Kubernetes | `personal_skills` | `dev_tools` | 1 |
-| GoDaddy | `personal_skills` | `cloud` | 1 |
-| LucidChart | `personal_skills` | `design` | 1 |
-| Google Cloud Platform | `personal_skills` | `cloud` | 1 |
-| Heroku | `personal_skills` | `cloud` | 1 |
-| Ontotext Refine | `personal_skills` | `dev_tools` | 1 |
-
-## All affected records
-
-Regenerate the current list with `python3 .github/scripts/validate_yaml_terms.py`.
-
-| Record | Field | Term | Catalog category |
+| Term | Previous catalog category | Current category | Supporting record |
 |---|---|---|---|
-| `proj/personal` | `personal_skills` | Topaz Video AI | `ai_tools` |
-| `proj/personal` | `personal_skills` | Ruby/Rails | `prog_languages` |
-| `proj/personal` | `personal_skills` | TriplyDB | `dev_tools` |
-| `proj/personal` | `personal_skills` | Kubernetes | `dev_tools` |
-| `proj/personal` | `personal_skills` | GoDaddy | `cloud` |
-| `proj/personal` | `personal_skills` | LucidChart | `design` |
-| `proj/personal` | `personal_skills` | Google Cloud Platform | `cloud` |
-| `proj/personal` | `personal_skills` | Heroku | `cloud` |
-| `proj/personal` | `personal_skills` | Ontotext Refine | `dev_tools` |
+| Topaz Video AI | AI Tools | Personal | Personal & Creative Work |
+| Ruby/Rails | Programming Languages | Personal | Personal & Creative Work |
+| TriplyDB | Development Tools | Personal | Personal & Creative Work |
+| Kubernetes | Development Tools | Personal | Personal & Creative Work |
+| GoDaddy | Cloud & Deployment | Personal | Personal & Creative Work |
+| LucidChart | Design & Analysis Tools | Personal | Personal & Creative Work |
+| Google Cloud Platform | Cloud & Deployment | Personal | Personal & Creative Work |
+| Heroku | Cloud & Deployment | Personal | Personal & Creative Work |
+| Ontotext Refine | Development Tools | Personal | Personal & Creative Work |
+
+Each has exactly one reference, on this record. The record remains excluded from the current graph and aggregated competency counts by its existing `cv_exclude` flag; none gains a visible connection or CV skill entry from this change. Telegram remains Personal. Technical Writing and Scientific Writing remain distinct.
+
+## Review status
+
+All recorded field/category disagreements are resolved. Run `python3 .github/scripts/validate_yaml_terms.py` to check future references. Categories are global: if a personal tool gains professional or academic evidence later, review its classification explicitly rather than changing it based on the containing record alone.
