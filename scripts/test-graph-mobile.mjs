@@ -61,9 +61,33 @@ try {
   })
   assert.ok(Math.abs(details.top - details.drawerTop) < 2, 'Selection must appear at the top of the mobile drawer')
   assert.ok(details.scrollable && details.connections > 0, 'Connections must be available in the scrollable drawer')
+  const drawer = '#graph-mobile-details'
+  const connections = `${drawer} [aria-label="Connected nodes"] > button`
+  assert.equal(await page.$$eval(connections, buttons => buttons.length), 5, 'Show only five connections initially')
+  assert.equal(await page.$eval(drawer, el => el.scrollWidth <= el.clientWidth), true, 'Details must not overflow sideways')
+  if (process.env.SCREENSHOT_PATH) await page.screenshot({ path: `${process.env.SCREENSHOT_PATH}.connections.png` })
+  const expand = `${drawer} [aria-label="Expand connected nodes"]`
+  await page.click(expand)
+  assert.ok(await page.$$eval(connections, buttons => buttons.length > 5), 'Expansion reveals remaining connections')
+  await page.$eval(drawer, el => { el.scrollTop = 0 })
+  await page.waitForSelector('[aria-label="Scroll details down"]', { visible: true })
+  await page.click('[aria-label="Scroll details down"]')
+  await page.waitForFunction(() => document.querySelector('#graph-mobile-details').scrollTop > 0)
+  await page.$eval(drawer, el => { el.scrollTop = el.scrollHeight })
+  await page.waitForSelector('[aria-label="Scroll details down"]', { hidden: true })
+  await page.click(`${drawer} [aria-label="Collapse connected nodes"]`)
+  assert.equal(await page.$$eval(connections, buttons => buttons.length), 5)
+  await page.$eval(drawer, el => { el.scrollTop = el.scrollHeight })
+  const filter = `${drawer} [aria-label="Graph node type filters"]`
+  await page.click(`${drawer} [aria-label="Scroll filters right"]`)
+  await page.waitForFunction(selector => document.querySelector(selector).scrollLeft > 0, {}, filter)
+  await page.click(`${drawer} [aria-label="Scroll filters left"]`)
+  await page.waitForFunction(selector => document.querySelector(selector).scrollLeft < 2, {}, filter)
+  if (process.env.SCREENSHOT_PATH) await page.screenshot({ path: `${process.env.SCREENSHOT_PATH}.filters.png` })
+  await page.$eval(drawer, el => { el.scrollTop = 0 })
   // Let the first touch gesture finish before tapping a newly opened control.
   if (touch) await new Promise(resolve => setTimeout(resolve, 350))
-  const connection = '#graph-mobile-details [aria-label="Selected node details"] button'
+  const connection = `${connections}:first-child`
   if (touch) await page.tap(connection)
   else await page.click(connection)
   await page.waitForFunction(label => {
@@ -71,7 +95,8 @@ try {
     const heading = selected?.querySelector('.font-bold.leading-snug')?.textContent
     return heading && heading !== label
   }, {}, target.label)
-  if (process.env.SCREENSHOT_PATH) await page.screenshot({ path: process.env.SCREENSHOT_PATH })
+  assert.ok(await page.$$eval(connections, buttons => buttons.length <= 5), 'Selecting another node resets the connection preview')
+  assert.equal(await page.$(`${drawer} [aria-label="Collapse connected nodes"]`), null)
   if (touch) await new Promise(resolve => setTimeout(resolve, 350))
   const toggle = '[aria-controls="graph-mobile-details"]'
   if (touch) await page.tap(toggle)
@@ -83,8 +108,17 @@ try {
     if (size.width < 640) await assertControlsVisible()
   }
   await page.setViewport({ width: 390, height: 844, hasTouch: touch, isMobile: touch })
+  await page.click(toggle)
+  await page.evaluate(() => document.documentElement.classList.add('light'))
+  assert.equal(await page.$eval(drawer, el => el.scrollWidth <= el.clientWidth), true)
+  if (process.env.SCREENSHOT_PATH) await page.screenshot({ path: `${process.env.SCREENSHOT_PATH}.light.png` })
+  for (const size of [{width:320,height:568}, {width:600,height:400}]) {
+    await page.setViewport({ ...size, hasTouch: touch, isMobile: touch })
+    await assertControlsVisible()
+    assert.equal(await page.$eval(drawer, el => el.scrollWidth <= el.clientWidth), true, 'No sideways overflow on small screens')
+  }
   assert.deepEqual(errors, [])
-  console.log('PASS mobile controls stay visible; canvas selection opens details; connections and drawer toggle work')
+  console.log('PASS mobile bounds, vertical-only details, five-connection disclosure, scroll cues, filter arrows, selection and navigation')
 } finally {
   await browser.close()
 }

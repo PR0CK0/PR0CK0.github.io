@@ -75,6 +75,8 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 ## Graph
 
+- [x] **Simplify mobile graph details** — Prevent sideways drawer overflow, show five connections with an expansion count, add vertical scroll cues/buttons, and make horizontal filter arrows clickable. Browser checks cover expansion, direction boundaries, selection reset, small screens, and themes.
+
 - [x] **Keep mobile graph controls visible** — Fit the graph below the navigation bar; open selected-node details first in the mobile drawer. Browser regression checks cover viewport bounds, desktop resizing, canvas clicks/taps, and connected-node navigation.
 
 - [x] **Restore omitted competency relationships** — One linking helper handles all supported fields across education, work, publications, projects, courses, certificates, talks, and extracurriculars. It creates nodes only from included records. Regression tests cover each record type, isolated skills, duplicate tags, and excluded records. Current data gains 38 missing edges.

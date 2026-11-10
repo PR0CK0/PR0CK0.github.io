@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { useIsLightMode } from '@/lib/useIsLightMode'
 import SEO from '@/components/SEO'
 import GraphFilterScroller from '@/components/GraphFilterScroller'
+import GraphDetailsScroller from '@/components/GraphDetailsScroller'
 import CytoscapeComponent from 'react-cytoscapejs'
 import cytoscape from 'cytoscape'
 // @ts-ignore — no bundled types for default import
@@ -148,6 +149,8 @@ const LAYOUT_OPTIONS = {
   nodeSeparation: 75,
   piTol: 0.0000001,
 }
+
+const INITIAL_CONNECTION_COUNT = 5
 
 const LAYOUT_CACHE_PREFIX = 'graph-layout-v6'
 
@@ -421,13 +424,13 @@ export default function Graph() {
   const [selectedNode, setSelectedNode] = useState<SelectedNode | null>(null)
   const expandedNodesRef = useRef<Set<string>>(new Set())
   const [mobileOpen, setMobileOpen] = useState(false)
-  const mobileDrawerRef = useRef<HTMLDivElement>(null)
+  const [connectionsExpanded, setConnectionsExpanded] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
   useEffect(() => {
     if (!selectedNode) return
     setMobileOpen(true)
-    if (mobileDrawerRef.current) mobileDrawerRef.current.scrollTop = 0
+    setConnectionsExpanded(false)
   }, [selectedNode])
 
   const isLight = useIsLightMode()
@@ -813,7 +816,7 @@ export default function Graph() {
           })()}
         </div>
         {/* On mobile: horizontal scroll row; on desktop: vertical list */}
-        <GraphFilterScroller backgroundColor={C.surface} hintColor={C.textFaint}>
+        <GraphFilterScroller backgroundColor={C.surface} hintColor={C.text}>
           {NODE_TYPES.filter(t => !COMPETENCY_NODE_TYPES.includes(t)).map((type) => {
             const meta = TYPE_META[type]
             const enabled = enabledTypes.has(type)
@@ -950,7 +953,7 @@ export default function Graph() {
 
 
       {/* Selected node panel */}
-      <div aria-label="Selected node details" className={`px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0 ${selectedNode ? 'order-first sm:order-none' : ''}`}>
+      <div aria-label="Selected node details" className={`min-w-0 [overflow-wrap:anywhere] px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0 ${selectedNode ? 'order-first sm:order-none' : ''}`}>
         <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: C.muted }}>
           Selected Node
         </div>
@@ -1026,24 +1029,34 @@ export default function Graph() {
                 <div className="text-[0.6rem] sm:text-xs uppercase tracking-wider mb-1" style={{ color: C.muted }}>
                   Connected ({selectedNode.connectedNodes.length})
                 </div>
-                <div className="flex flex-col gap-0.5">
-                  {selectedNode.connectedNodes.map((n, i) => {
+                <div aria-label="Connected nodes" role="group" className="flex min-w-0 flex-col gap-1">
+                  {selectedNode.connectedNodes.slice(0, connectionsExpanded ? undefined : INITIAL_CONNECTION_COUNT).map((n) => {
                     const meta = TYPE_META[n.type] ?? TYPE_META.skill
                     return (
                       <button
-                        key={i}
+                        key={n.id}
                         onClick={() => selectNodeById(n.id)}
-                        className="text-[0.6rem] sm:text-xs py-0.5 px-2 rounded flex items-baseline gap-1.5 w-full text-left transition-opacity hover:opacity-80"
+                        className="text-[0.6rem] sm:text-xs min-h-11 sm:min-h-0 py-1 sm:py-0.5 px-2 rounded flex items-baseline gap-1.5 min-w-0 w-full text-left transition-opacity hover:opacity-80"
                         style={{ background: C.border, borderLeft: `2px solid ${meta.color}66`, cursor: 'pointer' }}
                       >
                         <span className="font-bold uppercase tracking-wider flex-shrink-0" style={{ color: meta.color, fontSize: '0.55rem' }}>
                           {meta.label}
                         </span>
-                        <span className="truncate" style={{ color: C.text }}>{n.label}</span>
+                        <span className="min-w-0 break-words sm:truncate" style={{ color: C.text }}>{n.label}</span>
                       </button>
                     )
                   })}
                 </div>
+                {selectedNode.connectedNodes.length > INITIAL_CONNECTION_COUNT && (
+                  <button type="button" aria-expanded={connectionsExpanded}
+                    aria-label={connectionsExpanded ? 'Collapse connected nodes' : 'Expand connected nodes'}
+                    className="mt-2 min-h-11 w-full rounded border px-2 text-xs font-bold"
+                    style={{ color: C.text, borderColor: C.borderHover, background: C.border }}
+                    onClick={() => setConnectionsExpanded(expanded => !expanded)}
+                  >
+                    {connectionsExpanded ? '− Show fewer' : `+ Show ${selectedNode.connectedNodes.length - INITIAL_CONNECTION_COUNT} more`}
+                  </button>
+                )}
               </div>
             )}
           </div>
@@ -1065,7 +1078,7 @@ export default function Graph() {
       />
       {/* ── Sidebar — desktop: left panel (collapsible); mobile: bottom drawer ── */}
       <aside
-        className={`graph-sidebar flex flex-col flex-shrink-0 w-full ${sidebarOpen ? 'sm:w-[280px] sm:min-w-[280px] sm:max-w-[280px]' : 'sm:w-[21px] sm:min-w-[21px] sm:max-w-[21px]'}`}
+        className={`graph-sidebar flex min-w-0 flex-col flex-shrink-0 w-full ${sidebarOpen ? 'sm:w-[280px] sm:min-w-[280px] sm:max-w-[280px]' : 'sm:w-[21px] sm:min-w-[21px] sm:max-w-[21px]'}`}
         style={{
           background: C.surface,
           borderRight: sidebarOpen ? `1px solid ${C.border}` : 'none',
@@ -1137,17 +1150,13 @@ export default function Graph() {
 
         {/* ── Collapsible content: mobile drawer or desktop panel ── */}
         {/* Mobile */}
-        <div
-          id="graph-mobile-details"
-          ref={mobileDrawerRef}
-          className={`sm:hidden flex-col overflow-y-auto ${mobileOpen ? 'flex' : 'hidden'}`}
-          style={mobileOpen ? { maxHeight: '55dvh' } : {}}
-        >
+        <GraphDetailsScroller open={mobileOpen} selectionId={selectedNode?.id}
+          backgroundColor={C.surface} color={C.text}>
           {sidebarContent}
-        </div>
+        </GraphDetailsScroller>
         {/* Desktop */}
         {sidebarOpen && (
-          <div className="hidden sm:flex flex-col overflow-y-auto flex-1 sidebar-scroll">
+          <div className="hidden sm:flex min-w-0 flex-col overflow-x-hidden overflow-y-auto flex-1 sidebar-scroll">
             {sidebarContent}
           </div>
         )}

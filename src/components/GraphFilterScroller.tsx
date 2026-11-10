@@ -33,29 +33,34 @@ export default function GraphFilterScroller({ children, backgroundColor, hintCol
   }, [])
 
   return (
-    <div className="relative min-w-0">
-      <div
-        ref={ref}
-        role="group"
-        aria-label="Graph node type filters"
-        tabIndex={0}
-        className="flex sm:flex-col gap-1.5 overflow-x-auto sm:overflow-x-visible pb-1 sm:pb-0"
-        style={{ scrollbarWidth: 'none' }}
-      >
-        {children}
+    <div className="flex min-w-0 items-center gap-1 sm:block">
+      <button type="button" aria-label="Scroll filters left" disabled={!edges.left}
+        className="h-11 w-9 shrink-0 rounded border text-xl font-bold disabled:opacity-25 sm:hidden"
+        style={{ color: hintColor, borderColor: hintColor, backgroundColor }}
+        onClick={() => ref.current?.scrollBy({ left: -ref.current.clientWidth * 0.75, behavior: 'smooth' })}
+      >‹</button>
+      <div className="relative min-w-0 flex-1">
+        <div
+          ref={ref}
+          role="group"
+          aria-label="Graph node type filters"
+          tabIndex={0}
+          className="relative flex sm:flex-col gap-1.5 overflow-x-auto sm:overflow-x-visible py-1 sm:py-0"
+          style={{ scrollbarWidth: 'none' }}
+        >
+          {children}
+        </div>
+        {(['left', 'right'] as const).map(edge => edges[edge] && (
+          <span key={edge} aria-hidden="true" data-scroll-edge={edge}
+            className={`pointer-events-none absolute inset-y-0 w-6 sm:hidden ${edge === 'left' ? 'left-0' : 'right-0'}`}
+            style={{ background: `linear-gradient(to ${edge === 'left' ? 'right' : 'left'}, ${backgroundColor}, transparent)` }} />
+        ))}
       </div>
-      {edges.left && (
-        <span aria-hidden="true" data-scroll-edge="left" className="pointer-events-none absolute inset-y-0 left-0 z-10 flex w-5 items-center sm:hidden"
-          style={{ background: `linear-gradient(to right, ${backgroundColor}, transparent)`, color: hintColor }}>
-          ‹
-        </span>
-      )}
-      {edges.right && (
-        <span aria-hidden="true" data-scroll-edge="right" className="pointer-events-none absolute inset-y-0 right-0 z-10 flex w-5 items-center justify-end sm:hidden"
-          style={{ background: `linear-gradient(to left, ${backgroundColor}, transparent)`, color: hintColor }}>
-          ›
-        </span>
-      )}
+      <button type="button" aria-label="Scroll filters right" disabled={!edges.right}
+        className="h-11 w-9 shrink-0 rounded border text-xl font-bold disabled:opacity-25 sm:hidden"
+        style={{ color: hintColor, borderColor: hintColor, backgroundColor }}
+        onClick={() => ref.current?.scrollBy({ left: ref.current.clientWidth * 0.75, behavior: 'smooth' })}
+      >›</button>
     </div>
   )
 }
