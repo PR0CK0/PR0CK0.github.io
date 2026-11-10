@@ -80,7 +80,7 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 - [x] **Stop graph event listeners accumulating on React updates** — Register each graph handler once per Cytoscape instance and remove it on replacement/unmount. Regression coverage: `src/lib/__tests__/graph-listeners.test.ts`.
 
 - [x] **Unify graph link and click selection** — Fresh and cached graph links already dim the neighborhood correctly; retire the stale timing report. Links and connected-node navigation now reuse the click handler, preserving record descriptions as well as neighbor expansion and dimming. Regression tests compare link/click details and classes, and verify background deselection.
-- [ ] **Graph filter scroll shadows** — Add visual indicator on mobile when filter-by-type list is scrollable. Should show fade/shadow on edges only when content exists to scroll in that direction. Several attempts didn't work reliably; needs a different approach or library.
+- [x] **Graph filter scroll shadows** — Mobile edge fades and arrows reflect remaining overflow in each direction. Independent drawer observers handle opening, resizing, and label/font changes without dependencies; unit and browser checks cover boundaries, keyboard scrolling, themes, and filter interactions.
 
 ## Ensure full coverage of domains, technologies, soft_skills on all entries
 

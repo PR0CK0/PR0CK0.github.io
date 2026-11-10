@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useIsLightMode } from '@/lib/useIsLightMode'
 import SEO from '@/components/SEO'
+import GraphFilterScroller from '@/components/GraphFilterScroller'
 import CytoscapeComponent from 'react-cytoscapejs'
 import cytoscape from 'cytoscape'
 // @ts-ignore — no bundled types for default import
@@ -805,7 +806,7 @@ export default function Graph() {
           })()}
         </div>
         {/* On mobile: horizontal scroll row; on desktop: vertical list */}
-        <div className="flex sm:flex-col gap-1.5 overflow-x-auto sm:overflow-x-visible pb-1 sm:pb-0" style={{ scrollbarWidth: 'none' }}>
+        <GraphFilterScroller backgroundColor={C.surface} hintColor={C.textFaint}>
           {NODE_TYPES.filter(t => !COMPETENCY_NODE_TYPES.includes(t)).map((type) => {
             const meta = TYPE_META[type]
             const enabled = enabledTypes.has(type)
@@ -861,7 +862,7 @@ export default function Graph() {
               </label>
             )
           })}
-        </div>
+        </GraphFilterScroller>
       </div>
 
       {/* Search */}
