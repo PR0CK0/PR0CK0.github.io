@@ -82,6 +82,7 @@ export const ProjectSchema = z.object({
   repo_url: z.string().optional(),
   featured: z.boolean().optional(),
   cv_exclude: z.boolean().optional(),
+  graph_exclude: z.boolean().optional(),
 })
 
 const skillCategories = Object.keys(COMPETENCY_CATEGORY_LABELS) as [string, ...string[]]

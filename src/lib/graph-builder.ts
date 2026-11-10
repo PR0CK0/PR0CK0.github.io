@@ -78,7 +78,7 @@ export function buildGraph(person: Person): GraphData {
   const personId = person.id
   addNode({ data: { id: personId, label: person.name, type: 'person', subtitle: person.title } })
 
-  const projects = (person.projects ?? []).filter(p => !p.cv_exclude)
+  const projects = (person.projects ?? []).filter(p => !p.graph_exclude)
 
   // ─── Education ───────────────────────────────────────────────────────────────
   person.education?.forEach((edu) => {

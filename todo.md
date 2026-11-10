@@ -191,7 +191,7 @@ These were in the now-deleted `skills:` YAML section but are not attached to any
 
 - [x] **Audit YAML for redundant data** — Removed description from 57 work/project entries where bullets was present (templates use bullets only). Remaining: date_display, title_line, org still needed by Jinja2 templates — defer until legacy view is ported.
 
-- [ ] proj/personal — catch-all personal/creative entry (Adobe, AutoCAD, etc.); needs tech/domains review and possible restructure or deletion
+- [x] proj/personal — show its 19 tools under Personal & Creative Use on the site/graph, keep them off CV/resume, and preserve the other five hidden projects with independent visibility flags. Telegram is Communication Tools and belongs only to the Christian Denominations Wikidata project.
 
 
 

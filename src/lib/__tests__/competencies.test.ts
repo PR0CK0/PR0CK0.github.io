@@ -57,7 +57,7 @@ describe('competency catalog', () => {
     })
     expect(terms).toEqual([resolveCompetency('Technical Writing')])
     expect(terms[0].category).toBe('soft_skills')
-    expect(resolveCompetency('Telegram').category).toBe('personal')
+    expect(resolveCompetency('Telegram').category).toBe('comm_tools')
   })
 })
 

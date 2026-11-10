@@ -4,13 +4,13 @@ import { competencyNodeId, resolveCompetency } from '../competencies'
 import type { Person } from '../schema'
 
 describe('buildGraph', () => {
-  it('omits cv_exclude projects and skills only they use', () => {
+  it('omits graph_exclude projects and skills only they use', () => {
     const person = {
       id: 'person/x',
       name: 'X',
       projects: [
         { id: 'proj/shown', title: 'Shown', year: '2024', description: '', technologies: ['Python'] },
-        { id: 'proj/hidden', title: 'Hidden', year: '2024', description: '', technologies: ['Rust'], cv_exclude: true },
+        { id: 'proj/hidden', title: 'Hidden', year: '2024', description: '', technologies: ['Rust'], graph_exclude: true },
       ],
     } as Person
     const ids = buildGraph(person).nodes.map((n) => n.data.id)
@@ -41,12 +41,12 @@ describe('competency evidence coverage', () => {
         technologies: ['SPARQL', 'SPARQL'], // repeated tags must not duplicate edges
         domains: ['Ontology'],
         soft_skills: ['Technical Writing'],
-        ...(supportsPersonal ? { personal_skills: ['Telegram'] } : {}),
+        ...(supportsPersonal ? { personal_skills: ['Element'] } : {}),
       }],
     } as Person
     const graph = buildGraph(person)
     const expectedTerms = ['SPARQL', 'Ontology', 'Technical Writing']
-    if (supportsPersonal) expectedTerms.push('Telegram')
+    if (supportsPersonal) expectedTerms.push('Element')
     const expectedTargets = expectedTerms.map(term => competencyNodeId(resolveCompetency(term)))
     expect(graph.edges.filter(edge => edge.data.source === source).map(edge => edge.data.target).sort())
       .toEqual(expectedTargets.sort())
@@ -58,7 +58,7 @@ describe('competency evidence coverage', () => {
   it('does not create orphan competencies from excluded work or deprecated certificates', () => {
     const person = {
       id: 'person/test', name: 'Test',
-      work_experiences: [{ id: 'work/hidden', title: 'Hidden', organization: 'Organization', graph_exclude: true, personal_skills: ['Telegram'] }],
+      work_experiences: [{ id: 'work/hidden', title: 'Hidden', organization: 'Organization', graph_exclude: true, personal_skills: ['Element'] }],
       certificates: [{ id: 'certificate/old', title: 'Old', deprecated: true, technologies: ['SPARQL'], domains: ['Ontology'], soft_skills: ['Technical Writing'] }],
     } as Person
     expect(buildGraph(person)).toEqual({ nodes: [{ data: { id: 'person/test', label: 'Test', type: 'person', subtitle: undefined } }], edges: [] })

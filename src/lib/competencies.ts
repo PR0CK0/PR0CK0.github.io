@@ -78,7 +78,7 @@ export function aggregateCompetencies(person: Person): AggregatedSkill[] {
     ...(person.education ?? []),
     ...(person.work_experiences ?? []).filter(entry => !entry.graph_exclude),
     ...(person.publications ?? []),
-    ...(person.projects ?? []).filter(entry => !entry.cv_exclude),
+    ...(person.projects ?? []).filter(entry => !entry.graph_exclude),
     ...(person.courses ?? []),
     ...(person.certificates ?? []).filter(entry => !entry.deprecated),
     ...(person.talks ?? []),

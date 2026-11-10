@@ -12,7 +12,7 @@
     "os": "Operating Systems",
     "design": "Design & Analysis Tools",
     "soft_skills": "Soft Skills",
-    "personal": "Personal",
+    "personal": "Personal & Creative Use",
     "domains": "Research Domains"
   },
   "terms": [
@@ -184,6 +184,7 @@
     {"id": "google-drive", "label": "Google Drive", "category": "office_tools", "aliases": []},
     {"id": "google-sheets", "label": "Google Sheets", "category": "office_tools", "aliases": []},
     {"id": "google-slides", "label": "Google Slides", "category": "office_tools", "aliases": []},
+    {"id": "telegram", "label": "Telegram", "category": "comm_tools", "aliases": []},
     {"id": "microsoft-teams", "label": "Microsoft Teams", "category": "comm_tools", "aliases": []},
     {"id": "signal", "label": "Signal", "category": "comm_tools", "aliases": []},
     {"id": "slack", "label": "Slack", "category": "comm_tools", "aliases": []},
@@ -379,7 +380,6 @@
     {"id": "lucidchart", "label": "LucidChart", "category": "personal", "aliases": []},
     {"id": "skype", "label": "Skype", "category": "personal", "aliases": []},
     {"id": "element", "label": "Element", "category": "personal", "aliases": []},
-    {"id": "telegram", "label": "Telegram", "category": "personal", "aliases": []},
     {"id": "libreoffice-writer", "label": "LibreOffice Writer", "category": "personal", "aliases": []},
     {"id": "libreoffice-calc", "label": "LibreOffice Calc", "category": "personal", "aliases": []},
     {"id": "libreoffice-impress", "label": "LibreOffice Impress", "category": "personal", "aliases": []},

@@ -552,7 +552,7 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
   }
 
   // Projects (top 8)
-  const allProjects = [...(person.projects ?? [])]
+  const allProjects = [...(person.projects ?? [])].filter(p => !p.cv_exclude)
   const projects = allProjects
     .sort((a, b) => {
       if (a.featured && !b.featured) return -1

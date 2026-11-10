@@ -38,21 +38,25 @@ Stable IDs and alias mappings remain for existing links. Prose descriptions, tit
 
 ## Resolved: Personal tools
 
-The nine tools below are categorized as Personal, matching their existing `personal_skills` references on **Personal & Creative Work**. Here, Personal describes the owner's experience outside professional or academic work, rather than the tool's technical type. Their names, IDs, aliases, and references are preserved.
+The nine tools below are categorized as Personal & Creative Use, matching their existing `personal_skills` references on **Personal & Creative Work**. Here, Personal & Creative Use describes the owner's experience outside professional or academic work, rather than the tool's technical type. Their names, IDs, aliases, and references are preserved.
 
 | Term | Previous catalog category | Current category | Supporting record |
 |---|---|---|---|
-| Topaz Video AI | AI Tools | Personal | Personal & Creative Work |
-| Ruby/Rails | Programming Languages | Personal | Personal & Creative Work |
-| TriplyDB | Development Tools | Personal | Personal & Creative Work |
-| Kubernetes | Development Tools | Personal | Personal & Creative Work |
-| GoDaddy | Cloud & Deployment | Personal | Personal & Creative Work |
-| LucidChart | Design & Analysis Tools | Personal | Personal & Creative Work |
-| Google Cloud Platform | Cloud & Deployment | Personal | Personal & Creative Work |
-| Heroku | Cloud & Deployment | Personal | Personal & Creative Work |
-| Ontotext Refine | Development Tools | Personal | Personal & Creative Work |
+| Topaz Video AI | AI Tools | Personal & Creative Use | Personal & Creative Work |
+| Ruby/Rails | Programming Languages | Personal & Creative Use | Personal & Creative Work |
+| TriplyDB | Development Tools | Personal & Creative Use | Personal & Creative Work |
+| Kubernetes | Development Tools | Personal & Creative Use | Personal & Creative Work |
+| GoDaddy | Cloud & Deployment | Personal & Creative Use | Personal & Creative Work |
+| LucidChart | Design & Analysis Tools | Personal & Creative Use | Personal & Creative Work |
+| Google Cloud Platform | Cloud & Deployment | Personal & Creative Use | Personal & Creative Work |
+| Heroku | Cloud & Deployment | Personal & Creative Use | Personal & Creative Work |
+| Ontotext Refine | Development Tools | Personal & Creative Use | Personal & Creative Work |
 
-Each has exactly one reference, on this record. The record remains excluded from the current graph and aggregated competency counts by its existing `cv_exclude` flag; none gains a visible connection or CV skill entry from this change. Telegram remains Personal. Technical Writing and Scientific Writing remain distinct.
+Each has exactly one reference, on this record. Personal & Creative Work and its 19 Personal & Creative Use tools are now included in the graph and homepage counts. Its `cv_exclude` flag still excludes the project from both CV and resume; personal-category skills remain excluded from their skill groups. The five other previously hidden projects have explicit `graph_exclude` flags, keeping their website visibility unchanged. Technical Writing and Scientific Writing remain distinct.
+
+## Resolved: Telegram
+
+Telegram is categorized as Communication Tools, retaining its `telegram` ID. Its reference was removed from Personal & Creative Work and moved into `technologies` on the Christian Denominations Wikidata project. That project supplies its only connection. The personal category key stays `personal`; its displayed section name is **Personal & Creative Use**.
 
 ## Review status
 

@@ -61,7 +61,7 @@ describe('shared competency evidence', () => {
       id: 'person/test', name: 'Test',
       education: [{ id: 'education/test', degree: 'Degree', institution: 'University', technologies: ['SPARQL'], soft_skills: ['Technical Writing'] }],
       certificates: [{ id: 'certificate/test', title: 'Certificate', technologies: ['SPARQL'] }],
-      projects: [{ id: 'project/test', title: 'Project', technologies: ['SPARQL'], domains: ['Ontology'], personal_skills: ['Telegram'] }],
+      projects: [{ id: 'project/test', title: 'Project', technologies: ['SPARQL'], domains: ['Ontology'], personal_skills: ['Element'] }],
     } as Person
 
     expect(countTechOccurrences(person)).toEqual(new Map(
@@ -73,7 +73,7 @@ describe('shared competency evidence', () => {
   it('omits evidence excluded by the shared visibility policy', () => {
     const person = {
       id: 'person/test', name: 'Test',
-      projects: [{ id: 'project/hidden', title: 'Hidden', cv_exclude: true, technologies: ['SPARQL'] }],
+      projects: [{ id: 'project/hidden', title: 'Hidden', graph_exclude: true, technologies: ['SPARQL'] }],
       work_experiences: [{ id: 'work/hidden', title: 'Hidden', organization: 'Org', graph_exclude: true, soft_skills: ['Technical Writing'] }],
       certificates: [{ id: 'certificate/old', title: 'Old', deprecated: true, technologies: ['Python'] }],
     } as Person
@@ -86,13 +86,13 @@ describe('shared competency evidence', () => {
 describe('CV skill groups', () => {
   it('retains supported soft skills while keeping CV category exclusions', () => {
     const groups = groupSkills(new Map([
-      ['SPARQL', 2], ['Technical Writing', 1], ['Telegram', 1],
+      ['SPARQL', 2], ['Technical Writing', 1], ['Element', 1],
       ['Ontology', 1], ['Linux', 1],
     ]))
 
     expect(groups[COMPETENCY_CATEGORY_LABELS.data_languages]).toEqual(['SPARQL'])
     expect(groups[COMPETENCY_CATEGORY_LABELS.soft_skills]).toEqual(['Technical Writing'])
-    expect(Object.values(groups).flat()).toEqual(expect.not.arrayContaining(['Telegram', 'Ontology', 'Linux']))
+    expect(Object.values(groups).flat()).toEqual(expect.not.arrayContaining(['Element', 'Ontology', 'Linux']))
   })
 
   it('orders observed skills by support count and omits unused vocabulary terms', () => {
