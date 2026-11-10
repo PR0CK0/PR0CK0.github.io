@@ -78,6 +78,10 @@ const REVIEWED_COMPETENCIES = [
     name: 'Vision-Language Models', id: 'vlm',
     references: ['VLM', 'vlm', 'Vision-Language Models'],
   },
+  {
+    name: 'Agile', id: 'agile',
+    references: ['Agile', 'agile'],
+  },
 ]
 
 describe.each(REVIEWED_COMPETENCIES)('$name identity', ({ name, id, references }) => {

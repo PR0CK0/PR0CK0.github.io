@@ -1,6 +1,6 @@
 # Competency classification review
 
-The original 2026-11-04 migration preserved 374 labels and categories. After the NLP and RAG consolidations, the catalog has 372 terms and 24 outstanding field/category placements. Views consistently use the catalog category even when a record stores a reference under a different field.
+The original 2026-11-04 migration preserved 374 labels and categories. After the NLP and RAG consolidations, the catalog has 372 terms and 10 outstanding field/category placements. Views consistently use the catalog category even when a record stores a reference under a different field.
 
 ## Resolved: Natural Language Processing
 
@@ -22,6 +22,10 @@ All 27 existing supporting records remain connected, and their domain placements
 
 Only the canonical full label is rendered on competency chips and graph nodes. Preserved abbreviations are alternate references, not extra entries or additional displayed labels. Existing prose descriptions retain their wording.
 
+## Resolved: Agile
+
+`Agile` is categorized under Research Domains, reflecting the Agile methods covered by the portfolio's work, research, projects, and courses. Its label, `agile` ID, references, and all 14 supporting connections are preserved. The records already placed it in `domains`; the catalog now agrees. Agile follows the existing CV/resume domain-exclusion policy and no longer appears in its Soft Skills group.
+
 ## Stored references
 
 Portfolio competency fields use the full canonical labels for Natural Language Processing, Named Entity Recognition, Vision-Language Models, and Retrieval-Augmented Generation. The 33 abbreviated values were normalized (27 NLP, five NER, one VLM); all seven RAG references already used the full name. Helper reference lists and the project-analysis prompt use those same names. A regression test guards these stored references against abbreviated values returning.
@@ -30,7 +34,7 @@ Stable IDs and alias mappings remain for existing links. Prose descriptions, tit
 
 ## Decisions to review
 
-- `Agile` and `Public Speaking` occur in domains but are cataloged as soft skills.
+- `Public Speaking` occurs in domains but is cataloged as a soft skill.
 - Some technical tools were stored in `personal_skills` on a personal project. A project's context need not change a tool's category.
 - `Telegram` remains personal as requested. `Technical Writing` and `Scientific Writing` remain distinct.
 
@@ -40,7 +44,6 @@ After deciding, change the catalog/category or record placement and rerun valida
 
 | Term | Record field | Catalog category | Occurrences |
 |---|---|---|---:|
-| Agile | `domains` | `soft_skills` | 14 |
 | Public Speaking | `domains` | `soft_skills` | 1 |
 | Topaz Video AI | `personal_skills` | `ai_tools` | 1 |
 | Ruby/Rails | `personal_skills` | `prog_languages` | 1 |
@@ -58,17 +61,7 @@ Regenerate the current list with `python3 .github/scripts/validate_yaml_terms.py
 
 | Record | Field | Term | Catalog category |
 |---|---|---|---|
-| `work/stealth-startup` | `domains` | Agile | `soft_skills` |
-| `work/handshake-ai` | `domains` | Agile | `soft_skills` |
-| `work/upwork-software-test` | `domains` | Agile | `soft_skills` |
-| `work/forumapi` | `domains` | Agile | `soft_skills` |
 | `work/publix` | `domains` | Public Speaking | `soft_skills` |
-| `pub/phd-dissertation` | `domains` | Agile | `soft_skills` |
-| `pub/towards-agile-academia` | `domains` | Agile | `soft_skills` |
-| `pub/scrum-in-classroom` | `domains` | Agile | `soft_skills` |
-| `pub/digital-rubber-duck` | `domains` | Agile | `soft_skills` |
-| `pub/microelectronic-ai-dishonesty` | `domains` | Agile | `soft_skills` |
-| `pub/interpersonal-chemistry-agile` | `domains` | Agile | `soft_skills` |
 | `proj/personal` | `personal_skills` | Topaz Video AI | `ai_tools` |
 | `proj/personal` | `personal_skills` | Ruby/Rails | `prog_languages` |
 | `proj/personal` | `personal_skills` | TriplyDB | `dev_tools` |
@@ -78,7 +71,3 @@ Regenerate the current list with `python3 .github/scripts/validate_yaml_terms.py
 | `proj/personal` | `personal_skills` | Google Cloud Platform | `cloud` |
 | `proj/personal` | `personal_skills` | Heroku | `cloud` |
 | `proj/personal` | `personal_skills` | Ontotext Refine | `dev_tools` |
-| `proj/ecocar` | `domains` | Agile | `soft_skills` |
-| `proj/arocket` | `domains` | Agile | `soft_skills` |
-| `CS225, CS225L` | `domains` | Agile | `soft_skills` |
-| `SE510` | `domains` | Agile | `soft_skills` |
