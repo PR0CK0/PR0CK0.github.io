@@ -70,6 +70,10 @@ describe.each([
     name: 'Retrieval-Augmented Generation', id: 'retrieval-augmented-generation',
     references: ['RAG', 'rag', 'Retrieval-Augmented Generation', 'retrieval-augmented-generation'],
   },
+  {
+    name: 'Named Entity Recognition', id: 'ner',
+    references: ['NER', 'ner', 'Named Entity Recognition'],
+  },
 ])('$name identity', ({ name, id, references }) => {
   const person = {
     id: 'person/test', name: 'Test', projects: [

@@ -1,6 +1,6 @@
 # Competency classification review
 
-The original 2026-11-04 migration preserved 374 labels and categories. After the NLP and RAG consolidations, the catalog has 372 terms and 30 outstanding field/category placements. Views consistently use the catalog category even when a record stores a reference under a different field.
+The original 2026-11-04 migration preserved 374 labels and categories. After the NLP and RAG consolidations, the catalog has 372 terms and 25 outstanding field/category placements. Views consistently use the catalog category even when a record stores a reference under a different field.
 
 ## Resolved: Natural Language Processing
 
@@ -12,9 +12,13 @@ All 27 existing supporting records remain connected, and their domain placements
 
 `RAG` is now an alias of **Retrieval-Augmented Generation**, retaining the used `retrieval-augmented-generation` ID. Case-insensitive alias lookup also preserves the retired `rag` link ID. All seven existing supporting records remain connected to the same research-domain node. The category and CV/resume visibility are unchanged; new repository discovery already emits the full name.
 
+## Resolved: Named Entity Recognition
+
+`NER` is displayed as **Named Entity Recognition** under Research Domains, retaining the `ner` ID. Case-insensitive ID lookup preserves all existing `NER` references and links. All five supporting records remain connected; their domain placements now agree with the catalog. Like NLP, NER follows the current CV/resume domain-exclusion policy and no longer appears under AI Tools in skill groups.
+
 ## Decisions to review
 
-- `NER` and `VLM` are categorized as AI tools but occur in domains. Decide whether these are techniques, domains, or tools in this portfolio's taxonomy.
+- `VLM` is categorized as an AI tool but occurs in domains. Decide where this model family belongs in the portfolio's taxonomy.
 - `Agile` and `Public Speaking` occur in domains but are cataloged as soft skills.
 - Some technical tools were stored in `personal_skills` on a personal project. A project's context need not change a tool's category.
 - `Telegram` remains personal as requested. `Technical Writing` and `Scientific Writing` remain distinct.
@@ -26,7 +30,6 @@ After deciding, change the catalog/category or record placement and rerun valida
 | Term | Record field | Catalog category | Occurrences |
 |---|---|---|---:|
 | Agile | `domains` | `soft_skills` | 14 |
-| NER | `domains` | `ai_tools` | 5 |
 | Public Speaking | `domains` | `soft_skills` | 1 |
 | VLM | `domains` | `ai_tools` | 1 |
 | Topaz Video AI | `personal_skills` | `ai_tools` | 1 |
@@ -46,13 +49,9 @@ Regenerate the current list with `python3 .github/scripts/validate_yaml_terms.py
 | Record | Field | Term | Catalog category |
 |---|---|---|---|
 | `work/stealth-startup` | `domains` | Agile | `soft_skills` |
-| `work/stealth-startup` | `domains` | NER | `ai_tools` |
 | `work/handshake-ai` | `domains` | Agile | `soft_skills` |
-| `work/cloudcell-consultant` | `domains` | NER | `ai_tools` |
-| `work/the-link` | `domains` | NER | `ai_tools` |
 | `work/upwork-software-test` | `domains` | Agile | `soft_skills` |
 | `work/forumapi` | `domains` | Agile | `soft_skills` |
-| `work/forumapi` | `domains` | NER | `ai_tools` |
 | `work/publix` | `domains` | Public Speaking | `soft_skills` |
 | `pub/phd-dissertation` | `domains` | Agile | `soft_skills` |
 | `pub/towards-agile-academia` | `domains` | Agile | `soft_skills` |
@@ -60,7 +59,6 @@ Regenerate the current list with `python3 .github/scripts/validate_yaml_terms.py
 | `pub/digital-rubber-duck` | `domains` | Agile | `soft_skills` |
 | `pub/microelectronic-ai-dishonesty` | `domains` | Agile | `soft_skills` |
 | `pub/interpersonal-chemistry-agile` | `domains` | Agile | `soft_skills` |
-| `proj/biomed-paper-extractor` | `domains` | NER | `ai_tools` |
 | `proj/biomed-paper-extractor` | `domains` | VLM | `ai_tools` |
 | `proj/personal` | `personal_skills` | Topaz Video AI | `ai_tools` |
 | `proj/personal` | `personal_skills` | Ruby/Rails | `prog_languages` |
