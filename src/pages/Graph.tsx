@@ -1036,7 +1036,7 @@ export default function Graph() {
                       <button
                         key={n.id}
                         onClick={() => selectNodeById(n.id)}
-                        className="text-[0.6rem] sm:text-xs min-h-11 sm:min-h-0 py-1 sm:py-0.5 px-2 rounded flex items-baseline gap-1.5 min-w-0 w-full text-left transition-opacity hover:opacity-80"
+                        className="text-[0.6rem] sm:text-xs py-0.5 px-2 rounded flex items-baseline gap-1.5 min-w-0 w-full text-left transition-opacity hover:opacity-80"
                         style={{ background: C.border, borderLeft: `2px solid ${meta.color}66`, cursor: 'pointer' }}
                       >
                         <span className="font-bold uppercase tracking-wider flex-shrink-0" style={{ color: meta.color, fontSize: '0.55rem' }}>
@@ -1050,7 +1050,7 @@ export default function Graph() {
                 {selectedNode.connectedNodes.length > INITIAL_CONNECTION_COUNT && (
                   <button type="button" aria-expanded={connectionsExpanded}
                     aria-label={connectionsExpanded ? 'Collapse connected nodes' : 'Expand connected nodes'}
-                    className="mt-2 min-h-11 w-full rounded border px-2 text-xs font-bold"
+                    className="mt-2 w-full rounded border px-2 py-1 text-xs font-bold"
                     style={{ color: C.text, borderColor: C.borderHover, background: C.border }}
                     onClick={() => setConnectionsExpanded(expanded => !expanded)}
                   >

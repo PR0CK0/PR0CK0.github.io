@@ -64,6 +64,7 @@ try {
   const drawer = '#graph-mobile-details'
   const connections = `${drawer} [aria-label="Connected nodes"] > button`
   assert.equal(await page.$$eval(connections, buttons => buttons.length), 5, 'Show only five connections initially')
+  assert.ok(await page.$eval(connections, button => button.getBoundingClientRect().height < 30), 'Single-line connections should stay compact')
   assert.equal(await page.$eval(drawer, el => el.scrollWidth <= el.clientWidth), true, 'Details must not overflow sideways')
   if (process.env.SCREENSHOT_PATH) await page.screenshot({ path: `${process.env.SCREENSHOT_PATH}.connections.png` })
   const expand = `${drawer} [aria-label="Expand connected nodes"]`
