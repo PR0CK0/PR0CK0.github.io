@@ -130,7 +130,8 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## Personal page — art, creative work
 
-- [ ] **Restore personal/creative page** — Add a `/personal` route showcasing art, creative projects, and non-professional work. Was previously part of the site; needs to be rebuilt in the React app.
+- [x] **Restore personal/creative page** — `/personal` displays the drawing gallery with a lightbox.
+- [x] **Deduplicate artwork** — Both galleries share the 54 canonical `/art/` images, preserving their individual display orders and removing 194 MB of duplicate PNGs.
 
 ## Potential / Future
 
