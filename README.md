@@ -74,6 +74,8 @@ For personal content, edit `public/data/tyler-procko.yaml`. The React app fetche
 
 New publications are synced automatically every Monday via the OpenAlex workflow. Stubs are tagged `source: openalex` and `featured: false` for manual review.
 
+Publication `status` values are validated by `PublicationSchema` in `src/lib/schema.ts`: `published`, `awaiting_publication`, `in_progress`, `colleague_thesis`, `competition_proposal`, `grant_proposal`, and `article`. The latter four preserve existing portfolio classifications also used by the legacy CV. Unknown values are rejected by the schema.
+
 ## Maintaining competencies
 
 Add a new term once in `src/data/competencies.json`, then reference it from a portfolio record. Each term has a permanent lowercase `id` (letters/numbers separated by single hyphens), a display `label`, a `category` from the same catalog, and an `aliases` list. IDs, labels, and aliases are accepted in record fields; matching ignores case and surrounding whitespace. Keep the ID unchanged when renaming a label, and add the previous label as an alias if records still use it. Catalog changes require a rebuild.

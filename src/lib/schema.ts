@@ -55,7 +55,10 @@ export const PublicationSchema = z.object({
   authors: z.array(z.string()).optional(),
   venue: z.string().optional(),
   date: z.string().optional(),
-  status: z.enum(['published', 'awaiting_publication', 'in_progress']).optional(),
+  status: z.enum([
+    'published', 'awaiting_publication', 'in_progress',
+    'colleague_thesis', 'competition_proposal', 'grant_proposal', 'article',
+  ]).optional(),
   doi: z.string().optional(),
   url: z.string().optional(),
   abstract: z.string().optional(),
