@@ -1694,7 +1694,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 125
+  cited_by_count: 129
   doi: https://doi.org/10.2139/ssrn.4895062
 - id: pub/cognitive-assistants-single-pilot
   title: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations
@@ -2071,7 +2071,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 5
+  cited_by_count: 6
   doi: https://doi.org/10.1109/transai60598.2023.00043
 - id: pub/auto-bfo-aristotelian-definitions
   title: Automatic Generation of BFO-Compliant Aristotelian Definitions in OWL Ontologies with GPT
@@ -2115,7 +2115,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 3
+  cited_by_count: 5
   doi: https://doi.org/10.1109/transai60598.2023.00042
 - id: pub/catastrophic-forgetting
   title: 'Impacts of Catastrophic Forgetting: From a Machine Learning Engineering Perspective'
