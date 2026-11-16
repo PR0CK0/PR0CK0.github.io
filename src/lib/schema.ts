@@ -112,6 +112,7 @@ export const CertificateSchema = z.object({
   issuer: z.string().optional(),
   date: z.string().optional(),
   status: z.enum(['completed', 'in_progress']).optional(),
+  resume_exclude: z.boolean().optional(),
   deprecated: z.boolean().optional(),
   url: z.string().optional(),
   technologies: z.array(z.string()).optional(),

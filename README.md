@@ -74,6 +74,8 @@ For personal content, edit `public/data/tyler-procko.yaml`. The React app fetche
 
 New publications are synced automatically every Monday via the OpenAlex workflow. Stubs are tagged `source: openalex` and `featured: false` for manual review.
 
+Certificate `resume_exclude` is an optional boolean validated by `CertificateSchema`. Parsing preserves it so excluded certificates stay off the résumé; tests check the actual portfolio through parsing and résumé generation.
+
 Publication `status` values are validated by `PublicationSchema` in `src/lib/schema.ts`: `published`, `awaiting_publication`, `in_progress`, `colleague_thesis`, `competition_proposal`, `grant_proposal`, and `article`. The latter four preserve existing portfolio classifications also used by the legacy CV. Unknown values are rejected by the schema.
 
 ## Maintaining competencies

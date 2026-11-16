@@ -605,9 +605,9 @@ export function buildResumeData(person: Person, buildDate: string): CVData {
   }
 
   // Certifications
-  const resumeCerts = (person.certificates ?? []).filter((c: any) => !c.resume_exclude)
+  const resumeCerts = (person.certificates ?? []).filter(c => !c.resume_exclude)
   if (resumeCerts.length > 0) {
-    const entries: CVEntry[] = resumeCerts.map((cert: any) => ({
+    const entries: CVEntry[] = resumeCerts.map(cert => ({
       title: cert.title,
       titleUrl: cert.url,
       titleSuffix: [
