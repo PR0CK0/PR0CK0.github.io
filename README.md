@@ -76,6 +76,8 @@ New publications are synced automatically every Monday via the OpenAlex workflow
 
 Certificate `resume_exclude` is an optional boolean validated by `CertificateSchema`. Parsing preserves it so excluded certificates stay off the résumé; tests check the actual portfolio through parsing and résumé generation.
 
+Every social link requires a stable, unique `id`. Personal links use `social/<platform>`; associate links use `social/<associate-slug>/<platform>`. IDs are internal identifiers, separate from display labels and URLs. The portfolio schema test validates the complete YAML and checks social-link IDs for missing, empty, or duplicate values during `npm test`, including deployment builds.
+
 Publication `status` values are validated by `PublicationSchema` in `src/lib/schema.ts`: `published`, `awaiting_publication`, `in_progress`, `colleague_thesis`, `competition_proposal`, `grant_proposal`, and `article`. The latter four preserve existing portfolio classifications also used by the legacy CV. Unknown values are rejected by the schema.
 
 ## Maintaining competencies

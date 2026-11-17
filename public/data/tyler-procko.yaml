@@ -3947,13 +3947,17 @@ associates:
   organization: Embry-Riddle Aeronautical University
   relationship: Doctoral advisor and research team lead
   social_links:
-  - platform: LinkedIn
+  - id: social/omar-ochoa/linkedin
+    platform: LinkedIn
     url: https://www.linkedin.com/in/omar-ochoa-30a2a61b/
-  - platform: Google Scholar
+  - id: social/omar-ochoa/google-scholar
+    platform: Google Scholar
     url: https://scholar.google.com/citations?user=o12NwFgAAAAJ&hl=en
-  - platform: ResearchGate
+  - id: social/omar-ochoa/researchgate
+    platform: ResearchGate
     url: https://www.researchgate.net/profile/Omar-Ochoa-5
-  - platform: Faculty Page
+  - id: social/omar-ochoa/faculty-page
+    platform: Faculty Page
     url: https://faculty.erau.edu/Omar.Ochoa
 - id: assoc/timothy-elvira
   name: Dr. Timothy R. Elvira
@@ -3961,9 +3965,11 @@ associates:
   organization: Embry-Riddle Aeronautical University / AFRL
   relationship: Research collaborator and co-author
   social_links:
-  - platform: LinkedIn
+  - id: social/timothy-elvira/linkedin
+    platform: LinkedIn
     url: https://www.linkedin.com/in/timothy-elvira-511a20176/
-  - platform: ResearchGate
+  - id: social/timothy-elvira/researchgate
+    platform: ResearchGate
     url: https://www.researchgate.net/profile/Timothy-Elvira
 - id: assoc/nicholas-del-rio
   name: Dr. Nicholas Del Rio
@@ -3971,11 +3977,14 @@ associates:
   organization: Air Force Research Laboratory - Information Directorate
   relationship: SMART Scholarship mentor and AFRL supervisor
   social_links:
-  - platform: LinkedIn
+  - id: social/nicholas-del-rio/linkedin
+    platform: LinkedIn
     url: https://www.linkedin.com/in/nicholasdelrio/
-  - platform: Google Scholar
+  - id: social/nicholas-del-rio/google-scholar
+    platform: Google Scholar
     url: https://scholar.google.com/citations?user=FFrwAlUAAAAJ&hl=en
-  - platform: ResearchGate
+  - id: social/nicholas-del-rio/researchgate
+    platform: ResearchGate
     url: https://www.researchgate.net/scientific-contributions/Nicholas-Del-Rio-2106130769
 - id: assoc/len-crosson
   name: Len Crosson
@@ -3983,7 +3992,8 @@ associates:
   organization: Apacen
   relationship: Apacen colleague
   social_links:
-  - platform: LinkedIn
+  - id: social/len-crosson/linkedin
+    platform: LinkedIn
     url: https://www.linkedin.com/in/lencrosson/
 - id: assoc/konstantin-bokarius
   name: Konstantin Bokarius
@@ -3991,7 +4001,8 @@ associates:
   organization: Apacen
   relationship: Apacen colleague
   social_links:
-  - platform: LinkedIn
+  - id: social/konstantin-bokarius/linkedin
+    platform: LinkedIn
     url: https://www.linkedin.com/in/kbokarius/
 - id: assoc/drew-martin
   name: Drew Martin
@@ -3999,7 +4010,8 @@ associates:
   organization: Apacen
   relationship: Apacen colleague
   social_links:
-  - platform: LinkedIn
+  - id: social/drew-martin/linkedin
+    platform: LinkedIn
     url: https://www.linkedin.com/in/drew-martin-tn/
 - id: assoc/john-enete
   name: John Enete
@@ -4007,7 +4019,8 @@ associates:
   organization: Apacen
   relationship: Apacen colleague
   social_links:
-  - platform: LinkedIn
+  - id: social/john-enete/linkedin
+    platform: LinkedIn
     url: https://www.linkedin.com/in/john-enete/
 - id: assoc/constantine-nicolaidis
   name: Constantine Nicolaidis
@@ -4015,7 +4028,8 @@ associates:
   organization: Apacen
   relationship: Apacen colleague
   social_links:
-  - platform: LinkedIn
+  - id: social/constantine-nicolaidis/linkedin
+    platform: LinkedIn
     url: https://www.linkedin.com/in/constantine-nicolaidis-9443245/
 references:
 - id: ref/omar-ochoa
