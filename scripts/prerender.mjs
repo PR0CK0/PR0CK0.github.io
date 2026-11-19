@@ -12,9 +12,11 @@
 
 import puppeteer from 'puppeteer'
 import { preview } from 'vite'
-import { writeFileSync, mkdirSync } from 'fs'
+import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import yaml from 'js-yaml'
+import { buildProfileMetadata } from './profile-metadata.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
@@ -34,8 +36,15 @@ const ROUTES = [
 
 // ms to wait after window.load for React + YAML to finish rendering
 const SETTLE_MS = 3000
+const PROFILE_SCRIPT = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/
 
 async function main() {
+  const source = readFileSync(join(ROOT, 'index.html'), 'utf8')
+  const template = JSON.parse(source.match(PROFILE_SCRIPT)[1])
+  const person = yaml.load(readFileSync(join(ROOT, 'public/data/tyler-procko.yaml'), 'utf8'))
+  const metadata = buildProfileMetadata(template, person, new Date().toISOString())
+  const profileScript = `<script type="application/ld+json">${JSON.stringify(metadata).replace(/</g, '\\u003c')}</script>`
+
   console.log('Starting Vite preview server...')
   const server = await preview({
     root: ROOT,
@@ -57,7 +66,9 @@ async function main() {
       // give React + YAML fetch time to settle
       await new Promise(r => setTimeout(r, SETTLE_MS))
 
-      const html = await page.content()
+      const rendered = await page.content()
+      if (!PROFILE_SCRIPT.test(rendered)) throw new Error(`Missing profile metadata template on ${path}`)
+      const html = rendered.replace(PROFILE_SCRIPT, () => profileScript)
       await page.close()
 
       if (dir) {

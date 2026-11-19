@@ -202,6 +202,7 @@ export const PersonSchema = z.object({
   website: z.string().optional(),
   tagline: z.string().optional(),
   seo_description: z.string().optional(),
+  primary_work_experience: z.string().optional(),
   summary: z.string().optional(),
   clearance: z.string().optional(),
   past_clearances: z.array(PastClearanceSchema).optional(),

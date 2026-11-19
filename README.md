@@ -76,6 +76,8 @@ npm run dev        # Vite dev server at localhost:5173
 
 The social-sharing card lives at `public/og-image.png`. When replacing it, update the image dimensions and alternative text in `index.html`. `npm test` checks that Open Graph and Twitter reference the same PNG and that its dimensions match the metadata.
 
+Structured profile metadata is populated from YAML during `npm run prerender`. `primary_work_experience` selects the current work record whose `organization` and optional `org_url` identify the employer; it must have `is_current: true` and no end date. This explicit reference avoids guessing among consulting roles. The profile name, headline (the part of `title` before ` — `), summary, email, website, social links, and ORCID also come from YAML. The profile modification time reflects the build. These fields are absent from the `index.html` template and filled into every generated page; local development without prerendering has only the static metadata template. Tests check employer changes and reject missing or ended primary work records.
+
 For personal content, edit `public/data/tyler-procko.yaml`. The React app fetches it at runtime — no rebuild needed for content changes. The legacy HTML view requires `python3 build.py` to regenerate.
 
 New publications are synced automatically every Monday via the OpenAlex workflow. Stubs are tagged `source: openalex` and `featured: false` for manual review.
