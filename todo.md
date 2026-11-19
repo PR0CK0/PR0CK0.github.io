@@ -100,7 +100,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## SEO & Discoverability
 
-- [ ] **Create OG image** — 1200x630px PNG at `public/og-image.png`. MISSING — index.html references it but file does not exist; LinkedIn/Slack/Discord shares show no preview image.
+- [x] **Create OG image** — Approved 1731×909 PNG at `public/og-image.png`; shared by Open Graph and Twitter metadata, with matching dimensions and alternative text. Regression test checks the referenced file and dimensions.
 - [ ] **Google Search Console** — verify procko.pro, submit sitemap.xml, request indexing.
 - [ ] **Bing Webmaster Tools** — import from Google Search Console (covers Bing + DuckDuckGo + Yahoo).
 - [x] **Prerendering** — Puppeteer-based prerender script added; all 6 routes generate static HTML snapshots on every deploy.

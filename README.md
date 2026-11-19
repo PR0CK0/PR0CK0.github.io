@@ -70,6 +70,8 @@ npm run dev        # Vite dev server at localhost:5173
 
 ## Updating content
 
+The social-sharing card lives at `public/og-image.png`. When replacing it, update the image dimensions and alternative text in `index.html`. `npm test` checks that Open Graph and Twitter reference the same PNG and that its dimensions match the metadata.
+
 For personal content, edit `public/data/tyler-procko.yaml`. The React app fetches it at runtime — no rebuild needed for content changes. The legacy HTML view requires `python3 build.py` to regenerate.
 
 New publications are synced automatically every Monday via the OpenAlex workflow. Stubs are tagged `source: openalex` and `featured: false` for manual review.
