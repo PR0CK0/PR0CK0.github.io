@@ -38,8 +38,7 @@ try {
     })
     const point = node.renderedPosition()
     const box = cy.container().getBoundingClientRect()
-    // Stay inside the diamond, away from Cytoscape's exact polygon-axis hit-test ambiguity.
-    return { x: box.left + point.x + 4, y: box.top + point.y, label: node.data('label') }
+    return { x: box.left + point.x, y: box.top + point.y, label: node.data('label') }
   })
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
   if (touch) {

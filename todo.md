@@ -75,6 +75,8 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 ## Graph
 
+- [x] **Fix diamond center clicks and taps** — Patch Cytoscape's double-counted polygon vertex, preserving Person and Associate diamonds. Fresh installs apply the tracked patch automatically. Unit and browser checks cover the exact center axis at multiple zoom levels; the mobile test no longer offsets clicks.
+
 - [x] **Simplify mobile graph details** — Prevent sideways drawer overflow, show five connections with an expansion count, add vertical scroll cues/buttons, and make horizontal filter arrows clickable. Browser checks cover expansion, direction boundaries, selection reset, small screens, and themes.
 
 - [x] **Keep mobile graph controls visible** — Fit the graph below the navigation bar; open selected-node details first in the mobile drawer. Browser regression checks cover viewport bounds, desktop resizing, canvas clicks/taps, and connected-node navigation.

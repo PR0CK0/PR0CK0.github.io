@@ -1,0 +1,38 @@
+diff --git a/node_modules/cytoscape/src/math.mjs b/node_modules/cytoscape/src/math.mjs
+--- a/node_modules/cytoscape/src/math.mjs
++++ b/node_modules/cytoscape/src/math.mjs
+@@ -817,8 +817,8 @@
+ 
+     if( x1 == x && x2 == x ){
+       // then ignore
+-    } else if( (x1 >= x && x >= x2)
+-      || (x1 <= x && x <= x2) ){
++    } else if( (x1 > x && x >= x2)
++      || (x1 <= x && x < x2) ){
+ 
+       y3 = (x - x1) / (x2 - x1) * (y2 - y1) + y1;
+ 
+diff --git a/node_modules/cytoscape/dist/cytoscape.esm.mjs b/node_modules/cytoscape/dist/cytoscape.esm.mjs
+--- a/node_modules/cytoscape/dist/cytoscape.esm.mjs
++++ b/node_modules/cytoscape/dist/cytoscape.esm.mjs
+@@ -3942,7 +3942,7 @@
+       x2 = points[(i + 1 - points.length / 2) * 2];
+       y2 = points[(i + 1 - points.length / 2) * 2 + 1];
+     }
+-    if (x1 == x && x2 == x) ; else if (x1 >= x && x >= x2 || x1 <= x && x <= x2) {
++    if (x1 == x && x2 == x) ; else if (x1 > x && x >= x2 || x1 <= x && x < x2) {
+       y3 = (x - x1) / (x2 - x1) * (y2 - y1) + y1;
+       if (y3 > y) {
+         up++;
+diff --git a/node_modules/cytoscape/dist/cytoscape.cjs.js b/node_modules/cytoscape/dist/cytoscape.cjs.js
+--- a/node_modules/cytoscape/dist/cytoscape.cjs.js
++++ b/node_modules/cytoscape/dist/cytoscape.cjs.js
+@@ -3944,7 +3944,7 @@
+       x2 = points[(i + 1 - points.length / 2) * 2];
+       y2 = points[(i + 1 - points.length / 2) * 2 + 1];
+     }
+-    if (x1 == x && x2 == x) ; else if (x1 >= x && x >= x2 || x1 <= x && x <= x2) {
++    if (x1 == x && x2 == x) ; else if (x1 > x && x >= x2 || x1 <= x && x < x2) {
+       y3 = (x - x1) / (x2 - x1) * (y2 - y1) + y1;
+       if (y3 > y) {
+         up++;
