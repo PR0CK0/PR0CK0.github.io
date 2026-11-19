@@ -65,6 +65,8 @@ public/data/tyler-procko.yaml   ← single source of truth for all CV/portfolio 
 
 All seven public routes are listed in `public/sitemap.xml` and rendered to static HTML by `npm run prerender` after the build. When adding a route in `src/App.tsx`, also update the sitemap and the route list in `scripts/prerender.mjs`. Route coverage tests fail if either list omits a public route, duplicates one, or includes an extra route.
 
+The graph, CV, and résumé pages load through `React.lazy` when their routes are opened, keeping Cytoscape and the PDF renderer out of the initial homepage download. Navigation remains available during the loading state. PDF generation still starts when a document page opens. Unit tests check deferred module loading. After building and prerendering, run `npm run preview -- --host 127.0.0.1`, then `node scripts/test-route-loading.mjs` to check the homepage's JavaScript budget, navigation, direct links, PDF bytes, and PDF/HTML toggles. `SITE_URL` overrides the preview server address.
+
 ## Development
 
 ```bash

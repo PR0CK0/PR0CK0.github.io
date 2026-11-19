@@ -127,6 +127,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## Web dev best practices audit
 
+- [x] **Defer graph and PDF downloads** — Lazy-load the graph, CV, and résumé routes; keep navigation visible while loading. Initial JavaScript decreased from about 2.46 MB to 497 KB (779 KB to 151 KB gzip). Regression checks cover route loading, homepage requests, direct links, and both PDF exports.
 - [ ] **Research and apply web dev best practices** — As the site grows, audit against standard production patterns: code splitting and lazy loading (are all pages lazy-loaded via React.lazy?), bundle size analysis (`vite build --report`), image optimization, caching headers on GitHub Pages, accessibility (a11y — semantic HTML, ARIA labels, keyboard nav, color contrast), Core Web Vitals (LCP, CLS, FID), and scalability of the single YAML fetch (consider splitting into section-level files if the YAML grows large). Also review whether the runtime YAML fetch should be replaced with build-time static generation as content volume increases.
 
 ## Markdown skill count — extracurriculars not aggregated
