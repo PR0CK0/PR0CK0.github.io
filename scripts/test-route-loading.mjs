@@ -29,6 +29,7 @@ try {
 
   for (const route of ['/resume', '/cv']) {
     await page.click(`nav a[href="${route}"]`)
+    await page.waitForFunction(path => document.querySelector('h1')?.textContent.includes(`${path}.pdf`), {}, route)
     await page.waitForFunction(() => {
       const link = document.querySelector('a[download][href^="blob:"]')
       return link && !link.querySelector('button')?.disabled
