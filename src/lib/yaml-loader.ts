@@ -11,14 +11,11 @@ export async function loadPortfolioData(): Promise<Person> {
     throw new Error(`Failed to load portfolio data: ${response.statusText}`)
   }
   const text = await response.text()
-  const raw = yaml.load(text)
-  const parsed = PersonSchema.safeParse(raw)
-
-  if (!parsed.success) {
-    console.warn('Portfolio data validation warnings:', parsed.error.issues)
-    cachedPerson = raw as Person
-  } else {
-    cachedPerson = parsed.data
+  try {
+    cachedPerson = PersonSchema.parse(yaml.load(text))
+  } catch (error) {
+    console.error('Portfolio data validation failed:', error)
+    throw new Error('Portfolio data is invalid. Please try again later.')
   }
 
   return cachedPerson

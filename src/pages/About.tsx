@@ -9,11 +9,15 @@ import { PAGE_TITLE_SM, SECTION_LABEL, BODY_TEXT, META_TEXT, LOADING_SCREEN } fr
 export default function About() {
   const [person, setPerson] = useState<Person | null>(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     loadPortfolioData()
       .then(data => { setPerson(data); setLoading(false) })
-      .catch(() => setLoading(false))
+      .catch((err: unknown) => {
+        setError(err instanceof Error ? err.message : 'Failed to load portfolio data')
+        setLoading(false)
+      })
   }, [])
 
   if (loading) {
@@ -24,7 +28,13 @@ export default function About() {
     )
   }
 
-  if (!person) return null
+  if (error || !person) {
+    return (
+      <div className={LOADING_SCREEN}>
+        <p role="alert" className="text-terminal-red text-sm">{error ?? 'Failed to load portfolio data'}</p>
+      </div>
+    )
+  }
 
   const funAwards = (person.awards ?? []).filter(a => a.about_only)
   const aboutExtras = (person.extracurriculars ?? []).filter((e: any) => e.cv_exclude)

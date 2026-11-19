@@ -78,6 +78,8 @@ Certificate `resume_exclude` is an optional boolean validated by `CertificateSch
 
 Every social link requires a stable, unique `id`. Personal links use `social/<platform>`; associate links use `social/<associate-slug>/<platform>`. IDs are internal identifiers, separate from display labels and URLs. The portfolio schema test validates the complete YAML and checks social-link IDs for missing, empty, or duplicate values during `npm test`, including deployment builds.
 
+The browser loader rejects malformed YAML and data that fails `PersonSchema`, displays a readable error through each page's error state, and logs diagnostic details in the browser console. Only validated data is cached; failed loads can be retried. Loader tests cover rejection, recovery, and caching. With the dev server running, `node scripts/test-portfolio-errors.mjs` checks error screens on the homepage, About, graph, CV, and résumé, plus a valid homepage load. Set `SITE_URL` to check another server; invalid responses are simulated inside the test browser only.
+
 Publication `status` values are validated by `PublicationSchema` in `src/lib/schema.ts`: `published`, `awaiting_publication`, `in_progress`, `colleague_thesis`, `competition_proposal`, `grant_proposal`, and `article`. The latter four preserve existing portfolio classifications also used by the legacy CV. Unknown values are rejected by the schema.
 
 ## Maintaining competencies
