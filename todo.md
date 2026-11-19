@@ -137,6 +137,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 ## Personal page — art, creative work
 
 - [x] **Restore personal/creative page** — `/personal` displays the drawing gallery with a lightbox.
+- [x] **Keyboard access to the art gallery** — All 54 thumbnails are labeled buttons with visible focus; the native modal contains focus and restores it on close. Browser tests cover Enter/Space/Escape, Tab/Shift+Tab, mouse, and mobile touch.
 - [x] **Deduplicate artwork** — Both galleries share the 54 canonical `/art/` images, preserving their individual display orders and removing 194 MB of duplicate PNGs.
 
 ## Potential / Future

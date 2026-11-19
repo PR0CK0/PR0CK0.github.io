@@ -5,6 +5,18 @@ import { HelmetProvider } from 'react-helmet-async'
 import { expect, it } from 'vitest'
 import Personal from '../../pages/Personal'
 
+it('makes all drawings labeled buttons that can open a dialog from the keyboard', () => {
+  const html = renderToStaticMarkup(<HelmetProvider><Personal /></HelmetProvider>)
+  const buttons = [...html.matchAll(/<button([^>]*aria-haspopup="dialog"[^>]*)>([\s\S]*?)<\/button>/g)]
+  expect(buttons).toHaveLength(54)
+  for (const [, attributes, content] of buttons) {
+    expect(attributes).toContain('type="button"')
+    const label = content.match(/alt="([^"]+)"/)?.[1]
+    expect(label).toBeTruthy()
+    expect(attributes).toContain(`aria-label="Open ${label}"`)
+  }
+})
+
 it('serves all 54 drawings from the same files in both galleries', () => {
   const html = renderToStaticMarkup(<HelmetProvider><Personal /></HelmetProvider>)
   const modern = [...html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(match => match[1])

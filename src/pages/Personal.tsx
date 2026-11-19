@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 
@@ -39,22 +39,43 @@ const SECTIONS = [
 
 // ── Lightbox ──────────────────────────────────────────────────────────────────
 
-function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
+type SelectedDrawing = { src: string; alt: string; trigger: HTMLButtonElement }
+const FOCUS_OUTLINE = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4c9b0]'
+
+function Lightbox({ src, alt, trigger, onClose }: SelectedDrawing & { onClose: () => void }) {
+  const dialogRef = useRef<HTMLDialogElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
+
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [onClose])
+    const dialog = dialogRef.current!
+    dialog.showModal()
+    return () => {
+      dialog.close()
+      if (trigger.isConnected) trigger.focus({ preventScroll: true })
+    }
+  }, [trigger])
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center"
+    <dialog
+      ref={dialogRef}
+      aria-label={`${alt} enlarged`}
+      className="fixed inset-0 z-50 m-0 flex h-[100dvh] w-screen max-h-none max-w-none items-center justify-center border-0 p-0 backdrop:bg-transparent"
       style={{ background: 'rgba(10, 8, 5, 0.92)' }}
-      onClick={onClose}
+      onCancel={event => { event.preventDefault(); onClose() }}
+      onClick={event => { if (event.target === event.currentTarget) onClose() }}
+      onKeyDown={event => {
+        // The close button is the dialog's only keyboard control.
+        if (event.key === 'Tab') {
+          event.preventDefault()
+          closeRef.current?.focus()
+        }
+      }}
     >
       <button
+        ref={closeRef}
+        type="button"
         onClick={onClose}
-        className="absolute top-5 right-6 text-3xl leading-none transition-opacity hover:opacity-60"
+        className={`absolute top-5 right-6 text-3xl leading-none transition-opacity hover:opacity-60 ${FOCUS_OUTLINE}`}
         style={{ color: '#d4c9b0', fontFamily: 'Georgia, serif' }}
         aria-label="Close"
       >
@@ -62,12 +83,11 @@ function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
       </button>
       <img
         src={src}
-        alt=""
+        alt={alt}
         className="max-h-[90vh] max-w-[90vw] object-contain rounded shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
         style={{ border: '1px solid rgba(212, 201, 176, 0.2)' }}
       />
-    </div>
+    </dialog>
   )
 }
 
@@ -80,7 +100,7 @@ function GallerySection({
   label: string
   caption: string
   count: number
-  onOpen: (src: string) => void
+  onOpen: (drawing: SelectedDrawing) => void
 }) {
   const images = Array.from({ length: count }, (_, i) =>
     `/art/${year}-${String(i + 1).padStart(2, '0')}.png`
@@ -104,22 +124,28 @@ function GallerySection({
         className="columns-2 sm:columns-3 lg:columns-4 gap-3"
         style={{ columnGap: '12px' }}
       >
-        {images.map((src, i) => (
-          <div
-            key={i}
-            className="mb-3 break-inside-avoid cursor-pointer overflow-hidden rounded"
-            style={{ border: '1px solid #3a2a1a' }}
-            onClick={() => onOpen(src)}
-          >
-            <img
-              src={src}
-              alt={`${label} drawing ${i + 1}`}
-              loading="lazy"
-              className="w-full block transition-all duration-300 hover:scale-[1.03] hover:brightness-105"
-              style={{ display: 'block' }}
-            />
-          </div>
-        ))}
+        {images.map((src, i) => {
+          const alt = `${label} drawing ${i + 1}`
+          return (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Open ${alt}`}
+              aria-haspopup="dialog"
+              className={`mb-3 block w-full break-inside-avoid cursor-pointer overflow-hidden rounded p-0 ${FOCUS_OUTLINE}`}
+              style={{ border: '1px solid #3a2a1a' }}
+              onClick={event => onOpen({ src, alt, trigger: event.currentTarget })}
+            >
+              <img
+                src={src}
+                alt={alt}
+                loading="lazy"
+                className="w-full block transition-all duration-300 hover:scale-[1.03] hover:brightness-105"
+                style={{ display: 'block' }}
+              />
+            </button>
+          )
+        })}
       </div>
     </section>
   )
@@ -128,9 +154,9 @@ function GallerySection({
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function Personal() {
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
-  const openLightbox = useCallback((src: string) => setLightboxSrc(src), [])
-  const closeLightbox = useCallback(() => setLightboxSrc(null), [])
+  const [drawing, setDrawing] = useState<SelectedDrawing | null>(null)
+  const openLightbox = useCallback((selected: SelectedDrawing) => setDrawing(selected), [])
+  const closeLightbox = useCallback(() => setDrawing(null), [])
 
   return (
     <>
@@ -185,7 +211,7 @@ export default function Personal() {
 
       <SiteFooter name="Tyler T. Procko" />
 
-      {lightboxSrc && <Lightbox src={lightboxSrc} onClose={closeLightbox} />}
+      {drawing && <Lightbox {...drawing} onClose={closeLightbox} />}
     </>
   )
 }
