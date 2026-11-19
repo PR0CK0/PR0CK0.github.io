@@ -100,11 +100,12 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## SEO & Discoverability
 
+- [ ] **Refresh structured profile metadata** — `index.html` still identifies the employer as `Stealth Startup`. Reconcile the structured profile with current YAML, including Apacen, and reduce duplicated profile data.
 - [x] **Create OG image** — Approved 1731×909 PNG at `public/og-image.png`; shared by Open Graph and Twitter metadata, with matching dimensions and alternative text. Regression test checks the referenced file and dimensions.
 - [ ] **Google Search Console** — verify procko.pro, submit sitemap.xml, request indexing.
 - [ ] **Bing Webmaster Tools** — import from Google Search Console (covers Bing + DuckDuckGo + Yahoo).
-- [x] **Prerendering** — Puppeteer-based prerender script added; all 6 routes generate static HTML snapshots on every deploy.
-- [x] **sitemap.xml** — exists, covers all 6 routes including `/about`; lastmod auto-updated on every deploy.
+- [x] **Prerendering** — All seven public routes, including `/personal`, generate static HTML snapshots on every deploy. Tests compare route coverage with `src/App.tsx`.
+- [x] **sitemap.xml** — Covers all seven public routes, including `/personal`; lastmod auto-updated on every deploy. Tests detect missing, duplicate, and extra routes.
 - [x] **robots.txt** — exists, allows all, points to sitemap.
 - [x] **humans.txt** — exists, auto-updated with deploy date on every push.
 - [ ] **ScholarlyArticle JSON-LD** — add structured data for top publications to improve Google Scholar and search visibility.
@@ -178,7 +179,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 These were in the now-deleted `skills:` YAML section but are not attached to any entry. Decide: attach to the right entry, or drop entirely.
 
 - [ ] `FastAPI` — used somewhere? check projects/work
-- [ ] `Git` — certainly used everywhere; just not explicitly tagged on any entry
+- [x] `Git` — already attached to two records; confirmed in the current YAML.
 - [ ] `Linux Ubuntu` — OS; `Linux` is in COMPETENCY_CATEGORIES but not `Linux Ubuntu`; may need rename
 - [ ] `Microsoft Copilot` — used personally? attach or drop
 - [ ] `NLTK` — no repo evidence found in BFO-Wikidata, bert_benchmarking, bfobert, swebok-rebel-rdf
@@ -187,7 +188,7 @@ These were in the now-deleted `skills:` YAML section but are not attached to any
 
 ## Scientific Writing — move from soft_skills to domains in YAML
 
-- [ ] **Move ~62 `Scientific Writing` entries from `soft_skills:` to `domains:` in YAML** — The vocab was updated to categorize it as a domain, but the YAML field placement (`soft_skills:` vs `domains:`) still needs manual cleanup entry by entry.
+- [x] **Move `Scientific Writing` references into `domains:`** — All 62 current references are already in `domains`; none remain in `soft_skills`.
 
 ## Other pending
 

@@ -29,6 +29,7 @@ const ROUTES = [
   { path: '/cv',     dir: 'cv'     },
   { path: '/resume', dir: 'resume' },
   { path: '/legacy', dir: 'legacy' },
+  { path: '/personal', dir: 'personal' },
 ]
 
 // ms to wait after window.load for React + YAML to finish rendering

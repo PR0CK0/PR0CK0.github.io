@@ -60,6 +60,10 @@ public/data/tyler-procko.yaml   ← single source of truth for all CV/portfolio 
 | `/cv` | Full CV — all publications grouped by status, all experience, downloadable PDF |
 | `/resume` | Condensed resume — featured work, projects, skills, downloadable PDF |
 | `/graph` | Interactive knowledge graph of skills, publications, projects, and experience |
+| `/personal` | Drawing gallery with a lightbox |
+| `/legacy` | Generated legacy CV |
+
+All seven public routes are listed in `public/sitemap.xml` and rendered to static HTML by `npm run prerender` after the build. When adding a route in `src/App.tsx`, also update the sitemap and the route list in `scripts/prerender.mjs`. Route coverage tests fail if either list omits a public route, duplicates one, or includes an extra route.
 
 ## Development
 
