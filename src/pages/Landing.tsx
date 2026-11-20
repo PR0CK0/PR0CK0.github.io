@@ -913,7 +913,6 @@ function SkillsMatrix({ person }: { person: Person }) {
 
   return (
     <section
-      className={SECTION_CONTAINER}
       style={{
         backgroundImage: `
           linear-gradient(rgba(77,159,255,0.04) 1px, transparent 1px),
@@ -923,22 +922,24 @@ function SkillsMatrix({ person }: { person: Person }) {
         backgroundSize: '40px 40px, 40px 40px, 100% 4px',
       }}
     >
-      <SectionHeader
-        prompt="cat competencies.json"
-        title="Competencies"
-        accent="purple"
-      />
+      <div className={SECTION_CONTAINER}>
+        <SectionHeader
+          prompt="cat competencies.json"
+          title="Competencies"
+          accent="purple"
+        />
 
-      <div className="mt-4 mb-5">
-        <ViewToggle view={view} onChange={setView} />
+        <div className="mt-4 mb-5">
+          <ViewToggle view={view} onChange={setView} />
+        </div>
+
+        <AnimatePresence mode="wait">
+          {view === 'categories'
+            ? <CategoriesView key="categories" skills={skills} />
+            : <RankedView key="ranked" skills={skills} />
+          }
+        </AnimatePresence>
       </div>
-
-      <AnimatePresence mode="wait">
-        {view === 'categories'
-          ? <CategoriesView key="categories" skills={skills} />
-          : <RankedView key="ranked" skills={skills} />
-        }
-      </AnimatePresence>
     </section>
   )
 }
@@ -1273,7 +1274,6 @@ function RecentReposSection({ projects, githubHandle }: { projects: Project[]; g
 
   return (
     <section
-      className={SECTION_CONTAINER}
       style={{
         backgroundImage: `
           linear-gradient(rgba(77,159,255,0.04) 1px, transparent 1px),
@@ -1283,28 +1283,30 @@ function RecentReposSection({ projects, githubHandle }: { projects: Project[]; g
         backgroundSize: '40px 40px, 40px 40px, 100% 4px',
       }}
     >
-      <SectionHeader
-        prompt="gh repo list --sort updated --limit 6"
-        title="Recent Repos"
-        accent="amber"
-      />
-      <ContributionGraph username={githubHandle} />
-      {loading ? (
-        <div className="text-center py-8">
-          <span className="text-xs font-mono text-terminal-muted animate-pulse">fetching repos...</span>
+      <div className={SECTION_CONTAINER}>
+        <SectionHeader
+          prompt="gh repo list --sort updated --limit 6"
+          title="Recent Repos"
+          accent="amber"
+        />
+        <ContributionGraph username={githubHandle} />
+        {loading ? (
+          <div className="text-center py-8">
+            <span className="text-xs font-mono text-terminal-muted animate-pulse">fetching repos...</span>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {repoCards.map(({ project, created, updated, stars }, i) => (
+              <RepoProjectCard key={project.id} project={project} created={created} updated={updated} stars={stars} index={i} />
+            ))}
+          </div>
+        )}
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Link to="/projects" className={BTN_PRIMARY}>View all projects →</Link>
+          <a href={`https://github.com/${githubHandle}?tab=repositories`} target="_blank" rel="noopener noreferrer" className={BTN_SECONDARY}>
+            View on GitHub ↗
+          </a>
         </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {repoCards.map(({ project, created, updated, stars }, i) => (
-            <RepoProjectCard key={project.id} project={project} created={created} updated={updated} stars={stars} index={i} />
-          ))}
-        </div>
-      )}
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
-        <Link to="/projects" className={BTN_PRIMARY}>View all projects →</Link>
-        <a href={`https://github.com/${githubHandle}?tab=repositories`} target="_blank" rel="noopener noreferrer" className={BTN_SECONDARY}>
-          View on GitHub ↗
-        </a>
       </div>
     </section>
   )
