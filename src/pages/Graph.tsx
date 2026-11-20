@@ -693,6 +693,12 @@ export default function Graph() {
     const node = cy.getElementById(id)
     if (!node.length) return
 
+    // A search result or connection may belong to a hidden type.
+    if (!node.visible()) {
+      node.style('display', 'element')
+      expandedNodesRef.current.add(id)
+    }
+
     // Links and sidebar navigation use the same selection behavior as a node click.
     node.emit('tap')
 
@@ -722,12 +728,6 @@ export default function Graph() {
       // No exact node — fall back to search filter so the term is still useful
       setSearchQuery(reference)
       return
-    }
-
-    // Show just this node if its type is filtered out (don't enable the whole type)
-    if (!match.visible()) {
-      ;(match as any).show()
-      expandedNodesRef.current.add(match.data('id') as string)
     }
 
     selectNodeById(match.data('id') as string)
@@ -772,6 +772,12 @@ export default function Graph() {
 
   // ─── Render ─────────────────────────────────────────────────────────────────
 
+  const query = searchQuery.trim().toLowerCase()
+  const searchResults = query ? elements
+    .filter((element): element is CyNode => !('source' in element.data) && Boolean(element.data.label?.toLowerCase().includes(query)))
+    .sort((a, b) => Number(b.data.label.toLowerCase() === query) - Number(a.data.label.toLowerCase() === query)
+      || a.data.label.localeCompare(b.data.label)) : []
+
   // Sidebar content shared between desktop and mobile drawer
   const sidebarContent = (
     <>
@@ -813,8 +819,7 @@ export default function Graph() {
             return (
               <label
                 key={type}
-                className="flex items-center gap-1.5 sm:gap-2 cursor-pointer select-none flex-shrink-0"
-                style={{ opacity: enabled ? 1 : 0.45 }}
+                className={`graph-type-filter relative flex items-center gap-1.5 sm:gap-2 cursor-pointer select-none flex-shrink-0 ${enabled ? 'opacity-100' : 'opacity-[0.45]'} focus-within:opacity-100`}
               >
                 <input type="checkbox" checked={enabled} onChange={() => toggleType(type)} className="sr-only" />
                 <span
@@ -843,8 +848,7 @@ export default function Graph() {
             return (
               <label
                 key={type}
-                className="flex items-center gap-1.5 sm:gap-2 cursor-pointer select-none flex-shrink-0 sm:pl-2"
-                style={{ opacity: enabled ? 1 : 0.45 }}
+                className={`graph-type-filter relative flex items-center gap-1.5 sm:gap-2 cursor-pointer select-none flex-shrink-0 sm:pl-2 ${enabled ? 'opacity-100' : 'opacity-[0.45]'} focus-within:opacity-100`}
               >
                 <input type="checkbox" checked={enabled} onChange={() => toggleType(type)} className="sr-only" />
                 <span
@@ -866,7 +870,14 @@ export default function Graph() {
       </div>
 
       {/* Search */}
-      <div className="px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0" style={{ borderBottom: `1px solid ${C.border}` }}>
+      <div data-graph-search className="px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0" style={{ borderBottom: `1px solid ${C.border}` }}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape') {
+            event.preventDefault()
+            event.currentTarget.querySelector('input')?.focus()
+            setSearchQuery('')
+          }
+        }}>
         <div className="text-[0.6rem] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2" style={{ color: C.muted }}>
           Search
         </div>
@@ -879,10 +890,20 @@ export default function Graph() {
           </span>
           <input
             type="text"
+            aria-label="Search graph nodes"
             placeholder="filter nodes..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-5 pr-3 py-1 sm:py-1.5 text-[0.65rem] sm:text-xs rounded outline-none transition-all"
+            onKeyDown={(event) => {
+              if (event.key === 'ArrowDown') {
+                event.preventDefault()
+                event.currentTarget.closest('[data-graph-search]')?.querySelector<HTMLButtonElement>('[data-search-result]')?.focus()
+              } else if (event.key === 'Enter' && searchResults.length) {
+                event.preventDefault()
+                selectNodeById(searchResults[0].data.id)
+              }
+            }}
+            className="w-full pl-5 pr-7 py-1 sm:py-1.5 text-[0.65rem] sm:text-xs rounded transition-all"
             style={{
               background: C.bg,
               border: `1px solid ${C.border}`,
@@ -894,7 +915,11 @@ export default function Graph() {
           />
           {searchQuery && (
             <button
-              onClick={() => setSearchQuery('')}
+              aria-label="Clear graph search"
+              onClick={(event) => {
+                event.currentTarget.parentElement?.querySelector('input')?.focus()
+                setSearchQuery('')
+              }}
               className="absolute right-2 top-1/2 -translate-y-1/2 text-xs transition-opacity hover:opacity-100"
               style={{ color: C.muted }}
             >
@@ -902,6 +927,27 @@ export default function Graph() {
             </button>
           )}
         </div>
+        {query && (
+          <>
+            <p role="status" className="mt-2 text-xs text-terminal-text">
+              {searchResults.length ? `${searchResults.length} matching nodes` : 'No matching nodes'}
+            </p>
+            {searchResults.length > 0 && (
+              <ul aria-label="Matching graph nodes" className="max-h-40 overflow-y-auto overflow-x-hidden p-1 mt-1 space-y-1">
+                {searchResults.map(({ data }) => (
+                  <li key={data.id}>
+                    <button type="button" data-search-result={data.id}
+                      aria-pressed={selectedNode?.id === data.id}
+                      onClick={() => selectNodeById(data.id)}
+                      className="w-full rounded p-2 text-left text-xs text-terminal-text bg-terminal-bg hover:bg-terminal-border break-words">
+                      {data.label} <span className="text-terminal-muted">({TYPE_META[data.type].label})</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
+        )}
       </div>
 
       {/* Visible count */}

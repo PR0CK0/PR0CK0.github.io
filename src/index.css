@@ -16,7 +16,7 @@
   --color-terminal-purple: 181 123 255;
   --color-terminal-red:    255  77 109;
   --color-terminal-text:   200 214 240;
-  --color-terminal-muted:   74  90 122;
+  --color-terminal-muted:  139 155 184;
 }
 
 html.light {
@@ -29,7 +29,7 @@ html.light {
   --color-terminal-purple:   96  48 176;
   --color-terminal-red:     204  34  68;
   --color-terminal-text:     26  36  64;
-  --color-terminal-muted:   112 128 160;
+  --color-terminal-muted:    89 105 135;
 }
 
 @layer base {
@@ -45,6 +45,12 @@ html.light {
     color: rgb(var(--color-terminal-text));
     font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
     overflow-x: hidden;
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  .graph-type-filter:has(input:focus-visible) {
+    outline: 2px solid rgb(var(--color-terminal-blue));
+    outline-offset: 2px;
   }
 
   ::-webkit-scrollbar {

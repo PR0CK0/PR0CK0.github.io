@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence, useAnimationControls } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 import { loadPortfolioData } from '@/lib/yaml-loader'
@@ -745,12 +745,14 @@ function StatsBar({ stats }: { stats: Stat[] }) {
 
 // ─── Skills Matrix ─────────────────────────────────────────────────────────
 
+const MotionLink = motion(Link)
+
 function SkillChip({ skill, chipClass, opacity }: { skill: AggregatedSkill; chipClass: string; opacity: number }) {
-  const navigate = useNavigate()
   return (
-    <motion.span
+    <MotionLink
       whileHover={{ scale: 1.05, opacity: 1 }}
-      onClick={() => navigate(`/graph?term=${encodeURIComponent(skill.id)}`)}
+      to={`/graph?term=${encodeURIComponent(skill.id)}`}
+      whileFocus={{ opacity: 1 }}
       className={`inline-flex items-center gap-1 sm:gap-1 ls:gap-1 px-1.5 py-0.5 sm:px-2 sm:py-1 ls:px-1.5 ls:py-0.5 rounded text-[0.55rem] sm:text-[0.68rem] ls:text-[0.55rem] font-mono
                   transition-all duration-150 cursor-pointer ${chipClass}`}
       style={{ opacity }}
@@ -759,7 +761,7 @@ function SkillChip({ skill, chipClass, opacity }: { skill: AggregatedSkill; chip
       {skill.count > 1 && (
         <span className="opacity-50 text-[9px]">×{skill.count}</span>
       )}
-    </motion.span>
+    </MotionLink>
   )
 }
 

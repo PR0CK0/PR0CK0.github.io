@@ -77,6 +77,8 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 ## Graph
 
+- [x] **Keyboard access and navigation contrast** — Skill chips are links; graph filters visibly show keyboard focus; search offers keyboard-selectable results, including hidden nodes. Navigation text meets 4.5:1 in both themes. Browser regressions cover desktop/mobile graph layouts, Escape, and empty results.
+
 - [x] **Remove ignored graph shadow styles** — Remove ten unsupported Cytoscape declarations. Person labels and selected-node borders remain unchanged; selection tests require initialization and interactions to produce no warnings.
 
 - [x] **Fix diamond center clicks and taps** — Patch Cytoscape's double-counted polygon vertex, preserving Person and Associate diamonds. Fresh installs apply the tracked patch automatically. Unit and browser checks cover the exact center axis at multiple zoom levels; the mobile test no longer offsets clicks.
