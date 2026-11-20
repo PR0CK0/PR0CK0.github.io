@@ -18,7 +18,8 @@ try {
     const url = new URL(request.url())
     if (url.hostname === 'api.github.com' && /^\/users\/[^/]+\/repos$/.test(url.pathname)) {
       request.respond({ headers: { 'access-control-allow-origin': '*' }, contentType: 'application/json', body: JSON.stringify(previewProjects.map(project => ({
-        name: project.repo_url.split('/').pop(), html_url: project.repo_url,
+        id: project.github_repo_id, name: 'renamed-preview',
+        html_url: project.github_repo_id ? `https://github.com/example/renamed-${project.github_repo_id}` : project.repo_url,
         created_at: '2026-01-01T00:00:00Z', pushed_at: '2026-02-01T00:00:00Z', stargazers_count: 0,
       }))) })
     } else request.continue()

@@ -2653,6 +2653,7 @@ projects:
   title: provrag — Provenance-Aware RAG Financial Graph
   year: 2026-06
   repo_url: https://github.com/PR0CK0/provenance-rag-financial-graph
+  github_repo_id: 1270589940
   featured: true
   technologies:
   - Python
@@ -2698,6 +2699,7 @@ projects:
   year: 2024-11
   url: https://procko.pro
   repo_url: https://github.com/PR0CK0/PR0CK0.github.io
+  github_repo_id: 556907971
   featured: true
   technologies:
   - React
@@ -2748,7 +2750,8 @@ projects:
   title: AI Landscape Digest
   year: 2026-03
   url: https://procko.pro/ai-landscape-digest/
-  repo_url: https://github.com/PR0CK0/ai-landscape-digest/
+  repo_url: https://github.com/PR0CK0/ai-landscape-digest
+  github_repo_id: 1181867159
   featured: true
   technologies:
   - Python
@@ -2778,6 +2781,7 @@ projects:
   year: 2026-03
   url: https://huggingface.co/spaces/prockot/biomed-paper-extractor
   repo_url: https://github.com/PR0CK0/biomed-paper-extractor
+  github_repo_id: 1177294568
   featured: true
   technologies:
   - Python
@@ -2821,6 +2825,7 @@ projects:
   year: 2026-03
   url: https://procko.pro/health-optimization-knowledge-graph/
   repo_url: https://github.com/PR0CK0/health-optimization-knowledge-graph
+  github_repo_id: 1177256189
   featured: true
   technologies:
   - LinkML
@@ -2896,6 +2901,7 @@ projects:
   year: 2026-02
   url: https://procko.pro/ocsf-visualizer
   repo_url: https://github.com/PR0CK0/ocsf-visualizer
+  github_repo_id: 1168524746
   featured: true
   technologies:
   - Cytoscape.js
@@ -2919,6 +2925,7 @@ projects:
   title: BFO-Wikidata Classifier
   year: 2025-11
   repo_url: https://github.com/PR0CK0/BFO-Wikidata-Classifier
+  github_repo_id: 1096551686
   technologies:
   - Python
   - Transformers
@@ -2950,6 +2957,7 @@ projects:
   title: BERT Model Benchmarking Suite
   year: 2025-11
   repo_url: https://github.com/PR0CK0/bert_benchmarking
+  github_repo_id: 1094421435
   technologies:
   - Python
   - BERT
@@ -2981,6 +2989,7 @@ projects:
   title: BFO-BERT Classifier
   year: 2025-11
   repo_url: https://github.com/PR0CK0/bfobert
+  github_repo_id: 1093778745
   technologies:
   - Python
   - DistilBERT
@@ -3010,6 +3019,7 @@ projects:
   year: 2026-03
   url: https://pypi.org/project/dissenter/
   repo_url: https://github.com/PR0CK0/dissenter
+  github_repo_id: 1188046106
   featured: true
   technologies:
   - Python
@@ -3064,6 +3074,7 @@ projects:
   title: ProvTracer
   year: 2024-05
   repo_url: https://github.com/PR0CK0/ProvTracer
+  github_repo_id: 966580843
   technologies:
   - Python
   - PyQt6
@@ -3147,6 +3158,7 @@ projects:
   title: 'Internet Anthropology: Forsen and His Community'
   year: 2023-11
   repo_url: https://github.com/PR0CK0-2/Forsen-Study
+  github_repo_id: 1393727433
   technologies:
   - Markdown
   - CSV
@@ -3162,6 +3174,7 @@ projects:
   title: Stable Diffusion and Low-Rank Adaptation Testing
   year: 2023-04
   repo_url: https://github.com/PR0CK0/StableDiffusionEndToEndGuide
+  github_repo_id: 622265512
   technologies:
   - Stable Diffusion
   - SD WebUI
@@ -3185,6 +3198,7 @@ projects:
     Techniques on Large Corpora in Python
   year: 2022-12
   repo_url: https://github.com/PR0CK0/Mandelbrot-Set-Calculation-Optimization-in-Scientific-Python
+  github_repo_id: 1094620209
   technologies:
   - Python
   - NumPy
@@ -3205,6 +3219,7 @@ projects:
   title: BFO Buddy
   year: 2022-07
   repo_url: https://github.com/PR0CK0/bfobuddy
+  github_repo_id: 516820209
   technologies:
   - Python
   - BFO
@@ -3227,6 +3242,7 @@ projects:
   title: USA Obesity Rates Visualization and Analysis
   year: 2021-12
   repo_url: https://github.com/PR0CK0/RandomDataAnalysisProjects
+  github_repo_id: 422333511
   technologies:
   - Python
   - Pandas
@@ -3244,6 +3260,7 @@ projects:
   title: Upper Martial Arts Ontology (UMAO)
   year: 2021-07
   repo_url: https://github.com/PR0CK0/UpperMartialArtsOntology
+  github_repo_id: 413516825
   technologies:
   - Schema.org
   - OWL
@@ -3265,6 +3282,7 @@ projects:
   title: Volusia County Parcel Elevation Visualization with SQL and QGIS
   year: 2021-05
   repo_url: https://github.com/PR0CK0/CS540_Project
+  github_repo_id: 362620898
   technologies:
   - QGIS
   - SQL
@@ -3366,6 +3384,7 @@ projects:
   title: Meme Ontology and Clustering Analysis
   year: 2020-02
   repo_url: https://github.com/PR0CK0/knowyourmeme.com-Crawler
+  github_repo_id: 173843564
   technologies:
   - Python
   - XML
@@ -3438,6 +3457,7 @@ projects:
   title: VxWorks C Water Heater Simulation
   year: 2019-05
   repo_url: https://github.com/PR0CK0/VxWorksWaterHeater
+  github_repo_id: 556118862
   technologies:
   - C
   - VxWorks
@@ -3467,6 +3487,7 @@ projects:
   title: LAN Multiplayer Board Game
   year: 2018-12
   repo_url: https://github.com/PR0CK0/SOS-Game-LAN-Capable
+  github_repo_id: 165141120
   technologies:
   - Java
   - CSS
@@ -3482,6 +3503,7 @@ projects:
   title: 'Monster Hunter: World Player Support Project (MHW:PSP)'
   year: 2018-05
   repo_url: https://github.com/PR0CK0/mhw
+  github_repo_id: 125555205
   technologies:
   - Java
   - MySQL
@@ -3500,6 +3522,7 @@ projects:
   title: EagleListings
   year: 2017-12
   repo_url: https://github.com/PR0CK0/EagleListings
+  github_repo_id: 109606355
   technologies:
   - Java
   - MySQL
@@ -3516,6 +3539,7 @@ projects:
   title: Tiles
   year: 2017-05
   repo_url: https://github.com/PR0CK0/TilesGame
+  github_repo_id: 623778021
   technologies:
   - Java
   - JavaFX
@@ -3530,6 +3554,7 @@ projects:
   title: Text-Based Racing Game
   year: 2016-12
   repo_url: https://github.com/PR0CK0/C_TextBasedRacingGame
+  github_repo_id: 623780713
   technologies:
   - C
   - GitHub
@@ -3553,6 +3578,7 @@ projects:
   title: CompTIA Security Study Guides
   year: 2025-10
   repo_url: https://github.com/PR0CK0/CompTIA-Security-Study-Guides
+  github_repo_id: 1085360659
   description: My collection from over the Web
   cv_exclude: true
   graph_exclude: true
@@ -3560,6 +3586,7 @@ projects:
   title: FAA Data Challenge 2023
   year: 2023-05
   repo_url: https://github.com/PR0CK0/FAADataChallenge
+  github_repo_id: 627130953
   description: 2023 FAA Data Challenge — ERAU team entry under Dr. Ochoa; aviation safety data analysis with ML.
   technologies:
   - Python
@@ -3573,6 +3600,7 @@ projects:
   title: htmlcss tutorial youtube clone
   year: 2022-10
   repo_url: https://github.com/PR0CK0/htmlcss-tutorial-youtube-clone
+  github_repo_id: 550982529
   description: hand-written YT clone following https://www.youtube.com/watch?v=G3e-cpL7ofc
   cv_exclude: true
   graph_exclude: true
@@ -3580,6 +3608,7 @@ projects:
   title: PR0CK0
   year: 2026-03
   repo_url: https://github.com/PR0CK0/PR0CK0
+  github_repo_id: 623714958
   description: Github landing page repo
   cv_exclude: true
   graph_exclude: true
@@ -3587,6 +3616,7 @@ projects:
   title: rails friends tutorial
   year: 2022-10
   repo_url: https://github.com/PR0CK0/rails-friends-tutorial
+  github_repo_id: 550531480
   description: if the heroku link is dead it means heroku isn't free anymore... my following of john elder's codemy 
     rails tutorial from https://www.youtube.com/watch?v=fmyvWz5TUWg&t=56s
   cv_exclude: true
@@ -3595,6 +3625,7 @@ projects:
   title: RDF Prefix Adder
   year: 2022-08
   repo_url: https://github.com/PR0CK0/RDF-Prefix-Adder
+  github_repo_id: 513613090
   description: CLI utility to inject a base prefix into Turtle RDF files — workaround for GraphDB namespace resolution.
   technologies:
   - Python
@@ -3612,6 +3643,7 @@ projects:
   title: rtd test
   year: 2023-02
   repo_url: https://github.com/PR0CK0/rtd-test
+  github_repo_id: 604767019
   description: Read the Docs test/sandbox repo.
   cv_exclude: true
   graph_exclude: true
@@ -3619,6 +3651,7 @@ projects:
   title: SWEBOK Knowledge Graph via REBEL
   year: 2023-03
   repo_url: https://github.com/PR0CK0/swebok-rebel-rdf
+  github_repo_id: 612751642
   description: Semi-automated SWEBOK knowledge graph extraction using REBEL seq2seq transformer and spaCy — RDF/OWL 
     output.
   technologies:
@@ -3639,6 +3672,7 @@ projects:
   title: Web Post Ontology
   year: 2024-04
   repo_url: https://github.com/PR0CK0/WebPostOntology
+  github_repo_id: 784803242
   description: BFO-inspired content taxonomy ontology (OWL/TTL) for Hooray Media — GPT post classifier, PyLODE docs, 
     versioned Turtle output.
   technologies:
@@ -3660,6 +3694,7 @@ projects:
   title: Quizzical
   year: 2026-04
   repo_url: https://github.com/PR0CK0/quizzical
+  github_repo_id: 1200533566
   description: Terminal quiz game for cert exam prep. Beat mode, combo scoring, burning fuse timer. Security+ deck 
     included.
   technologies:
@@ -3684,6 +3719,7 @@ projects:
   title: AI Config
   year: 2026-04
   repo_url: https://github.com/PR0CK0/ai-config
+  github_repo_id: 1200735437
   description: Agent config for ontology-driven LLM development. One source, minimal surface, secure by default.
   technologies:
   - Bash
@@ -3753,6 +3789,7 @@ projects:
   title: Wikidata Ontology Christian Denominations Reconciliation
   year: 2026-09
   repo_url: https://github.com/PR0CK0/Wikidata-Ontology---Christian-Denominations-Reconciliation
+  github_repo_id: 1395781031
   description: An investigation and analysis of christian denomination/schism representation w.r.t. Wikidata's ontology.
   technologies:
   - Wikidata
@@ -4262,6 +4299,7 @@ extracurriculars:
   title: Creator - CompTIA Security+ SYS-701 Study Guide Dump
   organization: GitHub
   url: https://github.com/PR0CK0/CompTIA-Security-Study-Guides
+  github_repo_id: 1085360659
   date: 2025-11
   type: open_source
   domains:
@@ -4344,6 +4382,7 @@ extracurriculars:
   title: Contributor to the DAIR Prompt Engineering Guide
   organization: DAIR / GitHub
   url: https://github.com/dair-ai/Prompt-Engineering-Guide
+  github_repo_id: 579082810
   date: 2023-05
   type: open_source
   domains:
@@ -4357,6 +4396,7 @@ extracurriculars:
   title: Contributor to OntoGPT GitHub
   organization: Monarch Initiative / GitHub
   url: https://github.com/monarch-initiative/ontogpt
+  github_repo_id: 584843480
   date: 2023-05
   type: open_source
   domains:
@@ -4369,6 +4409,7 @@ extracurriculars:
   title: Contributor to Huge AI Models GitHub
   organization: GitHub
   url: https://github.com/zhengzangw/awesome-huge-models
+  github_repo_id: 502565839
   date: 2023-04
   type: open_source
   domains:
@@ -4414,7 +4455,8 @@ extracurriculars:
   title: Contributor to the Semantalytics Awesome Semantic Web list
   date: 2022-07
   type: scholarly
-  url: https://github.com/semantalytics/awesome-semantic-web?tab=readme-ov-file
+  url: https://github.com/semantalytics/awesome-semantic-web
+  github_repo_id: 71265967
   domains:
   - Knowledge Representation
   - Semantic Web
@@ -4433,6 +4475,7 @@ extracurriculars:
   title: Created summarized list of BFO and BFO-related resources
   organization: GitHub
   url: https://github.com/PR0CK0/awesome-bfo
+  github_repo_id: 509088914
   date: 2022-06
   type: open_source
   domains:
@@ -4542,6 +4585,7 @@ extracurriculars:
 - id: extra/generativeai-and-linkeddata
   title: Generative AI and Linked Data
   url: https://github.com/PR0CK0/GenerativeAI_and_LinkedData
+  github_repo_id: 648826313
   type: open_source
   date: 2023-07
   domains:
@@ -4552,6 +4596,7 @@ extracurriculars:
 - id: extra/machine-learning-ontologies
   title: machine-learning-ontologies
   url: https://github.com/PR0CK0/machine-learning-ontologies
+  github_repo_id: 509204371
   type: open_source
   date: 2022-07
   domains:
@@ -4564,11 +4609,13 @@ extracurriculars:
 - id: extra/openai-cybersecurity-grant-proposal
   title: OpenAI Cybersecurity Grant Proposal
   url: https://github.com/PR0CK0/OpenAI_Cybersecurity_Grant_Proposal
+  github_repo_id: 650301379
   type: open_source
   date: 2023-06
 - id: extra/protegetutorials
   title: ProtegeTutorials
   url: https://github.com/PR0CK0/ProtegeTutorials
+  github_repo_id: 407575179
   type: open_source
   date: 2021-09
   technologies:

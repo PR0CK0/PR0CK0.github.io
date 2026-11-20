@@ -24,6 +24,9 @@ jobs:
       - name: Install validator dependency
         run: pip install jinja2 pyyaml ruamel.yaml
 
+      - name: Test repository identity tracking
+        run: python3 -m unittest discover -s tests -p test_repository_identity.py
+
       - name: Validate YAML terms
         run: python3 .github/scripts/validate_yaml_terms.py
 

@@ -88,7 +88,10 @@ export const ProjectPageSchema = z.object({
   }).optional(),
 })
 
+const GitHubRepoIdSchema = z.number().int().positive().safe().optional()
+
 export const ProjectSchema = z.object({
+  github_repo_id: GitHubRepoIdSchema,
   page: ProjectPageSchema.optional(),
   id: z.string(),
   title: z.string(),
@@ -182,6 +185,7 @@ export const CourseSchema = z.object({
 })
 
 export const ExtracurricularSchema = z.object({
+  github_repo_id: GitHubRepoIdSchema,
   id: z.string(),
   title: z.string(),
   organization: z.string().optional(),

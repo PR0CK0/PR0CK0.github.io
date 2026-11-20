@@ -12,14 +12,14 @@ public/data/tyler-procko.yaml   ← single source of truth for all CV/portfolio 
 ├── .github/
 │   ├── workflows/
 │   │   ├── deploy.yml                        ← build + deploy to GitHub Pages on push to main
-│   │   ├── sync-repo-descriptions.yml        ← daily sync of GitHub project descriptions
+│   │   ├── sync-repo-descriptions.yml        ← daily sync of GitHub repository identities, URLs, and descriptions
 │   │   ├── discover-new-repos.yml            ← daily discovery; avoids duplicate open PRs and cleans closed branches
 │   │   ├── sync-openalex-publications.yml    ← weekly sync of new publications from OpenAlex
 │   │   └── check-links.yml                   ← weekly link check
 │   └── scripts/
 │       ├── sync_openalex_publications.py     ← queries OpenAlex by ORCID; deduplicates, updates citation counts, adds stubs
 │       ├── discover_new_repos.py             ← finds public repos and infers technologies/domains from metadata
-│       └── sync_repo_descriptions.py         ← syncs project descriptions from GitHub
+│       └── sync_repo_descriptions.py         ← syncs repository metadata from GitHub
 │
 ├── build.py                    ← Python/Jinja2 builder → public/legacy/cv.html
 │   templates/                  ← Jinja2 partials (one per section)
@@ -161,7 +161,19 @@ Pushes to `main` trigger `.github/workflows/deploy.yml`, which:
 2. Runs `npm run build` to produce the Vite `dist/`
 3. Deploys `dist/` to GitHub Pages at `procko.pro`
 
-The daily repository-description sync uses `AUTOMATION_TOKEN` to open an auto-merge PR after validating updated references. Required PR checks run before merging; the merge to `main` triggers deployment. Unchanged descriptions create no commit or PR. If descriptions change but the token is missing, the job fails explicitly instead of publishing an update that cannot trigger validation. The token needs Contents and Pull requests write permissions, as used by the publication-sync workflow. Sync runs are serialized and only publish from `main`.
+The daily repository metadata sync uses `AUTOMATION_TOKEN` to open an auto-merge PR after validating updated references. Required PR checks run before merging; the merge to `main` triggers deployment. Unchanged metadata creates no commit or PR. If metadata changes but the token is missing, the job fails explicitly instead of publishing an update that cannot trigger validation. The token needs Contents and Pull requests write permissions, as used by the publication-sync workflow. Sync runs are serialized and only publish from `main`.
+
+Tracked GitHub repositories carry a numeric `github_repo_id` in the source YAML. The daily sync resolves existing IDs through `GET /repositories/{id}`; records without an ID are resolved by their repository URL on first sync. It updates canonical repository links and nonempty About descriptions, while preserving portfolio IDs, authored titles, project-page slugs, and distinct project websites. Repository-level extracurricular links carry the same identity metadata so discovery does not import them as new projects. Links to individual issues or pull requests stay untouched.
+
+Discovery reconciles tracked repositories before comparing IDs, independently of whether the earlier sync has merged. A rename or transfer updates the existing record. A different repository reusing an old name gets a new record; a conflicting portfolio address receives a repository-ID suffix. Topic validation distinguishes a rename from an actual addition. Homepage previews also match IDs, keeping their local detail links available before a URL correction has merged.
+
+An unavailable, private, or mismatched repository aborts reconciliation before writing the YAML; failed repository listings also abort discovery. This avoids guessing identity or importing private metadata, but a deleted repository needs manual attention before these jobs can resume. On initial ID backfill, a URL alone cannot identify an original repository if its former name has already been reused ([GitHub rename behavior](https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository)). Once stored, IDs are authoritative; there is no fallback to a potentially reused URL.
+
+Repository identity regressions run in discovery, metadata sync, PR validation, and deployment using the standard Python test runner:
+
+```bash
+python3 -m unittest discover -s tests -p test_repository_identity.py
+```
 
 Workflow regression checks:
 

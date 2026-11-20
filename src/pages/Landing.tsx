@@ -1242,6 +1242,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 interface GitHubRepo {
+  id: number
   name: string
   html_url: string
   created_at: string
@@ -1254,16 +1255,6 @@ function RecentReposSection({ projects, githubHandle }: { projects: Project[]; g
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Build lookup: normalize repo URL → YAML project
-    const repoMap = new Map<string, Project>()
-    for (const proj of projects) {
-      if (proj.repo_url) {
-        // Normalize: strip trailing slash, lowercase
-        const key = proj.repo_url.replace(/\/+$/, '').toLowerCase()
-        repoMap.set(key, proj)
-      }
-    }
-
     fetch(`https://api.github.com/users/${githubHandle}/repos?sort=pushed&per_page=30`)
       .then((r) => r.json())
       .then((data: GitHubRepo[]) => {
@@ -1271,7 +1262,9 @@ function RecentReposSection({ projects, githubHandle }: { projects: Project[]; g
         for (const repo of data) {
           if (repo.name === githubHandle) continue
           const key = repo.html_url.replace(/\/+$/, '').toLowerCase()
-          const yamlProj = repoMap.get(key)
+          const yamlProj = projects.find(project => project.github_repo_id
+            ? project.github_repo_id === repo.id
+            : project.repo_url?.replace(/\/+$/, '').toLowerCase() === key)
           if (yamlProj) {
             matched.push({
               project: yamlProj,

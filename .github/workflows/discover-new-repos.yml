@@ -1,13 +1,14 @@
 name: Discover New Repos
 
 # Runs daily and on manual trigger.
-# Finds public non-fork repos not yet in the YAML, auto-populates technologies
-# and domains from GitHub languages/topics, then opens a PR for review.
+# Reconciles tracked repository IDs/URLs, then finds new public non-fork repos.
+# Auto-populates technologies and domains from GitHub languages/topics,
+# then opens a PR for review.
 # Repos with no GitHub "About" description are skipped.
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # Every day at 07:00 UTC (1hr after description sync)
+    - cron: '0 7 * * *'  # Every day at 07:00 UTC (1hr after repository metadata sync)
   workflow_dispatch:      # Manual trigger from the Actions tab
   pull_request:
     types: [closed]
@@ -48,6 +49,9 @@ jobs:
       - name: Install dependencies
         run: pip install ruamel.yaml
 
+      - name: Test repository identity tracking
+        run: python3 -m unittest discover -s tests -p test_repository_identity.py
+
       - name: Discover new repos
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -64,11 +68,11 @@ jobs:
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git checkout -b "$BRANCH"
             git add public/data/tyler-procko.yaml
-            git commit -m "chore: add skeleton entries for new GitHub repos"
+            git commit -m "chore: reconcile GitHub repositories and discover projects"
             git push origin "$BRANCH"
             gh pr create \
-              --title "New repos discovered — review before merging" \
-              --body "Auto-discovered new public GitHub repos not yet in the YAML. Technologies and domains inferred from GitHub languages/topics — review and refine before merging. Set cv_exclude: true on anything you don't want displayed." \
+              --title "Repository discovery updates — review before merging" \
+              --body "Reconciles tracked repository IDs and URLs, and adds new public GitHub repos not yet in the YAML. Technologies and domains inferred from GitHub languages/topics — review and refine before merging. Set cv_exclude: true on anything you don't want displayed." \
               --base main \
               --head "$BRANCH"
           else

@@ -4,11 +4,12 @@ from __future__ import annotations
 
 import json
 import os
-import re
 import subprocess
 import sys
 import urllib.error
 import urllib.request
+
+from repository_identity import github_repository
 
 try:
     from ruamel.yaml import YAML
@@ -21,19 +22,21 @@ class TopicValidationError(RuntimeError):
     """Raised when a new project repository has no topics or cannot be checked."""
 
 
-GITHUB_REPO_URL = re.compile(r"^https?://(?:www\.)?github\.com/([^/]+)/([^/]+)/?$", re.I)
-
-
-def github_repository(url: str) -> str | None:
-    match = GITHUB_REPO_URL.match((url or "").strip().removesuffix(".git"))
-    return f"{match.group(1)}/{match.group(2)}".lower() if match else None
-
-
 def new_github_repositories(before: list[dict], after: list[dict]) -> list[str]:
     existing = {repo for item in before if (repo := github_repository(item.get("repo_url", "")))}
-    added = {
-        repo for item in after if (repo := github_repository(item.get("repo_url", "")))
-    } - existing
+    legacy_urls = {github_repository(item.get("repo_url", "")) for item in before if not item.get('github_repo_id')}
+    existing_ids = {item['github_repo_id'] for item in before if item.get('github_repo_id')}
+    added = set()
+    for item in after:
+        repository = github_repository(item.get('repo_url', ''))
+        if not repository:
+            continue
+        repo_id = item.get('github_repo_id')
+        if repo_id:
+            if repo_id not in existing_ids and repository not in legacy_urls:
+                added.add(repository)
+        elif repository not in existing:
+            added.add(repository)
     return sorted(added)
 
 

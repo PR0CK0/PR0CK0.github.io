@@ -1,9 +1,8 @@
-name: Sync Repo Descriptions
+name: Sync Repo Metadata
 
 # Runs daily and on manual trigger.
-# Fetches the current GitHub "About" description for every project that has a
-# repo_url and updates the YAML if anything changed. Does not add new entries —
-# see discover-new-repos.yml for that.
+# Reconciles stable repository IDs and URLs, and syncs project About descriptions.
+# Does not add new entries — see discover-new-repos.yml for that.
 
 on:
   schedule:
@@ -36,7 +35,10 @@ jobs:
       - name: Install dependencies
         run: pip install ruamel.yaml
 
-      - name: Sync descriptions
+      - name: Test repository identity tracking
+        run: python3 -m unittest discover -s tests -p test_repository_identity.py
+
+      - name: Sync repository metadata
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 .github/scripts/sync_repo_descriptions.py
@@ -59,13 +61,13 @@ jobs:
             SYNC_BRANCH="automation/repo-description-sync-${GITHUB_RUN_ID}"
             git switch --create "$SYNC_BRANCH"
             git add public/data/tyler-procko.yaml
-            git commit -m "chore: sync GitHub repo descriptions"
+            git commit -m "chore: sync GitHub repository metadata"
             git push --set-upstream origin "$SYNC_BRANCH"
             PR_URL=$(gh pr create \
               --base main \
               --head "$SYNC_BRANCH" \
-              --title "chore: sync GitHub repo descriptions" \
-              --body "Updates project descriptions from GitHub About fields. Automatically merges after the required validation checks pass; the merge triggers site deployment.")
+              --title "chore: sync GitHub repository metadata" \
+              --body "Updates stable repository IDs, canonical links, and project descriptions from GitHub. Preserves curated titles, portfolio IDs, and page slugs. Automatically merges after the required validation checks pass; the merge triggers site deployment.")
             gh pr merge "$PR_URL" --auto --squash
           else
             echo "Nothing to commit."

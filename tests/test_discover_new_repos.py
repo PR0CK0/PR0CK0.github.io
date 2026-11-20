@@ -1,10 +1,12 @@
 import importlib.util
+import sys
 from pathlib import Path
 
 import pytest
 
 
 SCRIPT_PATH = Path(__file__).parents[1] / ".github" / "scripts" / "discover_new_repos.py"
+sys.path.insert(0, str(SCRIPT_PATH.parent))
 SPEC = importlib.util.spec_from_file_location("discover_new_repos", SCRIPT_PATH)
 discover = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(discover)

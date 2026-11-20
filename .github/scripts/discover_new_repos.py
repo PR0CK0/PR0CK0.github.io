@@ -4,9 +4,8 @@ public/data/tyler-procko.yaml.
 
 Queries the GitHub API for all public, non-forked repos owned by each account
 in GITHUB_USERS (comma-separated).
-Any repo whose html_url isn't already tracked as a project repo_url gets an
-entry appended to the projects list. Repos without a GitHub "About" description
-are skipped — they're usually incomplete or throwaway.
+Existing repositories are reconciled by stable GitHub ID before adding entries.
+Repos without a GitHub "About" description are skipped — they're usually incomplete or throwaway.
 
 Technologies are auto-populated from the repo's GitHub languages and topics,
 mapped through a known vocabulary. Domains are inferred from topics where
@@ -30,6 +29,8 @@ import time
 import urllib.request
 import urllib.error
 import json
+
+from repository_identity import reconcile_repositories
 
 try:
     from ruamel.yaml import YAML
@@ -151,6 +152,8 @@ def fetch_all_repos(user: str) -> list[dict]:
     page = 1
     while True:
         batch = gh_get(f"/users/{user}/repos?type=public&per_page=100&page={page}")
+        if batch is None:
+            raise RuntimeError(f'Could not list repositories for {user}; no file written')
         if not batch:
             break
         repos.extend(r for r in batch if not r.get("fork"))
@@ -216,10 +219,6 @@ def repo_title(name: str) -> str:
     return re.sub(r"[-_]+", " ", name).strip()
 
 
-def normalize_url(url: str) -> str:
-    return (url or "").strip().rstrip("/").lower()
-
-
 def make_entry(repo: dict, owner: str) -> CommentedMap:
     topics = repo.get("topics") or []
     techs  = infer_technologies(owner, repo["name"], topics)
@@ -231,6 +230,7 @@ def make_entry(repo: dict, owner: str) -> CommentedMap:
     date_str          = repo.get("pushed_at") or repo.get("created_at") or ""
     entry["year"]     = date_str[:7] if date_str else ""
     entry["repo_url"] = repo["html_url"]
+    entry["github_repo_id"] = repo["id"]
     if repo.get("homepage"):
         entry["url"] = repo["homepage"]
     if repo.get("description"):
@@ -258,19 +258,16 @@ def main() -> None:
     with open(YAML_PATH, encoding="utf-8") as f:
         data = yaml.load(f)
 
-    projects = data.get("projects") or []
-
-    existing_urls: set[str] = set()
-    for p in projects:
-        if p.get("repo_url"):
-            existing_urls.add(normalize_url(p["repo_url"]))
-    for e in data.get("extracurriculars") or []:
-        if "github.com" in (e.get("url") or ""):
-            existing_urls.add(normalize_url(e["url"]))
-
     if not GITHUB_USERS:
         print("ERROR: GITHUB_USERS is empty")
         sys.exit(1)
+
+    updated = reconcile_repositories(data, gh_get)
+    projects = data.setdefault('projects', [])
+    existing_ids = {record['github_repo_id'] for section in ('projects', 'extracurriculars')
+                    for record in data.get(section) or [] if record.get('github_repo_id')}
+    project_ids = {project['id'] for project in projects}
+    page_slugs = {project.get('page', {}).get('slug', project['id'].split('/', 1)[-1]) for project in projects}
 
     gh_repos: list[dict] = []
     for user in GITHUB_USERS:
@@ -281,8 +278,7 @@ def main() -> None:
 
     added = 0
     for repo in gh_repos:
-        url = normalize_url(repo["html_url"])
-        if url in existing_urls:
+        if repo["id"] in existing_ids:
             continue
 
         if not (repo.get("description") or "").strip():
@@ -293,15 +289,21 @@ def main() -> None:
 
         print(f"  NEW: proj/{repo_slug(repo['name'])} — {repo['html_url']}")
         entry = make_entry(repo, repo_owner)
+        if entry['id'] in project_ids or entry['id'].split('/', 1)[-1] in page_slugs:
+            entry['id'] = f"{entry['id']}-{repo['id']}"
+        if entry['id'] in project_ids or entry['id'].split('/', 1)[-1] in page_slugs:
+            raise RuntimeError(f'Project address collision for {entry["id"]}; no file written')
         projects.append(entry)
-        existing_urls.add(url)
+        existing_ids.add(repo['id'])
+        project_ids.add(entry['id'])
+        page_slugs.add(entry['id'].split('/', 1)[-1])
         added += 1
         time.sleep(0.1)
 
-    if added:
+    if added or updated:
         with open(YAML_PATH, "w", encoding="utf-8") as f:
             yaml.dump(data, f)
-        print(f"\n✓ {added} new project(s) added to {YAML_PATH}")
+        print(f"\n✓ {added} new project(s), {updated} tracked repository update(s) written to {YAML_PATH}")
     else:
         print("\nNo new repos found.")
 
