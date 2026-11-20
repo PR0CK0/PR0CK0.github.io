@@ -15,6 +15,8 @@ it('links every indexed project to its own page, including records without extra
   expect(html).toContain('href="/projects/example"')
   expect(html).toContain('href="/projects/brief"')
   expect(html).toContain('Source description.')
+  expect(html.match(/Project notes ↘/g)).toHaveLength(2)
+  expect(html).toContain('Sort projects')
 })
 
 it('renders source content, canonical competency labels, and project resource links', () => {

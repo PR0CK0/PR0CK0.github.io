@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Project } from '@/lib/schema'
 import { getRecordCompetencies, type Competency } from '@/lib/competencies'
-import { projectPath } from '@/lib/project-pages'
+import { projectPath, sortProjects, type ProjectSort } from '@/lib/project-pages'
 import { fmtSingleDate } from '@/lib/cv-data'
 import { BTN_PRIMARY, BTN_SECONDARY, SECTION_LABEL } from '@/lib/ui-constants'
 
@@ -17,6 +17,7 @@ function CompetencyLinks({ terms }: { terms: Competency[] }) {
 export function ProjectIndex({ projects }: { projects: Project[] }) {
   const [query, setQuery] = useState('')
   const [domain, setDomain] = useState('')
+  const [sort, setSort] = useState<ProjectSort>('newest')
   const domains = [...new Set(projects.flatMap(project => getRecordCompetencies(project).filter(term => term.category === 'domains').map(term => term.label)))].sort()
   const search = query.trim().toLowerCase()
   const matches = projects.filter(project => {
@@ -24,7 +25,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
     return (!domain || terms.some(term => term.category === 'domains' && term.label === domain))
       && [project.title, project.description, project.tagline, ...terms.map(term => term.label)].join(' ').toLowerCase().includes(search)
   })
-  const sorted = [...matches].sort((a, b) => Number(Boolean(b.page)) - Number(Boolean(a.page)) || Number(Boolean(b.featured)) - Number(Boolean(a.featured)))
+  const sorted = sortProjects(matches, sort)
 
   return <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
     <header className="border-b border-terminal-border pb-8 mb-8">
@@ -34,15 +35,23 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
       <p className="text-xs text-terminal-muted mt-5"><span className="text-terminal-green">{projects.length}</span> projects <span aria-hidden="true">/</span> <span className="text-terminal-blue">{domains.length}</span> domains</p>
     </header>
 
-    <div className="grid sm:grid-cols-[1fr_16rem] gap-4 mb-5">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_14rem_12rem] gap-4 mb-5">
       <label className="block text-xs text-terminal-muted">Search projects
         <input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Title, topic, or technology…"
           className="mt-2 w-full rounded border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm" />
       </label>
       <label className="block text-xs text-terminal-muted">Filter by domain
-        <select value={domain} onChange={event => setDomain(event.target.value)} className="mt-2 w-full rounded border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm">
+        <select name="domain" value={domain} onChange={event => setDomain(event.target.value)} className="mt-2 w-full rounded border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm">
           <option value="">All domains</option>
           {domains.map(label => <option key={label}>{label}</option>)}
+        </select>
+      </label>
+      <label className="block text-xs text-terminal-muted">Sort projects
+        <select name="sort" value={sort} onChange={event => setSort(event.target.value as ProjectSort)} className="mt-2 w-full rounded border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="title-asc">Name: A–Z</option>
+          <option value="title-desc">Name: Z–A</option>
         </select>
       </label>
     </div>
@@ -57,7 +66,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
         return <article key={project.id} data-project-card className="min-w-0 flex flex-col rounded-lg border border-terminal-border bg-terminal-surface p-5 sm:p-6 hover:border-terminal-green/50 transition-colors">
           <div className="flex items-center justify-between gap-3 text-xs mb-4 text-terminal-muted">
             <span>{project.year ? fmtSingleDate(project.year) : 'Project'}</span>
-            {project.page && <span className="text-terminal-green">Project notes ↘</span>}
+            <span className="text-terminal-green">Project notes ↘</span>
           </div>
           <h2 className="text-lg sm:text-xl leading-snug font-bold text-terminal-text break-words">
             <Link to={projectPath(project)} className="hover:text-terminal-green">{project.title}</Link>

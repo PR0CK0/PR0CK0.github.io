@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 import { loadPortfolioData } from '@/lib/yaml-loader'
+import { projectPath } from '@/lib/project-pages'
 import { COMPETENCY_CATEGORY_LABELS, type CompetencyCategory } from '@/lib/tech-categories'
 import { aggregateCompetencies, getRecordCompetencies, type AggregatedSkill } from '@/lib/competencies'
 import { TAG_CHIP, CARD_BASE, CARD_DESCRIPTION, SECTION_CONTAINER, TAG_CONTAINER, META_TEXT, BTN_PRIMARY, BTN_SECONDARY } from '@/lib/ui-constants'
@@ -1383,12 +1384,10 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
       <div className="flex items-start justify-between gap-2 mb-1">
         <h3 className="font-mono text-xs sm:text-sm ls:text-xs font-bold text-terminal-text
                        group-hover:text-terminal-purple transition-colors leading-snug flex items-baseline gap-1.5 flex-wrap">
-          {project.url ? (
-            <a href={project.url} target="_blank" rel="noopener noreferrer"
-              className="hover:text-terminal-green hover:text-glow-green transition-all">
-              {project.title}
-            </a>
-          ) : project.title}
+          <Link to={projectPath(project)}
+            className="hover:text-terminal-green hover:text-glow-green transition-all">
+            {project.title}
+          </Link>
           {version && (
             <span className="text-[8px] font-mono font-normal text-terminal-green/70 border border-terminal-green/30 rounded px-1 py-0.5 leading-none">
               {version}
@@ -1481,18 +1480,13 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
         </div>
       )}
 
-      {/* Repo link */}
-      {project.repo_url && (
-        <a
-          href={project.repo_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 text-[10px] font-mono text-terminal-muted hover:text-terminal-green
-                     transition-colors self-start"
-        >
-          ⌥ view repo →
-        </a>
-      )}
+      <Link
+        to={projectPath(project)}
+        className="mt-3 text-[10px] font-mono text-terminal-muted hover:text-terminal-green
+                   transition-colors self-start"
+      >
+        View project →
+      </Link>
     </motion.div>
   )
 }

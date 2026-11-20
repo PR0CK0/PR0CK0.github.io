@@ -1,6 +1,21 @@
 import { expect, it } from 'vitest'
 import { PersonSchema, ProjectSchema } from '../schema'
-import { getVisibleProjects, projectPath } from '../project-pages'
+import { getVisibleProjects, projectPath, sortProjects } from '../project-pages'
+
+it('sorts projects by date or title without changing source order, keeping undated projects last', () => {
+  const projects = [
+    { id: 'proj/z', title: 'Zulu', year: '2025-12', page: { slug: 'z', sections: [] } },
+    { id: 'proj/b', title: 'Beta', year: '2026-02' },
+    { id: 'proj/a', title: 'Alpha', year: '2026-02' },
+    { id: 'proj/c', title: 'Charlie' },
+  ]
+  const titles = (order: Parameters<typeof sortProjects>[1]) => sortProjects(projects, order).map(project => project.title)
+  expect(titles('newest')).toEqual(['Alpha', 'Beta', 'Zulu', 'Charlie'])
+  expect(titles('oldest')).toEqual(['Zulu', 'Alpha', 'Beta', 'Charlie'])
+  expect(titles('title-asc')).toEqual(['Alpha', 'Beta', 'Charlie', 'Zulu'])
+  expect(titles('title-desc')).toEqual(['Zulu', 'Charlie', 'Beta', 'Alpha'])
+  expect(projects.map(project => project.title)).toEqual(['Zulu', 'Beta', 'Alpha', 'Charlie'])
+})
 
 const page = { slug: 'example', sections: [{ heading: 'The problem', paragraphs: ['A source-authored explanation.'] }] }
 
