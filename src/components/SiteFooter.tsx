@@ -25,6 +25,7 @@ export default function SiteFooter({ name }: { name: string }) {
             {[
               { label: '~/home', href: '/' },
               { label: '~/projects', href: '/projects' },
+              { label: '~/papers', href: '/papers' },
               { label: '~/graph', href: '/graph' },
               { label: '~/resume', href: '/resume' },
               { label: '~/cv', href: '/cv' },

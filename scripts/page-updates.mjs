@@ -23,6 +23,7 @@ export const PAGE_INPUTS = {
   '/legacy': { entry: 'src/pages/Legacy.tsx', fields: null, assets: ['build.py', 'templates/', 'public/legacy/index.css', 'public/legacy/header.css', 'public/legacy/favicon.ico', 'public/legacy/icons/', 'public/legacy/certs/'] },
   '/personal': { entry: 'src/pages/Personal.tsx', fields: [], assets: ['public/art/'] },
   '/projects': { entry: 'src/pages/Projects.tsx', fields: ['projects'] },
+  '/papers': { entry: 'src/pages/Publications.tsx', fields: ['publications'] },
 }
 
 function stableJSON(value) {

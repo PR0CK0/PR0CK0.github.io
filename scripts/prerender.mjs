@@ -35,6 +35,7 @@ const ROUTES = [
   { path: '/legacy', dir: 'legacy' },
   { path: '/personal', dir: 'personal' },
   { path: '/projects', dir: 'projects' },
+  { path: '/papers', dir: 'papers' },
 ]
 
 // ms to wait after window.load for React + YAML to finish rendering
@@ -70,8 +71,8 @@ async function main() {
 
       const page = await browser.newPage()
       await page.goto(url, { waitUntil: 'load', timeout: 30_000 })
-      if (path.startsWith('/projects')) {
-        // Source-only project pages are ready once their content and metadata agree.
+      if (path.startsWith('/projects') || path === '/papers') {
+        // Source-only pages are ready once their content and metadata agree.
         await page.waitForFunction(canonical => document.querySelector('#root h1')
           && document.querySelector('link[rel="canonical"]')?.getAttribute('href') === canonical,
         {}, new URL(path, person.website).href)

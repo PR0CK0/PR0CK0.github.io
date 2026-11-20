@@ -6,6 +6,7 @@ import SEO from '@/components/SEO'
 import SiteFooter from '@/components/SiteFooter'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import { projectPath } from '@/lib/project-pages'
+import { getVisiblePublications } from '@/lib/publication-pages'
 import { COMPETENCY_CATEGORY_LABELS, type CompetencyCategory } from '@/lib/tech-categories'
 import { aggregateCompetencies, getRecordCompetencies, type AggregatedSkill } from '@/lib/competencies'
 import { TAG_CHIP, CARD_BASE, CARD_DESCRIPTION, SECTION_CONTAINER, TAG_CONTAINER, META_TEXT, BTN_PRIMARY, BTN_SECONDARY } from '@/lib/ui-constants'
@@ -1028,7 +1029,7 @@ function PublicationRow({ pub, index }: { pub: Publication; index: number }) {
   )
 }
 
-function PublicationsSection({ publications }: { publications: Publication[] }) {
+function PublicationsSection({ publications, scholarUrl }: { publications: Publication[]; scholarUrl?: string }) {
   const top5 = publications.slice(0, 5)
 
   return (
@@ -1044,28 +1045,12 @@ function PublicationsSection({ publications }: { publications: Publication[] }) 
             <PublicationRow key={pub.id} pub={pub} index={i} />
           ))}
         </div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-6 text-center"
-        >
-          <a
-            href="https://scholar.google.com/citations?user=Xm7p7mQAAAAJ&hl=en"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted hover:text-terminal-blue transition-colors"
-          >
-            <motion.span
-              style={{ display: 'inline-block' }}
-              animate={{ x: [0, 4, 0, -4, 0] }}
-              transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
-            >
-              View all {publications.length} publications on Google Scholar →
-            </motion.span>
-          </a>
-        </motion.div>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Link to="/papers" className={BTN_PRIMARY}>View all publications →</Link>
+          {scholarUrl && <a href={scholarUrl} target="_blank" rel="noopener noreferrer" className={BTN_SECONDARY}>
+            View on Google Scholar ↗
+          </a>}
+        </div>
       </div>
     </section>
   )
@@ -1816,7 +1801,7 @@ export default function Landing() {
     )
   }
 
-  const publications = (person.publications ?? []).filter(p => p.status !== 'in_progress')
+  const publications = getVisiblePublications(person)
   const projects = (person.projects ?? []).filter(p => !p.graph_exclude)
   const bootLines = buildBootLines(publications.length)
   const stats = buildStats(publications.length, projects.length)
@@ -1834,7 +1819,7 @@ export default function Landing() {
       <SkillsMatrix person={person} />
 
       {publications.length > 0 && (
-        <PublicationsSection publications={publications} />
+        <PublicationsSection publications={publications} scholarUrl={person.social_links?.find(link => link.platform === 'Google Scholar')?.url} />
       )}
 
       <RecentReposSection projects={projects} githubHandle={person.social_links?.find(s => s.platform === 'GitHub')?.handle ?? ''} />

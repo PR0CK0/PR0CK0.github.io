@@ -53,6 +53,7 @@ export const PublicationSchema = z.object({
   id: z.string(),
   title: z.string(),
   authors: z.array(z.string()).optional(),
+  author_role: z.string().optional(),
   venue: z.string().optional(),
   date: z.string().optional(),
   status: z.enum([

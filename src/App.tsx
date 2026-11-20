@@ -7,6 +7,7 @@ import About from '@/pages/About'
 import Personal from '@/pages/Personal'
 import { LOADING_SCREEN } from '@/lib/ui-constants'
 
+const Publications = lazy(() => import('@/pages/Publications'))
 const Projects = lazy(() => import('@/pages/Projects'))
 const Graph = lazy(() => import('@/pages/Graph'))
 const CVExport = lazy(() => import('@/pages/CVExport'))
@@ -18,6 +19,7 @@ export default function App() {
       <Suspense fallback={<div className={LOADING_SCREEN} role="status"><span className="text-terminal-green text-sm animate-pulse">loading page...</span></div>}>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/papers" element={<Publications />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<Projects />} />
           <Route path="/graph" element={<Graph />} />
