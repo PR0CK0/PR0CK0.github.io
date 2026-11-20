@@ -28,7 +28,7 @@ try {
   await page.setViewport({ width: 1440, height: 1000 })
   await page.goto(`${site}/projects`, { waitUntil: 'networkidle0' })
   assert.equal(await page.$$eval('[data-project-card]', cards => cards.length), routes.length)
-  assert.ok(await page.$$eval('[data-project-card]', cards => cards.every(card => card.textContent.includes('Project notes ↘'))))
+  assert.ok(await page.$$eval('[data-project-card]', cards => cards.every(card => !card.textContent.includes('Project notes'))))
   const visible = person.projects.filter(project => !project.graph_exclude)
   const cardTitles = () => page.$$eval('[data-project-card] h2', headings => headings.map(heading => heading.textContent))
   for (const order of ['newest', 'oldest', 'title-asc', 'title-desc']) {

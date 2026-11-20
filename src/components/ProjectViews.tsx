@@ -66,7 +66,6 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
         return <article key={project.id} data-project-card className="min-w-0 flex flex-col rounded-lg border border-terminal-border bg-terminal-surface p-5 sm:p-6 hover:border-terminal-green/50 transition-colors">
           <div className="flex items-center justify-between gap-3 text-xs mb-4 text-terminal-muted">
             <span>{project.year ? fmtSingleDate(project.year) : 'Project'}</span>
-            <span className="text-terminal-green">Project notes ↘</span>
           </div>
           <h2 className="text-lg sm:text-xl leading-snug font-bold text-terminal-text break-words">
             <Link to={projectPath(project)} className="hover:text-terminal-green">{project.title}</Link>
