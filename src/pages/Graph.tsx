@@ -50,7 +50,10 @@ function buildLinks(data: Record<string, unknown>): Array<{ label: string; url: 
   const links: Array<{ label: string; url: string }> = []
   if (data.url)      links.push({ label: 'link ↗', url: data.url as string })
   if (data.repo_url) links.push({ label: 'github ↗', url: data.repo_url as string })
-  if (data.doi)      links.push({ label: 'doi ↗', url: `https://doi.org/${data.doi}` })
+  if (data.doi) {
+    const doi = String(data.doi).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '')
+    links.push({ label: 'doi ↗', url: `https://doi.org/${doi}` })
+  }
   return links
 }
 

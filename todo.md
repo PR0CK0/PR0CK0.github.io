@@ -158,7 +158,7 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 
 ## Projects — link audit & display order
 
-- [ ] **Audit all `url` fields in YAML** — verify every project `url` actually resolves to a live page; fix or remove dead links
+- [x] **Audit current project, publication, and credential links** — Checked 147 distinct source URLs; see [results and limitations](docs/current-link-audit.md). Fixed double-prefixed DOI URLs on all 33 graph DOI buttons. Quizzical verified in a browser; publisher/social access restrictions remain unverified, not declared dead.
 - [ ] **Review project display order in CV/resume** — current sort is featured-first then year desc; decide if a manual ordering or different priority makes more sense for the top 8
 
 ## Shared competency catalog

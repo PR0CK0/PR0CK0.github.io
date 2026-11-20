@@ -49,6 +49,19 @@ afterEach(() => {
 })
 
 describe('Graph link selection', () => {
+  it.each(['10.1234/example', 'https://doi.org/10.1234/example', 'http://dx.doi.org/10.1234/example'])(
+    'builds a single DOI resolver URL from %s', doi => {
+      const cy = cytoscape({ headless: true, elements: [
+        { data: { id: 'paper', label: 'Example paper', type: 'publication', doi } },
+      ] })
+      cores.push(cy)
+      cyCallback()(cy)
+      cy.getElementById('paper').emit('tap')
+      const selected = stateChanges.mock.calls.find(([value]) => value?.id === 'paper')?.[0]
+      expect(selected.links).toEqual([{ label: 'doi ↗', url: 'https://doi.org/10.1234/example' }])
+    },
+  )
+
   it.each([
     ['term=agile', 'competency-agile', 'Agile', 'domain'],
     ['q=Example', 'project/example', 'Example', 'project'],

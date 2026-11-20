@@ -96,6 +96,8 @@ Publication `status` values are validated by `PublicationSchema` in `src/lib/sch
 
 Graph selection regression tests also require Cytoscape initialization and selection to produce no warnings. Unsupported shadow declarations were removed; Person labels and selected-node borders retain their existing styling.
 
+Graph DOI buttons normalize both bare identifiers and full DOI resolver URLs into one HTTPS resolver URL. Selection tests prevent duplicated resolver prefixes. See the [current link audit](docs/current-link-audit.md) for source-URL checks and publisher access limitations.
+
 Cytoscape is pinned to 3.33.1 with `patches/cytoscape+3.33.1.patch`. Its polygon hit test counted a shared vertex twice, causing clicks and taps along a diamond's center axis to miss. The patch uses a half-open edge interval to count that vertex once, preserving node shapes. It covers the dependency source and the ESM/CommonJS bundles used by this project. `postinstall` applies it through `patch-package --error-on-fail`; a failed patch blocks installation instead of silently losing the fix.
 
 `npm test` covers polygon interiors, exteriors, vertex order, translation, and scaling. Run `node scripts/test-graph-hit-detection.mjs` against the dev server (or set `SITE_URL`) for real mouse/touch selection of Person and Associate diamonds at three zoom levels. Before upgrading Cytoscape, check the upstream implementation and rerun these tests; remove the patch and its install tooling once an upstream release passes them without it.
