@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { expect, it } from 'vitest'
 
 const app = readFileSync('src/App.tsx', 'utf8')
-const routes = [...app.matchAll(/<Route\s+path="(\/[^"]*)"/g)].map(match => match[1]).sort()
+const routes = [...app.matchAll(/<Route\s+path="(\/[^"]*)"/g)].map(match => match[1]).filter(path => !path.includes(':')).sort()
 
 it('includes every public route exactly once in the sitemap', () => {
   const sitemap = readFileSync('public/sitemap.xml', 'utf8')

@@ -71,7 +71,25 @@ export const PublicationSchema = z.object({
   cited_by_count: z.number().optional(),
 })
 
+export const ProjectPageSchema = z.object({
+  slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  sections: z.array(z.object({
+    heading: z.string().min(1),
+    paragraphs: z.array(z.string().min(1)).min(1),
+  })).min(1),
+  links: z.array(z.object({
+    label: z.string().min(1),
+    url: z.string().url().regex(/^https?:\/\//),
+  })).optional(),
+  image: z.object({
+    src: z.string().startsWith('/projects/'),
+    alt: z.string().min(1),
+    caption: z.string().optional(),
+  }).optional(),
+})
+
 export const ProjectSchema = z.object({
+  page: ProjectPageSchema.optional(),
   id: z.string(),
   title: z.string(),
   tagline: z.string().optional(),
@@ -228,6 +246,17 @@ export const PersonSchema = z.object({
   favorite_music: z.array(z.string()).optional(),
   favorite_books: z.array(z.string()).optional(),
   favorite_show: z.string().optional(),
+}).superRefine((person, context) => {
+  const slugs = new Set<string>()
+  person.projects?.forEach((project, index) => {
+    const slug = project.page?.slug ?? project.id.replace(/^[^/]+\//, '')
+    if (slugs.has(slug)) context.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['projects', index, 'page', 'slug'],
+      message: 'Project page slugs must be unique',
+    })
+    slugs.add(slug)
+  })
 })
 
 export type Person = z.infer<typeof PersonSchema>

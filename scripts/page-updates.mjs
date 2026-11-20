@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process'
 import { posix } from 'node:path'
 import ts from 'typescript'
 import yaml from 'js-yaml'
+import { projectRoutes } from './project-routes.mjs'
 
 const COMPETENCY_FIELDS = ['education', 'work_experiences', 'publications', 'projects', 'courses', 'certificates', 'talks', 'extracurriculars']
 const CV_FIELDS = [...COMPETENCY_FIELDS, 'social_links', 'location', 'phone', 'email_academic', 'awards', 'clearance', 'past_clearances', 'references']
@@ -21,6 +22,7 @@ export const PAGE_INPUTS = {
   '/resume': { entry: 'src/pages/ResumeExport.tsx', fields: CV_FIELDS },
   '/legacy': { entry: 'src/pages/Legacy.tsx', fields: null, assets: ['build.py', 'templates/', 'public/legacy/index.css', 'public/legacy/header.css', 'public/legacy/favicon.ico', 'public/legacy/icons/', 'public/legacy/certs/'] },
   '/personal': { entry: 'src/pages/Personal.tsx', fields: [], assets: ['public/art/'] },
+  '/projects': { entry: 'src/pages/Projects.tsx', fields: ['projects'] },
 }
 
 function stableJSON(value) {
@@ -28,10 +30,16 @@ function stableJSON(value) {
     ? Object.fromEntries(Object.keys(item).sort().map(key => [key, item[key]])) : item)
 }
 
-export function resolvePageUpdates(root, routes = PAGE_INPUTS) {
+export function resolvePageUpdates(root, routes) {
   const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 }).trim()
   if (git('rev-parse', '--is-shallow-repository') === 'true') {
     throw new Error('Page update tracking requires full Git history (checkout fetch-depth: 0)')
+  }
+  if (!routes) {
+    const person = yaml.load(git('show', `HEAD:${DATA_FILE}`))
+    routes = { ...PAGE_INPUTS, ...Object.fromEntries(projectRoutes(person).map(route => [route.path, {
+      entry: 'src/pages/Projects.tsx', fields: [], projectId: route.projectId, assets: route.assets,
+    }])) }
   }
   const history = git('log', '--first-parent', '--format=%H %cI').split('\n').map(line => line.split(' '))
   const texts = new Map()
@@ -53,7 +61,8 @@ export function resolvePageUpdates(root, routes = PAGE_INPUTS) {
       employer: work && { organization: work.organization, org_url: work.org_url },
     }
     return Object.fromEntries(Object.entries(routes).map(([path, rule]) => {
-      if (!tree.has(rule.entry)) return [path, null]
+      const project = rule.projectId && person.projects?.find(item => item.id === rule.projectId)
+      if (!tree.has(rule.entry) || (rule.projectId && !project)) return [path, null]
       const files = new Set(SHARED_FILES.filter(file => tree.has(file)))
       const visit = file => {
         if (files.has(file) || !tree.has(file)) return
@@ -73,7 +82,7 @@ export function resolvePageUpdates(root, routes = PAGE_INPUTS) {
       for (const asset of rule.assets ?? []) {
         for (const file of tree.keys()) if (asset.endsWith('/') ? file.startsWith(asset) : file === asset) files.add(file)
       }
-      const data = rule.fields === null ? person : Object.fromEntries(rule.fields.map(key => [key, person[key]]))
+      const data = rule.projectId ? project : rule.fields === null ? person : Object.fromEntries(rule.fields.map(key => [key, person[key]]))
       return [path, stableJSON({ files: Object.fromEntries([...files].sort().map(file => [file, tree.get(file)])), profile, data })]
     }))
   }

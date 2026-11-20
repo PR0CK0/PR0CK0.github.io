@@ -44,7 +44,7 @@ function fixture() {
 afterEach(() => fixtures.splice(0).forEach(root => rmSync(root, { recursive: true, force: true })))
 
 it('tracks update history for every public route', () => {
-  const paths = [...readFileSync('src/App.tsx', 'utf8').matchAll(/<Route\s+path="(\/[^"]*)"/g)].map(match => match[1])
+  const paths = [...readFileSync('src/App.tsx', 'utf8').matchAll(/<Route\s+path="(\/[^"]*)"/g)].map(match => match[1]).filter(path => !path.includes(':'))
   expect(Object.keys(PAGE_INPUTS).sort()).toEqual(paths.sort())
 })
 
@@ -117,4 +117,16 @@ it('writes recovered timestamps and rejects sitemap routes without tracking rule
   expect(updateSitemap(source, updates)).toContain('<lastmod>2026-01-01T12:00:00.000Z</lastmod>')
   expect(updateSitemap(source.replace(/<lastmod>.*?<\/lastmod>/, ''), updates)).toContain('<lastmod>2026-01-01T12:00:00.000Z</lastmod>')
   expect(() => updateSitemap(source, {})).toThrow(/tracking rule/)
+})
+
+it('keeps each project detail date tied to its own source record', () => {
+  const { root, write, commit } = fixture()
+  write('public/data/tyler-procko.yaml', 'name: Example\nprojects: [{id: proj/one, title: One}, {id: proj/two, title: Two}]\n')
+  const original = commit(1)
+  const pages = Object.fromEntries(['one', 'two'].map(id => [`/projects/${id}`, { entry: 'src/pages/Graph.tsx', fields: [], projectId: `proj/${id}` }]))
+  write('public/data/tyler-procko.yaml', 'name: Example\nprojects: [{id: proj/one, title: One}, {id: proj/two, title: Updated}]\n')
+  const changed = commit(2)
+  const updates = resolvePageUpdates(root, pages)
+  expect(updates['/projects/one'].commit).toBe(original)
+  expect(updates['/projects/two'].commit).toBe(changed)
 })

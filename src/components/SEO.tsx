@@ -4,11 +4,12 @@ interface SEOProps {
   title: string
   description: string
   path: string
+  noindex?: boolean
 }
 
 const SITE = 'https://procko.pro'
 
-export default function SEO({ title, description, path }: SEOProps) {
+export default function SEO({ title, description, path, noindex = false }: SEOProps) {
   const pageTitle = path === '/' ? title : `${title} | procko.pro`
   const url = `${SITE}${path}`
 
@@ -16,6 +17,7 @@ export default function SEO({ title, description, path }: SEOProps) {
     <Helmet>
       <title>{pageTitle}</title>
       <meta name="description" content={description} />
+      <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
       <link rel="canonical" href={url} />
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />

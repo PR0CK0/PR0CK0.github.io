@@ -717,14 +717,16 @@ export default function Graph() {
     const reference = searchParams.get('term') ?? searchParams.get('q')
     if (!reference) return
 
-    let match
-    try {
-      match = cy.getElementById(competencyNodeId(resolveCompetency(reference)))
-    } catch {
-      // Free-text links can also select records such as projects or publications.
-      match = cy.nodes().filter(n =>
-        n.data('label')?.toLowerCase() === reference.trim().toLowerCase()
-      ).first()
+    let match = cy.getElementById(reference).nodes()
+    if (!match.length) {
+      try {
+        match = cy.getElementById(competencyNodeId(resolveCompetency(reference))).nodes()
+      } catch {
+        // Free-text links can also select records such as projects or publications.
+        match = cy.nodes().filter(n =>
+          n.data('label')?.toLowerCase() === reference.trim().toLowerCase()
+        ).first().nodes()
+      }
     }
 
     if (!match.length) {

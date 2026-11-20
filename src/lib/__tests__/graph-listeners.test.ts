@@ -65,6 +65,7 @@ describe('Graph link selection', () => {
   it.each([
     ['term=agile', 'competency-agile', 'Agile', 'domain'],
     ['q=Example', 'project/example', 'Example', 'project'],
+    ['term=proj%2Fexample', 'proj/example', 'Renamed project', 'project'],
   ])('matches a node click for %s, including details and highlighting', (query, id, label, type) => {
     const warnings = vi.spyOn(console, 'warn')
     vi.useFakeTimers()

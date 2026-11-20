@@ -7,7 +7,13 @@ import SEO from '../SEO'
 it('leaves route-specific metadata to React instead of duplicating it in the HTML shell', () => {
   const html = readFileSync('index.html', 'utf8')
   expect(html).not.toMatch(/<link[^>]+rel="canonical"/)
-  expect(html).not.toMatch(/<meta[^>]+(?:name|property)="(?:description|og:title|og:description|og:url|twitter:title|twitter:description)"/)
+  expect(html).not.toMatch(/<meta[^>]+(?:name|property)="(?:robots|description|og:title|og:description|og:url|twitter:title|twitter:description)"/)
+})
+
+it('keeps unavailable project pages out of search results', () => {
+  const context: { helmet?: HelmetServerState } = {}
+  renderToString(<HelmetProvider context={context}><SEO title="Missing" description="Missing project" path="/projects/missing" noindex /></HelmetProvider>)
+  expect(context.helmet!.meta.toString()).toContain('name="robots" content="noindex, follow"')
 })
 
 it.each(['/', '/cv', '/graph'])('keeps search and sharing metadata consistent for %s', path => {

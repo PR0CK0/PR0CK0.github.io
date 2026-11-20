@@ -2629,6 +2629,27 @@ publications:
   cited_by_count: 0
 projects:
 - id: proj/provenance-rag-financial-graph
+  page:
+    slug: provenance-rag-financial-graph
+    sections:
+    - heading: The research question
+      paragraphs:
+      - What changes when a retrieval system can see the history behind a financial figure, rather than only its latest
+        value? This project builds a corpus for testing that question with records from SEC EDGAR.
+    - heading: A corpus with traceable revisions
+      paragraphs:
+      - Original and revised figures are linked to their filings, companies, and fiscal periods using PROV-O. The
+        toolkit provides CSV and Turtle representations, conversion checks, and an interactive graph explorer.
+      - The experiment compares a provenance-rich corpus with a current-state baseline. Its retrieval checks ask whether
+        the context contains the answer to questions about current values, earlier values, and attribution.
+    - heading: Scope and interpretation
+      paragraphs:
+      - The extraction identifies changes in reported values for the same concept and fiscal period across filings.
+        Corpus coverage and evaluation details are documented in the repository; the portfolio summary does not claim
+        a general performance result for every retrieval system.
+    links:
+    - label: Read the experiment
+      url: https://github.com/PR0CK0/provenance-rag-financial-graph/blob/main/docs/EXPERIMENT.md
   title: provrag — Provenance-Aware RAG Financial Graph
   year: 2026-06
   repo_url: https://github.com/PR0CK0/provenance-rag-financial-graph
@@ -2847,6 +2868,30 @@ projects:
   description: BFO-aligned, evidence-graded knowledge graph for health optimization interventions. LinkML schema with 
     OWL/RDF and TypeScript targets; MeSH-grounded for RxNorm, SNOMED CT, and GO compatibility. React/Cytoscape.js UI.
 - id: proj/ocsf-visualizer
+  page:
+    slug: ocsf-visualizer
+    sections:
+    - heading: Explore a cybersecurity schema
+      paragraphs:
+      - The Open Cybersecurity Schema Framework defines categories, event classes, and reusable objects for security
+        event data. This visualizer turns those relationships into a graph that can be explored in a browser.
+    - heading: Two views of the same schema
+      paragraphs:
+      - The Events view connects categories and event classes. The Objects view shows the object inheritance hierarchy.
+        Selecting a node opens its attributes, grouped by required, recommended, and optional status.
+      - Search, layout controls, and a version selector help inspect different parts and published versions of the
+        schema.
+    - heading: How it runs
+      paragraphs:
+      - The application is a single HTML page using Cytoscape.js. It retrieves schema data from the public OCSF API
+        and fetches node details on demand, so exploring the schema requires access to that service.
+    image:
+      src: /projects/ocsf-visualizer.png
+      alt: OCSF Visualizer showing the schema graph and node details panel.
+      caption: The OCSF Visualizer interface, from the project repository.
+    links:
+    - label: OCSF schema documentation
+      url: https://schema.ocsf.io/
   title: OCSF Visualizer
   year: 2026-02
   url: https://procko.pro/ocsf-visualizer
@@ -2993,6 +3038,29 @@ projects:
     Gemini, Ollama, and any LiteLLM-compatible provider; surfaces disagreements across models and synthesizes a 
     consensus answer.
 - id: proj/provtracer
+  page:
+    slug: provtracer
+    sections:
+    - heading: The question
+      paragraphs:
+      - How can a software work session leave a useful, queryable record of how its artifacts were produced? ProvTracer
+        brings together software traceability and Semantic Web provenance.
+    - heading: From work session to knowledge graph
+      paragraphs:
+      - The desktop application captures session context and uses a multimodal language model to help describe the
+        work. It serializes provenance using an ontology based on PROV-O and BFO, linking small time-slice graphs
+        into a larger session record.
+      - The resulting graphs support SPARQL queries, including comparisons between task timestamps. They can also
+        be supplied to a language model for qualitative questions about a session.
+    - heading: Explore the implementation
+      paragraphs:
+      - The repository includes the Python/PyQt6 application, its ontology, example case studies, and a walkthrough
+        of the recording and analysis workflow.
+    links:
+    - label: Watch the walkthrough
+      url: https://youtu.be/wsgQWTsAlHc
+    - label: Example case studies
+      url: https://github.com/PR0CK0/ProvTracer/tree/main/case_studies
   title: ProvTracer
   year: 2024-05
   repo_url: https://github.com/PR0CK0/ProvTracer
@@ -3656,6 +3724,32 @@ projects:
   - Software Engineering
   - SQA
 - id: proj/wikidata-ontology---christian-denominations-reconciliation
+  page:
+    slug: christian-denominations-reconciliation
+    sections:
+    - heading: A focused ontology investigation
+      paragraphs:
+      - How does Wikidata classify 19 selected Christian church bodies, and what does that mean for discovering denominations?
+        The project narrows a broad counting question into a comparison of specific records and their classification
+        paths.
+    - heading: The investigation
+      paragraphs:
+      - Exploratory SPARQL queries examine denomination classifications and Christian affiliations. Individual reviews
+        then compare instance-of and subclass-of paths for the selected records, with a final comparison table and
+        explicit limitations.
+    - heading: What the recorded results show
+      paragraphs:
+      - In the recorded study, 16 of the 19 selected items match the instance-based denomination path. Subclass-only
+        traversal does not recover the other three, but identifies 58 additional candidates outside the sample. Those
+        candidates are not a validated count of additional denominations.
+      - These are findings from the project snapshot recorded on 30 October 2026, not current live counts. The study
+        raises questions about classification consistency and discoverability without claiming that every difference
+        is an error or measuring all of Wikidata.
+    links:
+    - label: Wikidata project page
+      url: https://www.wikidata.org/wiki/Wikidata:WikiProject_Ontology/Ontology_Course/Projects_Offering_3/Christian_Denominations_Reconciliation
+    - label: Study snapshot and attribution
+      url: https://github.com/PR0CK0/Wikidata-Ontology---Christian-Denominations-Reconciliation#source-and-reuse
   title: Wikidata Ontology Christian Denominations Reconciliation
   year: 2026-09
   repo_url: https://github.com/PR0CK0/Wikidata-Ontology---Christian-Denominations-Reconciliation

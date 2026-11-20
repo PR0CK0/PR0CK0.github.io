@@ -7,7 +7,7 @@ import SiteFooter from '@/components/SiteFooter'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import { COMPETENCY_CATEGORY_LABELS, type CompetencyCategory } from '@/lib/tech-categories'
 import { aggregateCompetencies, getRecordCompetencies, type AggregatedSkill } from '@/lib/competencies'
-import { TAG_CHIP, CARD_BASE, CARD_DESCRIPTION, SECTION_CONTAINER, TAG_CONTAINER, META_TEXT } from '@/lib/ui-constants'
+import { TAG_CHIP, CARD_BASE, CARD_DESCRIPTION, SECTION_CONTAINER, TAG_CONTAINER, META_TEXT, BTN_PRIMARY, BTN_SECONDARY } from '@/lib/ui-constants'
 import type { Person, Publication, Project } from '@/lib/schema'
 
 // ─── Boot sequence lines ───────────────────────────────────────────────────
@@ -1321,28 +1321,12 @@ function RecentReposSection({ projects, githubHandle }: { projects: Project[]; g
           ))}
         </div>
       )}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4 }}
-        className="mt-6 text-center"
-      >
-        <a
-          href={`https://github.com/${githubHandle}?tab=repositories`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono text-terminal-muted hover:text-terminal-amber transition-colors"
-        >
-          <motion.span
-            style={{ display: 'inline-block' }}
-            animate={{ x: [0, 4, 0, -4, 0] }}
-            transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
-          >
-            View all repos on GitHub →
-          </motion.span>
+      <div className="mt-6 flex flex-wrap justify-center gap-3">
+        <Link to="/projects" className={BTN_PRIMARY}>View all projects →</Link>
+        <a href={`https://github.com/${githubHandle}?tab=repositories`} target="_blank" rel="noopener noreferrer" className={BTN_SECONDARY}>
+          View on GitHub ↗
         </a>
-      </motion.div>
+      </div>
     </section>
   )
 }

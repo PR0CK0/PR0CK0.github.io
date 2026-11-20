@@ -3,10 +3,12 @@ import { readFileSync } from 'node:fs'
 import puppeteer from 'puppeteer'
 import yaml from 'js-yaml'
 import { resolvePageUpdates } from './page-updates.mjs'
+import { projectRoutes } from './project-routes.mjs'
 
 const site = process.env.SITE_URL || 'http://127.0.0.1:4173'
 const person = yaml.load(readFileSync('public/data/tyler-procko.yaml', 'utf8'))
-const routes = [...readFileSync('src/App.tsx', 'utf8').matchAll(/<Route\s+path="(\/[^"]*)"/g)].map(match => match[1])
+const routes = [...readFileSync('src/App.tsx', 'utf8').matchAll(/<Route\s+path="(\/[^"]*)"/g)].map(match => match[1]).filter(path => !path.includes(':'))
+routes.push(...projectRoutes(person).map(route => route.path))
 const updates = resolvePageUpdates(process.cwd())
 const browser = await puppeteer.launch({ headless: true })
 
