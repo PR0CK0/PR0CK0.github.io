@@ -209,6 +209,11 @@ html.light .border-glow-blue {
     clip-path: polygon(0 0, calc(100% - var(--corner-cut)) 0, 100% var(--corner-cut), 100% 100%, var(--corner-cut) 100%, 0 calc(100% - var(--corner-cut)));
   }
 
+  .avatar-frame {
+    --corner-cut: 10px;
+    --corner-stroke: rgb(var(--color-terminal-green) / 0.6);
+  }
+
   .chamfer-action {
     --corner-cut: 7px;
     --corner-stroke: currentColor;

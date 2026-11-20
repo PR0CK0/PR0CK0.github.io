@@ -165,68 +165,71 @@ function ProfilePhoto({ visible, name, angry }: { visible: boolean; name: string
       className="flex-shrink-0 relative w-[66px] h-[66px] sm:w-[101px] sm:h-[101px] ls:w-[66px] ls:h-[66px]"
       style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.1s' }}
     >
-      {/* Scan-reveal container */}
-      <div
-        className={`relative overflow-hidden w-full h-full ${visible ? 'profile-scan-reveal' : ''}`}
-        style={{ clipPath: visible ? undefined : 'inset(0 0 100% 0)' }}
-      >
-        <motion.img
-          src="/me.png"
-          alt={name}
-          className="w-full h-full object-cover cursor-pointer"
-          draggable={false}
-          animate={isShaking ? { rotate: [-3, 3, -3, 3, 0], x: [-2, 2, -2, 2, 0] } : {}}
-          transition={{ duration: 0.4 }}
-          onClick={handleClick}
-          style={{
-            filter: angry
-              ? 'brightness(0.55) contrast(1.6) saturate(0) sepia(1) hue-rotate(-20deg) saturate(3)'
-              : undefined,
-            transition: angry ? 'filter 0.1s ease' : 'filter 0.08s ease',
-          }}
-        />
-        {/* CRT scanlines overlay on photo */}
+      <div className="chamfer-frame avatar-frame w-full h-full">
+        {/* Scan-reveal container */}
         <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px)',
-          }}
-        />
+          className={`relative overflow-hidden w-full h-full ${visible ? 'profile-scan-reveal' : ''}`}
+          style={{ clipPath: visible ? undefined : 'inset(0 0 100% 0)' }}
+        >
+          <motion.img
+            src="/me.png"
+            alt={name}
+            className="w-full h-full object-cover cursor-pointer"
+            draggable={false}
+            animate={isShaking ? { rotate: [-3, 3, -3, 3, 0], x: [-2, 2, -2, 2, 0] } : {}}
+            transition={{ duration: 0.4 }}
+            onClick={handleClick}
+            style={{
+              filter: angry
+                ? 'brightness(0.55) contrast(1.6) saturate(0) sepia(1) hue-rotate(-20deg) saturate(3)'
+                : undefined,
+              transition: angry ? 'filter 0.1s ease' : 'filter 0.08s ease',
+            }}
+          />
+          {/* CRT scanlines overlay on photo */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px)',
+            }}
+          />
+        </div>
+
+        {/* Electric border ring */}
+        {visible && (
+          <div
+            className="absolute inset-0 pointer-events-none profile-electric"
+            style={{ border: '1.5px solid #00ff8877' }}
+          />
+        )}
+
+        {/* Scan line that sweeps down during reveal */}
+        {visible && (
+          <div
+            className="absolute left-0 right-0 h-px pointer-events-none profile-scan-line"
+            style={{
+              background: 'linear-gradient(90deg, transparent, #00ff88, #00d4ff, #00ff88, transparent)',
+              boxShadow: '0 0 8px 2px #00ff88, 0 0 16px 4px #00d4ff44',
+              zIndex: 10,
+            }}
+          />
+        )}
+
+        {/* Corner brackets — techy frame */}
+        {visible && (
+          <>
+            {[['top-0 left-0', 'border-t border-l'], ['top-0 right-0', 'border-t border-r'],
+              ['bottom-0 left-0', 'border-b border-l'], ['bottom-0 right-0', 'border-b border-r']].map(([pos, borders], i) => (
+              <div
+                key={i}
+                className={`absolute w-3 h-3 ${pos} ${borders} pointer-events-none`}
+                style={{ borderColor: '#00ff8888' }}
+              />
+            ))}
+          </>
+        )}
+
       </div>
-
-      {/* Electric border ring */}
-      {visible && (
-        <div
-          className="absolute inset-0 pointer-events-none profile-electric"
-          style={{ border: '1.5px solid #00ff8877' }}
-        />
-      )}
-
-      {/* Scan line that sweeps down during reveal */}
-      {visible && (
-        <div
-          className="absolute left-0 right-0 h-px pointer-events-none profile-scan-line"
-          style={{
-            background: 'linear-gradient(90deg, transparent, #00ff88, #00d4ff, #00ff88, transparent)',
-            boxShadow: '0 0 8px 2px #00ff88, 0 0 16px 4px #00d4ff44',
-            zIndex: 10,
-          }}
-        />
-      )}
-
-      {/* Corner brackets — techy frame */}
-      {visible && (
-        <>
-          {[['top-0 left-0', 'border-t border-l'], ['top-0 right-0', 'border-t border-r'],
-            ['bottom-0 left-0', 'border-b border-l'], ['bottom-0 right-0', 'border-b border-r']].map(([pos, borders], i) => (
-            <div
-              key={i}
-              className={`absolute w-3 h-3 ${pos} ${borders} pointer-events-none`}
-              style={{ borderColor: '#00ff8888' }}
-            />
-          ))}
-        </>
-      )}
 
       {/* Falling code pieces */}
       <AnimatePresence>
