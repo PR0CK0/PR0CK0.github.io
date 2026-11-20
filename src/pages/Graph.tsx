@@ -198,11 +198,6 @@ function buildStylesheet(C: typeof DARK): object[] {
     {
       selector: 'node[type = "person"]',
       style: {
-        'shadow-blur': 20,
-        'shadow-color': '#00ff88',
-        'shadow-opacity': 0.6,
-        'shadow-offset-x': 0,
-        'shadow-offset-y': 0,
         'font-size': '11px',
         'color': '#00ff88',
         'font-weight': 'bold',
@@ -235,11 +230,6 @@ function buildStylesheet(C: typeof DARK): object[] {
       style: {
         'border-width': 3,
         'border-color': '#ffffff',
-        'shadow-blur': 16,
-        'shadow-color': '#ffffff',
-        'shadow-opacity': 0.9,
-        'shadow-offset-x': 0,
-        'shadow-offset-y': 0,
       },
     },
     {

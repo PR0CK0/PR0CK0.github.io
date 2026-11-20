@@ -75,6 +75,8 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 ## Graph
 
+- [x] **Remove ignored graph shadow styles** — Remove ten unsupported Cytoscape declarations. Person labels and selected-node borders remain unchanged; selection tests require initialization and interactions to produce no warnings.
+
 - [x] **Fix diamond center clicks and taps** — Patch Cytoscape's double-counted polygon vertex, preserving Person and Associate diamonds. Fresh installs apply the tracked patch automatically. Unit and browser checks cover the exact center axis at multiple zoom levels; the mobile test no longer offsets clicks.
 
 - [x] **Simplify mobile graph details** — Prevent sideways drawer overflow, show five connections with an expansion count, add vertical scroll cues/buttons, and make horizontal filter arrows clickable. Browser checks cover expansion, direction boundaries, selection reset, small screens, and themes.

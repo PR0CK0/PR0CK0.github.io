@@ -45,6 +45,7 @@ afterEach(() => {
   vi.clearAllTimers()
   vi.useRealTimers()
   vi.unstubAllGlobals()
+  vi.restoreAllMocks()
 })
 
 describe('Graph link selection', () => {
@@ -52,6 +53,7 @@ describe('Graph link selection', () => {
     ['term=agile', 'competency-agile', 'Agile', 'domain'],
     ['q=Example', 'project/example', 'Example', 'project'],
   ])('matches a node click for %s, including details and highlighting', (query, id, label, type) => {
+    const warnings = vi.spyOn(console, 'warn')
     vi.useFakeTimers()
     vi.stubGlobal('document', { body: { style: { overflow: '' } } })
     route.query = query
@@ -87,6 +89,7 @@ describe('Graph link selection', () => {
     cy.emit('tap')
     expect(cy.elements('.faded, .neighbour')).toHaveLength(0)
     expect(cy.getElementById('related').visible()).toBe(false)
+    expect(warnings).not.toHaveBeenCalled()
   })
 })
 
