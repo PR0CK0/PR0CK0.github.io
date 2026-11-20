@@ -13,15 +13,16 @@ const browser = await puppeteer.launch({ headless: true })
 try {
   const page = await browser.newPage()
   const previewProjects = person.projects.filter(project => !project.graph_exclude && project.repo_url).slice(0, 6)
+  let repositoryFeedAvailable = true
   await page.setRequestInterception(true)
   page.on('request', request => {
     const url = new URL(request.url())
     if (url.hostname === 'api.github.com' && /^\/users\/[^/]+\/repos$/.test(url.pathname)) {
-      request.respond({ headers: { 'access-control-allow-origin': '*' }, contentType: 'application/json', body: JSON.stringify(previewProjects.map(project => ({
+      request.respond({ status: repositoryFeedAvailable ? 200 : 403, headers: { 'access-control-allow-origin': '*' }, contentType: 'application/json', body: repositoryFeedAvailable ? JSON.stringify(previewProjects.map(project => ({
         id: project.github_repo_id, name: 'renamed-preview',
         html_url: project.github_repo_id ? `https://github.com/example/renamed-${project.github_repo_id}` : project.repo_url,
         created_at: '2026-01-01T00:00:00Z', pushed_at: '2026-02-01T00:00:00Z', stargazers_count: 0,
-      }))) })
+      }))) : JSON.stringify({ message: 'API rate limit exceeded' }) })
     } else request.continue()
   })
   const errors = []
@@ -97,8 +98,17 @@ try {
   const allProjects = await page.evaluateHandle(() => [...document.querySelectorAll('a')].find(link => link.textContent.includes('View all projects')))
   await allProjects.asElement().click()
   await page.waitForFunction(() => document.querySelector('h1')?.textContent === 'Projects')
+  repositoryFeedAvailable = false
+  await page.goto(site, { waitUntil: 'networkidle0' })
+  const fallback = await page.evaluate(() => {
+    const section = [...document.querySelectorAll('h2')].find(heading => heading.textContent.includes('Recent Repos')).closest('section')
+    return { titles: [...section.querySelectorAll('h3 a')].map(link => link.textContent), text: section.textContent }
+  })
+  assert.deepEqual(fallback.titles, previewProjects.map(project => project.title))
+  assert.ok(fallback.text.includes('project date'))
+  assert.ok(!fallback.text.includes('created '), 'Fallback must not invent GitHub creation dates')
   assert.deepEqual(errors, [])
-  console.log('Sorting, search, filtering, mobile layout, hidden/missing pages, and six homepage project links pass')
+  console.log('Sorting, search, filtering, mobile layout, hidden/missing pages, six homepage links, and GitHub rate-limit fallback pass')
 } finally {
   await browser.close()
 }

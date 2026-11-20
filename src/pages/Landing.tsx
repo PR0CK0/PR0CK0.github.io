@@ -1237,12 +1237,16 @@ interface GitHubRepo {
 }
 
 function RecentReposSection({ projects, githubHandle }: { projects: Project[]; githubHandle: string }) {
-  const [repoCards, setRepoCards] = useState<Array<{ project: Project; created: string; updated: string; stars: number }>>([])
+  const [repoCards, setRepoCards] = useState<Array<{ project: Project; created?: string; updated?: string; stars: number }>>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    const fallback = projects.filter(project => project.repo_url).slice(0, 6).map(project => ({ project, stars: 0 }))
     fetch(`https://api.github.com/users/${githubHandle}/repos?sort=pushed&per_page=30`)
-      .then((r) => r.json())
+      .then(response => {
+        if (!response.ok) throw new Error('Repository feed unavailable')
+        return response.json()
+      })
       .then((data: GitHubRepo[]) => {
         const matched: typeof repoCards = []
         for (const repo of data) {
@@ -1261,16 +1265,11 @@ function RecentReposSection({ projects, githubHandle }: { projects: Project[]; g
           }
           if (matched.length >= 6) break
         }
-        setRepoCards(matched)
+        setRepoCards(matched.length ? matched : fallback)
       })
-      .catch(() => {})
+      .catch(() => setRepoCards(fallback))
       .finally(() => setLoading(false))
-  }, [projects])
-
-  const fmtDate = (iso: string) => {
-    const d = new Date(iso)
-    return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-  }
+  }, [projects, githubHandle])
 
   return (
     <section
@@ -1313,7 +1312,7 @@ function RecentReposSection({ projects, githubHandle }: { projects: Project[]; g
 }
 
 function RepoProjectCard({ project, created, updated, stars, index }: {
-  project: Project; created: string; updated: string; stars: number; index: number
+  project: Project; created?: string; updated?: string; stars: number; index: number
 }) {
   const navigate = useNavigate()
   const [showOverflow, setShowOverflow] = useState(false)
@@ -1383,12 +1382,15 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
 
       {/* Date chips */}
       <div className="flex gap-1.5 mb-2">
-        <span className="text-[7px] sm:text-[9px] font-mono text-terminal-muted border border-terminal-border rounded px-1 py-0.5">
+        {created && <span className="text-[7px] sm:text-[9px] font-mono text-terminal-muted border border-terminal-border rounded px-1 py-0.5">
           created {fmtDate(created)}
-        </span>
-        <span className="text-[7px] sm:text-[9px] font-mono text-terminal-green/70 border border-terminal-green/20 rounded px-1 py-0.5">
+        </span>}
+        {updated && <span className="text-[7px] sm:text-[9px] font-mono text-terminal-green/70 border border-terminal-green/20 rounded px-1 py-0.5">
           updated {fmtDate(updated)}
-        </span>
+        </span>}
+        {!created && !updated && project.year && <span className="text-[7px] sm:text-[9px] font-mono text-terminal-muted border border-terminal-border rounded px-1 py-0.5">
+          project date {formatDate(project.year)}
+        </span>}
       </div>
 
       {/* Description */}
