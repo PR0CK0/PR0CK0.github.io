@@ -75,7 +75,7 @@ function statusBadge(status?: string) {
   const m = map[status]
   if (!m) return null
   return (
-    <span className={`px-2 py-0.5 rounded text-[8px] sm:text-[10px] font-mono border ${m.cls} whitespace-nowrap`}>
+    <span className={`px-2 py-0.5 text-[8px] sm:text-[10px] font-mono border ${m.cls} whitespace-nowrap`}>
       {m.label}
     </span>
   )
@@ -167,13 +167,13 @@ function ProfilePhoto({ visible, name, angry }: { visible: boolean; name: string
     >
       {/* Scan-reveal container */}
       <div
-        className={`relative rounded-full overflow-hidden w-full h-full ${visible ? 'profile-scan-reveal' : ''}`}
+        className={`relative overflow-hidden w-full h-full ${visible ? 'profile-scan-reveal' : ''}`}
         style={{ clipPath: visible ? undefined : 'inset(0 0 100% 0)' }}
       >
         <motion.img
           src="/me.png"
           alt={name}
-          className="w-full h-full object-cover rounded-full cursor-pointer"
+          className="w-full h-full object-cover cursor-pointer"
           draggable={false}
           animate={isShaking ? { rotate: [-3, 3, -3, 3, 0], x: [-2, 2, -2, 2, 0] } : {}}
           transition={{ duration: 0.4 }}
@@ -187,7 +187,7 @@ function ProfilePhoto({ visible, name, angry }: { visible: boolean; name: string
         />
         {/* CRT scanlines overlay on photo */}
         <div
-          className="absolute inset-0 rounded-full pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{
             backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px)',
           }}
@@ -197,7 +197,7 @@ function ProfilePhoto({ visible, name, angry }: { visible: boolean; name: string
       {/* Electric border ring */}
       {visible && (
         <div
-          className="absolute inset-0 rounded-full pointer-events-none profile-electric"
+          className="absolute inset-0 pointer-events-none profile-electric"
           style={{ border: '1.5px solid #00ff8877' }}
         />
       )}
@@ -205,7 +205,7 @@ function ProfilePhoto({ visible, name, angry }: { visible: boolean; name: string
       {/* Scan line that sweeps down during reveal */}
       {visible && (
         <div
-          className="absolute left-0 right-0 h-px rounded-full pointer-events-none profile-scan-line"
+          className="absolute left-0 right-0 h-px pointer-events-none profile-scan-line"
           style={{
             background: 'linear-gradient(90deg, transparent, #00ff88, #00d4ff, #00ff88, transparent)',
             boxShadow: '0 0 8px 2px #00ff88, 0 0 16px 4px #00d4ff44',
@@ -261,7 +261,7 @@ function SocialButton({ label, href, icon }: { label: string; href: string; icon
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1.5 sm:gap-2 ls:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 ls:px-2 ls:py-1 rounded-full border border-terminal-border
+      className="inline-flex items-center gap-1.5 sm:gap-2 ls:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 ls:px-2 ls:py-1 border border-terminal-border
                  text-terminal-muted hover:text-terminal-green hover:border-terminal-green/50
                  hover:bg-terminal-green/5 transition-all duration-200 text-[0.65rem] sm:text-xs ls:text-[0.65rem] font-mono"
     >
@@ -287,7 +287,7 @@ function CtaButton({
   return (
     <button
       onClick={onClick}
-      className={`px-3 py-1.5 sm:px-5 sm:py-2 ls:px-3 ls:py-1.5 rounded border font-mono text-xs sm:text-sm ls:text-xs transition-all duration-200 ${cls}`}
+      className={`chamfer-action px-3 py-1.5 sm:px-5 sm:py-2 ls:px-3 ls:py-1.5 border font-mono text-xs sm:text-sm ls:text-xs transition-all duration-200 ${cls}`}
     >
       {children}
     </button>
@@ -546,7 +546,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
 
       {/* Glow orb */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none z-0"
         style={{
           background: 'radial-gradient(circle, rgba(0,255,136,0.04) 0%, transparent 70%)',
         }}
@@ -554,22 +554,22 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
 
       <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6 pb-4 sm:pb-6">
         {/* Terminal window chrome */}
-        <motion.div animate={terminalControls} className="relative rounded-lg border border-terminal-border bg-terminal-surface/60 backdrop-blur-sm overflow-hidden shadow-2xl">
+        <motion.div animate={terminalControls} className="chamfer-frame relative border border-terminal-border bg-terminal-surface/60 backdrop-blur-sm overflow-hidden">
           {/* Title bar */}
           <div className="flex items-center gap-1.5 sm:gap-2 ls:gap-1.5 px-3 sm:px-4 ls:px-3 py-1.5 sm:py-2 ls:py-1.5 border-b border-terminal-border bg-terminal-bg/80">
             <button
               onClick={handleRedClick}
               disabled={minimized}
-              className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-red/70 hover:bg-terminal-red transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-terminal-red/70"
+              className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 bg-terminal-red/70 hover:bg-terminal-red transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-terminal-red/70"
               aria-label="Close terminal"
             />
             <button
               onClick={() => setMinimized(m => !m)}
               disabled={angry}
-              className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-amber/70 hover:bg-terminal-amber transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-terminal-amber/70"
+              className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 bg-terminal-amber/70 hover:bg-terminal-amber transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-terminal-amber/70"
               aria-label="Minimize terminal"
             />
-            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 rounded-full bg-terminal-green/70" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 ls:w-2.5 ls:h-2.5 bg-terminal-green/70" />
             <span className="ml-2 sm:ml-3 ls:ml-2 text-terminal-muted text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono tracking-widest">
               {(person.social_links?.find(s => s.platform === 'GitHub')?.handle ?? person.name).toLowerCase()}@portfolio ~ bash
             </span>
@@ -583,7 +583,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
                 animate={{ opacity: [0, 1, 0.3, 1, 0.3, 1, 0.3, 1, 0] }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1.4, times: [0, 0.08, 0.22, 0.36, 0.50, 0.64, 0.78, 0.88, 1] }}
-                className="absolute inset-0 z-50 pointer-events-none rounded-lg flex flex-col items-center justify-center gap-2"
+                className="absolute inset-0 z-50 pointer-events-none flex flex-col items-center justify-center gap-2"
                 style={{ background: 'rgba(120,0,0,0.72)', border: '2px solid #ff0000aa', backdropFilter: 'blur(1px)' }}
               >
                 <span className="font-mono font-bold text-red-300 text-sm sm:text-lg tracking-widest uppercase" style={{ textShadow: '0 0 12px #ff0000' }}>
@@ -636,7 +636,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.97 }}
               transition={{ duration: 0.25 }}
-              className="mt-3 rounded-lg overflow-hidden shadow-2xl border border-[#3c3c3c] text-[0.55rem] sm:text-xs font-mono"
+              className="mt-3 overflow-hidden shadow-2xl border border-[#3c3c3c] text-[0.55rem] sm:text-xs font-mono"
               style={{ background: '#1e1e1e' }}
             >
               {/* IDE title bar */}
@@ -685,7 +685,7 @@ function HeroSection({ person, bootLines }: { person: Person; bootLines: BootLin
                 </div>
                 <button
                   onClick={() => setMinimized(false)}
-                  className="hover:bg-white/20 px-2 py-0.5 rounded transition-colors"
+                  className="hover:bg-white/20 px-2 py-0.5 transition-colors"
                 >
                   restore terminal ↑
                 </button>
@@ -755,7 +755,7 @@ function SkillChip({ skill, chipClass, opacity }: { skill: AggregatedSkill; chip
       whileHover={{ scale: 1.05, opacity: 1 }}
       to={`/graph?term=${encodeURIComponent(skill.id)}`}
       whileFocus={{ opacity: 1 }}
-      className={`inline-flex items-center gap-1 sm:gap-1 ls:gap-1 px-1.5 py-0.5 sm:px-2 sm:py-1 ls:px-1.5 ls:py-0.5 rounded text-[0.55rem] sm:text-[0.68rem] ls:text-[0.55rem] font-mono
+      className={`inline-flex items-center gap-1 sm:gap-1 ls:gap-1 px-1.5 py-0.5 sm:px-2 sm:py-1 ls:px-1.5 ls:py-0.5 text-[0.55rem] sm:text-[0.68rem] ls:text-[0.55rem] font-mono
                   transition-all duration-150 cursor-pointer ${chipClass}`}
       style={{ opacity }}
     >
@@ -773,20 +773,20 @@ type SkillView = 'categories' | 'ranked'
 
 function ViewToggle({ view, onChange }: { view: SkillView; onChange: (v: SkillView) => void }) {
   return (
-    <div className="inline-flex items-center rounded-lg border border-terminal-border bg-terminal-surface/40 p-0.5 gap-0.5 font-mono text-[0.55rem] sm:text-[0.68rem] ls:text-[0.55rem] relative">
+    <div className="inline-flex items-center border border-terminal-border bg-terminal-surface/40 p-0.5 gap-0.5 font-mono text-[0.55rem] sm:text-[0.68rem] ls:text-[0.55rem] relative">
       {(['ranked', 'categories'] as SkillView[]).map((v) => {
         const active = view === v
         return (
           <button
             key={v}
             onClick={() => onChange(v)}
-            className="relative px-2 py-0.5 sm:px-2.5 sm:py-1 ls:px-2 ls:py-0.5 rounded-md transition-colors duration-200 z-10"
+            className="relative px-2 py-0.5 sm:px-2.5 sm:py-1 ls:px-2 ls:py-0.5 transition-colors duration-200 z-10"
             style={{ color: active ? '#b57bff' : '#4a5a7a' }}
           >
             {active && (
               <motion.span
                 layoutId="skill-view-pill"
-                className="absolute inset-0 rounded-md bg-terminal-purple/15 border border-terminal-purple/30"
+                className="absolute inset-0 bg-terminal-purple/15 border border-terminal-purple/30"
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
             )}
@@ -846,7 +846,7 @@ function RankedView({ skills }: { skills: AggregatedSkill[] }) {
           onClick={() => setExpanded(true)}
           className="mt-3 text-[0.55rem] sm:text-xs font-mono text-terminal-purple/60 hover:text-terminal-purple
                      border border-terminal-purple/20 hover:border-terminal-purple/50
-                     px-2 py-1 sm:px-3 sm:py-1.5 rounded transition-all duration-200"
+                     px-2 py-1 sm:px-3 sm:py-1.5 transition-all duration-200"
         >
           + {hidden} more →
         </motion.button>
@@ -972,7 +972,7 @@ function SectionHeader({
     >
       <p className={`text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono ${cls.prompt} opacity-70`}>$ {prompt}</p>
       <div className="flex items-center gap-3">
-        <div className={`w-1 h-8 rounded ${cls.bar}`} />
+        <div className={`w-1 h-8 ${cls.bar}`} />
         <h2 className={`text-xl sm:text-2xl ls:text-xl font-mono font-bold tracking-wider ${cls.title}`}>
           {title}
         </h2>
@@ -990,13 +990,13 @@ function PublicationRow({ pub, index }: { pub: Publication; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: index * 0.07, duration: 0.4 }}
-      className="group flex flex-col sm:flex-row gap-3 sm:gap-4 ls:gap-3 p-3 rounded-lg border border-terminal-border/50
+      className="group flex flex-col sm:flex-row gap-3 sm:gap-4 ls:gap-3 p-3 border border-terminal-border/50
                  bg-terminal-surface/30 hover:bg-terminal-surface/60 hover:border-terminal-blue/30
                  transition-all duration-200"
     >
       {/* Year badge */}
       <div className="shrink-0">
-        <span className="inline-block px-1.5 py-0.5 sm:px-2 sm:py-1 ls:px-1.5 ls:py-0.5 rounded text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono font-bold
+        <span className="inline-block px-1.5 py-0.5 sm:px-2 sm:py-1 ls:px-1.5 ls:py-0.5 text-[0.6rem] sm:text-xs ls:text-[0.6rem] font-mono font-bold
                          border border-terminal-blue/40 text-terminal-blue bg-terminal-blue/10">
           {formatDate(pub.date)}
         </span>
@@ -1136,7 +1136,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </h3>
         {project.year && (
           <span className="shrink-0 text-[8px] sm:text-[10px] font-mono text-terminal-muted border border-terminal-border
-                           rounded px-1.5 py-0.5">
+                           px-1.5 py-0.5">
             {formatDate(project.year)}
           </span>
         )}
@@ -1173,7 +1173,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               {showOverflow && popupPos && createPortal(
                 <div
                   ref={popupRef}
-                  className="z-[9999] w-56 border border-terminal-purple/30 rounded-lg p-2.5 shadow-xl shadow-black/50"
+                  className="z-[9999] w-56 border border-terminal-purple/30 p-2.5 shadow-xl shadow-black/50"
                   style={{
                     position: 'fixed',
                     left: popupPos.left,
@@ -1193,7 +1193,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                       <button
                         key={tech.id}
                         onClick={() => { navigate(`/graph?term=${encodeURIComponent(tech.id)}`); setShowOverflow(false) }}
-                        className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
+                        className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 cursor-pointer
                                    border border-terminal-purple/25 text-terminal-purple/80
                                    bg-terminal-purple/5 hover:bg-terminal-purple/15
                                    hover:border-terminal-purple/50 hover:text-terminal-purple
@@ -1368,7 +1368,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
             {project.title}
           </Link>
           {version && (
-            <span className="text-[8px] font-mono font-normal text-terminal-green/70 border border-terminal-green/30 rounded px-1 py-0.5 leading-none">
+            <span className="text-[8px] font-mono font-normal text-terminal-green/70 border border-terminal-green/30 px-1 py-0.5 leading-none">
               {version}
             </span>
           )}
@@ -1382,13 +1382,13 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
 
       {/* Date chips */}
       <div className="flex gap-1.5 mb-2">
-        {created && <span className="text-[7px] sm:text-[9px] font-mono text-terminal-muted border border-terminal-border rounded px-1 py-0.5">
+        {created && <span className="text-[7px] sm:text-[9px] font-mono text-terminal-muted border border-terminal-border px-1 py-0.5">
           created {fmtDate(created)}
         </span>}
-        {updated && <span className="text-[7px] sm:text-[9px] font-mono text-terminal-green/70 border border-terminal-green/20 rounded px-1 py-0.5">
+        {updated && <span className="text-[7px] sm:text-[9px] font-mono text-terminal-green/70 border border-terminal-green/20 px-1 py-0.5">
           updated {fmtDate(updated)}
         </span>}
-        {!created && !updated && project.year && <span className="text-[7px] sm:text-[9px] font-mono text-terminal-muted border border-terminal-border rounded px-1 py-0.5">
+        {!created && !updated && project.year && <span className="text-[7px] sm:text-[9px] font-mono text-terminal-muted border border-terminal-border px-1 py-0.5">
           project date {formatDate(project.year)}
         </span>}
       </div>
@@ -1424,7 +1424,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
               {showOverflow && popupPos && createPortal(
                 <div
                   ref={popupRef}
-                  className="z-[9999] w-56 border border-terminal-purple/30 rounded-lg p-2.5 shadow-xl shadow-black/50"
+                  className="z-[9999] w-56 border border-terminal-purple/30 p-2.5 shadow-xl shadow-black/50"
                   style={{
                     position: 'fixed',
                     left: popupPos.left,
@@ -1444,7 +1444,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
                       <button
                         key={tech.id}
                         onClick={() => { navigate(`/graph?term=${encodeURIComponent(tech.id)}`); setShowOverflow(false) }}
-                        className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer
+                        className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 cursor-pointer
                                    border border-terminal-purple/25 text-terminal-purple/80
                                    bg-terminal-purple/5 hover:bg-terminal-purple/15
                                    hover:border-terminal-purple/50 hover:text-terminal-purple
@@ -1572,7 +1572,7 @@ function ContributionGraph({ username }: { username: string }) {
     }).catch(() => {}).finally(() => setLoading(false))
   }, [username])
 
-  if (loading) return <div className="my-6 h-[100px] rounded bg-terminal-surface/20 animate-pulse" />
+  if (loading) return <div className="my-6 h-[100px] bg-terminal-surface/20 animate-pulse" />
   if (!weeks.length) return null
 
   const monthLabels = new Map<number, string>()
@@ -1611,7 +1611,7 @@ function ContributionGraph({ username }: { username: string }) {
         </span>
       </div>
       <div
-        className="contrib-scroll overflow-x-auto pb-1 rounded-lg border border-terminal-border/50 bg-terminal-surface/80 p-2.5"
+        className="contrib-scroll overflow-x-auto pb-1 border border-terminal-border/50 bg-terminal-surface/80 p-2.5"
         onMouseLeave={() => setTooltip(null)}
       >
         <div style={{ display: 'inline-flex', flexDirection: 'column', gap: 0 }}>
@@ -1662,7 +1662,7 @@ function ContributionGraph({ username }: { username: string }) {
                     style={{
                       width: cell,
                       height: cell,
-                      borderRadius: '2px',
+                      borderRadius: 0,
                       backgroundColor: day !== null ? CONTRIB_COLORS[day.level] : 'transparent',
                       border: day !== null ? '1px solid rgba(0,255,136,0.10)' : 'none',
                       cursor: day?.count ? 'pointer' : 'default',
@@ -1681,7 +1681,7 @@ function ContributionGraph({ username }: { username: string }) {
           className="fixed z-50 pointer-events-none"
           style={{ left: tooltip.x + 12, top: tooltip.y - 8, transform: 'translateY(-100%)' }}
         >
-          <div className="rounded border border-terminal-border bg-terminal-bg/95 backdrop-blur-sm px-2.5 py-2 font-mono text-[10px] shadow-xl max-w-[260px]">
+          <div className="border border-terminal-border bg-terminal-bg/95 backdrop-blur-sm px-2.5 py-2 font-mono text-[10px] shadow-xl max-w-[260px]">
             <div className="text-terminal-green/70 mb-1">{tooltip.day.date} · {tooltip.day.count} commit{tooltip.day.count !== 1 ? 's' : ''}</div>
             {tooltip.commits.length > 0 ? (
               <div className="flex flex-col gap-0.5">
@@ -1797,7 +1797,7 @@ export default function Landing() {
   if (error || !person) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-terminal-bg">
-        <div className="font-mono text-terminal-red text-sm border border-terminal-red/40 rounded p-6 max-w-md">
+        <div className="font-mono text-terminal-red text-sm border border-terminal-red/40 p-6 max-w-md">
           <p className="text-terminal-red font-bold mb-2">ERROR: data load failed</p>
           <p className="text-terminal-muted text-xs">{error ?? 'Unknown error'}</p>
         </div>

@@ -6,7 +6,7 @@ import { projectPath, sortProjects, type ProjectSort } from '@/lib/project-pages
 import { fmtSingleDate } from '@/lib/cv-data'
 import { BTN_PRIMARY, BTN_SECONDARY, SECTION_LABEL } from '@/lib/ui-constants'
 
-const CHIP = 'inline-block rounded border border-terminal-border bg-terminal-bg px-2 py-1 text-xs leading-relaxed text-terminal-text hover:border-terminal-green hover:text-terminal-green transition-colors'
+const CHIP = 'inline-block border border-terminal-border bg-terminal-bg px-2 py-1 text-xs leading-relaxed text-terminal-text hover:border-terminal-green hover:text-terminal-green transition-colors'
 
 function CompetencyLinks({ terms }: { terms: Competency[] }) {
   return <div className="flex flex-wrap gap-2">{terms.map(term => (
@@ -38,16 +38,16 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
     <div className="grid sm:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_14rem_12rem] gap-4 mb-5">
       <label className="block text-xs text-terminal-muted">Search projects
         <input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Title, topic, or technology…"
-          className="mt-2 w-full rounded border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm" />
+          className="mt-2 w-full border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm" />
       </label>
       <label className="block text-xs text-terminal-muted">Filter by domain
-        <select name="domain" value={domain} onChange={event => setDomain(event.target.value)} className="mt-2 w-full rounded border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm">
+        <select name="domain" value={domain} onChange={event => setDomain(event.target.value)} className="mt-2 w-full border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm">
           <option value="">All domains</option>
           {domains.map(label => <option key={label}>{label}</option>)}
         </select>
       </label>
       <label className="block text-xs text-terminal-muted">Sort projects
-        <select name="sort" value={sort} onChange={event => setSort(event.target.value as ProjectSort)} className="mt-2 w-full rounded border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm">
+        <select name="sort" value={sort} onChange={event => setSort(event.target.value as ProjectSort)} className="mt-2 w-full border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm">
           <option value="newest">Newest first</option>
           <option value="oldest">Oldest first</option>
           <option value="title-asc">Name: A–Z</option>
@@ -56,14 +56,14 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
       </label>
     </div>
     <p role="status" className="text-xs text-terminal-muted mb-5">Showing {matches.length} of {projects.length} projects</p>
-    {matches.length === 0 && <div className="border border-terminal-border rounded-lg p-8 text-sm">
+    {matches.length === 0 && <div className="border border-terminal-border p-8 text-sm">
       <p>No projects match these filters.</p>
       <button className={`${BTN_SECONDARY} mt-4`} onClick={() => { setQuery(''); setDomain('') }}>Clear filters</button>
     </div>}
     <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
       {sorted.map(project => {
         const topics = getRecordCompetencies(project).filter(term => term.category === 'domains').slice(0, 3)
-        return <article key={project.id} data-project-card className="min-w-0 flex flex-col rounded-lg border border-terminal-border bg-terminal-surface p-5 sm:p-6 hover:border-terminal-green/50 transition-colors">
+        return <article key={project.id} data-project-card className="chamfer-card min-w-0 flex flex-col border border-terminal-border bg-terminal-surface p-5 sm:p-6 hover:border-terminal-green/50 transition-colors">
           <div className="flex items-center justify-between gap-3 text-xs mb-4 text-terminal-muted">
             <span>{project.year ? fmtSingleDate(project.year) : 'Project'}</span>
           </div>
@@ -105,7 +105,7 @@ export function ProjectDetail({ project }: { project: Project }) {
       </div>
     </header>
 
-    {project.page?.image && <figure className="mb-10 overflow-hidden rounded-lg border border-terminal-border bg-terminal-surface">
+    {project.page?.image && <figure className="mb-10 overflow-hidden border border-terminal-border bg-terminal-surface">
       <a href={project.page.image.src} target="_blank" rel="noopener noreferrer"><img src={project.page.image.src} alt={project.page.image.alt} className="w-full max-h-[32rem] object-contain" /></a>
       {project.page.image.caption && <figcaption className="p-4 border-t border-terminal-border text-xs leading-relaxed text-terminal-muted">{project.page.image.caption}</figcaption>}
     </figure>}
@@ -121,7 +121,7 @@ export function ProjectDetail({ project }: { project: Project }) {
           {section.paragraphs.map((paragraph, paragraphIndex) => <p className="text-sm sm:text-base leading-7 text-terminal-muted mb-3" key={paragraphIndex}>{paragraph}</p>)}
         </section>)}
       </div>
-      <aside aria-label="Project details" className="min-w-0 rounded-lg border border-terminal-border bg-terminal-surface p-5 space-y-6">
+      <aside aria-label="Project details" className="min-w-0 border border-terminal-border bg-terminal-surface p-5 space-y-6">
         {resources.length > 0 && <section><h2 className={`${SECTION_LABEL} text-terminal-muted mb-3`}>Links & resources</h2><ul className="space-y-3 text-sm">{resources.map(link => <li key={link.url}><a className="text-terminal-green hover:underline break-words" href={link.url} target="_blank" rel="noopener noreferrer">{link.label} ↗</a></li>)}</ul></section>}
         {groups.filter(group => group.terms.length).map(group => <section key={group.label}>
           <h2 className={`${SECTION_LABEL} text-terminal-muted mb-3`}>{group.label}</h2>

@@ -6,7 +6,7 @@ import { getRecordCompetencies } from '@/lib/competencies'
 import { fmtSingleDate } from '@/lib/cv-data'
 import { BTN_SECONDARY, SECTION_LABEL } from '@/lib/ui-constants'
 
-const CONTROL = 'mt-2 w-full rounded border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm'
+const CONTROL = 'mt-2 w-full border border-terminal-border bg-terminal-surface text-terminal-text px-3 py-3 text-sm'
 
 export default function PublicationIndex({ publications }: { publications: Publication[] }) {
   const [query, setQuery] = useState('')
@@ -47,12 +47,12 @@ export default function PublicationIndex({ publications }: { publications: Publi
       </label>
     </div>
     <p role="status" className="text-xs text-terminal-muted mb-5">Showing {matches.length} of {publications.length} entries</p>
-    {matches.length === 0 && <div className="border border-terminal-border rounded-lg p-8 text-sm">
+    {matches.length === 0 && <div className="border border-terminal-border p-8 text-sm">
       <p>No publications match these filters.</p>
       <button className={`${BTN_SECONDARY} mt-4`} onClick={() => { setQuery(''); setYear(''); setStatus('') }}>Clear filters</button>
     </div>}
     <div className="space-y-4">
-      {matches.map(publication => <article key={publication.id} data-publication-card className="min-w-0 rounded-lg border border-terminal-border bg-terminal-surface p-5 sm:p-6">
+      {matches.map(publication => <article key={publication.id} data-publication-card className="chamfer-card min-w-0 border border-terminal-border bg-terminal-surface p-5 sm:p-6">
         <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-terminal-muted mb-3">
           {publication.date && <span>{fmtSingleDate(publication.date)}</span>}
           {publication.status && <span className="text-terminal-blue">{PUBLICATION_STATUS_LABELS[publication.status]}</span>}

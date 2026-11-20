@@ -276,7 +276,7 @@ function TypeBadge({ type }: { type: NodeType }) {
   const meta = TYPE_META[type]
   return (
     <span
-      className="inline-block px-2 py-0.5 rounded text-xs font-bold font-mono uppercase tracking-wider"
+      className="inline-block px-2 py-0.5 text-xs font-bold font-mono uppercase tracking-wider"
       style={{ backgroundColor: meta.color + '22', color: meta.color, border: `1px solid ${meta.color}44` }}
     >
       {meta.label}
@@ -800,7 +800,7 @@ export default function Graph() {
             const color = isAll ? '#00ff88' : isFocus ? '#4d9fff' : isNone ? '#ff4d6d' : '#ffb300'
             return (
               <button
-                className="text-[0.55rem] sm:text-[0.6rem] uppercase tracking-wider px-1.5 py-0.5 rounded transition-colors"
+                className="text-[0.55rem] sm:text-[0.6rem] uppercase tracking-wider px-1.5 py-0.5 transition-colors"
                 style={{ color, border: `1px solid ${color}44` }}
                 onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.7' }}
                 onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}
@@ -828,7 +828,7 @@ export default function Graph() {
               >
                 <input type="checkbox" checked={enabled} onChange={() => toggleType(type)} className="sr-only" />
                 <span
-                  className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 rounded-sm border flex items-center justify-center transition-all"
+                  className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 border flex items-center justify-center transition-all"
                   style={{ borderColor: enabled ? meta.color : C.border, backgroundColor: enabled ? meta.color + '33' : 'transparent' }}
                 >
                   {enabled && (
@@ -857,7 +857,7 @@ export default function Graph() {
               >
                 <input type="checkbox" checked={enabled} onChange={() => toggleType(type)} className="sr-only" />
                 <span
-                  className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 rounded-sm border flex items-center justify-center transition-all"
+                  className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 border flex items-center justify-center transition-all"
                   style={{ borderColor: enabled ? meta.color : C.border, backgroundColor: enabled ? meta.color + '33' : 'transparent' }}
                 >
                   {enabled && (
@@ -908,7 +908,7 @@ export default function Graph() {
                 selectNodeById(searchResults[0].data.id)
               }
             }}
-            className="w-full pl-5 pr-7 py-1 sm:py-1.5 text-[0.65rem] sm:text-xs rounded transition-all"
+            className="w-full pl-5 pr-7 py-1 sm:py-1.5 text-[0.65rem] sm:text-xs transition-all"
             style={{
               background: C.bg,
               border: `1px solid ${C.border}`,
@@ -944,7 +944,7 @@ export default function Graph() {
                     <button type="button" data-search-result={data.id}
                       aria-pressed={selectedNode?.id === data.id}
                       onClick={() => selectNodeById(data.id)}
-                      className="w-full rounded p-2 text-left text-xs text-terminal-text bg-terminal-bg hover:bg-terminal-border break-words">
+                      className="w-full p-2 text-left text-xs text-terminal-text bg-terminal-bg hover:bg-terminal-border break-words">
                       {data.label} <span className="text-terminal-muted">({TYPE_META[data.type].label})</span>
                     </button>
                   </li>
@@ -974,7 +974,7 @@ export default function Graph() {
       <div className="px-3 sm:px-4 py-2 sm:py-3 flex gap-2 flex-shrink-0" style={{ borderBottom: `1px solid ${C.border}` }}>
         <button
           onClick={runLayout}
-          className="flex-1 py-1 sm:py-1.5 px-2 sm:px-3 text-[0.65rem] sm:text-xs rounded transition-all text-left"
+          className="flex-1 py-1 sm:py-1.5 px-2 sm:px-3 text-[0.65rem] sm:text-xs transition-all text-left"
           style={{ background: C.border, color: C.text, border: `1px solid ${C.border2}` }}
           onMouseEnter={(e) => { e.currentTarget.style.background = C.borderHover; e.currentTarget.style.color = '#00ff88' }}
           onMouseLeave={(e) => { e.currentTarget.style.background = C.border; e.currentTarget.style.color = C.text }}
@@ -983,7 +983,7 @@ export default function Graph() {
         </button>
         <button
           onClick={fitToScreen}
-          className="flex-1 py-1 sm:py-1.5 px-2 sm:px-3 text-[0.65rem] sm:text-xs rounded transition-all text-left"
+          className="flex-1 py-1 sm:py-1.5 px-2 sm:px-3 text-[0.65rem] sm:text-xs transition-all text-left"
           style={{ background: C.border, color: C.text, border: `1px solid ${C.border2}` }}
           onMouseEnter={(e) => { e.currentTarget.style.background = C.borderHover; e.currentTarget.style.color = '#4d9fff' }}
           onMouseLeave={(e) => { e.currentTarget.style.background = C.border; e.currentTarget.style.color = C.text }}
@@ -1001,14 +1001,14 @@ export default function Graph() {
 
         {!selectedNode ? (
           <div
-            className="rounded p-2 sm:p-3 text-[0.65rem] sm:text-xs"
+            className="p-2 sm:p-3 text-[0.65rem] sm:text-xs"
             style={{ background: C.bg, border: `1px solid ${C.border}`, color: C.muted }}
           >
             <span className="animate-blink">▮</span> click a node to inspect
           </div>
         ) : (
           <div
-            className="rounded p-2 sm:p-3 flex flex-col gap-1.5 sm:gap-2"
+            className="p-2 sm:p-3 flex flex-col gap-1.5 sm:gap-2"
             style={{ background: C.bg, border: `1px solid ${TYPE_META[selectedNode.type].color}33` }}
           >
             <TypeBadge type={selectedNode.type} />
@@ -1032,17 +1032,17 @@ export default function Graph() {
 
             <div className="flex flex-wrap gap-1">
               {selectedNode.year && (
-                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: C.border, color: C.text }}>
+                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 " style={{ background: C.border, color: C.text }}>
                   {selectedNode.year}
                 </span>
               )}
               {selectedNode.detail && (
-                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: C.border, color: '#ffb300' }}>
+                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 " style={{ background: C.border, color: '#ffb300' }}>
                   {selectedNode.detail}
                 </span>
               )}
               {selectedNode.category && (
-                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded" style={{ background: C.border, color: '#4d9fff' }}>
+                <span className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 " style={{ background: C.border, color: '#4d9fff' }}>
                   {selectedNode.category}
                 </span>
               )}
@@ -1056,7 +1056,7 @@ export default function Graph() {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 rounded font-mono transition-opacity hover:opacity-80"
+                    className="text-[0.6rem] sm:text-xs px-1.5 py-0.5 font-mono transition-opacity hover:opacity-80"
                     style={{ background: C.border, color: '#00ff88', border: '1px solid #00ff8833' }}
                   >
                     {link.label}
@@ -1077,7 +1077,7 @@ export default function Graph() {
                       <button
                         key={n.id}
                         onClick={() => selectNodeById(n.id)}
-                        className="text-[0.6rem] sm:text-xs py-0.5 px-2 rounded flex items-baseline gap-1.5 min-w-0 w-full text-left transition-opacity hover:opacity-80"
+                        className="text-[0.6rem] sm:text-xs py-0.5 px-2 flex items-baseline gap-1.5 min-w-0 w-full text-left transition-opacity hover:opacity-80"
                         style={{ background: C.border, borderLeft: `2px solid ${meta.color}66`, cursor: 'pointer' }}
                       >
                         <span className="font-bold uppercase tracking-wider flex-shrink-0" style={{ color: meta.color, fontSize: '0.55rem' }}>
@@ -1091,7 +1091,7 @@ export default function Graph() {
                 {selectedNode.connectedNodes.length > INITIAL_CONNECTION_COUNT && (
                   <button type="button" aria-expanded={connectionsExpanded}
                     aria-label={connectionsExpanded ? 'Collapse connected nodes' : 'Expand connected nodes'}
-                    className="mt-2 w-full rounded border px-2 py-1 text-xs font-bold"
+                    className="mt-2 w-full border px-2 py-1 text-xs font-bold"
                     style={{ color: C.text, borderColor: C.borderHover, background: C.border }}
                     onClick={() => setConnectionsExpanded(expanded => !expanded)}
                   >
@@ -1173,7 +1173,7 @@ export default function Graph() {
 
           {/* Collapse button — flush with the right edge */}
           <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-5 rounded-l text-xs font-bold transition-colors cursor-pointer"
+            className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-5 text-xs font-bold transition-colors cursor-pointer"
             style={{
               background: C.border,
               border: `1px solid ${C.border2}`,
@@ -1240,7 +1240,7 @@ export default function Graph() {
         {/* Search query badge */}
         {searchQuery && (
           <div
-            className="absolute top-2 right-2 sm:top-3 sm:right-3 px-2 py-1 rounded text-[0.6rem] sm:text-xs font-mono pointer-events-none"
+            className="absolute top-2 right-2 sm:top-3 sm:right-3 px-2 py-1 text-[0.6rem] sm:text-xs font-mono pointer-events-none"
             style={{
               background: C.surfaceAlpha,
               border: `1px solid ${C.border}`,

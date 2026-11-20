@@ -333,7 +333,7 @@ function CVPdfDocument({ data }: { data: CVData }) {
 // ─── HTML Preview ──────────────────────────────────────────────────────────────
 
 const HS = {
-  page: { background: '#fff', color: COLOR.body, fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontSize: px(FS.page), lineHeight: '1.4', padding: 'clamp(16px, 4vw, 48px) clamp(12px, 4vw, 56px)', maxWidth: '900px', margin: '0 auto', boxShadow: '0 4px 32px rgba(0,0,0,0.5)', borderRadius: '2px', textAlign: 'justify' } as React.CSSProperties,
+  page: { background: '#fff', color: COLOR.body, fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontSize: px(FS.page), lineHeight: '1.4', padding: 'clamp(16px, 4vw, 48px) clamp(12px, 4vw, 56px)', maxWidth: '900px', margin: '0 auto', boxShadow: '0 4px 32px rgba(0,0,0,0.5)', borderRadius: 0, textAlign: 'justify' } as React.CSSProperties,
   name: { fontSize: px(FS.name), fontFamily: "'Cambria', 'Caladea', Georgia, serif", fontWeight: 700, color: COLOR.navy, marginBottom: '1px' } as React.CSSProperties,
   title: { fontSize: px(FS.page), color: COLOR.meta, fontStyle: 'italic', marginBottom: '4px' } as React.CSSProperties,
   contactLine: { fontSize: px(FS.subtitle), color: COLOR.meta } as React.CSSProperties,
@@ -664,7 +664,7 @@ export default function CVExport() {
           </a>
 
           {/* View Toggle */}
-          <div className="flex rounded overflow-hidden border border-terminal-border ml-auto">
+          <div className="flex overflow-hidden border border-terminal-border ml-auto">
             <button onClick={() => setViewMode('html')} className={viewMode === 'html' ? BTN_TOGGLE_ACTIVE : BTN_TOGGLE_INACTIVE}>
               HTML
             </button>
@@ -688,7 +688,7 @@ export default function CVExport() {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const Viewer = PDFViewer as any
                 return (
-                  <Viewer width="100%" height="100%" style={{ border: 'none', borderRadius: '2px' }}>
+                  <Viewer width="100%" height="100%" style={{ border: 'none', borderRadius: 0 }}>
                     {pdfDoc}
                   </Viewer>
                 )

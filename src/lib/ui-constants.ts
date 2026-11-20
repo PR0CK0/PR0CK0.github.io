@@ -25,9 +25,9 @@ export const FOOTER_META   = 'text-[7px] sm:text-[8px]'
 // ─── Buttons ──────────────────────────────────────────────────────────────────
 
 /** Primary action button — blue (Download PDF) */
-export const BTN_PRIMARY   = 'px-3 py-1.5 sm:px-4 sm:py-2 bg-terminal-blue/15 border border-terminal-blue/60 text-terminal-blue text-xs sm:text-sm font-mono hover:bg-terminal-blue/25 transition-colors rounded'
+export const BTN_PRIMARY   = 'chamfer-action px-3 py-1.5 sm:px-4 sm:py-2 bg-terminal-blue/15 border border-terminal-blue/60 text-terminal-blue text-xs sm:text-sm font-mono hover:bg-terminal-blue/25 transition-colors'
 /** Secondary action button — neutral (View Raw YAML, etc.) */
-export const BTN_SECONDARY = 'px-3 py-1.5 sm:px-4 sm:py-2 bg-terminal-surface border border-terminal-border text-terminal-text text-xs sm:text-sm font-mono hover:bg-terminal-border/40 transition-colors rounded'
+export const BTN_SECONDARY = 'px-3 py-1.5 sm:px-4 sm:py-2 bg-terminal-surface border border-terminal-border text-terminal-text text-xs sm:text-sm font-mono hover:bg-terminal-border/40 transition-colors'
 /** Base classes shared by both toggle states */
 export const BTN_TOGGLE_BASE     = 'px-2 py-1.5 sm:px-3 sm:py-2 text-[0.65rem] sm:text-xs font-mono transition-colors'
 /** Toggle button — active/selected state */
@@ -47,9 +47,9 @@ export const LOADING_SCREEN = 'min-h-screen flex items-center justify-center bg-
 // ─── Landing-specific ─────────────────────────────────────────────────────────
 
 /** Base for tech/skill tag chips — append color variant classes per usage */
-export const TAG_CHIP = 'text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 rounded cursor-pointer transition-all duration-150'
+export const TAG_CHIP = 'text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 cursor-pointer transition-all duration-150'
 /** Project / publication card wrapper */
-export const CARD_BASE = 'group flex flex-col p-3 sm:p-4 ls:p-3 rounded-lg border border-terminal-border bg-terminal-surface/80 hover:bg-terminal-surface hover:border-terminal-purple/40 transition-all duration-250'
+export const CARD_BASE = 'chamfer-card group flex flex-col p-3 sm:p-4 ls:p-3 border border-terminal-border bg-terminal-surface/80 hover:bg-terminal-surface hover:border-terminal-purple/40 transition-all duration-250'
 /** Clamp descriptions without stretching the text box; tag rows handle bottom alignment. */
 export const CARD_DESCRIPTION = 'text-xs font-mono text-terminal-muted leading-relaxed mb-3 line-clamp-2 flex-none'
 /** Centered section content; place full-width backgrounds on an outer wrapper. */

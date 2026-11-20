@@ -35,7 +35,7 @@ export default function GraphFilterScroller({ children, backgroundColor, hintCol
   return (
     <div className="flex min-w-0 items-center gap-1 sm:block">
       <button type="button" aria-label="Scroll filters left" disabled={!edges.left}
-        className="h-11 w-9 shrink-0 rounded border text-xl font-bold disabled:opacity-25 sm:hidden"
+        className="h-11 w-9 shrink-0 border text-xl font-bold disabled:opacity-25 sm:hidden"
         style={{ color: hintColor, borderColor: hintColor, backgroundColor }}
         onClick={() => ref.current?.scrollBy({ left: -ref.current.clientWidth * 0.75, behavior: 'smooth' })}
       >‹</button>
@@ -57,7 +57,7 @@ export default function GraphFilterScroller({ children, backgroundColor, hintCol
         ))}
       </div>
       <button type="button" aria-label="Scroll filters right" disabled={!edges.right}
-        className="h-11 w-9 shrink-0 rounded border text-xl font-bold disabled:opacity-25 sm:hidden"
+        className="h-11 w-9 shrink-0 border text-xl font-bold disabled:opacity-25 sm:hidden"
         style={{ color: hintColor, borderColor: hintColor, backgroundColor }}
         onClick={() => ref.current?.scrollBy({ left: ref.current.clientWidth * 0.75, behavior: 'smooth' })}
       >›</button>

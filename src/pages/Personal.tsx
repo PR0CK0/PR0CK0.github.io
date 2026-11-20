@@ -84,7 +84,7 @@ function Lightbox({ src, alt, trigger, onClose }: SelectedDrawing & { onClose: (
       <img
         src={src}
         alt={alt}
-        className="max-h-[90vh] max-w-[90vw] object-contain rounded shadow-2xl"
+        className="max-h-[90vh] max-w-[90vw] object-contain shadow-2xl"
         style={{ border: '1px solid rgba(212, 201, 176, 0.2)' }}
       />
     </dialog>
@@ -132,7 +132,7 @@ function GallerySection({
               type="button"
               aria-label={`Open ${alt}`}
               aria-haspopup="dialog"
-              className={`mb-3 block w-full break-inside-avoid cursor-pointer overflow-hidden rounded p-0 ${FOCUS_OUTLINE}`}
+              className={`mb-3 block w-full break-inside-avoid cursor-pointer overflow-hidden p-0 ${FOCUS_OUTLINE}`}
               style={{ border: '1px solid #3a2a1a' }}
               onClick={event => onOpen({ src, alt, trigger: event.currentTarget })}
             >

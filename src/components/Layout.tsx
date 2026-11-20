@@ -35,7 +35,7 @@ export default function Layout({ children }: LayoutProps) {
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `px-1.5 sm:px-3 py-0.5 sm:py-1 text-[0.65rem] sm:text-sm rounded transition-all duration-200 flex-shrink-0 ${
+                  `px-1.5 sm:px-3 py-0.5 sm:py-1 text-[0.65rem] sm:text-sm transition-all duration-200 flex-shrink-0 ${
                     isActive
                       ? 'bg-terminal-border text-terminal-green border border-terminal-green/30 text-glow-green'
                       : 'text-terminal-muted hover:text-terminal-text hover:bg-terminal-border/50'
@@ -51,7 +51,7 @@ export default function Layout({ children }: LayoutProps) {
             <button
               onClick={toggleTheme}
               aria-label="Toggle light/dark mode"
-              className="flex-shrink-0 ml-1 sm:ml-2 px-1.5 py-0.5 sm:py-1 text-[0.65rem] sm:text-sm rounded transition-all duration-200 text-terminal-muted hover:text-terminal-text hover:bg-terminal-border/50"
+              className="flex-shrink-0 ml-1 sm:ml-2 px-1.5 py-0.5 sm:py-1 text-[0.65rem] sm:text-sm transition-all duration-200 text-terminal-muted hover:text-terminal-text hover:bg-terminal-border/50"
               title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {theme === 'dark' ? '☀' : '☾'}
