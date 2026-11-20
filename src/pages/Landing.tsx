@@ -162,7 +162,7 @@ function ProfilePhoto({ visible, name, angry }: { visible: boolean; name: string
 
   return (
     <div
-      className="flex-shrink-0 relative w-[66px] h-[66px] sm:w-[101px] sm:h-[101px] ls:w-[66px] ls:h-[66px]"
+      className="profile-avatar flex-shrink-0 relative"
       style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.1s' }}
     >
       <div className="chamfer-frame avatar-frame w-full h-full">
@@ -174,7 +174,7 @@ function ProfilePhoto({ visible, name, angry }: { visible: boolean; name: string
           <motion.img
             src="/me.png"
             alt={name}
-            className="w-full h-full object-cover cursor-pointer"
+            className="profile-avatar-image h-full object-cover cursor-pointer"
             draggable={false}
             animate={isShaking ? { rotate: [-3, 3, -3, 3, 0], x: [-2, 2, -2, 2, 0] } : {}}
             transition={{ duration: 0.4 }}

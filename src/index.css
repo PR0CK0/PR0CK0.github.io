@@ -209,6 +209,28 @@ html.light .border-glow-blue {
     clip-path: polygon(0 0, calc(100% - var(--corner-cut)) 0, 100% var(--corner-cut), 100% 100%, var(--corner-cut) 100%, 0 calc(100% - var(--corner-cut)));
   }
 
+  .profile-avatar {
+    --avatar-side-crop: 0.15;
+    --avatar-visible-width: calc(1 - 2 * var(--avatar-side-crop));
+    height: 96px;
+    /* Preserve the source image's 864 × 954 proportions after the side crop. */
+    aspect-ratio: calc(864 * var(--avatar-visible-width)) / 954;
+  }
+
+  .profile-avatar-image {
+    max-width: none;
+    width: calc(100% / var(--avatar-visible-width));
+    margin-left: calc(-100% * var(--avatar-side-crop) / var(--avatar-visible-width));
+  }
+
+  @media (min-width: 640px) {
+    .profile-avatar { height: 144px; }
+  }
+
+  @media (orientation: landscape) and (max-height: 500px) {
+    .profile-avatar { height: 96px; }
+  }
+
   .avatar-frame {
     --corner-cut: 10px;
     --corner-stroke: rgb(var(--color-terminal-green) / 0.6);
