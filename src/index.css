@@ -197,7 +197,7 @@ html.light .border-glow-blue {
 }
 
 @layer components {
-  .chamfer-card, .chamfer-frame, .chamfer-action {
+  .chamfer-card, .chamfer-frame, .chamfer-action, .chamfer-chip {
     --corner-cut: 12px;
     --corner-stroke: rgb(var(--color-terminal-border));
     position: relative;
@@ -214,7 +214,13 @@ html.light .border-glow-blue {
     --corner-stroke: currentColor;
   }
 
-  .chamfer-card::after, .chamfer-frame::after, .chamfer-frame::before, .chamfer-action::after {
+  .chamfer-chip {
+    --corner-cut: 4px;
+    --corner-stroke: currentColor;
+    clip-path: polygon(var(--corner-cut) 0, 100% 0, 100% calc(100% - var(--corner-cut)), calc(100% - var(--corner-cut)) 100%, 0 100%, 0 var(--corner-cut));
+  }
+
+  .chamfer-card::after, .chamfer-frame::after, .chamfer-frame::before, .chamfer-action::after, .chamfer-chip::before, .chamfer-chip::after {
     content: '';
     position: absolute;
     width: var(--corner-cut);
@@ -233,6 +239,15 @@ html.light .border-glow-blue {
     bottom: -1px;
     left: -1px;
   }
+
+  .chamfer-chip::before, .chamfer-chip::after {
+    background: linear-gradient(135deg, transparent calc(50% - 1px), var(--corner-stroke) calc(50% - 1px), var(--corner-stroke) calc(50% + 1px), transparent calc(50% + 1px));
+    opacity: 0.5;
+  }
+
+  .chamfer-chip::before { top: -1px; left: -1px; }
+  .chamfer-chip::after { bottom: -1px; right: -1px; }
+  .chamfer-chip:focus-visible { outline-offset: -3px; }
 
   .chamfer-action:focus-visible {
     outline-offset: -4px;

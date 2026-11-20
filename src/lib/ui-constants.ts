@@ -47,7 +47,7 @@ export const LOADING_SCREEN = 'min-h-screen flex items-center justify-center bg-
 // ─── Landing-specific ─────────────────────────────────────────────────────────
 
 /** Base for tech/skill tag chips — append color variant classes per usage */
-export const TAG_CHIP = 'text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 cursor-pointer transition-all duration-150'
+export const TAG_CHIP = 'chamfer-chip text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 cursor-pointer transition-all duration-150'
 /** Project / publication card wrapper */
 export const CARD_BASE = 'chamfer-card group flex flex-col p-3 sm:p-4 ls:p-3 border border-terminal-border bg-terminal-surface/80 hover:bg-terminal-surface hover:border-terminal-purple/40 transition-all duration-250'
 /** Clamp descriptions without stretching the text box; tag rows handle bottom alignment. */

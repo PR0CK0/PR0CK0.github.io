@@ -6,7 +6,7 @@ import { projectPath, sortProjects, type ProjectSort } from '@/lib/project-pages
 import { fmtSingleDate } from '@/lib/cv-data'
 import { BTN_PRIMARY, BTN_SECONDARY, SECTION_LABEL } from '@/lib/ui-constants'
 
-const CHIP = 'inline-block border border-terminal-border bg-terminal-bg px-2 py-1 text-xs leading-relaxed text-terminal-text hover:border-terminal-green hover:text-terminal-green transition-colors'
+const CHIP = 'chamfer-chip inline-block border border-terminal-border bg-terminal-bg px-2 py-1 text-xs leading-relaxed text-terminal-text hover:border-terminal-green hover:text-terminal-green transition-colors'
 
 function CompetencyLinks({ terms }: { terms: Competency[] }) {
   return <div className="flex flex-wrap gap-2">{terms.map(term => (

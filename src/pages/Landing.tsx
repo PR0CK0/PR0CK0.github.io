@@ -755,7 +755,7 @@ function SkillChip({ skill, chipClass, opacity }: { skill: AggregatedSkill; chip
       whileHover={{ scale: 1.05, opacity: 1 }}
       to={`/graph?term=${encodeURIComponent(skill.id)}`}
       whileFocus={{ opacity: 1 }}
-      className={`inline-flex items-center gap-1 sm:gap-1 ls:gap-1 px-1.5 py-0.5 sm:px-2 sm:py-1 ls:px-1.5 ls:py-0.5 text-[0.55rem] sm:text-[0.68rem] ls:text-[0.55rem] font-mono
+      className={`chamfer-chip inline-flex items-center gap-1 sm:gap-1 ls:gap-1 px-1.5 py-0.5 sm:px-2 sm:py-1 ls:px-1.5 ls:py-0.5 text-[0.55rem] sm:text-[0.68rem] ls:text-[0.55rem] font-mono
                   transition-all duration-150 cursor-pointer ${chipClass}`}
       style={{ opacity }}
     >
@@ -1193,7 +1193,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                       <button
                         key={tech.id}
                         onClick={() => { navigate(`/graph?term=${encodeURIComponent(tech.id)}`); setShowOverflow(false) }}
-                        className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 cursor-pointer
+                        className="chamfer-chip text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 cursor-pointer
                                    border border-terminal-purple/25 text-terminal-purple/80
                                    bg-terminal-purple/5 hover:bg-terminal-purple/15
                                    hover:border-terminal-purple/50 hover:text-terminal-purple
@@ -1444,7 +1444,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
                       <button
                         key={tech.id}
                         onClick={() => { navigate(`/graph?term=${encodeURIComponent(tech.id)}`); setShowOverflow(false) }}
-                        className="text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 cursor-pointer
+                        className="chamfer-chip text-[8px] sm:text-[10px] font-mono px-1.5 py-0.5 cursor-pointer
                                    border border-terminal-purple/25 text-terminal-purple/80
                                    bg-terminal-purple/5 hover:bg-terminal-purple/15
                                    hover:border-terminal-purple/50 hover:text-terminal-purple

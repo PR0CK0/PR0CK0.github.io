@@ -70,7 +70,7 @@ Static public routes are listed in `public/sitemap.xml` and rendered to HTML by 
 
 The project directory includes every project without `graph_exclude: true`, independently of CV exclusions. Each detail page uses the existing title, tagline, description, year, links, and canonical competency labels. Its URL defaults to the stable project ID without the leading namespace. An optional `page` object in the same YAML record adds `slug`, `sections` (each with `heading` and `paragraphs`), resource `links` (`label`, `url`), and an `image` (`src`, `alt`, optional `caption`). Source slugs must be unique, including collisions with default URLs. The first four expanded write-ups summarize their project READMEs; the OCSF screenshot comes from that repository. These additions are editorial source content, not browser requests to GitHub.
 
-The interface uses square controls and chips. Shared `chamfer-card`, `chamfer-frame`, and `chamfer-action` styles in `src/index.css` add selective 45-degree corners to major surfaces and primary actions; chamfered buttons keep keyboard focus indicators inside the cut boundary.
+The interface uses square controls and chips. Shared `chamfer-card`, `chamfer-frame`, and `chamfer-action` styles in `src/index.css` add selective 45-degree corners to major surfaces and primary actions; chamfered buttons keep keyboard focus indicators inside the cut boundary. Skill chips use the shared `chamfer-chip` style with top-left and bottom-right cuts, including ranked/category views, repository tags, overflow menus, and project details.
 
 The homepage competency and repository grids cover the full section width; their content stays inside the shared centered width limit.
 
