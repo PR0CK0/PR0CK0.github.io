@@ -109,14 +109,14 @@ should have at minimum: technologies, domains. Soft skills where applicable.
 ## SEO & Discoverability
 
 - [x] **Consistent route metadata** — One canonical URL and description per page, with matching page-specific Open Graph/Twitter titles and descriptions. Homepage title and description come from YAML. Unit tests cover ownership; `scripts/test-seo.mjs` checks delivered HTML for every route and client navigation.
-- [ ] **Accurate sitemap dates** — Stop marking every page updated on every deployment. Use significant page changes, or omit optional dates until they can be tracked reliably.
+- [x] **Accurate sitemap dates** — Prerendering recovers each page's UTC source update from Git history, following local imports, shared metadata, relevant YAML sections, and assets. Rebuilds and unrelated documentation edits preserve dates. Full tree history with filtered blobs avoids downloading old image binaries; tests cover scope, merges, and missing history.
 - [ ] **Source-driven project and paper pages** — Add browsable indexes and substantial detail pages generated from existing YAML records, extending that source when more explanation is needed. Keep stable URLs, ordinary internal links, and prerendered content; do not duplicate personal content in page components. Start with selected projects and papers, not thin pages for every record.
-- [x] **Refresh structured profile metadata** — Prerendering fills the employer from the YAML's explicit `primary_work_experience` reference (Apacen), along with profile name, headline, summary, email, website, social links, ORCID, and build date. These duplicated values have been removed from the HTML template. Tests cover employer changes and broken references.
+- [x] **Refresh structured profile metadata** — Prerendering fills the employer from the YAML's explicit `primary_work_experience` reference (Apacen), along with profile name, headline, summary, email, website, social links, ORCID, and the homepage's source update date. These duplicated values have been removed from the HTML template. Tests cover employer changes and broken references.
 - [x] **Create OG image** — Approved 1731×909 PNG at `public/og-image.png`; shared by Open Graph and Twitter metadata, with matching dimensions and alternative text. Regression test checks the referenced file and dimensions.
 - [ ] **Google Search Console** — verify procko.pro, submit sitemap.xml, request indexing.
 - [ ] **Bing Webmaster Tools** — import from Google Search Console (covers Bing + DuckDuckGo + Yahoo).
 - [x] **Prerendering** — All seven public routes, including `/personal`, generate static HTML snapshots on every deploy. Tests compare route coverage with `src/App.tsx`.
-- [x] **sitemap.xml** — Covers all seven public routes, including `/personal`; lastmod auto-updated on every deploy. Tests detect missing, duplicate, and extra routes.
+- [x] **sitemap.xml** — Covers all seven public routes, including `/personal`; per-page lastmod generated from Git history on every deploy. Tests detect missing, duplicate, and extra routes.
 - [x] **robots.txt** — exists, allows all, points to sitemap.
 - [x] **humans.txt** — exists, auto-updated with deploy date on every push.
 - [ ] **ScholarlyArticle JSON-LD** — add structured data for top publications to improve Google Scholar and search visibility.

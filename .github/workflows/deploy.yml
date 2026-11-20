@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # Per-page update dates require complete Git history.
+          filter: blob:none # Fetch old source on demand, not historical image binaries.
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -55,10 +58,6 @@ jobs:
       - name: Update humans.txt date
         run: |
           sed -i "s/Last update:.*/Last update: $(date -u +%Y-%m-%d)/" dist/humans.txt
-
-      - name: Update sitemap lastmod dates
-        run: |
-          sed -i "s/<lastmod>.*<\/lastmod>/<lastmod>$(date -u +%Y-%m-%d)<\/lastmod>/g" dist/sitemap.xml
 
       - name: Configure Pages
         uses: actions/configure-pages@v6

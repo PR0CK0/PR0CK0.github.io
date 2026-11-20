@@ -17,6 +17,7 @@ import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import yaml from 'js-yaml'
 import { buildProfileMetadata } from './profile-metadata.mjs'
+import { resolvePageUpdates, updateSitemap } from './page-updates.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
@@ -42,7 +43,9 @@ async function main() {
   const source = readFileSync(join(ROOT, 'index.html'), 'utf8')
   const template = JSON.parse(source.match(PROFILE_SCRIPT)[1])
   const person = yaml.load(readFileSync(join(ROOT, 'public/data/tyler-procko.yaml'), 'utf8'))
-  const metadata = buildProfileMetadata(template, person, new Date().toISOString())
+  const updates = resolvePageUpdates(ROOT)
+  // The ProfilePage entity describes the homepage on every route.
+  const metadata = buildProfileMetadata(template, person, updates['/'].modified)
   const profileScript = `<script type="application/ld+json">${JSON.stringify(metadata).replace(/</g, '\\u003c')}</script>`
 
   console.log('Starting Vite preview server...')
@@ -79,13 +82,15 @@ async function main() {
         writeFileSync(join(DIST, 'index.html'), html, 'utf-8')
       }
 
-      console.log('✓')
+      console.log(`✓ updated ${updates[path].modified} (${updates[path].commit.slice(0, 7)})`)
     }
   } finally {
     await browser.close()
     server.httpServer.close()
   }
 
+  const sitemap = readFileSync(join(ROOT, 'public/sitemap.xml'), 'utf8')
+  writeFileSync(join(DIST, 'sitemap.xml'), updateSitemap(sitemap, updates))
   console.log(`\nPrerendered ${ROUTES.length} routes into dist/.`)
 }
 

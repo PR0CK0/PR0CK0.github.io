@@ -2,10 +2,12 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import puppeteer from 'puppeteer'
 import yaml from 'js-yaml'
+import { resolvePageUpdates } from './page-updates.mjs'
 
 const site = process.env.SITE_URL || 'http://127.0.0.1:4173'
 const person = yaml.load(readFileSync('public/data/tyler-procko.yaml', 'utf8'))
 const routes = [...readFileSync('src/App.tsx', 'utf8').matchAll(/<Route\s+path="(\/[^"]*)"/g)].map(match => match[1])
+const updates = resolvePageUpdates(process.cwd())
 const browser = await puppeteer.launch({ headless: true })
 
 async function checkMetadata(page, path) {
@@ -39,10 +41,24 @@ async function checkMetadata(page, path) {
     assert.deepEqual(metadata.title, [[person.name, person.title?.split(' — ')[0]].filter(Boolean).join(' — ')])
     assert.ok(metadata.description[0].startsWith(person.seo_description || person.summary))
   }
+  const profileModified = await page.$eval('script[type="application/ld+json"]', script =>
+    JSON.parse(script.textContent)['@graph'].find(item => item['@type'] === 'ProfilePage').dateModified)
+  assert.equal(profileModified, updates['/'].modified, `${path}: homepage profile uses its source update date`)
   return metadata
 }
 
 try {
+  const response = await fetch(`${site}/sitemap.xml`)
+  assert.equal(response.status, 200)
+  const entries = [...(await response.text()).matchAll(/<url>([\s\S]*?)<\/url>/g)]
+  const sitemapPaths = []
+  for (const [, entry] of entries) {
+    const path = new URL(entry.match(/<loc>([^<]+)<\/loc>/)[1]).pathname
+    sitemapPaths.push(path)
+    assert.equal(entry.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1], updates[path]?.modified, `${path}: historical sitemap date`)
+  }
+  assert.deepEqual(sitemapPaths.sort(), [...routes].sort())
+  console.log('Sitemap dates match source history for every route')
   // Disable page scripts to inspect the HTML that crawlers receive before React runs.
   const raw = await browser.newPage()
   await raw.setJavaScriptEnabled(false)
