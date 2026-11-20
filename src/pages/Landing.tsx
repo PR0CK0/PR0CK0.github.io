@@ -1852,7 +1852,11 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen bg-terminal-bg text-terminal-text font-mono">
-      <SEO path="/" description={person.seo_description ? `${person.seo_description} ${publications.length} publications.` : undefined} />
+      <SEO
+        path="/"
+        title={[person.name, person.title?.split(' — ')[0]].filter(Boolean).join(' — ')}
+        description={`${person.seo_description || person.summary} ${publications.length} publications.`}
+      />
       <HeroSection person={person} bootLines={bootLines} />
       <StatsBar stats={stats} />
 

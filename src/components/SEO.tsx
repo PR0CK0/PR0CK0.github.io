@@ -1,28 +1,27 @@
 import { Helmet } from 'react-helmet-async'
 
 interface SEOProps {
-  title?: string
-  description?: string
-  path?: string
+  title: string
+  description: string
+  path: string
 }
 
 const SITE = 'https://procko.pro'
-const DEFAULT_TITLE = 'Tyler T. Procko, Ph.D. — AI Engineer — Ontologies · Knowledge Graphs · LLMs'
-const DEFAULT_DESC = 'PhD AI engineer building ontology-grounded LLM agents — knowledge graphs, agentic RAG, BFO/CCO, cybersecurity. DoD SECRET clearance. 40+ publications.'
 
-export default function SEO({ title, description, path = '/' }: SEOProps) {
-  const t = title ? `${title} | procko.pro` : DEFAULT_TITLE
-  const d = description ?? DEFAULT_DESC
+export default function SEO({ title, description, path }: SEOProps) {
+  const pageTitle = path === '/' ? title : `${title} | procko.pro`
   const url = `${SITE}${path}`
 
   return (
     <Helmet>
-      <title>{t}</title>
-      <meta name="description" content={d} />
+      <title>{pageTitle}</title>
+      <meta name="description" content={description} />
       <link rel="canonical" href={url} />
-      <meta property="og:title" content={t} />
-      <meta property="og:description" content={d} />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={description} />
     </Helmet>
   )
 }

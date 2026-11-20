@@ -65,6 +65,8 @@ public/data/tyler-procko.yaml   ← single source of truth for all CV/portfolio 
 
 All seven public routes are listed in `public/sitemap.xml` and rendered to static HTML by `npm run prerender` after the build. When adding a route in `src/App.tsx`, also update the sitemap and the route list in `scripts/prerender.mjs`. Route coverage tests fail if either list omits a public route, duplicates one, or includes an extra route.
 
+`SEO.tsx` owns each route's title, description, canonical URL, and Open Graph/Twitter title and description. The HTML shell retains shared image metadata but does not duplicate route-specific tags. Every page supplies its metadata explicitly; the homepage uses the YAML name, headline, SEO description (or summary), and its existing publication count. Prerendering includes these tags in the delivered HTML. After building and prerendering, start the preview server and run `node scripts/test-seo.mjs` to check all seven pages with JavaScript disabled, then compare metadata during client navigation. `SITE_URL` overrides the preview server address. Unit tests cover tag ownership and sharing consistency.
+
 The graph, CV, and résumé pages load through `React.lazy` when their routes are opened, keeping Cytoscape and the PDF renderer out of the initial homepage download. Navigation remains available during the loading state. PDF generation still starts when a document page opens. Unit tests check deferred module loading. After building and prerendering, run `npm run preview -- --host 127.0.0.1`, then `node scripts/test-route-loading.mjs` to check the homepage's JavaScript budget, navigation, direct links, PDF bytes, and PDF/HTML toggles. `SITE_URL` overrides the preview server address.
 
 ## Development
