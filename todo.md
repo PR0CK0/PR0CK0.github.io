@@ -62,8 +62,10 @@ Use scripts/update_pubs_batchN.py pattern to apply changes.
 
 ## Legacy index.html — full port audit
 
-- [ ] **Ensure legacy view is fully ported to YAML/React** — Walk through `/legacy` (the old static CV HTML at `public/legacy/index.html`) entry by entry and verify every section, entry, bullet point, and nuance is captured in `public/data/tyler-procko.yaml`. The legacy view was the source of truth before the YAML migration; anything present there but absent from the YAML is a data loss.
-- [ ] **Delete `public/legacy/index.html` and `index-new.html` after the audit above** — Stale pre-migration copies (last touched May 2026), still publicly served but unlinked. `/legacy` loads the generated `public/legacy/cv.html`.
+- [x] **Compare historical CV copies with current YAML and renderers** — See [legacy CV audit](docs/legacy-cv-audit.md). Both historical copies have identical visible content. The current generated CV has reproducible rendering gaps; some historical details also need reconciliation.
+- [ ] **Repair legacy rendering** — Restore 41 project descriptions, 12 omitted extracurricular entries, headings/dates for included extracurriculars, and stored publication credits/details. Use current YAML fields and add regression coverage.
+- [ ] **Reconcile historical detail** — Review the audit's project/work details before declaring the migration complete; keep current factual updates and intentional CV exclusions.
+- [ ] **Retire `public/legacy/index.html` and `index-new.html` after reconciliation** — Five links from retained/generated legacy pages still target the old index. Update and verify these links first. `/legacy` loads the generated `public/legacy/cv.html`; decide how old direct URLs should behave before removing the copies.
 
 ## Skill category labels — Landing and Schema normalization
 
