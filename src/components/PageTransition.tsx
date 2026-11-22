@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
-import { useLocation, type Location } from 'react-router-dom'
+import { matchPath, useLocation, type Location } from 'react-router-dom'
 import './PageTransition.css'
 
 const DURATION_MS = 900
@@ -48,7 +48,7 @@ export default function PageTransition({ children }: { children: (location: Loca
   }, [location])
 
   // Unmount the graph immediately on navigation, terminating pending layout work.
-  const leavingGraph = displayLocation.pathname === '/graph' && location.pathname !== displayLocation.pathname
+  const leavingGraph = matchPath('/graph', displayLocation.pathname) !== null && location.pathname !== displayLocation.pathname
 
   return <>
     {!leavingGraph && children(displayLocation)}

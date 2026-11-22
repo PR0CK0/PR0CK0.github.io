@@ -27,7 +27,7 @@ try {
       }
     }
   })
-  await page.goto(`${site}/graph`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${site}/graph/`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => window.graphWork.active > 0)
   const clicked = await page.evaluate(() => {
     const now = performance.now()
