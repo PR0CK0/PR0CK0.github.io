@@ -142,3 +142,13 @@ it('tracks the graph worker as a graph-only runtime asset', () => {
   expect(updates['/graph'].commit).toBe(changed)
   expect(updates['/personal'].commit).toBe(original)
 })
+
+it('tracks transition code and its imported styles across pages', () => {
+  const { root, write, commit } = fixture()
+  write('src/components/PageTransition.tsx', "import './PageTransition.css'")
+  write('src/components/PageTransition.css', 'original transition')
+  commit(1)
+  write('src/components/PageTransition.css', 'updated transition')
+  const changed = commit(2)
+  expect(Object.values(resolvePageUpdates(root, routes)).map(item => item.commit)).toEqual([changed, changed])
+})

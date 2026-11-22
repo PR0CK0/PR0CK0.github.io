@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { HelmetProvider } from 'react-helmet-async'
+import { StaticRouter } from 'react-router-dom/server'
 import { expect, it } from 'vitest'
 import Personal from '../../pages/Personal'
 
@@ -16,7 +17,7 @@ it('redirects the retired gallery address to the existing gallery without JavaSc
 })
 
 it('makes all drawings labeled buttons that can open a dialog from the keyboard', () => {
-  const html = renderToStaticMarkup(<HelmetProvider><Personal /></HelmetProvider>)
+  const html = renderToStaticMarkup(<StaticRouter location="/personal"><HelmetProvider><Personal /></HelmetProvider></StaticRouter>)
   const buttons = [...html.matchAll(/<button([^>]*aria-haspopup="dialog"[^>]*)>([\s\S]*?)<\/button>/g)]
   expect(buttons).toHaveLength(54)
   for (const [, attributes, content] of buttons) {
@@ -28,7 +29,7 @@ it('makes all drawings labeled buttons that can open a dialog from the keyboard'
 })
 
 it('serves all 54 drawings from the same files in both galleries', () => {
-  const html = renderToStaticMarkup(<HelmetProvider><Personal /></HelmetProvider>)
+  const html = renderToStaticMarkup(<StaticRouter location="/personal"><HelmetProvider><Personal /></HelmetProvider></StaticRouter>)
   const modern = [...html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(match => match[1])
   const legacyPath = 'public/legacy/personal/personal.html'
   const legacy = [...readFileSync(legacyPath, 'utf8').matchAll(/<img src='((?:pics\/|\/art\/)[^']+)'/g)]

@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from '@/components/Layout'
+import PageTransition from '@/components/PageTransition'
 import Landing from '@/pages/Landing'
 import Legacy from '@/pages/Legacy'
 import About from '@/pages/About'
@@ -16,21 +17,23 @@ const ResumeExport = lazy(() => import('@/pages/ResumeExport'))
 export default function App() {
   return (
     <Layout>
-      <Suspense fallback={<div className={LOADING_SCREEN} role="status"><span className="text-terminal-green text-sm animate-pulse">loading page...</span></div>}>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/papers" element={<Publications />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:slug" element={<Projects />} />
-          <Route path="/graph" element={<Graph />} />
-          <Route path="/cv" element={<CVExport />} />
-          <Route path="/resume" element={<ResumeExport />} />
-          <Route path="/legacy" element={<Legacy />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/personal" element={<Personal />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Suspense>
+      <PageTransition>{location => (
+        <Suspense fallback={<div className={LOADING_SCREEN} role="status"><span className="sr-only">Loading</span></div>}>
+          <Routes location={location}>
+            <Route path="/" element={<Landing />} />
+            <Route path="/papers" element={<Publications />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:slug" element={<Projects />} />
+            <Route path="/graph" element={<Graph />} />
+            <Route path="/cv" element={<CVExport />} />
+            <Route path="/resume" element={<ResumeExport />} />
+            <Route path="/legacy" element={<Legacy />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/personal" element={<Personal />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
+      )}</PageTransition>
     </Layout>
   )
 }

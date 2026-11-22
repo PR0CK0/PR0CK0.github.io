@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { FOOTER_TEXT, FOOTER_META } from '@/lib/ui-constants'
 
 export default function SiteFooter({ name }: { name: string }) {
@@ -33,13 +34,13 @@ export default function SiteFooter({ name }: { name: string }) {
               { label: '~/about', href: '/about' },
               { label: '~/personal', href: '/personal' },
             ].map((l) => (
-              <a
+              <Link
                 key={l.href}
-                href={l.href}
+                to={l.href}
                 className="hover:text-terminal-green transition-colors"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>

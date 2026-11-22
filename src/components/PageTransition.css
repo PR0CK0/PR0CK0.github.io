@@ -1,0 +1,82 @@
+.page-transition {
+  position: fixed;
+  z-index: 40;
+  pointer-events: none;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(#152a2226 1px, transparent 1px),
+    linear-gradient(90deg, #152a2226 1px, transparent 1px),
+    #03070bf5;
+  background-size: 36px 36px;
+  animation: terminal-overlay var(--transition-duration) ease both;
+}
+
+.page-transition-terminal {
+  width: min(480px, calc(100% - 32px));
+  border: 1px solid #235044;
+  background: #080e14;
+  font-family: 'JetBrains Mono', monospace;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  animation: terminal-window var(--transition-duration) ease both;
+}
+
+.page-transition-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 18px;
+  border-bottom: 1px solid #17352d;
+  color: #74988d;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.page-transition-marks { color: #00b781; }
+.page-transition-prompt {
+  display: flex;
+  align-items: center;
+  padding: 28px 18px;
+  color: #cbebe1;
+  font-size: clamp(12px, 2.5vw, 18px);
+  white-space: nowrap;
+}
+.page-transition-chevron { color: #00e59b; margin-right: 12px; }
+.page-transition-command {
+  display: block;
+  flex-shrink: 1;
+  overflow: hidden;
+  animation: terminal-type 500ms steps(var(--command-steps), end) 130ms both;
+}
+.page-transition-cursor { color: #00e59b; }
+.page-transition-track { height: 1px; background: #10251e; }
+.page-transition-track span {
+  display: block;
+  height: 100%;
+  background: #00b781;
+  transform-origin: left;
+  animation: terminal-progress 650ms linear 100ms both;
+}
+
+@keyframes terminal-type {
+  from { width: 0; }
+  to { width: var(--command-width); }
+}
+@keyframes terminal-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes terminal-overlay {
+  0%, 100% { opacity: 0; }
+  12%, 82% { opacity: 1; }
+}
+@keyframes terminal-window {
+  0% { transform: translateY(10px); opacity: 0; }
+  16%, 82% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-4px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition { display: none; }
+  .page-transition, .page-transition * { animation: none; }
+}

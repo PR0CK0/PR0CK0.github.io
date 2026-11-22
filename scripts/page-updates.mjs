@@ -9,7 +9,7 @@ const CV_FIELDS = [...COMPETENCY_FIELDS, 'social_links', 'location', 'phone', 'e
 const PROFILE_FIELDS = ['name', 'title', 'summary', 'website', 'email_personal', 'orcid', 'seo_description']
 const DATA_FILE = 'public/data/tyler-procko.yaml'
 const SHARED_FILES = ['index.html', 'src/main.tsx', 'src/App.tsx', 'src/index.css', 'tailwind.config.ts', 'package.json', 'package-lock.json', 'public/og-image.png', 'public/favicon.ico']
-const SHARED_MODULES = ['src/components/Layout.tsx', 'scripts/profile-metadata.mjs']
+const SHARED_MODULES = ['src/components/Layout.tsx', 'src/components/PageTransition.tsx', 'scripts/profile-metadata.mjs']
 const EXTENSIONS = ['', '.ts', '.tsx', '.js', '.mjs', '.json', '/index.ts', '/index.tsx']
 
 // Sections are conservative: any edit within a consumed section counts.
