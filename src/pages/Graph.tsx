@@ -6,13 +6,10 @@ import GraphFilterScroller from '@/components/GraphFilterScroller'
 import GraphDetailsScroller from '@/components/GraphDetailsScroller'
 import CytoscapeComponent from 'react-cytoscapejs'
 import cytoscape from 'cytoscape'
-// @ts-ignore — no bundled types for default import
-import fcose from 'cytoscape-fcose'
 import { loadPortfolioData } from '@/lib/yaml-loader'
 import { competencyNodeId, resolveCompetency } from '@/lib/competencies'
 import { buildGraph, type CyNode, type CyEdge } from '@/lib/graph-builder'
-
-cytoscape.use(fcose)
+import { startGraphLayout, type GraphPositions } from '@/lib/graph-layout'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -137,25 +134,9 @@ const TYPE_META: Record<
   associate:   { color: '#06b6d4', label: 'Associate',    shape: 'diamond',        size: 40 },
 }
 
-const LAYOUT_OPTIONS = {
-  name: 'fcose',
-  animate: 'end',
-  animationEasing: 'ease-out',
-  animationDuration: 1000,
-  randomize: true,
-  nodeDimensionsIncludeLabels: true,
-  idealEdgeLength: 100,
-  nodeRepulsion: 8000,
-  numIter: 2500,
-  // fcose-specific: improves quality for dense graphs
-  sampleSize: 25,
-  nodeSeparation: 75,
-  piTol: 0.0000001,
-}
-
 const INITIAL_CONNECTION_COUNT = 5
 
-const LAYOUT_CACHE_PREFIX = 'graph-layout-v6'
+const LAYOUT_CACHE_PREFIX = 'graph-layout-v7'
 
 // ─── Cytoscape stylesheet ──────────────────────────────────────────────────────
 
@@ -406,6 +387,7 @@ export default function Graph() {
 
   const [elements, setElements] = useState<(CyNode | CyEdge)[]>([])
   const [phase, setPhase] = useState<'loading' | 'layout' | 'ready'>('loading')
+  const [layoutRevision, setLayoutRevision] = useState(0)
   const [error, setError] = useState<string | null>(null)
 
   const DEFAULT_TYPES: NodeType[] = ['person', 'work', 'education', 'associate', 'publication', 'project']
@@ -442,10 +424,12 @@ export default function Graph() {
   }, [])
 
   useEffect(() => {
-    // 250ms: ensures the navbar CSS transition (duration-200) fully completes.
+    const controller = new AbortController()
+    // Give the graph shell a frame before preparing its data.
     const timer = setTimeout(() => {
-      loadPortfolioData()
+      loadPortfolioData(controller.signal)
         .then((person) => {
+          if (controller.signal.aborted) return
           const { nodes, edges } = buildGraph(person)
           const cacheKey = `${LAYOUT_CACHE_PREFIX}-${nodes.length}`
           layoutCacheKeyRef.current = cacheKey
@@ -455,11 +439,12 @@ export default function Graph() {
           setPhase('layout')
         })
         .catch((err) => {
+          if (controller.signal.aborted) return
           setError(err.message ?? 'Failed to load graph data')
           setPhase('ready')
         })
     }, 250)
-    return () => clearTimeout(timer)
+    return () => { clearTimeout(timer); controller.abort() }
   }, [])
 
   // ── Type filter ──────────────────────────────────────────────────────────────
@@ -474,25 +459,30 @@ export default function Graph() {
     // Ensure all nodes are visible for layout computation (filter applies after)
     ;(cy.elements() as any).show()
 
+    let active = true
     const saved = savedPositionsRef.current
-    const opts: cytoscape.LayoutOptions = saved
-      ? ({ name: 'preset', positions: (n: cytoscape.NodeSingular) => saved[n.id()], fit: true, padding: 40 } as cytoscape.LayoutOptions)
-      : (LAYOUT_OPTIONS as cytoscape.LayoutOptions)
-
-    const layout = cy.layout(opts)
-    layout.one('layoutstop', () => {
+    const complete = (positions: GraphPositions) => {
+      if (!active || cy.destroyed()) return
+      cy.batch(() => cy.nodes().positions(node => positions[node.id()] ?? node.position()))
+      cy.fit(undefined, 40)
+      savedPositionsRef.current = positions
       setPhase('ready')
       const key = layoutCacheKeyRef.current
       if (key && !saved) {
-        try {
-          const positions: Record<string, { x: number; y: number }> = {}
-          cy.nodes().forEach((n) => { positions[n.id()] = n.position() })
-          localStorage.setItem(key, JSON.stringify(positions))
-        } catch { /* quota exceeded or private mode */ }
+        try { localStorage.setItem(key, JSON.stringify(positions)) } catch { /* storage unavailable */ }
       }
+    }
+    if (saved) {
+      complete(saved)
+      return () => { active = false }
+    }
+    const cancel = startGraphLayout(cy, complete, message => {
+      if (!active) return
+      setError(message)
+      setPhase('ready')
     })
-    layout.run()
-  }, [phase, cyReady])
+    return () => { active = false; cancel() }
+  }, [phase, cyReady, layoutRevision])
 
   const toggleType = useCallback(
     (type: NodeType) => {
@@ -755,18 +745,9 @@ export default function Graph() {
     const key = layoutCacheKeyRef.current
     if (key) { try { localStorage.removeItem(key) } catch { /* ignore */ } }
     savedPositionsRef.current = null
-    const layout = cy.layout(LAYOUT_OPTIONS as cytoscape.LayoutOptions)
-    layout.one('layoutstop', () => {
-      if (key) {
-        try {
-          const positions: Record<string, { x: number; y: number }> = {}
-          cy.nodes().forEach((n) => { positions[n.id()] = n.position() })
-          localStorage.setItem(key, JSON.stringify(positions))
-          savedPositionsRef.current = positions
-        } catch { /* ignore */ }
-      }
-    })
-    layout.run()
+    setError(null)
+    setPhase('layout')
+    setLayoutRevision(revision => revision + 1)
   }, [])
 
   const fitToScreen = useCallback(() => {

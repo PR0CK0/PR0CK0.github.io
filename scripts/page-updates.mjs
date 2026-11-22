@@ -17,7 +17,7 @@ const EXTENSIONS = ['', '.ts', '.tsx', '.js', '.mjs', '.json', '/index.ts', '/in
 export const PAGE_INPUTS = {
   '/': { entry: 'src/pages/Landing.tsx', fields: [...COMPETENCY_FIELDS, 'tagline', 'social_links'], assets: ['public/me.png'] },
   '/about': { entry: 'src/pages/About.tsx', fields: ['birth_year', 'mbti', 'hobbies', 'favorite_artists', 'favorite_music', 'favorite_books', 'favorite_show', 'awards', 'extracurriculars'] },
-  '/graph': { entry: 'src/pages/Graph.tsx', fields: [...COMPETENCY_FIELDS, 'id', 'awards', 'associates'], assets: ['patches/'] },
+  '/graph': { entry: 'src/pages/Graph.tsx', fields: [...COMPETENCY_FIELDS, 'id', 'awards', 'associates'], assets: ['patches/', 'src/lib/graph-layout.worker.ts'] },
   '/cv': { entry: 'src/pages/CVExport.tsx', fields: CV_FIELDS },
   '/resume': { entry: 'src/pages/ResumeExport.tsx', fields: CV_FIELDS },
   '/legacy': { entry: 'src/pages/Legacy.tsx', fields: null, assets: ['build.py', 'templates/', 'public/legacy/index.css', 'public/legacy/header.css', 'public/legacy/favicon.ico', 'public/legacy/icons/', 'public/legacy/certs/'] },

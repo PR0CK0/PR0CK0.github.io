@@ -86,6 +86,8 @@ The deployment checkout includes complete commit/tree history with `filter: blob
 
 The graph, CV, and résumé pages load through `React.lazy` when their routes are opened, keeping Cytoscape and the PDF renderer out of the initial homepage download. Navigation remains available during the loading state. PDF generation still starts when a document page opens. Unit tests check deferred module loading. After building and prerendering, run `npm run preview -- --host 127.0.0.1`, then `node scripts/test-route-loading.mjs` to check the homepage's JavaScript budget, navigation, direct links, PDF bytes, and PDF/HTML toggles. `SITE_URL` overrides the preview server address.
 
+Graph layout runs in a dedicated Web Worker using the existing fCoSE engine. Node dimensions are measured in the visible renderer and sent to the worker; only final positions return to the UI. Leaving the graph unmounts it immediately, aborts pending data requests, and terminates any layout worker, including Reset Layout work. Completed layouts remain cached locally. `node scripts/test-graph-cancellation.mjs` verifies cancellation during calculation, successful reentry, and Reset Layout cancellation; unit tests cover worker results/errors and aborted data loading.
+
 ## Development
 
 ```bash

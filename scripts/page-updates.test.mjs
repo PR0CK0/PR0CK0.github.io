@@ -130,3 +130,15 @@ it('keeps each project detail date tied to its own source record', () => {
   expect(updates['/projects/one'].commit).toBe(original)
   expect(updates['/projects/two'].commit).toBe(changed)
 })
+
+it('tracks the graph worker as a graph-only runtime asset', () => {
+  const { root, write, commit } = fixture()
+  const tracked = { ...routes, '/graph': { ...routes['/graph'], assets: PAGE_INPUTS['/graph'].assets } }
+  write('src/lib/graph-layout.worker.ts', 'original layout')
+  const original = commit(1)
+  write('src/lib/graph-layout.worker.ts', 'updated layout')
+  const changed = commit(2)
+  const updates = resolvePageUpdates(root, tracked)
+  expect(updates['/graph'].commit).toBe(changed)
+  expect(updates['/personal'].commit).toBe(original)
+})

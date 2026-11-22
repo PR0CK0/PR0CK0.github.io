@@ -49,3 +49,15 @@ it('rejects an unsuccessful HTTP response', async () => {
   const { loadPortfolioData } = await import('../yaml-loader')
   await expect(loadPortfolioData()).rejects.toThrow('Failed to load portfolio data: Service Unavailable')
 })
+
+it('cancels a pending request when its caller leaves the page', async () => {
+  vi.stubGlobal('fetch', vi.fn((_url, options) => new Promise((_resolve, reject) => {
+    options?.signal?.addEventListener('abort', () => reject(options.signal.reason))
+  })))
+  const { loadPortfolioData } = await import('../yaml-loader')
+  const controller = new AbortController()
+  const pending = loadPortfolioData(controller.signal)
+  const rejection = expect(pending).rejects.toMatchObject({ name: 'AbortError' })
+  controller.abort()
+  await rejection
+})
