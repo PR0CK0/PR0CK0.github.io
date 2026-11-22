@@ -150,6 +150,8 @@ Project and recent-repository cards share `CARD_DESCRIPTION` in `src/lib/ui-cons
 
 `public/art/` is the single source for all 54 drawings. Both `/personal` and `/legacy/personal/personal.html` reference these PNGs directly; the modern gallery also uses them in its lightbox. Keep originals at full quality and avoid duplicating them under `legacy/`. Legacy gallery references were matched by image content to preserve its original order, which differs from the modern gallery's order.
 
+The retired `/personal/personal.html` address redirects directly to `/legacy/personal/personal.html` using an immediate HTML meta refresh, with a canonical link and a visible fallback link. This works without JavaScript on GitHub Pages; it is an HTML redirect, not an HTTP 301. The redirect stays out of the sitemap. Artwork tests check its destination alongside the shared gallery images.
+
 The modern thumbnails are labeled buttons with visible keyboard focus. Enter or Space opens a native modal dialog; Tab and Shift+Tab stay on its close button. Escape, the close button, or clicking outside the image closes it and restores focus to the selected thumbnail. The enlarged image retains its label. Run `node scripts/test-gallery-keyboard.mjs` against the dev server to check keyboard focus, mouse closing, and mobile touch; `SITE_URL` can point to another server.
 
 The duplicate `legacy/personal/pics/` files have been removed. All gallery references use `/art/`; direct URLs to the retired duplicate files are no longer served.

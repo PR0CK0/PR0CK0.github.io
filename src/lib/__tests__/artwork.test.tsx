@@ -5,6 +5,16 @@ import { HelmetProvider } from 'react-helmet-async'
 import { expect, it } from 'vitest'
 import Personal from '../../pages/Personal'
 
+it('redirects the retired gallery address to the existing gallery without JavaScript', () => {
+  const html = readFileSync('public/personal/personal.html', 'utf8')
+  const target = '/legacy/personal/personal.html'
+  expect(html).toContain(`<meta http-equiv="refresh" content="0; url=${target}">`)
+  expect(html).toContain(`<link rel="canonical" href="${target}">`)
+  expect(html).toContain(`<a href="${target}">`)
+  expect(html).not.toContain('<script')
+  expect(readFileSync(resolve('public', target.slice(1)), 'utf8')).toContain('/art/')
+})
+
 it('makes all drawings labeled buttons that can open a dialog from the keyboard', () => {
   const html = renderToStaticMarkup(<HelmetProvider><Personal /></HelmetProvider>)
   const buttons = [...html.matchAll(/<button([^>]*aria-haspopup="dialog"[^>]*)>([\s\S]*?)<\/button>/g)]
