@@ -10,6 +10,7 @@ const PROFILE_FIELDS = ['name', 'title', 'summary', 'website', 'email_personal',
 const DATA_FILE = 'public/data/tyler-procko.yaml'
 const SHARED_FILES = ['index.html', 'src/main.tsx', 'src/App.tsx', 'src/index.css', 'tailwind.config.ts', 'package.json', 'package-lock.json', 'public/og-image.png', 'public/favicon.ico']
 const SHARED_MODULES = ['src/components/Layout.tsx', 'src/components/PageTransition.tsx', 'scripts/profile-metadata.mjs']
+const SHARED_ASSETS = ['public/fonts/']
 const EXTENSIONS = ['', '.ts', '.tsx', '.js', '.mjs', '.json', '/index.ts', '/index.tsx']
 
 // Sections are conservative: any edit within a consumed section counts.
@@ -80,7 +81,7 @@ export function resolvePageUpdates(root, routes) {
         }
       }
       for (const file of [rule.entry, ...SHARED_MODULES]) visit(file)
-      for (const asset of rule.assets ?? []) {
+      for (const asset of [...SHARED_ASSETS, ...(rule.assets ?? [])]) {
         for (const file of tree.keys()) if (asset.endsWith('/') ? file.startsWith(asset) : file === asset) files.add(file)
       }
       const data = rule.projectId ? project : rule.fields === null ? person : Object.fromEntries(rule.fields.map(key => [key, person[key]]))

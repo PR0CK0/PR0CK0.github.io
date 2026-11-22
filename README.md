@@ -90,6 +90,8 @@ Internal page navigation uses a 900 ms terminal transition in `PageTransition`, 
 
 Graph layout runs in a dedicated Web Worker using the existing fCoSE engine. Node dimensions are measured in the visible renderer and sent to the worker; only final positions return to the UI. Leaving the graph unmounts it immediately, aborts pending data requests, and terminates any layout worker, including Reset Layout work. Completed layouts remain cached locally. `node scripts/test-graph-cancellation.mjs` verifies cancellation during calculation, successful reentry, and Reset Layout cancellation; unit tests cover worker results/errors and aborted data loading.
 
+The interface uses locally hosted Quantico regular, bold, italic, and bold italic files under `public/fonts/quantico/`, with the original OFL license included. `--font-interface` supplies the shared CSS/Tailwind font family; graph canvas labels use the same family and wait for font loading before measuring layout. The terminal measures its command width rather than assuming monospaced glyphs. The art page and exported documents retain their purpose-specific typography. Sitemap date tracking includes shared font assets, transition imports, and the graph worker.
+
 ## Development
 
 ```bash

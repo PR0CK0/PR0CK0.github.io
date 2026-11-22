@@ -136,7 +136,7 @@ const TYPE_META: Record<
 
 const INITIAL_CONNECTION_COUNT = 5
 
-const LAYOUT_CACHE_PREFIX = 'graph-layout-v7'
+const LAYOUT_CACHE_PREFIX = 'graph-layout-v8'
 
 // ─── Cytoscape stylesheet ──────────────────────────────────────────────────────
 
@@ -166,7 +166,7 @@ function buildStylesheet(C: typeof DARK): object[] {
         'text-halign': 'center',
         'color': C.text,
         'font-size': '9px',
-        'font-family': 'JetBrains Mono, Fira Code, Consolas, monospace',
+        'font-family': 'Quantico, sans-serif',
         'text-margin-y': 4,
         'text-wrap': 'ellipsis',
         'text-max-width': '80px',
@@ -428,7 +428,8 @@ export default function Graph() {
     // Give the graph shell a frame before preparing its data.
     const timer = setTimeout(() => {
       loadPortfolioData(controller.signal)
-        .then((person) => {
+        .then(async (person) => {
+          await document.fonts.ready
           if (controller.signal.aborted) return
           const { nodes, edges } = buildGraph(person)
           const cacheKey = `${LAYOUT_CACHE_PREFIX}-${nodes.length}`

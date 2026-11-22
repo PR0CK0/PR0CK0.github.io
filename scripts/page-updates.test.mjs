@@ -152,3 +152,12 @@ it('tracks transition code and its imported styles across pages', () => {
   const changed = commit(2)
   expect(Object.values(resolvePageUpdates(root, routes)).map(item => item.commit)).toEqual([changed, changed])
 })
+
+it('tracks locally served interface fonts across pages', () => {
+  const { root, write, commit } = fixture()
+  write('public/fonts/quantico/font.ttf', 'original font')
+  commit(1)
+  write('public/fonts/quantico/font.ttf', 'updated font')
+  const changed = commit(2)
+  expect(Object.values(resolvePageUpdates(root, routes)).map(item => item.commit)).toEqual([changed, changed])
+})

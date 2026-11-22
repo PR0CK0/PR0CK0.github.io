@@ -2,10 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Quantico';
+  src: url('/fonts/quantico/quantico-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quantico';
+  src: url('/fonts/quantico/quantico-700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quantico';
+  src: url('/fonts/quantico/quantico-400-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quantico';
+  src: url('/fonts/quantico/quantico-700-italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ── Theme variables ────────────────────────────────────────────────────────── */
 /* Values are space-separated R G B channels (for Tailwind opacity modifiers)   */
 
 :root {
+  --font-interface: 'Quantico', sans-serif;
   /* dark (default) */
   --color-terminal-bg:      10  14  26;
   --color-terminal-surface: 15  22  41;
@@ -43,7 +76,7 @@ html.light {
     min-height: 100%;
     background-color: rgb(var(--color-terminal-bg));
     color: rgb(var(--color-terminal-text));
-    font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    font-family: var(--font-interface);
     overflow-x: hidden;
   }
 
