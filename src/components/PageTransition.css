@@ -8,9 +8,9 @@
   background:
     linear-gradient(#152a2226 1px, transparent 1px),
     linear-gradient(90deg, #152a2226 1px, transparent 1px),
-    #03070bf5;
+    #03070b;
   background-size: 36px 36px;
-  animation: terminal-overlay var(--transition-duration) ease both;
+  animation: terminal-cover var(--cover-duration) ease both;
 }
 
 .page-transition-terminal {
@@ -19,7 +19,14 @@
   background: #080e14;
   font-family: var(--font-interface);
   clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-  animation: terminal-window var(--transition-duration) ease both;
+  animation: terminal-window-in var(--cover-duration) ease both;
+}
+
+.page-transition-reveal {
+  animation: terminal-reveal var(--reveal-duration) ease both;
+}
+.page-transition-reveal .page-transition-terminal {
+  animation: terminal-window-out var(--reveal-duration) ease both;
 }
 
 .page-transition-title {
@@ -66,14 +73,21 @@
   from { transform: scaleX(0); }
   to { transform: scaleX(1); }
 }
-@keyframes terminal-overlay {
-  0%, 100% { opacity: 0; }
-  12%, 82% { opacity: 1; }
+@keyframes terminal-cover {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-@keyframes terminal-window {
-  0% { transform: translateY(10px); opacity: 0; }
-  16%, 82% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-4px); opacity: 0; }
+@keyframes terminal-reveal {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes terminal-window-in {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes terminal-window-out {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(-6px) scale(0.98); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,17 +1,32 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import { Suspense, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { matchPath, useLocation, type Location } from 'react-router-dom'
+import { LOADING_SCREEN } from '@/lib/ui-constants'
 import './PageTransition.css'
 
-const DURATION_MS = 900
+const COVER_MS = 160
+const COMMAND_MS = 900
+const REVEAL_MS = 240
+
+function PageContent({ locationKey, onReady, children }: {
+  locationKey: string
+  onReady: (key: string) => void
+  children: ReactNode
+}) {
+  useEffect(() => onReady(locationKey), [locationKey, onReady])
+  return <>{children}</>
+}
 
 export default function PageTransition({ children }: { children: (location: Location) => ReactNode }) {
   const location = useLocation()
   const previousPath = useRef(location.pathname)
   const [displayLocation, setDisplayLocation] = useState(location)
   const [transition, setTransition] = useState<string | null>(null)
+  const [commandDone, setCommandDone] = useState(false)
+  const [readyKey, setReadyKey] = useState(location.key)
   const [bounds, setBounds] = useState<CSSProperties>({})
   const commandRef = useRef<HTMLSpanElement>(null)
   const command = `cd ~/${location.pathname.slice(1) || 'home'}`
+  const revealing = transition === location.key && commandDone && readyKey === location.key
 
   useEffect(() => {
     const element = commandRef.current
@@ -33,27 +48,33 @@ export default function PageTransition({ children }: { children: (location: Loca
       ? Math.max(rect.top, footer.top) : rect.bottom
     setBounds({ top: rect.top, left: rect.left, width: rect.width, height: bottom - rect.top })
     setTransition(location.key)
-    let frame = 0
+    setCommandDone(false)
+    // Finish typing before mounting heavy pages, with the terminal still opaque.
     const finish = window.setTimeout(() => {
-      setTransition(null)
-      // Let the terminal disappear before mounting the destination.
-      frame = window.requestAnimationFrame(() => {
-        frame = window.requestAnimationFrame(() => setDisplayLocation(location))
-      })
-    }, DURATION_MS)
-    return () => {
-      window.clearTimeout(finish)
-      window.cancelAnimationFrame(frame)
-    }
+      setDisplayLocation(location)
+      setCommandDone(true)
+    }, COMMAND_MS)
+    return () => window.clearTimeout(finish)
   }, [location])
+
+  useEffect(() => {
+    if (!revealing) return
+    const finish = window.setTimeout(() => setTransition(null), REVEAL_MS)
+    return () => window.clearTimeout(finish)
+  }, [revealing, location.key])
 
   // Unmount the graph immediately on navigation, terminating pending layout work.
   const leavingGraph = matchPath('/graph', displayLocation.pathname) !== null && location.pathname !== displayLocation.pathname
 
   return <>
-    {!leavingGraph && children(displayLocation)}
+    <Suspense fallback={<div className={LOADING_SCREEN} role="status"><span className="sr-only">Loading</span></div>}>
+      {!leavingGraph && <PageContent locationKey={displayLocation.key} onReady={setReadyKey}>
+        {children(displayLocation)}
+      </PageContent>}
+    </Suspense>
     {transition !== null && <div key={transition} data-page-transition aria-hidden="true"
-      className="page-transition" style={{ ...bounds, '--transition-duration': `${DURATION_MS}ms` } as CSSProperties}>
+      className={`page-transition${revealing ? ' page-transition-reveal' : ''}`}
+      style={{ ...bounds, '--cover-duration': `${COVER_MS}ms`, '--reveal-duration': `${REVEAL_MS}ms` } as CSSProperties}>
       <div className="page-transition-terminal">
         <div className="page-transition-title"><span>procko.pro</span><span className="page-transition-marks">▪ ▪ ▪</span></div>
         <div className="page-transition-prompt">

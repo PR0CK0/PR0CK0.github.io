@@ -14,7 +14,18 @@ try {
     main.scrollTop = main.scrollHeight
     return { top: main.getBoundingClientRect().top, bottom: main.querySelector('footer').getBoundingClientRect().top }
   })
-  await page.evaluate(() => document.querySelector('a[href="/papers"]').click())
+  await page.evaluate(() => {
+    const started = performance.now()
+    window.transitionFrames = []
+    function sample() {
+      const overlay = document.querySelector('[data-page-transition]')
+      const title = document.querySelector('h1')?.textContent
+      window.transitionFrames.push({ elapsed: performance.now() - started, title, opacity: overlay ? Number(getComputedStyle(overlay).opacity) : 0 })
+      if (title !== 'Publications' || overlay) requestAnimationFrame(sample)
+    }
+    requestAnimationFrame(sample)
+    document.querySelector('a[href="/papers"]').click()
+  })
   await page.waitForSelector('[data-page-transition]', { timeout: 1000 })
   const bounds = await page.$eval('[data-page-transition]', el => ({ top: el.getBoundingClientRect().top, bottom: el.getBoundingClientRect().bottom, text: el.textContent }))
   assert.ok(Math.abs(bounds.top - boundaries.top) < 1, 'Header remains outside the transition')
@@ -32,7 +43,10 @@ try {
   assert.ok(timing.ends.every(end => end <= 1000))
   await page.waitForFunction(() => document.querySelector('h1')?.textContent === 'Publications', { timeout: 2000 })
   await page.waitForSelector('[data-page-transition]', { hidden: true, timeout: 1000 })
-  console.log('Outgoing content held until covered; geometric animation lasts less than one second')
+  const flashes = await page.evaluate(() => window.transitionFrames.filter(frame => frame.elapsed > 700 && frame.title === 'Projects' && frame.opacity < 0.99))
+  assert.deepEqual(flashes, [], 'The outgoing page must never reappear as the terminal fades away')
+  assert.ok(await page.evaluate(() => window.transitionFrames.some(frame => frame.title === 'Publications' && frame.elapsed > 700 && frame.opacity > 0 && frame.opacity < 0.99)), 'Terminal fades directly into the destination')
+  console.log('Frame audit: the terminal reveals the destination without flashing the previous page')
 
   await page.evaluate(() => document.querySelector('a[href="/papers"]').click())
   assert.equal(await page.$('[data-page-transition]'), null, 'No wipe for the same page')
@@ -67,16 +81,38 @@ try {
       if (overlay) seen = true
       if (document.querySelector('canvas') && overlay) window.transitionAudit.graphDuringWipe = true
       if (seen && !overlay && window.transitionAudit.elapsed === null) window.transitionAudit.elapsed = performance.now() - started
-      if (document.querySelector('canvas')) observer.disconnect()
+      if (document.querySelector('canvas') && !overlay) observer.disconnect()
     })
     observer.observe(document.querySelector('main'), { childList: true, subtree: true })
     document.querySelector('nav a[href="/graph"]').click()
   })
   await page.waitForFunction(() => [...document.querySelectorAll('div')].some(el => el._cyreg?.cy?.nodes(':visible').length), { timeout: 30000 })
+  await page.waitForSelector('[data-page-transition]', { hidden: true })
   const graph = await page.evaluate(() => window.transitionAudit)
-  assert.equal(graph.graphDuringWipe, false, 'Graph rendering starts after the transition is removed')
-  assert.ok(graph.elapsed > 0 && graph.elapsed < 1000, `Wipe completed in ${graph.elapsed}ms under CPU throttling`)
-  console.log(`Graph transition completed in ${Math.round(graph.elapsed)}ms at 4× CPU slowdown; graph mounts afterwards`)
+  assert.equal(graph.graphDuringWipe, true, 'Graph mounts behind the terminal before it reveals the destination')
+  assert.ok(graph.elapsed >= 900, 'The command finishes before revealing the graph; slow imports may extend the covered phase')
+  console.log(`Graph mounts under cover; transition completed in ${Math.round(graph.elapsed)}ms at 4× CPU slowdown`)
+
+  const slow = await browser.newPage()
+  slow.on('pageerror', error => errors.push(error.message))
+  await slow.setRequestInterception(true)
+  slow.on('request', async request => {
+    if (/\/(?:src\/pages\/Projects\.tsx|assets\/Projects-[^/]+\.js)(?:\?|$)/.test(request.url())) {
+      await new Promise(resolve => setTimeout(resolve, 1800))
+    }
+    await request.continue()
+  })
+  await slow.goto(`${site}/about`, { waitUntil: 'networkidle0' })
+  await slow.evaluate(() => {
+    window.navigationStarted = performance.now()
+    document.querySelector('a[href="/projects"]').click()
+  })
+  await slow.waitForFunction(() => performance.now() - window.navigationStarted > 1200)
+  assert.equal(await slow.$eval('[data-page-transition]', element => getComputedStyle(element).opacity), '1', 'Terminal stays opaque while a lazy destination is still loading')
+  await slow.waitForFunction(() => document.querySelector('h1')?.textContent === 'Projects')
+  await slow.waitForSelector('[data-page-transition]', { hidden: true })
+  await slow.close()
+  console.log('Delayed route loading stays covered until the destination mounts')
   assert.deepEqual(errors, [])
   console.log('Reduced motion and mobile layout pass')
 } finally {
