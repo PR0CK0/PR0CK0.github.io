@@ -148,6 +148,7 @@
     {"id": "neo4j", "label": "Neo4j", "category": "dev_tools", "aliases": []},
     {"id": "mongodb", "label": "MongoDB", "category": "dev_tools", "aliases": []},
     {"id": "visual-studio-code", "label": "Visual Studio Code", "category": "dev_tools", "aliases": []},
+    {"id": "xcode", "label": "Xcode", "category": "dev_tools", "aliases": []},
     {"id": "eclipse", "label": "Eclipse", "category": "dev_tools", "aliases": []},
     {"id": "code-blocks", "label": "Code::Blocks", "category": "dev_tools", "aliases": []},
     {"id": "mysql", "label": "MySQL", "category": "dev_tools", "aliases": []},
