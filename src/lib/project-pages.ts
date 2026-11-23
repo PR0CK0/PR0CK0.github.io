@@ -18,5 +18,5 @@ export function getVisibleProjects(person: Pick<Person, 'projects'>): Project[] 
 }
 
 export function projectPath(project: Project): string {
-  return `/projects/${encodeURIComponent(project.page?.slug ?? project.id.replace(/^[^/]+\//, ''))}`
+  return `/projects/#${encodeURIComponent(project.page?.slug ?? project.id.replace(/^[^/]+\//, ''))}`
 }

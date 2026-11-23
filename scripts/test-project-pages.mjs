@@ -54,36 +54,41 @@ try {
   assert.deepEqual(filteredTitles, [...filteredTitles].sort((a, b) => b.localeCompare(a)))
   await page.select('select[name="domain"]', '')
 
-  for (const route of routes) {
-    const project = person.projects.find(project => project.id === route.projectId)
-    await page.goto(`${site}${route.path}`, { waitUntil: 'domcontentloaded' })
-    await page.waitForFunction(title => document.querySelector('h1')?.textContent === title, {}, project.title)
-    await page.waitForFunction(path => document.querySelector('link[rel="canonical"]')?.href === `https://procko.pro${path}`, {}, route.path)
-    if (project.description) assert.ok(await page.evaluate(text => document.body.textContent.includes(text), project.description))
-    if (project.page?.image) {
-      await page.waitForFunction(() => [...document.querySelectorAll('article img')].every(image => image.complete && image.naturalWidth > 0))
+  assert.equal(await page.$$eval('[data-project-card] a', links => links.some(link => /^\/projects\/[^#]/.test(link.getAttribute('href')))), false)
+  for (const project of visible) {
+    const route = routes.find(route => route.projectId === project.id)
+    const card = await page.$(`[id="${route.target.split('#')[1]}"]`)
+    assert.ok(card, project.title)
+    if (project.description) assert.ok(await card.evaluate((element, description) => element.textContent.includes(description), project.description))
+    for (const section of project.page?.sections ?? []) {
+      for (const paragraph of section.paragraphs) assert.ok(await card.evaluate((element, text) => element.textContent.includes(text), paragraph))
     }
   }
-  console.log(`${routes.length} source-driven project pages render with correct titles, descriptions, and canonicals`)
+  const summary = await page.$('[data-project-card] details')
+  assert.equal(await summary.evaluate(element => element.open), false)
+  await summary.$eval('summary', element => element.click())
+  assert.equal(await summary.evaluate(element => element.open), true)
+  await summary.$eval('summary', element => element.click())
+  assert.equal(await summary.evaluate(element => element.open), false)
+  console.log(`${routes.length} projects share one page; source summaries expand and collapse`)
 
   const detailed = routes.find(route => person.projects.find(project => project.id === route.projectId)?.page)
-  await page.goto(`${site}${detailed.path}`, { waitUntil: 'networkidle0' })
-  await page.screenshot({ path: join(tmpdir(), 'portfolio-project-detail-desktop.png') })
-  await page.click(`a[href="/graph?term=${encodeURIComponent(detailed.projectId)}"]`)
+  await page.goto(`${site}${detailed.target}`, { waitUntil: 'networkidle0' })
+  const anchor = detailed.target.split('#')[1]
+  assert.equal(await page.$eval(`[id="${anchor}"] details`, element => element.open), true)
+  await page.click(`[id="${anchor}"] a[href="/graph?term=${encodeURIComponent(detailed.projectId)}"]`)
   await page.waitForFunction(title => document.querySelector('[aria-label="Selected node details"]')?.textContent.includes(title),
     { timeout: 30_000 }, person.projects.find(project => project.id === detailed.projectId).title)
-  for (const path of ['/projects', detailed.path]) {
-    await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true })
+  await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true })
+  await page.goto(`${site}/projects`, { waitUntil: 'networkidle0' })
+  await page.$$eval('[data-project-card] details', elements => elements.forEach(element => { element.open = true }))
+  assert.ok(await page.evaluate(() => document.querySelector('body > #root main').scrollWidth <= window.innerWidth), 'No mobile horizontal overflow with expanded summaries')
+  await page.screenshot({ path: join(tmpdir(), 'portfolio-projects-mobile.png') })
+  for (const path of [detailed.path, '/projects/missing-project']) {
     await page.goto(`${site}${path}`, { waitUntil: 'networkidle0' })
-    assert.ok(await page.evaluate(() => document.querySelector('body > #root main').scrollWidth <= window.innerWidth), `${path}: no mobile horizontal overflow`)
-    await page.screenshot({ path: join(tmpdir(), path === '/projects' ? 'portfolio-projects-mobile.png' : 'portfolio-project-detail-mobile.png') })
+    await page.waitForFunction(() => document.querySelector('h1')?.textContent === 'Projects')
+    assert.equal(await page.$eval('link[rel="canonical"]', element => element.href), new URL('/projects', person.website).href)
   }
-  await page.goto(`${site}/projects/missing-project`, { waitUntil: 'networkidle0' })
-  assert.equal(await page.$eval('h1', element => element.textContent), 'Project not found')
-  assert.equal(await page.$eval('meta[name="robots"]', element => element.content), 'noindex, follow')
-  const hidden = person.projects.find(project => project.graph_exclude)
-  await page.goto(`${site}/projects/${hidden.id.split('/').slice(1).join('/')}`, { waitUntil: 'networkidle0' })
-  assert.equal(await page.$eval('h1', element => element.textContent), 'Project not found')
   await page.goto(site, { waitUntil: 'networkidle0' })
   assert.equal(await page.$eval('nav', nav => Boolean(nav.querySelector('a[href="/projects"]'))), false)
   const previews = await page.evaluate(() => {
@@ -91,9 +96,10 @@ try {
     return [...heading.closest('section').querySelectorAll('h3 a')].map(link => ({ title: link.textContent, href: link.getAttribute('href') }))
   })
   assert.equal(previews.length, 6)
-  assert.deepEqual(previews, previewProjects.map(project => ({ title: project.title, href: routes.find(route => route.projectId === project.id).path })))
+  assert.deepEqual(previews, previewProjects.map(project => ({ title: project.title, href: routes.find(route => route.projectId === project.id).target })))
   await page.click(`a[href="${previews[0].href}"]`)
-  await page.waitForFunction(title => document.querySelector('h1')?.textContent === title, {}, previews[0].title)
+  await page.waitForFunction(id => document.getElementById(id)?.querySelector('details')?.open, {}, previews[0].href.split('#')[1])
+  assert.equal(await page.$eval('h1', element => element.textContent), 'Projects')
   await page.goto(site, { waitUntil: 'networkidle0' })
   const allProjects = await page.evaluateHandle(() => [...document.querySelectorAll('a')].find(link => link.textContent.includes('View all projects')))
   await allProjects.asElement().click()
@@ -108,7 +114,7 @@ try {
   assert.ok(fallback.text.includes('project date'))
   assert.ok(!fallback.text.includes('created '), 'Fallback must not invent GitHub creation dates')
   assert.deepEqual(errors, [])
-  console.log('Sorting, search, filtering, mobile layout, hidden/missing pages, six homepage links, and GitHub rate-limit fallback pass')
+  console.log('Sorting, search, filtering, mobile layout, retired routes, six homepage summary links, and GitHub rate-limit fallback pass')
 } finally {
   await browser.close()
 }

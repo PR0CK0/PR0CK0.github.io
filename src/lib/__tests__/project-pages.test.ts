@@ -19,12 +19,12 @@ it('sorts projects by date or title without changing source order, keeping undat
 
 const page = { slug: 'example', sections: [{ heading: 'The problem', paragraphs: ['A source-authored explanation.'] }] }
 
-it('preserves authored page content and gives it a stable URL independent of its title', () => {
+it('preserves authored page content and gives it a stable summary link independent of its title', () => {
   const project = ProjectSchema.parse({ id: 'proj/example', title: 'Original', page })
   expect(project.page).toEqual(page)
-  expect(projectPath(project)).toBe('/projects/example')
-  expect(projectPath({ ...project, title: 'Renamed' })).toBe('/projects/example')
-  expect(projectPath({ id: 'proj/brief', title: 'Brief entry' })).toBe('/projects/brief')
+  expect(projectPath(project)).toBe('/projects/#example')
+  expect(projectPath({ ...project, title: 'Renamed' })).toBe('/projects/#example')
+  expect(projectPath({ id: 'proj/brief', title: 'Brief entry' })).toBe('/projects/#brief')
 })
 
 it('keeps the site visibility policy separate from CV exclusions', () => {

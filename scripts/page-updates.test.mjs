@@ -119,16 +119,17 @@ it('writes recovered timestamps and rejects sitemap routes without tracking rule
   expect(() => updateSitemap(source, {})).toThrow(/tracking rule/)
 })
 
-it('keeps each project detail date tied to its own source record', () => {
+it('tracks the consolidated project source and its images', () => {
   const { root, write, commit } = fixture()
   write('public/data/tyler-procko.yaml', 'name: Example\nprojects: [{id: proj/one, title: One}, {id: proj/two, title: Two}]\n')
-  const original = commit(1)
-  const pages = Object.fromEntries(['one', 'two'].map(id => [`/projects/${id}`, { entry: 'src/pages/Graph.tsx', fields: [], projectId: `proj/${id}` }]))
+  const pages = { '/projects': { ...PAGE_INPUTS['/projects'], entry: 'src/pages/Graph.tsx' } }
+  commit(1)
   write('public/data/tyler-procko.yaml', 'name: Example\nprojects: [{id: proj/one, title: One}, {id: proj/two, title: Updated}]\n')
   const changed = commit(2)
-  const updates = resolvePageUpdates(root, pages)
-  expect(updates['/projects/one'].commit).toBe(original)
-  expect(updates['/projects/two'].commit).toBe(changed)
+  expect(resolvePageUpdates(root, pages)['/projects'].commit).toBe(changed)
+  write('public/projects/example.png', 'updated screenshot')
+  const imageChanged = commit(3)
+  expect(resolvePageUpdates(root, pages)['/projects'].commit).toBe(imageChanged)
 })
 
 it('tracks the graph worker as a graph-only runtime asset', () => {

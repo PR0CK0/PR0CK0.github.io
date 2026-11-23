@@ -8,7 +8,6 @@ import { projectRoutes } from './project-routes.mjs'
 const site = process.env.SITE_URL || 'http://127.0.0.1:4173'
 const person = yaml.load(readFileSync('public/data/tyler-procko.yaml', 'utf8'))
 const routes = [...readFileSync('src/App.tsx', 'utf8').matchAll(/<Route\s+path="(\/[^"]*)"/g)].map(match => match[1]).filter(path => !path.includes(':'))
-routes.push(...projectRoutes(person).map(route => route.path))
 const updates = resolvePageUpdates(process.cwd())
 const browser = await puppeteer.launch({ headless: true })
 
@@ -61,6 +60,17 @@ try {
   }
   assert.deepEqual(sitemapPaths.sort(), [...routes].sort())
   console.log('Sitemap dates match source history for every route')
+  const redirects = projectRoutes(person)
+  for (const { path, target } of redirects) {
+    const response = await fetch(`${site}${path}/`)
+    assert.equal(response.status, 200)
+    const html = await response.text()
+    assert.ok(html.includes(`http-equiv="refresh" content="0;url=${target}"`), `${path}: immediate redirect to summary`)
+    assert.ok(!html.includes('<h1'), `${path}: no individual project content`)
+    assert.ok(!sitemapPaths.includes(path), `${path}: absent from sitemap`)
+  }
+  console.log(`${redirects.length} retired project URLs redirect and are absent from the sitemap`)
+
   // Disable page scripts to inspect the HTML that crawlers receive before React runs.
   const raw = await browser.newPage()
   await raw.setJavaScriptEnabled(false)
@@ -72,6 +82,11 @@ try {
     snapshots.set(path, await checkMetadata(raw, path))
     console.log(`${path}: delivered HTML metadata passes`)
   }
+  const retired = redirects[0]
+  await raw.goto(`${site}${retired.path}/`, { waitUntil: 'domcontentloaded' })
+  await raw.waitForFunction(target => location.pathname + location.hash === target, {}, retired.target)
+  assert.equal(await raw.$eval('h1', element => element.textContent), 'Projects')
+  console.log('Retired project redirects work with JavaScript disabled')
   await raw.close()
 
   const page = await browser.newPage()

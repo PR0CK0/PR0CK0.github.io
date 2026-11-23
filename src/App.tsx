@@ -23,7 +23,7 @@ export default function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/papers" element={<Publications />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:slug" element={<Projects />} />
+            <Route path="/projects/:slug" element={<Navigate to="/projects" replace />} />
             <Route path="/graph" element={<Graph />} />
             <Route path="/cv" element={<CVExport />} />
             <Route path="/resume" element={<ResumeExport />} />

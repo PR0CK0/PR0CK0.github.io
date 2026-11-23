@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import type { Project } from '@/lib/schema'
 import { getRecordCompetencies, type Competency } from '@/lib/competencies'
 import { projectPath, sortProjects, type ProjectSort } from '@/lib/project-pages'
 import { fmtSingleDate } from '@/lib/cv-data'
-import { BTN_PRIMARY, BTN_SECONDARY, SECTION_LABEL } from '@/lib/ui-constants'
+import { BTN_SECONDARY, SECTION_LABEL } from '@/lib/ui-constants'
 
 const CHIP = 'chamfer-chip inline-block border border-terminal-border bg-terminal-bg px-2 py-1 text-xs leading-relaxed text-terminal-text hover:border-terminal-green hover:text-terminal-green transition-colors'
 
@@ -15,6 +15,15 @@ function CompetencyLinks({ terms }: { terms: Competency[] }) {
 }
 
 export function ProjectIndex({ projects }: { projects: Project[] }) {
+  const { hash } = useLocation()
+  useEffect(() => {
+    const card = hash ? document.getElementById(hash.slice(1)) : null
+    if (card) {
+      const summary = card.querySelector('details')
+      if (summary) summary.open = true
+      card.scrollIntoView({ block: 'start' })
+    } else document.querySelector('main')?.scrollTo(0, 0)
+  }, [hash])
   const [query, setQuery] = useState('')
   const [domain, setDomain] = useState('')
   const [sort, setSort] = useState<ProjectSort>('newest')
@@ -60,74 +69,38 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
       <p>No projects match these filters.</p>
       <button className={`${BTN_SECONDARY} mt-4`} onClick={() => { setQuery(''); setDomain('') }}>Clear filters</button>
     </div>}
-    <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
+    <div className="space-y-4">
       {sorted.map(project => {
-        const topics = getRecordCompetencies(project).filter(term => term.category === 'domains').slice(0, 3)
-        return <article key={project.id} data-project-card className="chamfer-card min-w-0 flex flex-col border border-terminal-border bg-terminal-surface p-5 sm:p-6 hover:border-terminal-green/50 transition-colors">
-          <div className="flex items-center justify-between gap-3 text-xs mb-4 text-terminal-muted">
-            <span>{project.year ? fmtSingleDate(project.year) : 'Project'}</span>
-          </div>
-          <h2 className="text-lg sm:text-xl leading-snug font-bold text-terminal-text break-words">
-            <Link to={projectPath(project)} className="hover:text-terminal-green">{project.title}</Link>
-          </h2>
-          {(project.tagline || project.description) && <p className="mt-3 mb-5 text-sm leading-relaxed text-terminal-muted">{project.tagline || project.description}</p>}
-          <div className="mt-auto pt-3">
-            <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-terminal-blue mb-5">{topics.map(term => <span key={term.id}>{term.label}</span>)}</div>
-            <Link to={projectPath(project)} className="text-sm text-terminal-green hover:underline" aria-label={`View project: ${project.title}`}>View project <span aria-hidden="true">→</span></Link>
+        const terms = getRecordCompetencies(project)
+        const resources = [
+          ...(project.repo_url ? [{ label: 'Repository', url: project.repo_url }] : []),
+          ...(project.url && project.url !== project.repo_url ? [{ label: 'Project website', url: project.url }] : []),
+          ...(project.page?.links ?? []),
+        ]
+        const hasSummary = project.description || project.page?.sections.length || project.page?.image
+        return <article key={project.id} id={projectPath(project).split('#')[1]} data-project-card className="chamfer-card scroll-mt-4 min-w-0 border border-terminal-border bg-terminal-surface p-5 sm:p-6">
+          {project.year && <p className="text-xs mb-3 text-terminal-muted">{fmtSingleDate(project.year)}</p>}
+          <h2 className="text-lg sm:text-xl leading-snug font-bold text-terminal-text break-words">{project.title}</h2>
+          {project.tagline && <p className="mt-3 text-sm leading-relaxed text-terminal-muted">{project.tagline}</p>}
+          {hasSummary && <details className="mt-4 text-sm text-terminal-muted">
+            <summary className="cursor-pointer text-terminal-blue">Summary</summary>
+            {project.description && <p className="mt-3 leading-7 whitespace-pre-line">{project.description}</p>}
+            {project.page?.sections.map((section, index) => <section key={index} className="mt-4">
+              <h3 className="font-bold text-terminal-text">{section.heading}</h3>
+              {section.paragraphs.map((paragraph, paragraphIndex) => <p className="mt-2 leading-7" key={paragraphIndex}>{paragraph}</p>)}
+            </section>)}
+            {project.page?.image && <figure className="mt-4 border border-terminal-border">
+              <img loading="lazy" src={project.page.image.src} alt={project.page.image.alt} className="w-full max-h-80 object-contain" />
+              {project.page.image.caption && <figcaption className="p-3 text-xs">{project.page.image.caption}</figcaption>}
+            </figure>}
+          </details>}
+          {terms.length > 0 && <div className="mt-4"><CompetencyLinks terms={terms} /></div>}
+          <div className="flex flex-wrap gap-x-5 gap-y-2 mt-4 text-sm text-terminal-green">
+            {resources.map(link => <a key={link.url} className="hover:underline" href={link.url} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}
+            <Link className="hover:underline" to={`/graph?term=${encodeURIComponent(project.id)}`}>Explore connections →</Link>
           </div>
         </article>
       })}
     </div>
   </div>
-}
-
-export function ProjectDetail({ project }: { project: Project }) {
-  const terms = getRecordCompetencies(project)
-  const domains = terms.filter(term => term.category === 'domains')
-  const tools = terms.filter(term => !['domains', 'soft', 'personal'].includes(term.category))
-  const skills = terms.filter(term => ['soft', 'personal'].includes(term.category))
-  const groups = [{ label: 'Domains', terms: domains }, { label: 'Tools & technologies', terms: tools }, { label: 'Skills', terms: skills }]
-  const resources = [
-    ...(project.repo_url ? [{ label: 'Repository', url: project.repo_url }] : []),
-    ...(project.url && project.url !== project.repo_url ? [{ label: 'Project website', url: project.url }] : []),
-    ...(project.page?.links ?? []),
-  ]
-
-  return <article className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
-    <Link to="/projects" className="text-sm text-terminal-green hover:underline">← All projects</Link>
-    <header className="mt-8 mb-8 border-b border-terminal-border pb-8">
-      {project.year && <p className={`${SECTION_LABEL} text-terminal-muted mb-4`}>{fmtSingleDate(project.year)}</p>}
-      <h1 className="max-w-4xl text-2xl sm:text-4xl font-bold leading-tight tracking-tight text-terminal-text break-words">{project.title}</h1>
-      {project.tagline && project.tagline !== project.description && <p className="max-w-3xl text-base sm:text-lg leading-relaxed text-terminal-muted mt-5">{project.tagline}</p>}
-      <div className="flex flex-wrap gap-3 mt-6">
-        {resources.slice(0, 2).map((link, index) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className={index === 0 ? BTN_PRIMARY : BTN_SECONDARY}>{link.label} ↗</a>)}
-        <Link to={`/graph?term=${encodeURIComponent(project.id)}`} className={BTN_SECONDARY}>Explore connections →</Link>
-      </div>
-    </header>
-
-    {project.page?.image && <figure className="mb-10 overflow-hidden border border-terminal-border bg-terminal-surface">
-      <a href={project.page.image.src} target="_blank" rel="noopener noreferrer"><img src={project.page.image.src} alt={project.page.image.alt} className="w-full max-h-[32rem] object-contain" /></a>
-      {project.page.image.caption && <figcaption className="p-4 border-t border-terminal-border text-xs leading-relaxed text-terminal-muted">{project.page.image.caption}</figcaption>}
-    </figure>}
-
-    <div className="grid lg:grid-cols-[minmax(0,1fr)_19rem] gap-10 lg:gap-14 items-start">
-      <div className="min-w-0 space-y-8">
-        {project.description && <section>
-          <h2 className="text-lg font-bold mb-3 text-terminal-text">Overview</h2>
-          <p className="text-sm sm:text-base leading-7 text-terminal-muted">{project.description}</p>
-        </section>}
-        {project.page?.sections.map((section, index) => <section key={index}>
-          <h2 className="text-lg font-bold mb-3 text-terminal-text">{section.heading}</h2>
-          {section.paragraphs.map((paragraph, paragraphIndex) => <p className="text-sm sm:text-base leading-7 text-terminal-muted mb-3" key={paragraphIndex}>{paragraph}</p>)}
-        </section>)}
-      </div>
-      <aside aria-label="Project details" className="min-w-0 border border-terminal-border bg-terminal-surface p-5 space-y-6">
-        {resources.length > 0 && <section><h2 className={`${SECTION_LABEL} text-terminal-muted mb-3`}>Links & resources</h2><ul className="space-y-3 text-sm">{resources.map(link => <li key={link.url}><a className="text-terminal-green hover:underline break-words" href={link.url} target="_blank" rel="noopener noreferrer">{link.label} ↗</a></li>)}</ul></section>}
-        {groups.filter(group => group.terms.length).map(group => <section key={group.label}>
-          <h2 className={`${SECTION_LABEL} text-terminal-muted mb-3`}>{group.label}</h2>
-          <CompetencyLinks terms={group.terms} />
-        </section>)}
-      </aside>
-    </div>
-  </article>
 }

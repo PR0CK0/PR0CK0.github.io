@@ -1470,7 +1470,7 @@ function RepoProjectCard({ project, created, updated, stars, index }: {
         className="mt-3 text-[10px] font-mono text-terminal-muted hover:text-terminal-green
                    transition-colors self-start"
       >
-        View project →
+        View summary →
       </Link>
     </motion.div>
   )

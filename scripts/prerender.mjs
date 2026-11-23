@@ -46,8 +46,7 @@ async function main() {
   const source = readFileSync(join(ROOT, 'index.html'), 'utf8')
   const template = JSON.parse(source.match(PROFILE_SCRIPT)[1])
   const person = yaml.load(readFileSync(join(ROOT, 'public/data/tyler-procko.yaml'), 'utf8'))
-  const projects = projectRoutes(person)
-  const routes = [...ROUTES, ...projects]
+  const routes = ROUTES
   const updates = resolvePageUpdates(ROOT)
   // The ProfilePage entity describes the homepage on every route.
   const metadata = buildProfileMetadata(template, person, updates['/'].modified)
@@ -71,7 +70,7 @@ async function main() {
 
       const page = await browser.newPage()
       await page.goto(url, { waitUntil: 'load', timeout: 30_000 })
-      if (path.startsWith('/projects') || path === '/papers') {
+      if (path === '/projects' || path === '/papers') {
         // Source-only pages are ready once their content and metadata agree.
         await page.waitForFunction(canonical => document.querySelector('#root h1')
           && document.querySelector('link[rel="canonical"]')?.getAttribute('href') === canonical,
@@ -101,8 +100,13 @@ async function main() {
     server.httpServer.close()
   }
 
-  const projectEntries = projects.map(({ path }) => `  <url><loc>${new URL(path, person.website).href}</loc></url>`).join('\n')
-  const sitemap = readFileSync(join(ROOT, 'public/sitemap.xml'), 'utf8').replace('</urlset>', `${projectEntries}\n</urlset>`)
+  // Retired project URLs remain redirects, never separate content or sitemap entries.
+  for (const { dir, target } of projectRoutes(person)) {
+    const outDir = join(DIST, dir)
+    mkdirSync(outDir, { recursive: true })
+    writeFileSync(join(outDir, 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${target}"><link rel="canonical" href="${new URL('/projects', person.website).href}"><title>Projects</title></head><body><a href="${target}">View project summary</a></body></html>`)
+  }
+  const sitemap = readFileSync(join(ROOT, 'public/sitemap.xml'), 'utf8')
   writeFileSync(join(DIST, 'sitemap.xml'), updateSitemap(sitemap, updates))
   console.log(`\nPrerendered ${routes.length} routes into dist/.`)
 }
