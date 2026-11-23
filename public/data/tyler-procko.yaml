@@ -1506,7 +1506,7 @@ publications:
   - LLMs
   - Prompt Engineering
   - Scientific Writing
-  cited_by_count: 1
+  cited_by_count: 2
   doi: https://doi.org/10.2139/ssrn.5682942
 - id: pub/ml-lifecycle-provenance-survey
   title: 'A Survey of Machine Learning Lifecycle Provenance: Models, Approaches and Tools'
@@ -1573,7 +1573,7 @@ publications:
   - ML Provenance
   - Machine Learning
   - Scientific Writing
-  cited_by_count: 2
+  cited_by_count: 3
   doi: https://doi.org/10.3390/software5010009
 - id: pub/creating-robust-datasets
   title: Creating Robust Data Sets for AI by Leveraging Ontological Structures
@@ -1618,7 +1618,7 @@ publications:
   - Machine Learning
   - Prompt Engineering
   - Scientific Writing
-  cited_by_count: 5
+  cited_by_count: 6
   doi: https://doi.org/10.1109/icmla61862.2024.00177
 - id: pub/requirements-elicitation-ml
   title: 'Requirements Elicitation for Machine Learning Applications: A Research Preview'
@@ -1639,7 +1639,7 @@ publications:
   - Requirements Engineering
   - Software Engineering
   - Scientific Writing
-  cited_by_count: 3
+  cited_by_count: 4
   doi: https://doi.org/10.1109/aixset62544.2024.00042
 - id: pub/leveraging-llms-scientific-writing
   title: Leveraging Large Language Models on the Traditional Scientific Writing Workflow
@@ -1660,7 +1660,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 4
+  cited_by_count: 6
   doi: https://doi.org/10.1109/aixset62544.2024.00028
 - id: pub/graph-rag-survey
   title: 'Graph Retrieval-Augmented Generation for Large Language Models: A Survey'
@@ -1695,7 +1695,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 129
+  cited_by_count: 195
   doi: https://doi.org/10.2139/ssrn.4895062
 - id: pub/cognitive-assistants-single-pilot
   title: The Role, Needs, and State of Cognitive Assistants in Single Pilot Operations
@@ -1714,7 +1714,7 @@ publications:
   domains:
   - Aerospace
   - Scientific Writing
-  cited_by_count: 2
+  cited_by_count: 3
   doi: https://doi.org/10.2514/1.I011432
 - id: pub/linked-data-aerospace
   title: 'Leveraging Linked Data for Knowledge Management: A Proposal for the Aerospace Industry'
@@ -1783,7 +1783,7 @@ publications:
   - XAI
   - Scientific Writing
   - Taxonomy
-  cited_by_count: 1
+  cited_by_count: 2
   doi: https://doi.org/10.48550/arxiv.2406.15268
 - id: pub/prov-o-bfo-mapping
   title: 'Mapping the W3C Provenance Ontology (PROV-O) to the Basic Formal Ontology (BFO): Epistemological Considerations
@@ -1822,7 +1822,7 @@ publications:
   - LLMs
   - Scientific Writing
   - Taxonomy
-  cited_by_count: 1
+  cited_by_count: 2
   doi: https://doi.org/10.2139/ssrn.4852748
 - id: pub/semantic-science-beyond-pdf
   title: 'Semantic Science: Publication Beyond the PDF'
@@ -1891,7 +1891,7 @@ publications:
   - Ethics
   - Safety
   - Scientific Writing
-  cited_by_count: 7
+  cited_by_count: 9
   doi: https://doi.org/10.2139/ssrn.4696021
 - id: pub/lm-kg-survey
   title: A Survey on the Intersection of Language Models and Knowledge Graphs
@@ -1979,7 +1979,7 @@ publications:
   - Education
   - Software Engineering
   - Scientific Writing
-  cited_by_count: 6
+  cited_by_count: 8
   doi: https://doi.org/10.1109/fie58773.2023.10343213
 - id: pub/gps-signal-strength
   title: Leveraging Signal Strength as a Mechanism to Secure GPS Messages
@@ -2136,7 +2136,7 @@ publications:
   - Machine Learning
   - LLMs
   - Scientific Writing
-  cited_by_count: 2
+  cited_by_count: 4
   doi: https://doi.org/10.1109/csce60160.2023.00010
 - id: pub/digital-rubber-duck
   title: 'Digital Rubber Duck: Leveraging Large Language Models for Extreme Programming'
@@ -2158,7 +2158,7 @@ publications:
   - Agile
   - Prompt Engineering
   - Scientific Writing
-  cited_by_count: 5
+  cited_by_count: 9
   doi: https://doi.org/10.1109/csce60160.2023.00051
 - id: pub/swebok-kg-transformer
   title: A Semi-Automated Process for Extracting a Taxonomized Knowledge Graph from the Software Engineering Body of 
@@ -2352,7 +2352,7 @@ publications:
   soft_skills:
   - Virtual Presentation
   - Stakeholder Presentation
-  cited_by_count: 8
+  cited_by_count: 10
   doi: https://doi.org/10.1109/icsc52841.2022.00029
 - id: pub/secure-development-ontology
   title: Supporting Security Requirements Engineering through the Development of the Secure Development Ontology
@@ -2565,7 +2565,7 @@ publications:
   author_role: ''
   source: openalex
   featured: false
-  cited_by_count: 6
+  cited_by_count: 8
 - id: pub/a-survey-on-the-intersection-of-research-in-the-use-of-langu
   title: A Survey on the Intersection of Research in the Use of Language Models and Knowledge Graphs
   authors:
@@ -2634,19 +2634,19 @@ projects:
     sections:
     - heading: The research question
       paragraphs:
-      - What changes when a retrieval system can see the history behind a financial figure, rather than only its latest
+      - What changes when a retrieval system can see the history behind a financial figure, rather than only its latest 
         value? This project builds a corpus for testing that question with records from SEC EDGAR.
     - heading: A corpus with traceable revisions
       paragraphs:
-      - Original and revised figures are linked to their filings, companies, and fiscal periods using PROV-O. The
+      - Original and revised figures are linked to their filings, companies, and fiscal periods using PROV-O. The 
         toolkit provides CSV and Turtle representations, conversion checks, and an interactive graph explorer.
       - The experiment compares a provenance-rich corpus with a current-state baseline. Its retrieval checks ask whether
         the context contains the answer to questions about current values, earlier values, and attribution.
     - heading: Scope and interpretation
       paragraphs:
-      - The extraction identifies changes in reported values for the same concept and fiscal period across filings.
-        Corpus coverage and evaluation details are documented in the repository; the portfolio summary does not claim
-        a general performance result for every retrieval system.
+      - The extraction identifies changes in reported values for the same concept and fiscal period across filings. 
+        Corpus coverage and evaluation details are documented in the repository; the portfolio summary does not claim a 
+        general performance result for every retrieval system.
     links:
     - label: Read the experiment
       url: https://github.com/PR0CK0/provenance-rag-financial-graph/blob/main/docs/EXPERIMENT.md
@@ -2878,18 +2878,18 @@ projects:
     sections:
     - heading: Explore a cybersecurity schema
       paragraphs:
-      - The Open Cybersecurity Schema Framework defines categories, event classes, and reusable objects for security
+      - The Open Cybersecurity Schema Framework defines categories, event classes, and reusable objects for security 
         event data. This visualizer turns those relationships into a graph that can be explored in a browser.
     - heading: Two views of the same schema
       paragraphs:
-      - The Events view connects categories and event classes. The Objects view shows the object inheritance hierarchy.
+      - The Events view connects categories and event classes. The Objects view shows the object inheritance hierarchy. 
         Selecting a node opens its attributes, grouped by required, recommended, and optional status.
-      - Search, layout controls, and a version selector help inspect different parts and published versions of the
+      - Search, layout controls, and a version selector help inspect different parts and published versions of the 
         schema.
     - heading: How it runs
       paragraphs:
-      - The application is a single HTML page using Cytoscape.js. It retrieves schema data from the public OCSF API
-        and fetches node details on demand, so exploring the schema requires access to that service.
+      - The application is a single HTML page using Cytoscape.js. It retrieves schema data from the public OCSF API and 
+        fetches node details on demand, so exploring the schema requires access to that service.
     image:
       src: /projects/ocsf-visualizer.png
       alt: OCSF Visualizer showing the schema graph and node details panel.
@@ -3053,19 +3053,19 @@ projects:
     sections:
     - heading: The question
       paragraphs:
-      - How can a software work session leave a useful, queryable record of how its artifacts were produced? ProvTracer
+      - How can a software work session leave a useful, queryable record of how its artifacts were produced? ProvTracer 
         brings together software traceability and Semantic Web provenance.
     - heading: From work session to knowledge graph
       paragraphs:
-      - The desktop application captures session context and uses a multimodal language model to help describe the
-        work. It serializes provenance using an ontology based on PROV-O and BFO, linking small time-slice graphs
-        into a larger session record.
-      - The resulting graphs support SPARQL queries, including comparisons between task timestamps. They can also
-        be supplied to a language model for qualitative questions about a session.
+      - The desktop application captures session context and uses a multimodal language model to help describe the work.
+        It serializes provenance using an ontology based on PROV-O and BFO, linking small time-slice graphs into a 
+        larger session record.
+      - The resulting graphs support SPARQL queries, including comparisons between task timestamps. They can also be 
+        supplied to a language model for qualitative questions about a session.
     - heading: Explore the implementation
       paragraphs:
-      - The repository includes the Python/PyQt6 application, its ontology, example case studies, and a walkthrough
-        of the recording and analysis workflow.
+      - The repository includes the Python/PyQt6 application, its ontology, example case studies, and a walkthrough of 
+        the recording and analysis workflow.
     links:
     - label: Watch the walkthrough
       url: https://youtu.be/wsgQWTsAlHc
@@ -3765,25 +3765,26 @@ projects:
     sections:
     - heading: A focused ontology investigation
       paragraphs:
-      - How does Wikidata classify 19 selected Christian church bodies, and what does that mean for discovering denominations?
-        The project narrows a broad counting question into a comparison of specific records and their classification
-        paths.
+      - How does Wikidata classify 19 selected Christian church bodies, and what does that mean for discovering 
+        denominations? The project narrows a broad counting question into a comparison of specific records and their 
+        classification paths.
     - heading: The investigation
       paragraphs:
-      - Exploratory SPARQL queries examine denomination classifications and Christian affiliations. Individual reviews
-        then compare instance-of and subclass-of paths for the selected records, with a final comparison table and
+      - Exploratory SPARQL queries examine denomination classifications and Christian affiliations. Individual reviews 
+        then compare instance-of and subclass-of paths for the selected records, with a final comparison table and 
         explicit limitations.
     - heading: What the recorded results show
       paragraphs:
-      - In the recorded study, 16 of the 19 selected items match the instance-based denomination path. Subclass-only
-        traversal does not recover the other three, but identifies 58 additional candidates outside the sample. Those
+      - In the recorded study, 16 of the 19 selected items match the instance-based denomination path. Subclass-only 
+        traversal does not recover the other three, but identifies 58 additional candidates outside the sample. Those 
         candidates are not a validated count of additional denominations.
-      - These are findings from the project snapshot recorded on 30 October 2026, not current live counts. The study
-        raises questions about classification consistency and discoverability without claiming that every difference
-        is an error or measuring all of Wikidata.
+      - These are findings from the project snapshot recorded on 30 October 2026, not current live counts. The study 
+        raises questions about classification consistency and discoverability without claiming that every difference is 
+        an error or measuring all of Wikidata.
     links:
     - label: Wikidata project page
-      url: https://www.wikidata.org/wiki/Wikidata:WikiProject_Ontology/Ontology_Course/Projects_Offering_3/Christian_Denominations_Reconciliation
+      url: 
+        https://www.wikidata.org/wiki/Wikidata:WikiProject_Ontology/Ontology_Course/Projects_Offering_3/Christian_Denominations_Reconciliation
     - label: Study snapshot and attribution
       url: https://github.com/PR0CK0/Wikidata-Ontology---Christian-Denominations-Reconciliation#source-and-reuse
   title: Wikidata Ontology Christian Denominations Reconciliation
