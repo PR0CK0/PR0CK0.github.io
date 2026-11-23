@@ -112,6 +112,8 @@ New publications are synced automatically every Monday via the OpenAlex workflow
 
 Certificate `resume_exclude` is an optional boolean validated by `CertificateSchema`. Parsing preserves it so excluded certificates stay off the résumé; tests check the actual portfolio through parsing and résumé generation.
 
+Omit a certificate's `url` until its credential is available; it appears as plain text in the CV and résumé. A project's `url` supplies its Live link in document exports and its website link on the projects page; avoid repeating that URL in `page.links`.
+
 Every social link requires a stable, unique `id`. Personal links use `social/<platform>`; associate links use `social/<associate-slug>/<platform>`. IDs are internal identifiers, separate from display labels and URLs. The portfolio schema test validates the complete YAML and checks social-link IDs for missing, empty, or duplicate values during `npm test`, including deployment builds.
 
 The browser loader rejects malformed YAML and data that fails `PersonSchema`, displays a readable error through each page's error state, and logs diagnostic details in the browser console. Only validated data is cached; failed loads can be retried. Loader tests cover rejection, recovery, and caching. With the dev server running, `node scripts/test-portfolio-errors.mjs` checks error screens on the homepage, About, graph, CV, and résumé, plus a valid homepage load. Set `SITE_URL` to check another server; invalid responses are simulated inside the test browser only.

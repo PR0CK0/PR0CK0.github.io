@@ -3782,14 +3782,12 @@ projects:
         raises questions about classification consistency and discoverability without claiming that every difference is 
         an error or measuring all of Wikidata.
     links:
-    - label: Wikidata project page
-      url: 
-        https://www.wikidata.org/wiki/Wikidata:WikiProject_Ontology/Ontology_Course/Projects_Offering_3/Christian_Denominations_Reconciliation
     - label: Study snapshot and attribution
       url: https://github.com/PR0CK0/Wikidata-Ontology---Christian-Denominations-Reconciliation#source-and-reuse
   title: Wikidata Ontology Christian Denominations Reconciliation
   year: 2026-09
   repo_url: https://github.com/PR0CK0/Wikidata-Ontology---Christian-Denominations-Reconciliation
+  url: https://www.wikidata.org/wiki/Wikidata:WikiProject_Ontology/Ontology_Course/Projects_Offering_3/Christian_Denominations_Reconciliation
   github_repo_id: 1395781031
   description: An investigation and analysis of christian denomination/schism representation w.r.t. Wikidata's ontology.
   technologies:
@@ -3903,6 +3901,11 @@ awards:
   date: '2006'
   about_only: true
 certificates:
+- id: cert/wikidata-ontology-course
+  title: Wikidata Ontology Course Completion (Third Offering)
+  issuer: Wikidata WikiProject Ontology
+  date: 2026-11
+  status: completed
 - id: cert/security-plus
   title: Security+
   issuer: CompTIA
