@@ -10,6 +10,7 @@ import { loadPortfolioData } from '@/lib/yaml-loader'
 import { competencyNodeId, resolveCompetency } from '@/lib/competencies'
 import { buildGraph, type CyNode, type CyEdge } from '@/lib/graph-builder'
 import { startGraphLayout, type GraphPositions } from '@/lib/graph-layout'
+import './Graph.css'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -1186,7 +1187,7 @@ export default function Graph() {
       </aside>
 
       {/* ── Canvas ── */}
-      <div className="flex-1 min-h-0 min-w-0 relative overflow-hidden" style={{ background: C.bg }}>
+      <div className="graph-canvas flex-1 min-h-0 min-w-0 relative overflow-hidden" style={{ backgroundColor: C.bg }}>
         {phase !== 'ready' && !error && <LoadingSpinner phase={phase} C={C} />}
 
         {error && (

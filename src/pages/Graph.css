@@ -1,0 +1,12 @@
+.graph-canvas {
+  --grid-fine: rgb(var(--color-terminal-blue) / 0.055);
+  --grid-major: rgb(var(--color-terminal-blue) / 0.09);
+  background-image:
+    radial-gradient(ellipse at center, transparent 30%, rgb(var(--color-terminal-bg) / 0.7) 100%),
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-fine) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-fine) 1px, transparent 1px);
+  background-size: 100% 100%, 160px 160px, 160px 160px, 32px 32px, 32px 32px;
+  background-position: center;
+}
