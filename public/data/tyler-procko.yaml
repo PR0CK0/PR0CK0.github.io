@@ -3789,7 +3789,7 @@ projects:
   repo_url: https://github.com/PR0CK0/Wikidata-Ontology---Christian-Denominations-Reconciliation
   url: https://www.wikidata.org/wiki/Wikidata:WikiProject_Ontology/Ontology_Course/Projects_Offering_3/Christian_Denominations_Reconciliation
   github_repo_id: 1395781031
-  description: An investigation and analysis of christian denomination/schism representation w.r.t. Wikidata's ontology.
+  description: A study of how Wikidata classifies 19 selected Christian church bodies and how queries discover denominations.
   technologies:
   - Wikidata
   - SPARQL
